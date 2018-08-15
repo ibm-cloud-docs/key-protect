@@ -6,7 +6,7 @@ Key Protect
 
     {: .navgroup id="learn"}
     index.md
-    keyprotect_about.md
+    about.md
 
     {: .topicgroup}
     Concepts
