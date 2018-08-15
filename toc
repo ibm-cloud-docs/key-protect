@@ -6,18 +6,10 @@ Key Protect
 
     {: .navgroup id="learn"}
     index.md
-
-    {: .topicgroup}
-    Internal adopters
-        internal/usage.md
-        internal/onboard-service.md
-        internal/migrate-service.md
-
     keyprotect_about.md
 
     {: .topicgroup}
     Concepts
-        concepts/basics.md
         concepts/key-states.md
         concepts/envelope-encryption.md
 
