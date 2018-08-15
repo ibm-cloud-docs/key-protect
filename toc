@@ -1,0 +1,69 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect/index.html"}
+Key Protect
+
+    {: .navgroup id="learn"}
+    index.md
+
+    {: .topicgroup}
+    Internal adopters
+        internal/usage.md
+        internal/onboard-service.md
+        internal/migrate-service.md
+
+    keyprotect_about.md
+
+    {: .topicgroup}
+    Concepts
+        concepts/basics.md
+        concepts/key-states.md
+        concepts/envelope-encryption.md
+
+    {: .topicgroup}
+    Integrations
+        integrations/integrate-services.md
+        integrations/integrate-cos.md
+    
+    releases.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    provision.md
+    access-api.md
+
+    {: .topicgroup}
+    Managing access
+        manage-access.md
+        manage-access-api.md
+
+    {: .topicgroup}
+    Creating keys
+        create-root-keys.md
+        create-standard-keys.md
+    
+    {: .topicgroup}
+    Importing keys
+        import-root-keys.md
+        import-standard-keys.md
+
+    {: .topicgroup}
+    Managing keys
+        view-keys.md
+        wrap-keys.md
+        unwrap-keys.md
+        delete-keys.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API Reference](https://console.bluemix.net/apidocs/kms){: new_window}
+    regions.md
+    at-events.md
+    related-links.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    troubleshooting.md
+    FAQs.md
+    {: .navgroup-end}
