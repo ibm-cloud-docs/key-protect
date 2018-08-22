@@ -1,0 +1,57 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="keymgmt" audience="service" href="/docs/services/keymgmt/index.html"}
+Key Protect
+
+    {: .navgroup id="learn"}
+    index.md
+    keyprotect_about.md
+
+    {: .topicgroup}
+    概念
+        concepts/keyprotect_states.md
+        concepts/keyprotect_envelope.md
+
+    {: .topicgroup}
+    集成
+        integrations/keyprotect_integrations.md
+        integrations/keyprotect_cloud-object-storage.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    keyprotect_provision.md
+    keyprotect_authentication.md
+
+    {: .topicgroup}
+    管理访问权
+        keyprotect_manage_access.md
+        keyprotect_manage_access_api.md
+
+    {: .topicgroup}
+    创建密钥
+        keyprotect_create_root.md
+        keyprotect_create_standard.md
+    
+    {: .topicgroup}
+    导入密钥
+        keyprotect_import_root.md
+        keyprotect_import_standard.md
+
+    {: .topicgroup}
+    管理密钥
+        keyprotect_view_keys.md
+        keyprotect_wrap_keys.md
+        keyprotect_unwrap_keys.md
+        keyprotect_delete_keys.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    keyprotect_regions.md
+    keyprotect_links.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    keyprotect_troubleshooting.md
+    keyprotect_FAQs.md
+    {: .navgroup-end}

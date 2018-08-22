@@ -1,0 +1,57 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="keymgmt" audience="service" href="/docs/services/keymgmt/index.html"}
+Key Protect
+
+    {: .navgroup id="learn"}
+    index.md
+    keyprotect_about.md
+
+    {: .topicgroup}
+    Conceptos
+        concepts/keyprotect_states.md
+        concepts/keyprotect_envelope.md
+
+    {: .topicgroup}
+    Integraciones
+        integrations/keyprotect_integrations.md
+        integrations/keyprotect_cloud-object-storage.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    keyprotect_provision.md
+    keyprotect_authentication.md
+
+    {: .topicgroup}
+    Gestión del acceso
+        keyprotect_manage_access.md
+        keyprotect_manage_access_api.md
+
+    {: .topicgroup}
+    Creación de claves
+        keyprotect_create_root.md
+        keyprotect_create_standard.md
+    
+    {: .topicgroup}
+    Importación de claves
+        keyprotect_import_root.md
+        keyprotect_import_standard.md
+
+    {: .topicgroup}
+    Gestión de claves
+        keyprotect_view_keys.md
+        keyprotect_wrap_keys.md
+        keyprotect_unwrap_keys.md
+        keyprotect_delete_keys.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    keyprotect_regions.md
+    keyprotect_links.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    keyprotect_troubleshooting.md
+    keyprotect_FAQs.md
+    {: .navgroup-end}
