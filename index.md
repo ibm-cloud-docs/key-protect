@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-13"
+lastupdated: "2018-08-24"
 
 ---
 
@@ -112,4 +112,4 @@ Now, you can use your keys to code your apps and services. If you added a root k
 
 - To find out more about managing and protecting your encryption keys with a root key, check out [Envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html).
 - To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, [check out the Integrations doc](/docs/services/key-protect/integrations/integrate-services.html).
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/639){: new_window}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/kms){: new_window}.
