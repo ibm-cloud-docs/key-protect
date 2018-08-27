@@ -65,7 +65,7 @@ The service supports two key types, root keys and standard keys, for the advance
     <dd>Standard keys are encryption keys that are used for cryptography. Generally, standard keys directly encrypt data. With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of standard keys. After you import or generate a standard key in the service, you can export it to an outside data resource, such as a storage bucket, to encrypt sensitive information. Standard keys that encrypt stored data are called data encryption keys (DEKs), which can be wrapped with advanced encryption. Wrapped DEKs are not stored in {{site.data.keyword.keymanagementserviceshort}}.</dd>
 </dl>
 
-After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the system returns an ID value that you can use to make API calls to the service. You can retrieve the ID value for your keys with the {{site.data.keyword.keymanagementserviceshort}} GUI or the [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/kms). 
+After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the system returns an ID value that you can use to make API calls to the service. You can retrieve the ID value for your keys with the {{site.data.keyword.keymanagementserviceshort}} GUI or the [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect). 
 
 ## Wrapping keys
 {: #wrapping}

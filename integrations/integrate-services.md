@@ -70,7 +70,7 @@ The following table lists the API methods that add or remove envelope encryption
   <caption style="caption-side:bottom;">Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods</caption>
 </table>
 
-To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/kms){: new_window}.
+To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
 {: tip}
 
 ## Integrating a supported service

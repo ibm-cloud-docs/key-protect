@@ -63,7 +63,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect/access-api.html).
 
-2. Call the [{{site.data.keyword.keymanagementserviceshort}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/kms){: new_window} with the following cURL command.
+2. Call the [{{site.data.keyword.keymanagementserviceshort}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window} with the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -91,7 +91,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    To work with keys within a specified Cloud Foundry org and space in your account, replace `Bluemix-Instance` with the appropriate `Bluemix-org` and `Bluemix-space` headers. [For more information, see the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    To work with keys within a specified Cloud Foundry org and space in your account, replace `Bluemix-Instance` with the appropriate `Bluemix-org` and `Bluemix-space` headers. [For more information, see the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
     {: tip}
 
     Replace the variables in the example request according to the following table.
@@ -168,5 +168,5 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 ### What's next
 
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
 - To see an example of how keys stored in {{site.data.keyword.keymanagementserviceshort}} can work to encrypt and decrypt data, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.

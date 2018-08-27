@@ -28,7 +28,7 @@ You can connect your applications with the {{site.data.keyword.keymanagementserv
 ## Service endpoints
 {: #endpoints}
 
-If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/kms): 
+If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect): 
 
 <table>
     <tr>
