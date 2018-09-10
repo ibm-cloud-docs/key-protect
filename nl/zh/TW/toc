@@ -1,0 +1,61 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect/index.html"}
+Key Protect
+
+    {: .navgroup id="learn"}
+    index.md
+    about.md
+
+    {: .topicgroup}
+    概念
+        concepts/key-states.md
+        concepts/envelope-encryption.md
+
+    {: .topicgroup}
+    整合
+        integrations/integrate-services.md
+        integrations/integrate-cos.md
+    
+    releases.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    provision.md
+    access-api.md
+
+    {: .topicgroup}
+    管理存取
+        manage-access.md
+        manage-access-api.md
+
+    {: .topicgroup}
+    建立金鑰
+        create-root-keys.md
+        create-standard-keys.md
+    
+    {: .topicgroup}
+    匯入金鑰
+        import-root-keys.md
+        import-standard-keys.md
+
+    {: .topicgroup}
+    管理金鑰
+        view-keys.md
+        wrap-keys.md
+        unwrap-keys.md
+        delete-keys.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API 參考資料](https://console.bluemix.net/apidocs/kms){: new_window}
+    regions.md
+    at-events.md
+    related-links.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    troubleshooting.md
+    FAQs.md
+    {: .navgroup-end}
