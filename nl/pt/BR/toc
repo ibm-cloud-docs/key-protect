@@ -48,7 +48,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Referência de API](https://console.bluemix.net/apidocs/kms){: new_window}
+    [Referência de API](https://console.bluemix.net/apidocs/key-protect){: new_window}
     regions.md
     at-events.md
     related-links.md
