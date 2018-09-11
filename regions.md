@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -55,6 +55,13 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
         <td>London, England</td>
         <td>
             <code>keyprotect.eu-gb.bluemix.net</code>
+        </td>
+    </tr>
+    <tr>
+        <td>US East</td>
+        <td>Washington D.C., US</td>
+        <td>
+            <code>keyprotect.us-east.bluemix.net</code>
         </td>
     </tr>
     <tr>

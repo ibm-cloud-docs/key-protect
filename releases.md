@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -17,6 +17,16 @@ lastupdated: "2018-08-24"
 {: #releases}
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
+
+## September 2018
+{: #sept_2018}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} expands into US East region
+New as of: 2018-09-10
+
+You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the US East region. 
+
+For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
 
 ## March 2018
 {: #mar_2018}
