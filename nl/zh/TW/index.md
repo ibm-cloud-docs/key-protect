@@ -113,4 +113,4 @@ lastupdated: "2018-08-24"
 
 - 若要進一步瞭解如何使用主要金鑰管理和保護您的加密金鑰，請參閱[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
 - 若要進一步瞭解如何整合 {{site.data.keyword.keymanagementserviceshort}} 服務與其他雲端資料解決方案，[請參閱整合文件](/docs/services/key-protect/integrations/integrate-services.html)。
-- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/key-protect){: new_window}。

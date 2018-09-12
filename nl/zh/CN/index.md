@@ -112,4 +112,4 @@ lastupdated: "2018-08-24"
 
 - 要查找有关使用根密钥来管理和保护加密密钥的更多信息，请查看[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
 - 要了解有关将 {{site.data.keyword.keymanagementserviceshort}} 服务与其他云数据解决方案集成的更多信息，请[查看“集成”文档](/docs/services/key-protect/integrations/integrate-services.html)。
-- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/key-protect){: new_window}。

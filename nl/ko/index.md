@@ -112,4 +112,4 @@ lastupdated: "2018-08-24"
 
 - 루트 키를 사용한 암호화 키 관리 및 보호에 대해 알아보려면 [엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)를 확인하십시오.
 - {{site.data.keyword.keymanagementserviceshort}} 서비스와 다른 클라우드 데이터 솔루션과의 통합에 대해 자세히 알아보려면 [통합 문서를 확인](/docs/services/key-protect/integrations/integrate-services.html)하십시오.
-- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/kms){: new_window}를 확인하십시오.
+- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/key-protect){: new_window}를 확인하십시오.

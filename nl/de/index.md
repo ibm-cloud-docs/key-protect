@@ -112,4 +112,4 @@ Sie können Ihre Schlüssel nun verwenden, um Ihre Apps und Services zu codieren
 
 - Weitere Informationen zum Verwalten und Schützen der Verschlüsselungsschlüssel mithilfe eines Rootschlüssels finden Sie in [Envelope-Verschlüsselungg](/docs/services/key-protect/concepts/envelope-encryption.html).
 - Weitere Informationen zur Integration des {{site.data.keyword.keymanagementserviceshort}}-Service in andere Clouddaten-Lösungen, finden Sie [in der Integrationsdokumentation](/docs/services/key-protect/integrations/integrate-services.html).
-- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

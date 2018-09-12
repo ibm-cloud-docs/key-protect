@@ -112,4 +112,4 @@ lastupdated: "2018-08-24"
 
 - ルート鍵を使用した暗号鍵の管理および保護について詳しくは、[エンベロープ暗号化](/docs/services/key-protect/concepts/envelope-encryption.html)を確認してください。
 - {{site.data.keyword.keymanagementserviceshort}} サービスと他のクラウド・データ・ソリューションとの統合について詳しくは、[統合の資料を確認してください](/docs/services/key-protect/integrations/integrate-services.html)。
-- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を確認してください。
+- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/key-protect){: new_window} を確認してください。

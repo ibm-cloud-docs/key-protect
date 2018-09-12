@@ -116,4 +116,4 @@ Agora, é possível usar as chaves para codificar seus apps e serviços. Se voc�
 
 - Para saber mais sobre o gerenciamento e a proteção de suas chaves de criptografia com uma chave raiz, veja [Criptografia de envelope](/docs/services/key-protect/concepts/envelope-encryption.html).
 - Para saber mais sobre como integrar o serviço do {{site.data.keyword.keymanagementserviceshort}} com outras soluções de dados da nuvem, o [ consulte o doc Integrações](/docs/services/key-protect/integrations/integrate-services.html).
-- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
