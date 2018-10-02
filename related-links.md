@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -21,7 +21,7 @@ Additional resources to help you learn about managing encryption with {{site.dat
 ## Samples
 {: #samples}
 
-- [Sample app: Decrypting secret messages ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Sample app: Apply end to end security to a cloud application ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blogs
 {: #blogs}

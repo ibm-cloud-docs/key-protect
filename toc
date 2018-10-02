@@ -12,6 +12,7 @@ Key Protect
     Concepts
         concepts/key-states.md
         concepts/envelope-encryption.md
+        concepts/key-rotation.md
 
     {: .topicgroup}
     Integrations
@@ -45,11 +46,12 @@ Key Protect
         view-keys.md
         wrap-keys.md
         unwrap-keys.md
+        rotate-keys.md
         delete-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API Reference](https://console.bluemix.net/apidocs/key-protect){: new_window}
+    [Key Protect API Reference](https://console.bluemix.net/apidocs/key-protect){: new_window}
     regions.md
     at-events.md
     related-links.md

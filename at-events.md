@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -60,6 +60,10 @@ The following table lists the actions that generate an event:
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>Unwrap a key</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>Rotate a key</td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Actions that generate {{site.data.keyword.cloudaccesstrailfull_notm}} events</caption>
 </table>

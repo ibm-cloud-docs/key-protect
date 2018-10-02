@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-24"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -142,7 +142,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -154,11 +155,14 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
@@ -323,7 +327,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
                 "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
