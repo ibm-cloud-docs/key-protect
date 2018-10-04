@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-04"
 
 ---
 
@@ -18,6 +18,16 @@ lastupdated: "2018-10-02"
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 
+## October 2018
+{: #oct-2018}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
+New as of: 2018-10-02
+
+You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
+
+To learn how to install the plug-in, see [Setting up the CLI](/docs/services/key-protect/set-up-cli.md). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/services/key-protect/cli-reference.md).
+
 ## September 2018
 {: #sept-2018}
 
@@ -26,7 +36,7 @@ New as of: 2018-09-28
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate your root keys on-demand.
 
-For more information, see [Rotating keys](/docs/services/key-protect/rotate-keys.html).
+For more information, see [Rotating keys](/docs/services/key-protect/rotate-keys.md).
 
 ### Added: End to end security tutorial for your cloud app
 New as of: 2018-09-14
