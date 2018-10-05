@@ -25,6 +25,7 @@ Key Protect
     {: .navgroup id="howto"}
     provision.md
     access-api.md
+    set-up-cli.md
 
     {: .topicgroup}
     Managing access
@@ -52,6 +53,7 @@ Key Protect
 
     {: .navgroup id="reference"}
     [Key Protect API Reference](https://console.bluemix.net/apidocs/key-protect){: new_window}
+    cli-reference.md
     regions.md
     at-events.md
     related-links.md
