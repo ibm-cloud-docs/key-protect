@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-31"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Regions and locations
 {: #regions}
@@ -35,6 +37,13 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
         <th>Region name</th>
         <th>Geographic location</th>
         <th>Service API endpoint</th>
+    </tr>
+    <tr>
+        <td>AP North</td>
+        <td>Tokyo, Japan</td>
+        <td>
+            <code>keyprotect.jp-tok.bluemix.net</code>
+        </td>
     </tr>
     <tr>
         <td>Germany</td>
