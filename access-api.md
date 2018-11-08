@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Accessing the API
 {: #access-api}
@@ -24,14 +26,14 @@ To work with the API, you need to generate your service and authentication crede
 ## Retrieving an access token
 {: #retrieve-token}
 
-You can authenticate with {{site.data.keyword.keymanagementserviceshort}} by retrieving an access token from {{site.data.keyword.iamshort}}. With a [service ID](/docs/iam/serviceid.html#serviceids), you can work with the {{site.data.keyword.keymanagementserviceshort}} API on behalf of your service or application on or outside {{site.data.keyword.cloud_notm}}, without needing to share your personal user credentials.  
+You can authenticate with {{site.data.keyword.keymanagementserviceshort}} by retrieving an access token from {{site.data.keyword.iamshort}} (IAM). With a [service ID](/docs/iam/serviceid.html#serviceids), you can work with the {{site.data.keyword.keymanagementserviceshort}} API on behalf of your service or application on or outside {{site.data.keyword.cloud_notm}}, without needing to share your personal user credentials.  
 
 If you want to authenticate with your user credentials, you can retrieve your token by running `ibmcloud iam oauth-tokens` in the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}.
-{: tip}
+{: note}
 
 Complete the following steps to retrieve an access token:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage** &gt; **Security** &gt; **Identity and Access** &gt; **Service IDs**. Follow the process to [create a service ID](/docs/iam/serviceid.html#creating-a-service-id){: new_window}.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage** &gt; **Access (IAM)** &gt; **Service IDs**. Follow the process to [create a service ID](/docs/iam/serviceid.html#creating-a-service-id){: new_window}.
 2. Use the **Actions** menu to [define an access policy for your new service ID](/docs/iam/serviceidaccess.html){: new_window}.
     
     For more information about managing access for your {{site.data.keyword.keymanagementserviceshort}} resources, see [Roles and permissions](/docs/services/key-protect/manage-access.html#roles).
@@ -43,7 +45,7 @@ Complete the following steps to retrieve an access token:
       "https://iam.bluemix.net/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" \ 
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" 
     ```
     {: codeblock}
 
@@ -93,7 +95,7 @@ You can retrieve the identifying information for your {{site.data.keyword.keyman
     Replace `<instance_name>` with the unique alias that you assigned to your instance of {{site.data.keyword.keymanagementserviceshort}}. The following truncated example shows the CLI output. The _42454b3b-5b06-407b-a4b3-34d9ef323901_ value is an example instance ID.
 
     ```
-    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901::
+    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
 

@@ -25,7 +25,7 @@ You can add your existing encryption keys with the {{site.data.keyword.keymanage
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window}.
 2. From your {{site.data.keyword.cloud_notm}} dashboard, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-3. To import a new key, click **Add key** and select the **Enter existing key** window.
+3. To import a new key, click **Add key** and select the **Import your own key** window.
 
     Specify the key's details:
 
@@ -57,15 +57,15 @@ You can add your existing encryption keys with the {{site.data.keyword.keymanage
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the <b>Generate new key</b> settings</caption>
+      <caption style="caption-side:bottom;">Table 1. Describes the <b>Import your own key</b> settings</caption>
     </table>
 
-4. When you are finished filling out the key's details, click **Generate key** to confirm. 
+4. When you are finished filling out the key's details, click **Import key** to confirm. 
 
-## Creating standard keys with the API
+## Importing standard keys with the API
 {: #api}
 
-Create a standard key by making a `POST` call to the following endpoint:
+Import a standard key by making a `POST` call to the following endpoint:
 
 ```
 https://keyprotect.<region>.bluemix.net/api/v2/keys

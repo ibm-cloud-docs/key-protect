@@ -28,7 +28,7 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window}.
 2. From your {{site.data.keyword.cloud_notm}} dashboard, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-3. To create a new key, click **Add key** and select the **Generate a new key** window.
+3. To create a new key, click **Add key** and select the **Create a key** window.
 
     Specify the key's details:
 
@@ -48,10 +48,10 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
         <td>Key type</td>
         <td>The <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select <b>Root key</b>.</td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the <b>Generate new key</b> settings</caption>
+      <caption style="caption-side:bottom;">Table 1. Describes the <b>Create a key</b> settings</caption>
     </table>
 
-4. When you are finished filling out the key's details, click **Generate key** to confirm. 
+4. When you are finished filling out the key's details, click **Create key** to confirm.  
 
 ## Creating root keys with the API
 {: #api}
