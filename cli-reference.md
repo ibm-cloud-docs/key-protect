@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-10-04"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-04"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.keymanagementserviceshort}} CLI Reference
 {: #key-protect-cli}
@@ -21,7 +23,7 @@ You can use {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manag
 
 To install the CLI plug-in, see [Setting up the CLI](/docs/services/key-protect/set-up-cli.html). 
 
-When you log in to the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}, you're notified when updates are available. Be sure to keep your CLI up-to-date so that you can use the available commands and flags.
+When you log in to the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}, you're notified when updates are available. Be sure to keep your CLI up-to-date so that you can use the commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
 ## ibmcloud kp commands
@@ -38,14 +40,19 @@ You can specify one of the following commands:
             <td><a href="#kp-create">kp create</a></td>
             <td><a href="#kp-delete">kp delete</a></td>
             <td><a href="#kp-list">kp list</a></td>
+            <td><a href="#kp-rotate">kp rotate</a></td>
             <td><a href="#kp-unwrap">kp unwrap</a></td>
+        </tr>
+        <tr>
             <td><a href="#kp-wrap">kp wrap</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
     <caption style="caption-side:bottom;">Table 1. Commands for managing keys</caption> 
  </table>
-
-
 
 ## kp create
 {: #kp-create}
@@ -74,7 +81,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-k, --key-material</code></dt>
         <dd>The base64 encoded key material that you want to store and manage in the service. To import an existing key, provide a 256-bit key. To generate a new key, omit the <code>--key-material</code> parameter.</dd>
     <dt><code>-s, --standard-key</code></dt>
-        <dd>Set the parameter only if you want to create a <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">standard key</a>. To create root key, omit the <code>--standard-key</code> parameter.</dd>
+        <dd>Set the parameter only if you want to create a <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">standard key</a>. To create a root key, omit the <code>--standard-key</code> parameter.</dd>
 </dl>
 
 ## kp delete
@@ -111,6 +118,33 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
+</dl>
+
+## kp rotate
+{: #kp-rotate}
+
+[Rotate a root key](/docs/services/key-protect/wrap-keys.html) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
+
+```sh
+ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 [-p, --key-material KEY_MATERIAL] 
+```
+{: pre}
+
+### Required parameters
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>The ID of the root key that you want to rotate.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
+</dl>
+
+### Optional parameters
+
+<dl>
+    <dt><code>-k, --key-material</code></dt>
+        <dd>The base64 encoded key material that you want to use for rotating an existing root key. To rotate a key that was initially imported into the service, provide a new 256-bit key. To rotate a key that was initially generated in {{site.data.keyword.keymanagementserviceshort}}, omit the <code>--key-material</code> parameter.</dd>
 </dl>
 
 ## kp wrap
@@ -173,6 +207,3 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-a, --aad</code></dt>
         <dd><p>The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD on unwrap.</p><p><b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.</p></dd>
 </dl>
-
-
-
