@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-09"
 
 ---
 
@@ -34,50 +34,50 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
 
 <table>
     <tr>
-        <th>Region name</th>
-        <th>Geographic location</th>
+        <th>Location name</th>
+        <th>Code</th>
         <th>Service API endpoint</th>
     </tr>
     <tr>
-        <td>AP North</td>
-        <td>Tokyo, Japan</td>
+        <td>Dallas</td>
+        <td><code>us-south</code></td>
         <td>
-            <code>keyprotect.jp-tok.bluemix.net</code>
+            <code>https://keyprotect.us-south.bluemix.net</code>
         </td>
     </tr>
     <tr>
-        <td>Germany</td>
-        <td>Frankfurt, Germany</td>
+        <td>Washington DC</td>
+        <td><code>us-east</code></td>
         <td>
-            <code>keyprotect.eu-de.bluemix.net</code>
+            <code>https://keyprotect.us-east.bluemix.net</code>
+        </td>
+    </tr>
+    <tr>
+        <td>London</td>
+        <td><code>eu-gb</code></td>
+        <td>
+            <code>https://keyprotect.eu-gb.bluemix.net</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Frankfurt</td>
+        <td><code>eu-de</code></td>
+        <td>
+            <code>https://keyprotect.eu-de.bluemix.net</code>
         </td>
     </tr>
     <tr>
         <td>Sydney</td>
-        <td>Sydney, Australia</td>
+        <td><code>au-syd</code></td>
         <td>
-            <code>keyprotect.au-syd.bluemix.net</code>
+            <code>https://keyprotect.au-syd.bluemix.net</code>
         </td>
     </tr>
     <tr>
-        <td>United Kingdom</td>
-        <td>London, England</td>
+        <td>Tokyo</td>
+        <td><code>jp-tok</code></td>
         <td>
-            <code>keyprotect.eu-gb.bluemix.net</code>
-        </td>
-    </tr>
-    <tr>
-        <td>US East</td>
-        <td>Washington D.C., US</td>
-        <td>
-            <code>keyprotect.us-east.bluemix.net</code>
-        </td>
-    </tr>
-    <tr>
-        <td>US South</td>
-        <td>Dallas, US</td>
-        <td>
-            <code>keyprotect.us-south.bluemix.net</code>
+            <code>https://keyprotect.jp-tok.bluemix.net</code>
         </td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Shows the available endpoints for the {{site.data.keyword.keymanagementserviceshort}} API</caption>
