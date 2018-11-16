@@ -26,11 +26,7 @@ Key Protect
     provision.md
     access-api.md
     set-up-cli.md
-
-    {: .topicgroup}
-    Managing access
-        manage-access.md
-        manage-access-api.md
+    manage-access.md
 
     {: .topicgroup}
     Creating keys
