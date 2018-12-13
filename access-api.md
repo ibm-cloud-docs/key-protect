@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -45,7 +45,7 @@ Complete the following steps to retrieve an access token:
       "https://iam.bluemix.net/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" 
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
     ```
     {: codeblock}
 
@@ -65,7 +65,7 @@ Complete the following steps to retrieve an access token:
     Use the full `access_token` value, prefixed by the _Bearer_ token type, to programmatically manage keys for your service using the {{site.data.keyword.keymanagementserviceshort}} API. 
 
     Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, refresh the access token for your API key on a regular basis by calling the {{site.data.keyword.iamshort}} API.   
-    {: tip }
+    {: note }
 
 ## Retrieving your instance ID
 {: #retrieve-instance-ID}
@@ -111,11 +111,11 @@ curl -X GET \
     https://keyprotect.us-south.bluemix.net/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <access_token>' \
-    -H 'bluemix-instance: <instance_ID>' \
+    -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock} 
 
 ### What's next
 
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
 - To see an example of how keys stored in {{site.data.keyword.keymanagementserviceshort}} can work to encrypt and decrypt data, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importing root keys
 {: #import-root-keys}
@@ -26,9 +28,10 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
 
 [After you create an instance of the service](/docs/services/key-protect/provision.html), complete the following steps to add your existing root key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window}.
-2. From your {{site.data.keyword.cloud_notm}} dashboard, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-3. To import a key, click **Add key** and select the **Import your own key** window.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. To import a key, click **Add key** and select the **Import your own key** window.
 
     Specify the key's details:
 
@@ -64,7 +67,7 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Import your own key</b> settings</caption>
     </table>
 
-4. When you are finished filling out the key's details, click **Import key** to confirm. 
+5. When you are finished filling out the key's details, click **Import key** to confirm.  
 
 ## Importing root keys with the API
 {: #api}

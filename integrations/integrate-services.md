@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Integrating services
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-10-02"
         <td>
           <p>Add [envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html) to your storage buckets by using {{site.data.keyword.keymanagementserviceshort}}. Use root keys that you manage in {{site.data.keyword.keymanagementserviceshort}} to protect the data encryption keys that encrypt your data at rest.</p>
           <p>For more information, check out [Integrating with {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect/integrations/integrate-cos.html).</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p><b>Use [envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html) to protect secrets in your {{containershort_notm}} cluster.</p>
+          <p>For more information, check out [Encrypting Kubernetes secrets by using {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers/cs_encrypt.html#keyprotect).</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">Table 1. Describes the integrations that are available for {{site.data.keyword.keymanagementserviceshort}}</caption>
@@ -70,7 +81,7 @@ The following table lists the API methods that add or remove envelope encryption
   <caption style="caption-side:bottom;">Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods</caption>
 </table>
 
-To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: tip}
 
 ## Integrating a supported service
@@ -79,12 +90,12 @@ To find out more about programmatically managing your keys in {{site.data.keywor
 To add an integration, create an authorization between services by using the {{site.data.keyword.iamlong}} dashboard. Authorizations enable service to service access policies, so you can associate a resource in your cloud data service with a [root key](/docs/services/key-protect/concepts/envelope-encryption.html#key-types) that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
 Be sure to provision both services in the same region before you create an authorization. To learn more about service authorizations, see [Granting access between services ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/iam/authorizations.html){: new_window}.
-{: tip}
+{: note}
 
 When you're ready to integrate a service, use the following steps to create an authorization:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window}.
-2. From the menu bar, click **Manage** &gt; **Security** &gt; **Identity and Access**, and then select **Authorizations**. 
+1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}.net/){: new_window}.
+2. From the menu bar, click **Manage** &gt; **Security** &gt; **Access (IAM)**, and then select **Authorizations**. 
 3. Click **Create**.
 4. Select a source and target for the authorization.
  

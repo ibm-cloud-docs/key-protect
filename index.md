@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -37,11 +37,11 @@ Choose from two key types:
 ## Creating new keys
 {: #create-keys}
 
-[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps), you're ready to designate keys in the service. 
+[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), you're ready to designate keys in the service. 
 
 Complete the following steps to create your first cryptographic key. 
 
-1. From the {{site.data.keyword.keymanagementserviceshort}} dashboard, click **Manage** &gt; **Add key**.
+1. On the application details page, click **Manage** &gt; **Add key**.
 2. To create a new key, select the **Create a key** window.
 
     Specify the key's details:
@@ -76,7 +76,7 @@ You can enable the security benefits of Bring Your Own Key (BYOK) by introducing
 
 Complete the following steps to add an existing key.
 
-1. From the {{site.data.keyword.keymanagementserviceshort}} dashboard, click **Manage** &gt; **Add key**.
+1. On the application details page, click **Manage** &gt; **Add key**.
 2. To upload an existing key, select the **Import your own key** window.
 
     Specify the key's details:
@@ -114,4 +114,4 @@ Now you can use your keys to code your apps and services. If you added a root ke
 
 - To find out more about managing and protecting your encryption keys with a root key, check out [Envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html).
 - To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, [check out the Integrations doc](/docs/services/key-protect/integrations/integrate-services.html).
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.

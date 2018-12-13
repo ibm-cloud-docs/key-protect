@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Key states
 {: #key-states}

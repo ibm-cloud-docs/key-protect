@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-04"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-04"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Setting up the CLI
 {: #set-up-cli}
@@ -21,7 +23,7 @@ You can use the {{site.data.keyword.keymanagementservicelong_notm}} CLI plug-in 
 To find out more about using the CLI, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/services/key-protect/cli-reference.html).
 {: tip}
 
-## Installing the CLI
+## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #install-cli}
 
 Before you can set up the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, install the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}. 
@@ -55,7 +57,7 @@ To install the CLIs:
     ```
     {: pre}
 
-## Updating the CLI
+## Updating the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #update-cli}
 
 You might want to update CLI periodically to use new features.
@@ -85,7 +87,7 @@ To update the CLI:
     ```
     {: pre}
 
-## Uninstalling the CLI
+## Uninstalling the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #uninstall-cli}
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}.

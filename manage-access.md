@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Managing access
+# Managing user access
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys.
@@ -57,12 +59,13 @@ The following table shows how identity and access roles map to {{site.data.keywo
   </tr>
   <tr>
     <td><p>Writer</p></td>
-    <td><p>A writer can create keys, modify keys, and access key material.</p></td>
+    <td><p>A writer can create keys, modify keys, rotate keys, and access key material.</p></td>
     <td>
       <p>
         <ul>
           <li>Create keys</li>
           <li>View keys</li>
+          <li>Rotate keys</li>
           <li>Wrap keys</li>
           <li>Unwrap keys</li>
         </ul>
@@ -85,9 +88,8 @@ The following table shows how identity and access roles map to {{site.data.keywo
   <caption style="caption-side:bottom;">Table 1. Describes how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
 </table>
 
-**Note**: Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/cfaccess.html){: new_window} are separate and define access at the organization or the space level.
-
-To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/users_roles.html#userroles){: new_window}.
+Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/cfaccess.html){: new_window} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/users_roles.html#userroles){: new_window}.
+{: note}
 
 ### What's next
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-10-02"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Rotating keys
 {: #rotating-keys}
@@ -24,7 +26,7 @@ When you rotate your root key, you shorten the lifetime of the key, and you limi
 To learn how key rotation helps you meet industry standards and cryptographic best practices, see [Key rotation](/docs/services/key-protect/concepts/key-rotation.html).
 
 Rotation is available only for root keys. 
-{: tip}
+{: note}
 
 ## Rotating root keys with the GUI
 {: #gui}
@@ -33,14 +35,15 @@ If you prefer to rotate your root keys by using a graphical interface, you can u
 
 [After you create or import your existing root keys into the service](/docs/services/key-protect/create-root-keys.html), complete the following steps to rotate a key:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/){: new_window}.
-2. From your {{site.data.keyword.cloud_notm}} dashboard, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-3. Use the **Keys** table to browse the keys in your service.
-4. Click the ⋮ icon to open a list of options for the key that you want to rotate.
-5. From the options menu, click **Rotate key** and confirm the rotation in the next screen.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in your service.
+5. Click the ⋮ icon to open a list of options for the key that you want to rotate.
+6. From the options menu, click **Rotate key** and confirm the rotation in the next screen.
 
-If you imported the root key initially, you must provide a new base64 encoded key material to rotate the key. For more information, see [Importing root keys with the GUI](/docs/services/key-protect/import-root-keys.html#gui).
-{: tip}
+If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Importing root keys with the GUI](/docs/services/key-protect/import-root-keys.html#gui).
+{: note}
 
 ## Rotating root keys by using the API
 {: #api}
@@ -80,19 +83,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=rotate
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect/regions.html#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect/regions.html#endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>The unique identifier for the root key that you want to rotate.</td>
+        <td><strong>Required.</strong> The unique identifier for the root key that you want to rotate.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>key_material</varname></td>
@@ -119,7 +122,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=rotate
     https://keyprotect.<region>.bluemix.net/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <IAM_token>' \
-    -H 'bluemix-instance: <instance_ID>' \
+    -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
   

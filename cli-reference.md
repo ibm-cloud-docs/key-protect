@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -67,6 +67,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 {:pre}
 
 ### Required parameters
+{: #req-params}
 
 <dl>
     <dt><code>KEY_NAME</code></dt>
@@ -76,6 +77,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
+{: #opt-params}
 
 <dl>
     <dt><code>-k, --key-material</code></dt>
@@ -95,6 +97,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
+{: #req-params}
 
 <dl>
    <dt><code>KEY_ID</code></dt>
@@ -114,6 +117,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
+{: #req-params}
 
 <dl>
     <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
@@ -132,6 +136,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
+{: #req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -141,6 +146,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
+{: #opt-params}
 
 <dl>
     <dt><code>-k, --key-material</code></dt>
@@ -161,6 +167,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 
 ### Required parameters
+{: #req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -170,6 +177,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
+{: #opt-params}
 
 <dl>
     <dt><code>-a, --aad</code></dt>
@@ -191,6 +199,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
+{: #req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -202,8 +211,12 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
+{: #opt-params}
 
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD on unwrap.</p><p><b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.</p></dd>
 </dl>
+
+
+
