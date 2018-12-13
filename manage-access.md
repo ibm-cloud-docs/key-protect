@@ -15,7 +15,7 @@ lastupdated: "2018-12-13"
 {:note: .note}
 {:important: .important}
 
-# Managing user access
+# Managing access
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys.
