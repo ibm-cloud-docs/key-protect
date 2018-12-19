@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-13"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -40,43 +40,43 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
     <tr>
         <td>Dallas</td>
         <td>
-            <code>keyprotect.us-south.bluemix.net</code>
+            <code>us-south.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>Washington DC</td>
         <td>
-            <code>keyprotect.us-east.bluemix.net</code>
+            <code>us-east.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>London</td>
         <td>
-            <code>keyprotect.eu-gb.bluemix.net</code>
+            <code>eu-gb.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>Frankfurt</td>
         <td>
-            <code>keyprotect.eu-de.bluemix.net</code>
+            <code>eu-de.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>Sydney</td>
         <td>
-            <code>keyprotect.au-syd.bluemix.net</code>
+            <code>au-syd.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>Tokyo</td>
         <td>
-            <code>keyprotect.jp-tok.bluemix.net</code>
+            <code>jp-tok.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Shows the available endpoints for the {{site.data.keyword.keymanagementserviceshort}} API</caption>
 </table>
 
-For {{site.data.keyword.keymanagementserviceshort}} service instances that exist within a Cloud Foundry org or space, use the legacy `https://ibm-key-protect.edge.bluemix.net` endpoint to interact with the {{site.data.keyword.keymanagementserviceshort}} API.
+You can continue to use `https://keyprotect.<region>.bluemix.net` to target the service for operations, or you can update your applications with the new `cloud.ibm.com` endpoints. For {{site.data.keyword.keymanagementserviceshort}} service instances that exist within a Cloud Foundry org or space, use the legacy `https://ibm-key-protect.edge.bluemix.net` endpoint to interact with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: tip}
 
 For more information about authenticating with {{site.data.keyword.keymanagementserviceshort}}, see [Accessing the API](/docs/services/key-protect/access-api.html).
