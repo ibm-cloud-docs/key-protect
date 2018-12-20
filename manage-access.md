@@ -96,4 +96,3 @@ Cloud IAM user roles provide access at the service or service instance level. [C
 Account owners and admins can invite users and set service policies that correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the users can perform.
 
 - For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/mngiam.html){: new_window}.
-- To learn about granting advanced permissions to access specific encryption keys, see [Managing access to keys](/docs/services/key-protect/manage-access-api.html).
