@@ -31,7 +31,7 @@ When you log in to the [{{site.data.keyword.cloud_notm}} CLI ![External link ico
 
 You can specify one of the following commands:
 
-<table summary="Commands for managing keys" 
+<table summary="Commands for managing keys"> 
     <thead>
         <th colspan="5">Commands for managing keys</th>
     </thead>
