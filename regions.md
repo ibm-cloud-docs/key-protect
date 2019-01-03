@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -22,13 +22,13 @@ You can connect your applications with the {{site.data.keyword.keymanagementserv
 {: shortdesc}
 
 ## Available regions
-{: #regions}
+{: #available-regions}
 
 {{site.data.keyword.keymanagementserviceshort}} is available in the following regions and locations:
 ![The image shows the regions where the Key Protect service is available.](images/world-map_min.svg)
 
 ## Service endpoints
-{: #endpoints}
+{: #service-endpoints}
 
 If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect): 
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-13"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -94,7 +94,7 @@ Be sure to provision both services in the same region before you create an autho
 
 When you're ready to integrate a service, use the following steps to create an authorization:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}.net/){: new_window}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}){: new_window}.
 2. From the menu bar, click **Manage** &gt; **Security** &gt; **Access (IAM)**, and then select **Authorizations**. 
 3. Click **Create**.
 4. Select a source and target for the authorization.

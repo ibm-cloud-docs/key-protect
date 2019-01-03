@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-13"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -67,7 +67,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 {:pre}
 
 ### Required parameters
-{: #req-params}
+{: #create-req-params}
 
 <dl>
     <dt><code>KEY_NAME</code></dt>
@@ -77,7 +77,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
-{: #opt-params}
+{: #create-opt-params}
 
 <dl>
     <dt><code>-k, --key-material</code></dt>
@@ -97,7 +97,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
-{: #req-params}
+{: #delete-req-params}
 
 <dl>
    <dt><code>KEY_ID</code></dt>
@@ -117,7 +117,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
-{: #req-params}
+{: #list-req-params}
 
 <dl>
     <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
@@ -136,7 +136,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
-{: #req-params}
+{: #rotate-req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -146,7 +146,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
-{: #opt-params}
+{: #rotate-opt-params}
 
 <dl>
     <dt><code>-k, --key-material</code></dt>
@@ -167,7 +167,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 
 ### Required parameters
-{: #req-params}
+{: #wrap-req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -177,7 +177,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
-{: #opt-params}
+{: #wrap-opt-params}
 
 <dl>
     <dt><code>-a, --aad</code></dt>
@@ -199,7 +199,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
-{: #req-params}
+{: #unwrap-req-params}
 
 <dl>
     <dt><code>KEY_ID</code></dt>
@@ -211,7 +211,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 </dl>
 
 ### Optional parameters
-{: #opt-params}
+{: #unwrap-opt-params}
 
 <dl>
     <dt><code>-a, --aad</code></dt>
