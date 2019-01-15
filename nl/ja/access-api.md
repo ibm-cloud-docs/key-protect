@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # API へのアクセス
 {: #access-api}
@@ -24,14 +26,14 @@ API で作業するには、サービス資格情報と認証資格情報を生�
 ## アクセス・トークンの取得
 {: #retrieve-token}
 
-{{site.data.keyword.iamshort}} からアクセス・トークンを取得して、{{site.data.keyword.keymanagementserviceshort}} で認証できます。 [サービス ID](/docs/iam/serviceid.html#serviceids) を使用して、{{site.data.keyword.cloud_notm}} 上または外部にあるサービスまたはアプリケーションの代わりに、{{site.data.keyword.keymanagementserviceshort}} API で作業できます。個人のユーザー資格情報を共有する必要はありません。  
+{{site.data.keyword.iamshort}} からアクセス・トークンを取得して、{{site.data.keyword.keymanagementserviceshort}} (IAM) で認証できます。 [サービス ID](/docs/iam/serviceid.html#serviceids) を使用して、{{site.data.keyword.cloud_notm}} 上または外部にあるサービスまたはアプリケーションの代わりに、{{site.data.keyword.keymanagementserviceshort}} API で作業できます。個人のユーザー資格情報を共有する必要はありません。  
 
 ユーザー資格情報で認証する場合は、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli/index.html#overview){: new_window} で `ibmcloud iam oauth-tokens` を実行することによって、トークンを取得できます。
-{: tip}
+{: note}
 
 アクセス・トークンを取得するには、以下の手順を実行します。
 
-1. {{site.data.keyword.cloud_notm}} コンソールで、**「管理」** &gt; **「セキュリティー」** &gt; **「ID およびアクセス」** &gt; **「サービス ID」**に移動します。 [サービス ID の作成](/docs/iam/serviceid.html#creating-a-service-id){: new_window}のプロセスに従います。
+1. {{site.data.keyword.cloud_notm}} コンソールで、**「管理」** &gt; **「アクセス (IAM)」** &gt; **「サービス ID」**に移動します。 [サービス ID の作成](/docs/iam/serviceid.html#creating-a-service-id){: new_window}のプロセスに従います。
 2. **「アクション」**メニューを使用して、[新しいサービス ID のアクセス・ポリシーを定義します。](/docs/iam/serviceidaccess.html){: new_window}
     
     {{site.data.keyword.keymanagementserviceshort}} リソースに対するアクセス権限の管理について詳しくは、[役割と許可](/docs/services/key-protect/manage-access.html#roles)を参照してください。
@@ -43,7 +45,7 @@ API で作業するには、サービス資格情報と認証資格情報を生�
       "https://iam.bluemix.net/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" \ 
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
     ```
     {: codeblock}
 
@@ -63,7 +65,7 @@ API で作業するには、サービス資格情報と認証資格情報を生�
     完全な `access_token` 値 (接頭部に _Bearer_ トークン・タイプが付いている) を使用して、サービス用の鍵を {{site.data.keyword.keymanagementserviceshort}} API を使ってプログラムで管理します。 
 
     アクセス・トークンが有効なのは 1 時間ですが、必要に応じて再生成できます。 サービスへのアクセス権限を維持するには、{{site.data.keyword.iamshort}} API を呼び出すことによって、定期的に API 鍵のアクセス・トークンをリフレッシュしてください。   
-    {: tip }
+    {: note }
 
 ## インスタンス ID の取得
 {: #retrieve-instance-ID}
@@ -73,7 +75,7 @@ API で作業するには、サービス資格情報と認証資格情報を生�
 1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli/index.html#overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
-    ibmcloud login
+    ibmcloud login 
     ```
     {: pre}
 
@@ -93,7 +95,7 @@ API で作業するには、サービス資格情報と認証資格情報を生�
     `<instance_name>` を、{{site.data.keyword.keymanagementserviceshort}} のインスタンスに割り当てた固有の別名に置き換えます。 以下の省略された例は、CLI 出力を示しています。 値 _42454b3b-5b06-407b-a4b3-34d9ef323901_ は、インスタンス ID の例です。
 
     ```
-    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901::
+    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
 
@@ -109,11 +111,10 @@ curl -X GET \
     https://keyprotect.us-south.bluemix.net/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <access_token>' \
-    -H 'bluemix-instance: <instance_ID>' \
+    -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock} 
 
 ### 次に行うこと
 
-- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を確認してください。
-- {{site.data.keyword.keymanagementserviceshort}} に保管されている鍵を使用してデータを暗号化および暗号化解除する方法の例は、[GitHub にあるサンプル・アプリで確認してください ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}。
+- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。

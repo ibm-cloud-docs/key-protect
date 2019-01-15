@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Criptografia de envelope
 {: #envelope-encryption}
@@ -87,16 +89,16 @@ chaves armazenadas em um serviço de dados. Com o {{site.data.keyword.keymanagem
 armazenar e gerenciar o ciclo de vida das chaves raiz para obter controle total das outras chaves armazenadas na nuvem. Diferentemente de uma chave padrão, uma chave raiz nunca pode deixar os limites do serviço do
 {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Chaves padrão</dt>
-    <dd>Chaves padrão são chaves de criptografia que são usadas para criptografia. Geralmente, as chaves padrão criptografam dados
-diretamente. Com o {{site.data.keyword.keymanagementserviceshort}}, é possível criar, armazenar e gerenciar o ciclo de
-vida das chaves padrão. Depois de importar ou gerar uma chave padrão no serviço, é possível exportá-la para um recurso de
-dados externo, como um depósito de armazenamento, para criptografar informações confidenciais. Chaves padrão que criptografam
-dados armazenados são chamadas chaves de criptografia de dados (DEKs) e podem ser agrupadas com criptografia avançada. DEKs
-agrupados não são armazenados em {{site.data.keyword.keymanagementserviceshort}}.</dd>
+    <dd>Chaves padrão são uma maneira de persistir um segredo, como uma senha ou uma chave de criptografia. Ao usar o
+{{site.data.keyword.keymanagementserviceshort}} para armazenar chaves padrão, você ativa o armazenamento do
+módulo de segurança de hardware (HSM) para seus segredos, o controle de acesso de baixa granularidade para seus
+recursos com o <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>
+e a capacidade de auditar chamadas API para o serviço com o <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Depois de criar chaves no {{site.data.keyword.keymanagementserviceshort}}, o sistema retorna um valor de ID que pode
-ser usado para fazer chamadas API para o serviço. É possível recuperar o valor do ID para suas chaves com a GUI do {{site.data.keyword.keymanagementserviceshort}} ou com a API do [{{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/kms). 
+ser usado para fazer chamadas API para o serviço. É possível recuperar o valor do ID para as chaves com a GUI do
+{{site.data.keyword.keymanagementserviceshort}} ou a API do [{{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
 
 ## Chaves de quebra
 {: #wrapping}

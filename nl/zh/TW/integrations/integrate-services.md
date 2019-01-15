@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 整合服務
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-08-24"
         <td>
           <p>使用 {{site.data.keyword.keymanagementserviceshort}}，以將[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)新增至儲存空間儲存區。使用您在 {{site.data.keyword.keymanagementserviceshort}} 中管理的主要金鑰，以保護可加密靜置資料的資料加密金鑰。</p>
           <p>如需相關資訊，請參閱[與 {{site.data.keyword.cos_full_notm}} 整合](/docs/services/key-protect/integrations/integrate-cos.html)。</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p>請使用[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)保護 {{site.data.keyword.containershort_notm}} 叢集裡的密碼。</p>
+          <p>如需相關資訊，請參閱[使用 {{site.data.keyword.keymanagementserviceshort}} 加密 Kubernetes 密碼](/docs/containers/cs_encrypt.html#keyprotect)。</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">表 1. 說明可用於 {{site.data.keyword.keymanagementserviceshort}} 的整合</caption>
@@ -70,7 +81,7 @@ lastupdated: "2018-08-24"
   <caption style="caption-side:bottom;">表 2. 說明 {{site.data.keyword.keymanagementserviceshort}} API 方法</caption>
 </table>
 
-若要進一步瞭解如何在 {{site.data.keyword.keymanagementserviceshort}} 中以程式設計方式管理您的金鑰，請參閱 [{{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+若要進一步瞭解如何在 {{site.data.keyword.keymanagementserviceshort}} 中以程式設計方式管理您的金鑰，請參閱 [{{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
 {: tip}
 
 ## 整合支援的服務
@@ -79,12 +90,12 @@ lastupdated: "2018-08-24"
 若要新增整合，請使用 {{site.data.keyword.iamlong}} 儀表板來建立服務之間的授權。授權可啟用服務對服務存取原則，因此您可以將雲端資料服務中的資源與在 {{site.data.keyword.keymanagementserviceshort}} 中管理的[主要金鑰](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)相關聯。
 
 請務必先在相同的地區中佈建兩個服務，再建立授權。若要進一步瞭解服務授權，請參閱[授與服務之間的存取權 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/authorizations.html){: new_window}。
-{: tip}
+{: note}
 
 當您準備好整合服務時，請使用下列步驟來建立授權：
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/){: new_window}。
-2. 從功能表列中，按一下**管理** &gt; **安全** &gt; **身分及存取**，然後選取**授權**。 
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}){: new_window}。
+2. 從功能表列按一下**管理** &gt; **安全** &gt; **存取 (IAM)**，然後選取**授權**。 
 3. 按一下**建立**。
 4. 選取授權的來源及目標。
  

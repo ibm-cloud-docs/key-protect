@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# 管理用户访问权
+# 管理访问权
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} 支持由 {{site.data.keyword.iamlong}} 管理的集中访问控制系统来帮助您管理加密密钥的用户和访问权。
@@ -57,12 +59,13 @@ lastupdated: "2018-08-24"
   </tr>
   <tr>
     <td><p>作者</p></td>
-    <td><p>作者可以创建密钥、修改密钥以及访问密钥资料。</p></td>
+    <td><p>作者可以创建密钥、修改密钥、轮换密钥以及访问密钥资料。</p></td>
     <td>
       <p>
         <ul>
           <li>创建密钥</li>
           <li>查看密钥</li>
+          <li>轮换密钥</li>
           <li>打包密钥</li>
           <li>解包密钥</li>
         </ul>
@@ -85,13 +88,11 @@ lastupdated: "2018-08-24"
   <caption style="caption-side:bottom;">表 1. 描述身份和访问角色如何映射到 {{site.data.keyword.keymanagementserviceshort}} 许可权</caption>
 </table>
 
-**注**：Cloud IAM 用户角色提供的是服务或服务实例级别的访问权。[Cloud Foundry 角色 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam/cfaccess.html){: new_window} 是分开的，在组织或空间级别定义访问权。
-
-要了解有关 {{site.data.keyword.iamshort}} 的更多信息，请查看[用户角色和许可权 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam/users_roles.html#userroles){: new_window}。
+Cloud IAM 用户角色提供的是服务或服务实例级别的访问权。[Cloud Foundry 角色 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam/cfaccess.html){: new_window} 是分开的，在组织或空间级别定义访问权。要了解有关 {{site.data.keyword.iamshort}} 的更多信息，请查看[用户角色和许可权 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam/users_roles.html#userroles){: new_window}。
+{: note}
 
 ### 后续工作
 
 帐户所有者和管理员可以邀请用户并设置对应于用户可以执行的 {{site.data.keyword.keymanagementserviceshort}} 操作的服务策略。
 
 - 有关在 {{site.data.keyword.cloud_notm}} UI 中分配用户角色的更多信息，请参阅[管理 IAM 访问权 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam/mngiam.html){: new_window}。
-- 要了解有关授予高级许可权以访问特定加密密钥的信息，请参阅[管理对密钥的访问权](/docs/services/key-protect/manage-access-api.html)。

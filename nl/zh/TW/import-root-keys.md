@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 匯入主要金鑰
 {: #import-root-keys}
@@ -26,12 +28,12 @@ lastupdated: "2018-08-24"
 
 [在建立服務的實例之後](/docs/services/key-protect/provision.html)，請完成下列步驟以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 來新增現有主要金鑰。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/){: new_window}。
-2. 從 {{site.data.keyword.cloud_notm}} 儀表板，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
-3. 若要匯入金鑰，請按一下**新增金鑰**，然後選取**輸入現有金鑰**視窗。
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){: new_window}。
+2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
+3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
+4. 若要匯入金鑰，請按一下**新增金鑰**，然後選取**匯入自己的金鑰**視窗。
 
     指定金鑰的詳細資料：
-    
 
     <table>
       <tr>
@@ -62,10 +64,10 @@ lastupdated: "2018-08-24"
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">表 1. 說明<b>輸入現有金鑰</b>設定</caption>
+      <caption style="caption-side:bottom;">表 1. 說明<b>匯入自己的金鑰</b>設定</caption>
     </table>
 
-4. 當您填寫完金鑰的詳細資料時，請按一下**新增金鑰**以便確認。 
+5. 當您填寫完金鑰的詳細資料時，請按一下**匯入金鑰**以便確認。  
 
 ## 使用 API 匯入主要金鑰
 {: #api}
@@ -79,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect/access-api.html)。
 
-1. 使用下列 cURL 指令，來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+1. 使用下列 cURL 指令，來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
 
     ```cURL
     curl -X POST \
@@ -107,7 +109,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
     {: tip}
 
     根據下表取代範例要求中的變數。
@@ -195,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### 下一步為何？
 
 - 若要進一步瞭解如何使用封套加密來保護金鑰，請參閱[包裝金鑰](/docs/services/key-protect/wrap-keys.html)。
-- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/key-protect){: new_window}。

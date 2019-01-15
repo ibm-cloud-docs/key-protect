@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Visualizando chaves
 {: #view-keys}
@@ -34,9 +36,11 @@ Se você preferir inspecionar as chaves em seu serviço usando uma interface gr�
 
 [Depois de criar ou importar suas chaves existentes para o serviço](/docs/services/key-protect/create-root-keys.html), conclua as etapas a seguir para visualizar suas chaves.
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/).
-2. No painel do {{site.data.keyword.cloud_notm}}, selecione sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
-3. Procure as características gerais das suas chaves no painel do {{site.data.keyword.keymanagementserviceshort}}:
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}}
+![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/).
+2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
+3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
+4. Procure as características gerais de suas chaves por meio da página de detalhes do aplicativo:
 
     <table>
       <tr>
@@ -49,7 +53,7 @@ Se você preferir inspecionar as chaves em seu serviço usando uma interface gr�
       </tr>
       <tr>
         <td>ID</td>
-        <td>Um ID de chave exclusiva que foi designado à sua chave pelo serviço do {{site.data.keyword.keymanagementserviceshort}}. É possível usar o valor de ID para fazer chamadas para o serviço com a [API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms).</td>
+        <td>Um ID de chave exclusiva que foi designado à sua chave pelo serviço do {{site.data.keyword.keymanagementserviceshort}}. É possível usar o valor de ID para fazer chamadas para o serviço com a API do [{{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect).</td>
       </tr>
       <tr>
         <td>Estado</td>
@@ -86,7 +90,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
@@ -97,24 +101,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>Opcional: o identificador exclusivo que é usado para rastrear e correlacionar transações.</td>
+        <td>O identificador exclusivo que é usado para rastrear e correlacionar transações.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabela 2. Descreve as variáveis que são necessárias para visualizar chaves com a API do {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Uma solicitação `GET /v2/keys` bem-sucedida retorna uma coleção de chaves que estão disponíveis em sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}.
+    Uma solicitação `GET api/v2/keys` bem-sucedida retorna uma coleção de chaves que estão disponíveis em sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}.
 
     ```
     {
@@ -129,7 +133,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmMetadata": {
             "bitLength": "256", "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -137,17 +142,20 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "name": "Root key",
           "description": "...", "state": 1, "crn": "...", "algorithmType": "AES", "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256", "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    Por padrão, `GET /keys` retorna as suas primeiras 2000 chaves, mas é possível ajustar esse limite usando o parâmetro `limit` no tempo de consulta. Para saber mais sobre o `limit` e o `offset`, veja [Recuperando um subconjunto de chaves](#retrieve_subset_keys_api).
+    Por padrão, `GET api/v2/keys` retorna as suas primeiras 2000 chaves, mas é possível ajustar esse limite usando o parâmetro `limit` no tempo de consulta. Para saber mais sobre o `limit` e o `offset`, veja [Recuperando um subconjunto de chaves](#retrieve_subset_keys_api).
     {: tip}
 
 ### Recuperando um subconjunto de chaves
@@ -165,7 +173,6 @@ Por exemplo, você pode ter um total de 3000 chaves que são armazenadas em sua 
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -178,7 +185,7 @@ Por exemplo, você pode ter um total de 3000 chaves que são armazenadas em sua 
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>Opcional: o número de chaves a serem ignoradas.</p> 
+        <p>O número de chaves a serem ignoradas.</p> 
         <p>Por exemplo, se você tiver 50 chaves em sua instância e desejar listar 26 a 50 chaves, use
             <code>../keys?offset=25</code>. Também é possível fazer par de <code>offset</code> com <code>limit</code> para percorrer os seus recursos disponíveis.</p>
       </td>
@@ -186,7 +193,7 @@ Por exemplo, você pode ter um total de 3000 chaves que são armazenadas em sua 
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>Opcional: o número de chaves a serem recuperadas.</p> 
+        <p>O número de chaves a serem recuperadas.</p> 
         <p>Por exemplo, se você tiver 100 chaves em sua instância e desejar listar apenas 10 chaves, use
             <code>../keys?limit=10</code>. O valor máximo para <code>limit</code> é 5000.</p>
       </td>
@@ -260,28 +267,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Veja <a href="/docs/services/key-protect/regions.html#endpoints">Terminais em serviço regionais</a> para obter mais informações.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Veja <a href="/docs/services/key-protect/regions.html#endpoints">Terminais em serviço regionais</a> para obter mais informações.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>Opcional: o identificador exclusivo que é usado para rastrear e correlacionar transações.</td>
+        <td>O identificador exclusivo que é usado para rastrear e correlacionar transações.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>O identificador para a chave que você recuperou na [etapa 1](#retrieve-keys-api).</td>
+        <td><strong>Necessário.</strong> O identificador para a chave que você recuperou na [etapa 1](#retrieve-keys-api).</td>
       </tr>
       <caption style="caption-side:bottom;">Tabela 4. Descreve as variáveis que são necessárias para visualizar uma chave especificada com a API do {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Uma resposta `GET v2/keys/<key_ID>` bem-sucedida retorna detalhes sobre a sua chave e o material da chave. O objeto JSON a seguir mostra um valor retornado de exemplo para uma chave padrão.
+    Uma `GET api/v2/keys/<key_ID>` bem-sucedida retorna detalhes sobre a sua chave e o material da chave. O objeto JSON a seguir mostra um valor retornado de exemplo para uma chave padrão.
 
     ```
     {
@@ -299,11 +306,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
             "algorithmMetadata": {
                 "bitLength": "256", "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    Para obter uma descrição detalhada dos parâmetros disponíveis, veja o {{site.data.keyword.keymanagementserviceshort}} [documento de referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para obter uma descrição detalhada dos parâmetros disponíveis, veja o {{site.data.keyword.keymanagementserviceshort}} [documento de referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 供应服务
 {: #provision}
@@ -24,9 +26,9 @@ lastupdated: "2018-08-24"
 
 要从 {{site.data.keyword.cloud_notm}} 控制台供应 {{site.data.keyword.keymanagementserviceshort}} 的实例，请完成以下步骤。
 
-1. [登录到 {{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/){: new_window}。
+1. [登录到 {{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}){: new_window}。
 2. 单击**目录**以查看 {{site.data.keyword.cloud_notm}} 上可用的服务的列表。
-3. 在“所有类别”导航窗格中，滚动到**平台**，然后单击**安全性**类别。
+3. 在“所有类别”导航窗格中，单击**安全性和身份**类别。
 4. 从服务列表中，单击 **{{site.data.keyword.keymanagementserviceshort}}** 磁贴。
 5. 选择服务套餐，然后单击**创建**以在您登录到的帐户、区域和资源组中供应 {{site.data.keyword.keymanagementserviceshort}} 实例。
 
@@ -81,7 +83,7 @@ lastupdated: "2018-08-24"
 1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html#overview){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
-    ibmcloud login 
+    ibmcloud login
     ```
     {: pre}
     **注：**如果登录失败，请运行 `ibmcloud login --sso` 命令重试。使用联合标识登录时需要 `--sso` 参数。如果使用此选项，请转至 CLI 输出中列出的链接以生成一次性密码。
@@ -115,4 +117,4 @@ lastupdated: "2018-08-24"
 ### 后续工作
 
 - 要查看 {{site.data.keyword.keymanagementserviceshort}} 中存储的密钥如何对数据进行加密和解密的示例，请[查看 GitHub 中的样本应用程序 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}。
-- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

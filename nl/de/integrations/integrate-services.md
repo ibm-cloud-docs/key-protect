@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Services integrieren
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-08-24"
         <td>
           <p>Fügen Sie eine [Envelope-Verschlüsselung](/docs/services/key-protect/concepts/envelope-encryption.html) mithilfe von {{site.data.keyword.keymanagementserviceshort}} zu den Speicherbuckets hinzu. Verwenden Sie Rootschlüssel, die Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten, um die Datenverschlüsselungsschlüssel zu schützen, mit denen die ruhenden Daten verschlüsselt sind.</p>
           <p>Weitere Informationen finden Sie in [Integration mit {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect/integrations/integrate-cos.html).</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p>Verwenden Sie die [Envelope-Verschlüsselung](/docs/services/key-protect/concepts/envelope-encryption.html), um geheime Schlüssel im {{site.data.keyword.containershort_notm}}-Cluster zu schützen. </p>
+          <p>Weitere Informationen finden Sie in [Geheime Kubernetes-Schlüssel mit {{site.data.keyword.keymanagementserviceshort}} verschlüsseln](/docs/containers/cs_encrypt.html#keyprotect). </p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Integrationen, die für {{site.data.keyword.keymanagementserviceshort}} verfügbar sind</caption>
@@ -70,7 +81,7 @@ In der folgenden Tabelle sind die API-Methoden aufgeführt, mit denen die Envelo
   <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der {{site.data.keyword.keymanagementserviceshort}}-API-Methoden</caption>
 </table>
 
-Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{site.data.keyword.keymanagementserviceshort}} finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
+Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{site.data.keyword.keymanagementserviceshort}} finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: tip}
 
 ## Unterstützten Service integrieren
@@ -79,12 +90,12 @@ Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{si
 Wenn Sie eine Integration hinzufügen möchten, richten Sie über das {{site.data.keyword.iamlong}}-Dashboard eine Berechtigung zwischen den Services ein. Mit den Berechtigungen werden Service-zu-Service-Zugriffsrichtlinien aktiviert, die es Ihnen ermöglichen, eine Ressource im Clouddatenservice einem [Rootschlüssel](/docs/services/key-protect/concepts/envelope-encryption.html#key-types) zuzuordnen, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten.
 
 Stellen Sie sicher, dass beide Services in derselben Region bereitgestellt werden, bevor Sie eine Berechtigung erstellen. Weitere Informationen zu Serviceberechtigungen finden Sie in [Zugriff zwischen Services erteilen![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/authorizations.html){: new_window}.
-{: tip}
+{: note}
 
 Wenn Sie bereit sind, einen Service zu integrieren, führen Sie die folgenden Schritte aus, um eine Berechtigung zu erstellen:
 
-1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/){: new_window} an.
-2. Klicken Sie in der Menüleiste auf **Verwalten** &gt; **Sicherheit** &gt; **Identität und Zugriff**. Wählen Sie dann **Berechtigungen** aus. 
+1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}){: new_window} an.
+2. Klicken Sie in der Menüleiste auf **Verwalten** &gt; **Sicherheit** &gt; **Zugriff (IAM)** und wählen Sie dann **Berechtigungen** aus.  
 3. Klicken Sie auf **Erstellen**.
 4. Wählen Sie eine Quelle und ein Ziel für die Berechtigung aus.
  

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,14 +12,16 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# 管理使用者存取權
+# 管理存取權
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} 支援由 {{site.data.keyword.iamlong}} 控管的集中式存取控制系統，可協助您管理使用者和加密金鑰的存取。
 {: shortdesc}
 
-一項良好的作法是在您邀請新使用者加入帳戶或服務時授與存取權。例如，請考量下列準則：
+有一項良好的作法，就是在您邀請新使用者加入帳戶或服務時，授與存取權。例如，請考量下列準則：
 
 - **藉由指派 Cloud IAM 角色，讓使用者可存取您帳戶中的資源。**
     為需要存取您帳戶中之加密金鑰的使用者建立新原則，而不是共用您的管理認證。如果您是帳戶的管理者，您會自動獲指派有權存取帳戶下所有資源的_管理員_ 原則。
@@ -57,12 +59,13 @@ lastupdated: "2018-08-24"
   </tr>
   <tr>
     <td><p>作者</p></td>
-    <td><p>作者可以建立金鑰、修改金鑰，以及存取金鑰資料。</p></td>
+    <td><p>作者可以建立金鑰、修改金鑰、替換金鑰，以及存取金鑰資料。</p></td>
     <td>
       <p>
         <ul>
           <li>建立金鑰</li>
           <li>檢視金鑰</li>
+          <li>替換金鑰</li>
           <li>包裝金鑰</li>
           <li>解除包裝金鑰</li>
         </ul>
@@ -85,13 +88,11 @@ lastupdated: "2018-08-24"
   <caption style="caption-side:bottom;">表 1. 說明身分及存取角色如何對映至 {{site.data.keyword.keymanagementserviceshort}} 許可權</caption>
 </table>
 
-**附註**：Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/cfaccess.html){: new_window} 是分開的，並且定義組織或空間層次的存取權。
-
-若要進一步瞭解 {{site.data.keyword.iamshort}}，請參閱[使用者角色及許可權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/users_roles.html#userroles){: new_window}。
+Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/cfaccess.html){: new_window} 是分開的，並且定義組織或空間層次的存取權。若要進一步瞭解 {{site.data.keyword.iamshort}}，請參閱[使用者角色及許可權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/users_roles.html#userroles){: new_window}。
+{: note}
 
 ### 下一步為何？
 
 帳戶擁有者及管理者可以邀請使用者，以及設定對應於使用者可執行之 {{site.data.keyword.keymanagementserviceshort}} 動作的服務原則。
 
 - 如需在 {{site.data.keyword.cloud_notm}} 使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/mngiam.html){: new_window}。
-- 若要瞭解授與進階許可權以存取特定加密金鑰，請參閱[管理金鑰的存取權](/docs/services/key-protect/manage-access-api.html)。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 關於 {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
@@ -38,7 +40,7 @@ lastupdated: "2018-08-24"
     <td>使用 {{site.data.keyword.keymanagementserviceshort}}，您可以[使用高度安全的主要金鑰來包裝資料加密金鑰](/docs/services/key-protect/concepts/envelope-encryption.html)。您可以自帶主要金鑰，或在服務中建立它們。</td>
   </tr>
   <tr>
-    <td>身為大公司的 IT 管理者，您需要針對許多不同的服務供應項目，整合、追蹤和輪替金鑰。</td>
+    <td>身為大公司的 IT 管理者，您需要針對許多不同的服務供應項目，整合、追蹤和替換金鑰。</td>
     <td>{{site.data.keyword.keymanagementserviceshort}} 介面能簡化多個加密服務的管理。使用此服務，您可以在一個中央位置管理及排序金鑰，或者可以依專案隔離金鑰，並將它們存放在不同的 {{site.data.keyword.cloud_notm}} 空間中。</td>
   </tr>
   <tr>
@@ -49,7 +51,7 @@ lastupdated: "2018-08-24"
     <td>{{site.data.keyword.cloud_notm}} 上或外部的應用程式可與 {{site.data.keyword.keymanagementserviceshort}} API 整合。您可以對應用程式使用您自己的現有金鑰。</td>
   </tr>
   <tr>
-    <td>您的開發團隊具有嚴格原則，而且您需要一種每 14 天產生並輪替金鑰的方式。</td>
+    <td>您的開發團隊具有嚴格原則，而且您需要一種每 14 天產生並替換金鑰的方式。</td>
     <td>使用 {{site.data.keyword.cloud_notm}}，您可以從硬體安全模組 (HSM) 快速產生金鑰，以滿足您持續不斷的安全需求。</td>
   </tr>
 </table>

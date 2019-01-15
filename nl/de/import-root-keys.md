@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Rootschlüssel importieren
 {: #import-root-keys}
@@ -26,9 +28,10 @@ Rootschlüssel sind symmetrische Key-Wrapping-Schlüssel, die die Sicherheit ver
 
 [Führen Sie nach dem Erstellen einer Instanz dieses Services](/docs/services/key-protect/provision.html) die folgenden Schritte aus, um einen vorhandenen Rootschlüssel mit der {{site.data.keyword.keymanagementserviceshort}}-GUI hinzuzufügen.
 
-1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/){: new_window} an.
-2. Wählen Sie im {{site.data.keyword.cloud_notm}}-Dashboard die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus.
-3. Um einen Schlüssel zu importieren, klicken Sie auf **Schlüssel hinzufügen** und wählen Sie das Fenster **Vorhandenen Schlüssel eingeben** aus.
+1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/){: new_window} an.
+2. Rufen Sie **Menü** &gt; **Ressourcenliste** auf, um eine Liste Ihrer Ressourcen anzuzeigen. 
+3. Wählen Sie in der {{site.data.keyword.cloud_notm}}-Ressourcenliste die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus. 
+4. Um einen Schlüssel zu importieren, klicken Sie auf **Schlüssel hinzufügen** und wählen Sie das Fenster **Eigenen Schlüssel importieren** aus. 
 
     Geben Sie die Schlüsseldetails an:
 
@@ -61,10 +64,10 @@ Rootschlüssel sind symmetrische Key-Wrapping-Schlüssel, die die Sicherheit ver
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Einstellungen für <b>Vorhandenen Schlüssel eingeben</b></caption>
+      <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Einstellungen für <b>Eigenen Schlüssel importieren</b></caption>
     </table>
 
-4. Geben Sie die Details zum Schlüssel ein und klicken Sie dann zum Bestätigen auf **Neuen Schlüssel hinzufügen**. 
+5. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel importieren**.   
 
 ## Rootschlüssel mit der API importieren
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Rufen Sie Ihren Service- und Authentifizierungsnachweis ab, um mit den Schlüsseln im Service zu arbeiten.](/docs/services/key-protect/access-api.html)
 
-1. Rufen Sie die [{{site.data.keyword.keymanagementserviceshort}}-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window} mit dem folgenden cURL-Befehl auf.
+1. Rufen Sie die [{{site.data.keyword.keymanagementserviceshort}}-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/key-protect){: new_window} mit dem folgenden cURL-Befehl auf.
 
     ```cURL
     curl -X POST \
@@ -106,7 +109,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
     {: tip}
 
     Ersetzen Sie die Variablen in der Beispielanforderung mithilfe der Angaben in der folgenden Tabelle.
@@ -177,7 +180,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     Mit der erfolgreichen Antwort `POST /v2/keys` werden der ID-Wert für Ihren Schlüssel sowie andere Metadaten zurückgegeben. Die ID ist eine eindeutige Kennung, die Ihrem Schlüssel zugeordnet ist und die für alle nachfolgenden Aufrufe für die {{site.data.keyword.keymanagementserviceshort}}-API verwendet wird.
 
-2. Optional: Stellen Sie sicher, dass der Schlüssel durch Ausführen des folgenden Aufrufs zum Durchsuchen der Schlüssel in Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz hinzugefügt wurde.
+2. Optional: Stellen Sie sicher, dass der Schlüssel hinzugefügt wurde, indem Sie den folgenden Aufruf ausführen, um die Schlüssel in Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zu durchsuchen. 
 
     ```cURL
     curl -X GET \
@@ -194,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### Weitere Schritte
 
 - Weitere Informationen zum Schutz von Schlüsseln mit der Envelope-Verschlüsselung finden Sie in [Schlüssel einschließen](/docs/services/key-protect/wrap-keys.html).
-- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

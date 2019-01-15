@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Excluindo chaves
 {: #deleting-keys}
@@ -19,7 +21,8 @@ lastupdated: "2018-08-24"
 É possível usar o {{site.data.keyword.keymanagementservicefull}} para excluir uma chave de criptografia e seus conteúdos, se você é um administrador para o espaço do {{site.data.keyword.cloud_notm}} ou instância de serviço {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-**Importante:** ao excluir uma chave, você fragmenta permanentemente seus conteúdos e dados associados. A ação não pode ser invertida. A destruição de recursos não é recomendada para ambientes de produção, mas pode ser útil para ambientes temporários, como de teste ou QA.
+Quando você excluir uma chave, fragmentará permanentemente os seus conteúdos e os dados associados. A ação não pode ser invertida. A destruição de recursos não é recomendada para ambientes de produção, mas pode ser útil para ambientes temporários, como de teste ou QA.
+{: important}
 
 ## Excluindo chaves com a GUI
 {: #gui}
@@ -28,11 +31,12 @@ Se você preferir excluir suas chaves de criptografia usando uma interface gráf
 
 [Depois de criar ou importar as chaves existentes no serviço](/docs/services/key-protect/create-root-keys.html),conclua as etapas a seguir para excluir a chave:
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/){: new_window}.
-2. No painel do {{site.data.keyword.cloud_notm}}, selecione sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
-3. Use a tabela de **Chaves** para procurar as chaves em seu serviço.
-4. Clique no ícone ⋮ para abrir uma lista de opções para a chave que você deseja excluir.
-5. No menu de opções, clique em **Excluir chave** e confirme a exclusão da chave na próxima tela.
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
+2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
+3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
+4. Na página de detalhes do aplicativo, use a tabela de **Chaves** para procurar as chaves em seu serviço.
+5. Clique no ícone ⋮ para abrir uma lista de opções para a chave que você deseja excluir.
+6. No menu de opções, clique em **Excluir chave** e confirme a exclusão da chave na próxima tela.
 
 Depois de excluir uma chave, a chave transita para o estado _Destruído_. As chaves nesse estado não são mais recuperáveis. Metadados que estão associados à chave, como a data de exclusão da chave, são mantidos no banco de dados do {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -62,7 +66,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     ```
     {: codeblock}
   
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
@@ -73,19 +77,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>O identificador exclusivo para a chave que você gostaria de excluir.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo para a chave que você gostaria de excluir.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
@@ -124,4 +128,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     ```
     {: screen}
 
-    Para obter uma descrição detalhada dos parâmetros disponíveis, veja o {{site.data.keyword.keymanagementserviceshort}} [documento de referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para obter uma descrição detalhada dos parâmetros disponíveis, veja o {{site.data.keyword.keymanagementserviceshort}} [documento de referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

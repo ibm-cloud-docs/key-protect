@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 키 보기
 {: #view-keys}
@@ -34,9 +36,10 @@ lastupdated: "2018-08-24"
 
 [키를 작성하거나 기존 키를 서비스로 가져온 후](/docs/services/key-protect/create-root-keys.html) 다음 단계를 완료하여 키를 확인하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/)에 로그인하십시오.
-2. {{site.data.keyword.cloud_notm}} 대시보드에서 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스를 선택하십시오.
-3. {{site.data.keyword.keymanagementserviceshort}} 대시보드에서 키의 일반 특성을 찾아보십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/)에 로그인하십시오.
+2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
+3. {{site.data.keyword.cloud_notm}} 리소스 목록에서 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스를 선택하십시오.
+4. 애플리케이션 세부사항 페이지에서 키의 일반 특성을 찾아보십시오.
 
     <table>
       <tr>
@@ -49,10 +52,10 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에서 키에 지정한 고유 키 ID입니다. ID 값을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/kms)를 통해 서비스에 대한 호출을 작성할 수 있습니다.</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에서 키에 지정한 고유 키 ID입니다. ID 값을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect)를 통해 서비스에 대한 호출을 작성할 수 있습니다.</td>
       </tr>
       <tr>
-        <td>상태</td>
+        <td>시/도</td>
         <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)를 기반으로 한 [키 상태](/docs/services/key-protect/concepts/key-states.html)입니다. 이러한 상태는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>입니다.</td>
       </tr>
       <tr>
@@ -91,7 +94,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    계정에서 Cloud Foundry 조직과 영역 내의 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 적절한 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. 자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/kms){: new_window}를 참조하십시오.
+    계정에서 Cloud Foundry 조직과 영역 내의 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 적절한 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. [자세한 정보는 {{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
     {: tip}
 
     다음 표에 따라 예제 요청의 변수를 대체하십시오.
@@ -102,24 +105,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>선택사항: 트랜잭션을 추적하고 상관시키는 데 사용되는 고유 ID입니다.</td>
+        <td>트랜잭션을 추적하고 상관시키는 데 사용되는 고유 ID입니다.</td>
       </tr>
       <caption style="caption-side:bottom;">표 2. {{site.data.keyword.keymanagementserviceshort}} API를 통해 키를 보는 데 필요한 변수에 대한 설명</caption>
     </table>
 
-    성공한 `GET /v2/keys` 요청은 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에서 사용 가능한 키의 콜렉션을 리턴합니다.
+    성공한 `GET api/v2/keys` 요청은 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에서 사용 가능한 키의 콜렉션을 리턴합니다.
 
     ```
     {
@@ -142,7 +145,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -154,18 +158,21 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    기본적으로 `GET /keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 보려면 [키의 서브세트 검색](#retrieve_subset_keys_api)을 참조하십시오.
+    기본적으로 `GET api/v2/keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 보려면 [키의 서브세트 검색](#retrieve_subset_keys_api)을 참조하십시오.
     {: tip}
 
 ### 키의 서브세트 검색
@@ -183,7 +190,6 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -196,14 +202,14 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>선택사항: 건너뛸 키의 수입니다.</p> 
+        <p>건너뛸 키의 수입니다.</p> 
         <p>예를 들어, 인스턴스에 50개의 키가 있고 26 - 50 키를 나열하려면 <code>../keys?offset=25</code>를 사용하십시오. <code>offset</code>을 <code>limit</code>와 함께 사용하여 사용 가능한 리소스를 찾아볼 수도 있습니다.</p>
       </td>
     </tr>
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>선택사항: 검색할 키의 수입니다.</p> 
+        <p>검색할 키의 수입니다.</p> 
         <p>예를 들어, 인스턴스에 100개의 키가 있고 10개의 키만 나열하려면 <code>../keys?limit=10</code>을 사용하십시오. <code>limit</code>의 최대값은 5000입니다.</p>
       </td>
     </tr>
@@ -276,28 +282,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>선택사항: 트랜잭션을 추적하고 상관시키는 데 사용되는 고유 ID입니다.</td>
+        <td>트랜잭션을 추적하고 상관시키는 데 사용되는 고유 ID입니다.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>[1단계](#retrieve-keys-api)에서 검색한 키에 대한 ID입니다.</td>
+        <td><strong>필수.</strong> [1단계](#retrieve-keys-api)에서 검색한 키에 대한 ID입니다.</td>
       </tr>
       <caption style="caption-side:bottom;">표 4. {{site.data.keyword.keymanagementserviceshort}} API를 통해 지정된 키를 보는 데 필요한 변수에 대한 설명</caption>
     </table>
 
-    성공한 `GET v2/keys/<key_ID>` 응답은 키 및 키 자료에 대한 세부사항을 리턴합니다. 다음 JSON 오브젝트는 표준 키의 리턴값 예를 표시합니다.
+    성공한 `GET api/v2/keys/<key_ID>` 응답은 키 및 키 자료에 대한 세부사항을 리턴합니다. 다음 JSON 오브젝트는 표준 키의 리턴값 예를 표시합니다.
 
     ```
     {
@@ -321,11 +327,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
                 "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    사용 가능한 매개변수에 대한 자세한 설명은 {{site.data.keyword.keymanagementserviceshort}} [REST API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/kms){: new_window}를 참조하십시오.
+    사용 가능한 매개변수에 대한 자세한 설명은 {{site.data.keyword.keymanagementserviceshort}} [REST API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.

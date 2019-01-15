@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 関連リンク
 {: #related-links}
@@ -21,7 +23,7 @@ lastupdated: "2018-08-24"
 ## サンプル
 {: #samples}
 
-- [サンプル・アプリ: Decrypting secret messages ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Sample app: Apply end to end security to a cloud application ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## ブログ
 {: #blogs}

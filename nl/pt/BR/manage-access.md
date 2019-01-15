@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Gerenciando acesso de usuário
+# Gerenciando o acesso
 {: #manage-access}
 
 O {{site.data.keyword.keymanagementservicefull}} suporta um sistema de controle de acesso centralizado, governado pelo {{site.data.keyword.iamlong}}, para ajudar a gerenciar usuários e o acesso às suas chaves de criptografia.
@@ -61,12 +63,13 @@ A tabela a seguir mostra como as funções de identidade e acesso são mapeadas 
   </tr>
   <tr>
     <td><p>Gravador</p></td>
-    <td><p>Um escritor pode criar chaves, modificar chaves e acessar o material de chave.</p></td>
+    <td><p>Um gravador pode criar, modificar e girar chaves e acessar o material de chave.</p></td>
     <td>
       <p>
         <ul>
           <li>Criar chaves</li>
           <li>Visualizar chaves</li>
+          <li>Girar chaves</li>
           <li>Quebrar chaves</li>
           <li>Desagrupar chaves</li>
         </ul>
@@ -90,13 +93,11 @@ chaves, convidar novos usuários e designar políticas de acesso para outros usu
   <caption style="caption-side:bottom;">Tabela 1. Descreve como as funções de identidade e acesso são mapeadas para permissões do {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-**Nota**: funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou de instância de serviço. [Funções do Cloud Foundry ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/cfaccess.html){: new_window} são separadas e definem o acesso no nível da organização ou do espaço.
-
-Para saber mais sobre o {{site.data.keyword.iamshort}}, verifique as [Funções e permissões de usuário ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/users_roles.html#userroles){: new_window}.
+As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou instância de serviço. [Funções do Cloud Foundry ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/cfaccess.html){: new_window} são separadas e definem o acesso no nível da organização ou do espaço. Para saber mais sobre o {{site.data.keyword.iamshort}}, verifique as [Funções e permissões de usuário ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/users_roles.html#userroles){: new_window}.
+{: note}
 
 ### O que vem a seguir
 
 Os proprietários e administradores de conta podem convidar usuários e configurar políticas de serviço que correspondem às ações do {{site.data.keyword.keymanagementserviceshort}} que os usuários podem executar.
 
 - Para obter mais informações sobre como designar funções de usuário na UI do {{site.data.keyword.cloud_notm}}, veja [Gerenciando o acesso ao IAM ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/mngiam.html){: new_window}.
-- Para aprender sobre como conceder permissões avançadas para acessar chaves de criptografia específicas, veja [Gerenciando o acesso a chaves](/docs/services/key-protect/manage-access-api.html).

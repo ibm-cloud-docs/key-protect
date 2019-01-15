@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # エンベロープ暗号化
 {: #envelope-encryption}
@@ -62,10 +64,10 @@ lastupdated: "2018-08-24"
   <dt>ルート鍵</dt>
     <dd>ルート鍵は、{{site.data.keyword.keymanagementserviceshort}} の 1 次リソースです。 これは、データ・サービス内に保管されている他の鍵をラッピング (暗号化) およびアンラッピング (暗号化解除) するための信頼のルートとして使用される、対称鍵ラップ鍵です。 {{site.data.keyword.keymanagementserviceshort}} を使用して、ルート鍵の作成、保管、およびライフサイクルの管理を行うことができます。これにより、クラウド内に保管された他の鍵を完全に制御できるようになります。 標準鍵とは異なり、ルート鍵は {{site.data.keyword.keymanagementserviceshort}} サービスの境界から外に出ることは決してできません。</dd>
   <dt>標準鍵</dt>
-    <dd>標準鍵は、暗号化に使用される暗号鍵です。 通常、標準鍵はデータを直接暗号化します。 {{site.data.keyword.keymanagementserviceshort}} を使用して、標準鍵の作成、保管、およびライフサイクルの管理を行うことができます。 サービス内で標準鍵をインポートまたは生成した後、ストレージ・バケットなどの外部データ・リソースに鍵をエクスポートして、機密情報を暗号化できます。 保管データを暗号化する標準鍵は、データ暗号鍵 (DEK) と呼ばれ、これは拡張暗号化を使用してラップできます。 ラップされた DEK は、{{site.data.keyword.keymanagementserviceshort}} 内に保管されません。</dd>
+    <dd>標準鍵は、パスワードや暗号鍵などの機密事項を永続化する手段です。{{site.data.keyword.keymanagementserviceshort}} を使用して標準鍵を保管すると、機密事項用のハードウェア・セキュリティー・モジュール (HSM) ストレージ、<a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> を使用したリソースへの微細化されたアクセス制御、および <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> を使用したサービスへの API 呼び出しの監査機能が使用可能になります。</dd>
 </dl>
 
-{{site.data.keyword.keymanagementserviceshort}} で鍵を作成すると、システムは ID 値を返します。これを使用して、サービスに対して API 呼び出しを行うことができます。 {{site.data.keyword.keymanagementserviceshort}} GUI または [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/kms) を使用して、鍵の ID 値を取得できます。 
+{{site.data.keyword.keymanagementserviceshort}} で鍵を作成すると、システムは ID 値を返します。これを使用して、サービスに対して API 呼び出しを行うことができます。 {{site.data.keyword.keymanagementserviceshort}} GUI または [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) を使用して、鍵の ID 値を取得できます。 
 
 ## 鍵のラッピング
 {: #wrapping}

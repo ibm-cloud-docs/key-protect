@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.keymanagementserviceshort}} の概要
 {: #about}
@@ -35,10 +37,10 @@ lastupdated: "2018-08-24"
   </tr>
   <tr>
     <td>データをクラウドに移動するので、エンベロープ暗号化を実行する必要があります。 保存データを暗号化している他の鍵を完全に制御できるように、独自のマスター暗号鍵を持ち込む必要があります。</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} を使用して、[データ暗号鍵を非常にセキュアなルート鍵でラップすることができます](/docs/services/key-protect/concepts/envelope-encryption.html)。独自のルート鍵を持ち込むことも、サービス内でルート鍵を作成することもできます。</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} を使用して、[データ暗号鍵を非常にセキュアなルート鍵でラップすることができます](/docs/services/key-protect/concepts/envelope-encryption.html)。 独自のルート鍵を持ち込むことも、サービス内でルート鍵を作成することもできます。</td>
   </tr>
   <tr>
-    <td>大企業の IT 管理者として、数多くのさまざまなサービス・オファリング用の鍵を統合、追跡、および回転させる必要があります。</td>
+    <td>大企業の IT 管理者として、数多くのさまざまなサービス・オファリング用の鍵を統合、追跡、およびローテートさせる必要があります。</td>
     <td>{{site.data.keyword.keymanagementserviceshort}} インターフェースは、複数の暗号化サービスの管理を簡素化します。 このサービスを使用すると、鍵の管理や分類を 1 カ所で集中的に行うことも、プロジェクト別に鍵を分離して別々の {{site.data.keyword.cloud_notm}} スペースに格納することもできます。</td>
   </tr>
   <tr>
@@ -50,7 +52,7 @@ lastupdated: "2018-08-24"
 {{site.data.keyword.keymanagementserviceshort}} API と統合できます。 独自の既存の鍵をご使用のアプリに使用することも可能です。 </td>
   </tr>
   <tr>
-    <td>開発チームは厳しいポリシーを定めており、14 日ごとに鍵を生成して回転させる手段が必要です。</td>
+    <td>開発チームは厳しいポリシーを定めており、14 日ごとに鍵を生成してローテートさせる手段が必要です。</td>
     <td>{{site.data.keyword.cloud_notm}} を使用すると、ハードウェア・セキュリティー・モジュール (HSM) から迅速に鍵を生成し、継続的にセキュリティーのニーズを満たすことができます。</td>
   </tr>
 </table>

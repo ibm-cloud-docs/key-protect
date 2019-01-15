@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 相關鏈結
 {: #related-links}
@@ -21,7 +23,7 @@ lastupdated: "2018-08-24"
 ## 範例
 {: #samples}
 
-- [範例應用程式：解密密碼訊息 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Sample app: Apply end to end security to a cloud application ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## 部落格
 {: #blogs}

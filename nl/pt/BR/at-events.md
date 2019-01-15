@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Eventos do {{site.data.keyword.cloudaccesstrailshort}}
 {: #at-events}
 
-Use o serviço {{site.data.keyword.cloudaccesstrailfull}} para controlar como os usuários e os aplicativos interagem com o {{site.data.keyword.keymanagementservicefull}}.
+Use o serviço {{site.data.keyword.cloudaccesstrailfull}} para controlar como os usuários e os aplicativos interagem com o {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
 O serviço {{site.data.keyword.cloudaccesstrailfull_notm}} registra atividades iniciadas pelo usuário que mudam o estado de um serviço no {{site.data.keyword.cloud_notm}}. 
@@ -60,6 +62,10 @@ A tabela a seguir lista as ações que geram um evento:
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>Desagrupar uma chave</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>Girar uma chave</td>
     </tr>
     <caption style="caption-side:bottom;">Tabela 1. Ações que geram eventos do  {{site.data.keyword.cloudaccesstrailfull_notm}}</caption>
 </table>

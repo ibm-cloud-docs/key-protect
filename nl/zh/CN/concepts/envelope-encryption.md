@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 包络加密
 {: #envelope-encryption}
@@ -51,7 +53,7 @@ lastupdated: "2018-08-24"
 下图显示密钥打包功能的上下文视图。
 ![该图显示包络加密的上下文视图。](../images/envelope-encryption_min.svg)
 
-在 NIST Special Publication 800-57 Recommendation for Key Management 中简要介绍了包络加密。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4。![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+在 NIST Special Publication 800-57 Recommendation for Key Management 中简要介绍了包络加密。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}。
 
 ## 密钥类型
 {: #key-types}
@@ -62,10 +64,10 @@ lastupdated: "2018-08-24"
   <dt>根密钥</dt>
     <dd>根密钥是 {{site.data.keyword.keymanagementserviceshort}} 中的主要资源。根密钥是对称密钥打包密钥，用作对数据服务中所存储的其他密钥进行打包（加密）和解包（解密）的信任根。通过 {{site.data.keyword.keymanagementserviceshort}}，可以创建、存储和管理根密钥的生命周期，从而完全控制存储在云中的其他密钥。与标准密钥不同，根密钥永远不能离开 {{site.data.keyword.keymanagementserviceshort}} 服务的边界。</dd>
   <dt>标准密钥</dt>
-    <dd>标准密钥是用于加密的加密密钥。通常，标准密钥用于直接对数据进行加密。通过 {{site.data.keyword.keymanagementserviceshort}}，可以创建、存储和管理标准密钥的生命周期。在服务中导入或生成标准密钥后，可以将其导出到外部数据资源（例如，存储区）用于加密敏感信息。用于加密存储的数据的标准密钥称为数据加密密钥 (DEK)，可通过高级加密进行打包。打包的 DEK 不会存储在 {{site.data.keyword.keymanagementserviceshort}} 中。</dd>
+    <dd>标准密钥是一种持久存储密钥（例如密码或加密密钥）的方式。使用 {{site.data.keyword.keymanagementserviceshort}} 存储标准密钥时，可以使用硬件安全模块 (HSM) 来存储密钥，使用 <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> 对资源进行细颗粒度访问控制，以及使用 <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 来审计对服务的 API 调用。</dd>
 </dl>
 
-在 {{site.data.keyword.keymanagementserviceshort}} 中创建密钥之后，系统会返回标识值，在对服务进行 API 调用时可使用此标识。可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或 [{{site.data.keyword.keymanagementserviceshort}}API](https://console.bluemix.net/apidocs/kms) 来检索密钥的标识值。 
+在 {{site.data.keyword.keymanagementserviceshort}} 中创建密钥之后，系统会返回标识值，在对服务进行 API 调用时可使用此标识。可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或 [{{site.data.keyword.keymanagementserviceshort}}API](https://{DomainName}/apidocs/key-protect) 来检索密钥的标识值。 
 
 ## 打包密钥
 {: #wrapping}
@@ -85,7 +87,7 @@ lastupdated: "2018-08-24"
   </tr>
   <tr>
     <td>明文</td>
-    <td>可选：DEK 的密钥资料，包含要管理和保护的数据。用于密钥打包的明文必须采用 base64 编码。要生成 256 位 DEK，可以省略 `plaintext` 属性。服务会生成 base64 编码的 DEK 来用于密钥打包。</td>
+    <td>可选：DEK 的密钥资料，包含要管理和保护的数据。用于密钥打包的明文必须采用 Base64 编码。要生成 256 位 DEK，可以省略 `plaintext` 属性。服务会生成 Base64 编码的 DEK 来用于密钥打包。</td>
   </tr>
   <tr>
     <td>附加认证数据 (AAD)</td>
@@ -94,7 +96,7 @@ lastupdated: "2018-08-24"
     <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} 中的密钥打包所需的输入</caption>
 </table>
 
-如果在未指定要加密的明文的情况下发送打包请求，那么 AES-GCM 加密算法会生成明文，并将明文转换为一种无法理解的数据形式，这种数据形式称为密文。此过程将输出使用新密钥资料的 256 位 DEK。然后，系统会使用 AES 密钥打包算法，通过指定的根密钥对 DEK 及其密钥资料打包。成功的打包操作会返回 base64 编码的打包 DEK，您可以将其存储在 {{site.data.keyword.cloud_notm}} 应用程序或服务中。 
+如果在未指定要加密的明文的情况下发送打包请求，那么 AES-GCM 加密算法会生成明文，并将明文转换为一种无法理解的数据形式，这种数据形式称为密文。此过程将输出使用新密钥资料的 256 位 DEK。然后，系统会使用 AES 密钥打包算法，通过指定的根密钥对 DEK 及其密钥资料打包。成功的打包操作会返回 Base64 编码的打包 DEK，您可以将其存储在 {{site.data.keyword.cloud_notm}} 应用程序或服务中。 
 
 ## 解包密钥
 {: #unwrapping}
@@ -106,7 +108,7 @@ lastupdated: "2018-08-24"
 下图显示正在执行的密钥解包过程：
 ![该图显示数据解包工作方式。](../images/unwrapping-keys_min.svg)
 
-发送解包请求后，系统会使用相同的 AES 算法来逆转密钥打包过程。成功的解包操作会将 base64 编码的 `plaintext` 值返回给 {{site.data.keyword.cloud_notm}} 静态数据服务。
+发送解包请求后，系统会使用相同的 AES 算法来逆转密钥打包过程。成功的解包操作会将 Base64 编码的 `plaintext` 值返回给 {{site.data.keyword.cloud_notm}} 静态数据服务。
 
 
 

@@ -12,23 +12,25 @@ Key Protect
     Concetti
         concepts/key-states.md
         concepts/envelope-encryption.md
+        concepts/key-rotation.md
 
     {: .topicgroup}
     Integrazioni
         integrations/integrate-services.md
         integrations/integrate-cos.md
-    
+
+    {: .topicgroup}
+    Esercitazioni
+        [Tutorial: Apply end to end security to a cloud application](https://{DomainVariable}/docs/tutorials/cloud-e2e-security.html){: new_window}
+
     releases.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     provision.md
     access-api.md
-
-    {: .topicgroup}
-    Gestione dell'accesso
-        manage-access.md
-        manage-access-api.md
+    set-up-cli.md
+    manage-access.md
 
     {: .topicgroup}
     Creazione delle chiavi
@@ -45,11 +47,13 @@ Key Protect
         view-keys.md
         wrap-keys.md
         unwrap-keys.md
+        rotate-keys.md
         delete-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Guida di riferimento API](https://console.bluemix.net/apidocs/key-protect){: new_window}
+    [Guida di riferimenti alle API Key Protect](https://{DomainVariable}/apidocs/key-protect){: new_window}
+    cli-reference.md
     regions.md
     at-events.md
     related-links.md

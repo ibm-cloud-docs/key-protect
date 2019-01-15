@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 檢視金鑰
 {: #view-keys}
@@ -21,7 +23,7 @@ lastupdated: "2018-08-24"
 
 定期審核您的金鑰配置：
 
-- 檢查金鑰的建立時間，並決定是否應該輪替金鑰。
+- 檢查金鑰的建立時間，並決定是否應該替換金鑰。
 - [使用 {{site.data.keyword.cloudaccesstrailshort}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示") 監視 {{site.data.keyword.keymanagementserviceshort}} 的 API 呼叫](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}。
 - 檢查哪些使用者可以存取金鑰，以及存取層次是否適當。
 
@@ -34,9 +36,10 @@ lastupdated: "2018-08-24"
 
 [在建立金鑰或將現有金鑰匯入到服務之後](/docs/services/key-protect/create-root-keys.html)，請完成下列步驟來檢視金鑰。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/)。
-2. 從 {{site.data.keyword.cloud_notm}} 儀表板，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
-3. 從 {{site.data.keyword.keymanagementserviceshort}} 儀表板，瀏覽金鑰的一般特徵：
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/)。
+2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
+3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
+4. 從應用程式詳細資料頁面，瀏覽金鑰的一般特徵：
 
     <table>
       <tr>
@@ -49,7 +52,7 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 服務已指派給您金鑰的唯一金鑰 ID。您可以使用 ID 值，利用 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms) 來呼叫服務。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} 服務已指派給您金鑰的唯一金鑰 ID。您可以使用 ID 值，利用 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect) 來呼叫服務。</td>
       </tr>
       <tr>
         <td>狀態</td>
@@ -91,7 +94,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
     {: tip}
 
     根據下表取代範例要求中的變數。
@@ -102,24 +105,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>選用項目：用來追蹤及關聯交易的唯一 ID。</td>
+        <td>用來追蹤及關聯交易的唯一 ID。</td>
       </tr>
       <caption style="caption-side:bottom;">表 2. 說明使用 {{site.data.keyword.keymanagementserviceshort}} API 檢視金鑰所需的變數</caption>
     </table>
 
-    成功的 `GET /v2/keys` 要求會傳回您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中可用的金鑰集合。
+    成功的 `GET api/v2/keys` 要求會傳回您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中可用的金鑰集合。
 
     ```
     {
@@ -142,7 +145,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -154,18 +158,21 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    依預設，`GET /keys` 會傳回前 2000 個金鑰，但您可以在查詢時間使用 `limit` 參數來調整此限制。若要進一步瞭解 `limit` 及 `offset`，請參閱[擷取金鑰子集](#retrieve_subset_keys_api)。
+    依預設，`GET api/v2/keys` 會傳回前 2000 個金鑰，但您可以在查詢時間使用 `limit` 參數來調整此限制。若要進一步瞭解 `limit` 及 `offset`，請參閱[擷取金鑰子集](#retrieve_subset_keys_api)。
     {: tip}
 
 ### 擷取金鑰子集
@@ -183,7 +190,6 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -196,14 +202,14 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>選用項目：要跳過的金鑰數目。</p> 
+        <p>要跳過的金鑰數目。</p> 
         <p>例如，如果您的實例中有 50 個金鑰，而且您要列出 26 - 50 個金鑰，則請使用 <code>../keys?offset=25</code>。您也可以將 <code>offset</code> 與 <code>limit</code> 配對，以翻看可用資源。</p>
       </td>
     </tr>
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>選用項目：要擷取的金鑰數目。</p> 
+        <p>要擷取的金鑰數目。</p> 
         <p>例如，如果您的實例中有 100 個金鑰，而且您只要列出 10 個金鑰，則請使用 <code>../keys?limit=10</code>。<code>limit</code> 的最大值是 5000。</p>
       </td>
     </tr>
@@ -276,28 +282,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>選用項目：用來追蹤及關聯交易的唯一 ID。</td>
+        <td>用來追蹤及關聯交易的唯一 ID。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>您在[步驟 1](#retrieve-keys-api) 中擷取之金鑰的 ID。</td>
+        <td><strong>必要。</strong>您在[步驟 1](#retrieve-keys-api) 中擷取之金鑰的 ID。</td>
       </tr>
       <caption style="caption-side:bottom;">表 4. 說明使用 {{site.data.keyword.keymanagementserviceshort}} API 檢視指定金鑰所需的變數</caption>
     </table>
 
-    成功的 `GET v2/keys/<key_ID>` 回應會傳回金鑰的詳細資料及金鑰資料。下列 JSON 物件顯示標準金鑰的回覆值範例。
+    成功的 `GET api/v2/keys/<key_ID>` 回應會傳回金鑰的詳細資料及金鑰資料。下列 JSON 物件顯示標準金鑰的回覆值範例。
 
     ```
     {
@@ -321,11 +327,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
                 "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    如需可用參數的詳細說明，請參閱 {{site.data.keyword.keymanagementserviceshort}} [REST API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    如需可用參數的詳細說明，請參閱 {{site.data.keyword.keymanagementserviceshort}} [REST API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。

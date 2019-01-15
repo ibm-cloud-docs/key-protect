@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importando chaves padrão
 {: #import-standard-keys}
@@ -23,9 +25,10 @@ lastupdated: "2018-08-24"
 
 [Depois de criar uma instância do serviço](/docs/services/key-protect/provision.html), conclua as etapas a seguir para inserir sua chave padrão existente com a GUI do {{site.data.keyword.keymanagementserviceshort}}.
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/){: new_window}.
-2. No painel do {{site.data.keyword.cloud_notm}}, selecione sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
-3. Para importar uma nova chave, clique em **Incluir chave** e selecione a janela **Inserir chave existente**.
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
+2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
+3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
+4. Para importar uma nova chave, clique em **Incluir chave** e selecione a janela **Importar sua própria chave**.
 
     Especifique os detalhes da chave:
 
@@ -57,15 +60,15 @@ lastupdated: "2018-08-24"
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tabela 1. Descreve as configurações de <b>Gerar nova chave</b></caption>
+      <caption style="caption-side:bottom;">Tabela 1. Descreve as configurações <b>Importar a sua própria chave</b></caption>
     </table>
 
-4. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Gerar chave** para confirmar. 
+5. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Importar chave** para confirmar. 
 
-## Criando chaves padrão com a API
+## Importando chaves padrão com a API
 {: #api}
 
-Crie uma chave padrão realizando uma chamada `POST` para o seguinte terminal:
+Importe uma chave padrão fazendo uma chamada `POST` para o terminal a seguir:
 
 ```
 https://keyprotect.<region>.bluemix.net/api/v2/keys
@@ -74,7 +77,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect/access-api.html).
 
-1. Chame a [API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window} com o comando cURL a seguir.
+1. Chame a API do [{{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window} com o comando cURL a seguir.
 
     ```cURL
     curl -X POST \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>' \ -H 'content-type: application/vnd.ibm.kms.key+json' \ -H 'correlation-id: <correlation_ID>' \ -H 'prefer: <return_preference>' \ -d '{
@@ -90,7 +93,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
@@ -101,15 +104,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -117,25 +120,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
-        <td><p>Opcional: um cabeçalho que altera o comportamento do servidor para operações <code>POST</code> e <code>DELETE</code>.</p><p>Quando você configurar a variável <em>return_preference</em> para <code>return=minimal</code>, o serviço retornará somente os metadados da chave, como o nome da chave e o valor de ID, no corpo da entidade de resposta. Quando você configura a variável para <code>return=representation</code>, o serviço retorna tanto o material da chave quanto os metadados da chave.</p></td>
+        <td><p>Um cabeçalho que altera o comportamento do servidor para as operações <code>POST</code> e <code>DELETE</code>.</p><p>Quando você configurar a variável <em>return_preference</em> para <code>return=minimal</code>, o serviço retornará somente os metadados da chave, como o nome da chave e o valor de ID, no corpo da entidade de resposta. Quando você configura a variável para <code>return=representation</code>, o serviço retorna tanto o material da chave quanto os metadados da chave.</p></td>
       </tr>
       <tr>
         <td><varname>key_alias</varname></td>
-        <td>
-          <p>Um nome exclusivo legível para fácil identificação da sua chave.</p>
-          <p>Importante: para proteger sua privacidade, não armazene seus dados pessoais como metadados para sua chave.</p>
-        </td>
+        <td><strong>Necessário.</strong> Um nome exclusivo legível para fácil identificação da sua chave. Para proteger a sua privacidade, não armazene os seus dados pessoais como metadados para a sua chave.</td>
       </tr>
       <tr>
         <td><varname>key_description</varname></td>
-        <td>
-          <p>Opcional: uma descrição estendida de sua chave.</p>
-          <p>Importante: para proteger sua privacidade, não armazene seus dados pessoais como metadados para sua chave.</p>
-        </td>
+        <td>Uma descrição estendida de sua chave. Para proteger a sua privacidade, não armazene os seus dados pessoais como metadados para a sua chave.</td>
       </tr>
       <tr>
         <td><varname>YYYY-MM-DD</varname><br><varname>HH:MM:SS.SS</varname></td>
-        <td>Opcional: a data e hora em que a chave expira no sistema, no formato RFC 3339. Se o atributo <code>expirationDate</code> for omitido, a chave não expirará. </td>
+        <td>A data e hora em que a chave expira no sistema, em formato RFC 3339. Se o atributo <code>expirationDate</code> for omitido, a chave não expirará. </td>
       </tr>
       <tr>
         <td><varname>key_material</varname></td>
@@ -160,19 +157,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     </table>
 
     Para proteger a confidencialidade de seus dados pessoais, evite inserir informações pessoalmente identificáveis (PII), como seu nome ou local, ao incluir chaves no serviço. Para obter mais exemplos de PII, consulte a seção 2.2 do [NIST Special Publication 800-122 ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
-    {: tip}
+    {: important}
 
-    Uma resposta `POST /v2/keys` bem-sucedida retorna o valor de ID para a sua chave, junto a outros metadados. O ID é um identificador exclusivo que é designado para sua chave e é usado para chamadas subsequentes para a API do {{site.data.keyword.keymanagementserviceshort}}.
+    Uma resposta `POST api/v2/keys` bem-sucedida retorna o valor de ID para a sua chave, junto com outros metadados. O ID é um identificador exclusivo que é designado para sua chave e é usado para chamadas subsequentes para a API do {{site.data.keyword.keymanagementserviceshort}}.
 
 2. Opcional: verifique se a chave foi incluída executando a chamada a seguir para obter as chaves em sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}.
 
     ```cURL
-    curl -X GET \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'accept: application/vnd.ibm.collection+json' \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>' \ -H 'correlation-id: <correlation_ID>' \
+    curl -X GET \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'accept: application/vnd.ibm.collection+json' \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
 
 
 ### O que vem a seguir
 
-- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
 - Para ver um exemplo de como chaves armazenadas no {{site.data.keyword.keymanagementserviceshort}} podem funcionar para criptografar e decriptografar dados, [consulte o aplicativo de amostra no GitHub ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 导入根密钥
 {: #import-root-keys}
@@ -26,9 +28,10 @@ lastupdated: "2018-08-24"
 
 [创建服务的实例后](/docs/services/key-protect/provision.html)，请完成以下步骤以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 来添加现有根密钥。
 
-1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/){: new_window}。
-2. 从 {{site.data.keyword.cloud_notm}} 仪表板，选择 {{site.data.keyword.keymanagementserviceshort}} 的已供应实例。
-3. 要导入密钥，请单击**添加密钥**，然后选择**输入现有密钥**窗口。
+1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/){: new_window}。
+2. 转至**菜单** &gt; **资源列表**，以查看资源的列表。
+3. 从 {{site.data.keyword.cloud_notm}} 资源列表中，选择您供应的 {{site.data.keyword.keymanagementserviceshort}} 实例。
+4. 要导入密钥，请单击**添加密钥**，然后选择**导入自己的密钥**窗口。
 
     指定密钥的详细信息：
 
@@ -40,7 +43,7 @@ lastupdated: "2018-08-24"
       <tr>
         <td>名称</td>
         <td>
-          <p>密钥的人类可以阅读的唯一别名，以便可轻松识别密钥。</p>
+          <p>密钥的人类可读的唯一别名，以便可轻松识别密钥。</p>
           <p>为保护隐私，请确保密钥名称不包含个人可标识信息 (PII)，例如，姓名或位置。</p>
         </td>
       </tr>
@@ -51,20 +54,20 @@ lastupdated: "2018-08-24"
       <tr>
         <td>密钥资料</td>
         <td>
-          <p>要在服务中存储和管理的 base64 编码的密钥资料，例如现有密钥打包密钥。</p>
+          <p>要在服务中存储和管理的 Base64 编码的密钥资料，例如现有密钥打包密钥。</p>
           <p>确保密钥资料满足以下需求：</p>
           <p>
             <ul>
               <li>密钥必须为 256 位、384 位或 512 位。</li>
-              <li>数据字节（例如，对于 256 位，为 32 个字节）必须使用 base64 编码进行编码。</li>
+              <li>数据字节（例如，对于 256 位，为 32 个字节）必须使用 Base64 编码进行编码。</li>
             </ul>
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">表 1. 描述<b>输入现有密钥</b>设置</caption>
+      <caption style="caption-side:bottom;">表 1. 描述<b>导入自己的密钥</b>设置</caption>
     </table>
 
-4. 填写完密钥详细信息后，单击**添加新密钥**以进行确认。 
+5. 填写完密钥详细信息后，单击**导入密钥**以进行确认。  
 
 ## 使用 API 导入根密钥
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [检索服务和认证凭证以与服务中的密钥一起使用](/docs/services/key-protect/access-api.html)。
 
-1. 使用以下 cURL 命令调用 [{{site.data.keyword.keymanagementserviceshort}} API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+1. 使用以下 cURL 命令调用 [{{site.data.keyword.keymanagementserviceshort}} API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
 
     ```cURL
     curl -X POST \
@@ -92,9 +95,9 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 "collectionType": "application/vnd.ibm.kms.key+json",
        "collectionTotal": 1
      },
-    "resources": [
-      {
-      "type": "application/vnd.ibm.kms.key+json",
+     "resources": [
+       {
+       "type": "application/vnd.ibm.kms.key+json",
        "name": "<key_alias>",
        "description": "<key_description>",
        "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
@@ -106,7 +109,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
     {: tip}
 
     根据下表替换示例请求中的变量。
@@ -134,7 +137,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       <tr>
         <td><varname>key_alias</varname></td>
         <td>
-          <p>密钥的人类可以阅读的唯一名称，以便可轻松识别密钥。</p>
+          <p>密钥的人类可读的唯一名称，以便可轻松识别密钥。</p>
           <p>重要信息：为保护隐私，请勿将个人数据存储为密钥的元数据。</p>
         </td>
       </tr>
@@ -152,12 +155,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       <tr>
         <td><varname>key_material</varname></td>
         <td>
-          <p>要在服务中存储和管理的 base64 编码的密钥资料，例如现有密钥打包密钥。</p>
+          <p>要在服务中存储和管理的 Base64 编码的密钥资料，例如现有密钥打包密钥。</p>
           <p>确保密钥资料满足以下需求：</p>
           <p>
             <ul>
               <li>密钥必须为 256 位、384 位或 512 位。</li>
-              <li>数据字节（例如，对于 256 位，为 32 个字节）必须使用 base64 编码进行编码。</li>
+              <li>数据字节（例如，对于 256 位，为 32 个字节）必须使用 Base64 编码进行编码。</li>
             </ul>
           </p>
         </td>
@@ -194,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### 后续工作
 
 - 要了解有关使用包络加密保护密钥的更多信息，请查看[打包密钥](/docs/services/key-protect/wrap-keys.html)。
-- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/key-protect){: new_window}。

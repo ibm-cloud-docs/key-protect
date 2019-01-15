@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Integración de servicios
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-08-24"
         <td>
           <p>Añada [cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html) a sus depósitos de almacenamiento utilizando {{site.data.keyword.keymanagementserviceshort}}. Utilice claves raíz que gestiona en {{site.data.keyword.keymanagementserviceshort}} para proteger las claves de cifrado de datos que cifran los datos en reposo.</p>
           <p>Para obtener más información, consulte [Integración con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect/integrations/integrate-cos.html).</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p>Utilice el [cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html) para proteger secretos en el clúster de {{site.data.keyword.containershort_notm}}.</p>
+          <p>Para obtener más información, consulte [Cifrado de secretos de Kubernetes mediante {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers/cs_encrypt.html#keyprotect).</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">Tabla 1. Describe las integraciones disponibles para {{site.data.keyword.keymanagementserviceshort}}</caption>
@@ -70,7 +81,7 @@ En la tabla siguiente se listan los métodos API que añaden o eliminan el cifra
   <caption style="caption-side:bottom;">Tabla 2. Describe los métodos API de {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-Para obtener más información sobre la gestión de claves mediante programación en {{site.data.keyword.keymanagementserviceshort}}, consulte la [documentación de consulta de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+Para obtener más información sobre la gestión de claves mediante programación en {{site.data.keyword.keymanagementserviceshort}}, consulte la [documentación de consulta de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: tip}
 
 ## Integración de un servicio con soporte
@@ -79,12 +90,12 @@ Para obtener más información sobre la gestión de claves mediante programació
 Para añadir una integración, cree una autorización entre los servicios utilizando el panel de control de {{site.data.keyword.iamlong}}. Las autorizaciones habilitan las políticas de acceso de servicio a servicio, de modo que pueda asociar un recurso en su servicio de datos en la nube con una [clave raíz](/docs/services/key-protect/concepts/envelope-encryption.html#key-types) que gestiona en {{site.data.keyword.keymanagementserviceshort}}.
 
 Asegúrese de proporcionar los servicios en la misma región antes de crear una autorización. Para obtener más información sobre las autorizaciones de servicio, consulte [Concesión de acceso entre servicios ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/authorizations.html){: new_window}.
-{: tip}
+{: note}
 
 Cuando esté listo para integrar un servicio, utilice los pasos siguientes para crear una autorización:
 
-1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/){: new_window}.
-2. En la barra de menús, pulse **Gestionar** &gt; **Seguridad** &gt; **Identidad y acceso** y, a continuación, seleccione **Autorizaciones**. 
+1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}){: new_window}.
+2. En la barra de menús, pulse **Gestionar** &gt; **Seguridad** &gt; **Acceso (IAM)** y, a continuación, seleccione **Autorizaciones**. 
 3. Pulse **Crear**.
 4. Seleccione un origen y un destino para la autorización.
  

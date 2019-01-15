@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 鍵の表示
 {: #view-keys}
@@ -22,7 +24,7 @@ lastupdated: "2018-08-24"
 
 定期的に鍵の構成を監査するために、以下を行います。
 
-- いつ鍵が作成されたかを調べ、鍵を回転する時期かどうかを判断します。
+- いつ鍵が作成されたかを調べ、鍵をローテートする時期かどうかを判断します。
 - [{{site.data.keyword.cloudaccesstrailshort}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") を使用して、{{site.data.keyword.keymanagementserviceshort}} への API 呼び出しをモニターします](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}。
 - どのユーザーが鍵へのアクセス権限を持っているか、アクセス権限のレベルは適切かどうかを検査します。
 
@@ -35,9 +37,10 @@ lastupdated: "2018-08-24"
 
 [サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect/create-root-keys.html)、以下の手順を実行して、鍵を表示します。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/) にログインします。
-2. {{site.data.keyword.cloud_notm}} ダッシュボードで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
-3. {{site.data.keyword.keymanagementserviceshort}} ダッシュボードで、以下のような鍵の一般的な特性を参照します。
+1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/)。
+2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
+3. {{site.data.keyword.cloud_notm}} リソース・リストで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
+4. アプリケーションの詳細ページで、以下のような鍵の一般的な特性を参照します。
 
     <table>
       <tr>
@@ -50,11 +53,11 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービスによって鍵に割り当てられた固有の鍵 ID。 この ID 値を使用して、[{{site.data.keyword.keymanagementserviceshort}} API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms)でサービスを呼び出すことができます。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} サービスによって鍵に割り当てられた固有の鍵 ID。 この ID 値を使用して、[{{site.data.keyword.keymanagementserviceshort}} API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect)でサービスを呼び出すことができます。</td>
       </tr>
       <tr>
         <td>状態</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) に基づく[鍵の状態](/docs/services/key-protect/concepts/key-states.html)。状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) に基づく[鍵の状態](/docs/services/key-protect/concepts/key-states.html)。 状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
       </tr>
       <tr>
         <td>タイプ</td>
@@ -92,7 +95,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を参照してください。
+    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
     {: tip}
 
     次の表に従って、例の要求内の変数を置き換えてください。
@@ -103,24 +106,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>{{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>オプション: トランザクションを追跡し、相互に関連付けるために使用される固有 ID。</td>
+        <td>トランザクションを追跡し、相互に関連付けるために使用される固有 ID。</td>
       </tr>
       <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} API を使用して鍵を表示するために必要な変数についての説明</caption>
     </table>
 
-    `GET /v2/keys` 要求が成功すると、{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内の使用可能な鍵の集合が返されます。
+    `GET api/v2/keys` 要求が成功すると、{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内の使用可能な鍵の集合が返されます。
 
     ```
     {
@@ -143,7 +146,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -155,18 +159,21 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    デフォルトでは、`GET /keys` は最初の 2000 個の鍵を返しますが、照会時に `limit` パラメーターを使用してこの制限を調整できます。 `limit` および `offset` について詳しくは、[鍵のサブセットの取得](#retrieve_subset_keys_api)を参照してください。
+    デフォルトでは、`GET api/v2/keys` は最初の 2000 個の鍵を返しますが、照会時に `limit` パラメーターを使用してこの制限を調整できます。 `limit` および `offset` について詳しくは、[鍵のサブセットの取得](#retrieve_subset_keys_api)を参照してください。
     {: tip}
 
 ### 鍵のサブセットの取得
@@ -184,7 +191,6 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -197,14 +203,14 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>オプション: スキップする鍵の数。</p> 
+        <p>スキップする鍵の数。</p> 
         <p>例えば、インスタンスに 50 個の鍵があって、26 個から 50 個までの鍵をリストしたい場合、<code>../keys?offset=25</code> を使用します。 <code>offset</code> を <code>limit</code> と組み合わせて、使用可能なリソースの一部を取り出すこともできます。</p>
       </td>
     </tr>
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>オプション: 取得する鍵の数。</p> 
+        <p>取得する鍵の数。</p> 
         <p>例えば、インスタンスに 100 個の鍵があって、10 個のみの鍵をリストしたい場合、<code>../keys?limit=10</code> を使用します。 <code>limit</code> の最大値は 5000 です。</p>
       </td>
     </tr>
@@ -277,28 +283,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>{{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>オプション: トランザクションを追跡し、相互に関連付けるために使用される固有 ID。</td>
+        <td>トランザクションを追跡し、相互に関連付けるために使用される固有 ID。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>[ステップ 1](#retrieve-keys-api) で取得した鍵の ID。</td>
+        <td><strong>必須。</strong> [ステップ 1](#retrieve-keys-api) で取得した鍵の ID。</td>
       </tr>
       <caption style="caption-side:bottom;">表 4. {{site.data.keyword.keymanagementserviceshort}} API を使用して指定の鍵を表示するために必要な変数についての説明</caption>
     </table>
 
-    正常な `GET v2/keys/<key_ID>` 応答は、鍵と鍵の素材に関する詳細を返します。 以下の JSON オブジェクトは、標準鍵の戻り値の例を示しています。
+    正常な `GET api/v2/keys/<key_ID>` 応答は、鍵と鍵の素材に関する詳細を返します。 以下の JSON オブジェクトは、標準鍵の戻り値の例を示しています。
 
     ```
     {
@@ -322,11 +328,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
             "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を参照してください。
+    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Link correlati
 {: #related-links}
@@ -21,7 +23,7 @@ Ulteriori risorse per fornirti maggiori informazioni sulla gestione della critto
 ## Esempi
 {: #samples}
 
-- [Sample app: Decrypting secret messages ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Applicazione di esempio: Apply end to end security to a cloud application ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blog
 {: #blogs}

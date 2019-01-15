@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importación de claves raíz
 {: #import-root-keys}
@@ -26,9 +28,10 @@ Las claves raíz son claves para envolver claves simétricas que se utilizan par
 
 [Después de crear una instancia del servicio](/docs/services/key-protect/provision.html), siga los siguientes pasos para añadir su clave raíz existente con la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}}.
 
-1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/){: new_window}.
-2. Desde el panel de control de {{site.data.keyword.cloud_notm}} seleccione su instancia suministrada de {{site.data.keyword.keymanagementserviceshort}}.
-3. Para importar una clave, pulse **Añadir clave** y, a continuación, seleccione la ventana **Especificar clave existente**.
+1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/){: new_window}.
+2. Vaya a **Menú** &gt; **Lista de recursos** para ver una lista de sus recursos.
+3. Desde la lista de recursos de {{site.data.keyword.cloud_notm}} seleccione su instancia suministrada de {{site.data.keyword.keymanagementserviceshort}}.
+4. Para importar una clave, pulse **Añadir clave** y, a continuación, seleccione la ventana **Importar su propia clave**.
 
     Especifique los detalles de la clave:
 
@@ -61,10 +64,10 @@ Las claves raíz son claves para envolver claves simétricas que se utilizan par
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tabla 1. Describe los valores de <b>Especificar clave existente</b></caption>
+      <caption style="caption-side:bottom;">Tabla 1. Describe los valores de <b>Importar su propia clave</b></caption>
     </table>
 
-4. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Añadir una nueva clave** para confirmar. 
+5. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Importar clave** para confirmar.  
 
 ## Importación de claves raíz con la API
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys
 
 1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio](/docs/services/key-protect/access-api.html).
 
-1. Llame la API de [{{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/kms){: new_window} con el mandato de cURL siguiente.
+1. Llame a la API de [{{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/key-protect){: new_window} con el mandato de cURL siguiente.
 
     ```cURL
     curl -X POST \
@@ -106,7 +109,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Para trabajar con claves dentro de un espacio y organización de Cloud Foundry en su cuenta, sustituya `Bluemix-Instance` con las cabeceras adecuadas de `Bluemix-org` y `Bluemix-space`. [Para obtener más información, consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabajar con claves dentro de un espacio y organización de Cloud Foundry en su cuenta, sustituya `Bluemix-Instance` con las cabeceras adecuadas de `Bluemix-org` y `Bluemix-space`. [Para obtener más información, consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
     {: tip}
 
     Sustituya las variables en la solicitud de ejemplo siguiendo la siguiente tabla.
@@ -194,4 +197,4 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys
 ### Qué hacer a continuación
 
 - Para obtener más información sobre la protección de claves con cifrado de sobre, consulte [Claves de envolvimiento](/docs/services/key-protect/wrap-keys.html).
-- Para saber más sobre de sobre cómo gestionar sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

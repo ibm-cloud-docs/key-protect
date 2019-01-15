@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # A propos de {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
@@ -38,7 +40,7 @@ Vous pouvez être amené à gérer des clés dans les scénarios suivants :
     <td>Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez [encapsuler vos clés DEK avec une clé racine hautement sécurisée](/docs/services/key-protect/concepts/envelope-encryption.html). Vous pouvez utiliser vos propres clés racine ou créer des clés dans le service.</td>
   </tr>
   <tr>
-    <td>En tant que responsable informatique d'une grande entreprise, vous êtes chargé du traitement (intégration, suivi et renouvellement) des clés pour de nombreuses offres de service différentes.</td>
+    <td>En tant que responsable informatique d'une grande entreprise, vous êtes chargé du traitement (intégration, suivi et rotation) des clés pour de nombreuses offres de service différentes.</td>
     <td>L'interface {{site.data.keyword.keymanagementserviceshort}} simplifie la gestion des services de chiffrement multiples. Avec ce service, vous pouvez gérer et trier des clés dans un emplacement centralisé unique, ou séparer les clés par projet et les héberger dans des espaces {{site.data.keyword.cloud_notm}} différents.</td>
   </tr>
   <tr>
@@ -49,7 +51,7 @@ Vous pouvez être amené à gérer des clés dans les scénarios suivants :
     <td>Les applications installées sur ou en dehors de {{site.data.keyword.cloud_notm}} peuvent s'intégrer aux API {{site.data.keyword.keymanagementserviceshort}}. Vous pouvez utiliser vos clés existantes pour vos applis. </td>
   </tr>
   <tr>
-    <td>Votre équipe de développement applique des règles strictes et vous devez disposer d'un moyen pour générer et renouveler les clés tous les 14 jours.</td>
+    <td>Votre équipe de développement applique des règles strictes et vous devez disposer d'un moyen pour générer et effectuer une rotation des clés tous les 14 jours.</td>
     <td>Avec {{site.data.keyword.cloud_notm}}, vous pouvez générer rapidement des clés depuis un module HSM (Hardware Security Module) pour répondre à vos besoins de sécurité actuels.</td>
   </tr>
 </table>

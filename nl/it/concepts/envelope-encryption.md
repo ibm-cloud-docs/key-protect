@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Crittografia envelope
 {: #envelope-encryption}
 
-La crittografia envelope è la pratica di codificare i dati con una chiave di crittografia dei dati (DEK) e poi codificare la DEK con una chiave root che puoi completamente gestire. 
+La crittografia envelope è la pratica di codificare i dati con una chiave di crittografia dei dati (o DEK, data encryption key) e poi codificare la DEK con una chiave root che puoi completamente gestire. 
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}} protegge i tuoi dati archiviati con la codifica avanzata e offre diversi vantaggi:
@@ -30,7 +32,7 @@ La crittografia envelope è la pratica di codificare i dati con una chiave di cr
   </tr>
   <tr>
     <td>Protezione integrità e riservatezza</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} utilizza l'algoritmo AES (Advanced Encryption Standard) in GCM (Galois/Counter Mode) per creare e proteggere le chiavi. Quando crei le chiavi nel servizio, {{site.data.keyword.keymanagementserviceshort}} le genera in un limite di trust di HSM (hardware security module) {{site.data.keyword.cloud_notm}}, quindi solo tu hai accesso alle tue chiavi di crittografia.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} utilizza l'algoritmo AES (Advanced Encryption Standard) in GCM (Galois/Counter Mode) per creare e proteggere le chiavi. Quando crei le chiavi nel servizio, {{site.data.keyword.keymanagementserviceshort}} le genera in un limite di trust di HSM (Hardware Security Module) {{site.data.keyword.cloud_notm}}, quindi solo tu hai accesso alle tue chiavi di crittografia.</td>
   </tr>
   <tr>
     <td>Distruzione crittografica dei dati</td>
@@ -62,10 +64,10 @@ Il servizio supporta due tipi di chiavi, le chiavi root e le chiavi standard, pe
   <dt>Chiavi root</dt>
     <dd>Le chiavi root sono le risorse principali in {{site.data.keyword.keymanagementserviceshort}}. Sono le chiavi di impacchettamento della chiave simmetriche utilizzate come radice di attendibilità per l'impacchettamento (crittografia) e lo spacchettamento (decrittografia) di altre chiavi archiviate in un servizio di dati. Con {{site.data.keyword.keymanagementserviceshort}}, puoi creare, memorizzare e gestire il ciclo di vita delle chiavi root per ottenere il controllo completo di altre chiavi archiviate nel cloud. A differenza di una chiave standard, una chiave root non può mai lasciare i confini del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Chiavi standard</dt>
-    <dd>Le chiavi standard sono le chiavi di codifica utilizzate per la crittografia. Generalmente, le chiavi standard codificano direttamente i dati. Con {{site.data.keyword.keymanagementserviceshort}}, puoi creare, memorizzare e gestire il ciclo di vita delle chiavi standard. Dopo aver importato o generato una chiave standard nel servizio, puoi esportarla in una risorsa di dati esterna, come un bucket di archiviazione, per codificare le informazioni sensibili. Le chiavi standard che codificano i dati archiviati sono chiamate chiavi di crittografia dei dati (DEK), che possono essere impacchettate con la crittografia avanzata. Le DEK impacchettate sono archiviate in {{site.data.keyword.keymanagementserviceshort}}.</dd>
+    <dd>Le chiavi standard sono un modo per rendere persistente un segreto, ad esempio una password o una chiave di crittografia. Quando usi {{site.data.keyword.keymanagementserviceshort}} per archiviare le chiavi standard, abiliti l'archiviazione HSM (Hardware Security Module) per i tuoi segreti, un controllo dell'accesso dettagliato alle tue risorse con <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> e la capacità di controllare le chiamate API al servizio con <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
-Dopo aver creato le chiavi in {{site.data.keyword.keymanagementserviceshort}}, il sistema restituisce un valore ID che puoi utilizzare per effettuare le chiamate API al servizio. Puoi richiamare il valore ID delle tue chiavi con la GUI {{site.data.keyword.keymanagementserviceshort}} o l'API [{{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/kms). 
+Dopo aver creato le chiavi in {{site.data.keyword.keymanagementserviceshort}}, il sistema restituisce un valore ID che puoi utilizzare per effettuare le chiamate API al servizio. Puoi richiamare il valore ID per le tue chiavi con la GUI {{site.data.keyword.keymanagementserviceshort}} o la [API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
 
 ## Impacchettamento delle chiavi
 {: #wrapping}
@@ -99,7 +101,7 @@ Se invii una richiesta di impacchettamento senza specificare il testo non critto
 ## Spacchettamento delle chiavi
 {: #unwrapping}
 
-Lo spacchettamento di una chiave di crittografia dei dati (DEK) decodifica e autentica il contenuto nella chiave, restituendo il materiale della chiave originale al tuo servizio di dati. 
+Lo spacchettamento di una chiave di crittografia dei dati (o DEK, data encryption key) decodifica e autentica il contenuto nella chiave, restituendo il materiale della chiave originale al tuo servizio di dati. 
 
 Se la tua applicazione di business deve accedere ai contenuti delle tue DEK impacchettate, puoi utilizzare l'API {{site.data.keyword.keymanagementserviceshort}} per inviare una richiesta di spacchettamento al servizio. Per spacchettare una DEK, specifica il valore ID della chiave root e il valore `ciphertext` restituito durante la richiesta di impacchettamento iniziale. Per completare la richiesta di spacchettamento, devi inoltre fornire ulteriori dati autenticati (AAD) per controllare l'integrità dei contenuti della chiave.
 

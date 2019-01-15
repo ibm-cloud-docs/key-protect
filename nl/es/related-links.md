@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Enlaces relacionados
 {: #related-links}
@@ -21,7 +23,7 @@ Recursos adicionales sobre la gestión del cifrado con {{site.data.keyword.keyma
 ## Ejemplos
 {: #samples}
 
-- [App de ejemplo: Descifrado de mensajes secretos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [App de ejemplo: Aplicación de seguridad de extremo a extremo a una aplicación de nube ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blogs
 {: #blogs}
@@ -34,11 +36,11 @@ Recursos adicionales sobre la gestión del cifrado con {{site.data.keyword.keyma
 ## Términos del servicio
 {: #info}
 
-- [{{site.data.keyword.keymanagementservicelong_notm}}Acuerdo de nivel de servicio ![Icono al enlace externo](../../icons/launch-glyph.svg "Iconoal enlace externo")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
+- [Acuerdo de nivel de servicio de {{site.data.keyword.keymanagementservicelong_notm}} ![Icono al enlace externo](../../icons/launch-glyph.svg "Iconoal enlace externo")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 
 
 ## Servicios relacionados
 {: #related_services}
 
-- [HSM de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
+- [{{site.data.keyword.cloud_notm}} HSM ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
 

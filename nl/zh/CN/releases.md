@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,14 +12,70 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 新增内容
 {: #releases}
 
 及时获取适用于 {{site.data.keyword.keymanagementservicefull}} 的新功能。 
 
+## 2018 年 10 月
+{: #oct-2018}
+
+### 新增：{{site.data.keyword.keymanagementserviceshort}} 扩展到亚太地区北部区域
+最新更新日期：2018 年 10 月 31 日
+
+现在，可以在亚太地区北部区域中创建 {{site.data.keyword.keymanagementserviceshort}} 资源。 
+
+有关更多信息，请参阅[区域和位置](/docs/services/key-protect/regions.html)。
+
+### 新增：{{site.data.keyword.keymanagementserviceshort}} CLI 插件
+最新更新日期：2018 年 10 月 02 日
+
+现在，可以使用 {{site.data.keyword.keymanagementserviceshort}} CLI 插件来管理 {{site.data.keyword.keymanagementserviceshort}} 服务实例中的密钥。
+
+要了解如何安装该插件，请参阅[设置 CLI](/docs/services/key-protect/set-up-cli.html)。要了解有关 {{site.data.keyword.keymanagementserviceshort}} CLI 的更多信息，请查看 [CLI 参考文档](/docs/services/key-protect/cli-reference.html)。
+
+## 2018 年 9 月
+{: #sept-2018}
+
+### 新增：{{site.data.keyword.keymanagementserviceshort}} 添加了对按需密钥轮换的支持
+最新更新日期：2018 年 9 月 28 日
+
+现在，可以使用 {{site.data.keyword.keymanagementserviceshort}} 按需轮换根密钥。
+
+有关更多信息，请参阅[轮换密钥](/docs/services/key-protect/rotate-keys.html)。
+
+### 新增：适用于云应用程序的端到端安全性教程
+最新更新日期：2018 年 9 月 14 日
+
+要查找代码样本来了解如何使用自己的加密密钥来加密存储区内容吗？
+
+现在，可以遵循[新教程](/docs/tutorials/cloud-e2e-security.html)来练习为云应用程序添加端到端安全性。
+
+有关更多信息，请查看 [GitHub 中的样本应用程序 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
+
+### 新增：{{site.data.keyword.keymanagementserviceshort}} 扩展到美国东部区域
+最新更新日期：2018 年 9 月 10 日
+
+现在，可以在美国东部区域中创建 {{site.data.keyword.keymanagementserviceshort}} 资源。 
+
+有关更多信息，请参阅[区域和位置](/docs/services/key-protect/regions.html)。
+
+## 2018 年 8 月
+{: #aug-2018}
+
+### 更改：{{site.data.keyword.keymanagementserviceshort}} API 文档 URL
+最新更新日期：2018 年 8 月 28 日
+
+{{site.data.keyword.keymanagementserviceshort}} API 参考已移至新位置！ 
+
+现在，可以从以下位置访问 API 文档：
+https://console.bluemix.net/apidocs/key-protect
+
 ## 2018 年 3 月
-{: #mar_2018}
+{: #mar-2018}
 
 ### 新增：{{site.data.keyword.keymanagementserviceshort}} 扩展到法兰克福区域
 最新更新日期：2018 年 3 月 21 日
@@ -29,7 +85,7 @@ lastupdated: "2018-08-24"
 有关更多信息，请参阅[区域和位置](/docs/services/key-protect/regions.html)。
 
 ## 2018 年 1 月
-{: #jan_2018}
+{: #jan-2018}
 
 ### 新增：{{site.data.keyword.keymanagementserviceshort}} 扩展到悉尼区域
 最新更新日期：2018 年 1 月 31 日
@@ -39,7 +95,7 @@ lastupdated: "2018-08-24"
 有关更多信息，请参阅[区域和位置](/docs/services/key-protect/regions.html)。
 
 ## 2017 年 12 月
-{: #dec_2017}
+{: #dec-2017}
 
 ### 新增：{{site.data.keyword.keymanagementserviceshort}} 添加了对“自带密钥”(BYOK) 的支持
 最新更新日期：2017 年 12 月 15 日
@@ -68,7 +124,7 @@ lastupdated: "2018-08-24"
 有关更多信息，请参阅[管理用户访问权](/docs/services/key-protect/manage-access.html)。
 
 ## 2017 年 9 月
-{: #sept_2017}
+{: #sept-2017}
 
 ### 新增：{{site.data.keyword.keymanagementserviceshort}} 添加了对 Cloud IAM 的支持
 最新更新日期：2017 年 9 月 19 日

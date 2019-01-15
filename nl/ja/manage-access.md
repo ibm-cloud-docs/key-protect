@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# ユーザーのアクセス権限の管理
+# アクセス権限の管理
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} では、暗号鍵のユーザーおよびアクセス権限の管理に役立つように、{{site.data.keyword.iamlong}} によって管理される集中アクセス制御システムをサポートしています。
@@ -57,12 +59,13 @@ lastupdated: "2018-08-24"
   </tr>
   <tr>
     <td><p>作成者</p></td>
-    <td><p>作成者は、鍵の作成、鍵の変更、および鍵の素材へのアクセスを行えます。</p></td>
+    <td><p>作成者は、鍵の作成、鍵の変更、鍵のローテート、および鍵素材へのアクセスを行えます。</p></td>
     <td>
       <p>
         <ul>
           <li>鍵の作成</li>
           <li>鍵の表示</li>
+          <li>鍵のローテート</li>
           <li>鍵のラップ</li>
           <li>鍵のアンラップ</li>
         </ul>
@@ -85,13 +88,11 @@ lastupdated: "2018-08-24"
   <caption style="caption-side:bottom;">表 1. ID およびアクセス役割が {{site.data.keyword.keymanagementserviceshort}} 許可にどのようにマップされるのかについての説明</caption>
 </table>
 
-**注**: Cloud IAM ユーザー役割は、サービス・レベルまたはサービス・インスタンス・レベルでアクセス権限を提供します。 [Cloud Foundry 役割 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam/cfaccess.html){: new_window} は、これとは別個のもので、組織レベルまたはスペース・レベルでアクセス権限を定義します。
-
-{{site.data.keyword.iamshort}} について詳しくは、[ユーザーの役割と許可 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam/users_roles.html#userroles){: new_window} を参照してください。
+Cloud IAM ユーザー役割は、サービス・レベルまたはサービス・インスタンス・レベルでアクセス権限を提供します。 [Cloud Foundry 役割 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam/cfaccess.html){: new_window} は、これとは別個のもので、組織レベルまたはスペース・レベルでアクセス権限を定義します。 {{site.data.keyword.iamshort}} について詳しくは、[ユーザーの役割と許可 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam/users_roles.html#userroles){: new_window} を参照してください。
+{: note}
 
 ### 次に行うこと
 
 アカウントの所有者および管理者は、ユーザーを招待し、ユーザーが実行できる {{site.data.keyword.keymanagementserviceshort}} アクションに対応するサービス・ポリシーを設定できます。
 
 - {{site.data.keyword.cloud_notm}} UI でのユーザー役割の割り当てについて詳しくは、[IAM アクセス権限の管理 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam/mngiam.html){: new_window} を参照してください。
-- 特定の暗号鍵にアクセスするための高度な許可の付与については、[鍵へのアクセス権限の管理](/docs/services/key-protect/manage-access-api.html)を参照してください。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Eliminazione delle chiavi
 {: #deleting-keys}
@@ -19,7 +21,8 @@ lastupdated: "2018-08-24"
 Puoi utilizzare {{site.data.keyword.keymanagementservicefull}} per eliminare una chiave crittografata e il suo contenuto, se sei un amministratore del tuo spazio {{site.data.keyword.cloud_notm}} o dell'istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-**Importante:** quando elimini una chiave, distruggi permanentemente il suo contenuto e i dati associati. L'azione è irreversibile. Distruggere le risorse non è consigliato negli ambienti di produzione, ma può essere utile negli ambienti temporanei come test o QA.
+Quando elimini una chiave, distruggi permanentemente il suo contenuto e i dati associati. L'azione è irreversibile. Distruggere le risorse non è consigliato negli ambienti di produzione, ma può essere utile negli ambienti temporanei come test o QA.
+{: important}
 
 ## Eliminazione delle chiavi con la GUI
 {: #gui}
@@ -28,11 +31,12 @@ Se preferisci eliminare le tue chiavi di crittografia con un'interfaccia grafica
 
 [Dopo aver creato o importato le tue chiavi esistenti nel servizio](/docs/services/key-protect/create-root-keys.html), completa la seguente procedura per eliminare una chiave:
 
-1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/){: new_window}.
-2. Dal dashboard {{site.data.keyword.cloud_notm}}, seleziona l'istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
-3. Utilizza la tabella **Keys** per sfogliare le chiavi nel tuo servizio.
-4. Fai clic sull'icona con tre punti per aprire un elenco di opzioni per la chiave che desideri eliminare.
-5. Dal menu di opzioni, fai clic su **Delete key** e conferma l'eliminazione della chiave nella schermata successiva.
+1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: new_window}.
+2. Vai a **Menu** &gt; **Elenco risorse** per visualizzare un elenco delle tue risorse.
+3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
+4. Nella pagina dei dettagli dell'applicazione, utilizza la tabella **Chiavi** per sfogliare le chiavi nel tuo servizio.
+5. Fai clic sull'icona con tre punti per aprire un elenco di opzioni per la chiave che desideri eliminare.
+6. Dal menu di opzioni, fai clic su **Delete key** e conferma l'eliminazione della chiave nella schermata successiva.
 
 Dopo aver eliminato una chiave, la chiave passa allo stato _Destroyed_. Le chiavi in questo stato non sono più ripristinabili. I metadati associati alla chiave, come la data di eliminazione della chiave, vengono conservati nel database {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -62,7 +66,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     ```
     {: codeblock}
   
-    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Sostituisci le variabili nella richiesta di esempio in base alla seguente tabella.
@@ -73,19 +77,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>L'identificativo univoco della chiave che desideri eliminare.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco della chiave che desideri eliminare.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
@@ -125,4 +129,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     {: screen}
 
     Per una descrizione dettagliata dei parametri disponibili, consulta
-{{site.data.keyword.keymanagementserviceshort}} [REST API reference doc ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window}.
+{{site.data.keyword.keymanagementserviceshort}} [REST API reference doc ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.

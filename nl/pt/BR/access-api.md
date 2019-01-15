@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Acessando a API
 {: #access-api}
@@ -25,18 +27,16 @@ Para trabalhar com a API, é necessário gerar suas credenciais de serviço e au
 ## Recuperando um token de acesso
 {: #retrieve-token}
 
-É possível autenticar com o {{site.data.keyword.keymanagementserviceshort}} ao recuperar um token de acesso do
-{{site.data.keyword.iamshort}}. Com um [ID de serviço](/docs/iam/serviceid.html#serviceids), é possível trabalhar
+É possível autenticar com o {{site.data.keyword.keymanagementserviceshort}} recuperando um token de acesso do {{site.data.keyword.iamshort}} (IAM). Com um [ID de serviço](/docs/iam/serviceid.html#serviceids), é possível trabalhar
 com a API do {{site.data.keyword.keymanagementserviceshort}} em nome do seu serviço ou aplicativo ou fora do
 {{site.data.keyword.cloud_notm}}, sem precisar compartilhar suas credenciais do usuário pessoais.  
 
 Se você deseja autenticar com suas credenciais do usuário, é possível recuperar o token executando `ibmcloud iam oauth-tokens` na [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli/index.html#overview){: new_window}.
-{: tip}
+{: note}
 
 Conclua as seguintes etapas para recuperar um token de acesso:
 
-1. No console do {{site.data.keyword.cloud_notm}}, acesse **Gerenciar** &gt;
-**Segurança** &gt; **Identidade e acesso** &gt; **IDs de serviço**. Siga o processo para [criar um ID do serviço](/docs/iam/serviceid.html#creating-a-service-id){: new_window}.
+1. No console do {{site.data.keyword.cloud_notm}}, acesse **Gerenciar** &gt; **Acesso (IAM)** &gt; **IDs de serviço**. Siga o processo para [criar um ID do serviço](/docs/iam/serviceid.html#creating-a-service-id){: new_window}.
 2. Use o menu **Ações** para [definir uma política de acesso para o seu novo ID do serviço](/docs/iam/serviceidaccess.html){: new_window}.
     
     Para obter mais informações sobre como gerenciar o acesso para seus recursos do
@@ -49,7 +49,7 @@ Conclua as seguintes etapas para recuperar um token de acesso:
       "https://iam.bluemix.net/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" \ 
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
     ```
     {: codeblock}
 
@@ -71,7 +71,7 @@ a seguir mostra a saída de token:
 programaticamente para seu serviço usando a API do {{site.data.keyword.keymanagementserviceshort}}. 
 
     Os tokens de acesso são válidos por 1 hora, mas é possível gerá-los novamente conforme necessário. Para manter o acesso ao serviço, atualize o token de acesso para a sua chave API em uma base regular chamando a API do {{site.data.keyword.iamshort}}.   
-    {: tip }
+    {: note }
 
 ## Recuperando o ID de sua instância
 {: #retrieve-instance-ID}
@@ -103,7 +103,7 @@ programaticamente para seu serviço usando a API do {{site.data.keyword.keymanag
 {{site.data.keyword.keymanagementserviceshort}}. O exemplo truncado a seguir mostra a saída da CLI. O valor _42454b3b-5b06-407b-a4b3-34d9ef323901_ é um ID da instância de exemplo.
 
     ```
-    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901::
+    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
 
@@ -121,11 +121,10 @@ curl -X GET \
     https://keyprotect.us-south.bluemix.net/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <access_token>' \
-    -H 'bluemix-instance: <instance_ID>' \
+    -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock} 
 
 ### O que vem a seguir
 
-- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
-- Para ver um exemplo de como chaves armazenadas no {{site.data.keyword.keymanagementserviceshort}} podem funcionar para criptografar e decriptografar dados, [consulte o aplicativo de amostra no GitHub ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

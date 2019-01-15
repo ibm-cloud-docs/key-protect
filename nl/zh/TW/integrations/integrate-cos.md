@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 與 {{site.data.keyword.cos_full_notm}} 整合
 {: #integrate-cos}
@@ -52,7 +54,7 @@ lastupdated: "2018-08-24"
 
 若要為儲存空間儲存區新增封套加密，請執行下列動作：
 
-1. 從 {{site.data.keyword.cos_full_notm}} 儀表板中，按一下**建立儲存區**。
+1. 從 {{site.data.keyword.cos_full_notm}} 儀表板按一下**建立儲存區**。
 2. 指定儲存區的詳細資料。
 3. 在**進階配置**區段中，選取**新增 {{site.data.keyword.keymanagementserviceshort}} 金鑰**。
 4. 從 {{site.data.keyword.keymanagementserviceshort}} 服務實例清單中，選取包含您要用於金鑰包裝之主要金鑰的實例。

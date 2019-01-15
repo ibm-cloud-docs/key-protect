@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}} 事件
 {: #at-events}
@@ -60,6 +62,10 @@ lastupdated: "2018-08-24"
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>解包密钥</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>轮换密钥</td>
     </tr>
     <caption style="caption-side:bottom;">表 1. 生成 {{site.data.keyword.cloudaccesstrailfull_notm}} 事件的操作</caption>
 </table>

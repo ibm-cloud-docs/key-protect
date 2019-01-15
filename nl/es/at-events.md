@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Sucesos de {{site.data.keyword.cloudaccesstrailshort}}
 {: #at-events}
@@ -60,6 +62,10 @@ La tabla siguiente lista las acciones que generan un suceso:
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>Desenvolver una clave</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>Rotar una clave</td>
     </tr>
     <caption style="caption-side:bottom;">Tabla 1. Acciones que generan sucesos de {{site.data.keyword.cloudaccesstrailfull_notm}}</caption>
 </table>

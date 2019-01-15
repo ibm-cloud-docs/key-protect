@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Informazioni su {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Mentre gestisci il ciclo di vita delle tue chiavi, puoi ottenere dei benefici sapendo che le tue chiavi sono protette dagli HSM (hardware security module) basati sul cloud certificati FIPS 140-2 Level 2 che proteggono dal furto di informazioni.
+{{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Mentre gestisci il ciclo di vita delle tue chiavi, puoi ottenere dei benefici sapendo che le tue chiavi sono protette dagli HSM (Hardware Security Module) basati sul cloud certificati FIPS 140-2 Level 2 che proteggono dal furto di informazioni.
 {: shortdesc}
 
 ## Motivi per usare il servizio
@@ -65,7 +67,7 @@ essere integrate con le API {{site.data.keyword.keymanagementserviceshort}}. Puo
     <td>Il tuo team di sviluppo ha politiche rigorose e hai bisogno di un modo per generare e ruotare
 le chiavi ogni 14 giorni.</td>
     <td>Con {{site.data.keyword.cloud_notm}},
-puoi generare le chiavi rapidamente da un HSM (hardware security module) per soddisfare i tuoi bisogni di sicurezza
+puoi generare le chiavi rapidamente da un HSM (Hardware Security Module) per soddisfare i tuoi bisogni di sicurezza
 continuativa.</td>
   </tr>
 </table>
@@ -118,7 +120,7 @@ puoi lavorare con le tue chiavi in modo sicuro.</dd>
 </dl>
 
 I seguenti diagrammi mostrano come {{site.data.keyword.keymanagementserviceshort}}
-utilizza i moduli di sicurezza hardware per generare le chiavi in confronto a come il servizio archivia le chiavi.
+utilizza gli HSM (Hardware Security Module) per generare le chiavi in confronto a come il servizio archivia le chiavi.
 
 ![Il diagramma mostra come vengono generate le chiavi.](images/generated-key_min.svg)
 

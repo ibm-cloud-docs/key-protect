@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 封套加密
 {: #envelope-encryption}
@@ -62,10 +64,10 @@ lastupdated: "2018-08-24"
   <dt>主要金鑰</dt>
     <dd>主要金鑰是 {{site.data.keyword.keymanagementserviceshort}} 中的主要資源。它們是對稱金鑰包裝金鑰，用來作為信任主要金鑰，以包裝（加密）及解除包裝（解密）資料服務中所儲存的其他金鑰。使用 {{site.data.keyword.keymanagementserviceshort}}，您可以建立、儲存及管理主要金鑰的生命週期，來完全控制雲端中所儲存的其他金鑰。與標準金鑰不同，主要金鑰永遠無法離開 {{site.data.keyword.keymanagementserviceshort}} 服務的範圍。</dd>
   <dt>標準金鑰</dt>
-    <dd>標準金鑰是用於加密的加密金鑰。一般而言，標準金鑰會直接加密資料。使用 {{site.data.keyword.keymanagementserviceshort}}，您可以建立、儲存及管理標準金鑰的生命週期。在服務中匯入或產生標準金鑰之後，即可將它匯出至外部資料資源（例如儲存空間儲存區），以加密機密資訊。加密已儲存資料的標準金鑰稱為資料加密金鑰 (DEK)，其可使用進階加密進行包裝。已包裝的 DEK 不會儲存在 {{site.data.keyword.keymanagementserviceshort}} 中。</dd>
+    <dd>標準金鑰可以持續保存密碼，例如密碼或加密金鑰。當您使用 {{site.data.keyword.keymanagementserviceshort}} 來儲存標準金鑰時，您會啟用密碼的硬體安全模組 (HSM) 儲存空間，使用 <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> 進行資源的精細存取控制，並且能夠使用 <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 審核對服務的 API 呼叫。</dd>
 </dl>
 
-在 {{site.data.keyword.keymanagementserviceshort}} 中建立金鑰之後，系統會傳回一個 ID 值，您可以用它來對服務發出 API 呼叫。您可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或 [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/kms) 來擷取金鑰的 ID 值。 
+在 {{site.data.keyword.keymanagementserviceshort}} 中建立金鑰之後，系統會傳回一個 ID 值，您可以用它來對服務發出 API 呼叫。您可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) 來擷取金鑰的 ID 值。 
 
 ## 包裝金鑰
 {: #wrapping}
@@ -75,7 +77,7 @@ lastupdated: "2018-08-24"
 在 {{site.data.keyword.keymanagementserviceshort}} 中指定主要金鑰之後，即可使用 {{site.data.keyword.keymanagementserviceshort}} API 將金鑰 wrap 要求傳送至服務。金鑰 wrap 作業同時提供 DEK 的機密性及完整性保護。下圖顯示運作中的金鑰包裝處理程序：
 ![此圖顯示運作中的金鑰包裝。](../images/wrapping-keys_min.svg)
 
-下表說明執行金鑰包裝作業所需的輸入：
+下表說明執行金鑰 wrap 作業所需的輸入：
 <table>
   <th>輸入</th>
   <th>說明</th>

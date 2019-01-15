@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 開始使用 {{site.data.keyword.keymanagementserviceshort}}
 
@@ -35,15 +37,14 @@ lastupdated: "2018-08-24"
 ## 建立新金鑰
 {: #create-keys}
 
-[建立 {{site.data.keyword.keymanagementserviceshort}} 實例之後](https://console.ng.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps)，您便可以在服務中指定金鑰。 
+[建立 {{site.data.keyword.keymanagementserviceshort}} 實例之後](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps)，您便可以在服務中指定金鑰。 
 
 請完成下列步驟，以建立第一個加密金鑰。 
 
-1. 從 {{site.data.keyword.keymanagementserviceshort}} 儀表板中，按一下**管理** &gt; **新增金鑰**。
-2. 若要建立新的金鑰，請選取**產生新金鑰**視窗。
+1. 在應用程式詳細資料頁面上，按一下**管理** &gt; **新增金鑰**。
+2. 若要建立新的金鑰，請選取**建立金鑰**視窗。
 
     指定金鑰的詳細資料：
-    
 
     <table>
       <tr>
@@ -61,22 +62,22 @@ lastupdated: "2018-08-24"
         <td>金鑰類型</td>
         <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">金鑰類型</a>。</td>
       </tr>
-      <caption style="caption-side:bottom;">表 1. 「產生新金鑰」設定的說明</caption>
+      <caption style="caption-side:bottom;">表 1. <b>建立金鑰</b>設定的說明</caption>
     </table>
 
-3. 當您填寫完金鑰的詳細資料時，請按一下**產生金鑰**以便確認。 
+3. 當您填寫完金鑰的詳細資料時，請按一下**建立金鑰**以便確認。 
 
 在服務中所建立的金鑰是 AES-GCM 演算法所支援的對稱 256 位元金鑰。為了提高安全，金鑰是由位於安全 {{site.data.keyword.cloud_notm}} 資料中心的 FIPS 140-2 Level 2 認證硬體安全模組 (HSM) 所產生。 
 
-## 新增現有金鑰
-{: #add-keys}
+## 匯入自己的金鑰
+{: #import-keys}
 
 將現有金鑰引進到服務中，即可啟用「自帶金鑰 (BYOK)」的安全優點。 
 
 請完成下列步驟，以新增現有金鑰。
 
-1. 從 {{site.data.keyword.keymanagementserviceshort}} 儀表板中，按一下**管理** &gt; **新增金鑰**。
-2. 若要上傳現有金鑰，請選取**輸入現有金鑰**視窗。
+1. 在應用程式詳細資料頁面上，按一下**管理** &gt; **新增金鑰**。
+2. 若要上傳現有金鑰，請選取**匯入自己的金鑰**視窗。
 
     指定金鑰的詳細資料：
 
@@ -100,10 +101,10 @@ lastupdated: "2018-08-24"
         <td>金鑰資料</td>
         <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 服務中儲存的金鑰資料（例如對稱金鑰）。您提供的金鑰必須以 base64 編碼。</td>
       </tr>
-      <caption style="caption-side:bottom;">表 2. 「輸入現有金鑰」設定的說明</caption>
+      <caption style="caption-side:bottom;">表 2. <b>匯入自己的金鑰</b>設定的說明</caption>
     </table>
 
-3. 當您填寫完金鑰的詳細資料時，請按一下**新增金鑰**以便確認。 
+3. 當您填寫完金鑰的詳細資料時，請按一下**匯入金鑰**以便確認。 
 
 從 {{site.data.keyword.keymanagementserviceshort}} 儀表板中，您可以檢查新金鑰的一般特徵。 
 
@@ -113,4 +114,4 @@ lastupdated: "2018-08-24"
 
 - 若要進一步瞭解如何使用主要金鑰管理和保護您的加密金鑰，請參閱[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
 - 若要進一步瞭解如何整合 {{site.data.keyword.keymanagementserviceshort}} 服務與其他雲端資料解決方案，[請參閱整合文件](/docs/services/key-protect/integrations/integrate-services.html)。
-- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
+- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。

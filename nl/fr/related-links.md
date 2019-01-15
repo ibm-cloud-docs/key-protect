@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Liens connexes
 {: #related-links}
@@ -21,7 +23,7 @@ Ressources supplémentaires pour vous aider à mieux comprendre la gestion du ch
 ## Exemples
 {: #samples}
 
-- [Sample app: Decrypting secret messages ![Icône Lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Sample app: Apply end to end security to a cloud application ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blogues
 {: #blogs}

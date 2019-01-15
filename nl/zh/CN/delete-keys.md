@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 删除密钥
 {: #deleting-keys}
@@ -19,7 +21,8 @@ lastupdated: "2018-08-24"
 如果您是 {{site.data.keyword.cloud_notm}} 空间或 {{site.data.keyword.keymanagementserviceshort}} 服务实例的管理员，那么您可以使用 {{site.data.keyword.keymanagementservicefull}} 来删除加密密钥及其内容。
 {: shortdesc}
 
-**重要信息**：删除密钥时，会永久粉碎其内容和关联的数据。该操作无法撤销。建议不要对生产环境销毁资源，但是对临时环境（如测试或 QA）销毁资源可能很有用。
+删除密钥时，会永久粉碎其内容和关联的数据。该操作无法撤销。建议不要对生产环境销毁资源，但是对临时环境（如测试或 QA）销毁资源可能很有用。
+{: important}
 
 ## 使用 GUI 删除密钥
 {: #gui}
@@ -28,11 +31,12 @@ lastupdated: "2018-08-24"
 
 [在您创建密钥或将现有密钥导入服务后](/docs/services/key-protect/create-root-keys.html)，请完成以下步骤以删除密钥：
 
-1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/){: new_window}。
-2. 在 {{site.data.keyword.cloud_notm}} 仪表板中，选择供应的 {{site.data.keyword.keymanagementserviceshort}} 实例。
-3. 使用**密钥**表以浏览服务中的密钥。
-4. 单击 ⋮ 图标以针对要删除的密钥打开选项列表。
-5. 从选项菜单中，单击**删除密钥**并在下一个屏幕中确认密钥删除。
+1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/){: new_window}。
+2. 转至**菜单** &gt; **资源列表**，以查看资源的列表。
+3. 从 {{site.data.keyword.cloud_notm}} 资源列表中，选择您供应的 {{site.data.keyword.keymanagementserviceshort}} 实例。
+4. 在应用程序详细信息页面中，使用**密钥**表来浏览服务中的密钥。
+5. 单击 ⋮ 图标以打开要删除的密钥的选项列表。
+6. 从选项菜单中，单击**删除密钥**，然后在下一个屏幕中进行确认。
 
 删除密钥后，该密钥会转变为_已销毁_状态。处于此状态的密钥不再可恢复。与密钥关联的元数据（例如，密钥的删除日期）会保存在 {{site.data.keyword.keymanagementserviceshort}} 数据库中。
 
@@ -62,7 +66,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     ```
     {: codeblock}
   
-    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
     {: tip}
 
     根据下表替换示例请求中的变量。
@@ -73,19 +77,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
+        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>您要删除的密钥的唯一标识。</td>
+        <td><strong>必需</strong>。您要删除的密钥的唯一标识。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
+        <td><strong>必需</strong>。您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
+        <td><strong>必需</strong>。指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
@@ -99,11 +103,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     {
       "metadata": {
         "collectionType": "application/vnd.ibm.kms.key+json",
-       "collectionTotal": 1
-     },
-    "resources": [
-      {
-      "id": "...",
+        "collectionTotal": 1
+      },
+      "resources": [
+        {
+          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
           "name": "...",
           "description": "...",
@@ -124,4 +128,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
     ```
     {: screen}
 
-    有关可用参数的详细描述，请参阅 {{site.data.keyword.keymanagementserviceshort}} [REST API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    有关可用参数的详细描述，请参阅 {{site.data.keyword.keymanagementserviceshort}} [REST API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

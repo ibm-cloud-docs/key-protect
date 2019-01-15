@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Benutzerzugriff verwalten
+# Zugriff verwalten
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} unterstützt ein zentralisiertes Zugriffssteuerungssystem, das mit {{site.data.keyword.iamlong}} reguliert wird, um Sie bei der Verwaltung von Benutzern und beim Zugriff auf Ihre Verschlüsselungsschlüssel zu unterstützen.
@@ -57,12 +59,13 @@ In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- u
   </tr>
   <tr>
     <td><p>Schreibberechtigter</p></td>
-    <td><p>Ein Schreibberechtigter kann Schlüssel erstellen und bearbeiten und auf die Schlüsselinformationen zugreifen.</p></td>
+    <td><p>Ein Schreibberechtigter kann Schlüssel erstellen, bearbeiten, turnusmäßig wechseln und auf die Schlüsselinformationen zugreifen.</p></td>
     <td>
       <p>
         <ul>
           <li>Schlüssel erstellen</li>
           <li>Schlüssel anzeigen</li>
+          <li>Schlüssel turnusmäßig wechseln</li>
           <li>Wrapping für Schlüssel durchführen</li>
           <li>Wrapping für Schlüssel aufheben</li>
         </ul>
@@ -85,13 +88,11 @@ In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- u
   <caption style="caption-side:bottom;">Tabelle 1. Informationen zur Zuordnung von Identitäts- und Zugriffsrollen zu {{site.data.keyword.keymanagementserviceshort}}-Berechtigungen</caption>
 </table>
 
-**Hinweis**: Cloud IAM-Benutzerrollen bieten Zugriff auf Service- und auf Serviceinstanzebene. [Cloud Foundry-Rollen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/cfaccess.html){: new_window} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene.
-
-Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie in [Benutzerrollen und -berechtigungen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/users_roles.html#userroles){: new_window}.
+Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [Cloud Foundry-Rollen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/cfaccess.html){: new_window} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene. Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie in [Benutzerrollen und -berechtigungen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/users_roles.html#userroles){: new_window}.
+{: note}
 
 ### Weitere Schritte
 
 Kontoeigner und Administratoren können Benutzer einladen und Servicerichtlinien festlegen, die den {{site.data.keyword.keymanagementserviceshort}}-Aktionen entsprechen, die die Benutzer ausführen können.
 
 - Weitere Informationen zur Zuweisung von Benutzerrollen in der {{site.data.keyword.cloud_notm}}-Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/mngiam.html){: new_window}.
-- Informationen zum Erteilen erweiterter Berechtigungen für den Zugriff auf bestimmte Verschlüsselungsschlüssel finden Sie in [Zugriff auf Schlüssel verwalten](/docs/services/key-protect/manage-access-api.html).

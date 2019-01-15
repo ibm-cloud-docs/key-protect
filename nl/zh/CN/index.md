@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.keymanagementserviceshort}} 入门
 
@@ -35,12 +37,12 @@ lastupdated: "2018-08-24"
 ## 创建新密钥
 {: #create-keys}
 
-[创建 {{site.data.keyword.keymanagementserviceshort}} 的实例后](https://console.ng.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps)，即可随时指定服务中的密钥。 
+[创建 {{site.data.keyword.keymanagementserviceshort}} 的实例后](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps)，即可开始在服务中指定密钥。 
 
 要创建第一个密钥，请完成以下步骤。 
 
-1. 在 {{site.data.keyword.keymanagementserviceshort}} 仪表板中，单击**管理** &gt; **添加密钥**。
-2. 要创建新密钥，请选择**生成新密钥**窗口。
+1. 在应用程序详细信息页面中，单击**管理** &gt; **添加密钥**。
+2. 要创建新密钥，请选择**创建密钥**窗口。
 
     指定密钥的详细信息：
 
@@ -52,7 +54,7 @@ lastupdated: "2018-08-24"
       <tr>
         <td>名称</td>
         <td>
-          <p>密钥的人类可以阅读的唯一别名，以便可轻松识别密钥。</p>
+          <p>密钥的人类可读的唯一别名，以便可轻松识别密钥。</p>
           <p>为保护隐私，请确保密钥名称不包含个人可标识信息 (PII)，例如，姓名或位置。</p>
         </td>
       </tr>
@@ -60,22 +62,22 @@ lastupdated: "2018-08-24"
         <td>密钥类型</td>
         <td>要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">密钥类型</a>。</td>
       </tr>
-      <caption style="caption-side:bottom;">表 1.“生成新密钥”设置的描述</caption>
+      <caption style="caption-side:bottom;">表 1. 描述<b>创建密钥</b>设置</caption>
     </table>
 
-3. 填写完密钥详细信息后，单击**生成密钥**以进行确认。 
+3. 填写完密钥详细信息后，单击**创建密钥**以进行确认。 
 
 服务中创建的密钥是 AES-GCM 算法支持的 256 位对称密钥。为了提高安全性，密钥通过位于安全 {{site.data.keyword.cloud_notm}} 数据中心且通过 FIPS 140-2 Level 2 认证的硬件安全模块 (HSM) 生成。 
 
-## 添加现有密钥
-{: #add-keys}
+## 导入自己的密钥
+{: #import-keys}
 
 可以通过将现有密钥引入服务来利用“自带密钥”(BYOK) 的安全优势。 
 
 要添加现有密钥，请完成以下步骤。
 
-1. 在 {{site.data.keyword.keymanagementserviceshort}} 仪表板中，单击**管理** &gt; **添加密钥**。
-2. 要上传现有密钥，请选择**输入现有密钥**窗口。
+1. 在应用程序详细信息页面中，单击**管理** &gt; **添加密钥**。
+2. 要上传现有密钥，请选择**导入自己的密钥**窗口。
 
     指定密钥的详细信息：
 
@@ -87,7 +89,7 @@ lastupdated: "2018-08-24"
       <tr>
         <td>名称</td>
         <td>
-          <p>密钥的人类可以阅读的唯一别名，以便可轻松识别密钥。</p>
+          <p>密钥的人类可读的唯一别名，以便可轻松识别密钥。</p>
           <p>为保护隐私，请确保密钥名称不包含个人可标识信息 (PII)，例如，姓名或位置。</p>
         </td>
       </tr>
@@ -97,12 +99,12 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>密钥资料</td>
-        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 服务中存储的密钥资料，例如，对称密钥。提供的密钥必须采用 base64 编码。</td>
+        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 服务中存储的密钥资料，例如，对称密钥。提供的密钥必须采用 Base64 编码。</td>
       </tr>
-      <caption style="caption-side:bottom;">表 2.“输入现有密钥”设置的描述</caption>
+      <caption style="caption-side:bottom;">表 2. 描述<b>导入自己的密钥</b>设置</caption>
     </table>
 
-3. 填写完密钥详细信息后，单击**添加新密钥**以进行确认。 
+3. 填写完密钥详细信息后，单击**导入密钥**以进行确认。 
 
 在 {{site.data.keyword.keymanagementserviceshort}} 仪表板中，可以检查新密钥的常规特征。 
 
@@ -112,4 +114,4 @@ lastupdated: "2018-08-24"
 
 - 要查找有关使用根密钥来管理和保护加密密钥的更多信息，请查看[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
 - 要了解有关将 {{site.data.keyword.keymanagementserviceshort}} 服务与其他云数据解决方案集成的更多信息，请[查看“集成”文档](/docs/services/key-protect/integrations/integrate-services.html)。
-- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/key-protect){: new_window}。
+- 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

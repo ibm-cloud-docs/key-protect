@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 키 상태
 {: #key-states}
@@ -30,7 +32,7 @@ lastupdated: "2018-08-24"
 
 <table>
   <tr>
-    <th>상태</th>
+    <th>시/도</th>
     <th>설명</th>
   </tr>
   <tr>

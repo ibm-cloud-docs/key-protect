@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}} イベント
 {: #at-events}
 
-{{site.data.keyword.cloudaccesstrailfull}} サービスを使用して、ユーザーとアプリケーションが {{site.data.keyword.keymanagementservicefull}} と対話する方法を追跡します。
+{{site.data.keyword.cloudaccesstrailfull}} サービスを使用して、ユーザーとアプリケーションが {{site.data.keyword.keymanagementservicefull}} と対話する方法を追跡します。 
 {: shortdesc}
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} サービスは、{{site.data.keyword.cloud_notm}} のサービスの状態を変更する、ユーザーが開始したアクティビティーを記録します。 
@@ -61,6 +63,10 @@ lastupdated: "2018-08-24"
         <td>kms.secrets.unwrap</td>
         <td>鍵をアンラップします</td>
     </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>鍵をローテートします</td>
+    </tr>
     <caption style="caption-side:bottom;">表 1. {{site.data.keyword.cloudaccesstrailfull_notm}} イベントを生成するアクション</caption>
 </table>
 
@@ -71,11 +77,11 @@ lastupdated: "2018-08-24"
 
 {{site.data.keyword.cloudaccesstrailshort}} イベントは、イベントが生成される {{site.data.keyword.cloud_notm}} 地域で使用可能な {{site.data.keyword.cloudaccesstrailshort}} **アカウント・ドメイン**で使用できます。
 
-例えば、{{site.data.keyword.keymanagementserviceshort}} で鍵の作成、インポート、削除、または読み取りを行うと、{{site.data.keyword.cloudaccesstrailshort}} イベントが生成されます。これらのイベントは、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域の {{site.data.keyword.cloudaccesstrailshort}} サービスに自動的に転送されます。
+例えば、{{site.data.keyword.keymanagementserviceshort}} で鍵の作成、インポート、削除、または読み取りを行うと、{{site.data.keyword.cloudaccesstrailshort}} イベントが生成されます。 これらのイベントは、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域の {{site.data.keyword.cloudaccesstrailshort}} サービスに自動的に転送されます。
 
-API アクティビティーをモニターするには、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域で使用可能なスペースで {{site.data.keyword.cloudaccesstrailshort}} サービスをプロビジョンする必要があります。その後、ライト・プランを利用している場合は {{site.data.keyword.cloudaccesstrailshort}} UI のアカウント・ビューから、プレミアム・プランを利用している場合は Kibana からイベントを表示することができます。
+API アクティビティーをモニターするには、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域で使用可能なスペースで {{site.data.keyword.cloudaccesstrailshort}} サービスをプロビジョンする必要があります。 その後、ライト・プランを利用している場合は {{site.data.keyword.cloudaccesstrailshort}} UI のアカウント・ビューから、プレミアム・プランを利用している場合は Kibana からイベントを表示することができます。
 
 ## 追加情報
 {: #info}
 
-暗号鍵に関する情報の機密性により、{{site.data.keyword.keymanagementserviceshort}} サービスに対する API 呼び出しの結果でイベントが生成されるときに、生成されるイベントには鍵に関する詳細情報は含められません。このイベントには、クラウド環境で内部的に鍵を識別するために使用できる相関 ID が含められます。この相関 ID は、`responseHeader.content` フィールドの一部として返されるフィールドです。この情報を使用して、{{site.data.keyword.keymanagementserviceshort}} 鍵を、{{site.data.keyword.cloudaccesstrailshort}} イベントを通じて報告されたアクションの情報と相互に関連付けることができます。
+暗号鍵に関する情報の機密性により、{{site.data.keyword.keymanagementserviceshort}} サービスに対する API 呼び出しの結果でイベントが生成されるときに、生成されるイベントには鍵に関する詳細情報は含められません。 このイベントには、クラウド環境で内部的に鍵を識別するために使用できる相関 ID が含められます。 この相関 ID は、`responseHeader.content` フィールドの一部として返されるフィールドです。 この情報を使用して、{{site.data.keyword.keymanagementserviceshort}} 鍵を、{{site.data.keyword.cloudaccesstrailshort}} イベントを通じて報告されたアクションの情報と相互に関連付けることができます。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Integrazione dei servizi
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-08-24"
         <td>
           <p>Aggiungi la [crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html) ai tuoi bucket di archiviazione utilizzando {{site.data.keyword.keymanagementserviceshort}}. Utilizza le chiavi root che gestisci in {{site.data.keyword.keymanagementserviceshort}} per proteggere le chiavi di crittografia dei dati che codificano i tuoi dati inattivi.</p>
           <p>Per ulteriori informazioni, consulta [Integrazione con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect/integrations/integrate-cos.html).</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p>Utilizza la [crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html) per proteggere i segreti nel tuo cluster {{site.data.keyword.containershort_notm}}.</p>
+          <p>Per ulteriori informazioni, consulta [Crittografia dei segreti Kubernetes utilizzando {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers/cs_encrypt.html#keyprotect).</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">Tabella 1. Descrive le integrazioni disponibili per {{site.data.keyword.keymanagementserviceshort}}</caption>
@@ -61,16 +72,16 @@ La seguente tabella elenca i metodi API che aggiungono o rimuovono la crittograf
   </tr>
   <tr>
     <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect/wrap-keys.html">Impacchetta (codifica) una chiave di crittografia dei dati</a></td>
+    <td><a href="/docs/services/key-protect/wrap-keys.html">Impacchetta (codifica) una chiave di crittografia dei dati (o DEK, data encryption key)</a></td>
   </tr>
   <tr>
     <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect/unwrap-keys.html">Spacchetta (decodifica) una chiave di crittografia dei dati</a></td>
+    <td><a href="/docs/services/key-protect/unwrap-keys.html">Spacchetta (decodifica) una chiave di crittografia dei dati (o DEK, data encryption key)</a></td>
   </tr>
   <caption style="caption-side:bottom;">Tabella 2. Descrive i metodi API {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi in {{site.data.keyword.keymanagementserviceshort}}, consulta la [Documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window}.
+Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi in {{site.data.keyword.keymanagementserviceshort}}, consulta la [Documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: tip}
 
 ## Integrazione di un servizio supportato
@@ -79,21 +90,21 @@ Per ulteriori informazioni sulla gestione a livello programmatico delle tue chia
 Per aggiungere un'integrazione, crea un'autorizzazione tra i servizi utilizzando il dashboard {{site.data.keyword.iamlong}}. Le autorizzazioni abilitano le politiche di accesso da servizio a servizio, pertanto puoi associare una risorsa nel tuo servizio di dati cloud con una [chiave root](/docs/services/key-protect/concepts/envelope-encryption.html#key-types) che gestisci in {{site.data.keyword.keymanagementserviceshort}}.
 
 Prima di creare un'autorizzazione, assicurati di fornire entrambi i servizi nella stessa regione. Per ulteriori informazioni sulle autorizzazioni dei servizi, vedi [Concessione dell'accesso tra i servizi ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/authorizations.html){: new_window}.
-{: tip}
+{: note}
 
 Quando sei pronto per integrare un servizio, usa la seguente procedura per creare un'autorizzazione:
 
-1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/){: new_window}.
-2. Dalla barra dei menu, fai clic su **Manage** &gt; **Security** &gt; **Identity and Access** e seleziona **Authorizations**. 
+1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}){: new_window}.
+2. Dalla barra dei menu, fai clic su **Gestisci** &gt; **Sicurezza** &gt; **Accesso (IAM)** e seleziona **Autorizzazioni**. 
 3. Fai clic su **Crea**.
 4. Seleziona un'origine e una destinazione per l'autorizzazione.
  
-  - Per **Source service**, seleziona il servizio di dati cloud che vuoi integrare con {{site.data.keyword.keymanagementserviceshort}}. Ad esempio, **Cloud Object Storage**.
-  - Per **Target service**, seleziona **{{site.data.keyword.keymanagementservicelong_notm}}**. 
-4. Per concedere l'accesso in sola lettura tra i servizi, seleziona la casella di spunta **Reader**.
+  - Per **Servizio di origine**, seleziona il servizio di dati cloud che vuoi integrare con {{site.data.keyword.keymanagementserviceshort}}. Ad esempio, **Cloud Object Storage**.
+  - Per **Servizio di destinazione**, seleziona **{{site.data.keyword.keymanagementservicelong_notm}}**. 
+4. Per concedere l'accesso in sola lettura tra i servizi, seleziona la casella di spunta **Lettore**.
 
-    Con le autorizzazioni _Reader_, il tuo servizio di origine può sfogliare le chiavi root fornite nell'istanza specificata di {{site.data.keyword.keymanagementserviceshort}}.
-5. Fai clic su **Authorize**.
+    Con le autorizzazioni _Lettore_, il tuo servizio di origine può sfogliare le chiavi root fornite nell'istanza specificata di {{site.data.keyword.keymanagementserviceshort}}.
+5. Fai clic su **Autorizza**.
 
 ### Operazioni successive
 

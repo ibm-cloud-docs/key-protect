@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# 사용자 액세스 관리
+# 액세스 관리
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}}는 암호화 키에 대한 액세스 및 사용자 관리에 도움이 되도록 {{site.data.keyword.iamlong}}에서 관리하는 중앙 집중식 액세스 제어 시스템을 지원합니다.
@@ -57,12 +59,13 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
   </tr>
   <tr>
     <td><p>작성자</p></td>
-    <td><p>작성자는 키를 작성하고 키를 수정하며 키 자료에 액세스할 수 있습니다.</p></td>
+    <td><p>작성자는 키를 작성하고 키를 수정하고 키를 순환하며 키 자료에 액세스할 수 있습니다.</p></td>
     <td>
       <p>
         <ul>
           <li>키 작성</li>
           <li>키 보기</li>
+          <li>키 순환</li>
           <li>키 랩핑</li>
           <li>키 랩핑 해제</li>
         </ul>
@@ -85,13 +88,11 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
   <caption style="caption-side:bottom;">표 1. ID 및 액세스 역할이 {{site.data.keyword.keymanagementserviceshort}} 권한에 맵핑되는 방법에 대한 설명</caption>
 </table>
 
-**참고**: Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/cfaccess.html){: new_window}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다.
-
-{{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/users_roles.html#userroles){: new_window}을 확인하십시오.
+Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/cfaccess.html){: new_window}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다. {{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/users_roles.html#userroles){: new_window}을 확인하십시오.
+{: note}
 
 ### 다음에 수행할 작업
 
 계정 소유자와 관리자는 사용자를 초대할 수 있으며 사용자가 수행할 수 있는 {{site.data.keyword.keymanagementserviceshort}} 조치에 대응되는 서비스 정책을 설정할 수 있습니다.
 
 - {{site.data.keyword.cloud_notm}} UI에서 사용자 역할을 지정하는 방법에 대한 자세한 정보는 [IAM 액세스 관리 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/mngiam.html){: new_window}를 참조하십시오.
-- 특정 암호화 키에 액세스하기 위한 고급 권한 부여에 대해 알아보려면 [키에 대한 액세스 관리](/docs/services/key-protect/manage-access-api.html)를 참조하십시오.

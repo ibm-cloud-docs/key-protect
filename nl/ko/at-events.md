@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}} 이벤트
 {: #at-events}
 
-사용자 및 애플리케이션이 {{site.data.keyword.keymanagementservicefull}}와 상호작용하는 방법을 추적하려면 {{site.data.keyword.cloudaccesstrailfull}} 서비스를 사용하십시오.
+사용자 및 애플리케이션이 {{site.data.keyword.keymanagementservicefull}}와 상호작용하는 방법을 추적하려면 {{site.data.keyword.cloudaccesstrailfull}} 서비스를 사용하십시오. 
 {: shortdesc}
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} 서비스는 {{site.data.keyword.cloud_notm}}에 있는 서비스의 상태를 변경하는 사용자 시작 활동을 기록합니다. 
@@ -60,6 +62,10 @@ lastupdated: "2018-08-24"
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>키 랩핑 해제</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>키 순환</td>
     </tr>
     <caption style="caption-side:bottom;">표 1. {{site.data.keyword.cloudaccesstrailfull_notm}} 이벤트를 생성하는 조치</caption>
 </table>

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 查看密钥
 {: #view-keys}
@@ -34,9 +36,10 @@ lastupdated: "2018-08-24"
 
 [创建密钥或将现有密钥导入服务后](/docs/services/key-protect/create-root-keys.html)，请完成以下步骤以查看密钥。
 
-1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/)。
-2. 从 {{site.data.keyword.cloud_notm}} 仪表板，选择 {{site.data.keyword.keymanagementserviceshort}} 的已供应实例。
-3. 在 {{site.data.keyword.keymanagementserviceshort}} 仪表板中，浏览密钥的常规特征：
+1. [登录到 {{site.data.keyword.cloud_notm}} 控制台 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/)。
+2. 转至**菜单** &gt; **资源列表**，以查看资源的列表。
+3. 从 {{site.data.keyword.cloud_notm}} 资源列表中，选择您供应的 {{site.data.keyword.keymanagementserviceshort}} 实例。
+4. 从应用程序详细信息页面中浏览密钥的一般特征：
 
     <table>
       <tr>
@@ -45,11 +48,11 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>名称</td>
-        <td>指定给密钥的人类可以阅读的唯一别名。</td>
+        <td>指定给密钥的人类可读的唯一别名。</td>
       </tr>
       <tr>
         <td>标识</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 服务指定给密钥的唯一密钥标识。可以使用标识值通过 [{{site.data.keyword.keymanagementserviceshort}} API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms) 来调用服务。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} 服务指定给密钥的唯一密钥标识。可以使用标识值通过 [{{site.data.keyword.keymanagementserviceshort}} API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect) 来调用服务。</td>
       </tr>
       <tr>
         <td>状态</td>
@@ -92,7 +95,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
     {: tip}
 
     根据下表替换示例请求中的变量。
@@ -103,24 +106,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
+        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
+        <td><strong>必需</strong>。您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
+        <td><strong>必需</strong>。指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>可选：用于跟踪和关联事务的唯一标识。</td>
+        <td>用于跟踪和关联事务的唯一标识。</td>
       </tr>
       <caption style="caption-side:bottom;">表 2. 描述使用 {{site.data.keyword.keymanagementserviceshort}} API 查看密钥所需的变量</caption>
     </table>
 
-    成功的 `GET /v2/keys` 请求会返回 {{site.data.keyword.keymanagementserviceshort}} 服务实例中可用的密钥的集合。
+    成功的 `GET api/v2/keys` 请求会返回 {{site.data.keyword.keymanagementserviceshort}} 服务实例中可用的密钥的集合。
 
     ```
     {
@@ -128,9 +131,9 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
         "collectionType": "application/vnd.ibm.collection+json",
         "collectionTotal": 2
       },
-    "resources": [
-      {
-      "id": "...",
+      "resources": [
+        {
+          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
           "name": "Standard key",
           "description": "...",
@@ -143,7 +146,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -155,18 +159,21 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    缺省情况下，`GET /keys` 返回前 2000 个密钥，但是可在查询时使用 `limit` 参数调整此限制。要了解有关 `limit` 和 `offset` 的更多信息，请参阅[检索密钥子集](#retrieve_subset_keys_api)。
+    缺省情况下，`GET api/v2/keys` 会返回前 2000 个密钥，但可在查询时使用 `limit` 参数调整此限制。要了解有关 `limit` 和 `offset` 的更多信息，请参阅[检索密钥子集](#retrieve_subset_keys_api)。
     {: tip}
 
 ### 检索密钥子集
@@ -184,7 +191,6 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -197,14 +203,14 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>可选：要跳过的密钥数。</p> 
+        <p>要跳过的密钥数。</p> 
         <p>例如，如果实例中有 50 个密钥，并且想要列出密钥 26 - 50，请使用 <code>../keys?offset=25</code>。您还可以将 <code>offset</code> 与 <code>limit</code> 配对以翻阅可用资源。</p>
       </td>
     </tr>
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>可选：要检索的密钥数。</p> 
+        <p>要检索的密钥数。</p> 
         <p>例如，如果实例中有 100 个密钥，并且只想要列出 10 个密钥，那么使用 <code>../keys?limit=10</code>。<code>limit</code> 的最大值为 5000。</p>
       </td>
     </tr>
@@ -277,28 +283,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
+        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
+        <td><strong>必需</strong>。您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
+        <td><strong>必需</strong>。指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>可选：用于跟踪和关联事务的唯一标识。</td>
+        <td>用于跟踪和关联事务的唯一标识。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>您在[步骤 1](#retrieve-keys-api) 中检索到的密钥的标识。</td>
+        <td><strong>必需</strong>。您在[步骤 1](#retrieve-keys-api) 中检索到的密钥的标识。</td>
       </tr>
       <caption style="caption-side:bottom;">表 4. 描述通过使用 {{site.data.keyword.keymanagementserviceshort}} API 查看指定的密钥所需的变量</caption>
     </table>
 
-    成功的 `GET v2/keys/<key_ID>` 响应会返回有关密钥和密钥资料的详细信息。以下 JSON 对象显示标准密钥的示例返回值。
+    成功的 `GET api/v2/keys/<key_ID>` 响应会返回有关密钥和密钥资料的详细信息。以下 JSON 对象显示标准密钥的示例返回值。
 
     ```
     {
@@ -306,9 +312,9 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
             "collectionTotal": 1,
             "collectionType": "application/vnd.ibm.kms.key+json"
         },
-    "resources": [
-      {
-      "id": "...",
+        "resources": [
+        {
+            "id": "...",
             "type": "application/vnd.ibm.kms.key+json",
             "name": "Standard key",
             "description": "...",
@@ -322,11 +328,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
                 "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    有关可用参数的详细描述，请参阅 {{site.data.keyword.keymanagementserviceshort}} [REST API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/apidocs/kms){: new_window}。
+    有关可用参数的详细描述，请参阅 {{site.data.keyword.keymanagementserviceshort}} [REST API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

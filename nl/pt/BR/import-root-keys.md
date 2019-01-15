@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importando chaves raiz
 {: #import-root-keys}
@@ -26,9 +28,10 @@ Chaves raiz são chaves simétricas de quebra de chaves usadas para proteger a s
 
 [Depois de criar uma instância do serviço](/docs/services/key-protect/provision.html), conclua as etapas a seguir para incluir sua chave raiz existente com a {{site.data.keyword.keymanagementserviceshort}}do GUI.
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/){: new_window}.
-2. No painel do {{site.data.keyword.cloud_notm}}, selecione sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
-3. Para importar uma chave, clique em **Incluir chave** e selecione a janela **Inserir chave existente**.
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
+2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
+3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
+4. Para importar uma chave, clique em **Incluir chave** e selecione a janela **Importar sua própria chave**.
 
     Especifique os detalhes da chave:
 
@@ -61,10 +64,10 @@ Chaves raiz são chaves simétricas de quebra de chaves usadas para proteger a s
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tabela 1. Descreve as configurações <b>Inserir chave existente</b></caption>
+      <caption style="caption-side:bottom;">Tabela 1. Descreve as configurações <b>Importar a sua própria chave</b></caption>
     </table>
 
-4. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Incluir nova chave** para confirmar. 
+5. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Importar chave** para confirmar.  
 
 ## Importando chaves raiz com a API
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect/access-api.html).
 
-1. Chame a [API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window} com o comando cURL a seguir.
+1. Chame a API do [{{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/key-protect){: new_window} com o comando cURL a seguir.
 
     ```cURL
     curl -X POST \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>' \ -H 'content-type: application/vnd.ibm.kms.key+json' \ -H 'correlation-id: <correlation_ID>' \ -d '{
@@ -94,7 +97,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
     {: tip}
 
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
@@ -165,7 +168,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     Uma resposta `POST /v2/keys` bem-sucedida retorna o valor de ID para a sua chave, junto a outros metadados. O ID é um identificador exclusivo que é designado para sua chave e é usado para chamadas subsequentes para a API do {{site.data.keyword.keymanagementserviceshort}}.
 
-2. Opcional: verifique se a chave foi incluída executando a chamada a seguir para procurar as chaves em sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}.
+2. Opcional: verifique se a chave foi incluída executando a chamada a seguir para procurar as chaves na instância de serviço do {{site.data.keyword.keymanagementserviceshort}}.
 
     ```cURL
     curl -X GET \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'accept: application/vnd.ibm.collection+json' \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>' \ -H 'correlation-id: <correlation_ID>' \
@@ -177,4 +180,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### O que vem a seguir
 
 - Para descobrir mais sobre como proteger chaves com criptografia de envelope, consulte [Chaves de quebra](/docs/services/key-protect/wrap-keys.html).
-- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

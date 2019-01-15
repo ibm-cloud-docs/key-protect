@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # サービスのプロビジョニング
 {: #provision}
@@ -24,9 +26,9 @@ lastupdated: "2018-08-24"
 
 {{site.data.keyword.cloud_notm}} コンソールから {{site.data.keyword.keymanagementserviceshort}} のインスタンスをプロビジョンするには、以下の手順を実行します。
 
-1. [{{site.data.keyword.cloud_notm}} アカウント ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/){: new_window} にログインします。
+1. [{{site.data.keyword.cloud_notm}} アカウント ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}){: new_window}。
 2. **「カタログ」**をクリックして、{{site.data.keyword.cloud_notm}} 上で使用可能なサービスのリストを表示します。
-3. 「すべてのカテゴリー」ナビゲーション・ペインで、**「プラットフォーム」**までスクロールし、**「セキュリティー」**カテゴリーをクリックします。
+3. 「すべてのカテゴリー」ナビゲーション・ペインで、**「セキュリティーおよび ID」**カテゴリーをクリックします。
 4. サービスのリストで、**「{{site.data.keyword.keymanagementserviceshort}}」**タイルをクリックします。
 5. サービス・プランを選択し、**「作成」**をクリックして、ログインしているアカウント、地域、およびリソース・グループ内の {{site.data.keyword.keymanagementserviceshort}} のインスタンスをプロビジョンします。
 
@@ -43,7 +45,7 @@ lastupdated: "2018-08-24"
 1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html#overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
-    ibmcloud login
+    ibmcloud login 
     ```
     {: pre}
     **注:** ログインに失敗した場合は、`ibmcloud login --sso` コマンドを実行して、再試行してください。 フェデレーテッド ID を使用してログインする場合は、`--sso` パラメーターが必要です。 このオプションを使用する場合、CLI 出力にリストされたリンクにアクセスして、ワンタイム・パスコードを生成します。
@@ -81,7 +83,7 @@ lastupdated: "2018-08-24"
 1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html#overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
-    ibmcloud login
+    ibmcloud login 
     ```
     {: pre}
     **注:** ログインに失敗した場合は、`ibmcloud login --sso` コマンドを実行して、再試行してください。 フェデレーテッド ID を使用してログインする場合は、`--sso` パラメーターが必要です。 このオプションを使用する場合、CLI 出力にリストされたリンクにアクセスして、ワンタイム・パスコードを生成します。
@@ -115,4 +117,4 @@ lastupdated: "2018-08-24"
 ### 次に行うこと
 
 - {{site.data.keyword.keymanagementserviceshort}} に保管されている鍵を使用してデータを暗号化および暗号化解除する方法の例は、[GitHub にあるサンプル・アプリで確認してください ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}。
-- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を確認してください。
+- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。

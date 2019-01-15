@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Auf die API zugreifen
 {: #access-api}
@@ -24,14 +26,14 @@ Um mit der API zu arbeiten, müssen Sie eigene Service- und Authentifizierungsna
 ## Ein Zugriffstoken abrufen
 {: #retrieve-token}
 
-Die Authentifizierung mit {{site.data.keyword.keymanagementserviceshort}} erfolgt durch das Abrufen eines Zugriffstokens aus {{site.data.keyword.iamshort}}. Sie können mit einer [Service-ID](/docs/iam/serviceid.html#serviceids) mit der {{site.data.keyword.keymanagementserviceshort}}-API für Ihren Service oder für Ihre Anwendung sowie außerhalb von {{site.data.keyword.cloud_notm}} arbeiten, ohne Ihren persönlichen Benutzerberechtigungsnachweis freizugeben.  
+Die Authentifizierung mit {{site.data.keyword.keymanagementserviceshort}} erfolgt durch das Abrufen eines Zugriffstokens aus {{site.data.keyword.iamshort}} (IAM). Sie können mit einer [Service-ID](/docs/iam/serviceid.html#serviceids) mit der {{site.data.keyword.keymanagementserviceshort}}-API für Ihren Service oder für Ihre Anwendung sowie außerhalb von {{site.data.keyword.cloud_notm}} arbeiten, ohne Ihren persönlichen Benutzerberechtigungsnachweis freizugeben.  
 
 Bei einer Authentifizierung mit Ihrem Benutzerberechtigungsnachweis können Sie Ihr Token abrufen, indem Sie `ibmcloud iam oauth-tokens` in der [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ausführen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli/index.html#overview){: new_window}.
-{: tip}
+{: note}
 
 Führen Sie die folgenden Schritte aus, um ein Zugriffstoken abzurufen:
 
-1. Gehen Sie in der {{site.data.keyword.cloud_notm}}-Konsole zu **Verwalten** &gt; **Sicherheit** &gt; **Identität und Zugriff** &gt; **Service-IDs**. Führen Sie die Schritte zum [Erstellen eines Service](/docs/iam/serviceid.html#creating-a-service-id){: new_window} aus.
+1. Rufen Sie in der {{site.data.keyword.cloud_notm}}-Konsole **Verwalten** &gt; **Zugriff (IAM)** &gt; **Service-IDs** auf. Führen Sie die Schritte zum [Erstellen eines Service](/docs/iam/serviceid.html#creating-a-service-id){: new_window} aus.
 2. Verwenden Sie das Menü **Aktionen**, um [eine Zugriffsrichtlinie für die neue Service-ID zu definieren](/docs/iam/serviceidaccess.html){: new_window}.
     
     Weitere Informationen zum Verwalten des Zugriffs für Ihre {{site.data.keyword.keymanagementserviceshort}}-Ressourcen finden Sie in [Rollen und Berechtigungen](/docs/services/key-protect/manage-access.html#roles).
@@ -43,7 +45,7 @@ Führen Sie die folgenden Schritte aus, um ein Zugriffstoken abzurufen:
       "https://iam.bluemix.net/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" \ 
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
     ```
     {: codeblock}
 
@@ -63,7 +65,7 @@ Führen Sie die folgenden Schritte aus, um ein Zugriffstoken abzurufen:
     Verwenden Sie den vollständigen Wert `access_token` mit dem Präfixtyp _Trägertoken_, um die Schlüssel für Ihren Service programmgesteuert mit der {{site.data.keyword.keymanagementserviceshort}}-API zu verwalten. 
 
     Zugriffstokens sind für einen Zeitraum von 1 Stunde gültig, können jedoch bei Bedarf neu generiert werden. Aktualisieren Sie das Zugriffstoken für Ihren API-Schlüssel regelmäßig, indem Sie die {{site.data.keyword.iamshort}}-API aufrufen, damit Ihr Zugriff auf den Service erhalten bleibt.   
-    {: tip }
+    {: note }
 
 ## Instanz-ID abrufen
 {: #retrieve-instance-ID}
@@ -93,7 +95,7 @@ Sie können die Identifikationsinformationen für Ihre {{site.data.keyword.keyma
     Ersetzen Sie `<instance_name>` mit dem eindeutigen Alias, den Sie Ihrer Instanz von {{site.data.keyword.keymanagementserviceshort}} zugeordnet haben. Im folgenden gekürzten Beispiel sehen Sie die CLI-Ausgabe. Der Wert _42454b3b-5b06-407b-a4b3-34d9ef323901_ ist eine Beispielinstanz-ID.
 
     ```
-    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901::
+    crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
 
@@ -109,11 +111,10 @@ curl -X GET \
     https://keyprotect.us-south.bluemix.net/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <access_token>' \
-    -H 'bluemix-instance: <instance_ID>' \
+    -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock} 
 
 ### Weitere Schritte
 
-- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
-- Zur Anzeige eines Beispiels zur Art und Weise, in der Schlüsselspeicher in {{site.data.keyword.keymanagementserviceshort}} eingesetzt werden können, um Daten zu ver- und entschlüsseln, [überprüfen Sie die Beispielapp in GitHub ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.
+- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.

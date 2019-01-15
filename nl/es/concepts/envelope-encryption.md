@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Cifrado de sobre
 {: #envelope-encryption}
@@ -62,10 +64,10 @@ El servicio da soporte a dos tipos de clave, las claves raíz y las claves está
   <dt>Claves raíz</dt>
     <dd>Las claves raíz son recursos primarios en {{site.data.keyword.keymanagementserviceshort}}. Son claves para envolver claves simétricas que se utilizan como claves raíz de confianza para envolver (cifrando) y desenvolver (descifrando) otras claves almacenadas en un servicio de datos. Con {{site.data.keyword.keymanagementserviceshort}}, puede crear, almacenar y gestionar el ciclo de vida de las claves raíz para obtener un control total de otras claves almacenadas en la nube. A diferencia de una clave estándar, una clave raíz no puede abandonar los límites del servicio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Claves estándar</dt>
-    <dd>Las claves estándar son claves de cifrado que se utilizan para la criptografía. Generalmente, las claves estándar cifran datos de forma directa. Con {{site.data.keyword.keymanagementserviceshort}}, puede crear, almacenar y gestionar el ciclo de las claves estándar. Después de importar o generar una clave estándar en un servicio, puede exportarla fuera de un recurso de datos como, por ejemplo, un contenedor de almacenamiento, para cifrar información sensible. Las claves estándar que cifran datos almacenados son denominadas claves de cifrado de datos (Data Encryption Keys - DEK) y pueden ser envueltas con cifrado avanzado. Las DEK envueltas no se almacenan en {{site.data.keyword.keymanagementserviceshort}}.</dd>
+    <dd>Las claves estándar son una forma de conservar de forma permanente un secreto, como una contraseña o una clave de cifrado. Cuando utiliza {{site.data.keyword.keymanagementserviceshort}} para almacenar claves estándar, habilita el almacenamiento en el módulo de seguridad de hardware (HSM) para sus secretos, el control de acceso preciso para sus recursos con <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> y la posibilidad de auditar las llamadas de API al servicio con <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
-Después de crear claves en {{site.data.keyword.keymanagementserviceshort}}, el sistema devuelve un valor ID que puede utilizar para realizar llamadas de API al servicio. Puede recuperar el valor del ID para las claves con la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}} o con la [API de {{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/kms). 
+Después de crear claves en {{site.data.keyword.keymanagementserviceshort}}, el sistema devuelve un valor ID que puede utilizar para realizar llamadas de API al servicio. Puede recuperar el valor del ID para las claves con la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}} o con la [API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
 
 ## Envolvimiento de claves
 {: #wrapping}

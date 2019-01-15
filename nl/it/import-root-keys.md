@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importazione delle chiavi root
 {: #import-root-keys}
@@ -26,15 +28,16 @@ Le chiavi root sono chiavi simmetriche per l'impacchettamento della chiave che v
 
 [Dopo aver creato un'istanza del servizio](/docs/services/key-protect/provision.html), completa la seguente procedura per aggiungere una chiave root con la GUI {{site.data.keyword.keymanagementserviceshort}}.
 
-1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/){: new_window}.
-2. Dal tuo dashboard {{site.data.keyword.cloud_notm}}, seleziona l'istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
-3. Per importare una chiave, fai clic su **Add key** e seleziona la finestra **Enter existing key**.
+1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: new_window}.
+2. Vai a **Menu** &gt; **Elenco risorse** per visualizzare un elenco delle tue risorse.
+3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
+4. Per importare una chiave, fai clic su **Aggiungi chiave** e seleziona la finestra **Import your own key**.
 
     Specifica i dettagli della chiave:
 
     <table>
       <tr>
-        <th>Configurazione</th>
+        <th>Impostazione</th>
         <th>Descrizione</th>
       </tr>
       <tr>
@@ -61,10 +64,10 @@ Le chiavi root sono chiavi simmetriche per l'impacchettamento della chiave che v
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tabella 1. Descrive le impostazioni di <b>Enter existing key</b></caption>
+      <caption style="caption-side:bottom;">Tabella 1. Descrive le impostazioni <b>Import your own key</b></caption>
     </table>
 
-4. Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Add new key** per confermare. 
+5. Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Import key** per confermare.  
 
 ## Importazione delle chiavi root con l'API
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect/access-api.html).
 
-1. Richiama l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window} con il seguente comando cURL.
+1. Richiama l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/key-protect){: new_window} con il seguente comando cURL.
 
     ```cURL
     curl -X POST \
@@ -106,7 +109,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
     {: tip}
 
     Sostituisci le variabili nella richiesta di esempio in base alla seguente tabella.
@@ -125,7 +128,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td>L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -175,7 +178,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     Per proteggere la riservatezza dei tuoi dati personali, evita di immettere informazioni d'identificazione personale, come il tuo nome o la tua posizione, quando aggiungi le chiavi al servizio. Per ulteriori esempi di informazioni d'identificazione personale, vedi la sezione 2.2 di [NIST Special Publication 800-122 ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
     {: tip}
 
-    Una risposta `POST /v2/keys` corretta, restituisce il valore dell'ID per la tua chiave, insieme ad altri metadati. L'ID è un identificativo univoco che viene assegnato alla tua chiave e utilizzato per le seguenti chiamate all'API {{site.data.keyword.keymanagementserviceshort}}.
+    Una risposta `POST /v2/keys` corretta restituisce il valore dell'ID per la tua chiave, insieme ad altri metadati. L'ID è un identificativo univoco che viene assegnato alla tua chiave e utilizzato per le seguenti chiamate all'API {{site.data.keyword.keymanagementserviceshort}}.
 
 2. Facoltativo: verifica che la chiave sia stata aggiunta eseguendo la seguente chiamata per sfogliare le chiavi nella tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -194,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### Operazioni successive
 
 - Per ulteriori informazioni sulla protezione delle chiavi con la crittografia envelope, controlla [Impacchettamento delle chiavi](/docs/services/key-protect/wrap-keys.html).
-- Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

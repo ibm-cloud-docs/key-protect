@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.keymanagementserviceshort}} 시작하기
 
@@ -35,12 +37,12 @@ lastupdated: "2018-08-24"
 ## 키 새로 작성
 {: #create-keys}
 
-[{{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 작성한 후](https://console.ng.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps) 서비스에서 키를 지정할 준비가 되었습니다. 
+[{{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 작성한 후](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps) 서비스에서 키를 지정할 준비가 되었습니다. 
 
 다음 단계를 완료하여 첫 암호화 키를 작성하십시오. 
 
-1. {{site.data.keyword.keymanagementserviceshort}} 대시보드에서 **관리** &gt; **키 추가**를 클릭하십시오.
-2. 키를 새로 작성하려면 **새 키 생성** 창을 선택하십시오.
+1. 애플리케이션 세부사항 페이지에서 **관리** &gt; **키 추가**를 클릭하십시오.
+2. 키를 새로 작성하려면 **키 생성** 창을 선택하십시오.
 
     키의 세부사항을 지정하십시오.
 
@@ -60,22 +62,22 @@ lastupdated: "2018-08-24"
         <td>키 유형</td>
         <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">키의 유형</a>입니다.</td>
       </tr>
-      <caption style="caption-side:bottom;">표 1. 새 키 생성 설정에 대한 설명</caption>
+      <caption style="caption-side:bottom;">표 1. <b>키 작성</b> 설정에 대한 설명</caption>
     </table>
 
-3. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 생성**을 클릭하십시오. 
+3. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 작성**을 클릭하십시오. 
 
 서비스에서 작성된 키는 대칭 256비트 키이며, AES-GCM 알고리즘으로 지원됩니다. 보안 추가를 위해 키가 보안 {{site.data.keyword.cloud_notm}} 데이터 센터에 있는 FIPS 140-2 레벨 2 공인 HSM(Hardware Security Module)에서 생성됩니다. 
 
-## 기존 키 추가
-{: #add-keys}
+## 고유 키 가져오기
+{: #import-keys}
 
 서비스에 기존 키를 도입하여 BYOK(Bring Your Own Key)의 보안 이점을 사용할 수 있습니다. 
 
 다음 단계를 완료하여 기존 키를 추가하십시오.
 
-1. {{site.data.keyword.keymanagementserviceshort}} 대시보드에서 **관리** &gt; **키 추가**를 클릭하십시오.
-2. 기존 키를 업로드하려면 **기존 키 입력** 창을 선택하십시오.
+1. 애플리케이션 세부사항 페이지에서 **관리** &gt; **키 추가**를 클릭하십시오.
+2. 기존 키를 업로드하려면 **고유 키 가져오기** 창을 선택하십시오.
 
     키의 세부사항을 지정하십시오.
 
@@ -99,10 +101,10 @@ lastupdated: "2018-08-24"
         <td>키 자료</td>
         <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에 저장할 키 자료입니다(예: 대칭 키). 제공하는 키는 base64로 인코딩되어야 합니다.</td>
       </tr>
-      <caption style="caption-side:bottom;">표 2. 기존 키 입력 설정의 설명</caption>
+      <caption style="caption-side:bottom;">표 2. <b>고유 키 가져오기</b> 설정에 대한 설명</caption>
     </table>
 
-3. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 새로 추가**를 클릭하십시오. 
+3. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 가져오기**를 클릭하십시오. 
 
 {{site.data.keyword.keymanagementserviceshort}} 대시보드에서 새 키의 일반 특성을 검사할 수 있습니다. 
 
@@ -112,4 +114,4 @@ lastupdated: "2018-08-24"
 
 - 루트 키를 사용한 암호화 키 관리 및 보호에 대해 알아보려면 [엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)를 확인하십시오.
 - {{site.data.keyword.keymanagementserviceshort}} 서비스와 다른 클라우드 데이터 솔루션과의 통합에 대해 자세히 알아보려면 [통합 문서를 확인](/docs/services/key-protect/integrations/integrate-services.html)하십시오.
-- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/key-protect){: new_window}를 확인하십시오.
+- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.

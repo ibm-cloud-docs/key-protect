@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,11 +12,13 @@ lastupdated: "2018-08-24"
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}}-Ereignisse
 {: #at-events}
 
-Der {{site.data.keyword.cloudaccesstrailfull}}-Service kann dazu verwendet werden, die Interaktion von Benutzern und Anwendungen mit {{site.data.keyword.keymanagementservicefull}} zu verfolgen.
+Der {{site.data.keyword.cloudaccesstrailfull}}-Service kann dazu verwendet werden, die Interaktion von Benutzern und Anwendungen mit {{site.data.keyword.keymanagementservicefull}} zu verfolgen. 
 {: shortdesc}
 
 Der {{site.data.keyword.cloudaccesstrailfull_notm}}-Service zeichnet vom Benutzer initiierte Aktivitäten auf, die den Status eines Service in {{site.data.keyword.cloud_notm}} ändern. 
@@ -60,6 +62,10 @@ In der folgenden Tabelle sind die Aktionen aufgeführt, die ein Ereignis generie
      <tr>
         <td>kms.secrets.unwrap</td>
         <td>Wrapping für einen Schlüssel aufheben</td>
+    </tr>
+     <tr>
+        <td>kms.secrets.rotate</td>
+        <td>Rotation eines Schlüssels</td>
     </tr>
     <caption style="caption-side:bottom;">Tabelle 1. Aktionen, die {{site.data.keyword.cloudaccesstrailfull_notm}}-Ereignisse generieren</caption>
 </table>

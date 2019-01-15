@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Importation de clés racine
 {: #import-root-keys}
@@ -26,9 +28,10 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
 
 [Après avoir créé une instance du service](/docs/services/key-protect/provision.html), procédez comme suit pour ajouter la clé racine existante à l'aide de l'interface graphique {{site.data.keyword.keymanagementserviceshort}} :
 
-1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/){: new_window}.
-2. Dans votre tableau de bord {{site.data.keyword.cloud_notm}}, sélectionnez l'instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
-3. Pour importer une clé, cliquez sur **Add key** et sélectionnez la fenêtre **Enter existing key**.
+1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/){: new_window}.
+2. Accédez à **Menu** &gt; **Liste de ressources** pour afficher la liste de vos ressources.
+3. Dans la liste de ressources {{site.data.keyword.cloud_notm}}, sélectionnez votre instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
+4. Pour importer une clé, cliquez sur **Add key**, puis sélectionnez la fenêtre **Import your own key**.
 
     Indiquez les détails relatifs à la clé :
 
@@ -38,7 +41,7 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
         <th>Description</th>
       </tr>
       <tr>
-        <td>Nom</td>
+        <td>Name</td>
         <td>
           <p>Alias unique et lisible permettant d'identifier facilement votre clé.</p>
           <p>Pour protéger votre vie privée, assurez-vous que le nom de clé ne contient pas d'informations identifiant la personne, comme votre nom ou votre emplacement.</p>
@@ -61,10 +64,10 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tableau 1. Description des paramètres <b>Enter existing key</b></caption>
+      <caption style="caption-side:bottom;">Tableau 1. Description des paramètres de la fenêtre <b>Import your own key</b></caption>
     </table>
 
-4. Une fois les détails de la clé indiqués, cliquez sur **Add new key** pour confirmer l'opération. 
+5. Une fois les détails de la clé indiqués, cliquez sur **Import key** pour confirmer l'opération.  
 
 ## Importation de clés racine avec l'API
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect/access-api.html).
 
-1. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/kms){: new_window} avec la commande cURL suivante : 
+1. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/key-protect){: new_window} avec la commande cURL suivante :
 
     ```cURL
     curl -X POST \
@@ -106,7 +109,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/kms){: new_window}.{: tip}
+    Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API REST de {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+    {: tip}
 
     Remplacez les variables dans l'exemple de demande en fonction du tableau suivant :
     <table>
@@ -193,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### Etapes suivantes
 
 - Pour plus d'informations sur la protection de clés à l'aide du chiffrement d'enveloppe, voir [Encapsulage de clés](/docs/services/key-protect/wrap-keys.html).
-- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, [reportez-vous à la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/apidocs/key-protect){: new_window}.

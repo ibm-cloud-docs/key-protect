@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Stati della chiave
 {: #key-states}
@@ -36,7 +38,7 @@ Le chiavi di crittografia, nel loro ciclo di vita, passano attraverso vari stati
     <th>Descrizione</th>
   </tr>
   <tr>
-    <td>Pre-attivazione</td>
+    <td>Preattiva</td>
     <td>Le chiavi sono state inizialmente create nello stato <i>pre-attivazione</i>. Una chiave preattivata non può essere utilizzata per proteggere i dati in modo crittografico.</td>
   </tr>
   <tr>

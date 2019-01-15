@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Envelope-Verschlüsselung
 {: #envelope-encryption}
@@ -62,10 +64,10 @@ Der Service unterstützt die zwei Schlüsseltypen 'Rootschlüssel' und 'Standard
   <dt>Rootschlüssel</dt>
     <dd>Rootschlüssel sind primäre Ressourcen in {{site.data.keyword.keymanagementserviceshort}}. Sie sind symmetrische Key-Wrapping-Schlüssel, die als vertrauenswürdige Roots für das Wrapping (Verschlüsseln) und das Aufheben des Wrappings (Entschlüsseln) von anderen Schlüssel verwendet werden, die in einem Datenservice gespeichert sind. Sie können mit {{site.data.keyword.keymanagementserviceshort}} den Lebenszyklus von Rootschlüsseln erstellen, speichern und verwalten, um den uneingeschränkten Zugriff auf andere in der Cloud gespeicherten Schlüssel zu erhalten. Im Gegensatz zu einem Standardschlüssel ist ein Rootschlüssel an den {{site.data.keyword.keymanagementserviceshort}}-Service gebunden.</dd>
   <dt>Standardschlüssel</dt>
-    <dd>Standardschlüssel sind Verschlüsselungsschlüssel, die in der Kryptografie verwendet werden. Im Allgemeinen verschlüsseln Standardschlüssel Daten direkt. Sie können mit {{site.data.keyword.keymanagementserviceshort}} den Lebenszyklus von Standardschlüsseln erstellen, speichern und verwalten. Nach dem Importieren oder Generieren eines Standardschlüssels im Service können Sie ihn in eine externe Datenressource (beispielsweise als Speicherbucket) exportieren, um sensible Daten zu verschlüsseln. Standardschlüssel, die gespeicherte Daten verschlüsseln, werden Datenverschlüsselungsschlüssel (DEKs) genannt, die mit einer erweiterten Verschlüsselung eingeschlossen werden können. Eingeschlossene DEKs werden nicht in {{site.data.keyword.keymanagementserviceshort}} gespeichert.</dd>
+    <dd>Mit Standardschlüsseln kann ein geheimer Schlüssel, z. B. ein Kennwort oder ein Verschlüsselungsschlüssel, permanent gespeichert werden. Wenn Sie {{site.data.keyword.keymanagementserviceshort}} zum Speichern von Standardschlüsseln verwenden, ermöglichen Sie die HSM-Speicherung (Hardware Security Module) für geheime Schlüssel, differenzierte Zugriffssteuerung für Ihre Ressourcen mit <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> und Audits für API-Aufrufe des Service mit <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>. </dd>
 </dl>
 
-Nachdem Sie Schlüssel in {{site.data.keyword.keymanagementserviceshort}} erstellt haben, wird ein ID-Wert zurückgegeben, der für API-Aufrufe an den Service genutzt werden kann. Der ID-Wert für Ihre Schlüssel wird mit der {{site.data.keyword.keymanagementserviceshort}}-GUI oder [{{site.data.keyword.keymanagementserviceshort}}-API](https://console.bluemix.net/apidocs/kms) abgerufen. 
+Nachdem Sie Schlüssel in {{site.data.keyword.keymanagementserviceshort}} erstellt haben, wird ein ID-Wert zurückgegeben, der für API-Aufrufe an den Service genutzt werden kann. Der ID-Wert für Ihre Schlüssel wird mit der {{site.data.keyword.keymanagementserviceshort}}-GUI oder [{{site.data.keyword.keymanagementserviceshort}}-API](https://{DomainName}/apidocs/key-protect) abgerufen. 
 
 ## Wrapping für Schlüssel durchführen
 {: #wrapping}

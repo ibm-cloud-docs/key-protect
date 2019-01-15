@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Fornecendo o serviço
 {: #provision}
@@ -24,10 +26,9 @@ lastupdated: "2018-08-24"
 
 Para provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} por meio do console do {{site.data.keyword.cloud_notm}}, conclua as etapas a seguir.
 
-1. [Efetue login em sua conta do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/){: new_window}.
+1. [Efetue login em sua conta do {{site.data.keyword.cloud_notm}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}){: new_window}.
 2. Clique em **Catálogo** para visualizar a lista de serviços que estão disponíveis no {{site.data.keyword.cloud_notm}}.
-3. Na área de janela de navegação Todas as categorias, role para **Plataforma** e clique na categoria
-**Segurança**.
+3. Na área de janela de navegação Todas as categorias, clique na categoria **Segurança e identidade**.
 4. Na lista de serviços, clique no azulejo **{{site.data.keyword.keymanagementserviceshort}}**.
 5. Selecione um plano de serviço e clique em **Criar** para provisionar uma instância do
 {{site.data.keyword.keymanagementserviceshort}} na conta, região e grupo de recursos no qual você efetuou login.
@@ -121,4 +122,4 @@ organização e espaço.
 ### O que vem a seguir
 
 - Para ver um exemplo de como chaves armazenadas no {{site.data.keyword.keymanagementserviceshort}} podem funcionar para criptografar e decriptografar dados, [consulte o aplicativo de amostra no GitHub ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.
-- Para descobrir mais sobre como gerenciar programaticamente suas chaves, [veja o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

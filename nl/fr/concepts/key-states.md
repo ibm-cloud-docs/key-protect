@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Etats des clés
 {: #key-states}
@@ -52,6 +54,6 @@ Au cours de leur existence, les clés cryptographiques connaissent plusieurs ét
   <caption style="caption-side:bottom;">Tableau 1. Description des états et des transitions d'une clé.</caption>
 </table>
 
-Après avoir ajouté une clé au service, utilisez le tableau de bord {{site.data.keyword.keymanagementserviceshort}} ou les API REST {{site.data.keyword.keymanagementserviceshort}} pour afficher la configuration et l'historique des transitions de la clé. A des fins d'audit, vous pouvez également surveiller le journal d'activité d'une clé en intégrant {{site.data.keyword.keymanagementserviceshort}} à {{site.data.keyword.cloudaccesstrailfull}}. Une fois que les services sont mis à disposition et en  cours d'exécution, les événements d'activité sont générés et collectés automatiquement dans un journal {{site.data.keyword.cloudaccesstrailshort}} lorsque vous créez et supprimez des clés dans {{site.data.keyword.keymanagementserviceshort}}. 
+Après avoir ajouté une clé au service, utilisez le tableau de bord {{site.data.keyword.keymanagementserviceshort}} ou les API REST {{site.data.keyword.keymanagementserviceshort}} pour afficher la configuration et l'historique des transitions de la clé. A des fins d'audit, vous pouvez également surveiller le journal d'activité d'une clé en intégrant {{site.data.keyword.keymanagementserviceshort}} à {{site.data.keyword.cloudaccesstrailfull}}. Une fois que les services sont mis à disposition et en cours d'exécution, les événements d'activité sont générés et collectés automatiquement dans un journal {{site.data.keyword.cloudaccesstrailshort}} lorsque vous créez et supprimez des clés dans {{site.data.keyword.keymanagementserviceshort}}. 
 
 Pour plus d'informations, voir [Surveillance de l'activité {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.

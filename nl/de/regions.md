@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Regionen und Standorte
 {: #regions}
@@ -20,54 +22,61 @@ Sie können Ihre Anwendungen mit dem {{site.data.keyword.keymanagementservicelon
 {: shortdesc}
 
 ## Verfügbare Regionen
-{: #regions}
+{: #available-regions}
 
 {{site.data.keyword.keymanagementserviceshort}} ist in den Regionen und an den Standorten verfügbar, die im Folgenden aufgeführt sind:
 ![Regionen, in denen der Key Protect-Service verfügbar ist](images/world-map_min.svg)
 
 ## Serviceendpunkte
-{: #endpoints}
+{: #service-endpoints}
 
-Wenn Sie Ihre {{site.data.keyword.keymanagementserviceshort}}-Ressourcen programmgesteuert verwalten, können Sie mithilfe der folgenden Tabelle die API-Endpunkte bestimmen, die für die Verbindung zur [{{site.data.keyword.keymanagementserviceshort}}-API](https://console.bluemix.net/apidocs/kms) verwendet werden: 
+Wenn Sie Ihre {{site.data.keyword.keymanagementserviceshort}}-Ressourcen programmgesteuert verwalten, können Sie mithilfe der folgenden Tabelle die API-Endpunkte bestimmen, die für die Verbindung zur [{{site.data.keyword.keymanagementserviceshort}}-API](https://console.bluemix.net/apidocs/key-protect) verwendet werden: 
 
 <table>
     <tr>
-        <th>Regionsname</th>
-        <th>Geografischer Standort</th>
+        <th>Standort</th>
         <th>Service-API-Endpunkt</th>
     </tr>
     <tr>
-        <td>Deutschland</td>
-        <td>Frankfurt, Deutschland</td>
+        <td>Dallas</td>
         <td>
-            <code>keyprotect.eu-de.bluemix.net</code>
+            <code>us-south.kms.cloud.ibm.com</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Washington DC</td>
+        <td>
+            <code>us-east.kms.cloud.ibm.com</code>
+        </td>
+    </tr>
+    <tr>
+        <td>London</td>
+        <td>
+            <code>eu-gb.kms.cloud.ibm.com</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Frankfurt</td>
+        <td>
+            <code>eu-de.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
         <td>Sydney</td>
-        <td>Sydney, Australien</td>
         <td>
-            <code>keyprotect.au-syd.bluemix.net</code>
+            <code>au-syd.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <tr>
-        <td>Vereinigtes Königreich</td>
-        <td>London, England</td>
+        <td>Tokyio</td>
         <td>
-            <code>keyprotect.eu-gb.bluemix.net</code>
-        </td>
-    </tr>
-    <tr>
-        <td>Vereinigte Staaten (Süden)</td>
-        <td>Dallas, USA</td>
-        <td>
-            <code>keyprotect.us-south.bluemix.net</code>
+            <code>jp-tok.kms.cloud.ibm.com</code>
         </td>
     </tr>
     <caption style="caption-side:bottom;">Tabelle 1. Verfügbare Endpunkte für die {{site.data.keyword.keymanagementserviceshort}}-API</caption>
 </table>
 
-Verwenden Sie für {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen, die in Cloud Foundry-Organisationen oder -Bereichen vorhanden sind, den alten Endpunkt `https://ibm-key-protect.edge.bluemix.net`, um mit der {{site.data.keyword.keymanagementserviceshort}}-API zu interagieren.
+Sie können weiterhin `https://keyprotect.<region>.bluemix.net` verwenden, um den Service als Ziel für Operationen anzugeben, oder Sie können Ihre Anwendungen mit den neuen `cloud.ibm.com`-Endpunkten aktualisieren. Verwenden Sie für {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen, die in Cloud Foundry-Organisationen oder -Bereichen vorhanden sind, den alten Endpunkt `https://ibm-key-protect.edge.bluemix.net`, um mit der {{site.data.keyword.keymanagementserviceshort}}-API zu interagieren.
 {: tip}
 
 Weitere Informationen zur Authentifizierung mit {{site.data.keyword.keymanagementserviceshort}} finden Sie in [Auf die API zugreifen](/docs/services/key-protect/access-api.html).

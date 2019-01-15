@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Einführung in {{site.data.keyword.keymanagementserviceshort}}
 
@@ -35,12 +37,12 @@ Wählen Sie aus zwei Schlüsseltypen aus:
 ## Neue Schlüssel erstellen
 {: #create-keys}
 
-[Nach dem Erstellen einer Instanz von {{site.data.keyword.keymanagementserviceshort}}](https://console.ng.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps) können Sie im Service Schlüssel angeben. 
+[Nach dem Erstellen einer Instanz von {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps) können Sie im Service Schlüssel angeben. 
 
 Führen Sie die folgenden Schritte aus, um Ihren ersten Verschlüsselungsschlüssel zu erstellen. 
 
-1. Klicken Sie im {{site.data.keyword.keymanagementserviceshort}}-Dashboard auf **Verwalten** &gt; **Schlüssel hinzufügen**.
-2. Um einen neuen Schlüssel zu erstellen, wählen Sie das Fenster **Neuen Schlüssel generieren** aus.
+1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**. 
+2. Wenn Sie einen neuen Schlüssel erstellen möchten, wählen Sie das Fenster **Schlüssel erstellen** aus. 
 
     Geben Sie die Schlüsseldetails an:
 
@@ -60,22 +62,22 @@ Führen Sie die folgenden Schritte aus, um Ihren ersten Verschlüsselungsschlüs
         <td>Schlüsseltyp</td>
         <td>Der <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Schlüsseltyp</a>, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten möchten.</td>
       </tr>
-      <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Einstellungen für 'Neuen Schlüssel generieren'</caption>
+      <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Einstellungen für <b>Schlüssel erstellen</b></caption>
     </table>
 
-3. Geben Sie die Details zum Schlüssel ein und klicken Sie dann zum Bestätigen auf **Schlüssel generieren**. 
+3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel erstellen**.  
 
 Die im Service generierten Schlüssel sind symmetrische 256-Bit-Schlüssel, die vom AES-GCM-Algorithmus unterstützt werden. Um eine höhere Sicherheit zu erhalten, werden die Schlüssel von FIPS 140-2 Level 2-zertifizierten Hardwaresicherheitsmodulen (HSMs) generiert, die sich in sicheren {{site.data.keyword.cloud_notm}}-Datenzentren befinden. 
 
-## Vorhandene Schlüssel hinzufügen
-{: #add-keys}
+## Eigene Schlüssel importieren
+{: #import-keys}
 
 Sicherheitsvorteile erhalten Sie auch mit einer BYOK-Unterstützung (Bring Your Own Key), wenn Sie dem Service vorhandene Schlüssel hinzufügen. 
 
 Führen Sie die folgenden Schritte aus, um einen vorhandenen Schlüssel hinzuzufügen.
 
-1. Klicken Sie im {{site.data.keyword.keymanagementserviceshort}}-Dashboard auf **Verwalten** &gt; **Schlüssel hinzufügen**.
-2. Um einen vorhandenen Schlüssel hochzuladen, wählen Sie das Fenster **Vorhandenen Schlüssel eingeben** aus.
+1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**. 
+2. Wenn Sie einen vorhandenen Schlüssel hochladen möchten, wählen Sie das Fenster **Eigenen Schlüssel importieren ** aus. 
 
     Geben Sie die Schlüsseldetails an:
 
@@ -99,10 +101,10 @@ Führen Sie die folgenden Schritte aus, um einen vorhandenen Schlüssel hinzuzuf
         <td>Schlüsselinformationen</td>
         <td>Die Schlüsselinformationen, z. B. ein symmetrischer Schlüssel, die im {{site.data.keyword.keymanagementserviceshort}}-Service gespeichert werden sollen. Der bereitgestellte Schlüssel muss base64-codiert sein.</td>
       </tr>
-      <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der Einstellungen für 'Vorhandenen Schlüssel eingeben'</caption>
+      <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der Einstellungen für <b>Eigenen Schlüssel importieren</b></caption>
     </table>
 
-3. Geben Sie die Details zum Schlüssel ein und klicken Sie dann zum Bestätigen auf **Neuen Schlüssel hinzufügen**. 
+3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel importieren**.  
 
 Mit dem {{site.data.keyword.keymanagementserviceshort}}-Dashboard können Sie die allgemeinen Merkmale Ihrer neuen Schlüssel überprüfen. 
 
@@ -112,4 +114,4 @@ Sie können Ihre Schlüssel nun verwenden, um Ihre Apps und Services zu codieren
 
 - Weitere Informationen zum Verwalten und Schützen der Verschlüsselungsschlüssel mithilfe eines Rootschlüssels finden Sie in [Envelope-Verschlüsselungg](/docs/services/key-protect/concepts/envelope-encryption.html).
 - Weitere Informationen zur Integration des {{site.data.keyword.keymanagementserviceshort}}-Service in andere Clouddaten-Lösungen, finden Sie [in der Integrationsdokumentation](/docs/services/key-protect/integrations/integrate-services.html).
-- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+- Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.

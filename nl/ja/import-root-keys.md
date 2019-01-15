@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # ルート鍵のインポート
 {: #import-root-keys}
@@ -26,9 +28,10 @@ lastupdated: "2018-08-24"
 
 [サービスのインスタンスを作成した後](/docs/services/key-protect/provision.html)、以下の手順を実行して、{{site.data.keyword.keymanagementserviceshort}} GUI で既存のルート鍵を追加します。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/){: new_window} にログインします。
-2. {{site.data.keyword.cloud_notm}} ダッシュボードで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
-3. 鍵をインポートするには、**「鍵の追加」**をクリックして、**「既存の鍵の入力 (Enter existing key)」**ウィンドウを選択します。
+1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/){: new_window}。
+2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
+3. {{site.data.keyword.cloud_notm}} リソース・リストで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
+4. 鍵をインポートするには、**「鍵の追加」**をクリックして、**「独自の鍵をインポート (Import your own key)」**ウィンドウを選択します。
 
     鍵の詳細を以下のように指定します。
 
@@ -46,7 +49,7 @@ lastupdated: "2018-08-24"
       </tr>
       <tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">鍵のタイプ</a>。鍵のタイプのリストから、<b>「ルート鍵」</b>を選択します。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">鍵のタイプ</a>。 鍵のタイプのリストから、<b>「ルート鍵」</b>を選択します。</td>
       </tr>
       <tr>
         <td>鍵の素材</td>
@@ -61,10 +64,10 @@ lastupdated: "2018-08-24"
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">表 1. <b>「既存の鍵の入力 (Enter existing key)」</b>の設定の説明</caption>
+      <caption style="caption-side:bottom;">表 1. <b>「独自の鍵をインポート (Import your own key)」</b>の設定の説明</caption>
     </table>
 
-4. 鍵の詳細の記入が完了したら、**「新しい鍵の追加 (Add new key)」**をクリックして確認します。 
+5. 鍵の詳細の記入が完了したら、**「鍵のインポート (Import key)」**をクリックして確認します。  
 
 ## API を使用したルート鍵のインポート
 {: #api}
@@ -78,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
 1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect/access-api.html)。
 
-1. 以下の cURL コマンドを使用して [{{site.data.keyword.keymanagementserviceshort}} API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を呼び出します。
+1. 以下の cURL コマンドを使用して [{{site.data.keyword.keymanagementserviceshort}} API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/key-protect){: new_window} を呼び出します。
 
     ```cURL
     curl -X POST \
@@ -106,7 +109,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を参照してください。
+    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/key-protect){: new_window} を参照してください。
     {: tip}
 
     次の表に従って、例の要求内の変数を置き換えてください。
@@ -194,4 +197,4 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ### 次に行うこと
 
 - エンベロープ暗号化を使用した鍵の保護について詳しくは、[鍵のラッピング](/docs/services/key-protect/wrap-keys.html)を確認してください。
-- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/kms){: new_window} を確認してください。
+- プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/apidocs/key-protect){: new_window} を確認してください。

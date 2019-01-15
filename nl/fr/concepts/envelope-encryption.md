@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Chiffrement d'enveloppe
 {: #envelope-encryption}
@@ -62,10 +64,10 @@ Pour le chiffrement avancé et la gestion des données, le service prend en char
   <dt>Root keys (Clés racine)</dt>
     <dd>Les clés racine représentent les ressources principales de {{site.data.keyword.keymanagementserviceshort}}. Il s'agit de clés d'encapsulage de clés symétriques utilisées en tant que racines de confiance pour l'encapsulage (chiffrement) et le désencapsulage (déchiffrement) d'autres clés stockées dans le service de données. Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez créer et stocker des clés et gérer le cycle de vie de clés racine pour contrôler intégralement d'autres clés dans le cloud. Contrairement à la clé standard, une clé racine doit toujours rester dans les limites du service {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Standard keys (Clés standard)</dt>
-    <dd>Les clés standard sont des clés de chiffrement utilisées pour la cryptographie. En général, elles chiffrent les données directement. Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez créer, stocker et gérer le cycle de vie des clés standard. Après avoir importé ou généré une clé standard du service, vous pouvez l'exporter dans une ressource de données externe, comme un compartiment de stockage, pour chiffrer des informations sensibles. Les clés standard qui chiffrent des données stockées sont appelées "clés DEK" et peuvent être encapsulées avec un mécanisme de chiffrement avancé. Les clés DEK encapsulées ne sont pas stockées dans {{site.data.keyword.keymanagementserviceshort}}.</dd>
+    <dd>Les clés standard permettent de préserver une valeur confidentielle, telle qu'un mot de passe ou une clé de chiffrement. Lorsque vous utilisez {{site.data.keyword.keymanagementserviceshort}} pour stocker des clés standard, vous activez un module de sécurité matériel (HSM) pour vos valeurs confidentielles, le contrôle d'accès à granularité fine à vos ressources avec <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> et la possibilité d'audit des appels d'API au service avec <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
-Une fois les clés créées dans {{site.data.keyword.keymanagementserviceshort}}, le système renvoie une valeur d'ID que vous pouvez utiliser pour appeler le service via une API. Vous pouvez extraire la valeur d'ID pour vos clés via l'interface graphique de {{site.data.keyword.keymanagementserviceshort}} ou l'[API {{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/kms). 
+Une fois les clés créées dans {{site.data.keyword.keymanagementserviceshort}}, le système renvoie une valeur d'ID que vous pouvez utiliser pour appeler le service via une API. Vous pouvez extraire la valeur d'ID pour vos clés via l'interface graphique de {{site.data.keyword.keymanagementserviceshort}} ou l'[API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
 
 ## Encapsulage de clés
 {: #wrapping}
@@ -85,7 +87,7 @@ Le tableau suivant décrit les valeurs à entrer pour effectuer une opération d
   </tr>
   <tr>
     <td>Plaintext</td>
-    <td>Facultatif : Matériel relatif à la clé DEK qui contient les données à gérer et à protéger. Le texte brut utilisé pour l'encapsulage de clé doit être codé en base64. Pour générer une clé DEK de 256 bits, vous pouvez omettre l'attribut `plaintext`. Le service génère une clé DEK codée en base64 à utiliser pour l'encapsulage de clés.</td>
+    <td>Facultatif : matériel de la clé DEK qui contient les données à gérer et à protéger. Le texte brut utilisé pour l'encapsulage de clé doit être codé en base64. Pour générer une clé DEK de 256 bits, vous pouvez omettre l'attribut `plaintext`. Le service génère une clé DEK codée en base64 à utiliser pour l'encapsulage de clés.</td>
   </tr>
   <tr>
     <td>Additional authentication data (AAD)</td>

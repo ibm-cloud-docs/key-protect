@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 佈建服務
 {: #provision}
@@ -24,10 +26,10 @@ lastupdated: "2018-08-24"
 
 若要從 {{site.data.keyword.cloud_notm}} 主控台佈建 {{site.data.keyword.keymanagementserviceshort}} 的實例，請完成下列步驟。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 帳戶 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/){: new_window}。
+1. [登入 {{site.data.keyword.cloud_notm}} 帳戶 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}){: new_window}。
 2. 按一下**型錄**以檢視 {{site.data.keyword.cloud_notm}} 上可用的服務清單。
-3. 從「所有種類」導覽窗格中，捲動至**平台**，然後按一下**安全**種類。
-4. 從服務清單中，按一下 **{{site.data.keyword.keymanagementserviceshort}}** 磚。
+3. 從「所有種類」導覽窗格，按一下**安全及身分**種類。
+4. 從服務清單按一下 **{{site.data.keyword.keymanagementserviceshort}}** 磚。
 5. 選取服務方案，然後按一下**建立**以在您登入的帳戶、地區及資源群組中佈建 {{site.data.keyword.keymanagementserviceshort}} 實例。
 
 ## 從 {{site.data.keyword.cloud_notm}} CLI 佈建
@@ -115,4 +117,4 @@ lastupdated: "2018-08-24"
 ### 下一步為何？
 
 - 若要查看 {{site.data.keyword.keymanagementserviceshort}} 中所儲存的金鑰如何運作來加密及解密資料的範例，請[試用 GitHub 中的範例應用程式 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}。
-- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/apidocs/kms){: new_window}。
+- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。

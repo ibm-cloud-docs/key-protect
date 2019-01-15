@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Links relacionados
 {: #related-links}
@@ -21,7 +23,7 @@ Recursos adicionais para ajudá-lo a aprender sobre como gerenciar a criptografi
 ## Amostra
 {: #samples}
 
-- [Aplicativo de amostra: decriptografando mensagens secretas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Aplicativo de amostra: aplique segurança de ponta a ponta a um aplicativo em nuvem ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blogs
 {: #blogs}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Gestión de acceso de usuario
+# Gestión del acceso
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} da soporte a un sistema de control de acceso centralizado, gobernado por {{site.data.keyword.iamlong}}, para ayudarle a gestionar usuarios y acceder a sus claves de cifrado.
@@ -57,12 +59,13 @@ La siguiente tabla muestra cómo los roles identidad y acceso se correlacionan c
   </tr>
   <tr>
     <td><p>Escritor</p></td>
-    <td><p>Un escritor puede crear claves, modificar claves y acceder al material de las claves.</p></td>
+    <td><p>Un escritor puede crear claves, modificar claves, rotar claves y acceder al material de las claves.</p></td>
     <td>
       <p>
         <ul>
           <li>Crear claves</li>
           <li>Ver claves</li>
+          <li>Rotar claves</li>
           <li>Envolver claves</li>
           <li>Desenvolver claves</li>
         </ul>
@@ -85,13 +88,11 @@ La siguiente tabla muestra cómo los roles identidad y acceso se correlacionan c
   <caption style="caption-side:bottom;">Tabla 1. Describe cómo los roles de acceso e identidad se correlacionan con los permisos de {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-**Nota**: Los roles de usuario de Cloud IAM proporcionan acceso al nivel de servicio o instancia de servicio. Los [roles de Cloud Foundry ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/cfaccess.html){: new_window} son independientes y definen el acceso en la organización o el nivel de espacio.
-
-Para obtener más información sobre {{site.data.keyword.iamshort}}, consulte [Roles de usuario y permisos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/users_roles.html#userroles){: new_window}.
+Los roles de usuario de Cloud IAM proporcionan acceso al nivel de servicio o instancia de servicio. Los [roles de Cloud Foundry ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/cfaccess.html){: new_window} son independientes y definen el acceso en la organización o el nivel de espacio. Para obtener más información sobre {{site.data.keyword.iamshort}}, consulte [Roles de usuario y permisos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/users_roles.html#userroles){: new_window}.
+{: note}
 
 ### Qué hacer a continuación
 
 Los propietarios y administradores de cuentas pueden invitar a usuarios y establecer políticas de servicio que corresponden a los usuarios pueden realizar acciones de {{site.data.keyword.keymanagementserviceshort}}.
 
 - Para obtener más información sobre la asignación de roles de usuario en la IU de {{site.data.keyword.cloud_notm}}, consulte [Gestión de acceso de IAM ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam/mngiam.html){: new_window}.
-- Para obtener información sobre la concesión de permisos avanzados para acceder a claves de cifrado específicas, consulte [Gestión de claves de acceso](/docs/services/key-protect/manage-access-api.html).

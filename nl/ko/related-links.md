@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 관련 링크
 {: #related-links}
@@ -21,7 +23,7 @@ lastupdated: "2018-08-24"
 ## 샘플
 {: #samples}
 
-- [샘플 앱: 시크릿 메시지 복호화 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [샘플 앱: 엔드-투-엔드 보안을 클라우드 애플리케이션 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}에 적용
 
 ## 블로그
 {: #blogs}

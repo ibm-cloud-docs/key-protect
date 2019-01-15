@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # 서비스 통합
 {: #integrate-services}
@@ -33,6 +35,15 @@ lastupdated: "2018-08-24"
         <td>
           <p>{{site.data.keyword.keymanagementserviceshort}}를 사용하여 스토리지 버킷에 [엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)를 추가하십시오. {{site.data.keyword.keymanagementserviceshort}}에서 관리하는 루트 키를 사용하여 저장 데이터를 암호화하는 데이터 암호화 키를 보호하십시오.</p>
           <p>자세한 정보는 [{{site.data.keyword.cos_full_notm}}와 통합](/docs/services/key-protect/integrations/integrate-cos.html)을 확인하십시오.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <p>{{site.data.keyword.containerlong}}</p>
+        </td>
+        <td>
+          <p>[엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)를 사용하여 {{site.data.keyword.containershort_notm}} 클러스터에서 시크릿을 보호하십시오.</p>
+          <p>자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}}를 사용하여 Kubernetes 시크릿 암호화](/docs/containers/cs_encrypt.html#keyprotect)를 확인하십시오.</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">표 1. {{site.data.keyword.keymanagementserviceshort}}에 사용 가능한 통합에 대한 설명</caption>
@@ -70,7 +81,7 @@ lastupdated: "2018-08-24"
   <caption style="caption-side:bottom;">표 2. {{site.data.keyword.keymanagementserviceshort}} API 메소드에 대한 설명</caption>
 </table>
 
-{{site.data.keyword.keymanagementserviceshort}}에서 프로그래밍 방식으로 키를 관리하는 방법에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/apidocs/kms){: new_window}를 확인하십시오.
+{{site.data.keyword.keymanagementserviceshort}}에서 프로그래밍 방식으로 키를 관리하는 방법에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.
 {: tip}
 
 ## 지원되는 서비스 통합
@@ -79,12 +90,12 @@ lastupdated: "2018-08-24"
 통합을 추가하려면 {{site.data.keyword.iamlong}} 대시보드를 사용하여 서비스 간의 권한을 작성하십시오. 서비스에서 권한을 통해 서비스 액세스 정책을 제공할 수 있으므로 사용자가 클라우드 데이터베이스 서비스의 리소스를 {{site.data.keyword.keymanagementserviceshort}}에서 관리하는 [루트 키](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)와 연관시킬 수 있습니다.
 
 권한을 작성하기 전에 두 개의 서비스를 동일한 지역에 프로비저닝해야 합니다. 서비스 권한에 대해 자세히 알아보려면 [서비스 간 액세스 부여 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/authorizations.html){: new_window}를 참조하십시오.
-{: tip}
+{: note}
 
 서비스를 통합할 준비가 되면 다음 단계를 사용하여 권한을 작성하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")에 로그인](https://console.bluemix.net/){: new_window}하십시오.
-2. 메뉴 표시줄에서 **관리** &gt; **보안** &gt; **ID 및 액세스**를 클릭한 다음 **권한**을 선택하십시오. 
+1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")에 로그인](https://{DomainName}){: new_window}하십시오.
+2. 메뉴 표시줄에서 **관리** &gt; **보안** &gt; **액세스(IAM)**를 클릭한 다음 **권한**을 선택하십시오. 
 3. **작성**을 클릭하십시오.
 4. 권한에 대한 소스 및 대상을 선택하십시오.
  

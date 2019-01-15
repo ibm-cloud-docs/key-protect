@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Iniciación a {{site.data.keyword.keymanagementserviceshort}}
 
@@ -35,12 +37,12 @@ Elija entre dos tipos de clave:
 ## Creación de nuevas claves
 {: #create-keys}
 
-[Después de crear una instancia de {{site.data.keyword.keymanagementserviceshort}}](https://console.ng.bluemix.net/catalog/services/key-protect/?taxonomyNavigation=apps), estará preparado para designar claves en el servicio. 
+[Después de crear una instancia de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), estará preparado para designar claves en el servicio. 
 
 Siga estos pasos para crear su primera clave criptográfica. 
 
-1. En el panel de control de {{site.data.keyword.keymanagementserviceshort}}, pulse **Gestionar** &gt; **Añadir clave**.
-2. Para crear una nueva clave, seleccione la ventana **Generar una nueva clave**.
+1. En la página de detalles de la aplicación, pulse **Gestionar** &gt; **Añadir clave**.
+2. Para crear una nueva clave, seleccione la ventana **Crear una clave**.
 
     Especifique los detalles de la clave:
 
@@ -60,22 +62,22 @@ Siga estos pasos para crear su primera clave criptográfica.
         <td>Tipo de clave</td>
         <td><a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Tipo de clave</a> que desea gestionar en {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
-      <caption style="caption-side:bottom;">Tabla 1. Descripción de los valores de Generar nueva clave</caption>
+      <caption style="caption-side:bottom;">Tabla 1. Descripción de los valores de <b>Crear una clave</b></caption>
     </table>
 
-3. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Generar clave** para confirmar. 
+3. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Crear una clave** para confirmar. 
 
 Las claves creadas en el servicio son claves simétricas de 256 bits, soportadas por el algoritmo AES-GCM. Para una mayor seguridad, las claves se generan con módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 Nivel 2 que se ubican en centros de datos seguros de {{site.data.keyword.cloud_notm}}. 
 
-## Adición de claves existentes
-{: #add-keys}
+## Importación de sus propias claves
+{: #import-keys}
 
 Puede obtener las ventajas que ofrece Bring Your Own Key (BYOK) introduciendo las claves existentes en el servicio. 
 
 Siga estos pasos para añadir una clave existente.
 
-1. En el panel de control de {{site.data.keyword.keymanagementserviceshort}}, pulse **Gestionar** &gt; **Añadir clave**.
-2. Para subir una clave existente, seleccione la ventana **Especificar clave existente**.
+1. En la página de detalles de la aplicación, pulse **Gestionar** &gt; **Añadir clave**.
+2. Para subir una clave existente, seleccione la ventana **Importar su propia clave**.
 
     Especifique los detalles de la clave:
 
@@ -99,17 +101,17 @@ Siga estos pasos para añadir una clave existente.
         <td>Material de la clave</td>
         <td>El material de la clave, como por ejemplo una clave simétrica, que desea almacenar en el servicio de {{site.data.keyword.keymanagementserviceshort}}. La clave que proporcione debe estar codificada en base64.</td>
       </tr>
-      <caption style="caption-side:bottom;">Tabla 2. Descripción de los valores de Especificar clave existente</caption>
+      <caption style="caption-side:bottom;">Tabla 2. Descripción de los valores de <b>Importar su propia clave</b></caption>
     </table>
 
-3. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Añadir una nueva clave** para confirmar. 
+3. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Importar clave** para confirmar. 
 
 Desde el panel de control {{site.data.keyword.keymanagementserviceshort}}, puede inspeccionar las características generales de sus nuevas claves. 
 
 ## Qué hacer a continuación
 
-Ahora puede utilizar sus claves para codificar sus apps y servicios. Si ha añadido una clave raíz al servicio, es posible que desee obtener más información sobre el uso de la clave raíz para proteger las claves que cifran los datos en reposo. Consulte [Envolvimiento de claves](/docs/services/key-protect/wrap-keys.html) para empezar.
+Ahora puede utilizar sus claves para codificar las apps y servicios. Si ha añadido una clave raíz al servicio, es posible que desee obtener más información sobre el uso de la clave raíz para proteger las claves que cifran los datos en reposo. Consulte [Envolvimiento de claves](/docs/services/key-protect/wrap-keys.html) para empezar.
 
 - Para encontrar más información sobre la gestión y la protección de las claves de cifrado con una clave raíz, consulte [Cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html).
 - Para obtener más información sobre la integración del servicio {{site.data.keyword.keymanagementserviceshort}} con otras soluciones de datos en la nube, [consulte el documento de Integraciones](/docs/services/key-protect/integrations/integrate-services.html).
-- Para saber más sobre de sobre cómo gestionar sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/key-protect){: new_window}.
+- Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

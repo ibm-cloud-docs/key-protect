@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Envolvimiento de claves
 {: #wrap-keys}
@@ -28,7 +30,8 @@ Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de 
 
 Proteja una clave de cifrado de datos (DEK) específica con una clave raíz que gestionará en {{site.data.keyword.keymanagementserviceshort}}.
 
-**Importante:** Cuando se envuelve una clave raíz, asegúrese de que la clave raíz es de 256, 384 o 512 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CGM.
+Cuando proporcione una clave raíz para el envolvimiento, asegúrese de que la clave raíz es de 256, 384 o 512 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CGM.
+{: note}
 
 [Después de designar una clave raíz en el servicio](/docs/services/key-protect/create-root-keys.html), puede envolver una DEK con cifrado avanzado realizando una llamada `POST` al siguiente punto final.
 
@@ -37,7 +40,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
 ```
 {: codeblock}
 
-1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio. ](/docs/services/key-protect/access-api.html)
+1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio.](/docs/services/key-protect/access-api.html)
 
 2. Copie el material de la clave de la DEK que desea gestionar y proteger.
 
@@ -55,7 +58,6 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
       -H 'bluemix-instance: <ID_instancia>' \
       -H 'content-type: application/vnd.ibm.kms.key_action+json' \
       -H 'correlation-id: <ID_correlación>' \
-      -H 'prefer: <preferencia_retorno>' \
       -d '{
       "plaintext": "<clave_datos>",
       "aad": ["<datos_adicionales>", "<datos_adicionales>"]
@@ -63,7 +65,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
     ```
     {: codeblock}
 
-    Para trabajar con claves dentro de un espacio y organización de Cloud Foundry en su cuenta, sustituya `Bluemix-Instance` con las cabeceras adecuadas de `Bluemix-org` y `Bluemix-space`. [Para obtener más información, consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Para trabajar con claves dentro de un espacio y organización de Cloud Foundry en su cuenta, sustituya `Bluemix-Instance` con las cabeceras adecuadas de `Bluemix-org` y `Bluemix-space`. [Para obtener más información, consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Sustituya las variables en la solicitud de ejemplo siguiendo la siguiente tabla.
@@ -75,47 +77,56 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td>La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>
-        <td>Identificador exclusivo para la clave raíz que desea utilizar para envolver.</td>
+        <td><strong>Obligatorio.</strong> Identificador exclusivo para la clave raíz que desea utilizar para envolver.</td>
       </tr>
       <tr>
         <td><varname>señal_IAM</varname></td>
-        <td>Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperación de una señal de acceso</a>.</td>
+        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperación de una señal de acceso</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_instancia</varname></td>
-        <td>El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
+        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_correlación</varname></td>
-        <td>Opcional: El único identificador que se ha utilizado para rastrear y correlacionar transacciones.</td>
-      </tr>
-      <tr>
-        <td><varname>preferencia_retorno</varname></td>
-        <td><p>Una cabecera que altera el comportamiento del servidor para operaciones de <code>POST</code> y <code>DELETE</code>.</p><p>Cuando establece la variable <em>preferencia_retorno</em> en <code>return=minimal</code>, el servicio solo devuelve los metadatos de la clave como, por ejemplo, el nombre de clave y valor de ID, en el cuerpo de entidad de la respuesta. Cuando establece la variable en <code>return=representation</code>, el servicio devuelve tanto el material de la clave como los metadatos de la clave.</p></td>
+        <td>El único identificador que se ha utilizado para rastrear y correlacionar transacciones.</td>
       </tr>
       <tr>
         <td><varname>clave_datos</varname></td>
-        <td>Opcional: El material de la clave de la DEK que desea gestionar y proteger. El valor del <code>texto sin formato</code> debe estar codificado en base64. Para generar una nueva DEK, omita el atributo <code>plaintext</code>. El servicio genera un texto sin formato aleatorio (32 bytes) y envuelve dicho valor.</td>
+        <td>El material de la clave de la DEK que desea gestionar y proteger. El valor del <code>texto sin formato</code> debe estar codificado en base64. Para generar una nueva DEK, omita el atributo <code>plaintext</code>. El servicio genera un texto sin formato aleatorio (32 bytes), envuelve dicho valor y devuelve tanto el valor generado como el envuelto en la respuesta.</td>
       </tr>
       <tr>
         <td><varname>datos_adicionales</varname></td>
-        <td>Opcional: Datos de autenticación adicionales (AAD) que se utilizan para proteger aún más la clave. Cada serie puede contener hasta 255 caracteres. Si proporcionó los AAD cuando realizó al servicio la llamada de envolvimiento, debe especificar los mismos AAD durante la llamada de desenvolvimiento subsiguiente.<br></br>Importante: El servicio {{site.data.keyword.keymanagementserviceshort}} no guarda datos de autenticación adicionales. Si proporciona AAD, guarde los datos en una ubicación segura para asegurarse de que pueda acceder y proporcionar los mismos AAD durante las llamadas de desenvolvimiento subsiguientes.</td>
+        <td>Datos de autenticación adicionales (AAD) que se utilizan para proteger aún más la clave. Cada serie puede contener hasta 255 caracteres. Si proporcionó los AAD cuando realizó al servicio la llamada de envolvimiento, debe especificar los mismos AAD durante la llamada de desenvolvimiento subsiguiente.<br></br>Importante: El servicio {{site.data.keyword.keymanagementserviceshort}} no guarda datos de autenticación adicionales. Si proporciona AAD, guarde los datos en una ubicación segura para asegurarse de que pueda acceder y proporcionar los mismos AAD durante las llamadas de desenvolvimiento subsiguientes.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabla 1. Describe las variables necesarias para envolver una clave especificada en {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    La clave envuelta, con el material de la clave codificado en base64, se devuelve en el cuerpo de entidad de la respuesta. El siguiente objeto JSON muestra un valor devuelto de ejemplo.
+    La clave de cifrado de datos envuelta, con el material de la clave codificado en base64, se devuelve en el cuerpo de entidad de la respuesta. El siguiente objeto JSON muestra un valor devuelto de ejemplo.
+
+    ```
+    {
+      "ciphertext": "eyJjaXBoZXJ0ZXh0Ijoic3VLSDNRcmdEZjdOZUw4Rkc4L2FKYjFPTWcyd3A2eDFvZlA4MEc0Z1B2RmNrV2g3cUlidHphYXU0eHpKWWoxZyIsImhhc2giOiJiMmUyODdkZDBhZTAwZGZlY2Q3OGJmMDUxYmNmZGEyNWJkNGUzMjBkYjBhN2FjNzVhMWYzZmNkMDZlMjAzZWYxNWM5MTY4N2JhODg2ZWRjZGE2YWVlMzFjYzk2MjNkNjA5YTRkZWNkN2E5Y2U3ZDc5ZTRhZGY1MWUyNWFhYWM5MjhhNzg3NmZjYjM2NDFjNTQzMTZjMjMwOGY2MThlZGM2OTE3MjAyYjA5YTdjMjA2YzkxNTBhOTk1NmUxYzcxMTZhYjZmNmQyYTQ4MzZiZTM0NTk0Y2IwNzJmY2RmYTk2ZSJ9"
+    }
+    ```
+    {:screen}
+    
+    Si omite el atributo `plaintext` cuando realice la solicitud de envolvimiento, el servicio devolverá tanto la clave de cifrado de datos (DEK) generada como la DEK envuelta en formato con codificación base64.
 
     ```
     {
       "plaintext": "VGhpcyBpcyBhIHNlY3JldCBtZXNzYWdlLg==",
       "ciphertext": "eyJjaXBoZXJ0ZXh0Ijoic3VLSDNRcmdEZjdOZUw4Rkc4L2FKYjFPTWcyd3A2eDFvZlA4MEc0Z1B2RmNrV2g3cUlidHphYXU0eHpKWWoxZyIsImhhc2giOiJiMmUyODdkZDBhZTAwZGZlY2Q3OGJmMDUxYmNmZGEyNWJkNGUzMjBkYjBhN2FjNzVhMWYzZmNkMDZlMjAzZWYxNWM5MTY4N2JhODg2ZWRjZGE2YWVlMzFjYzk2MjNkNjA5YTRkZWNkN2E5Y2U3ZDc5ZTRhZGY1MWUyNWFhYWM5MjhhNzg3NmZjYjM2NDFjNTQzMTZjMjMwOGY2MThlZGM2OTE3MjAyYjA5YTdjMjA2YzkxNTBhOTk1NmUxYzcxMTZhYjZmNmQyYTQ4MzZiZTM0NTk0Y2IwNzJmY2RmYTk2ZSJ9"
-      "aad": ["data1", "data2"]
     }
     ```
     {:screen}
+
+    El valor <code>plaintext</code> representa la DEK desenvuelta y el valor <code>ciphertext</code> representa la DEK envuelta.
+    
+    Si desea que {{site.data.keyword.keymanagementserviceshort}} genere una nueva clave de cifrado de datos (DEK) por usted, también puede pasar un cuerpo vacío en una solicitud de envolvimiento. La DEK generada, que contiene el material de clave con codificación base64, se devolverá en la respuesta de cuerpo de entidad, junto con la DEK empaquetada.
+    {: tip}
     

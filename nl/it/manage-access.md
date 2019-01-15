@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,8 +12,10 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
-# Gestione dell'accesso utente
+# Gestione dell'accesso
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} supporta un sistema di controllo dell'accesso centralizzato, controllato da
@@ -50,22 +52,23 @@ La seguente tabella mostra come i ruoli di identità e accesso vengono associati
       <p>
         <ul>
           <li>Visualizza le chiavi</li>
-          <li>Impacchettamento delle chiavi</li>
-          <li>Spacchettamento delle chiavi</li>
+          <li>Impacchetta le chiavi</li>
+          <li>Spacchetta le chiavi</li>
         </ul>
       </p>
     </td>
   </tr>
   <tr>
     <td><p>Scrittore</p></td>
-    <td><p>Uno scrittore può creare, modificare le chiavi e accedere al materiale della chiave.</p></td>
+    <td><p>Uno scrittore può creare e modificare le chiavi, eseguirne la rotazione e accedere al materiale della chiave.</p></td>
     <td>
       <p>
         <ul>
           <li>Crea le chiavi</li>
           <li>Visualizza le chiavi</li>
-          <li>Impacchettamento delle chiavi</li>
-          <li>Spacchettamento delle chiavi</li>
+          <li>Esegui la rotazione delle chiavi</li>
+          <li>Impacchetta le chiavi</li>
+          <li>Spacchetta le chiavi</li>
         </ul>
       </p>
     </td>
@@ -86,13 +89,11 @@ La seguente tabella mostra come i ruoli di identità e accesso vengono associati
   <caption style="caption-side:bottom;">Tabella 1. Descrive come i ruoli di identità e accesso vengono associati alle autorizzazioni {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-**Nota**: i ruoli utente Cloud IAM forniscono l'accesso al livello dell'istanza del servizio o del servizio. I [ruoli Cloud Foundry ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/cfaccess.html){: new_window} sono separati e definiscono l'accesso a livello di organizzazione o di spazio.
-
-Per ulteriori informazioni su {{site.data.keyword.iamshort}}, consulta [Ruoli utente e autorizzazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/users_roles.html#userroles){: new_window}.
+I ruoli utente Cloud IAM forniscono l'accesso al livello dell'istanza del servizio o del servizio. I [ruoli Cloud Foundry ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/cfaccess.html){: new_window} sono separati e definiscono l'accesso a livello di organizzazione o di spazio. Per ulteriori informazioni su {{site.data.keyword.iamshort}}, consulta [Ruoli utente e autorizzazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/users_roles.html#userroles){: new_window}.
+{: note}
 
 ### Operazioni successive
 
 Gli amministratori e i proprietari dell'account possono invitare gli utenti e configurare le politiche del servizio che corrispondono alle azioni {{site.data.keyword.keymanagementserviceshort}} che possono eseguire gli utenti.
 
 - Per ulteriori informazioni sull'assegnazione dei ruoli utente nella IU {{site.data.keyword.cloud_notm}}, vedi [Gestione dell'accesso IAM ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam/mngiam.html){: new_window}.
-- Per informazioni su come concedere autorizzazioni avanzate per accedere a chiavi di crittografia specifiche, vedi [Gestione dell'accesso alle chiavi](/docs/services/key-protect/manage-access-api.html).

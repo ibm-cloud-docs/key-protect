@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Zugehörige Links
 {: #related-links}
@@ -21,7 +23,7 @@ Zusätzliche Ressourcen unterstützen Sie, mehr über das Verwalten der Verschl�
 ## Beispiele
 {: #samples}
 
-- [Beispielapp: Entschlüsseln geheimer Nachrichten ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}
+- [Beispiel-App: Anwenden der End-to-End-Sicherheit für eine Cloudanwendung ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}
 
 ## Blogs
 {: #blogs}

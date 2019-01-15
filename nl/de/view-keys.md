@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-24"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-08-24"
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
 
 # Schlüssel anzeigen
 {: #view-keys}
@@ -35,9 +37,10 @@ Wenn Sie die Überprüfung von Verschlüsselungsschlüssel über eine grafische 
 
 [Nach dem Erstellen oder Importieren der vorhandenen Schlüssel in den Service](/docs/services/key-protect/create-root-keys.html) müssen Sie die folgenden Schritte ausführen, um Ihre Schlüssel anzuzeigen.
 
-1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/) an.
-2. Wählen Sie im {{site.data.keyword.cloud_notm}}-Dashboard die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus.
-3. Durchsuchen Sie die allgemeinen Merkmale Ihrer Schlüssel mithilfe des {{site.data.keyword.keymanagementserviceshort}}-Dashboards:
+1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/) an.
+2. Rufen Sie **Menü** &gt; **Ressourcenliste** auf, um eine Liste Ihrer Ressourcen anzuzeigen. 
+3. Wählen Sie in der {{site.data.keyword.cloud_notm}}-Ressourcenliste die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus. 
+4. Durchsuchen Sie die allgemeinen Merkmale Ihrer Schlüssel auf der Seite mit den Anwendungsdetails: 
 
     <table>
       <tr>
@@ -50,11 +53,11 @@ Wenn Sie die Überprüfung von Verschlüsselungsschlüssel über eine grafische 
       </tr>
       <tr>
         <td>ID</td>
-        <td>Eine eindeutige Schlüssel-ID, die Ihrem Schlüssel vom {{site.data.keyword.keymanagementserviceshort}}-Service zugewiesen wurde. Mit dem ID-Wert können Sie den Service mit der [{{site.data.keyword.keymanagementserviceshort}}-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms) aufrufen.</td>
+        <td>Eine eindeutige Schlüssel-ID, die Ihrem Schlüssel vom {{site.data.keyword.keymanagementserviceshort}}-Service zugewiesen wurde. Mit dem ID-Wert können Sie den Service mit der [{{site.data.keyword.keymanagementserviceshort}}-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect) aufrufen.</td>
       </tr>
       <tr>
         <td>Status</td>
-        <td>Der [Schlüsselzustand](/docs/services/key-protect/concepts/key-states.html) basiert auf der Dokumentation ['NIST Special Publication 800-57, Recommendation for Key Management' ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Diese Zustände sind <i>Pre-active</i> (Bereits aktiv), <i>Active</i> (Aktiv), <i>Deactivated</i> (Inaktiviert) und <i>Destroyed</i> (Gelöscht).</td>
+        <td>Der [Schlüsselstatus](/docs/services/key-protect/concepts/key-states.html) basiert auf der Dokumentation ['NIST Special Publication 800-57, Recommendation for Key Management' ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Diese Status sind <i>Vor Aktivierung</i>, <i>Aktiv</i>, <i>Inaktiviert</i> und <i>Gelöscht</i>. </td>
       </tr>
       <tr>
         <td>Typ</td>
@@ -92,7 +95,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window}.
+    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
     Ersetzen Sie die Variablen in der Beispielanforderung anhand der Angaben in der folgenden Tabelle.
@@ -103,24 +106,24 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/regions.html#endpoints">Regionale Serviceendpunkte</a>.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/regions.html#endpoints">Regionale Serviceendpunkte</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-token">Zugriffstoken abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-token">Zugriffstoken abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>Optional: Die eindeutige ID, die zum Überwachen und Korrelieren von Transaktionen verwendet wird.</td>
+        <td>Die eindeutige ID, die zum Überwachen und Korrelieren von Transaktionen verwendet wird.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der Variablen, die zum Anzeigen von Schlüsseln mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
     </table>
 
-    Eine erfolgreiche Anforderung `GET /v2/keys` gibt eine Gruppe von Schlüsseln zurück, die in Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz vorhanden ist.
+    Eine erfolgreiche Anforderung `GET api/v2/keys` gibt eine Gruppe von Schlüsseln zurück, die in Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügbar sind. 
 
     ```
     {
@@ -143,7 +146,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": true
+          "extractable": true,
+          "imported": false
         },
         {
           "id": "...",
@@ -155,18 +159,21 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
           "algorithmType": "AES",
           "createdBy": "...",
           "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
+          "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "GCM"
           },
-          "extractable": false
+          "extractable": false,
+          "imported": true
         }
       ]
     }
     ```
     {:screen}
 
-    Standardmäßig werden mit `GET /keys` die ersten 2000 Schlüssel zurückgegeben. Sie können diesen Grenzwert jedoch anpassen, indem Sie den Parameter `limit` bei der Abfrage verwenden. Weitere Informationen zu `limit` und `offset` finden Sie in [Untergruppe von Schlüsseln abrufen](#retrieve_subset_keys_api).
+    Standardmäßig werden mit `GET api/v2/keys` die ersten 2000 Schlüssel zurückgegeben. Sie können diesen Grenzwert jedoch anpassen, indem Sie den Parameter `limit` bei der Abfrage verwenden. Weitere Informationen zu `limit` und `offset` finden Sie in [Untergruppe von Schlüsseln abrufen](#retrieve_subset_keys_api).
     {: tip}
 
 ### Untergruppe von Schlüsseln abrufen
@@ -184,7 +191,6 @@ Sie können die folgende Beispielanforderung verwenden, um eine andere Gruppe vo
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>' \
   ```
   {: codeblock}
 
@@ -197,7 +203,7 @@ Sie können die folgende Beispielanforderung verwenden, um eine andere Gruppe vo
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>Optional: Die Anzahl der zu überspringenden Schlüssel.</p> 
+        <p>Die Anzahl der zu überspringenden Schlüssel.</p> 
         <p>Beispiel: Wenn Sie über 50 Schlüssel in Ihrer Instanz verfügen und die Schlüssel 26 - 50 auflisten möchten, verwenden Sie
             <code>../keys?offset=25</code>. Sie können auch <code>offset</code> mit <code>limit</code> kombinieren, um Ihre verfügbaren Ressourcen durchzugehen.</p>
       </td>
@@ -205,7 +211,7 @@ Sie können die folgende Beispielanforderung verwenden, um eine andere Gruppe vo
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>Optional: Die Anzahl der abzurufenden Schlüssel.</p> 
+        <p>Die Anzahl der abzurufenden Schlüssel.</p> 
         <p>Beispiel: Wenn Sie über 100 Schlüssel in Ihrer Instanz verfügen und nur 10 Schlüssel auflisten möchten, verwenden Sie
             <code>../keys?limit=10</code>. Der Maximalwert für <code>limit</code> ist 5000.</p>
       </td>
@@ -254,7 +260,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
 1. [Rufen Sie Ihren Service- und Authentifizierungsnachweis ab, um mit den Schlüsseln im Service zu arbeiten.](/docs/services/key-protect/access-api.html)
 
-2. Rufen Sie die ID des Schlüssels ab, auf den Sie zugreifen möchten.
+2. Rufen Sie die ID des Schlüssels ab, auf den Sie zugreifen oder den Sie verwalten möchten. 
 
     Der ID-Wert wird für den Zugriff auf ausführliche Informationen zu dem Schlüssel (z. B. auf die Schlüsselinformationen selbst) verwendet. Sie können die ID für einen angegebenen Schlüssel abrufen, indem Sie die Anforderung `GET /v2/keys` absetzen oder indem Sie auf die {{site.data.keyword.keymanagementserviceshort}}-GUI zugreifen.
 
@@ -279,28 +285,28 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td>Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. <a href="/docs/services/key-protect/regions.html#endpoints">Regionale Serviceendpunkte</a> enthält weitere Informationen hierzu.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. <a href="/docs/services/key-protect/regions.html#endpoints">Regionale Serviceendpunkte</a> enthält weitere Informationen hierzu.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td>Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-token">Zugriffstoken abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-token">Zugriffstoken abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td>Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
-        <td>Optional: Die eindeutige ID, die zum Überwachen und Korrelieren von Transaktionen verwendet wird.</td>
+        <td>Die eindeutige ID, die zum Überwachen und Korrelieren von Transaktionen verwendet wird.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td>Die ID für den Schlüssel, der in [Schritt 1](#retrieve-keys-api) abgerufen wurde.</td>
+        <td><strong>Erforderlich.</strong> Die ID für den Schlüssel, der in [Schritt 1](#retrieve-keys-api) abgerufen wurde.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabelle 4. Beschreibung der Variablen, die zum Anzeigen eines angegebenen Schlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
     </table>
 
-    Die erfolgreiche Antwort `GET v2/keys/<key_ID>` gibt Details zu Ihrem Schlüssel und zu den Schlüsselinformationen zurück. Das folgende JSON-Objekt zeigt ein Beispiel für einen zurückgegebenen Wert für einen Standardschlüssel.
+    Die erfolgreiche Antwort `GET api/v2/keys/<key_ID>` gibt Details zu Ihrem Schlüssel und zu den Schlüsselinformationen zurück. Das folgende JSON-Objekt zeigt ein Beispiel für einen zurückgegebenen Wert für einen Standardschlüssel.
 
     ```
     {
@@ -324,11 +330,12 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
                 "bitLength": "256",
                 "mode": "GCM"
             },
-            "extractable": true
+            "extractable": true,
+            "imported": false
         }
       ]
     }
     ```
     {:screen}
 
-    Eine detaillierte Beschreibung der verfügbaren Parameter finden Sie in der [REST-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/apidocs/kms){: new_window} zu {{site.data.keyword.keymanagementserviceshort}}.
+    Eine detaillierte Beschreibung der verfügbaren Parameter finden Sie in der [REST-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window} für {{site.data.keyword.keymanagementserviceshort}}. 
