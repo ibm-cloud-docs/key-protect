@@ -42,7 +42,7 @@ lastupdated: "2019-01-03"
           <p>{{site.data.keyword.containerlong}}</p>
         </td>
         <td>
-          <p>Use [envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html) to protect secrets in your {{containershort_notm}} cluster.</p>
+          <p>Use [envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html) to protect secrets in your {{site.data.keyword.containershort_notm}} cluster.</p>
           <p>For more information, check out [Encrypting Kubernetes secrets by using {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers/cs_encrypt.html#keyprotect).</p>
         </td>
     </tr>
