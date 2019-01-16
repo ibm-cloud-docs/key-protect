@@ -21,7 +21,7 @@ Key Protect
 
     {: .topicgroup}
     Esercitazioni
-        [Tutorial: Apply end to end security to a cloud application](https://{DomainVariable}/docs/tutorials/cloud-e2e-security.html){: new_window}
+        [Tutorial: Apply end to end security to a cloud application](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
 
     releases.md
     {: .navgroup-end}
@@ -52,7 +52,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Guida di riferimenti alle API Key Protect](https://{DomainVariable}/apidocs/key-protect){: new_window}
+    [Guida di riferimenti alle API Key Protect](https://cloud.ibm.com/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
     at-events.md

@@ -21,7 +21,7 @@ Key Protect
 
     {: .topicgroup}
     Guías de aprendizaje
-        [Guía de aprendizaje: Aplicación de seguridad de extremo a extremo a una aplicación de nube](https://{DomainVariable}/docs/tutorials/cloud-e2e-security.html){: new_window}
+        [Guía de aprendizaje: Aplicación de seguridad de extremo a extremo a una aplicación de nube](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
 
     releases.md
     {: .navgroup-end}
@@ -52,7 +52,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Referencia de API de Key Protect](https://{DomainVariable}/apidocs/key-protect){: new_window}
+    [Referencia de API de Key Protect](https://cloud.ibm.com/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
     at-events.md

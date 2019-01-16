@@ -21,7 +21,7 @@ Key Protect
 
     {: .topicgroup}
     튜토리얼
-        [튜토리얼: 엔드-투-엔드 보안을 클라우드 애플리케이션에 적용](https://{DomainVariable}/docs/tutorials/cloud-e2e-security.html){: new_window}
+        [튜토리얼: 엔드-투-엔드 보안을 클라우드 애플리케이션에 적용](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
 
     releases.md
     {: .navgroup-end}
@@ -52,7 +52,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Key Protect API 참조](https://{DomainVariable}/apidocs/key-protect){: new_window}
+    [Key Protect API 참조](https://cloud.ibm.com/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
     at-events.md

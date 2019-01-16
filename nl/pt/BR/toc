@@ -22,7 +22,7 @@ Key Protect
     {: .topicgroup}
     Tutoriais
         [Tutorial: aplique segurança de
-ponta a ponta em um aplicativo em nuvem](https://{DomainVariable}/docs/tutorials/cloud-e2e-security.html){: new_window}
+ponta a ponta em um aplicativo em nuvem](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
 
     releases.md
     {: .navgroup-end}
@@ -53,7 +53,7 @@ ponta a ponta em um aplicativo em nuvem](https://{DomainVariable}/docs/tutorials
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Referência da API do Key Protect](https://{DomainVariable}/apidocs/key-protect){: new_window}
+    [Referência da API do Key Protect](https://cloud.ibm.com/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
     at-events.md
