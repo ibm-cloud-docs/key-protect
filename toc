@@ -11,6 +11,7 @@ Key Protect
     About Key Protect
         about.md
         ha-dr.md
+        data-security.md
 
     {: .topicgroup}
     Concepts

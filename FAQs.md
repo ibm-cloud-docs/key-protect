@@ -37,18 +37,9 @@ Language characters, such as Chinese characters, cannot be used as part of the k
 {: #key-destruction}
 {: faq}
 
-When you delete a key, you permanently shred its contents and associated data. The data that was encrypted with the key will no longer be accessible. Encrypted data may still be stored by IBM but cannot be accessed by IBM without the key.
+When you delete a key, the service marks the key as deleted, and the key transitions to the _Destroyed_ state. Keys in this state are no longer recoverable, and the cloud services that use the key can no longer decrypt data that is associated with the key. Your data remains in those services in its encrypted form. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. 
 
-Before you delete a key, ensure that you no longer require access to any data that is associated with the key. 
-
-## Does {{site.data.keyword.keymanagementserviceshort}} retain data after I delete a key?
-{: #data-retention}
-{: faq}
-
-When you delete a {{site.data.keyword.keymanagementserviceshort}} resource, the key transitions to the [_Destroyed_ state](/docs/services/key-protect/concepts/key-states.html). The service shreds the key material from its primary database and then updates the metadata for the key to indicate that the resource was deleted. To access data that was previously deleted, {{site.data.keyword.keymanagementserviceshort}} must initiate the [{{site.data.keyword.cloud_notm}} disaster recovery](/docs/overview/zero_downtime.html#disaster-recovery) process. All data that is required for disaster recovery is encrypted and cannot be accessed by using normal procedures. 
-
-Remember to assess the type of data that your root key is protecting in the cloud. If needed, use an on-site hardware security module or key management system to back up your root key material securely.
-{: tip}
+Before you delete a key, ensure that you no longer require access to any data that is associated with the key. This action cannot be reversed.
 
 ## What happens when I need to deprovision my service instance?
 {: #deprovision-service}
