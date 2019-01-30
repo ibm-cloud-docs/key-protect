@@ -60,7 +60,7 @@ You are responsible for ensuring the security of any information that you store 
 ### Does {{site.data.keyword.keymanagementserviceshort}} retain data after a resource is deleted?
 {: #data-retention}
 
-Deleted keys transition to the [_Destroyed_ state](/docs/key-protect/concepts/key-states.html). The service shreds the key material from its primary database and then updates the metadata for the key to indicate that the resource was deleted. To access data that was previously deleted, {{site.data.keyword.keymanagementserviceshort}} must initiate the [{{site.data.keyword.cloud_notm}} disaster recovery](/docs/overview/zero_downtime.html#disaster-recovery) process. All data that is required for disaster recovery is encrypted and cannot be accessed by using normal procedures. 
+Deleted keys transition to the [_Destroyed_ state](/docs/services/key-protect/concepts/key-states.html). The service shreds the key material from its primary database and then updates the metadata for the key to indicate that the resource was deleted. To access data that was previously deleted, {{site.data.keyword.keymanagementserviceshort}} must initiate the [{{site.data.keyword.cloud_notm}} disaster recovery](/docs/overview/zero_downtime.html#disaster-recovery) process. All data that is required for disaster recovery is encrypted and cannot be accessed by using normal procedures. 
 
 Remember to assess the type of data that your root key is protecting in the cloud. If needed, use an on-site hardware security module or key management system to back up your root key material securely.
 
