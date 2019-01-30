@@ -6,7 +6,11 @@ Key Protect
 
     {: .navgroup id="learn"}
     index.md
-    about.md
+
+    {: .topicgroup}
+    About Key Protect
+        about.md
+        ha-dr.md
 
     {: .topicgroup}
     Concepts

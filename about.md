@@ -15,13 +15,13 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# About {{site.data.keyword.keymanagementserviceshort}}
+# About the service
 {: #about}
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision encrypted keys for apps across {{site.data.keyword.cloud_notm}} services. As you manage the lifecycle of your keys, you can benefit from knowing that your keys are secured by FIPS 140-2 Level 2 certified cloud-based hardware security modules (HSMs) that protect against the theft of information.
 {: shortdesc}
 
-## Reasons to use the service
+## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
 {: #kp-reasons}
 
 You might need to manage keys in the following scenarios:
