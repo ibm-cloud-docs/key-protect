@@ -37,7 +37,7 @@ Language characters, such as Chinese characters, cannot be used as part of the k
 {: #key-destruction}
 {: faq}
 
-When you delete a key, you permanently shred its contents and associated data. The data that was encrypted with the key will no longer be accessible. Encrypted data may still be stored by {{site.data.keyword.cloud_notm}} but cannot be accessed by {{site.data.keyword.cloud_notm}} without the key.
+When you delete a key, you permanently shred its contents and associated data. The data that was encrypted with the key will no longer be accessible. Encrypted data may still be stored by IBM but cannot be accessed by IBM without the key.
 
 Before you delete a key, ensure that you no longer require access to any data that is associated with the key. 
 
