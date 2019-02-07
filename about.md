@@ -22,7 +22,7 @@ lastupdated: "2019-02-07"
 {: shortdesc}
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
-{: #kp-reasons}
+{: #kp-use-cases}
 
 You might need to manage keys in the following scenarios:
 
