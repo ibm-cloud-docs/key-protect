@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-07"
 
 ---
 
@@ -32,11 +32,7 @@ You might need to manage keys in the following scenarios:
     <th>Reasons</th>
   </tr>
   <tr>
-    <td>You need to encrypt high volumes of sensitive data, such as medical records, by individual resource.</td>
-    <td>You can integrate the {{site.data.keyword.keymanagementserviceshort}} service with storage solutions, such as [{{site.data.keyword.cos_full_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage/about-cos.html), to encrypt your data at rest in the cloud. Each document can be protected by a different key, so you have granular control of your data.</td>
-  </tr>
-  <tr>
-    <td>You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption key, so you can achieve full control of other keys that encrypt your data at rest.</td>
+    <td>You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption key, so you can manage and protect other keys that encrypt your data at rest.</td>
     <td>With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap your data encryption keys with a highly secure root key](/docs/services/key-protect/concepts/envelope-encryption.html). You can bring your own root keys or create them in the service.</td>
   </tr>
   <tr>
@@ -47,14 +43,17 @@ You might need to manage keys in the following scenarios:
     <td>You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures.</td>
     <td>With the service, you can control user access to manage keys by [assigning different Identity and Access Management roles](/docs/services/key-protect/manage-access.html#roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material.</td>
   <tr>
-    <td>As a developer, you can integrate pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}. You can also develop your own apps that integrate with the service.</td>
+    <td>As a developer, you want to integrate your pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}.</td>
     <td>Apps on or outside {{site.data.keyword.cloud_notm}} can integrate with the {{site.data.keyword.keymanagementserviceshort}} APIs. You can use your own existing keys for your apps. </td>
   </tr>
   <tr>
     <td>Your development team has stringent policies, and you need a way to generate and rotate keys every 14 days.</td>
-    <td>With {{site.data.keyword.cloud_notm}}, you can rapidly generate keys from a hardware security module (HSM) to meet your on-going security needs.</td>
+    <td>With {{site.data.keyword.keymanagementserviceshort}}, you can rapidly generate keys from an {{site.data.keyword.cloud_notm}} hardware security module (HSM) to meet your on-going security needs.</td>
   </tr>
 </table>
+
+Looking for a dedicated key management solution that supports customer-controlled, cloud-based hardware security modules (HSMs)? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} (Beta)](/docs/services/hs-crypto?topic=hs-crypto-get-started) integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization has more control and authority over its data. Check out the [{{site.data.keyword.hscrypto}} offering details page ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) to learn more.
+{: tip}
 
 ## How {{site.data.keyword.keymanagementserviceshort}} works
 {: #kp-how}
