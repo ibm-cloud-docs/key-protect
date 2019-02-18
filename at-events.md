@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
-
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
@@ -23,7 +22,7 @@ Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users an
 
 The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. 
 
-For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla){: new_window}.
+For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
 
 ## List of events
 {: #events}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Envelope encryption
+# Protecting data with envelope encryption
 {: #envelope-encryption}
 
 Envelope encryption is the practice of encrypting data with a data encryption key (DEK) and then encrypting the DEK with a root key that you can fully manage. 
@@ -40,7 +40,7 @@ Envelope encryption is the practice of encrypting data with a data encryption ke
   </tr>
   <tr>
     <td>Delegated user access control</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/services/key-protect/manage-access.html#roles), security admins decide who can access which root keys in the service.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles), security admins decide who can access which root keys in the service.</td>
   </tr>
   <caption style="caption-side:bottom;">Table 1. Describes the benefits of customer-managed encryption</caption>
 </table>
@@ -64,7 +64,7 @@ The service supports two key types, root keys and standard keys, for the advance
   <dt>Root keys</dt>
     <dd>Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys used as roots of trust for wrapping (encrypting) and unwrapping (decrypting) other keys stored in a data service. With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud. Unlike a standard key, a root key can never leave the bounds of the {{site.data.keyword.keymanagementserviceshort}} service.</dd>
   <dt>Standard keys</dt>
-    <dd>Standard keys are a way to persist a secret, such as a password or an encryption key. When you use {{site.data.keyword.keymanagementserviceshort}} to store standard keys, you enable hardware security module (HSM) storage for your secrets, fine-grained access control to your resources with <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>, and the ability to audit API calls to the service with <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Standard keys are a way to persist a secret, such as a password or an encryption key. When you use {{site.data.keyword.keymanagementserviceshort}} to store standard keys, you enable hardware security module (HSM) storage for your secrets, fine-grained access control to your resources with <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>, and the ability to audit API calls to the service with <a href="/docs/services/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the system returns an ID value that you can use to make API calls to the service. You can retrieve the ID value for your keys with the {{site.data.keyword.keymanagementserviceshort}} GUI or the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect). 

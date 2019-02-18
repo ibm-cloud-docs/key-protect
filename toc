@@ -1,41 +1,41 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect/index.html" path="services/key-protect"}
+{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect?topic=key-protect-getting-started-tutorial" path="services/key-protect"}
 Key Protect
 
     {: .navgroup id="learn"}
     index.md
-
-    {: .topicgroup}
-    About Key Protect
-        about.md
-        ha-dr.md
-        data-security.md
+    about.md
 
     {: .topicgroup}
     Concepts
-        concepts/key-states.md
         concepts/envelope-encryption.md
         concepts/key-rotation.md
+        concepts/key-states.md
 
     {: .topicgroup}
     Integrations
         integrations/integrate-services.md
         integrations/integrate-cos.md
-
+    
     {: .topicgroup}
     Tutorials
-        [Tutorial: Apply end to end security to a cloud application](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
+        [Tutorial: Apply end to end security to a cloud application](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-apply-end-to-end-security-to-a-cloud-application){: new_window}
 
     releases.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     provision.md
-    access-api.md
+
+    {: .topicgroup}
+    Accessing the API
+        set-up-api.md
+        retrieve-access-token.md
+        retrieve-instance-id.md
+
     set-up-cli.md
-    manage-access.md
 
     {: .topicgroup}
     Creating keys
@@ -44,23 +44,37 @@ Key Protect
     
     {: .topicgroup}
     Importing keys
+        create-transport-keys.md
         import-root-keys.md
         import-standard-keys.md
 
+    view-keys.md
+
     {: .topicgroup}
-    Managing keys
-        view-keys.md
+    Protecting keys
         wrap-keys.md
         unwrap-keys.md
-        rotate-keys.md
-        delete-keys.md
+
+    rotate-keys.md
+    delete-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [Key Protect API Reference](https://cloud.ibm.com/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
+
+    {: .topicgroup}
+    User access permissions
+        manage-access.md
+
     at-events.md
+
+    {: .topicgroup}
+    Data security
+        ha-dr.md
+        data-security.md
+
     related-links.md
     {: .navgroup-end}
 

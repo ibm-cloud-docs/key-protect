@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -39,3 +39,5 @@ Your encryption keys are confined to the region that you created them in. {{site
 {: #disaster-recovery}
 
 {{site.data.keyword.keymanagementserviceshort}} has regional disaster recovery in place with a Recovery Time Objective (RTO) of one hour. The service follows {{site.data.keyword.cloud_notm}} requirements for planning and recovering from disaster events. For more information, see [Disaster recovery](/docs/overview/zero_downtime.html#disaster-recovery).
+
+

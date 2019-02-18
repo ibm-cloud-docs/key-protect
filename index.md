@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -16,6 +16,7 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # Getting started with {{site.data.keyword.keymanagementserviceshort}}
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision encrypted keys for apps across {{site.data.keyword.cloud_notm}} services. This tutorial shows you how to create and add existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard, so you can manage data encryption from one central location.
 {: shortdesc}
@@ -29,7 +30,7 @@ Choose from two key types:
 
 <dl>
   <dt>Root keys</dt>
-    <dd>Root keys are symmetric key-wrapping keys that you fully manage in {{site.data.keyword.keymanagementserviceshort}}. You can use a root key to protect other cryptographic keys with advanced encryption. To learn more, see <a href="/docs/services/key-protect/concepts/envelope-encryption.html">Envelope encryption</a>.</dd>
+    <dd>Root keys are symmetric key-wrapping keys that you fully manage in {{site.data.keyword.keymanagementserviceshort}}. You can use a root key to protect other cryptographic keys with advanced encryption. To learn more, see <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">Protecting data with envelope encryption</a>.</dd>
   <dt>Standard keys</dt>
     <dd>Standard keys are symmetric keys that are used for cryptography. You can use a standard key to directly encrypt and decrypt data.</dd>
 </dl>
@@ -60,7 +61,7 @@ Complete the following steps to create your first cryptographic key.
       </tr>
       <tr>
         <td>Key type</td>
-        <td>The <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>The <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <caption style="caption-side:bottom;">Table 1. Description of the <b>Create a key</b> settings</caption>
     </table>
@@ -95,7 +96,7 @@ Complete the following steps to add an existing key.
       </tr>
       <tr>
         <td>Key type</td>
-        <td>The <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>The <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <tr>
         <td>Key material</td>
@@ -110,8 +111,8 @@ From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can insp
 
 ## What's next
 
-Now you can use your keys to code your apps and services. If you added a root key to the service, you might want to learn more about using the root key to protect the keys that encrypt your at-rest data. Check out [Wrapping keys](/docs/services/key-protect/wrap-keys.html) to get started.
+Now you can use your keys to code your apps and services. If you added a root key to the service, you might want to learn more about using the root key to protect the keys that encrypt your at-rest data. Check out [Wrapping keys](/docs/services/key-protect?topic=key-protect-wrap-keys) to get started.
 
-- To find out more about managing and protecting your encryption keys with a root key, check out [Envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html).
-- To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, [check out the Integrations doc](/docs/services/key-protect/integrations/integrate-services.html).
+- To find out more about managing and protecting your encryption keys with a root key, check out [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+- To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, [check out the Integrations doc](/docs/services/key-protect?topic=key-protect-integrate-services).
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.

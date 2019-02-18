@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -156,7 +156,7 @@ You see the following error:
 ```
 {: screen}
 
-On 15 December 2017, we added new features, such as [envelope encryption](/docs/services/key-protect/concepts/envelope-encryption.html), to the {{site.data.keyword.keymanagementserviceshort}} service. You can now provision the {{site.data.keyword.keymanagementserviceshort}} service within a resource group, without needing to specify a Cloud Foundry organization and space.
+On 15 December 2017, we added new features, such as [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption), to the {{site.data.keyword.keymanagementserviceshort}} service. You can now provision the {{site.data.keyword.keymanagementserviceshort}} service within a resource group, without needing to specify a Cloud Foundry organization and space.
 {: tsCauses}
 
 These changes affected the user interface for older instances of the service. If you created your instance of {{site.data.keyword.keymanagementserviceshort}} before 28 September 2017, the user interface might not work as expected.
@@ -191,7 +191,7 @@ You can see a list of keys, but you do not see options to add or delete keys.
 You do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tsCauses} 
 
-Verify with your administrator that you are assigned the correct role in the applicable resource group or service instance. For more information about roles, see [Roles and permissions](/docs/services/key-protect/manage-access.html#roles).
+Verify with your administrator that you are assigned the correct role in the applicable resource group or service instance. For more information about roles, see [Roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
 
 ## Getting help and support
@@ -208,6 +208,6 @@ You can review the forums to see whether other users ran into the same problem. 
 - For questions about the service and getting started instructions, use the [IBM developerWorks dW Answers ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} forum. Include the "ibm-cloud"
 and "key-protect" tags.
 
-See [Getting help ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/support/index.html#getting-help){: new_window} for more details about using the forums.
+See [Getting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/get-support?topic=get-support-using-avatar){: new_window} for more details about using the forums.
 
-For more information about opening an {{site.data.keyword.IBM_notm}} support ticket, or about support levels and ticket severities, see [Contacting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}.
+For more information about opening an {{site.data.keyword.IBM_notm}} support ticket, or about support levels and ticket severities, see [Contacting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

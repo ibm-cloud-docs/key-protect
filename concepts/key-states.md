@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Key states
+# Monitoring the lifecycle of encryption keys
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} follows the security guidelines by [NIST SP 800-57 for key states ![External link icon](../../../icons/launch-glyph.svg "External link icon")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
@@ -49,11 +49,11 @@ Cryptographic keys, in their lifetime, transition through several states that ar
   </tr>
   <tr>
     <td>Destroyed</td>
-    <td>Deleted keys are in the <i>destroyed</i> state. Keys in this state are not recoverable. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database.</td>
+    <td>Deleted keys are in the <i>destroyed</i> state. Keys in this state are not recoverable. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. </td>
   </tr>
   <caption style="caption-side:bottom;">Table 1. Describes key states and transitions.</caption>
 </table>
 
 After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view your key's transition history and configuration. For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with the {{site.data.keyword.cloudaccesstrailfull}}. After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.cloudaccesstrailshort}} log when you create and delete keys in {{site.data.keyword.keymanagementserviceshort}}. 
 
-For more information, see [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+For more information, see [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

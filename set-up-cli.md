@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -20,17 +20,17 @@ lastupdated: "2019-01-03"
 
 You can use the {{site.data.keyword.keymanagementservicelong_notm}} CLI plug-in to help you create, import, and manage encryption keys.
 
-To find out more about using the CLI, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/services/key-protect/cli-reference.html).
+To find out more about using the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/services/key-protect?topic=key-protect-cli-reference).
 {: tip}
 
 ## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #install-cli}
 
-Before you can set up the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, install the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}. 
+Before you can set up the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, install the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-overview){: new_window}. 
 
 To install the CLIs:
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}.
+1. Install the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     After you install the CLI, you can run `ibmcloud` commands to interact with your cloud services.
 
@@ -41,7 +41,8 @@ To install the CLIs:
     ```
     {: pre}
 
-    **Note:** If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    {: note}
 
 3. To start managing encryption keys, install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 
@@ -64,14 +65,15 @@ You might want to update CLI periodically to use new features.
 
 To update the CLI:
 
-1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}.
+1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     ```sh
     ibmcloud login 
     ```
     {: pre}
 
-    **Note:** If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    {: note}
 
 2. Install the update from the plug-in repository.
 
@@ -90,14 +92,15 @@ To update the CLI:
 ## Uninstalling the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #uninstall-cli}
 
-1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview){: new_window}.
+1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     ```sh
     ibmcloud login 
     ```
     {: pre}
 
-    **Note:** If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    {: note}
 
 2. Install the update from the plug-in repository.
 

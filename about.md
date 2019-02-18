@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-07"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,14 +15,14 @@ lastupdated: "2019-02-07"
 {:note: .note}
 {:important: .important}
 
-# About the service
+# About {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision encrypted keys for apps across {{site.data.keyword.cloud_notm}} services. As you manage the lifecycle of your keys, you can benefit from knowing that your keys are secured by FIPS 140-2 Level 2 certified cloud-based hardware security modules (HSMs) that protect against the theft of information.
 {: shortdesc}
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
-{: #kp-use-cases}
+{: #use-cases}
 
 You might need to manage keys in the following scenarios:
 
@@ -33,7 +33,7 @@ You might need to manage keys in the following scenarios:
   </tr>
   <tr>
     <td>You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption key, so you can manage and protect other keys that encrypt your data at rest.</td>
-    <td>With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap your data encryption keys with a highly secure root key](/docs/services/key-protect/concepts/envelope-encryption.html). You can bring your own root keys or create them in the service.</td>
+    <td>With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap your data encryption keys with a highly secure root key](/docs/services/key-protect?topic=key-protect-envelope-encryption). You can bring your own root keys or create them in the service.</td>
   </tr>
   <tr>
     <td>As an IT admin for a large corporation, you need to integrate, track, and rotate keys for many different service offerings.</td>
@@ -41,7 +41,7 @@ You might need to manage keys in the following scenarios:
   </tr>
   <tr>
     <td>You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures.</td>
-    <td>With the service, you can control user access to manage keys by [assigning different Identity and Access Management roles](/docs/services/key-protect/manage-access.html#roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material.</td>
+    <td>With the service, you can control user access to manage keys by [assigning different Identity and Access Management roles](/docs/services/key-protect?topic=key-protect-manage-access#roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material.</td>
   <tr>
     <td>As a developer, you want to integrate your pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}.</td>
     <td>Apps on or outside {{site.data.keyword.cloud_notm}} can integrate with the {{site.data.keyword.keymanagementserviceshort}} APIs. You can use your own existing keys for your apps. </td>
@@ -60,7 +60,7 @@ Looking for a dedicated key management solution that supports customer-controlle
 
 {{site.data.keyword.keymanagementservicelong_notm}} helps you manage encryption keys throughout your organization by aligning with {{site.data.keyword.cloud_notm}} Identity and Access Management roles.
 
-An IT or security admin needs advanced permissions that an auditor might not. To simplify access, {{site.data.keyword.keymanagementserviceshort}} maps to {{site.data.keyword.cloud_notm}} Identity and Access Management roles so that each role has a different view of the service. To help guide which view and level of access best suits your needs, see [Managing users and access](/docs/services/key-protect/manage-access.html#roles).
+An IT or security admin needs advanced permissions that an auditor might not. To simplify access, {{site.data.keyword.keymanagementserviceshort}} maps to {{site.data.keyword.cloud_notm}} Identity and Access Management roles so that each role has a different view of the service. To help guide which view and level of access best suits your needs, see [Managing users and access](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 
 The following diagram shows how managers, readers, and writers can interact with keys that are managed in the service.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -20,22 +20,37 @@ lastupdated: "2019-01-03"
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 
+## February 2019
+{: #feb-2019}
+
+### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} service instances
+New as of: 2019-02-13
+
+{{site.data.keyword.keymanagementserviceshort}} service instances that were provisioned before 15 December 2017 are running on a legacy infrastructure that is based on Cloud Foundry. This legacy {{site.data.keyword.keymanagementserviceshort}} service will be decommissioned on 15 May 2019.
+
+**What this means to you**
+
+If you have active production keys in an older {{site.data.keyword.keymanagementserviceshort}} service instance, ensure that you migrate the keys to a new service instance by 15 May 2019 to avoid losing access to your encrypted data. You can check to see whether you're using a legacy instance by navigating to your [{{site.data.keyword.cloud_notm}} resource list ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources). If your {{site.data.keyword.keymanagementserviceshort}} service instance is listed in the **Cloud Foundry Services** section of the {{site.data.keyword.cloud_notm}} resource list, or if you're using the  `https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for the service, you're using a legacy instance of the {{site.data.keyword.keymanagementserviceshort}}. After 15 May 2019, the legacy endpoint will no longer be accessible, and you won't be able to target the service for operations.
+
+Need help with migrating your encryption keys into a new service instance? For detailed steps, check out the [migration client in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. If you have additional questions about the status of your keys or the migration process, reach out to Terry Mosbaugh at [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+{: tip}
+
 ## October 2018
 {: #oct-2018}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the AP North region
+### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Tokyo region
 New as of: 2018-10-31
 
-You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the AP North region. 
+You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Tokyo region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
+For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 New as of: 2018-10-02
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-To learn how to install the plug-in, see [Setting up the CLI](/docs/services/key-protect/set-up-cli.html). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/services/key-protect/cli-reference.html).
+To learn how to install the plug-in, see [Setting up the CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/services/key-protect?topic=key-protect-cli-reference).
 
 ## September 2018
 {: #sept-2018}
@@ -45,7 +60,7 @@ New as of: 2018-09-28
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate your root keys on-demand.
 
-For more information, see [Rotating keys](/docs/services/key-protect/rotate-keys.html).
+For more information, see [Rotating keys](/docs/services/key-protect?topic=key-protect-rotate-keys).
 
 ### Added: End to end security tutorial for your cloud app
 New as of: 2018-09-14
@@ -56,12 +71,12 @@ You can now practice adding end to end security for your cloud application by fo
 
 For more information, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the US East region
+### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Washington DC region
 New as of: 2018-09-10
 
-You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the US East region. 
+You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Washington DC region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
+For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ## August 2018
 {: #aug-2018}
@@ -72,7 +87,7 @@ New as of: 2018-08-28
 The {{site.data.keyword.keymanagementserviceshort}} API Reference has moved! 
 
 You can now access the API documentation at
-https://console.bluemix.net/apidocs/key-protect. 
+https://{DomainName}/apidocs/key-protect. 
 
 ## March 2018
 {: #mar-2018}
@@ -82,7 +97,7 @@ New as of: 2018-03-21
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Frankfurt region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
+For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ## January 2018
 {: #jan-2018}
@@ -92,7 +107,7 @@ New as of: 2018-01-31
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Sydney region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
+For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ## December 2017
 {: #dec-2017}
@@ -102,15 +117,15 @@ New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} now supports Bring Your Own Key (BYOK) and customer-managed encryption.
 
-- Introduced [root keys](/docs/services/key-protect/concepts/envelope-encryption.html#key-types), also called Customer Root Keys (CRKs), as primary resources in the service. 
-- Enabled [envelope encryption](/docs/services/key-protect/integrations/integrate-cos.html#kp-cos-how) for {{site.data.keyword.cos_full_notm}} buckets.
+- Introduced [root keys](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types), also called Customer Root Keys (CRKs), as primary resources in the service. 
+- Enabled [envelope encryption](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how) for {{site.data.keyword.cos_full_notm}} buckets.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
 New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} is now available in the London region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect/regions.html).
+For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Changed: {{site.data.keyword.iamshort}} roles
 New as of: 2017-12-15
@@ -121,7 +136,7 @@ New as of: 2017-12-15
 - `Editor` is now `Writer`
 - `Viewer` is now `Reader`
 
-For more information, see [Managing user access](/docs/services/key-protect/manage-access.html).
+For more information, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
 
 ## September 2017
 {: #sept-2017}
@@ -131,4 +146,4 @@ New as of: 2017-09-19
 
 You can now use {{site.data.keyword.iamshort}} to set and manage access policies for your {{site.data.keyword.keymanagementserviceshort}} resources.
 
-For more information, see [Managing user access](/docs/services/key-protect/manage-access.html).
+For more information, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).

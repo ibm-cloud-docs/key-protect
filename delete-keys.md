@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -21,15 +21,15 @@ lastupdated: "2019-01-03"
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its contents, if you are an admin for your {{site.data.keyword.cloud_notm}} space or {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
 
-When you delete a key, you permanently shred its contents and associated data. The action cannot be reversed. Destroying resources is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you permanently shred its contents and associated data. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
 
 ## Deleting keys with the GUI
-{: #gui}
+{: #delete-key-gui}
 
 If you prefer to delete your encryption keys by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-[After you create or import your existing keys into the service](/docs/services/key-protect/create-root-keys.html), complete the following steps to delete a key:
+[After you create or import your existing keys into the service](/docs/services/key-protect?topic=key-protect-create-root-keys), complete the following steps to delete a key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -41,7 +41,7 @@ If you prefer to delete your encryption keys by using a graphical interface, you
 After you delete a key, the key transitions to the _Destroyed_ state. Keys in this state are no longer recoverable. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database.
 
 ## Deleting keys with the API
-{: #api}
+{: #delete-key-api}
 
 To delete a key and its contents, make a `DELETE` call to the following endpoint.
 
@@ -49,7 +49,7 @@ To delete a key and its contents, make a `DELETE` call to the following endpoint
 https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 ```
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect/access-api.html).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the ID of the key that you would like to delete.
 
@@ -77,7 +77,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect/regions.html#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -85,11 +85,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-id">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>

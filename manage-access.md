@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Managing access
+# Managing user access
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys.
@@ -88,11 +88,12 @@ The following table shows how identity and access roles map to {{site.data.keywo
   <caption style="caption-side:bottom;">Table 1. Describes how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
 </table>
 
-Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/cfaccess.html){: new_window} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/users_roles.html#userroles){: new_window}.
+Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-cfaccess){: new_window} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-userroles){: new_window}.
 {: note}
 
 ### What's next
 
 Account owners and admins can invite users and set service policies that correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the users can perform.
 
-- For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam/mngiam.html){: new_window}.
+- For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-getstarted){: new_window}.
+

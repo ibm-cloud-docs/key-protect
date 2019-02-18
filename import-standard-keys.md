@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -21,9 +21,9 @@ lastupdated: "2019-01-03"
 You can add your existing encryption keys with the {{site.data.keyword.keymanagementserviceshort}} GUI, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 
 ## Importing standard keys with the GUI
-{: #gui}
+{: #import-standard-key-gui}
 
-[After you create an instance of the service](/docs/services/key-protect/provision.html), complete the following steps to enter your existing standard key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
+[After you create an instance of the service](/docs/services/key-protect?topic=key-protect-provision), complete the following steps to enter your existing standard key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -46,7 +46,7 @@ You can add your existing encryption keys with the {{site.data.keyword.keymanage
       </tr>
       <tr>
         <td>Key type</td>
-        <td>The <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select <b>Standard key</b>.</td>
+        <td>The <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select <b>Standard key</b>.</td>
       </tr>
       <tr>
         <td>Key material</td>
@@ -66,7 +66,7 @@ You can add your existing encryption keys with the {{site.data.keyword.keymanage
 5. When you are finished filling out the key's details, click **Import key** to confirm. 
 
 ## Importing standard keys with the API
-{: #api}
+{: #import-standard-key-api}
 
 Import a standard key by making a `POST` call to the following endpoint:
 
@@ -75,9 +75,9 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect/access-api.html).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-1. Call the [{{site.data.keyword.keymanagementserviceshort}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window} with the following cURL command.
+2. Call the [{{site.data.keyword.keymanagementserviceshort}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window} with the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -117,15 +117,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect/regions.html#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-id">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -174,7 +174,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     A successful `POST api/v2/keys` response returns the ID value for your key, along with other metadata. The ID is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API.
 
-2. Optional: Verify that the key was added by running the following call to get the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
+3. Optional: Verify that the key was added by running the following call to get the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
     ```cURL
     curl -X GET \

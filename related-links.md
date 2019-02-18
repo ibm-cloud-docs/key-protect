@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -39,8 +39,8 @@ Additional resources to help you learn about managing encryption with {{site.dat
 - [{{site.data.keyword.keymanagementservicelong_notm}} Service Level Agreement ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 
 ## Related services
-{: #related_services}
+{: #related-services}
 
-- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto/index.html#get-started)
+- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
 
