@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-25"
 
 ---
 
@@ -36,7 +36,7 @@ When you supply a root key for wrapping, ensure that the root key is 256, 384, o
 [After you designate a root key in the service](/docs/services/key-protect?topic=key-protect-create-root-keys), you can wrap a DEK with advanced encryption by making a `POST` call to the following endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 ```
 {: codeblock}
 
@@ -52,7 +52,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \

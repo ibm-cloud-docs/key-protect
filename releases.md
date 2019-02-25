@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-25"
 
 ---
 
@@ -34,6 +34,25 @@ If you have active production keys in an older {{site.data.keyword.keymanagement
 
 Need help with migrating your encryption keys into a new service instance? For detailed steps, check out the [migration client in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. If you have additional questions about the status of your keys or the migration process, reach out to Terry Mosbaugh at [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
 {: tip}
+
+## December 2018
+{: #dec-2018}
+
+### Changed: {{site.data.keyword.keymanagementserviceshort}} API endpoints
+New as of: 2018-12-19
+
+To align with {{site.data.keyword.cloud_notm}}'s new unified experience, {{site.data.keyword.keymanagementserviceshort}} has updated the base URLs for its service APIs.
+
+You can now update your applications to reference the new `cloud.ibm.com` endpoints.
+
+- `keyprotect.us-south.bluemix.net` is now `us-south.kms.cloud.ibm.com` 
+- `keyprotect.us-east.bluemix.net` is now `us-east.kms.cloud.ibm.com` 
+- `keyprotect.eu-gb.bluemix.net` is now `eu-gb.kms.cloud.ibm.com` 
+- `keyprotect.eu-de.bluemix.net` is now `eu-de.kms.cloud.ibm.com` 
+- `keyprotect.au-syd.bluemix.net` is now `au-syd.kms.cloud.ibm.com` 
+- `keyprotect.jp-tok.bluemix.net` is now `jp-tok.kms.cloud.ibm.com` 
+
+Both URLs for each regional service endpoint are supported at this time. 
 
 ## October 2018
 {: #oct-2018}
@@ -67,7 +86,7 @@ New as of: 2018-09-14
 
 Looking for code samples to help you encrypt storage bucket content with your own encryption keys?
 
-You can now practice adding end to end security for your cloud application by following [the new tutorial](/docs/tutorials/cloud-e2e-security.html).
+You can now practice adding end to end security for your cloud application by following [the new tutorial](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security).
 
 For more information, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
 
