@@ -21,7 +21,7 @@ Key Protect
     
     {: .topicgroup}
     Tutorials
-        [Tutorial: Apply end to end security to a cloud application](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-apply-end-to-end-security-to-a-cloud-application){: new_window}
+        [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: new_window}
 
     releases.md
     {: .navgroup-end}
@@ -60,7 +60,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Key Protect API Reference](https://cloud.ibm.com/apidocs/key-protect){: new_window}
+    [Key Protect API Reference](https://{DomainName}/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
 
