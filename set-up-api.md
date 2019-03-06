@@ -29,7 +29,7 @@ To work with the API, you need to generate your service and authentication crede
 To gather your credentials:
 
 1. [Generate an {{site.data.keyword.cloud_notm}} IAM access token](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} service instance](/docs/services/key-protect?topic=key-protect-retrieve-instance-id).
+2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} service instance](/docs/services/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## Forming your API request
 {: #form-api-request}

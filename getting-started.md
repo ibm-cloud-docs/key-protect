@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2019-02-18"
 {:note: .note}
 {:important: .important}
 
-# Getting started with {{site.data.keyword.keymanagementserviceshort}}
+# Getting started tutorial
 {: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision encrypted keys for apps across {{site.data.keyword.cloud_notm}} services. This tutorial shows you how to create and add existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard, so you can manage data encryption from one central location.
