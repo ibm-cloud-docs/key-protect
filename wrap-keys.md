@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-08"
 
 ---
 
@@ -30,7 +30,7 @@ To learn how key wrapping helps you control the security of at-rest data in the 
 
 You can protect a specified data encryption key (DEK) with a root key that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
-When you supply a root key for wrapping, ensure that the root key is 256, 384, or 512 bits so that the wrap call can succeed. If you create a root key in the service, {{site.data.keyword.keymanagementserviceshort}} generates a 256-bit key from its HSMs, supported by the AES-GCM algorithm.
+When you supply a root key for wrapping, ensure that the root key is 128, 192, or 256 bits so that the wrap call can succeed. If you create a root key in the service, {{site.data.keyword.keymanagementserviceshort}} generates a 256-bit key from its HSMs, supported by the AES-GCM algorithm.
 {: note}
 
 [After you designate a root key in the service](/docs/services/key-protect?topic=key-protect-create-root-keys), you can wrap a DEK with advanced encryption by making a `POST` call to the following endpoint.

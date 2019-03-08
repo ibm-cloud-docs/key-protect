@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-08"
 
 ---
 
@@ -51,7 +51,7 @@ Envelope encryption is the practice of encrypting data with a data encryption ke
 Envelope encryption combines the strength of multiple encryption algorithms to protect your sensitive data in the cloud. It works by wrapping one or more data encryption keys (DEKs) with advanced encryption by using a root key that you can fully manage. This key wrapping process creates wrapped DEKs that protect your stored data from unauthorized access or exposure. Unwrapping a DEK reverses the envelope encryption process by using the same root key, resulting in decrypted and authenticated data.
  
 The following diagram shows a contextual view of the key wrapping functionality.
-![The diagram shows a contexual view of envelope encryption.](../images/envelope-encryption_min.svg)
+![The diagram shows a contextual view of envelope encryption.](../images/envelope-encryption_min.svg)
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57, Recommendation for Key Management. To learn more, see [NIST SP 800-57 Pt. 1 Rev. 4. ![External link icon](../../../icons/launch-glyph.svg "External link icon")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
 
@@ -83,7 +83,7 @@ The following table describes the inputs needed to perform a key wrap operation:
   <th>Description</th>
   <tr>
     <td>Root key ID</td>
-    <td>The ID value for the root key that you want to use for wrapping. The root key can be imported into the service, or it can originate in {{site.data.keyword.keymanagementserviceshort}} from its HSMs. Root keys that are used for wrapping must be 256, 384, or 512 bits so that a wrap request can succeed.</td>
+    <td>The ID value for the root key that you want to use for wrapping. The root key can be imported into the service, or it can originate in {{site.data.keyword.keymanagementserviceshort}} from its HSMs. Root keys that are used for wrapping must be 128, 192, or 256 bits so that a wrap request can succeed.</td>
   </tr>
   <tr>
     <td>Plaintext</td>

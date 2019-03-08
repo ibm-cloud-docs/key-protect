@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-08"
 
 ---
 
@@ -58,7 +58,7 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
           <p>Ensure that the key material meets the following requirements:</p>
           <p>
             <ul>
-              <li>The key must be 256, 384, or 512 bits.</li>
+              <li>The key must be 128, 192, or 256 bits.</li>
               <li>The bytes of data, for example 32 bytes for 256 bits, must be encoded by using base64 encoding.</li>
             </ul>
           </p>
@@ -159,7 +159,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>Ensure that the key material meets the following requirements:</p>
           <p>
             <ul>
-              <li>The key must be 256, 384, or 512 bits.</li>
+              <li>The key must be 128, 192, or 256 bits.</li>
               <li>The bytes of data, for example 32 bytes for 256 bits, must be encoded by using base64 encoding.</li>
             </ul>
           </p>
