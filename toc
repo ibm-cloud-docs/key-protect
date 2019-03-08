@@ -5,7 +5,7 @@
 Key Protect
 
     {: .navgroup id="learn"}
-    getting-started.md
+    index.md
     about.md
 
     {: .topicgroup}
