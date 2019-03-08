@@ -52,7 +52,7 @@ You can create a standard encryption key with the {{site.data.keyword.keymanagem
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Create a key</b> settings</caption>
     </table>
 
-45 When you are finished filling out the key's details, click **Create key** to confirm. 
+5. When you are finished filling out the key's details, click **Create key** to confirm. 
 
 ## Creating standard keys with the API
 {: #create-standard-key-api}
