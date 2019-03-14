@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-08"
 
-keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, import CRK, import CMK, import customer key, upload customer key, key-wrapping key, root key API examples
+keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
 subcollection: key-protect
 
