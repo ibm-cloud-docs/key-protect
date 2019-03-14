@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

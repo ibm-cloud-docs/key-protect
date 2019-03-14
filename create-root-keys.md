@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-08"
 
+keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

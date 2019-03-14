@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-08"
 
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-25"
 
+keywords: release notes, changelog, what's new, service updates, service bulletin
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

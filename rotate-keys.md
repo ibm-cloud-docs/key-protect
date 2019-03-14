@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-08"
 
+keywords: rotate encryption key, encryption key rotation, rotate key API examples 
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

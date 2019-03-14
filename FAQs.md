@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: key name, create key in different region, delete service instance
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

@@ -4,7 +4,12 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: Activity tracker events, KMS API calls, monitor KMS events
+
+subcollection: key-protect
+
 ---
+
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}

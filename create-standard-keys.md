@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-06"
 
+keywords: create standard encryption key, standard encryption key API examples
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: Key Protect CLI plug-in, CLI reference
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

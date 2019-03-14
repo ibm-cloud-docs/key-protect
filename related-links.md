@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: related links, blogs, sample apps, SLA, service level agreement
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

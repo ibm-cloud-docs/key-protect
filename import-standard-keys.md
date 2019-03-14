@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-06"
 
+keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

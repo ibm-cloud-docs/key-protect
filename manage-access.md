@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: user permissions, manage access, IAM roles
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

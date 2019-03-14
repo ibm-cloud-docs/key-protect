@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}

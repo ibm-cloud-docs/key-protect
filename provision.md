@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-18"
 
+keywords: service instance, create service instance, KMS service instance, Key Protect service instance
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}
