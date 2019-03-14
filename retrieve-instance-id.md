@@ -30,11 +30,10 @@ You can target an individual {{site.data.keyword.keymanagementservicelong}} serv
 
 You can view the instance ID that is associated with your {{site.data.keyword.keymanagementserviceshort}} service instance by navigating to your {{site.data.keyword.cloud_notm}} resource list.
 
-1. Log in to [{{site.data.keyword.cloud_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}){: new_window}.
-2. Go to your [Resource list ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window}.
-3. Click **Services** to browse a list of your cloud services.
-4. Click the table row that describes your {{site.data.keyword.keymanagementserviceshort}} service instance.
-5. From the service details view, copy the **GUID** value.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}){: new_window}.
+2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse a list of your cloud services.
+3. Click the table row that describes your {{site.data.keyword.keymanagementserviceshort}} service instance.
+4. From the service details view, copy the **GUID** value.
 
     This **GUID** value represents the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
