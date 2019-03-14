@@ -95,7 +95,8 @@ The following table shows how identity and access roles map to {{site.data.keywo
 Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-cfaccess){: new_window} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-userroles){: new_window}.
 {: note}
 
-### What's next
+## What's next
+{: #manage-access-next-steps}
 
 Account owners and admins can invite users and set service policies that correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the users can perform.
 

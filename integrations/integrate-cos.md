@@ -67,6 +67,7 @@ To add envelope encryption to your storage bucket:
 
 From the {{site.data.keyword.cos_full_notm}} GUI, you can browse the buckets that are protected by a {{site.data.keyword.keymanagementserviceshort}} root key.
 
-### What's next
+## What's next
+{: #cos-integration-next-steps}
 
 - For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 

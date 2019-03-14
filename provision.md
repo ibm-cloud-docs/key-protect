@@ -74,6 +74,7 @@ You can also provision an instance of {{site.data.keyword.keymanagementservicesh
     ```
     {: pre}
 
-### What's next
+## What's next
+{: #provision-service-next-steps}
 
 To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.

@@ -115,6 +115,7 @@ Complete the following steps to add an existing key.
 From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can inspect the general characteristics of your new keys. 
 
 ## What's next
+{: #get-started-next-steps}
 
 Now you can use your keys to code your apps and services. If you added a root key to the service, you might want to learn more about using the root key to protect the keys that encrypt your at-rest data. Check out [Wrapping keys](/docs/services/key-protect?topic=key-protect-wrap-keys) to get started.
 

@@ -152,7 +152,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: pre}
 
 ### Required parameters
-{: #list-req-params}
+{: #get-req-params}
 
 <dl>
    <dt><code>KEY_ID</code></dt>

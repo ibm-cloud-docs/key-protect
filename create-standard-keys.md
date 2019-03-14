@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-06"
 
-keywords: create standard encryption key, standard encryption key API examples
+keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
 subcollection: key-protect
 
@@ -166,6 +166,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     {: codeblock}
 
 
-### What's next
+## What's next
+{: #create-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.

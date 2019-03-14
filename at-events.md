@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}} events
-{: #at-events}
+{: #activity-tracker-events}
 
 Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
@@ -30,7 +30,7 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
 
 ## List of events
-{: #events}
+{: #list-activity-tracker-events}
 
 The following table lists the actions that generate an event:
 
@@ -75,7 +75,7 @@ The following table lists the actions that generate an event:
 </table>
 
 ## Where to view the events
-{: #gui}
+{: #view-activity-tracker-events}
 
 <!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
@@ -86,6 +86,6 @@ For example, when you create, import, delete, or read a key in {{site.data.keywo
 To monitor the API activity, you must provision the {{site.data.keyword.cloudaccesstrailshort}} service in a space that is available in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned. Then, you can view events through the account view in the {{site.data.keyword.cloudaccesstrailshort}} UI if you have a lite plan, and through Kibana if you have a premium plan.
 
 ## Additional information
-{: #info}
+{: #activity-tracker-info}
 
 Due to the sensitivity of the information for an encryption key, when an event is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}} service, the event that is generated does not include detailed information about the key. The event includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `responseHeader.content` field. You can use this information to correlate the {{site.data.keyword.keymanagementserviceshort}} key with the information of the action reported through the {{site.data.keyword.cloudaccesstrailshort}} event.

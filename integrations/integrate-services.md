@@ -74,10 +74,10 @@ When you integrate a supported service with {{site.data.keyword.keymanagementser
 
 For example, you can create a root key, manage the key in {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect the data that is stored across different cloud services.
 
-![The diagram shows a contexual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations_min.svg)
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations_min.svg)
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods
-{: #api-methods}
+{: #envelope-encryption-api-methods}
 
 Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the envelope encryption process.  
 
@@ -124,7 +124,8 @@ When you're ready to integrate a service, use the following steps to create an a
 
 6. Click **Authorize**.
 
-### What's next
+## What's next
+{: #integration-next-steps}
 
 Add advanced encryption to your cloud resources by creating a root key in {{site.data.keyword.keymanagementserviceshort}}. Add a new resource to a supported cloud data service, and then select the root key that you want to use for advanced encryption.
 

@@ -198,7 +198,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 **Note:** When you add an existing root key to the service, the key stays within the bounds of {{site.data.keyword.keymanagementserviceshort}}, and its key material cannot be retrieved. 
 
-### What's next
+## What's next
+{: #import-root-key-next-steps}
 
 - To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/services/key-protect?topic=key-protect-wrap-keys).
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
