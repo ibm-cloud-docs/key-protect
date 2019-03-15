@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-03-15"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -76,20 +76,28 @@ You can also retrieve your access token programmatically by first creating a [se
 3. Create a [service ID](/docs/iam?topic=iam-serviceids#creating-a-service-id) for your application.
 
   ```sh
-  ibmcloud iam service-id-create <name> [-d, --description <description>]
+  ibmcloud iam service-id-create SERVICE_ID_NAME
+                     [-d, --description DESCRIPTION]
   ```
   {: pre}
 
-4. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys).
+4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy) for the service ID.
+
+    You can assign access permissions for your service ID [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new). To learn how the _Manager_, _Writer_, and _Reader_ access roles map to specific {{site.data.keyword.keymanagementserviceshort}} service actions, see [Roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles).
+    {: tip}
+
+5. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys).
 
   ```sh
-  ibmcloud iam service-api-key-create <api_key_name> <service_ID_name> [-d, --description <description>] [--file <file_name>]
+  ibmcloud iam service-api-key-create API_KEY_NAME SERVICE_ID_NAME
+                     [-d, --description DESCRIPTION]
+                     [--file FILE_NAME]
   ```
   {: pre}
 
   Replace `<service_ID_name>` with the unique alias that you assigned to your service ID in the previous step. Save your API key by downloading it to a secure location. 
 
-5. Call the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api) to retrieve your access token.
+6. Call the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api) to retrieve your access token.
 
     ```cURL
     curl -X POST \
@@ -117,7 +125,3 @@ You can also retrieve your access token programmatically by first creating a [se
 
     Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, regenerate the access token for your API key on a regular basis by calling the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api).   
     {: note }
-
-    <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->
-
-    <!--You use IBM® Cloud Identity and Access Management (IAM) tokens to make authenticated requests to IBM Watson™ services without embedding service credentials in every call. IAM authentication uses access tokens for authentication, which you acquire by sending a request with an API key.-->
