@@ -125,3 +125,5 @@ You can also retrieve your access token programmatically by first creating a [se
 
     Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, regenerate the access token for your API key on a regular basis by calling the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api).   
     {: note }
+
+    
