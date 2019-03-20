@@ -27,9 +27,6 @@ Encryption keys contain subsets of information, such as the metadata that helps 
 
 When you use {{site.data.keyword.keymanagementserviceshort}} to create keys, the service generates cryptographic key material on your behalf that's rooted in cloud-based hardware security modules (HSMs). But depending on your business requirements, you might need to generate key material from your internal solution, and then extend your on-premises key management infrastructure onto the cloud by importing keys into {{site.data.keyword.keymanagementserviceshort}}.
 
-This page is a work in progress. We welcome your feedback! Reach out to Crystal Barragan (`@cbarragan`) on Slack, or [raise a doc issue ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.ibm.com/kms/customer-issues/issues/new/choose ){: new_window} in our repository.
-{: note}
-
 <table>
   <th>Benefit</th>
   <th>Description</th>
