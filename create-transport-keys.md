@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 
 # Creating a transport key
-{: #create-transport-key}
+{: #create-transport-keys}
 
 You can enable the secure import of root key material to the cloud by first creating a transport encryption key for your {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
