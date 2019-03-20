@@ -10,6 +10,7 @@ Key Protect
 
     {: .topicgroup}
     Concepts
+        concepts/importing-keys.md
         concepts/envelope-encryption.md
         concepts/key-rotation.md
         concepts/key-states.md

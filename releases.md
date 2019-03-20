@@ -24,6 +24,19 @@ subcollection: key-protect
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 
+## March 2019
+{: #mar-2019}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
+New as of: 2019-03-20
+
+Enable the secure import of encryption keys to the cloud by creating transport encryption keys for your {{site.data.keyword.keymanagementserviceshort}} service.
+
+For more information, see [Bringing your encryption keys to the cloud](/docs/services/key-protect?topic=key-protect-importing-keys).
+
+Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes that are incompatible with the latest version.
+{: important}
+
 ## February 2019
 {: #feb-2019}
 
