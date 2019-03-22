@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-22"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -26,6 +26,14 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 ## March 2019
 {: #mar-2019}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for policy-based key rotation
+{: #added-support-policy-key-rotation}
+New as of: 2019-03-22
+
+You can now use {{site.data.keyword.keymanagementserviceshort}} to associate a rotation policy for your root keys.
+
+For more information, see [Setting a rotation policy](/docs/services/key-protect?topic=key-protect-set-rotation-policy). To find out more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
 New as of: 2019-03-20

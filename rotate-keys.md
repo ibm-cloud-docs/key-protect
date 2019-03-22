@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-22"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -19,8 +19,8 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# Rotating keys
-{: #rotating-keys}
+# Rotating keys on-demand
+{: #rotate-keys}
 
 You can rotate your root keys on-demand by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
@@ -29,7 +29,7 @@ When you rotate your root key, you shorten the lifetime of the key, and you limi
 
 To learn how key rotation helps you meet industry standards and cryptographic best practices, see [Rotating your encryption keys](/docs/services/key-protect?topic=key-protect-key-rotation).
 
-Rotation is available only for root keys. 
+Rotation is available only for root keys. To learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
 {: note}
 
 ## Rotating root keys with the GUI
@@ -43,7 +43,7 @@ If you prefer to rotate your root keys by using a graphical interface, you can u
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in your service.
-5. Click the ⋮ icon to open a list of options for the key that you want to rotate.
+5. Click the ⋯ icon to open a list of options for the key that you want to rotate.
 6. From the options menu, click **Rotate key** and confirm the rotation in the next screen.
 
 If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Importing root keys with the GUI](/docs/services/key-protect?topic=key-protect-import-root-keys#gui).

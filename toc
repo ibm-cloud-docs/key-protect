@@ -56,7 +56,11 @@ Key Protect
         wrap-keys.md
         unwrap-keys.md
 
-    rotate-keys.md
+    {: .topicgroup}
+    Rotating keys
+        set-rotation-policy.md
+        rotate-keys.md
+        
     delete-keys.md
     {: .navgroup-end}
 

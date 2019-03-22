@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-22"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -42,7 +42,11 @@ With {{site.data.keyword.iamshort}} (IAM), you can manage and define access for 
 To simplify access, {{site.data.keyword.keymanagementserviceshort}} aligns with Cloud IAM roles so that each user has a different view of the service, according to the role the user is assigned. If you are a security admin for your service, you can assign Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions you want to grant to members of your team.
 
 The following table shows how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions:
+
 <table>
+  <col width="20%">
+  <col width="40%">
+  <col width="40%">
   <tr>
     <th>Service access role</th>
     <th>Description</th>
@@ -78,13 +82,14 @@ The following table shows how identity and access roles map to {{site.data.keywo
   </tr>
   <tr>
     <td><p>Manager</p></td>
-    <td><p>A manager can perform all actions that a reader and writer can perform, including the ability to delete keys, invite new users, and assign access policies for other users.</p></td>
+    <td><p>A manager can perform all actions that a reader and writer can perform, including the ability to set rotation policies for keys, delete keys, invite new users, and assign access policies for other users.</p></td>
     <td>
       <p>
         <ul>
           <li>All actions that a reader or a writer can perform</li>
+          <li>Assign user access policies</li>
+          <li>Set key rotation policies</li>
           <li>Delete keys</li>
-          <li>Assign access policies</li>
         </ul>
       </p>
     </td>

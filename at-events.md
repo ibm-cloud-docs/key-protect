@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-22"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -34,45 +34,18 @@ For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} docum
 
 The following table lists the actions that generate an event:
 
-<table>
-    <tr>
-        <th>Action</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>kms.secrets.create</td>
-        <td>Create a key</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.read</td>
-        <td>Retrieve a key by ID</td>
-    </tr>
-   <tr>
-        <td>kms.secrets.delete</td>
-        <td>Delete a key by ID</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.list</td>
-        <td>Retrieve a list of keys</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.head</td>
-        <td>Retrieve the number of keys</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.wrap</td>
-        <td>Wrap a key</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.unwrap</td>
-        <td>Unwrap a key</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.rotate</td>
-        <td>Rotate a key</td>
-    </tr>
-    <caption style="caption-side:bottom;">Table 1. Actions that generate {{site.data.keyword.cloudaccesstrailfull_notm}} events</caption>
-</table>
+| Action               | Description                 |
+| -------------------- | --------------------------- |
+| `kms.secrets.create` | Create a key                |
+| `kms.secrets.read`   | Retrieve a key by ID        |
+| `kms.secrets.delete` | Delete a key by ID          |
+| `kms.secrets.list`   | Retrieve a list of keys     |
+| `kms.secrets.head`   | Retrieve the number of keys |
+| `kms.secrets.wrap`   | Wrap a key                  |
+| `kms.secrets.unwrap` | Unwrap a key                |
+| `kms.policies.read`  | View a policy for a key     |
+| `kms.policies.write` | Set a policy for a key      |
+{: caption="Table 1. Actions that generate {{site.data.keyword.cloudaccesstrailfull_notm}} events" caption-side="top"}
 
 ## Where to view the events
 {: #view-activity-tracker-events}
