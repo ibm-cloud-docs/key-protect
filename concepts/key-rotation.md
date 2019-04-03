@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ Rotating keys on a regular basis helps you meet industry standards and cryptogra
   <caption style="caption-side:bottom;">Table 1. Describes the benefits of key rotation</caption>
 </table>
 
-Key rotation is treated in the NIST Special Publication 800-57, Recommendation for Key Management. To learn more, see [NIST SP 800-57 Pt. 1 Rev. 4. ![External link icon](../../../icons/launch-glyph.svg "External link icon")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+Key rotation is treated in the NIST Special Publication 800-57, Recommendation for Key Management. To learn more, see [NIST SP 800-57 Pt. 1 Rev. 4. ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 {: tip}
 
 ## Comparing your key rotation options in {{site.data.keyword.keymanagementserviceshort}}
@@ -53,7 +53,7 @@ Rotation options are available only for root keys.
 
 <dl>
   <dt>Setting a rotation policy for a key</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} helps you simplify rotation for encryption keys by enabling rotation policies for keys that you generate in the service. After you create a root key, you can manage a rotation policy for the key in the {{site.data.keyword.keymanagementserviceshort}} GUI or with the API. <a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">Choose an automatic rotation interval between 1 - 12 months for your key</a> based on your on-going security needs. When it's time to rotate the key based on the rotation interval that you specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces the key with new key material.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} helps you simplify rotation for encryption keys by enabling rotation policies for keys that you generate in the service. After you create a root key, you can manage a rotation policy for the key in the {{site.data.keyword.keymanagementserviceshort}} GUI or with the API. <a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">Choose an automatic rotation interval between 1 - 12 months for your key</a> based on your on-going security needs. When it's time to rotate the key based on the rotation interval that you specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces the key with new key material.</dd>
   <dt>Rotating keys on-demand</dt>
     <dd>As a security admin, you might want to have more control over the frequency of rotation for your keys. If you don't want to set an automatic rotation policy for a key, you can manually create a new key to replace an existing key, and then update your applications so that they reference the new key. To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}} to rotate the key on-demand. In this scenario, {{site.data.keyword.keymanagementserviceshort}} creates and replaces the key on your behalf with each rotation request. The key retains the same metadata and key ID.</dd>
 </dl>

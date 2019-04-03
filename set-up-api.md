@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -57,6 +57,6 @@ Want to track your API requests in case something goes wrong? When you include t
 {: tip} 
 
 ## What's next
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
 You're all set to start managing your encryption keys in Key Protect. To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.

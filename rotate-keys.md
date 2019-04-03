@@ -29,7 +29,7 @@ When you rotate your root key, you shorten the lifetime of the key, and you limi
 
 To learn how key rotation helps you meet industry standards and cryptographic best practices, see [Rotating your encryption keys](/docs/services/key-protect?topic=key-protect-key-rotation).
 
-Rotation is available only for root keys. To learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+Rotation is available only for root keys. To learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Rotating root keys with the GUI

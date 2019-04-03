@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # Deleting keys
-{: #deleting-keys}
+{: #delete-keys}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its contents, if you are an admin for your {{site.data.keyword.cloud_notm}} space or {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
 
-When you delete a key, you permanently shred its contents and associated data. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you permanently shred its contents and associated data. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
 
 ## Deleting keys with the GUI
@@ -39,7 +39,7 @@ If you prefer to delete your encryption keys by using a graphical interface, you
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in your service.
-5. Click the ⋮ icon to open a list of options for the key that you want to delete.
+5. Click the ⋯ icon to open a list of options for the key that you want to delete.
 6. From the options menu, click **Delete key** and confirm the key deletion in the next screen.
 
 After you delete a key, the key transitions to the _Destroyed_ state. Keys in this state are no longer recoverable. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database.

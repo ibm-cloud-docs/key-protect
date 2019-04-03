@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -60,7 +60,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
       </tr>
       <tr>
         <td>State</td>
-        <td>The [key state](/docs/services/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
+        <td>The [key state](/docs/services/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
       </tr>
       <tr>
         <td>Type</td>
@@ -176,7 +176,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    By default, `GET api/v2/keys` returns your first 2000 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve_subset_keys_api).
+    By default, `GET api/v2/keys` returns your first 2000 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
     {: tip}
 
 ### Retrieving a subset of keys

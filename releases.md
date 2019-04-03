@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -49,6 +49,8 @@ Transport keys are currently a beta feature. Beta features can change at any tim
 {: #feb-2019}
 
 ### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} service instances
+{: #changed-legacy-service-instances}
+
 New as of: 2019-02-13
 
 {{site.data.keyword.keymanagementserviceshort}} service instances that were provisioned before 15 December 2017 are running on a legacy infrastructure that is based on Cloud Foundry. This legacy {{site.data.keyword.keymanagementserviceshort}} service will be decommissioned on 15 May 2019.
@@ -64,6 +66,8 @@ Need help with migrating your encryption keys into a new service instance? For d
 {: #dec-2018}
 
 ### Changed: {{site.data.keyword.keymanagementserviceshort}} API endpoints
+{: #changed-api-endpoints}
+
 New as of: 2018-12-19
 
 To align with {{site.data.keyword.cloud_notm}}'s new unified experience, {{site.data.keyword.keymanagementserviceshort}} has updated the base URLs for its service APIs.
@@ -83,6 +87,8 @@ Both URLs for each regional service endpoint are supported at this time.
 {: #oct-2018}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Tokyo region
+{: #added-tokyo-region}
+
 New as of: 2018-10-31
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Tokyo region. 
@@ -90,6 +96,8 @@ You can now create {{site.data.keyword.keymanagementserviceshort}} resources in 
 For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
+{: #added-cli-plugin}
+
 New as of: 2018-10-02
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
@@ -100,6 +108,8 @@ To learn how to install the plug-in, see [Setting up the CLI](/docs/services/key
 {: #sept-2018}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for on-demand key rotation
+{: #added-key-rotation}
+
 New as of: 2018-09-28
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate your root keys on-demand.
@@ -107,6 +117,8 @@ You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate yo
 For more information, see [Rotating keys](/docs/services/key-protect?topic=key-protect-rotate-keys).
 
 ### Added: End to end security tutorial for your cloud app
+{: #added-security-tutorial}
+
 New as of: 2018-09-14
 
 Looking for code samples to help you encrypt storage bucket content with your own encryption keys?
@@ -116,6 +128,8 @@ You can now practice adding end to end security for your cloud application by fo
 For more information, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Washington DC region
+{: #added-wdc-region}
+
 New as of: 2018-09-10
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Washington DC region. 
@@ -126,6 +140,8 @@ For more information, see [Regions and locations](/docs/services/key-protect?top
 {: #aug-2018}
 
 ### Changed: {{site.data.keyword.keymanagementserviceshort}} API documentation URL
+{: #changed-api-doc-url}
+
 New as of: 2018-08-28
 
 The {{site.data.keyword.keymanagementserviceshort}} API Reference has moved! 
@@ -137,6 +153,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #mar-2018}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Frankfurt region
+{: #added-frankfurt-region}
+
 New as of: 2018-03-21
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Frankfurt region. 
@@ -147,6 +165,8 @@ For more information, see [Regions and locations](/docs/services/key-protect?top
 {: #jan-2018}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into Sydney region
+{: #added-sydney-region}
+
 New as of: 2018-01-31
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Sydney region. 
@@ -157,6 +177,8 @@ For more information, see [Regions and locations](/docs/services/key-protect?top
 {: #dec-2017}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Bring Your Own Key (BYOK)
+{: #added-byok-support}
+
 New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} now supports Bring Your Own Key (BYOK) and customer-managed encryption.
@@ -165,6 +187,8 @@ New as of: 2017-12-15
 - Enabled [envelope encryption](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how) for {{site.data.keyword.cos_full_notm}} buckets.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
+{: #added-london-region}
+
 New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} is now available in the London region. 
@@ -172,6 +196,8 @@ New as of: 2017-12-15
 For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Changed: {{site.data.keyword.iamshort}} roles
+{: #changed-iam-roles}
+
 New as of: 2017-12-15
 
 {{site.data.keyword.iamshort}} roles, which determine the actions that you can perform on {{site.data.keyword.keymanagementserviceshort}} resources, have changed.
@@ -186,6 +212,8 @@ For more information, see [Managing user access](/docs/services/key-protect?topi
 {: #sept-2017}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Cloud IAM
+{: #added-iam-support}
+
 New as of: 2017-09-19
 
 You can now use {{site.data.keyword.iamshort}} to set and manage access policies for your {{site.data.keyword.keymanagementserviceshort}} resources.

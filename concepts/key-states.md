@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # Monitoring the lifecycle of encryption keys
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} follows the security guidelines by [NIST SP 800-57 for key states ![External link icon](../../../icons/launch-glyph.svg "External link icon")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+{{site.data.keyword.keymanagementservicefull}} follows the security guidelines by [NIST SP 800-57 for key states ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
 {: shortdesc}
 
 ## Key states and transitions

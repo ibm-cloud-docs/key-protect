@@ -27,10 +27,10 @@ You can set an automatic rotation policy for a root key by using {{site.data.key
 
 When you set an automatic rotation policy for a root key, you shorten the lifetime of the key at regular intervals, and you limit the amount of information that is protected by that key.
 
-You can create a rotation policy only for root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}. If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Rotating root keys on-demand](/docs/services/key-protect?topic=key-protect-rotate-root-keys).
+You can create a rotation policy only for root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}. If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Rotating root keys on-demand](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys).
 {: note}
 
-Want to learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}? Check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options) for more information.
+Want to learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}? Check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options) for more information.
 {: tip}
 
 ## Managing rotation polices in the GUI
