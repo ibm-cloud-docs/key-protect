@@ -27,7 +27,7 @@ You can enable the secure import of root key material to the cloud by first crea
 
 Transport keys are used to encrypt and securely import root key material into {{site.data.keyword.keymanagementserviceshort}} based on the policies that you specify. To learn more about importing your keys securely to the cloud, see [Bringing your encryption keys to the cloud](/docs/services/key-protect/concepts?topic=key-protect-importing-keys).
 
-Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes are are incompatible with the latest version.
+Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes are incompatible with the latest version.
 {: important}
 
 ## Creating a transport key with the API
