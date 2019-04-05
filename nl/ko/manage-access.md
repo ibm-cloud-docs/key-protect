@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: user permissions, manage access, IAM roles
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 액세스 관리
+# 사용자 액세스 관리
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}}는 암호화 키에 대한 액세스 및 사용자 관리에 도움이 되도록 {{site.data.keyword.iamlong}}에서 관리하는 중앙 집중식 액세스 제어 시스템을 지원합니다.
@@ -24,7 +28,7 @@ lastupdated: "2019-01-03"
 새 사용자를 자신의 계정이나 서비스에 초대할 때 액세스 권한을 부여하는 것이 좋습니다. 예를 들어, 다음 가이드라인을 고려하십시오.
 
 - **Cloud IAM 역할을 지정하여 계정에서 리소스에 대한 사용자 액세스를 사용합니다.**
-    관리자 신임 정보를 공유하는 대신에 계정의 암호화 키에 액세스해야 하는 사용자를 위한 새 정책을 작성합니다. 계정의 관리자인 경우에는 계정의 모든 리소스에 대한 액세스 권한과 함께 _관리자_ 정책이 자동 지정됩니다.
+    관리자 인증 정보를 공유하는 대신에 계정의 암호화 키에 액세스해야 하는 사용자를 위한 새 정책을 작성합니다. 계정의 관리자인 경우에는 계정의 모든 리소스에 대한 액세스 권한과 함께 _관리자_ 정책이 자동 지정됩니다.
 - **필요한 최소 범위에서 역할 및 권한을 부여합니다. **
     예를 들어, 사용자가 지정된 영역 내에서 키의 상위 레벨 보기에만 액세스해야 하는 경우 사용자에게 해당 영역에 대한 _독자_ 역할을 부여합니다.
 - **액세스 제어를 관리하고 키 리소스를 삭제할 수 있는 대상에 대해 주기적으로 감사를 실시합니다.**
@@ -38,7 +42,11 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
 액세스를 간소화하기 위해 {{site.data.keyword.keymanagementserviceshort}}는 사용자가 지정된 역할에 따라 각 사용자가 서비스에 대한 서로 다른 보기를 가질 수 있도록 Cloud IAM 역할에 맞게 조정합니다. 서비스에 대한 보안 관리자인 경우 팀의 구성원에게 부여할 특정 {{site.data.keyword.keymanagementserviceshort}} 권한에 대응되는 Cloud IAM 역할을 지정할 수 있습니다.
 
 다음 표에서는 ID 및 액세스 역할이 {{site.data.keyword.keymanagementserviceshort}} 권한에 맵핑되는 방법을 보여줍니다.
+
 <table>
+  <col width="20%">
+  <col width="40%">
+  <col width="40%">
   <tr>
     <th>서비스 액세스 역할</th>
     <th>설명</th>
@@ -74,13 +82,14 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
   </tr>
   <tr>
     <td><p>관리자</p></td>
-    <td><p>관리자는 키 삭제, 새 사용자 초대 및 다른 사용자를 위한 액세스 정책 지정 기능을 포함하여 독자와 작성자가 수행할 수 있는 모든 조치를 수행할 수 있습니다.</p></td>
+    <td><p>관리자는 키에 대한 순환 정책 설정, 키 삭제, 새 사용자 초대 및 다른 사용자를 위한 액세스 정책 지정 기능을 포함하여 독자와 작성자가 수행할 수 있는 모든 조치를 수행할 수 있습니다.</p></td>
     <td>
       <p>
         <ul>
           <li>독자 또는 작성자가 수행할 수 있는 모든 조치</li>
+          <li>사용자 액세스 정책 지정</li>
+          <li>키 순환 정책 설정</li>
           <li>키 삭제</li>
-          <li>액세스 정책 지정</li>
         </ul>
       </p>
     </td>
@@ -88,11 +97,13 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
   <caption style="caption-side:bottom;">표 1. ID 및 액세스 역할이 {{site.data.keyword.keymanagementserviceshort}} 권한에 맵핑되는 방법에 대한 설명</caption>
 </table>
 
-Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/cfaccess.html){: new_window}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다. {{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/users_roles.html#userroles){: new_window}을 확인하십시오.
+Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-cfaccess){: new_window}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다. {{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-userroles){: new_window}을 확인하십시오.
 {: note}
 
-### 다음에 수행할 작업
+## 다음에 수행할 작업
+{: #manage-access-next-steps}
 
 계정 소유자와 관리자는 사용자를 초대할 수 있으며 사용자가 수행할 수 있는 {{site.data.keyword.keymanagementserviceshort}} 조치에 대응되는 서비스 정책을 설정할 수 있습니다.
 
-- {{site.data.keyword.cloud_notm}} UI에서 사용자 역할을 지정하는 방법에 대한 자세한 정보는 [IAM 액세스 관리 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam/mngiam.html){: new_window}를 참조하십시오.
+- {{site.data.keyword.cloud_notm}} UI에서 사용자 역할을 지정하는 방법에 대한 자세한 정보는 [IAM 액세스 관리 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-getstarted){: new_window}를 참조하십시오.
+

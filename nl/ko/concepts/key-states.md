@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 키 상태
+# 암호화 키의 라이프사이클 모니터링
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}}는 [키 상태와 관련된 NIST SP 800-57 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}의 보안 가이드라인을 따릅니다.
@@ -49,11 +53,11 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>영구 삭제됨</td>
-    <td>삭제된 키는 <i>영구 삭제됨</i> 상태입니다. 이 상태의 키는 복구가 불가능합니다. 키와 연관된 메타데이터(예: 키의 상태 전이 히스토리 및 이름)가 {{site.data.keyword.keymanagementserviceshort}} 데이터베이스에 보관됩니다.</td>
+    <td>삭제된 키는 <i>영구 삭제됨</i> 상태입니다. 이 상태의 키는 복구가 불가능합니다. 키와 연관된 메타데이터(예: 키의 상태 전이 히스토리 및 이름)가 {{site.data.keyword.keymanagementserviceshort}} 데이터베이스에 보관됩니다. </td>
   </tr>
   <caption style="caption-side:bottom;">표 1. 키 상태 및 상태 전이에 대해 설명합니다.</caption>
 </table>
 
 서비스에 키를 추가한 후 {{site.data.keyword.keymanagementserviceshort}} 대시보드 또는 {{site.data.keyword.keymanagementserviceshort}} REST API를 사용하여 키의 상태 전이 히스토리 및 구성을 보십시오. 감사를 위해 {{site.data.keyword.keymanagementserviceshort}}를 {{site.data.keyword.cloudaccesstrailfull}}에 통합하여 키에 대한 활동 추적을 모니터할 수도 있습니다. 두 서비스 모두 프로비저닝되고 실행 중이면, 사용자가 {{site.data.keyword.keymanagementserviceshort}}에서 키를 작성하고 삭제할 때 활동 이벤트가 생성되고 {{site.data.keyword.cloudaccesstrailshort}} 로그에 자동으로 수집됩니다. 
 
-자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} 활동 모니터링 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}을 참조하십시오.
+자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} 활동 모니터링 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}을 참조하십시오.

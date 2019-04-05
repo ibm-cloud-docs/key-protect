@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -48,14 +52,14 @@ Pour supprimer une ancienne instance de service {{site.data.keyword.keymanagemen
 
 Pour supprimer vos clés et votre instance de service :
 
-1. Connectez-vous à l'interface de ligne de commande d'{{site.data.keyword.cloud_notm}} with the {{site.data.keyword.cloud_notm}}.
+1. Connectez-vous à {{site.data.keyword.cloud_notm}} via l'interface de ligne de commande d'{{site.data.keyword.cloud_notm}}.
 
     ```sh
     ibmcloud login 
     ```
     {: codeblock}
 
-    **Remarque :** si la procédure de connexion échoue, exécutez la commande `bx login --sso` pour effectuer une nouvelle tentative. Le paramètre `--sso` est requis quand vous vous connectez avec un ID fédéré. Si cette option est utilisée, accédez au lien répertorié dans la sortie d'interface de ligne de commande pour générer un code d'accès unique.
+    **Remarque :** si la procédure de connexion échoue, exécutez la commande `bx login --sso` pour effectuer une nouvelle tentative. Le paramètre `--sso` est requis quand vous vous connectez avec un ID fédéré. Si cette option est utilisée, accédez au lien figurant dans la sortie de l'interface de ligne de commande pour générer un code d'accès à usage unique.
 
 2. Sélectionnez la région, organisation et espace {{site.data.keyword.cloud_notm}} qui contient votre instance de service {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -156,7 +160,7 @@ L'erreur suivante s'affiche :
 ```
 {: screen}
 
-Le 15 décembre 2017, nous avons ajouté de nouvelles fonctions, telles que le [chiffrement d'enveloppe](/docs/services/key-protect/concepts/envelope-encryption.html), au service {{site.data.keyword.keymanagementserviceshort}}. Vous pouvez désormais mettre à disposition le service {{site.data.keyword.keymanagementserviceshort}} au sein d'un groupe de ressources, sans avoir à spécifier une organisation et un espace Cloud Foundry.
+Le 15 décembre 2017, nous avons ajouté de nouvelles fonctions, telles que le [chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption), au service {{site.data.keyword.keymanagementserviceshort}}. Vous pouvez désormais mettre à disposition le service {{site.data.keyword.keymanagementserviceshort}} au sein d'un groupe de ressources, sans avoir à spécifier une organisation et un espace Cloud Foundry.
 {: tsCauses}
 
 Ces modifications ont affecté l'interface utilisateur pour des instances plus anciennes du service. Si vous avez créé votre instance {{site.data.keyword.keymanagementserviceshort}} avant le 28 septembre 2017, il se peut que l'interface utilisateur ne fonctionne pas comme prévu.
@@ -191,7 +195,7 @@ Une liste de clés est visible, mais les options d'ajout ou de suppression des c
 Vous ne disposez pas des droits appropriés pour exécuter des actions {{site.data.keyword.keymanagementserviceshort}}.
 {: tsCauses} 
 
-Vérifiez auprès de votre administrateur qu'il vous a attribué le rôle adéquat dans le groupe de ressources ou l'instance de service applicable. Pour plus d'informations sur les rôles, voir [Rôles et droits](/docs/services/key-protect/manage-access.html#roles).
+Vérifiez auprès de votre administrateur qu'il vous a attribué le rôle adéquat dans le groupe de ressources ou l'instance de service applicable. Pour plus d'informations sur les rôles, voir [Rôles et droits](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
 
 ## Aide et support
@@ -208,6 +212,6 @@ même problème. Quand vous utilisez les forums pour poser une question, prenez 
 - Si vous avez des questions d'ordre technique sur {{site.data.keyword.keymanagementserviceshort}}, postez votre question sur le forum [Stack Overflow ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} en lui adjoignant les balises "ibm-cloud" et "key-protect".
 - Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum [IBM developerWorks dW Answers ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} forum. Incluez les balises "ibm-cloud" et "key-protect".
 
-Pour plus d'informations sur l'utilisation des forums, voir la rubrique expliquant [comment obtenir de l'aide ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/docs/support/index.html#getting-help){: new_window}.
+Pour plus d'informations sur l'utilisation des forums, voir la rubrique [Aide et support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/get-support?topic=get-support-using-avatar){: new_window}.
 
-Pour plus d'informations sur l'ouverture d'un ticket de demande de service {{site.data.keyword.IBM_notm}}, sur les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la rubrique expliquant [comment contacter le support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}.
+Pour plus d'informations sur l'ouverture d'un ticket de demande de service {{site.data.keyword.IBM_notm}}, sur les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la rubrique expliquant [comment contacter le support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

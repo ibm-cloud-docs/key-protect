@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: related links, blogs, sample apps, SLA, service level agreement
+
+subcollection: key-protect
 
 ---
 
@@ -40,7 +44,8 @@ Recursos adicionales sobre la gestión del cifrado con {{site.data.keyword.keyma
 
 
 ## Servicios relacionados
-{: #related_services}
+{: #related-services}
 
+- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
 

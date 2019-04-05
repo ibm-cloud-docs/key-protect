@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: Activity tracker events, KMS API calls, monitor KMS events
+
+subcollection: key-protect
 
 ---
 
@@ -16,62 +20,35 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # Evénements {{site.data.keyword.cloudaccesstrailshort}}
-{: #at-events}
+{: #activity-tracker-events}
 
 Utilisez le service {{site.data.keyword.cloudaccesstrailfull}} pour savoir comment les utilisateurs et les applications interagissent avec {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
 Le service {{site.data.keyword.cloudaccesstrailfull_notm}} enregistre les activités initiées par l'utilisateur qui changent l'état d'un service dans {{site.data.keyword.cloud_notm}}. 
 
-Pour plus d'informations, voir [Documentation d'{{site.data.keyword.cloudaccesstrailshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla){: new_window}.
+Pour plus d'informations, veuillez consulter la [documentation d'{{site.data.keyword.cloudaccesstrailshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
 
 ## Liste des événements
-{: #events}
+{: #list-activity-tracker-events}
 
 Le tableau suivant répertorie les actions qui génèrent un événement :
 
-<table>
-    <tr>
-        <th>Action</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>kms.secrets.create</td>
-        <td>Créer une clé</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.read</td>
-        <td>Extraire une clé par ID</td>
-    </tr>
-   <tr>
-        <td>kms.secrets.delete</td>
-        <td>Supprimer une clé par ID</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.list</td>
-        <td>Extraire une liste de clés</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.head</td>
-        <td>Extraire le nombre de clés</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.wrap</td>
-        <td>Encapsuler une clé</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.unwrap</td>
-        <td>Désencapsuler une clé</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.rotate</td>
-        <td>Rotation d'une clé</td>
-    </tr>
-    <caption style="caption-side:bottom;">Tableau 1. Actions qui génèrent des événements {{site.data.keyword.cloudaccesstrailfull_notm}}</caption>
-</table>
+| Action               | Description                 |
+| -------------------- | --------------------------- |
+| `kms.secrets.create` | Créer une clé                |
+| `kms.secrets.read`   | Extraire une clé par ID        |
+| `kms.secrets.delete` | Supprimer une clé par ID          |
+| `kms.secrets.list`   | Extraire une liste de clés     |
+| `kms.secrets.head`   | Extraire le nombre de clés |
+| `kms.secrets.wrap`   | Encapsuler une clé                  |
+| `kms.secrets.unwrap` | Désencapsuler une clé                |
+| `kms.policies.read`  | Afficher la politique d'une clé      |
+| `kms.policies.write` | Définir une politique pour une clé       |
+{: caption="Tableau 1. Actions qui génèrent des événements {{site.data.keyword.cloudaccesstrailfull_notm}}" caption-side="top"}
 
 ## Où consulter les événements
-{: #gui}
+{: #view-activity-tracker-events}
 
 <!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
@@ -82,6 +59,6 @@ Par exemple, lorsque vous créez, importez, supprimez ou lisez une clé dans {{s
 Pour surveiller l'activité des API, vous devez mettre à disposition le service {{site.data.keyword.cloudaccesstrailshort}} dans un espace qui est disponible dans la région dans laquelle le service {{site.data.keyword.keymanagementserviceshort}} a été mis à disposition. Ensuite, vous pouvez afficher les événements via la vue de compte dans l'interface utilisateur d'{{site.data.keyword.cloudaccesstrailshort}} si vous utilisez un plan Lite, et via Kibana si vous utilisez un plan Premium.
 
 ## Informations supplémentaires
-{: #info}
+{: #activity-tracker-info}
 
 En raison de la sensibilité des informations pour une clé de chiffrement, lorsqu'un événement est généré suite à un appel API du service {{site.data.keyword.keymanagementserviceshort}}, il n'inclut pas d'informations détaillées sur la clé. Il inclut un ID de corrélation que vous pouvez utiliser pour identifier la clé en interne dans votre environnement cloud. L'ID de corrélation est une zone renvoyée dans la zone `responseHeader.content`. Vous pouvez utiliser cette information pour corréler la clé {{site.data.keyword.keymanagementserviceshort}} avec les informations de l'action rapportées via l'événement {{site.data.keyword.cloudaccesstrailshort}}.

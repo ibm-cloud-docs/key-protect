@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
+
+subcollection: key-protect
 
 ---
 
@@ -21,8 +25,8 @@ lastupdated: "2019-01-03"
 {{site.data.keyword.keymanagementservicefull}}를 사용하면 {{site.data.keyword.cloud_notm}} 서비스 간에 앱에 대한 암호화된 키를 프로비저닝하는 데 도움이 됩니다. 키의 라이프사이클을 관리할 때, 정보 도난을 방지하는 FIPS 140-2 레벨 2 공인 클라우드 기반 HSM(Hardware Security Module)에 의해 키가 보안된다는 사실을 알고 있으면 도움이 될 수 있습니다.
 {: shortdesc}
 
-## 서비스 사용 이유
-{: #kp-reasons}
+## {{site.data.keyword.keymanagementserviceshort}} 사용 이유
+{: #use-cases}
 
 다음 시나리오에서 키를 관리해야 할 수 있습니다.
 
@@ -32,12 +36,8 @@ lastupdated: "2019-01-03"
     <th>이유</th>
   </tr>
   <tr>
-    <td>개별 리소스별로 의료 기록과 같은 민감한 데이터를 대량으로 암호화해야 합니다.</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} 서비스를 [{{site.data.keyword.cos_full_notm}} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-object-storage/about-cos.html) 등의 스토리지 솔루션과 통합하여 클라우드에 보관된 데이터를 암호화할 수 있습니다. 서로 다른 키로 각 문서를 보호할 수 있으므로 데이터에 대한 세부 단위의 제어가 가능합니다.</td>
-  </tr>
-  <tr>
-    <td>클라우드로 데이터를 이동할 때 엔벨로프 암호화를 수행할 수 있습니다. 고유 마스터 암호화 키를 가져와야 하므로 저장 데이터를 암호화하는 다른 키를 완전히 제어할 수 있습니다.</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}}를 사용하면 [높은 보안의 루트 키로 데이터 암호화 키를 랩핑](/docs/services/key-protect/concepts/envelope-encryption.html)할 수 있습니다. 고유 루트 키를 가져오거나 서비스에서 이 키를 작성할 수 있습니다.</td>
+    <td>클라우드로 데이터를 이동할 때 엔벨로프 암호화를 수행할 수 있습니다. 고유 마스터 암호화 키를 가져와야 하므로 저장 데이터를 암호화하는 다른 키를 관리하고 보호할 수 있습니다.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}}를 사용하면 [높은 보안의 루트 키로 데이터 암호화 키를 랩핑](/docs/services/key-protect?topic=key-protect-envelope-encryption)할 수 있습니다. 고유 루트 키를 가져오거나 서비스에서 이 키를 작성할 수 있습니다.</td>
   </tr>
   <tr>
     <td>대기업의 IT 관리자로서, 다양한 서비스 오퍼링에 대해 키를 통합하고 추적하며 순환해야 합니다.</td>
@@ -45,23 +45,26 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>금융 또는 법률과 같은 업계의 보안 관리자로 데이터 보호 방법에 대해 거버넌스를 준수해야 합니다. 보안을 유지하려는 데이터를 취약하게 만들지 않으면서 제어되는 키 액세스를 부여해야 합니다.</td>
-    <td>서비스를 사용하면 [서로 다른 Identity and Access Management 역할을 지정](/docs/services/key-protect/manage-access.html#roles)하여 키를 관리할 수 있도록 사용자 액세스를 제어할 수 있습니다. 예를 들어, 키 자료를 보지 않은 채 키 작성 정보를 봐야 하는 사용자에게 읽기 전용 액세스 권한을 부여할 수 있습니다.</td>
+    <td>서비스를 사용하면 [서로 다른 Identity and Access Management 역할을 지정](/docs/services/key-protect?topic=key-protect-manage-access#roles)하여 키를 관리할 수 있도록 사용자 액세스를 제어할 수 있습니다. 예를 들어, 키 자료를 보지 않은 채 키 작성 정보를 봐야 하는 사용자에게 읽기 전용 액세스 권한을 부여할 수 있습니다.</td>
   <tr>
-    <td>개발자로서 셀프 암호화 스토리지와 같은 기존의 애플리케이션을 {{site.data.keyword.keymanagementserviceshort}}에 통합할 수 있습니다. 서비스와 통합된 고유 앱도 개발할 수 있습니다.</td>
+    <td>개발자로서 셀프 암호화 스토리지와 같은 기존 애플리케이션을 {{site.data.keyword.keymanagementserviceshort}}에 통합할 수 있습니다.</td>
     <td>{{site.data.keyword.cloud_notm}}의 앱이나 외부 앱을 {{site.data.keyword.keymanagementserviceshort}} API와 통합할 수 있습니다. 사용자의 앱을 위한 기존의 자체 키를 사용할 수 있습니다. </td>
   </tr>
   <tr>
     <td>개발 팀에게 엄격한 정책이 적용되어 14일마다 키를 생성하고 순환하는 방법이 필요합니다.</td>
-    <td>{{site.data.keyword.cloud_notm}}를 사용하면 HSM(Hardware Security Module)에서 신속하게 키를 생성하여 지속적인 보안 요구사항을 충족시킬 수 있습니다.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}}를 사용하면 {{site.data.keyword.cloud_notm}} HSM(Hardware Security Module)에서 신속하게 키를 생성하여 지속적인 보안 요구사항을 충족시킬 수 있습니다.</td>
   </tr>
 </table>
+
+고객이 제어하는 클라우드 기반 HSM(Hardware Security Module)을 지원하는 전용 키 관리 솔루션을 찾고 있습니까? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}(베타)](/docs/services/hs-crypto?topic=hs-crypto-get-started)는 {{site.data.keyword.keymanagementserviceshort}}에 통합되어 {{site.data.keyword.cloud_notm}}에 KYOK(Keep Your Own Keys)를 사용하므로, 데이터에 대한 조직의 제어와 권한이 강화됩니다. 자세한 내용은 [{{site.data.keyword.hscrypto}} 오퍼링 세부사항 페이지 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/catalog/services/hyper-protect-crypto-services)를 참조하십시오.
+{: tip}
 
 ## {{site.data.keyword.keymanagementserviceshort}}의 작동 방식
 {: #kp-how}
 
 {{site.data.keyword.keymanagementservicelong_notm}}는 {{site.data.keyword.cloud_notm}} Identity and Access Management 역할에 따라 조직 전체에서 암호화 키를 관리하는 데 도움을 줍니다.
 
-감사자에게 필요하지 않은 고급 권한이 IT 또는 보안 관리자에게는 필요할 수 있습니다. 액세스를 간소화하기 위해 {{site.data.keyword.keymanagementserviceshort}}는 각 역할이 서로 다른 서비스 보기를 가질 수 있도록 {{site.data.keyword.cloud_notm}} Identity and Access Management 역할을 맵핑합니다. 사용자의 요구사항에 최적인 액세스 레벨 및 보기에 대한 안내를 받으려면 [사용자 및 액세스 관리](/docs/services/key-protect/manage-access.html#roles)를 참조하십시오.
+감사자에게 필요하지 않은 고급 권한이 IT 또는 보안 관리자에게는 필요할 수 있습니다. 액세스를 간소화하기 위해 {{site.data.keyword.keymanagementserviceshort}}는 각 역할이 서로 다른 서비스 보기를 가질 수 있도록 {{site.data.keyword.cloud_notm}} Identity and Access Management 역할을 맵핑합니다. 사용자의 요구사항에 최적인 액세스 레벨 및 보기에 대한 안내를 받으려면 [사용자 및 액세스 관리](/docs/services/key-protect?topic=key-protect-manage-access#roles)를 참조하십시오.
 
 다음 다이어그램은 관리자, 독자 및 작성자가 서비스에서 관리되는 키와 상호 작용할 수 있는 방법을 표시합니다.
 
@@ -95,7 +98,7 @@ lastupdated: "2019-01-03"
     <dd>클러스터된 데이터베이스에서 키의 중복 및 보안 스토리지에 대해 신뢰할 수 있습니다.</dd>
 </dl>
 
-다음 다이어그램은 서비스가 키를 저장하는 방식과 비교하여, {{site.data.keyword.keymanagementserviceshort}}가 HSM(Hardware Security Module)과 함께 작동하여 어떻게 키를 생성하는지 표시합니다.
+다음 다이어그램은 서비스가 키를 저장하는 방식과 비교하여, {{site.data.keyword.keymanagementserviceshort}}가 HSM(Hardware Security Module)과 함께 작동하여 어떻게 키를 생성하는지를 보여줍니다.
 
 ![다이어그램은 키의 생성 방법을 보여줍니다.](images/generated-key_min.svg)
 

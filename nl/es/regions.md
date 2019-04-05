@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect API endpoints, available regions
+
+subcollection: key-protect
 
 ---
 
@@ -14,11 +18,12 @@ lastupdated: "2019-01-03"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 
 # Regiones y ubicaciones
 {: #regions}
 
-Conéctese a sus aplicaciones con el servicio de {{site.data.keyword.keymanagementservicelong_notm}} especificando un punto final de servicio regional.
+Conéctese a sus aplicaciones con el servicio de {{site.data.keyword.keymanagementservicelong}} especificando un punto final de servicio regional.
 {: shortdesc}
 
 ## Regiones disponibles
@@ -29,7 +34,7 @@ Conéctese a sus aplicaciones con el servicio de {{site.data.keyword.keymanageme
 ## Puntos finales de servicio
 {: #service-endpoints}
 
-Si está gestionando sus recursos de {{site.data.keyword.keymanagementserviceshort}} mediante programación, consulte la siguiente tabla para determinar los puntos finales de API que hay que utilizar para conectarse a la API de [{{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/key-protect): 
+Si está gestionando sus recursos de {{site.data.keyword.keymanagementserviceshort}} mediante programación, consulte la siguiente tabla para determinar los puntos finales de API que hay que utilizar para conectarse a la API de [{{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect): 
 
 <table>
     <tr>
@@ -75,7 +80,7 @@ Si está gestionando sus recursos de {{site.data.keyword.keymanagementservicesho
     <caption style="caption-side:bottom;">Tabla 1. Muestra los puntos finales disponibles para la API de {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-Puede seguir utilizando `https://keyprotect.<region>.bluemix.net` como destino para el servicio para las operaciones o puede actualizar las aplicaciones con los nuevos puntos finales de `cloud.ibm.com`. Para las instancias de servicio de {{site.data.keyword.keymanagementserviceshort}} que existen dentro de una región o un espacio de Cloud Foundry, utilice el punto final heredado `https://ibm-key-protect.edge.bluemix.net` para interactuar con la API de {{site.data.keyword.keymanagementserviceshort}}.
+Puede seguir utilizando `https://keyprotect.<region>.bluemix.net` como destino para el servicio para las operaciones o puede actualizar las aplicaciones con los nuevos puntos finales de `cloud.ibm.com`. 
 {: tip}
 
-Para obtener más información sobre la autenticación con {{site.data.keyword.keymanagementserviceshort}}, consulte [Acceso a la API](/docs/services/key-protect/access-api.html).
+Para obtener más información sobre la autenticación con {{site.data.keyword.keymanagementserviceshort}}, consulte [Acceso a la API](/docs/services/key-protect?topic=key-protect-set-up-api).

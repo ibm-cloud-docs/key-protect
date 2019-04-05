@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Schlüsselstatus
+# Lebenszyklus von Verschlüsselungsschlüsseln überwachen
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} orientiert sich an den Sicherheitsrichtlinien von [NIST SP 800-57 für die Schlüsselstatus ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
@@ -24,7 +28,7 @@ lastupdated: "2019-01-03"
 ## Schlüsselstatus und -übergänge
 {: #key_transitions}
 
-Verschlüsselungsschlüssel durchlaufen während ihrer Laufzeit mehrere Status, die davon abhängig sind, wie lange die Schlüssel bestehen und ob Daten geschützt werden. 
+Verschlüsselungsschlüssel durchlaufen in ihrem Lebenszyklus mehrere Status, die davon abhängig sind, wie lange die Schlüssel bestehen und ob Daten geschützt werden. 
 
 {{site.data.keyword.keymanagementserviceshort}} stellt eine grafische Benutzerschnittstelle und eine REST-API für die Verfolgung von Schlüsseln während der verschiedenen Phasen ihres Lebenszyklus bereit. Das folgende Diagramm veranschaulicht die Status, die ein Schlüssel vom Generieren bis zum Löschen durchläuft.
 
@@ -37,7 +41,7 @@ Verschlüsselungsschlüssel durchlaufen während ihrer Laufzeit mehrere Status, 
   </tr>
   <tr>
     <td>Vor Aktivierung</td>
-    <td>Die Schlüssel werden zu Beginn im Status <i>Vor Aktivierung</i> erstellt. Ein Schlüssel in diesem Status kann nicht für den Verschlüsselungsschutz von Daten verwendet werden. </td>
+    <td>Die Schlüssel werden zu Beginn im Status <i>Vor Aktivierung</i> erstellt. Ein Schlüssel in diesem Status kann nicht für den Verschlüsselungsschutz von Daten verwendet werden.</td>
   </tr>
   <tr>
     <td>Aktiv</td>
@@ -49,11 +53,11 @@ Verschlüsselungsschlüssel durchlaufen während ihrer Laufzeit mehrere Status, 
   </tr>
   <tr>
     <td>Gelöscht</td>
-    <td>Gelöschte Schlüssel befinden sich im Status <i>Gelöscht</i>. Schlüssel, die sich in diesem Status befinden, sind nicht wiederherstellbar. Die zugehörigen Metadaten für den Schlüssel werden in der {{site.data.keyword.keymanagementserviceshort}}-Datenbank aufbewahrt.</td>
+    <td>Gelöschte Schlüssel befinden sich im Status <i>Gelöscht</i>. Schlüssel, die sich in diesem Status befinden, sind nicht wiederherstellbar. Die zugehörigen Metadaten für den Schlüssel werden in der {{site.data.keyword.keymanagementserviceshort}}-Datenbank aufbewahrt. </td>
   </tr>
   <caption style="caption-side:bottom;">Tabelle 1. Beschreibt die Schlüsselzustände und -übergänge.</caption>
 </table>
 
 Nachdem Sie dem Service einen Schlüssel hinzugefügt haben, verwenden Sie das {{site.data.keyword.keymanagementserviceshort}}-Dashboard oder die {{site.data.keyword.keymanagementserviceshort}}-REST-APIs, um den Verlauf und die Konfiguration des Schlüsselstatus anzuzeigen. Sie können zu Prüfzwecken die Aktivitätenprüfliste für einen Schlüssel überwachen, indem Sie {{site.data.keyword.keymanagementserviceshort}} in {{site.data.keyword.cloudaccesstrailfull}} integrieren. Wenn beide Services bereitgestellt sind und ausgeführt werden, werden Aktivitätsereignisse generiert und in einem {{site.data.keyword.cloudaccesstrailshort}}-Protokoll automatisch erfasst, wenn Sie in {{site.data.keyword.keymanagementserviceshort}} Schlüssel erstellen und löschen. 
 
-Weitere Informationen finden Sie in der [Überwachung der {{site.data.keyword.keymanagementserviceshort}}-Aktivität ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+Weitere Informationen finden Sie in der [Überwachung der {{site.data.keyword.keymanagementserviceshort}}-Aktivität ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

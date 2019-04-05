@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -24,17 +28,17 @@ lastupdated: "2019-01-03"
 정기적으로 키 구성 감사:
 
 - 키가 작성된 시점을 확인하고 키를 순환할 시점인지 판별합니다.
-- [{{site.data.keyword.cloudaccesstrailshort}}로 {{site.data.keyword.keymanagementserviceshort}}에 대한 API 호출을 모니터합니다. ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}
+- [{{site.data.keyword.cloudaccesstrailshort}}로 {{site.data.keyword.keymanagementserviceshort}}에 대한 API 호출을 모니터합니다. ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}
 - 어떤 사용자에게 키에 대한 액세스 권한이 있고, 해당 액세스 레벨은 적합한지 검사합니다.
 
-리소스에 대한 액세스 감사에 대한 자세한 정보는 [Cloud IAM으로 사용자 액세스 관리](/docs/services/key-protect/manage-access.html)를 참조하십시오.
+리소스에 대한 액세스 감사에 대한 자세한 정보는 [Cloud IAM으로 사용자 액세스 관리](/docs/services/key-protect?topic=key-protect-manage-access)를 참조하십시오.
 
 ## GUI로 키 보기
-{: #gui}
+{: #view-keys-gui}
 
 그래픽 인터페이스를 사용한 서비스의 키 검사를 원하는 경우 {{site.data.keyword.keymanagementserviceshort}} 대시보드를 사용할 수 있습니다.
 
-[키를 작성하거나 기존 키를 서비스로 가져온 후](/docs/services/key-protect/create-root-keys.html) 다음 단계를 완료하여 키를 확인하십시오.
+[키를 작성하거나 기존 키를 서비스로 가져온 후](/docs/services/key-protect?topic=key-protect-create-root-keys) 다음 단계를 완료하여 키를 확인하십시오.
 
 1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/)에 로그인하십시오.
 2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
@@ -56,17 +60,17 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>시/도</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)를 기반으로 한 [키 상태](/docs/services/key-protect/concepts/key-states.html)입니다. 이러한 상태는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>입니다.</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)를 기반으로 한 [키 상태](/docs/services/key-protect?topic=key-protect-key-states)입니다. 이러한 상태는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>입니다.</td>
       </tr>
       <tr>
         <td>유형</td>
-        <td>서비스 내 키의 지정된 용도에 대해 설명하는 [키 유형](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)입니다.</td>
+        <td>서비스 내 키의 지정된 용도에 대해 설명하는 [키 유형](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)입니다.</td>
       </tr>
       <caption style="caption-side:bottom;">표 1. <b>키</b> 테이블에 대한 설명</caption>
     </table>
 
 ## API로 키 보기
-{: #api}
+{: #view-keys-api}
 
 {{site.data.keyword.keymanagementserviceshort}} API를 사용하여 키의 컨텐츠를 검색할 수 있습니다.
 
@@ -76,17 +80,17 @@ lastupdated: "2019-01-03"
 상위 레벨 보기의 경우에는 다음 엔드포인트에 대한 `GET` 호출을 작성하여 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스에서 관리되는 키를 찾아볼 수 있습니다.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [서비스 및 인증 신임 정보를 검색하여 서비스에서 키에 대한 작업을 수행하십시오](/docs/services/key-protect/access-api.html).
+1. [서비스 및 인증용 인증 정보를 검색하여 서비스에서 키에 대한 작업을 수행](/docs/services/key-protect?topic=key-protect-set-up-api)하십시오.
 
 2. 다음 cURL 명령을 실행하여 키에 대한 일반 특성을 보십시오.
 
     ```cURL
     curl -X GET \
-    https://keyprotect.<region>.bluemix.net/api/v2/keys \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <IAM_token>' \
     -H 'bluemix-instance: <instance_ID>' \
@@ -94,7 +98,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    계정에서 Cloud Foundry 조직과 영역 내의 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 적절한 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. [자세한 정보는 {{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
+    계정에서 Cloud Foundry 조직과 영역 내의 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 적절한 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. 자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
     {: tip}
 
     다음 표에 따라 예제 요청의 변수를 대체하십시오.
@@ -105,15 +109,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">액세스 토큰 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -172,7 +176,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {:screen}
 
-    기본적으로 `GET api/v2/keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 보려면 [키의 서브세트 검색](#retrieve_subset_keys_api)을 참조하십시오.
+    기본적으로 `GET api/v2/keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 알아보려면 [키의 서브세트 검색](#retrieve_subset_keys_api)을 참조하십시오.
     {: tip}
 
 ### 키의 서브세트 검색
@@ -186,7 +190,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
   ```cURL
   curl -X GET \
-  https://keyprotect.<region>.bluemix.net/api/v2/keys?offset=<offset>&limit=<limit> \
+  https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
@@ -251,11 +255,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 특정 키에 대한 자세한 정보를 보기 위해 다음 엔드포인트에 대한 `GET` 호출을 작성할 수 있습니다.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [서비스 및 인증 신임 정보를 검색하여 서비스에서 키에 대한 작업을 수행하십시오](/docs/services/key-protect/access-api.html).
+1. [서비스 및 인증용 인증 정보를 검색하여 서비스에서 키에 대한 작업을 수행](/docs/services/key-protect?topic=key-protect-set-up-api)하십시오.
 
 2. 액세스하거나 관리할 키의 ID를 검색하십시오.
 
@@ -265,7 +269,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'accept: application/vnd.ibm.kms.key+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -282,15 +286,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">액세스 토큰 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

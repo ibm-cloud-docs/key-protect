@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: release notes, changelog, what's new, service updates, service bulletin
+
+subcollection: key-protect
 
 ---
 
@@ -20,22 +24,77 @@ lastupdated: "2019-01-03"
 
 掌握最新的 {{site.data.keyword.keymanagementservicefull}} 可用新增特性。 
 
+## 2019 年 3 月
+{: #mar-2019}
+
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了原則型金鑰替換的支援
+{: #added-support-policy-key-rotation}
+新增日期：2019-03-22
+
+您現在可以使用 {{site.data.keyword.keymanagementserviceshort}} 來建立替換原則與根金鑰的關聯。
+
+如需相關資訊，請參閱[設定替換原則](/docs/services/key-protect?topic=key-protect-set-rotation-policy)。若要進一步瞭解 {{site.data.keyword.keymanagementserviceshort}} 中的金鑰替換選項，請參閱[比較金鑰替換選項](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)。
+
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了傳輸金鑰的測試版支援
+新增日期：2019-03-20
+
+透過建立 {{site.data.keyword.keymanagementserviceshort}} 服務的傳輸加密金鑰，讓加密金鑰安全匯入雲端。
+
+如需相關資訊，請參閱[自帶加密金鑰到雲端](/docs/services/key-protect?topic=key-protect-importing-keys)。
+
+傳輸金鑰目前是測試版特性。測試版特性隨時可能會變更，未來更新項目可能會帶來一些變更，而這些變更與最新版本並不相容。
+{: important}
+
+## 2019 年 2 月
+{: #feb-2019}
+
+### 已變更：舊式 {{site.data.keyword.keymanagementserviceshort}} 服務實例
+新增日期：2019-02-13
+
+在 2017 年 12 月 15 日之前佈建的 {{site.data.keyword.keymanagementserviceshort}} 服務實例，是在基於 Cloud Foundry 的舊式基礎架構上執行。此舊式 {{site.data.keyword.keymanagementserviceshort}} 服務將於 2019 年 5 月 15 日解除任務。
+
+**這對您來說有何意義？**
+
+如果您在較舊的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中具有作用中的正式作業金鑰，請確定您將金鑰移轉到 2019 年 5 月 15 日的新服務實例，以避免失去已加密資料的存取權。您可以導覽至 [{{site.data.keyword.cloud_notm}} 主控台![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/) 中的資源清單，以查看您是否使用舊式實例。如果 {{site.data.keyword.keymanagementserviceshort}} 服務實例列在 {{site.data.keyword.cloud_notm}} 資源清單的 **Cloud Foundry 服務**區段中，或者如果您是使用 `https://ibm-key-protect.edge.bluemix.net` API 端點來設定服務目標作業，則會使用 {{site.data.keyword.keymanagementserviceshort}} 的舊式實例。在 2019 年 5 月 15 日之後，無法再存取舊式端點，您將無法設定作業的目標服務。
+
+需要協助來將加密金鑰移轉至新的服務實例嗎？如需詳細步驟，請參閱 [GitHub 中的移轉用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}。如果您對金鑰的狀態或移轉程序有其他問題，請透過 [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com) 連繫 Terry Mosbaugh。
+{: tip}
+
+## 2018 年 12 月
+{: #dec-2018}
+
+### 已變更：{{site.data.keyword.keymanagementserviceshort}} API 端點
+新增日期：2018-12-19
+
+為了與 {{site.data.keyword.cloud_notm}} 的新一致體驗密切配合，{{site.data.keyword.keymanagementserviceshort}} 已更新其服務 API 的基本 URL。
+
+您現在可以更新應用程式，以參照新的 `cloud.ibm.com` 端點。
+
+- `keyprotect.us-south.bluemix.net` 現在是 `us-south.kms.cloud.ibm.com` 
+- `keyprotect.us-east.bluemix.net` 現在是 `us-east.kms.cloud.ibm.com` 
+- `keyprotect.eu-gb.bluemix.net` 現在是 `eu-gb.kms.cloud.ibm.com` 
+- `keyprotect.eu-de.bluemix.net` 現在是 `eu-de.kms.cloud.ibm.com` 
+- `keyprotect.au-syd.bluemix.net` 現在是 `au-syd.kms.cloud.ibm.com` 
+- `keyprotect.jp-tok.bluemix.net` 現在是 `jp-tok.kms.cloud.ibm.com` 
+
+此時支援每個地區服務端點的 URL。 
+
 ## 2018 年 10 月
 {: #oct-2018}
 
-### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到亞太地區北部地區
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到東京地區
 新增日期：2018-10-31
 
-您現在可以在亞太地區北部地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
+您現在可以在東京地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
 
-如需相關資訊，請參閱[地區及位置](/docs/services/key-protect/regions.html)。
+如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式
 新增日期：2018-10-02
 
 您現在可以使用 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式，以在 {{site.data.keyword.keymanagementserviceshort}} 服務實例中管理金鑰。
 
-若要了解如何安裝外掛程式，請參閱[設定 CLI](/docs/services/key-protect/set-up-cli.html)。若要進一步了解 {{site.data.keyword.keymanagementserviceshort}} CLI，[請參閱 CLI 參考資料文件](/docs/services/key-protect/cli-reference.html)。
+若要了解如何安裝外掛程式，請參閱[設定 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。若要進一步了解 {{site.data.keyword.keymanagementserviceshort}} CLI，[請參閱 CLI 參考資料文件](/docs/services/key-protect?topic=key-protect-cli-reference)。
 
 ## 2018 年 9 月
 {: #sept-2018}
@@ -43,25 +102,25 @@ lastupdated: "2019-01-03"
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了對隨需應變金鑰替換的支援
 新增日期：2018-09-28
 
-您現在可以使用 {{site.data.keyword.keymanagementserviceshort}}，隨需應變地替換您的主要金鑰。
+您現在可以使用 {{site.data.keyword.keymanagementserviceshort}}，隨需應變地替換您的根金鑰。
 
-如需相關資訊，請參閱[替換金鑰](/docs/services/key-protect/rotate-keys.html)。
+如需相關資訊，請參閱[替換金鑰](/docs/services/key-protect?topic=key-protect-rotate-keys)。
 
 ### 已新增：雲端應用程式的端對端安全指導教學
 新增日期：2018-09-14
 
 在尋找程式碼範例以協助您用自己的加密金鑰將儲存空間儲存區內容加密？
 
-您現在可以遵循[新的指導教學](/docs/tutorials/cloud-e2e-security.html)，練習為雲端應用程式新增端對端安全。
+您現在可以遵循[新的指導教學](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security)，練習為雲端應用程式新增端對端安全。
 
 如需相關資訊，[請參閱 GitHub 中的範例應用程式 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
 
-### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到美國東部地區
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到華盛頓特區地區
 新增日期：2018-09-10
 
-您現在可以在美國東部地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
+您現在可以在華盛頓特區地區中建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
 
-如需相關資訊，請參閱[地區及位置](/docs/services/key-protect/regions.html)。
+如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ## 2018 年 8 月
 {: #aug-2018}
@@ -72,7 +131,7 @@ lastupdated: "2019-01-03"
 {{site.data.keyword.keymanagementserviceshort}} API 參考資料已移動！ 
 
 您現在可以在下列網址存取 API 文件：
-https://console.bluemix.net/apidocs/key-protect. 
+https://{DomainName}/apidocs/key-protect. 
 
 ## 2018 年 3 月
 {: #mar-2018}
@@ -82,7 +141,7 @@ https://console.bluemix.net/apidocs/key-protect.
 
 您現在可以在法蘭克福地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
 
-如需相關資訊，請參閱[地區及位置](/docs/services/key-protect/regions.html)。
+如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ## 2018 年 1 月
 {: #jan-2018}
@@ -92,7 +151,7 @@ https://console.bluemix.net/apidocs/key-protect.
 
 您現在可以在雪梨地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
 
-如需相關資訊，請參閱[地區及位置](/docs/services/key-protect/regions.html)。
+如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ## 2017 年 12 月
 {: #dec-2017}
@@ -102,15 +161,15 @@ https://console.bluemix.net/apidocs/key-protect.
 
 {{site.data.keyword.keymanagementserviceshort}} 現在支援「自攜金鑰 (BYOK)」及客戶管理的加密
 
-- 已引進[主要金鑰](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)，也稱為「客戶主要金鑰 (CRK)」，作為服務中的主要資源。 
-- 已啟用 {{site.data.keyword.cos_full_notm}} 儲存區的[封套加密](/docs/services/key-protect/integrations/integrate-cos.html#kp-cos-how)。
+- 已引進[根金鑰](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)，也稱為「客戶根金鑰 (CRK)」，作為服務中的主要資源。 
+- 已啟用 {{site.data.keyword.cos_full_notm}} 儲存區的[封套加密](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how)。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到倫敦地區
 新增日期：2017-12-15
 
 現在可以在倫敦地區使用 {{site.data.keyword.keymanagementserviceshort}}。 
 
-如需相關資訊，請參閱[地區及位置](/docs/services/key-protect/regions.html)。
+如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ### 已變更：{{site.data.keyword.iamshort}} 角色
 新增日期：2017-12-15
@@ -121,7 +180,7 @@ https://console.bluemix.net/apidocs/key-protect.
 - `Editor` 現在是 `Writer`
 - `Viewer` 現在是 `Reader`
 
-如需相關資訊，請參閱[管理使用者存取](/docs/services/key-protect/manage-access.html)。
+如需相關資訊，請參閱[管理使用者存取](/docs/services/key-protect?topic=key-protect-manage-access)。
 
 ## 2017 年 9 月
 {: #sept-2017}
@@ -131,4 +190,4 @@ https://console.bluemix.net/apidocs/key-protect.
 
 您現在可以使用 {{site.data.keyword.iamshort}} 來設定和管理 {{site.data.keyword.keymanagementserviceshort}} 資源的存取原則。
 
-如需相關資訊，請參閱[管理使用者存取](/docs/services/key-protect/manage-access.html)。
+如需相關資訊，請參閱[管理使用者存取](/docs/services/key-protect?topic=key-protect-manage-access)。

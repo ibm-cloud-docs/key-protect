@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -24,17 +28,17 @@ lastupdated: "2019-01-03"
 定期審核您的金鑰配置：
 
 - 檢查金鑰的建立時間，並決定是否應該替換金鑰。
-- [使用 {{site.data.keyword.cloudaccesstrailshort}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示") 監視 {{site.data.keyword.keymanagementserviceshort}} 的 API 呼叫](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}。
+- [使用 {{site.data.keyword.cloudaccesstrailshort}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示") 監視對 {{site.data.keyword.keymanagementserviceshort}} 的 API 呼叫](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}。
 - 檢查哪些使用者可以存取金鑰，以及存取層次是否適當。
 
-如需審核資源存取權的相關資訊，請參閱[使用 Cloud IAM 管理使用者存取](/docs/services/key-protect/manage-access.html)。
+如需審核資源存取權的相關資訊，請參閱[使用 Cloud IAM 管理使用者存取](/docs/services/key-protect?topic=key-protect-manage-access)。
 
 ## 使用 GUI 檢視金鑰
-{: #gui}
+{: #view-keys-gui}
 
 如果您偏好使用圖形介面來檢查服務中的金鑰，則可以使用 {{site.data.keyword.keymanagementserviceshort}} 儀表板。
 
-[在建立金鑰或將現有金鑰匯入到服務之後](/docs/services/key-protect/create-root-keys.html)，請完成下列步驟來檢視金鑰。
+[在建立金鑰或將現有金鑰匯入到服務之後](/docs/services/key-protect?topic=key-protect-create-root-keys)，請完成下列步驟來檢視金鑰。
 
 1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/)。
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
@@ -56,17 +60,17 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>狀態</td>
-        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) 的[金鑰狀態](/docs/services/key-protect/concepts/key-states.html)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
+        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) 的[金鑰狀態](/docs/services/key-protect?topic=key-protect-key-states)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
       </tr>
       <tr>
         <td>類型</td>
-        <td>說明服務內金鑰指定用途的[金鑰類型](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)。</td>
+        <td>說明服務內金鑰指定用途的[金鑰類型](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. 說明<b>金鑰</b>表格</caption>
     </table>
 
 ## 使用 API 檢視金鑰
-{: #api}
+{: #view-keys-api}
 
 您可以使用 {{site.data.keyword.keymanagementserviceshort}} API 擷取金鑰的內容。
 
@@ -76,17 +80,17 @@ lastupdated: "2019-01-03"
 如需高階視圖，您可以對下列端點發出 `GET` 呼叫，來瀏覽已佈建之 {{site.data.keyword.keymanagementserviceshort}} 實例中管理的金鑰。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect/access-api.html)。
+1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 執行下列 cURL 指令，以檢視金鑰的一般特徵。
 
     ```cURL
     curl -X GET \
-    https://keyprotect.<region>.bluemix.net/api/v2/keys \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <IAM_token>' \
     -H 'bluemix-instance: <instance_ID>' \
@@ -105,15 +109,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -186,7 +190,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
   ```cURL
   curl -X GET \
-  https://keyprotect.<region>.bluemix.net/api/v2/keys?offset=<offset>&limit=<limit> \
+  https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
@@ -251,11 +255,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 若要檢視特定金鑰的詳細資訊，您可以對下列端點發出 `GET` 呼叫。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect/access-api.html)。
+1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 擷取您想要存取或管理之金鑰的 ID。
 
@@ -265,7 +269,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'accept: application/vnd.ibm.kms.key+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -282,15 +286,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

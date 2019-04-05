@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,14 +25,14 @@ lastupdated: "2019-01-03"
 Vous pouvez ajouter des clés de chiffrement existantes à l'aide de l'interface graphique {{site.data.keyword.keymanagementserviceshort}} ou à l'aide d'un programme via l'API {{site.data.keyword.keymanagementserviceshort}}.
 
 ## Importation de clés standard à l'aide de l'interface graphique
-{: #gui}
+{: #import-standard-key-gui}
 
-[Après avoir créé une instance du service](/docs/services/key-protect/provision.html), procédez comme suit pour entrer votre clé standard existante à l'aide de l'interface graphique {{site.data.keyword.keymanagementserviceshort}}.
+[Après avoir créé une instance du service](/docs/services/key-protect?topic=key-protect-provision), procédez comme suit pour entrer votre clé standard existante à l'aide de l'interface graphique {{site.data.keyword.keymanagementserviceshort}}.
 
 1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/){: new_window}.
 2. Accédez à **Menu** &gt; **Liste de ressources** pour afficher la liste de vos ressources.
 3. Dans la liste de ressources {{site.data.keyword.cloud_notm}}, sélectionnez votre instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
-4. Pour importer une nouvelle clé, cliquez sur **Add key**, puis sélectionnez la fenêtre **Import your own key**.
+4. Pour importer une nouvelle clé, cliquez sur **Ajouter une clé**, puis sélectionnez la fenêtre **Importation de vos propres clés**.
 
     Indiquez les détails relatifs à la clé :
 
@@ -46,13 +50,13 @@ Vous pouvez ajouter des clés de chiffrement existantes à l'aide de l'interface
       </tr>
       <tr>
         <td>Key type</td>
-        <td><a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Type de clé</a> que vous souhaitez gérer dans {{site.data.keyword.keymanagementserviceshort}}. Dans la liste des types de clé, sélectionnez <b>Standard Key</b>.</td>
+        <td><a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">Type de clé</a> que vous souhaitez gérer dans {{site.data.keyword.keymanagementserviceshort}}. Dans la liste des types de clé, sélectionnez <b>Standard Key</b>.</td>
       </tr>
       <tr>
         <td>Key material</td>
         <td>
-          <p>Matériel relatif à la clé codée en base64, comme une clé symétrique, que vous souhaitez gérer dans le service.</p>
-          <p>Vérifiez que le matériel relatif à la clé remplit les conditions suivantes :</p>
+          <p>Matériel de clé codé en base64, comme une clé symétrique, que vous souhaitez gérer dans le service.</p>
+          <p>Vérifiez que le matériel de clé remplit les conditions suivantes :</p>
           <p><ul>
               <li>La taille de la clé peut atteindre 10 000 octets au maximum.</li>
               <li>Les octets de données doivent être codés en base64.</li>
@@ -60,28 +64,28 @@ Vous pouvez ajouter des clés de chiffrement existantes à l'aide de l'interface
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Tableau 1. Description des paramètres de la fenêtre <b>Import your own key</b></caption>
+      <caption style="caption-side:bottom;">Tableau 1. Description des paramètres de la fenêtre <b>Importation de vos propres clés</b></caption>
     </table>
 
-5. Une fois les détails de la clé indiqués, cliquez sur **Import key** pour confirmer l'opération. 
+5. Une fois les détails de la clé indiqués, cliquez sur **Importer une clé** pour confirmer l'opération. 
 
 ## Importation de clés standard à l'aide de l'API
-{: #api}
+{: #import-standard-key-api}
 
 Importez une clé standard en soumettant un appel `POST` au noeud final suivant :
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect/access-api.html).
+1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-1. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window} avec la commande cURL suivante :
+2. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window} avec la commande cURL suivante :
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -109,7 +113,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
-    Remplacez les variables dans l'exemple de demande en fonction du tableau suivant :
+    Remplacez les variables de l'exemple de demande conformément au tableau suivant :
     <table>
       <tr>
         <th>Variable</th>
@@ -117,15 +121,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect/regions.html#endpoints">Noeud final de service régional</a>.</td>
+        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Noeud final de service régional</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api.html#retrieve-token">Extraction d'un jeton d'accès</a>.</td>
+        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Extraction d'un jeton d'accès</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
+        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -133,7 +137,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
-        <td><p>En-tête qui modifie le comportement du serveur pour les opérations <code>POST</code> et <code>DELETE</code>.</p><p>Lorsque vous affectez la valeur <code>return=minimal</code> à la variable <em>return_preference</em>, le service renvoie uniquement les métadonnées de la clé, comme le nom et l'ID de la clé, dans la section entity-body de la réponse. Si cette variable a pour valeur <code>return=representation</code>, le service renvoie à la fois le matériel relatif à la clé et ses métadonnées.</p></td>
+        <td><p>En-tête qui modifie le comportement du serveur pour les opérations <code>POST</code> et <code>DELETE</code>.</p><p>Lorsque vous affectez la valeur <code>return=minimal</code> à la variable <em>return_preference</em>, le service renvoie uniquement les métadonnées de la clé, comme le nom et l'ID de la clé, dans la section entity-body de la réponse. Si cette variable a pour valeur <code>return=representation</code>, le service renvoie à la fois le matériel de clé et ses métadonnées.</p></td>
       </tr>
       <tr>
         <td><varname>key_alias</varname></td>
@@ -150,8 +154,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       <tr>
         <td><varname>key_material</varname></td>
         <td>
-          <p>Matériel relatif à la clé codée en base64, comme une clé symétrique, que vous souhaitez gérer dans le service.</p>
-          <p>Vérifiez que le matériel relatif à la clé remplit les conditions suivantes :</p>
+          <p>Matériel de clé codé en base64, comme une clé symétrique, que vous souhaitez gérer dans le service.</p>
+          <p>Vérifiez que le matériel de clé remplit les conditions suivantes :</p>
           <p><ul>
               <li>La taille de la clé peut atteindre 10 000 octets au maximum.</li>
               <li>Les octets de données doivent être codés en base64.</li>
@@ -162,7 +166,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       <tr>
         <td><varname>key_type</varname></td>
         <td>
-          <p>Valeur booléenne qui détermine si le matériel relatif à la clé peut quitter le service.</p>
+          <p>Valeur booléenne qui détermine si le matériel de clé peut quitter le service.</p>
           <p>Lorsque vous affectez la valeur <code>true</code> à l'attribut <code>extractable</code>, le service désigne la clé en tant que clé standard que vous pouvez stocker dans vos applications ou services.</p>
         </td>
       </tr>
@@ -174,11 +178,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     Une réponse `POST api/v2/keys` qui aboutit renvoie la valeur de l'ID de la clé, ainsi que d'autres métadonnées. L'ID est un identificateur unique qui est affecté à la clé et qui est utilisé pour les appels adressés ultérieurement à {{site.data.keyword.keymanagementserviceshort}}.
 
-2. Facultatif : Vérifiez que la clé a été ajoutée en exécutant l'appel suivant pour parcourir les clés de l'instance de service {{site.data.keyword.keymanagementserviceshort}}.
+3. Facultatif : Vérifiez que la clé a été ajoutée en exécutant l'appel suivant pour parcourir les clés de l'instance de service {{site.data.keyword.keymanagementserviceshort}}.
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -186,7 +190,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     {: codeblock}
 
 
-### Etapes suivantes
+## Etapes suivantes
+{: #import-standard-key-next-steps}
 
 - Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
-- Pour obtenir un exemple expliquant comment les clés stockées dans {{site.data.keyword.keymanagementserviceshort}} peuvent fonctionner pour chiffrer et déchiffrer des données, [reportez-vous à l'exemple d'application disponible dans GitHub ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.
+

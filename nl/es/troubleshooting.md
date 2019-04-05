@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -156,7 +160,7 @@ Aparecerá el siguiente error:
 ```
 {: screen}
 
-El 15 de diciembre de 2017, añadimos nuevas funciones, como el [cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html), al servicio de {{site.data.keyword.keymanagementserviceshort}}. Ahora puede suministrar el servicio de {{site.data.keyword.keymanagementserviceshort}} dentro de un grupo de recursos, sin necesidad de especificar una organización y espacio de Cloud Foundry.
+El 15 de diciembre de 2017, añadimos nuevas funciones, como el [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption), al servicio de {{site.data.keyword.keymanagementserviceshort}}. Ahora puede suministrar el servicio de {{site.data.keyword.keymanagementserviceshort}} dentro de un grupo de recursos, sin necesidad de especificar una organización y espacio de Cloud Foundry.
 {: tsCauses}
 
 Estos cambios afectaban la interfaz de usuario de instancias anteriores del servicio. Si creó su instancia de {{site.data.keyword.keymanagementserviceshort}} antes del 28 de septiembre de 2017, es posible que la interfaz no funcione como se espera.
@@ -191,7 +195,7 @@ Puede ver una lista de claves, pero no ve las opciones para agregar o suprimir c
 No dispone de la autorización adecuada para realizar acciones de {{site.data.keyword.keymanagementserviceshort}}.
 {: tsCauses} 
 
-Verifique con el administrador que se le haya asignado el rol correcto en el grupo de recursos o la instancia de servicio. Para obtener más información sobre los roles, consulte [Roles y permisos](/docs/services/key-protect/manage-access.html#roles).
+Verifique con el administrador que se le haya asignado el rol correcto en el grupo de recursos o la instancia de servicio. Para obtener más información sobre los roles, consulte [Roles y permisos](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
 
 ## Obtención de ayuda y soporte
@@ -205,9 +209,9 @@ Puede comprobar si {{site.data.keyword.cloud_notm}} está disponible desde la [p
 Puede revisar los foros para ver si otros usuarios han tenido el mismo problema. Cuando utilice foros para hacer una pregunta, etiquete su pregunta para que la vean los equipos de desarrollo de {{site.data.keyword.cloud_notm}}.
 
 - Si tiene preguntas técnicas sobre {{site.data.keyword.keymanagementserviceshort}}, publique su pregunta en [Stack Overflow ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} y etiquete su pregunta con "ibm-cloud" y "key-protect".
-- Para preguntas sobre el servicio y para obtener instrucciones para empezar, utilice el foro [IBM developerWorks dW Answers ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window}. Incluya las etiquetas "ibm-cloud"
+- Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro [IBM developerWorks dW Answers ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window}. Incluya las etiquetas "ibm-cloud"
 y "key-protect".
 
-Consulte [Obtención de ayuda ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/docs/support/index.html#getting-help){: new_window} para obtener más información sobre el uso de los foros.
+Consulte [Obtención de soporte ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/get-support?topic=get-support-using-avatar){: new_window} para obtener más información sobre el uso de los foros.
 
-Para obtener más información sobre cómo abrir una incidencia de soporte de {{site.data.keyword.IBM_notm}} o sobre los niveles de soporte y las gravedades de las incidencias, consulte [Cómo obtener soporte ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}.
+Para obtener más información sobre cómo abrir una incidencia de soporte de {{site.data.keyword.IBM_notm}} o sobre los niveles de soporte y las gravedades de las incidencias, consulte [Cómo obtener soporte ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

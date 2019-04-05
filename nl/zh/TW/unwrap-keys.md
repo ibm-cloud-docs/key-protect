@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,21 +25,21 @@ lastupdated: "2019-01-03"
 如果您是特許使用者，則可以使用 {{site.data.keyword.keymanagementservicefull}} API，以解除包裝資料加密金鑰 (DEK) 來存取其內容。解除包裝 DEK 會解密其內容並檢查內容完整性，並將原始金鑰資料傳回給 {{site.data.keyword.cloud_notm}} 資料服務。
 {: shortdesc}
 
-若要瞭解金鑰包裝如何協助您控制雲端中靜置資料的安全，請參閱[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
+若要瞭解金鑰包裝如何協助您控制雲端中靜置資料的安全，請參閱[使用封套加密保護資料](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
 
 ## 使用 API 解除包裝金鑰
-{: #api}
+{: #unwrap-key-api}
 
-[對服務發出 wrap 呼叫之後](/docs/services/key-protect/wrap-keys.html)，即可對下列端點發出 `POST` 呼叫，以解除包裝指定的資料加密金鑰 (DEK) 來存取其內容。
+[對服務發出 wrap 呼叫之後](/docs/services/key-protect?topic=key-protect-wrap-keys)，即可對下列端點發出 `POST` 呼叫，以解除包裝指定的資料加密金鑰 (DEK) 來存取其內容。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
 
-1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect/access-api.html)。
+1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
-2. 複製您用來執行起始 wrap 要求之主要金鑰的 ID。
+2. 複製您用來執行起始 wrap 要求之根金鑰的 ID。
 
     您可以擷取金鑰的 ID，方法是提出 `GET /v2/keys` 要求，或在 {{site.data.keyword.keymanagementserviceshort}} GUI 中檢視金鑰。
 
@@ -45,7 +49,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=unwrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -69,19 +73,19 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>必要。</strong>您用於起始 wrap 要求之主要金鑰的唯一 ID。</td>
+        <td><strong>必要。</strong>您用於起始 wrap 要求之根金鑰的唯一 ID。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

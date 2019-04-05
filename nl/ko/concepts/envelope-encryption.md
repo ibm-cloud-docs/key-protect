@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,10 +19,10 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 엔벨로프 암호화
+# 엔벌로프 암호화로 데이터 보호
 {: #envelope-encryption}
 
-엔벨로프 암호화는 데이터 암호화 키(DEK)로 데이터를 암호화한 다음 완전히 관리할 수 있는 루트 키로 DEK를 암호화하는 사례입니다. 
+엔벨로프 암호화는 데이터 암호화 키(DEK)로 데이터를 암호화한 다음 완전히 관리할 수 있는 루트 키로 DEK를 암호화하는 것입니다.
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}}는 고급 암호화를 사용하여 저장된 데이터를 보호하고 여러 이점을 제공합니다.
@@ -40,7 +44,7 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>위임된 사용자 액세스 제어</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}}는 중앙화된 액세스 제어 시스템을 지원하여 키에 대한 세부적 액세스를 사용합니다. [IAM 사용자 역할 및 고급 권한을 지정하여](/docs/services/key-protect/manage-access.html#roles) 보안 관리자가 서비스의 어떤 루트 키에 어떤 사용자가 액세스할 수 있는지를 결정합니다.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}}는 중앙화된 액세스 제어 시스템을 지원하여 키에 대한 세부적 액세스를 사용합니다. [IAM 사용자 역할 및 고급 권한을 지정하여](/docs/services/key-protect?topic=key-protect-manage-access#roles) 보안 관리자가 서비스의 어떤 루트 키에 어떤 사용자가 액세스할 수 있는지를 결정합니다.</td>
   </tr>
   <caption style="caption-side:bottom;">표 1. 고객 관리 암호화의 이점에 대한 설명</caption>
 </table>
@@ -53,7 +57,7 @@ lastupdated: "2019-01-03"
 다음 다이어그램은 키 랩핑 기능의 컨텍스트 보기를 표시합니다.
 ![다이어그램은 엔벨로프 암호화의 컨텍스트 보기를 표시합니다.](../images/envelope-encryption_min.svg)
 
-엔벨로프 암호화는 NIST Special Publication 800-57, Recommendation for Key Management에서 간단하게 다뤄집니다. 자세히 보려면 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}를 참조하십시오.
+엔벨로프 암호화는 NIST Special Publication 800-57, Recommendation for Key Management에서 간단하게 다뤄집니다. 자세한 내용은 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}를 참조하십시오.
 
 ## 키 유형
 {: #key-types}
@@ -64,7 +68,7 @@ lastupdated: "2019-01-03"
   <dt>루트 키</dt>
     <dd>루트 키는 {{site.data.keyword.keymanagementserviceshort}}의 기본 리소스입니다. 또한 데이터 서비스에 저장된 기타 키를 랩핑(암호화)하고 랩핑 해제(복호화)하기 위한 신뢰 루트로 사용되는 대칭 키-랩핑 키입니다. {{site.data.keyword.keymanagementserviceshort}}를 사용하면 루트 키의 라이프사이클을 작성하고 저장하고 관리하여 클라우드에 저장된 다른 키를 완전히 제어할 수 있습니다. 표준 키와 달리 루트 키는 {{site.data.keyword.keymanagementserviceshort}} 서비스 외에 사용될 수 없습니다.</dd>
   <dt>표준 키</dt>
-    <dd>표준 키는 비밀번호 또는 암호화 키와 같은 시크릿을 지속할 수 있는 한 가지 방법입니다. {{site.data.keyword.keymanagementserviceshort}}를 사용하여 표준 키를 저장하는 경우 시크릿에 맞는 하드웨어 보안 모듈(HSM) 스토리지, 리소스에 대한 세분화된 액세스 제어(<a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}}(IAM)</a> 사용) 및 서비스에 대한 API 호출을 감사할 수 있는 기능(<a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 사용)을 사용으로 설정합니다.</dd>
+    <dd>표준 키는 비밀번호 또는 암호화 키와 같은 시크릿을 지속할 수 있는 한 가지 방법입니다. {{site.data.keyword.keymanagementserviceshort}}를 사용하여 표준 키를 저장하는 경우 시크릿에 맞는 하드웨어 보안 모듈(HSM) 스토리지, 리소스에 대한 세분화된 액세스 제어(<a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}}(IAM)</a> 사용) 및 서비스에 대한 API 호출을 감사할 수 있는 기능(<a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 사용)을 사용으로 설정합니다.</dd>
 </dl>
 
 {{site.data.keyword.keymanagementserviceshort}}에서 키를 작성한 후 시스템은 서비스에 대한 API 호출을 작성하는 데 사용할 수 있는 ID 값을 리턴합니다. {{site.data.keyword.keymanagementserviceshort}} GUI 또는 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect)를 사용하여 키에 대한 ID 값을 검색할 수 있습니다. 
@@ -83,7 +87,7 @@ lastupdated: "2019-01-03"
   <th>설명</th>
   <tr>
     <td>루트 키 ID</td>
-    <td>랩핑에 사용할 루트 키의 ID 값입니다. 루트 키를 서비스로 가져오거나 HSM의 {{site.data.keyword.keymanagementserviceshort}}에서 이 키를 생성할 수 있습니다. 랩핑 요청이 성공하려면 랩핑에 사용되는 루트 키가 256, 384 또는 512비트여야 합니다.</td>
+    <td>랩핑에 사용할 루트 키의 ID 값입니다. 루트 키를 서비스로 가져오거나 HSM의 {{site.data.keyword.keymanagementserviceshort}}에서 이 키를 생성할 수 있습니다. 랩핑 요청이 성공하려면 랩핑에 사용되는 루트 키가 128, 192 또는 256비트여야 합니다.</td>
   </tr>
   <tr>
     <td>일반 텍스트</td>

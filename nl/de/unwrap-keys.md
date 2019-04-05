@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,19 +25,19 @@ lastupdated: "2019-01-03"
 Sie als privilegierter Benutzer können das Wrapping Ihrer Datenverschlüsselungsschlüssel (DEK) aufheben, um mithilfe der {{site.data.keyword.keymanagementservicefull}}-API auf die Inhalte zuzugreifen. Beim Unwrapping wird der DEK entschlüsselt. Außerdem wird die Integrität seiner Inhalte geprüft. Die ursprünglichen Schlüsselinformationen werden an Ihren {{site.data.keyword.cloud_notm}}-Datenservice zurückgegeben.
 {: shortdesc}
 
-Informationen darüber, wie Key-Wrapping Sie unterstützt, die Sicherheit ruhender Daten in der Cloud zu gewährleisten, finden Sie in [Envelope-Verschlüsselung](/docs/services/key-protect/concepts/envelope-encryption.html).
+Informationen darüber, wie Key-Wrapping Sie unterstützt, die Sicherheit ruhender Daten in der Cloud zu gewährleisten, finden Sie in [Daten mit Envelope-Verschlüsselung schützen](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Wrapping von Schlüsseln mithilfe der API aufheben
-{: #api}
+{: #unwrap-key-api}
 
-[Nach dem Absetzen eines Wrapping-Aufrufs für den Service](/docs/services/key-protect/wrap-keys.html) können Sie das Wrapping eines bestimmten Datenverschlüsselungsschlüssels (DEK) aufheben, um auf seine Inhalte mithilfe eines `POST`-Aufrufs zum folgenden Endpunkt zuzugreifen.
+[Nach dem Absetzen eines Wrapping-Aufrufs für den Service](/docs/services/key-protect?topic=key-protect-wrap-keys) können Sie das Wrapping eines bestimmten Datenverschlüsselungsschlüssels (DEK) aufheben, um auf seine Inhalte mithilfe eines `POST`-Aufrufs zum folgenden Endpunkt zuzugreifen.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
 
-1. [Rufen Sie Ihren Service- und Authentifizierungsnachweis ab, um mit den Schlüsseln im Service zu arbeiten.](/docs/services/key-protect/access-api.html)
+1. [Rufen Sie Ihren Service- und Authentifizierungsnachweis ab, um mit den Schlüsseln im Service zu arbeiten.](/docs/services/key-protect?topic=key-protect-set-up-api)
 
 2. Kopieren Sie die ID des Rootschlüssels, mit dem Sie die ursprüngliche Wrapping-Anforderung durchgeführt haben.
 
@@ -45,7 +49,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=unwrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -69,7 +73,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/regions.html#endpoints">Regionale Serviceendpunkte</a>.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regionale Serviceendpunkte</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -77,11 +81,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Erforderlich.</strong> Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-token">Zugriffstoken abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Ihr {{site.data.keyword.cloud_notm}}-Zugriffstoken. Nehmen Sie den vollständigen Inhalt des <code>IAM</code>-Tokens einschließlich des Werts für Bearer in die cURL-Anforderung auf. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Zugriffstoken abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Erforderlich.</strong> Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
+        <td><strong>Erforderlich.</strong> Die eindeutige ID, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugewiesen ist. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Instanz-ID abrufen</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

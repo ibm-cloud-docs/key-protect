@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: user permissions, manage access, IAM roles
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 管理存取權
+# 管理使用者存取
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} 支援由 {{site.data.keyword.iamlong}} 控管的集中式存取控制系統，可協助您管理使用者和加密金鑰的存取。
@@ -38,7 +42,11 @@ lastupdated: "2019-01-03"
 為了簡化存取，{{site.data.keyword.keymanagementserviceshort}} 會與 Cloud IAM 角色一致，讓每個使用者根據使用者獲得指派的角色，而有不同的服務視圖。如果您是服務的安全管理者，則可以指派對應至您想要授與給團隊成員之特定 {{site.data.keyword.keymanagementserviceshort}} 許可權的 Cloud IAM 角色。
 
 下表顯示身分及存取角色如何對映至 {{site.data.keyword.keymanagementserviceshort}} 許可權：
+
 <table>
+  <col width="20%">
+  <col width="40%">
+  <col width="40%">
   <tr>
     <th>服務存取角色</th>
     <th>說明</th>
@@ -74,13 +82,14 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td><p>管理員</p></td>
-    <td><p>管理員可以執行讀者及作者可執行的所有動作，包括能夠刪除金鑰、邀請新使用者，以及指派其他使用者的存取原則。</p></td>
+    <td><p>管理員可以執行讀者和作者可執行的所有動作，包括能夠設定金鑰的替換原則、刪除金鑰、邀請新使用者，以及指派其他使用者的存取原則。</p></td>
     <td>
       <p>
         <ul>
           <li>讀者或作者可執行的所有動作</li>
+          <li>指派使用者存取原則</li>
+          <li>設定金鑰替換原則</li>
           <li>刪除金鑰</li>
-          <li>指派存取原則</li>
         </ul>
       </p>
     </td>
@@ -88,11 +97,13 @@ lastupdated: "2019-01-03"
   <caption style="caption-side:bottom;">表 1. 說明身分及存取角色如何對映至 {{site.data.keyword.keymanagementserviceshort}} 許可權</caption>
 </table>
 
-Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/cfaccess.html){: new_window} 是分開的，並且定義組織或空間層次的存取權。若要進一步瞭解 {{site.data.keyword.iamshort}}，請參閱[使用者角色及許可權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/users_roles.html#userroles){: new_window}。
+Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-cfaccess){: new_window} 是分開的，並且定義組織或空間層次的存取權。若要進一步瞭解 {{site.data.keyword.iamshort}}，請參閱[使用者角色及許可權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-userroles){: new_window}。
 {: note}
 
-### 下一步為何？
+## 下一步為何？
+{: #manage-access-next-steps}
 
 帳戶擁有者及管理者可以邀請使用者，以及設定對應於使用者可執行之 {{site.data.keyword.keymanagementserviceshort}} 動作的服務原則。
 
-- 如需在 {{site.data.keyword.cloud_notm}} 使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam/mngiam.html){: new_window}。
+- 如需在 {{site.data.keyword.cloud_notm}} 使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-getstarted){: new_window}。
+

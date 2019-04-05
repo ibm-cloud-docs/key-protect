@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,17 +25,17 @@ lastupdated: "2019-01-03"
 Vous pouvez utiliser {{site.data.keyword.keymanagementservicefull}} pour créer des clés racine à l'aide de l'interface graphique {{site.data.keyword.keymanagementserviceshort}} ou d'un programme via l'API {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Les clés racine sont des clés d'encapsulage de clés symétriques qui permettent d'assurer la sécurité des données chiffrées dans le cloud. Pour plus d'informations sur les clés racine, voir [Chiffrement d'enveloppe](/docs/services/key-protect/concepts/envelope-encryption.html). 
+Les clés racine sont des clés d'encapsulage de clés symétriques qui permettent d'assurer la sécurité des données chiffrées dans le cloud. Pour en savoir plus sur les clés racine, voir [Protection des données avec le chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption). 
 
 ## Création de clés racine avec l'interface graphique
-{: #gui}
+{: #create-root-key-gui}
 
-[Après avoir créé une instance du service](/docs/services/key-protect/provision.html), procédez comme suit pour créer une clé standard avec l'interface graphique {{site.data.keyword.keymanagementserviceshort}}.
+[Après avoir créé une instance du service](/docs/services/key-protect?topic=key-protect-provision), procédez comme suit pour créer une clé standard avec l'interface graphique {{site.data.keyword.keymanagementserviceshort}}.
 
 1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}){: new_window}.
 2. Accédez à **Menu** &gt; **Liste de ressources** pour afficher la liste de vos ressources.
 3. Dans la liste de ressources {{site.data.keyword.cloud_notm}}, sélectionnez votre instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
-4. Pour créer une nouvelle clé, cliquez sur **Add key** et sélectionnez la fenêtre **Create a key**.
+4. Pour créer une nouvelle clé, cliquez sur **Ajouter une clé** et sélectionnez la fenêtre **Créer une clé**.
 
     Indiquez les détails relatifs à la clé :
 
@@ -49,30 +53,32 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
       </tr>
       <tr>
         <td>Key type</td>
-        <td><a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Type de clé</a> que vous souhaitez gérer dans {{site.data.keyword.keymanagementserviceshort}}. Dans la liste des types de clés, sélectionnez <b>Root key</b>.</td>
+        <td><a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">Type de clé</a> que vous souhaitez gérer dans {{site.data.keyword.keymanagementserviceshort}}. Dans la liste des types de clés, sélectionnez <b>Root key</b>.</td>
       </tr>
       <caption style="caption-side:bottom;">Tableau 1. Description des paramètres de la fenêtre <b>Créer une clé</b></caption>
     </table>
 
 5. Une fois les détails de la clé indiqués, cliquez sur **Create key** pour confirmer l'opération. 
 
+Les clés qui sont créées dans le service sont des clés symétriques de 256 bits prises en charge par l'algorithme AES-GCM. Pour renforcer la sécurité, elles sont générées par des modules de sécurités matériels (ou modules HSM) certifiés FIPS 140-2 niveau 2 résidant dans des centres de données {{site.data.keyword.cloud_notm}} sécurisés. 
+
 ## Création de clés racine avec l'API
-{: #api}
+{: #create-root-key-api}
 
 Créez une clé racine en soumettant une demande `POST` au noeud final suivant.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect/access-api.html).
+1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window} avec la commande cURL suivante :
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -98,7 +104,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
-    Remplacez les variables dans l'exemple de demande en fonction du tableau suivant :
+    Remplacez les variables de l'exemple de demande conformément au tableau suivant :
     <table>
       <tr>
         <th>Variable</th>
@@ -106,15 +112,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect/regions.html#endpoints">Noeud final de service régional</a>.</td>
+        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Noeud final de service régional</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api#retrieve-token">Extraction d'un jeton d'accès</a>.</td>
+        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Extraction d'un jeton d'accès</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
+        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -141,7 +147,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       <tr>
         <td><varname>key_type</varname></td>
         <td>
-          <p>Valeur booléenne qui détermine si le matériel relatif à la clé peut quitter le service.</p>
+          <p>Valeur booléenne qui détermine si le matériel de clé peut quitter le service.</p>
           <p>Lorsque vous affectez l'attribut <code>false</code> à <code>extractable</code>, le service crée une clé racine que vous pouvez utiliser pour des opérations <code>wrap</code> ou <code>unwrap</code>.</p>
         </td>
       </tr>
@@ -157,7 +163,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -167,7 +173,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     Lorsque vous créez une clé racine avec le service, la clé reste dans les limites du service {{site.data.keyword.keymanagementserviceshort}} et son matériel ne peut pas être extrait.
     {: note} 
 
-### Etapes suivantes
+## Etapes suivantes
+{: #create-root-key-next-steps}
 
-- Pour plus d'informations sur la protection de clés à l'aide du chiffrement d'enveloppe, voir [Encapsulage de clés](/docs/services/key-protect/wrap-keys.html).
+- Pour plus d'informations sur la protection de clés à l'aide du chiffrement d'enveloppe, voir [Encapsulage de clés](/docs/services/key-protect?topic=key-protect-wrap-keys).
 - Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.

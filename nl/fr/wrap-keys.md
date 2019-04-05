@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -23,29 +28,29 @@ Si vous êtes un utilisateur privilégié, vous pouvez gérer et protéger vos c
 
 Lorsque vous encapsulez une clé DEK (Data Encryption Key) avec une clé racine, {{site.data.keyword.keymanagementserviceshort}} associe la puissance de plusieurs algorithmes pour protéger la confidentialité et l'intégrité des données chiffrées.  
 
-Pour découvrir comment l'encapsulage de clés peut vous aider à contrôler la sécurité des données au repos dans le cloud, reportez-vous à la rubrique [Chiffrement d'enveloppe](/docs/services/key-protect/concepts/envelope-encryption.html).
+Pour découvrir comment l'encapsulage de clés peut vous aider à contrôler la sécurité des données au repos dans le cloud, reportez-vous à la rubrique [Protection des données avec le chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Encapsulage de clés à l'aide de l'API
-{: #api}
+{: #wrap-key-api}
 
 Vous pouvez protéger la clé DEK indiquée avec une clé racine que vous gérez dans {{site.data.keyword.keymanagementserviceshort}}.
 
-Lorsque vous indiquez une clé racine pour l'encapsulage, vérifiez qu'il s'agit d'une clé racine de 256, 384 ou 512 bits pour que l'opération aboutisse. Si vous créez une clé racine dans le service, {{site.data.keyword.keymanagementserviceshort}} génère à partir de son module HSM une clé 256 bits prise en charge par l'algorithme AES-GCM.
+Lorsque vous indiquez une clé racine pour l'encapsulage, vérifiez qu'il s'agit d'une clé racine de 128, 192 ou 256 bits pour que l'opération aboutisse. Si vous créez une clé racine dans le service, {{site.data.keyword.keymanagementserviceshort}} génère à partir de son module de sécurité matériel une clé 256 bits prise en charge par l'algorithme AES-GCM.
 {: note}
 
-[Après avoir désigné une clé racine dans le service](/docs/services/key-protect/create-root-keys.html), vous pouvez encapsuler une clé DEK avec un chiffrement avancé en soumettant un appel `POST` au noeud final suivant.
+[Après avoir désigné une clé racine dans le service](/docs/services/key-protect?topic=key-protect-create-root-keys), vous pouvez encapsuler une clé DEK avec un chiffrement avancé en soumettant un appel `POST` au noeud final suivant.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 ```
 {: codeblock}
 
-1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service.](/docs/services/key-protect/access-api.html)
+1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service.](/docs/services/key-protect?topic=key-protect-set-up-api)
 
-2. Copiez le matériel relatif à la clé DEK que vous voulez gérer et protéger.
+2. Copiez le matériel de clé DEK que vous voulez gérer et protéger.
 
     Si vous avez des privilèges de responsable ou d'auteur pour l'instance de service {{site.data.keyword.keymanagementserviceshort}}, [vous pouvez extraire
-le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>](/docs/services/key-protect/view-keys.html#api).
+le matériel de clé en soumettant une demande GET /v2/keys/<key_ID>](/docs/services/key-protect?topic=key-protect-view-keys#api).
 
 3. Copiez l'ID de la clé racine que vous voulez utiliser pour l'encapsulage.
 
@@ -53,7 +58,7 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -69,7 +74,7 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
     Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
     {: tip}
 
-    Remplacez les variables dans l'exemple de demande en fonction du tableau suivant :
+    Remplacez les variables de l'exemple de demande conformément au tableau suivant :
 
     <table>
       <tr>
@@ -78,7 +83,7 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect/regions.html#endpoints">Noeud final de service régional</a>.</td>
+        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Noeud final de service régional</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -86,11 +91,11 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api.html#retrieve-token">Extraction d'un jeton d'accès</a>.</td>
+        <td><strong>Obligatoire.</strong> Votre jeton d'accès {{site.data.keyword.cloud_notm}}. Incluez l'ensemble du contenu du jeton <code>IAM</code>, y compris la valeur Bearer, dans la demande cURL. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Extraction d'un jeton d'accès</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
+        <td><strong>Obligatoire.</strong> Identificateur unique affecté à votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Extraction d'un ID d'instance</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -98,7 +103,7 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
       </tr>
       <tr>
         <td><varname>data_key</varname></td>
-        <td>Matériel relatif à la clé DEK que vous voulez gérer et protéger. La valeur <code>plaintext</code> doit être codée en base64. Pour générer une clé DEK, omettez l'attribut <code>plaintext</code>. Le service génère un texte brut aléatoire (32 octets), l'encapsule, puis renvoie la valeur générée et la valeur encapsulée dans la réponse.</td>
+        <td>Matériel de clé de la clé de chiffrement de données que vous voulez gérer et protéger. La valeur <code>plaintext</code> doit être codée en base64. Pour générer une clé de chiffrement de données, omettez l'attribut <code>plaintext</code>. Le service génère un texte brut aléatoire (32 octets), l'encapsule, puis renvoie la valeur générée et la valeur encapsulée dans la réponse.</td>
       </tr>
       <tr>
         <td><varname>additional_data</varname></td>
@@ -107,7 +112,7 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
       <caption style="caption-side:bottom;">Tableau 1. Description des variables nécessaires pour encapsuler une clé spécifiée dans {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    La clé de chiffrement de données encapsulée, qui contient le matériel relatif à la clé codée en base64, est renvoyée dans la section entity-body de la réponse. L'objet JSON suivant présente un exemple de valeur renvoyée.
+    La clé de chiffrement de données encapsulée, qui contient le matériel de clé codé en base64, est renvoyée dans la section entity-body de la réponse. L'objet JSON suivant présente un exemple de valeur renvoyée.
 
     ```
     {
@@ -128,6 +133,6 @@ le matériel relatif à la clé en soumettant une demande GET /v2/keys/<key_ID>]
 
     La valeur <code>plaintext</code> représente la DEK désencapsulée et la valeur <code>ciphertext</code> représente la DEK encapsulée.
     
-    Si vous voulez que {{site.data.keyword.keymanagementserviceshort}} génère pour vous une nouvelle clé de chiffrement de données (DEK), vous pouvez également transmettre une section body vide dans votre demande d'encapsulage. La clé de chiffrement de données générée, qui contient le matériel relatif à la clé codée en base64, est renvoyée dans la section entity-body de la réponse, avec la clé de chiffrement de données encapsulée.
+    Si vous voulez que {{site.data.keyword.keymanagementserviceshort}} génère pour vous une nouvelle clé de chiffrement de données (DEK), vous pouvez également transmettre une section body vide dans votre demande d'encapsulage. La clé de chiffrement de données générée, qui contient le matériel de clé codé en base64, est renvoyée dans la section entity-body de la réponse, avec la clé de chiffrement de données encapsulée.
     {: tip}
     

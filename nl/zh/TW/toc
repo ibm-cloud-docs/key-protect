@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect/index.html" path="services/key-protect"}
+{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect?topic=key-protect-getting-started-tutorial" path="services/key-protect"}
 Key Protect
 
     {: .navgroup id="learn"}
@@ -10,27 +10,33 @@ Key Protect
 
     {: .topicgroup}
     概念
-        concepts/key-states.md
+        concepts/importing-keys.md
         concepts/envelope-encryption.md
         concepts/key-rotation.md
+        concepts/key-states.md
 
     {: .topicgroup}
     整合
         integrations/integrate-services.md
         integrations/integrate-cos.md
-
+    
     {: .topicgroup}
-    指導教學
-        [Tutorial: Apply end to end security to a cloud application](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
+指導教學
+        [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: new_window}
 
     releases.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     provision.md
-    access-api.md
+
+    {: .topicgroup}
+    存取 API
+        set-up-api.md
+        retrieve-access-token.md
+        retrieve-instance-id.md
+
     set-up-cli.md
-    manage-access.md
 
     {: .topicgroup}
     建立金鑰
@@ -39,23 +45,41 @@ Key Protect
     
     {: .topicgroup}
     匯入金鑰
+        create-transport-keys.md
         import-root-keys.md
         import-standard-keys.md
 
+    view-keys.md
+
     {: .topicgroup}
-    管理金鑰
-        view-keys.md
+    保護金鑰
         wrap-keys.md
         unwrap-keys.md
+
+    {: .topicgroup}
+    替換金鑰
+        set-rotation-policy.md
         rotate-keys.md
-        delete-keys.md
+        
+    delete-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Key Protect API 參考資料](https://cloud.ibm.com/apidocs/key-protect){: new_window}
+    [Key Protect API 參考資料](https://{DomainName}/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
+
+    {: .topicgroup}
+    使用者存取許可權
+        manage-access.md
+
     at-events.md
+
+    {: .topicgroup}
+    資料安全
+        ha-dr.md
+        data-security.md
+
     related-links.md
     {: .navgroup-end}
 

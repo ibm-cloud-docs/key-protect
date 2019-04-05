@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Envelope-Verschlüsselung
+# Daten mit Envelope-Verschlüsselung schützen
 {: #envelope-encryption}
 
 Die Envelope-Verschlüsselung ist sozusagen eine Verschlüsselung von Daten mit einem Datenverschlüsselungsschlüssel (DEK) und der anschließenden Verschlüsselung des DEK mit einem Rootschlüssel, der vollständig verwaltet wird. 
@@ -40,7 +44,7 @@ Die Envelope-Verschlüsselung ist sozusagen eine Verschlüsselung von Daten mit 
   </tr>
   <tr>
     <td>Delegierte Benutzerzugriffssteuerung</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} unterstützt ein zentralisiertes Zugriffssteuerungssystem, um einen differenzierten Zugriff auf Ihre Schlüssel zu ermöglichen. [Durch das Zuweisen von IAM-Benutzerrollen und erweiterten Berechtigungen](/docs/services/key-protect/manage-access.html#roles) entscheidet der Sicherheitsadministrator, wer auf die Rootschlüssel im Service zugreifen darf.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} unterstützt ein zentralisiertes Zugriffssteuerungssystem, um einen differenzierten Zugriff auf Ihre Schlüssel zu ermöglichen. [Durch das Zuweisen von IAM-Benutzerrollen und erweiterten Berechtigungen](/docs/services/key-protect?topic=key-protect-manage-access#roles) entscheidet der Sicherheitsadministrator, wer auf die Rootschlüssel im Service zugreifen darf.</td>
   </tr>
   <caption style="caption-side:bottom;">Tabelle 1. Vorteile der benutzerverwalteten Verschlüsselung</caption>
 </table>
@@ -50,8 +54,7 @@ Die Envelope-Verschlüsselung ist sozusagen eine Verschlüsselung von Daten mit 
 
 Die Envelope-Verschlüsselung kombiniert die Stärke mehrerer Verschlüsselungsalgorithmen, um Ihre sensiblen Daten in der Cloud zu schützen. Hierbei werden mehrere Datenverschlüsselungsschlüssel (DEKs) mit einer erweiterten Verschlüsselung eingeschlossen, indem ein Rootschlüssel verwendet wird, den Sie vollständig verwalten können. Dieser Key-Wrapping-Prozess erstellt eingeschlossene DEKs, die Ihre gespeicherten Daten vor einem unbefugten Zugriff und vor Gefährdungen schützen. Die Aufhebung des Wrapping eines DEK kehrt den Prozess der Envelope-Verschlüsselung um. Dabei wird derselbe Rootschlüssel verwendet. Das Ergebnis sind entschlüsselte und authentifizierte Daten.
  
-Im folgenden Diagramm wird eine kontextabhängige Ansicht dargestellt, wie das Key-Wrapping funktioniert.
-![Kontextuelle Ansicht der Envelope-Verschlüsselung.](../images/envelope-encryption_min.svg)
+Im folgenden Diagramm wird eine kontextbezogene Ansicht der Key-Wrapping-Funktion dargestellt. ![Diagramm mit kontextbezogener Ansicht der Envelope-Verschlüsselung.](../images/envelope-encryption_min.svg)
 
 Die Envelope-Verschlüsselung wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' kurz erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
 
@@ -64,7 +67,7 @@ Der Service unterstützt die zwei Schlüsseltypen 'Rootschlüssel' und 'Standard
   <dt>Rootschlüssel</dt>
     <dd>Rootschlüssel sind primäre Ressourcen in {{site.data.keyword.keymanagementserviceshort}}. Sie sind symmetrische Key-Wrapping-Schlüssel, die als vertrauenswürdige Roots für das Wrapping (Verschlüsseln) und das Aufheben des Wrappings (Entschlüsseln) von anderen Schlüssel verwendet werden, die in einem Datenservice gespeichert sind. Sie können mit {{site.data.keyword.keymanagementserviceshort}} den Lebenszyklus von Rootschlüsseln erstellen, speichern und verwalten, um den uneingeschränkten Zugriff auf andere in der Cloud gespeicherten Schlüssel zu erhalten. Im Gegensatz zu einem Standardschlüssel ist ein Rootschlüssel an den {{site.data.keyword.keymanagementserviceshort}}-Service gebunden.</dd>
   <dt>Standardschlüssel</dt>
-    <dd>Mit Standardschlüsseln kann ein geheimer Schlüssel, z. B. ein Kennwort oder ein Verschlüsselungsschlüssel, permanent gespeichert werden. Wenn Sie {{site.data.keyword.keymanagementserviceshort}} zum Speichern von Standardschlüsseln verwenden, ermöglichen Sie die HSM-Speicherung (Hardware Security Module) für geheime Schlüssel, differenzierte Zugriffssteuerung für Ihre Ressourcen mit <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> und Audits für API-Aufrufe des Service mit <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>. </dd>
+    <dd>Mit Standardschlüsseln kann ein geheimer Schlüssel, z. B. ein Kennwort oder ein Verschlüsselungsschlüssel, permanent gespeichert werden. Wenn Sie {{site.data.keyword.keymanagementserviceshort}} zum Speichern von Standardschlüsseln verwenden, ermöglichen Sie die HSM-Speicherung (Hardware Security Module) für geheime Schlüssel, differenzierte Zugriffssteuerung für Ihre Ressourcen mit <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> und Audits für API-Aufrufe des Service mit <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Nachdem Sie Schlüssel in {{site.data.keyword.keymanagementserviceshort}} erstellt haben, wird ein ID-Wert zurückgegeben, der für API-Aufrufe an den Service genutzt werden kann. Der ID-Wert für Ihre Schlüssel wird mit der {{site.data.keyword.keymanagementserviceshort}}-GUI oder [{{site.data.keyword.keymanagementserviceshort}}-API](https://{DomainName}/apidocs/key-protect) abgerufen. 
@@ -83,7 +86,7 @@ In der folgenden Tabelle werden die Eingaben beschrieben, die für eine Key-Wrap
   <th>Beschreibung</th>
   <tr>
     <td>Rootschlüssel-ID</td>
-    <td>Der ID-Wert für den Rootschlüssel, der für das Einschließen (Wrapping) verwendet werden soll. Der Rootschlüssel kann in den Service importiert werden oder aus HSMs in {{site.data.keyword.keymanagementserviceshort}} stammen. Die für das Wrapping verwendete Rootschlüssel müssen 256, 384 oder 512 Bit groß sein, damit das Einschließen erfolgreich ist.</td>
+    <td>Der ID-Wert für den Rootschlüssel, der für das Einschließen (Wrapping) verwendet werden soll. Der Rootschlüssel kann in den Service importiert werden oder aus HSMs in {{site.data.keyword.keymanagementserviceshort}} stammen. Die für das Wrapping verwendeten Rootschlüssel müssen für eine erfolgreiche Wrapping-Anforderung eine Größe von 128, 192 oder 256 Bit haben.</td>
   </tr>
   <tr>
     <td>Klartext</td>

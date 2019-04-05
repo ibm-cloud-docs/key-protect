@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,19 +25,19 @@ lastupdated: "2019-01-03"
 如果您是特权用户，那么可以使用 {{site.data.keyword.keymanagementservicefull}} API 将数据加密密钥 (DEK) 解包以访问其内容。解包 DEK 会解密其内容并检查内容完整性，从而将原始密钥资料返回给 {{site.data.keyword.cloud_notm}} 数据服务。
 {: shortdesc}
 
-要了解密钥打包如何帮助您控制云中静态数据的安全性，请参阅[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
+要了解密钥打包如何帮助您控制云中静态数据的安全性，请参阅[使用包络加密保护数据](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
 
 ## 使用 API 解包密钥
-{: #api}
+{: #unwrap-key-api}
 
-[对服务发出打包调用后](/docs/services/key-protect/wrap-keys.html)，可以通过对以下端点发出 `POST` 调用来将指定的数据加密密钥 (DEK) 解包以访问其内容。
+[对服务发出打包调用后](/docs/services/key-protect?topic=key-protect-wrap-keys)，可以通过对以下端点发出 `POST` 调用来将指定的数据加密密钥 (DEK) 解包以访问其内容。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
 
-1. [检索服务和认证凭证以与服务中的密钥一起使用](/docs/services/key-protect/access-api.html)。
+1. [检索服务和认证凭证以与服务中的密钥一起使用](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 复制用于执行初始打包请求的根密钥的标识。
 
@@ -45,7 +49,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=unwrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -69,7 +73,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect/regions.html#endpoints">区域服务端点</a>。</td>
+        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">区域服务端点</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -77,11 +81,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必需</strong>。您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-token">检索访问令牌</a>。</td>
+        <td><strong>必需</strong>。您的 {{site.data.keyword.cloud_notm}} 访问令牌。在 cURL 请求中包含 <code>IAM</code> 令牌的完整内容，包括 Bearer 值。有关更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">检索访问令牌</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必需</strong>。指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">检索实例标识</a>。</td>
+        <td><strong>必需</strong>。指定给您的 {{site.data.keyword.keymanagementserviceshort}} 服务实例的唯一标识。有关更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">检索实例标识</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: delete key, delete key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,15 +25,15 @@ lastupdated: "2019-01-03"
 {{site.data.keyword.cloud_notm}} スペースまたは {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの管理者は、{{site.data.keyword.keymanagementservicefull}} を使用して暗号鍵とその内容を削除できます。
 {: shortdesc}
 
-鍵を削除すると、その内容と関連データが完全に廃棄されます。 このアクションは、元に戻すことはできません。 リソースを破棄することは、実稼働環境ではお勧めできませんが、テストや QA などの一時的な環境には便利な場合があります。
+鍵を削除すると、その内容と関連データが完全に廃棄されます。 このアクションは、元に戻すことはできません。 [リソースを破棄する](/docs/services/key-protect?topic=key-protect-data-security#data-deletion)ことは、実稼働環境ではお勧めできませんが、テストや QA などの一時的な環境には便利な場合があります。
 {: important}
 
 ## GUI を使用した鍵の削除
-{: #gui}
+{: #delete-key-gui}
 
 グラフィカル・インターフェースを使用して暗号鍵を削除したい場合は、{{site.data.keyword.keymanagementserviceshort}} GUI を使用できます。
 
-[サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect/create-root-keys.html)、鍵を削除するには以下の手順を実行します。
+[サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect?topic=key-protect-create-root-keys)、鍵を削除するには以下の手順を実行します。
 
 1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/){: new_window}。
 2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
@@ -41,15 +45,15 @@ lastupdated: "2019-01-03"
 鍵を削除した後、鍵は_破棄_ 状態に遷移します。 この状態の鍵は、リカバリーできなくなっています。 鍵の削除日など、鍵に関連付けられているメタデータは、{{site.data.keyword.keymanagementserviceshort}} データベースに保管されます。
 
 ## API を使用した鍵の削除
-{: #api}
+{: #delete-key-api}
 
 鍵とその内容を削除するには、次のエンドポイントへの `DELETE` 呼び出しを行います。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
-1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect/access-api.html)。
+1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 削除する鍵の ID を取得します。
 
@@ -59,7 +63,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X DELETE \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'prefer: <return_preference>'
@@ -77,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -85,11 +89,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>

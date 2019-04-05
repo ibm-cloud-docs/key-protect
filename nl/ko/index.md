@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.keymanagementserviceshort}} 시작하기
+# 시작하기 튜토리얼
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}}를 사용하면 {{site.data.keyword.cloud_notm}} 서비스 간에 앱에 대한 암호화된 키를 프로비저닝하는 데 도움이 됩니다. 이 튜토리얼에는 {{site.data.keyword.keymanagementserviceshort}} 대시보드를 사용하여 기존 암호화 키를 작성하고 추가하는 방법이 표시되어 있으므로, 하나의 중심 위치에서 데이터 암호화를 관리할 수 있습니다.
 {: shortdesc}
@@ -29,7 +35,7 @@ lastupdated: "2019-01-03"
 
 <dl>
   <dt>루트 키</dt>
-    <dd>루트 키는 {{site.data.keyword.keymanagementserviceshort}}에서 완전히 관리하는 대칭 키-랩핑 키입니다. 루트 키를 사용하여 고급 암호화를 통해 다른 암호화 키를 보호할 수 있습니다. 자세히 알아보려면 <a href="/docs/services/key-protect/concepts/envelope-encryption.html">엔벨로프 암호화</a>를 참조하십시오.</dd>
+    <dd>루트 키는 {{site.data.keyword.keymanagementserviceshort}}에서 완전히 관리하는 대칭 키-랩핑 키입니다. 루트 키를 사용하여 고급 암호화를 통해 다른 암호화 키를 보호할 수 있습니다. 자세한 내용은 <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">엔벨로프 암호화로 데이터 보호</a>를 참조하십시오.</dd>
   <dt>표준 키</dt>
     <dd>표준 키는 암호화에 사용되는 대칭 키입니다. 표준 키를 사용하여 데이터를 직접 암호화하고 복호화할 수 있습니다.</dd>
 </dl>
@@ -60,7 +66,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>키 유형</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">키의 유형</a>입니다.</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">키의 유형</a>입니다.</td>
       </tr>
       <caption style="caption-side:bottom;">표 1. <b>키 작성</b> 설정에 대한 설명</caption>
     </table>
@@ -95,7 +101,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>키 유형</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">키의 유형</a>입니다.</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">키의 유형</a>입니다.</td>
       </tr>
       <tr>
         <td>키 자료</td>
@@ -109,9 +115,10 @@ lastupdated: "2019-01-03"
 {{site.data.keyword.keymanagementserviceshort}} 대시보드에서 새 키의 일반 특성을 검사할 수 있습니다. 
 
 ## 다음에 수행할 작업
+{: #get-started-next-steps}
 
-이제 키를 사용하여 앱과 서비스를 코딩할 수 있습니다. 서비스에 루트 키를 추가한 경우 루트 키를 사용하여 저장 데이터를 암호화하는 키를 보호하는 방법에 대해 자세히 알아보십시오. 시작하려면 [키 랩핑](/docs/services/key-protect/wrap-keys.html)을 확인하십시오.
+이제 키를 사용하여 앱과 서비스를 코딩할 수 있습니다. 서비스에 루트 키를 추가한 경우 루트 키를 사용하여 저장 데이터를 암호화하는 키를 보호하는 방법에 대해 자세히 알아보십시오. 시작하려면 [키 랩핑](/docs/services/key-protect?topic=key-protect-wrap-keys)을 확인하십시오.
 
-- 루트 키를 사용한 암호화 키 관리 및 보호에 대해 알아보려면 [엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)를 확인하십시오.
-- {{site.data.keyword.keymanagementserviceshort}} 서비스와 다른 클라우드 데이터 솔루션과의 통합에 대해 자세히 알아보려면 [통합 문서를 확인](/docs/services/key-protect/integrations/integrate-services.html)하십시오.
+- 루트 키로 암호화 키 관리 및 보호에 대해 자세히 알아보려면 [엔벨로프 암호화로 데이터 보호](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 참조하십시오.
+- {{site.data.keyword.keymanagementserviceshort}} 서비스와 다른 클라우드 데이터 솔루션과의 통합에 대해 자세히 알아보려면 [통합 문서를 확인](/docs/services/key-protect?topic=key-protect-integrate-services)하십시오.
 - 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.

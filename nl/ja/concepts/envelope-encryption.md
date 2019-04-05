@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# エンベロープ暗号化
+# エンベロープ暗号化を使用したデータ保護
 {: #envelope-encryption}
 
 エンベロープ暗号化とは、データ暗号鍵 (DEK) を使用してデータを暗号化し、次にその DEK を、ユーザーが完全に管理できるルート鍵を使用して暗号化する手法です。 
@@ -40,7 +44,7 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>委任されたユーザー・アクセス制御</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} では、鍵に対する細分化されたアクセスを可能にするために、集中アクセス制御システムをサポートしています。 [IAM ユーザー役割と拡張許可を割り当てることにより](/docs/services/key-protect/manage-access.html#roles)、セキュリティー管理者は、サービス内でどのユーザーがどのルート鍵にアクセスできるかを決定します。</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} では、鍵に対する細分化されたアクセスを可能にするために、集中アクセス制御システムをサポートしています。 [IAM ユーザー役割と拡張許可を割り当てることにより](/docs/services/key-protect?topic=key-protect-manage-access#roles)、セキュリティー管理者は、サービス内でどのユーザーがどのルート鍵にアクセスできるかを決定します。</td>
   </tr>
   <caption style="caption-side:bottom;">表 1. ユーザー管理の暗号化の利点についての説明</caption>
 </table>
@@ -64,7 +68,7 @@ lastupdated: "2019-01-03"
   <dt>ルート鍵</dt>
     <dd>ルート鍵は、{{site.data.keyword.keymanagementserviceshort}} の 1 次リソースです。 これは、データ・サービス内に保管されている他の鍵をラッピング (暗号化) およびアンラッピング (暗号化解除) するための信頼のルートとして使用される、対称鍵ラップ鍵です。 {{site.data.keyword.keymanagementserviceshort}} を使用して、ルート鍵の作成、保管、およびライフサイクルの管理を行うことができます。これにより、クラウド内に保管された他の鍵を完全に制御できるようになります。 標準鍵とは異なり、ルート鍵は {{site.data.keyword.keymanagementserviceshort}} サービスの境界から外に出ることは決してできません。</dd>
   <dt>標準鍵</dt>
-    <dd>標準鍵は、パスワードや暗号鍵などの機密事項を永続化する手段です。{{site.data.keyword.keymanagementserviceshort}} を使用して標準鍵を保管すると、機密事項用のハードウェア・セキュリティー・モジュール (HSM) ストレージ、<a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> を使用したリソースへの微細化されたアクセス制御、および <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> を使用したサービスへの API 呼び出しの監査機能が使用可能になります。</dd>
+    <dd>標準鍵は、パスワードや暗号鍵などの機密事項を永続化する手段です。 {{site.data.keyword.keymanagementserviceshort}} を使用して標準鍵を保管すると、機密事項用のハードウェア・セキュリティー・モジュール (HSM) ストレージ、<a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> を使用したリソースへのきめ細かいアクセス制御、および <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> を使用したサービスへの API 呼び出しの監査機能が使用可能になります。</dd>
 </dl>
 
 {{site.data.keyword.keymanagementserviceshort}} で鍵を作成すると、システムは ID 値を返します。これを使用して、サービスに対して API 呼び出しを行うことができます。 {{site.data.keyword.keymanagementserviceshort}} GUI または [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) を使用して、鍵の ID 値を取得できます。 
@@ -82,7 +86,7 @@ lastupdated: "2019-01-03"
   <th>説明</th>
   <tr>
     <td>ルート鍵 ID</td>
-    <td>ラッピングに使用するルート鍵の ID 値。 ルート鍵は、サービスにインポートすることも、{{site.data.keyword.keymanagementserviceshort}} でその HSM から発生させることもできます。 ラップ要求を正常に実行できるように、ラッピングに使用されるルート鍵は 256 ビット、384 ビット、または 512 ビットでなければなりません。</td>
+    <td>ラッピングに使用するルート鍵の ID 値。 ルート鍵は、サービスにインポートすることも、{{site.data.keyword.keymanagementserviceshort}} でその HSM から発生させることもできます。 ラップ要求を正常に実行できるように、ラッピングに使用されるルート鍵は 128 ビット、192 ビット、または 256 ビットでなければなりません。</td>
   </tr>
   <tr>
     <td>プレーン・テキスト</td>

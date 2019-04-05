@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 鍵の状態
+# 暗号鍵のライフサイクルのモニター
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} は、[NIST SP 800-57 for key states ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window} によるセキュリティー・ガイドラインに従っています。
@@ -49,11 +53,11 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>破棄</td>
-    <td>削除された鍵は、<i>破棄</i> 状態になります。 この状態の鍵は、リカバリーできません。 鍵の遷移履歴や名前など、鍵に関連付けられているメタデータは、{{site.data.keyword.keymanagementserviceshort}} データベースに保管されます。</td>
+    <td>削除された鍵は、<i>破棄</i> 状態になります。 この状態の鍵は、リカバリーできません。 鍵の遷移履歴や名前など、鍵に関連付けられているメタデータは、{{site.data.keyword.keymanagementserviceshort}} データベースに保管されます。 </td>
   </tr>
   <caption style="caption-side:bottom;">表 1. 鍵の状態および遷移についての説明</caption>
 </table>
 
 サービスに鍵を追加した後、{{site.data.keyword.keymanagementserviceshort}} ダッシュボードまたは {{site.data.keyword.keymanagementserviceshort}} REST API を使用して、鍵の遷移の履歴および構成を確認できます。 監査の目的では、{{site.data.keyword.keymanagementserviceshort}} を {{site.data.keyword.cloudaccesstrailfull}} と統合することで、鍵のアクティビティー証跡をモニターすることもできます。 両方のサービスがプロビジョンされて実行された後、{{site.data.keyword.keymanagementserviceshort}} で鍵を作成したり削除したりすると、アクティビティー・イベントが生成され、自動的に {{site.data.keyword.cloudaccesstrailshort}} ログに収集されます。 
 
-詳しくは、[{{site.data.keyword.keymanagementserviceshort}} アクティビティーのモニター ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window} を参照してください。
+詳しくは、[{{site.data.keyword.keymanagementserviceshort}} アクティビティーのモニター ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window} を参照してください。

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -94,7 +98,7 @@ lastupdated: "2019-01-03"
     ```
     {: codeblock}
 
-    將 `<access_token>`、`<organization_GUID>` 及 `<space_GUID>` 取代成您在步驟 3 - 4 中擷取的值。 
+    將 `<access_token>`, `<organization_GUID>` 及 `<space_GUID>` 取代成您在步驟 3 - 4 中擷取的值。 
 
 6. 複製儲存在您服務實例中之每個金鑰的 ID 值。
 
@@ -109,7 +113,7 @@ lastupdated: "2019-01-03"
     ```
     {: codeblock}
 
-    將 `<access_token>`、`<organization_GUID>`、`<space_GUID>` 及 `<key_ID>` 取代成您在步驟 3 - 5 中擷取的值。請針對每個金鑰重複指令。    
+    將 `<access_token>`, `<organization_GUID>`, `<space_GUID>` 及 `<key_ID>` 取代成您在步驟 3 - 5 中擷取的值。請針對每個金鑰重複指令。    
 
 8. 執行下列 cURL 指令，驗證您的金鑰已刪除。
 
@@ -123,7 +127,7 @@ lastupdated: "2019-01-03"
     ```
     {: codeblock}
 
-    將 `<access_token>`、`<organization_GUID>` 及 `<space_GUID>` 取代成您在步驟 3 - 4 中擷取的值。 
+    將 `<access_token>`, `<organization_GUID>` 及 `<space_GUID>` 取代成您在步驟 3 - 4 中擷取的值。 
 
 9. 刪除 {{site.data.keyword.keymanagementserviceshort}} 服務實例。
 
@@ -156,7 +160,7 @@ lastupdated: "2019-01-03"
 ```
 {: screen}
 
-在 2017 年 12 月 15 日，我們已將新的特性（例如[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)）新增至 {{site.data.keyword.keymanagementserviceshort}} 服務。您現在可以在資源群組裡佈建 {{site.data.keyword.keymanagementserviceshort}} 服務，而不需要指定 Cloud Foundry 組織及空間。
+在 2017 年 12 月 15 日，我們已將新的特性（例如[封套加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)）新增至 {{site.data.keyword.keymanagementserviceshort}} 服務。您現在可以在資源群組裡佈建 {{site.data.keyword.keymanagementserviceshort}} 服務，而不需要指定 Cloud Foundry 組織及空間。
 {: tsCauses}
 
 這些變更已影響較舊服務實例的使用者介面。如果您已在 2017 年 9 月 28 日之前建立 {{site.data.keyword.keymanagementserviceshort}} 實例，則使用者介面可能不會如預期地運作。
@@ -191,7 +195,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 您沒有正確的授權可執行 {{site.data.keyword.keymanagementserviceshort}} 動作。
 {: tsCauses} 
 
-請向管理者確認已將適當資源群組或服務實例中的正確角色指派給您。如需角色的相關資訊，請參閱[角色及許可權](/docs/services/key-protect/manage-access.html#roles)。
+請向管理者確認已將適當資源群組或服務實例中的正確角色指派給您。如需角色的相關資訊，請參閱[角色及許可權](/docs/services/key-protect?topic=key-protect-manage-access#roles)。
 {: tsResolve}
 
 ## 取得協助及支援
@@ -207,6 +211,6 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 - 如果您有 {{site.data.keyword.keymanagementserviceshort}} 的相關技術問題，請將問題張貼在 [Stack Overflow ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window}，並使用 "ibm-cloud" 和 "key-protect" 來標記問題。
 - 若是服務及開始使用指示的相關問題，請使用 [IBM developerWorks dW Answers ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} 討論區。請包含 "ibm-cloud" 和 "key-protect" 標籤。
 
-如需使用討論區的詳細資料，請參閱[取得協助 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/docs/support/index.html#getting-help){: new_window}。
+如需使用討論區的詳細資料，請參閱[取得支援 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/get-support?topic=get-support-using-avatar){: new_window}。
 
-如需開立 {{site.data.keyword.IBM_notm}} 支援問題單的相關資訊，或支援層次與問題單嚴重性的相關資訊，請參閱[與支援中心聯絡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}。
+如需開立 {{site.data.keyword.IBM_notm}} 支援問題單的相關資訊，或支援層次與問題單嚴重性的相關資訊，請參閱[與支援中心聯絡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

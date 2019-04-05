@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,10 +19,10 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Etats des clés
+# Contrôle du cycle de vie des clés de chiffrement
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} respecte les règles de sécurité établies par [NIST SP 800-57 pour les états des clés ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+{{site.data.keyword.keymanagementservicefull}} respecte les règles de sécurité établies par le document [NIST Special Publication 800-57 relatif aux états des clés ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
 {: shortdesc}
 
 ## Etats et transitions de clés
@@ -49,11 +53,11 @@ Au cours de leur existence, les clés cryptographiques connaissent plusieurs ét
   </tr>
   <tr>
     <td>Détruit</td>
-    <td>Les clés supprimées sont à l'état <i>Détruit</i>. Les clés dans cet état sont irrécupérables. Les métadonnées associées à une clé, comme le nom et l'historique des transitions de la clé, sont conservées dans la base de données {{site.data.keyword.keymanagementserviceshort}}.</td>
+    <td>Les clés supprimées sont à l'état <i>Détruit</i>. Les clés dans cet état sont irrécupérables. Les métadonnées associées à une clé, comme le nom et l'historique des transitions de la clé, sont conservées dans la base de données {{site.data.keyword.keymanagementserviceshort}}. </td>
   </tr>
   <caption style="caption-side:bottom;">Tableau 1. Description des états et des transitions d'une clé.</caption>
 </table>
 
 Après avoir ajouté une clé au service, utilisez le tableau de bord {{site.data.keyword.keymanagementserviceshort}} ou les API REST {{site.data.keyword.keymanagementserviceshort}} pour afficher la configuration et l'historique des transitions de la clé. A des fins d'audit, vous pouvez également surveiller le journal d'activité d'une clé en intégrant {{site.data.keyword.keymanagementserviceshort}} à {{site.data.keyword.cloudaccesstrailfull}}. Une fois que les services sont mis à disposition et en cours d'exécution, les événements d'activité sont générés et collectés automatiquement dans un journal {{site.data.keyword.cloudaccesstrailshort}} lorsque vous créez et supprimez des clés dans {{site.data.keyword.keymanagementserviceshort}}. 
 
-Pour plus d'informations, voir [Surveillance de l'activité {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+Pour plus d'informations, voir [Surveillance de l'activité {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

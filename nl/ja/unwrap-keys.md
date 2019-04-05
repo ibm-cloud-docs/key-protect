@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,19 +25,19 @@ lastupdated: "2019-01-03"
 特権ユーザーの場合、{{site.data.keyword.keymanagementservicefull}} API を使用して、データ暗号化鍵 (DEK) をアンラップして、内容にアクセスすることができます。 DEK をアンラップすると、暗号化解除して内容の保全性を確認し、元の鍵素材を {{site.data.keyword.cloud_notm}} データ・サービスに返します。
 {: shortdesc}
 
-鍵ラッピングが、クラウド内の保存データのセキュリティー管理にどのように役立つかについては、[エンベロープ暗号化](/docs/services/key-protect/concepts/envelope-encryption.html)を参照してください。
+鍵ラッピングが、クラウド内の保存データのセキュリティー管理にどのように役立つかについては、[エンベロープ暗号化を使用したデータ保護](/docs/services/key-protect?topic=key-protect-envelope-encryption)を参照してください。
 
 ## API を使用した鍵のアンラッピング
-{: #api}
+{: #unwrap-key-api}
 
-[サービスに対してラップ呼び出しを行った後](/docs/services/key-protect/wrap-keys.html)、以下のエンドポイントへの `POST` 呼び出しを行うことにより、指定のデータ暗号化鍵 (DEK) をアンラップして、その内容にアクセスできます。
+[サービスに対してラップ呼び出しを行った後](/docs/services/key-protect?topic=key-protect-wrap-keys)、以下のエンドポイントへの `POST` 呼び出しを行うことにより、指定のデータ暗号化鍵 (DEK) をアンラップして、その内容にアクセスできます。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
 
-1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect/access-api.html)。
+1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 最初のラップ要求を実行するために使用したルート鍵の ID をコピーします。
 
@@ -45,7 +49,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=unwrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -69,7 +73,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -77,11 +81,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

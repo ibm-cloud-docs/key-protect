@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: user permissions, manage access, IAM roles
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Zugriff verwalten
+# Benutzerzugriff verwalten
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} unterstützt ein zentralisiertes Zugriffssteuerungssystem, das mit {{site.data.keyword.iamlong}} reguliert wird, um Sie bei der Verwaltung von Benutzern und beim Zugriff auf Ihre Verschlüsselungsschlüssel zu unterstützen.
@@ -38,7 +42,11 @@ Mit {{site.data.keyword.iamshort}} (IAM) können Sie den Zugriff für Benutzer u
 Zur Vereinfachung des Zugriffs orientiert sich {{site.data.keyword.keymanagementserviceshort}} an den Cloud IAM-Rollen, sodass jeder Benutzer über eine andere Ansicht des Service verfügt, und zwar abhängig von der Rolle, die diesem Benutzer zugewiesen wurde. Wenn Sie der Sicherheitsadministrator für Ihren Service sind, dann können Sie Cloud IAM-Rollen zuweisen, die den speziellen {{site.data.keyword.keymanagementserviceshort}}-Berechtigungen entsprechen, die Sie Mitgliedern Ihres Teams erteilen wollen.
 
 In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- und Zugriffsrollen den {{site.data.keyword.keymanagementserviceshort}}-Berechtigungen zugeordnet werden:
+
 <table>
+  <col width="20%">
+  <col width="40%">
+  <col width="40%">
   <tr>
     <th>Servicezugriffsrolle</th>
     <th>Beschreibung</th>
@@ -74,13 +82,14 @@ In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- u
   </tr>
   <tr>
     <td><p>Manager</p></td>
-    <td><p>Ein Manager kann alle Aktionen ausführen, die ein Lese- und ein Schreibberechtigter ausführen können. Dies umfasst auch die Berechtigung zum Löschen von Schlüsseln, zum Einladen neuer Benutzer und zum Zuordnen von Zugriffsrichtlinien für andere Benutzer.</p></td>
+    <td><p>Ein Manager kann alle Aktionen ausführen, die ein Lese- oder ein Schreibberechtigter ausführen kann. Dies umfasst auch die Berechtigung zum Festlegen von Rotationsrichtlinien für Schlüssel, Löschen von Schlüsseln, zum Einladen neuer Benutzer und zum Zuordnen von Zugriffsrichtlinien für andere Benutzer.</p></td>
     <td>
       <p>
         <ul>
           <li>Alle Aktionen, die ein Lese- oder ein Schreibberechtigter ausführen kann</li>
+          <li>Benutzerzugriffsrichtlinien zuweisen</li>
+          <li>Richtlinien für die Schlüsselrotation festlegen</li>
           <li>Schlüssel löschen</li>
-          <li>Zugriffsrichtlinie zuweisen</li>
         </ul>
       </p>
     </td>
@@ -88,11 +97,13 @@ In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- u
   <caption style="caption-side:bottom;">Tabelle 1. Informationen zur Zuordnung von Identitäts- und Zugriffsrollen zu {{site.data.keyword.keymanagementserviceshort}}-Berechtigungen</caption>
 </table>
 
-Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [Cloud Foundry-Rollen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/cfaccess.html){: new_window} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene. Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie in [Benutzerrollen und -berechtigungen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/users_roles.html#userroles){: new_window}.
+Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [Cloud Foundry-Rollen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-cfaccess){: new_window} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene. Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie in [Benutzerrollen und -berechtigungen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-userroles){: new_window}.
 {: note}
 
-### Weitere Schritte
+## Weitere Schritte
+{: #manage-access-next-steps}
 
 Kontoeigner und Administratoren können Benutzer einladen und Servicerichtlinien festlegen, die den {{site.data.keyword.keymanagementserviceshort}}-Aktionen entsprechen, die die Benutzer ausführen können.
 
-- Weitere Informationen zur Zuweisung von Benutzerrollen in der {{site.data.keyword.cloud_notm}}-Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam/mngiam.html){: new_window}.
+- Weitere Informationen zur Zuweisung von Benutzerrollen in der {{site.data.keyword.cloud_notm}}-Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-getstarted){: new_window}.
+

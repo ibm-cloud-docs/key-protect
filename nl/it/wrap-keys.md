@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -23,28 +28,28 @@ Puoi gestire e proteggere le tue chiavi di crittografia con una chiave root util
 
 Quando impacchetti una chiave di crittografia dei dati (o DEK, data encryption key) con una chiave root, {{site.data.keyword.keymanagementserviceshort}} combina la forza di più algoritmi per proteggere la riservatezza e l'integrità dei tuoi dati crittografati.  
 
-Per ulteriori informazioni su come l'impacchettamento ti aiuta a controllare la sicurezza dei dati inattivi nel cloud, consulta [Crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html).
+Per ulteriori informazioni su come l'impacchettamento ti aiuta a controllare la sicurezza dei dati inattivi nel cloud, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Impacchettamento delle chiavi utilizzando l'API
-{: #api}
+{: #wrap-key-api}
 
 Puoi proteggere una chiave di crittografia dei dati (o DEK, data encryption key) specificata con una chiave root che gestisci in {{site.data.keyword.keymanagementserviceshort}}.
 
-Quando fornisci una chiave root per l'impacchettamento, assicurati che la chiave root sia di 256, 384 o 512 bit in modo che la chiamata di impacchettamento possa avere esito positivo. Se crei una chiave root nel servizio, {{site.data.keyword.keymanagementserviceshort}} genera una chiave di 256-bit dai suoi HSM, supportata dall'algoritmo AES-GCM.
+Quando fornisci una chiave root per l'impacchettamento, assicurati che la chiave root sia di 128, 192 o 256 bit in modo che la chiamata di impacchettamento possa avere esito positivo. Se crei una chiave root nel servizio, {{site.data.keyword.keymanagementserviceshort}} genera una chiave di 256-bit dai suoi HSM, supportata dall'algoritmo AES-GCM.
 {: note}
 
-[Dopo aver designato una chiave root nel servizio](/docs/services/key-protect/create-root-keys.html), puoi impacchettare una DEK con la crittografia avanzata effettuando una chiamata `POST` al seguente endpoint.
+[Dopo aver designato una chiave root nel servizio](/docs/services/key-protect?topic=key-protect-create-root-keys), puoi impacchettare una DEK con la crittografia avanzata effettuando una chiamata `POST` al seguente endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 ```
 {: codeblock}
 
-1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio.](/docs/services/key-protect/access-api.html)
+1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio.](/docs/services/key-protect?topic=key-protect-set-up-api)
 
 2. Copia il materiale della chiave della DEK che vuoi gestire e proteggere.
 
-    Se disponi dei privilegi da scrittore o gestore per la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}, [puoi richiamare il materiale della chiave per una chiave specifica effettuando una richiesta `GET /v2/keys/<key_ID>`](/docs/services/key-protect/view-keys.html#api).
+    Se disponi dei privilegi da scrittore o gestore per la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}, [puoi richiamare il materiale della chiave per una chiave specifica effettuando una richiesta `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
 
 3. Copia l'ID della chiave root che vuoi utilizzare per l'impacchettamento.
 
@@ -52,7 +57,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap' \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -77,7 +82,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -85,11 +90,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Richiamo di un ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

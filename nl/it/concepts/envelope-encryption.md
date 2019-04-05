@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Crittografia envelope
+# Protezione dei dati con la crittografia envelope 
 {: #envelope-encryption}
 
 La crittografia envelope è la pratica di codificare i dati con una chiave di crittografia dei dati (o DEK, data encryption key) e poi codificare la DEK con una chiave root che puoi completamente gestire. 
@@ -36,11 +40,11 @@ La crittografia envelope è la pratica di codificare i dati con una chiave di cr
   </tr>
   <tr>
     <td>Distruzione crittografica dei dati</td>
-    <td>Se la tua organizzazione rileva un problema di sicurezza o la tua applicazione non ha più bisogno di una serie di dati, puoi scegliere di distruggere i dati in modo permanente dal cloud. Quando elimini una chiave root che protegge altre DEK, ti assicuri che i dati associati alle chiavi non siano più accessibili o decodificabili.</td>
+    <td>Se la tua organizzazione rileva un problema di sicurezza o la tua applicazione non ha più bisogno di una serie di dati, puoi scegliere di eliminare i dati in modo permanente dal cloud. Quando elimini una chiave root che protegge altre DEK, ti assicuri che i dati associati alle chiavi non siano più accessibili o decodificabili.</td>
   </tr>
   <tr>
     <td>Controllo dell'accesso utente delegato</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} supporta un sistema di controllo dell'accesso centralizzato per abilitare l'accesso granulare alle tue chiavi. [Assegnando i ruoli utente IAM e le autorizzazioni avanzate](/docs/services/key-protect/manage-access.html#roles), gli amministratori della sicurezza possono decidere chi può accedere a quali chiavi root nel servizio.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} supporta un sistema di controllo dell'accesso centralizzato per abilitare l'accesso granulare alle tue chiavi. [Assegnando i ruoli utente IAM e le autorizzazioni avanzate](/docs/services/key-protect?topic=key-protect-manage-access#roles), gli amministratori della sicurezza possono decidere chi può accedere a quali chiavi root nel servizio.</td>
   </tr>
   <caption style="caption-side:bottom;">Tabella 1. Descrive i vantaggi della codifica gestita dal cliente</caption>
 </table>
@@ -64,7 +68,7 @@ Il servizio supporta due tipi di chiavi, le chiavi root e le chiavi standard, pe
   <dt>Chiavi root</dt>
     <dd>Le chiavi root sono le risorse principali in {{site.data.keyword.keymanagementserviceshort}}. Sono le chiavi di impacchettamento della chiave simmetriche utilizzate come radice di attendibilità per l'impacchettamento (crittografia) e lo spacchettamento (decrittografia) di altre chiavi archiviate in un servizio di dati. Con {{site.data.keyword.keymanagementserviceshort}}, puoi creare, memorizzare e gestire il ciclo di vita delle chiavi root per ottenere il controllo completo di altre chiavi archiviate nel cloud. A differenza di una chiave standard, una chiave root non può mai lasciare i confini del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Chiavi standard</dt>
-    <dd>Le chiavi standard sono un modo per rendere persistente un segreto, ad esempio una password o una chiave di crittografia. Quando usi {{site.data.keyword.keymanagementserviceshort}} per archiviare le chiavi standard, abiliti l'archiviazione HSM (Hardware Security Module) per i tuoi segreti, un controllo dell'accesso dettagliato alle tue risorse con <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> e la capacità di controllare le chiamate API al servizio con <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Le chiavi standard sono un modo per rendere persistente un segreto, ad esempio una password o una chiave di crittografia. Quando usi {{site.data.keyword.keymanagementserviceshort}} per archiviare le chiavi standard, abiliti l'archiviazione HSM (Hardware Security Module) per i tuoi segreti, un controllo dell'accesso dettagliato alle tue risorse con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> e la capacità di controllare le chiamate API al servizio con <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Dopo aver creato le chiavi in {{site.data.keyword.keymanagementserviceshort}}, il sistema restituisce un valore ID che puoi utilizzare per effettuare le chiamate API al servizio. Puoi richiamare il valore ID per le tue chiavi con la GUI {{site.data.keyword.keymanagementserviceshort}} o la [API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -83,7 +87,7 @@ La seguente tabella descrive gli input necessari per eseguire un'operazione di i
   <th>Descrizione</th>
   <tr>
     <td>ID chiave root</td>
-    <td>Il valore ID della chiave root che vuoi utilizzare per l'impacchettamento. La chiave root può essere importata nel servizio oppure può essere originata in {{site.data.keyword.keymanagementserviceshort}} dai propri HSM. Le chiavi root utilizzate per l'impacchettamento devono essere di 256, 384 o 512 bit in modo che una richiesta di impacchettamento possa avere esito positivo.</td>
+    <td>Il valore ID della chiave root che vuoi utilizzare per l'impacchettamento. La chiave root può essere importata nel servizio oppure può essere originata in {{site.data.keyword.keymanagementserviceshort}} dai propri HSM. Le chiavi root utilizzate per l'impacchettamento devono essere di 128, 192 o 256 bit in modo che una richiesta di impacchettamento possa avere esito positivo.</td>
   </tr>
   <tr>
     <td>Testo non crittografato</td>

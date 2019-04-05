@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Einführung in {{site.data.keyword.keymanagementserviceshort}}
+# Lernprogramm zur Einführung
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} unterstützt Sie bei der Bereitstellung verschlüsselter Schlüssel für die Apps Ihrer {{site.data.keyword.cloud_notm}}-Services. Mit diesem Lernprogramm lernen Sie, wie Sie Verschlüsselungsschlüssel mithilfe des {{site.data.keyword.keymanagementserviceshort}}-Dashboards erstellen und hinzufügen, um die Datenverschlüsselung von einem zentralen Ort aus zu verwalten.
 {: shortdesc}
@@ -29,7 +35,7 @@ Wählen Sie aus zwei Schlüsseltypen aus:
 
 <dl>
   <dt>Rootschlüssel</dt>
-    <dd>Rootschlüssel sind symmetrische Key-Wrapping-Schlüssel, die in {{site.data.keyword.keymanagementserviceshort}} vollständig verwaltet werden. Sie können einen Rootschlüssel verwenden, um andere Verschlüsselungsschlüssel mit einer erweiterten Verschlüsselung zu schützen. Weitere Informationen finden Sie in <a href="/docs/services/key-protect/concepts/envelope-encryption.html">Envelope-Verschlüsselung</a>.</dd>
+    <dd>Rootschlüssel sind symmetrische Key-Wrapping-Schlüssel, die in {{site.data.keyword.keymanagementserviceshort}} vollständig verwaltet werden. Sie können einen Rootschlüssel verwenden, um andere Verschlüsselungsschlüssel mit einer erweiterten Verschlüsselung zu schützen. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">Daten mit Envelope-Verschlüsselung schützen</a>.</dd>
   <dt>Standardschlüssel</dt>
     <dd>Standardschlüssel sind symmetrische Schlüssel, die in der Kryptografie verwendet werden. Sie können einen Standardschlüssel verwenden, um Daten direkt zu verschlüsseln und zu entschlüsseln.</dd>
 </dl>
@@ -41,8 +47,8 @@ Wählen Sie aus zwei Schlüsseltypen aus:
 
 Führen Sie die folgenden Schritte aus, um Ihren ersten Verschlüsselungsschlüssel zu erstellen. 
 
-1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**. 
-2. Wenn Sie einen neuen Schlüssel erstellen möchten, wählen Sie das Fenster **Schlüssel erstellen** aus. 
+1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**.
+2. Wenn Sie einen neuen Schlüssel erstellen möchten, wählen Sie das Fenster **Schlüssel erstellen** aus.
 
     Geben Sie die Schlüsseldetails an:
 
@@ -60,12 +66,12 @@ Führen Sie die folgenden Schritte aus, um Ihren ersten Verschlüsselungsschlüs
       </tr>
       <tr>
         <td>Schlüsseltyp</td>
-        <td>Der <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Schlüsseltyp</a>, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten möchten.</td>
+        <td>Der <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">Schlüsseltyp</a>, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten möchten.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Einstellungen für <b>Schlüssel erstellen</b></caption>
     </table>
 
-3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel erstellen**.  
+3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel erstellen**. 
 
 Die im Service generierten Schlüssel sind symmetrische 256-Bit-Schlüssel, die vom AES-GCM-Algorithmus unterstützt werden. Um eine höhere Sicherheit zu erhalten, werden die Schlüssel von FIPS 140-2 Level 2-zertifizierten Hardwaresicherheitsmodulen (HSMs) generiert, die sich in sicheren {{site.data.keyword.cloud_notm}}-Datenzentren befinden. 
 
@@ -76,8 +82,8 @@ Sicherheitsvorteile erhalten Sie auch mit einer BYOK-Unterstützung (Bring Your 
 
 Führen Sie die folgenden Schritte aus, um einen vorhandenen Schlüssel hinzuzufügen.
 
-1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**. 
-2. Wenn Sie einen vorhandenen Schlüssel hochladen möchten, wählen Sie das Fenster **Eigenen Schlüssel importieren ** aus. 
+1. Klicken Sie auf der Seite mit den Anwendungsdetails auf **Verwalten** &gt; **Schlüssel hinzufügen**.
+2. Wenn Sie einen vorhandenen Schlüssel hochladen möchten, wählen Sie das Fenster **Eigenen Schlüssel importieren ** aus.
 
     Geben Sie die Schlüsseldetails an:
 
@@ -95,7 +101,7 @@ Führen Sie die folgenden Schritte aus, um einen vorhandenen Schlüssel hinzuzuf
       </tr>
       <tr>
         <td>Schlüsseltyp</td>
-        <td>Der <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">Schlüsseltyp</a>, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten möchten.</td>
+        <td>Der <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">Schlüsseltyp</a>, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten möchten.</td>
       </tr>
       <tr>
         <td>Schlüsselinformationen</td>
@@ -104,14 +110,15 @@ Führen Sie die folgenden Schritte aus, um einen vorhandenen Schlüssel hinzuzuf
       <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der Einstellungen für <b>Eigenen Schlüssel importieren</b></caption>
     </table>
 
-3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel importieren**.  
+3. Geben Sie die Details zum Schlüssel ein und klicken Sie anschließend zum Bestätigen auf **Schlüssel importieren**. 
 
 Mit dem {{site.data.keyword.keymanagementserviceshort}}-Dashboard können Sie die allgemeinen Merkmale Ihrer neuen Schlüssel überprüfen. 
 
 ## Weitere Schritte
+{: #get-started-next-steps}
 
-Sie können Ihre Schlüssel nun verwenden, um Ihre Apps und Services zu codieren. Wenn Sie einen Rootschlüssel zum Service hinzugefügt haben, können Sie weitere Informationen zur Verwendung des Rootschlüssels für den Schutz der Schlüssel, mit denen Ihre ruhenden Daten verschlüsselt werden, abrufen. Lesen die zum Einstieg [Wrapping für Schlüssel durchführen](/docs/services/key-protect/wrap-keys.html).
+Sie können Ihre Schlüssel nun verwenden, um Ihre Apps und Services zu codieren. Wenn Sie einen Rootschlüssel zum Service hinzugefügt haben, können Sie weitere Informationen zur Verwendung des Rootschlüssels für den Schutz der Schlüssel, mit denen Ihre ruhenden Daten verschlüsselt werden, abrufen. Lesen die zum Einstieg [Wrapping für Schlüssel durchführen](/docs/services/key-protect?topic=key-protect-wrap-keys).
 
-- Weitere Informationen zum Verwalten und Schützen der Verschlüsselungsschlüssel mithilfe eines Rootschlüssels finden Sie in [Envelope-Verschlüsselungg](/docs/services/key-protect/concepts/envelope-encryption.html).
-- Weitere Informationen zur Integration des {{site.data.keyword.keymanagementserviceshort}}-Service in andere Clouddaten-Lösungen, finden Sie [in der Integrationsdokumentation](/docs/services/key-protect/integrations/integrate-services.html).
+- Weitere Informationen zum Verwalten und Schützen der Verschlüsselungsschlüssel mithilfe eines Rootschlüssels finden Sie in [Daten mit Envelope-Verschlüsselung schützen](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+- Weitere Informationen zur Integration des {{site.data.keyword.keymanagementserviceshort}}-Service in andere Clouddaten-Lösungen, finden Sie [in der Integrationsdokumentation](/docs/services/key-protect?topic=key-protect-integrate-services).
 - Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.

@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Introduzione a {{site.data.keyword.keymanagementserviceshort}}
+# Esercitazione introduttiva 
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Questa esercitazione illustra come creare e aggiungere le chiavi di crittografia esistenti utilizzando il dashboard {{site.data.keyword.keymanagementserviceshort}}, quindi puoi gestire la codifica dei dati da un'ubicazione centrale.
 {: shortdesc}
@@ -29,7 +35,7 @@ Scegli tra i due tipi di chiave:
 
 <dl>
   <dt>Chiavi root</dt>
-    <dd>Le chiavi root sono chiavi di impacchettamento della chiave simmetriche che gestisci completamente in {{site.data.keyword.keymanagementserviceshort}}. Puoi utilizzare una chiave root per proteggere altre chiavi di crittografia con la codifica avanzata. Per ulteriori informazioni, consulta <a href="/docs/services/key-protect/concepts/envelope-encryption.html">Crittografia envelope</a>.</dd>
+    <dd>Le chiavi root sono chiavi di impacchettamento della chiave simmetriche che gestisci completamente in {{site.data.keyword.keymanagementserviceshort}}. Puoi utilizzare una chiave root per proteggere altre chiavi di crittografia con la codifica avanzata. Per ulteriori informazioni, consulta <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">Protezione dei dati con la crittografia envelope</a>.</dd>
   <dt>Chiavi standard</dt>
     <dd>Le chiavi standard sono le chiavi simmetriche utilizzate per la crittografia. Puoi utilizzare una chiave standard per codificare e decodificare direttamente i dati.</dd>
 </dl>
@@ -41,7 +47,7 @@ Scegli tra i due tipi di chiave:
 
 Completa la seguente procedura per creare la tua prima chiave crittografica. 
 
-1. Nella pagina dei dettagli dell'applicazione, fai clic su **Gestisci** &gt; **Aggiungi chiave**.
+1. Nella pagina dei dettagli dell'applicazione, fai clic su **Manage** &gt; **Add key**.
 2. Per creare una nuova chiave, seleziona la finestra **Create a key**.
 
     Specifica i dettagli della chiave:
@@ -60,7 +66,7 @@ Completa la seguente procedura per creare la tua prima chiave crittografica.
       </tr>
       <tr>
         <td>Tipo di chiave</td>
-        <td>Il <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>Il <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabella 1. Descrizione delle impostazioni <b>Create a key</b></caption>
     </table>
@@ -76,7 +82,7 @@ Puoi abilitare i vantaggi di BYOK (Bring Your Own Key) introducendo le tue chiav
 
 Completa la seguente procedura per aggiungere una chiave esistente.
 
-1. Nella pagina dei dettagli dell'applicazione, fai clic su **Gestisci** &gt; **Aggiungi chiave**.
+1. Nella pagina dei dettagli dell'applicazione, fai clic su **Manage** &gt; **Add key**.
 2. Per caricare una chiave esistente, seleziona la finestra **Import your own key**.
 
     Specifica i dettagli della chiave:
@@ -95,7 +101,7 @@ Completa la seguente procedura per aggiungere una chiave esistente.
       </tr>
       <tr>
         <td>Tipo di chiave</td>
-        <td>Il <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>Il <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <tr>
         <td>Materiale della chiave</td>
@@ -109,9 +115,10 @@ Completa la seguente procedura per aggiungere una chiave esistente.
 Dal dashboard {{site.data.keyword.keymanagementserviceshort}} , puoi controllare le caratteristiche generali delle tue nuove chiavi. 
 
 ## Operazioni successive
+{: #get-started-next-steps}
 
-Ora puoi utilizzare le chiavi per crittografare i tuoi servizi e le tue applicazioni. Se hai aggiunto una chiave root al servizio, potresti desiderare ulteriori informazioni sul suo utilizzo per proteggere le chiavi che codificano i tuoi dati inattivi. Per iniziare, consulta l'[Impacchettamento delle chiavi](/docs/services/key-protect/wrap-keys.html).
+Ora puoi utilizzare le chiavi per crittografare i tuoi servizi e le tue applicazioni. Se hai aggiunto una chiave root al servizio, potresti desiderare ulteriori informazioni sul suo utilizzo per proteggere le chiavi che codificano i tuoi dati inattivi. Per iniziare, consulta l'[Impacchettamento delle chiavi](/docs/services/key-protect?topic=key-protect-wrap-keys).
 
-- Per trovare ulteriori informazioni sulla gestione e protezione delle tue chiavi crittografate con una chiave root, consulta [Crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html).
-- Per ulteriori informazioni sull'integrazione del servizio {{site.data.keyword.keymanagementserviceshort}} con altre soluzioni di dati cloud, [controlla la documentazione di Integrations](/docs/services/key-protect/integrations/integrate-services.html).
+- Per trovare ulteriori informazioni sulla gestione e protezione delle tue chiavi crittografate con una chiave root, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+- Per ulteriori informazioni sull'integrazione del servizio {{site.data.keyword.keymanagementserviceshort}} con altre soluzioni di dati cloud, [controlla la documentazione di Integrations](/docs/services/key-protect?topic=key-protect-integrate-services).
 - Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.

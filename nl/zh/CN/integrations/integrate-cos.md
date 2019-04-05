@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect integration, integrate COS with Key Protect
+
+subcollection: key-protect
 
 ---
 
@@ -26,9 +30,9 @@ lastupdated: "2019-01-03"
 
 {{site.data.keyword.cos_full_notm}} 用于为非结构化数据提供云存储。非结构化数据是指文件、音频/视频媒体、PDF、压缩的数据归档、备份映像、应用程序工件、业务文档或其他任何二进制对象。  
 
-为了保持数据完整性和可用性，{{site.data.keyword.cos_full_notm}} 会对数据执行分片，还会将数据分散到跨多个地理位置的存储节点。数据完整副本不会位于任何单个存储节点中，只需要有一部分节点可用，就可以在网络上完整检索到数据。提供了提供者端加密，以确保您的静态和动态数据的安全。要管理存储器，请使用 {{site.data.keyword.cloud_notm}} 控制台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage/api-reference/about-compatibility-api.html){: new_window} 以编程方式创建存储区和导入对象。
+为了保持数据完整性和可用性，{{site.data.keyword.cos_full_notm}} 会对数据执行分片，还会将数据分散到跨多个地理位置的存储节点。数据完整副本不会位于任何单个存储节点中，只需要有一部分节点可用，就可以在网络上完整检索到数据。提供了提供者端加密，以确保您的静态和动态数据的安全。要管理存储器，请使用 {{site.data.keyword.cloud_notm}} 控制台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-the-ibm-cloud-object-storage-api){: new_window} 以编程方式创建存储区和导入对象。
 
-有关更多信息，请参阅[关于 COS ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage/about-cos.html){: new_window}。
+有关更多信息，请参阅[关于 COS ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}。
 
 ## 集成的工作方式
 {: #kp_cos_how}
@@ -41,14 +45,14 @@ lastupdated: "2019-01-03"
 
 下图显示 {{site.data.keyword.keymanagementserviceshort}} 如何与 {{site.data.keyword.cos_full_notm}} 集成以进一步保护加密密钥。![该图显示包络加密的上下文视图。](../images/kp-cos-envelope_min.svg)
 
-要了解有关包络加密在 {{site.data.keyword.keymanagementserviceshort}} 中的工作方式的更多信息，请参阅[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
+要了解包络加密如何在 {{site.data.keyword.keymanagementserviceshort}} 中工作的更多信息，请参阅[使用包络加密保护数据](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
 
 ## 向存储区添加包络加密
 {: #kp_cos_envelope}
 
-[指定 {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect/create-root-keys.html) 中的根密钥并[授予服务之间的访问权](/docs/services/key-protect/integrations/integrate-services.html#grant-access)后，可以使用 {{site.data.keyword.cos_full_notm}} GUI 对指定的存储区启用包络加密。
+[指定 {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) 中的根密钥并[授予服务之间的访问权](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access)后，可以使用 {{site.data.keyword.cos_full_notm}} GUI 对指定的存储区启用包络加密。
 
- 要对存储区启用高级配置选项，请确保 {{site.data.keyword.cos_full_notm}} 和 {{site.data.keyword.keymanagementserviceshort}} 服务实例之间存在[授权](/docs/services/key-protect/integrations/integrate-services.html#grant-access)。
+ 要对存储区启用高级配置选项，请确保 {{site.data.keyword.cos_full_notm}} 和 {{site.data.keyword.keymanagementserviceshort}} 服务实例之间存在[授权](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access)。
 {: tip}
 
 要向存储区添加包络加密，请执行以下操作：
@@ -62,6 +66,7 @@ lastupdated: "2019-01-03"
 
 在 {{site.data.keyword.cos_full_notm}} GUI 中，可以浏览受 {{site.data.keyword.keymanagementserviceshort}} 根密钥保护的存储区。
 
-### 后续工作
+## 后续工作
+{: #cos-integration-next-steps}
 
-- 有关将存储区与 {{site.data.keyword.keymanagementserviceshort}} 密钥相关联的更多信息，请参阅[管理加密 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage/basics/encryption.html#manage-encryption){: new_window}。 
+- 有关将存储区与 {{site.data.keyword.keymanagementserviceshort}} 密钥相关联的更多信息，请参阅[管理加密 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}。 

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,9 +25,9 @@ lastupdated: "2019-01-03"
 您可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或使用 {{site.data.keyword.keymanagementserviceshort}} API 透過程式設計方式，來新增現有加密金鑰。
 
 ## 使用 GUI 匯入標準金鑰
-{: #gui}
+{: #import-standard-key-gui}
 
-[在建立服務的實例之後](/docs/services/key-protect/provision.html)，請完成下列步驟以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 來輸入現有標準金鑰。
+[在建立服務的實例之後](/docs/services/key-protect?topic=key-protect-provision)，請完成下列步驟以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 來輸入現有標準金鑰。
 
 1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){: new_window}。
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
@@ -46,7 +50,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>金鑰類型</td>
-        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">金鑰類型</a>。從金鑰類型清單中，選取<b>標準金鑰</b>。</td>
+        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">金鑰類型</a>。從金鑰類型清單中，選取<b>標準金鑰</b>。</td>
       </tr>
       <tr>
         <td>金鑰資料</td>
@@ -66,22 +70,22 @@ lastupdated: "2019-01-03"
 5. 當您填寫完金鑰的詳細資料時，請按一下**匯入金鑰**以便確認。 
 
 ## 使用 API 匯入標準金鑰
-{: #api}
+{: #import-standard-key-api}
 
 對下列端點發出 `POST` 呼叫來匯入標準金鑰：
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect/access-api.html)。
+1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
-1. 使用下列 cURL 指令，來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
+2. 使用下列 cURL 指令，來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -117,15 +121,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect/regions.html#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-token">擷取存取記號</a>。</td>
+        <td><strong>必要。</strong>您的 {{site.data.keyword.cloud_notm}} 存取記號。請在 cURL 要求中包含 <code>IAM</code> 記號的完整內容，包括 Bearer 值。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">擷取存取記號</a>。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">擷取實例 ID</a>。</td>
+        <td><strong>必要。</strong>指派給您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的唯一 ID。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">擷取實例 ID</a>。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -174,11 +178,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     成功的 `POST api/v2/keys` 回應會傳回您金鑰的 ID 值，以及其他 meta 資料。ID 是指派給您金鑰的唯一 ID，並用於後續的 {{site.data.keyword.keymanagementserviceshort}} API 呼叫。
 
-2. 選用項目：執行下列呼叫來取得 {{site.data.keyword.keymanagementserviceshort}} 服務實例中的金鑰，確認已新增金鑰。
+3. 選用項目：執行下列呼叫來取得 {{site.data.keyword.keymanagementserviceshort}} 服務實例中的金鑰，確認已新增金鑰。
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -186,7 +190,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     {: codeblock}
 
 
-### 下一步為何？
+## 下一步為何？
+{: #import-standard-key-next-steps}
 
 - 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
-- 若要查看 {{site.data.keyword.keymanagementserviceshort}} 中所儲存的金鑰如何運作來加密及解密資料的範例，請[試用 GitHub 中的範例應用程式 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}。
+

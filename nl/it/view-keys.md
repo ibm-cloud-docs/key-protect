@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -26,20 +30,20 @@ alle chiavi per assicurare la protezione alle tue risorse.
 Controlla regolarmente la configurazione delle tue chiavi:
 
 - Esamina quando vengono create le chiavi e determina se è il momento di ruotare la chiave.
-- [Monitorare le chiamate API a{{site.data.keyword.keymanagementserviceshort}} con {{site.data.keyword.cloudaccesstrailshort}} ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}.
+- [Monitorare le chiamate API a{{site.data.keyword.keymanagementserviceshort}} con {{site.data.keyword.cloudaccesstrailshort}} ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}.
 - Ispeziona quali utenti dispongono dell'accesso alle chiavi e se il livello di accesso è appropriato.
 
-Per ulteriori informazioni sul controllo dell'accesso alle risorse, consulta [Gestione dell'accesso utente con Cloud IAM](/docs/services/key-protect/manage-access.html).
+Per ulteriori informazioni sul controllo dell'accesso alle risorse, consulta [Gestione dell'accesso utente con Cloud IAM](/docs/services/key-protect?topic=key-protect-manage-access).
 
 ## Visualizzazione delle chiavi con la GUI
-{: #gui}
+{: #view-keys-gui}
 
 Se preferisci ispezionare le chiavi nel tuo servizio con un'interfaccia grafica, puoi utilizzare il dashboard {{site.data.keyword.keymanagementserviceshort}}.
 
-[Dopo aver creato o importato le tue chiavi esistenti nel servizio](/docs/services/key-protect/create-root-keys.html), completa la seguente procedura per visualizzare la tue chiavi.
+[Dopo aver creato o importato le tue chiavi esistenti nel servizio](/docs/services/key-protect?topic=key-protect-create-root-keys), completa la seguente procedura per visualizzare la tue chiavi.
 
 1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/).
-2. Vai a **Menu** &gt; **Elenco risorse** per visualizzare un elenco delle tue risorse.
+2. Vai a **Menu** &gt; **Resource List** per visualizzare un elenco delle tue risorse.
 3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
 4. Sfoglia le caratteristiche generali delle tue chiavi dalla pagina dei dettagli dell'applicazione:
 
@@ -58,17 +62,17 @@ Se preferisci ispezionare le chiavi nel tuo servizio con un'interfaccia grafica,
       </tr>
       <tr>
         <td>Stato</td>
-        <td>Lo [stato della chiave](/docs/services/key-protect/concepts/key-states.html) basato su [NIST Special Publication 800-57, Recommendation for Key Management ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Questi stati includono <i>Preattiva</i>, <i>Attiva</i>, <i>Disattivata</i> e <i>Distrutta</i>.</td>
+        <td>Lo [stato della chiave](/docs/services/key-protect?topic=key-protect-key-states) basato su [NIST Special Publication 800-57, Recommendation for Key Management ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Questi stati includono <i>Preattiva</i>, <i>Attiva</i>, <i>Disattivata</i> e <i>Distrutta</i>.</td>
       </tr>
       <tr>
         <td>Tipo</td>
-        <td>Il [tipo di chiave](/docs/services/key-protect/concepts/envelope-encryption.html#key-types) che descrive lo scopo di progettazione della tua chiave all'interno del servizio.</td>
+        <td>Il [tipo di chiave](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) che descrive lo scopo di progettazione della tua chiave all'interno del servizio.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabella 1. Descrive la tabella <b>Chiavi</b></caption>
     </table>
 
 ## Visualizzazione delle chiavi con l'API
-{: #api}
+{: #view-keys-api}
 
 Puoi richiamare i contenuti delle tue chiavi utilizzando l'API {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -78,21 +82,21 @@ Puoi richiamare i contenuti delle tue chiavi utilizzando l'API {{site.data.keywo
 Per una vista di alto livello, puoi sfogliare le chiavi che sono gestite nella tua istanza fornita di {{site.data.keyword.keymanagementserviceshort}} effettuando una chiamata `GET` al seguente endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect/access-api.html).
+1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Esegui il seguente comando cURL per visualizzare le caratteristiche generali delle chiavi.
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>' \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys \
+    -H 'accept: application/vnd.ibm.collection+json' \
+    -H 'authorization: Bearer <IAM_token>' \
+    -H 'bluemix-instance: <instance_ID>' \
+    -H 'correlation-id: <correlation_ID>' \
     ```
     {: codeblock}
 
@@ -107,15 +111,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Richiamo di un ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -188,7 +192,7 @@ Puoi utilizzare la seguente richiesta di esempio per richiamare una diverso insi
 
   ```cURL
   curl -X GET \
-  https://keyprotect.<region>.bluemix.net/api/v2/keys?offset=<offset>&limit=<limit> \
+  https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
@@ -255,11 +259,11 @@ L'offset è la posizione di una determinata chiave in un dataset. Il valore di `
 Per visualizzare informazioni dettagliate su una chiave specifica, puoi effettuare una chiamata `GET` al seguente endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect/access-api.html).
+1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Richiama l'ID della chiave che desideri gestire o a cui vuoi accedere.
 
@@ -269,7 +273,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'accept: application/vnd.ibm.kms.key+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -286,15 +290,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, consulta <a href="/docs/services/key-protect/regions.html#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, consulta <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Richiamo di un ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -22,9 +26,9 @@ lastupdated: "2019-01-03"
 {: shortdesc}
 
 ## GUI로 표준 키 작성
-{: #gui}
+{: #create-standard-key-gui}
 
-[서비스의 인스턴스를 작성한 후](/docs/services/key-protect/provision.html), 다음 단계를 완료하여 {{site.data.keyword.keymanagementserviceshort}} GUI로 표준 키를 작성하십시오.
+[서비스의 인스턴스를 작성한 후](/docs/services/key-protect?topic=key-protect-provision), 다음 단계를 완료하여 {{site.data.keyword.keymanagementserviceshort}} GUI로 표준 키를 작성하십시오.
 
 1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")에 로그인](https://{DomainName}/){: new_window}하십시오.
 2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
@@ -47,30 +51,30 @@ lastupdated: "2019-01-03"
       </tr>
       <tr></tr>
         <td>키 유형</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">키의 유형</a>입니다. 키 유형 목록에서 <b>표준 키</b>를 선택하십시오.</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}}에서 관리할 <a href="/docs/services/key-protect/concepts?topic=key-protect-envelope-encryption#key-types">키의 유형</a>입니다. 키 유형 목록에서 <b>표준 키</b>를 선택하십시오.</td>
       </tr>
       <caption style="caption-side:bottom;">표 1. <b>키 작성</b> 설정에 대한 설명</caption>
     </table>
 
-45 키의 세부사항 채우기를 완료한 후 확인하려면 **키 작성**을 클릭하십시오. 
+5. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 작성**을 클릭하십시오. 
 
 ## API로 표준 키 작성
-{: #api}
+{: #create-standard-key-api}
 
 다음 엔드포인트에 대한 `POST` 호출을 작성하여 표준 키를 작성하십시오.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [서비스 및 인증 신임 정보를 검색하여 서비스에서 키에 대한 작업을 수행하십시오](/docs/services/key-protect/access-api.html).
+1. [서비스 및 인증용 인증 정보를 검색하여 서비스에서 키에 대한 작업을 수행](/docs/services/key-protect?topic=key-protect-set-up-api)하십시오.
 
 2. 다음 cURL 명령을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 호출하십시오.
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -94,7 +98,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     ```
     {: codeblock}
 
-    계정에 지정된 Cloud Foundry 조직과 영역 내에서 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 해당 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. [자세한 정보는 {{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
+    계정에 지정된 Cloud Foundry 조직과 영역 내에서 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 해당 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. 자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
     {: tip}
 
     다음 표에 따라 예제 요청의 변수를 대체하십시오.
@@ -105,15 +109,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect/regions.html#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-token">액세스 토큰 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> 사용자의 {{site.data.keyword.cloud_notm}} 액세스 토큰입니다. cURL 요청에 Bearer 값 등 <code>IAM</code> 토큰의 전체 컨텐츠를 포함하십시오. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">액세스 토큰 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 지정된 고유 ID입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">인스턴스 ID 검색</a>을 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -154,7 +158,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     ```cURL
     curl -X GET \
-      https://keyprotect.us-south.bluemix.net/api/v2/keys \
+      https://us-south.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -162,6 +166,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     {: codeblock}
 
 
-### 다음에 수행할 작업
+## 다음에 수행할 작업
+{: #create-standard-key-next-steps}
 
 - 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.

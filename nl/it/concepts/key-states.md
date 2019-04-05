@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Stati della chiave
+# Monitoraggio del ciclo di vita delle chiavi di crittografia
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} segue le linee guida di sicurezza da
@@ -51,11 +55,11 @@ Le chiavi di crittografia, nel loro ciclo di vita, passano attraverso vari stati
   </tr>
   <tr>
     <td>Distrutta</td>
-    <td>Le chiavi eliminate sono nello stato <i>distrutta</i>. Le chiavi in questo stato non sono ripristinabili. I metadati associati a una chiave, come il nome e la cronologia della chiave, vengono conservati nel database {{site.data.keyword.keymanagementserviceshort}}.</td>
+    <td>Le chiavi eliminate sono nello stato <i>distrutta</i>. Le chiavi in questo stato non sono ripristinabili. I metadati associati a una chiave, come il nome e la cronologia della chiave, vengono conservati nel database {{site.data.keyword.keymanagementserviceshort}}. </td>
   </tr>
   <caption style="caption-side:bottom;">Tabella 1. Descrive le transizioni e gli stati della chiave.</caption>
 </table>
 
 Dopo aver aggiunto una chiave al servizio, utilizza il dashboard {{site.data.keyword.keymanagementserviceshort}} o le API REST {{site.data.keyword.keymanagementserviceshort}} per visualizzare la configurazione e la cronologia della transizione della tua chiave. Per scopi di controllo, puoi anche monitorare il percorso di attività di una chiave integrando {{site.data.keyword.keymanagementserviceshort}} con {{site.data.keyword.cloudaccesstrailfull}}. Dopo che è stato eseguito il provisioning di entrambi i servizi e che sono in esecuzione, vengono generati gli eventi di attività e raccolti automaticamente in un log {{site.data.keyword.cloudaccesstrailshort}} quando crei ed elimini le chiavi in {{site.data.keyword.keymanagementserviceshort}}. 
 
-Per ulteriori informazioni, vedi [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+Per ulteriori informazioni, vedi [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

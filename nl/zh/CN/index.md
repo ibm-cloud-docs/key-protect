@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.keymanagementserviceshort}} 入门
+# 入门教程
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} 可帮助您为 {{site.data.keyword.cloud_notm}} 服务中的应用程序供应加密的密钥。本教程说明了如何使用 {{site.data.keyword.keymanagementserviceshort}} 仪表板来创建密钥和添加现有密钥，以便能够从一个中心位置管理数据加密。
 {: shortdesc}
@@ -29,7 +35,7 @@ lastupdated: "2019-01-03"
 
 <dl>
   <dt>根密钥</dt>
-    <dd>根密钥是可在 {{site.data.keyword.keymanagementserviceshort}} 中进行完全管理的对称密钥打包密钥。可以使用根密钥通过高级加密来保护其他密钥。要了解更多信息，请参阅<a href="/docs/services/key-protect/concepts/envelope-encryption.html">包络加密</a>。</dd>
+    <dd>根密钥是可在 {{site.data.keyword.keymanagementserviceshort}} 中进行完全管理的对称密钥打包密钥。可以使用根密钥通过高级加密来保护其他密钥。要了解更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">使用包络加密保护数据</a>。</dd>
   <dt>标准密钥</dt>
     <dd>标准密钥是用于加密的对称密钥。可以使用标准密钥直接对数据进行加密和解密。</dd>
 </dl>
@@ -60,7 +66,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>密钥类型</td>
-        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">密钥类型</a>。</td>
+        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">密钥类型</a>。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. 描述<b>创建密钥</b>设置</caption>
     </table>
@@ -95,7 +101,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>密钥类型</td>
-        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">密钥类型</a>。</td>
+        <td>要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">密钥类型</a>。</td>
       </tr>
       <tr>
         <td>密钥资料</td>
@@ -109,9 +115,10 @@ lastupdated: "2019-01-03"
 在 {{site.data.keyword.keymanagementserviceshort}} 仪表板中，可以检查新密钥的常规特征。 
 
 ## 后续工作
+{: #get-started-next-steps}
 
-现在，可使用密钥对应用程序和服务进行编码。如果向服务添加了根密钥，那么可能要了解有关使用根密钥来保护用于加密静态数据的密钥的更多信息。请查看[打包密钥](/docs/services/key-protect/wrap-keys.html)以开始。
+现在，可使用密钥对应用程序和服务进行编码。如果向服务添加了根密钥，那么可能要了解有关使用根密钥来保护用于加密静态数据的密钥的更多信息。请查看[打包密钥](/docs/services/key-protect?topic=key-protect-wrap-keys)以开始。
 
-- 要查找有关使用根密钥来管理和保护加密密钥的更多信息，请查看[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
-- 要了解有关将 {{site.data.keyword.keymanagementserviceshort}} 服务与其他云数据解决方案集成的更多信息，请[查看“集成”文档](/docs/services/key-protect/integrations/integrate-services.html)。
+- 要了解有关使用根密钥来管理和保护加密密钥的更多信息，请查看[使用包络加密保护数据](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
+- 要了解有关将 {{site.data.keyword.keymanagementserviceshort}} 服务与其他云数据解决方案集成的更多信息，请[查看“集成”文档](/docs/services/key-protect?topic=key-protect-integrate-services)。
 - 要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

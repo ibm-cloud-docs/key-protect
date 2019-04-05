@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 密钥状态
+# 监视加密密钥的生命周期
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} 遵循 [ 密钥状态的 NIST SP 800-57 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window} 所提出的安全准则。
@@ -56,4 +60,4 @@ lastupdated: "2019-01-03"
 
 向服务添加密钥后，请使用 {{site.data.keyword.keymanagementserviceshort}} 仪表板或 {{site.data.keyword.keymanagementserviceshort}} REST API 来查看密钥的转换历史记录和配置。出于审计目的，还可以通过将 {{site.data.keyword.keymanagementserviceshort}} 与 {{site.data.keyword.cloudaccesstrailfull}} 相集成来监视密钥的活动跟踪。供应并开始运行这两项服务后，在 {{site.data.keyword.keymanagementserviceshort}} 中创建和删除密钥时，会在 {{site.data.keyword.cloudaccesstrailshort}} 日志中生成并自动收集活动事件。 
 
-有关更多信息，请参阅[监视 {{site.data.keyword.keymanagementserviceshort}} 活动 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}。
+有关更多信息，请参阅[监视 {{site.data.keyword.keymanagementserviceshort}} 活动 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}。

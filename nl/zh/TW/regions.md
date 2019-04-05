@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect API endpoints, available regions
+
+subcollection: key-protect
 
 ---
 
@@ -14,11 +18,12 @@ lastupdated: "2019-01-03"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 
 # 地區及位置
 {: #regions}
 
-您可以指定地區服務端點，以使用 {{site.data.keyword.keymanagementservicelong_notm}} 服務來連接應用程式。
+您可以指定地區服務端點，以使用 {{site.data.keyword.keymanagementservicelong}} 服務來連接應用程式。
 {: shortdesc}
 
 ## 可用的地區
@@ -30,7 +35,7 @@ lastupdated: "2019-01-03"
 ## 服務端點
 {: #service-endpoints}
 
-如果您要以程式設計方式管理 {{site.data.keyword.keymanagementserviceshort}} 資源，請參閱下表，以決定要在連接至 [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect) 時使用的 API 端點： 
+如果您要以程式設計方式管理 {{site.data.keyword.keymanagementserviceshort}} 資源，請參閱下表，以決定要在連接至 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) 時使用的 API 端點： 
 
 <table>
     <tr>
@@ -76,7 +81,7 @@ lastupdated: "2019-01-03"
     <caption style="caption-side:bottom;">表 1. 顯示 {{site.data.keyword.keymanagementserviceshort}} API 的可用端點</caption>
 </table>
 
-您可以繼續使用 `https://keyprotect.<region>.bluemix.net` 設定服務的作業目錄，或者可以更新應用程式以使用新的 `cloud.ibm.com` 端點。對於存在於 Cloud Foundry 組織或空間內的 {{site.data.keyword.keymanagementserviceshort}} 服務實例，請使用舊式 `https://ibm-key-protect.edge.bluemix.net` 端點以與 {{site.data.keyword.keymanagementserviceshort}} API 互動。
+您可以繼續使用 `https://keyprotect.<region>.bluemix.net` 設定作業的目標服務，或者可以更新應用程式以使用新的 `cloud.ibm.com` 端點。
 {: tip}
 
-如需向 {{site.data.keyword.keymanagementserviceshort}} 進行鑑別的相關資訊，請參閱[存取 API](/docs/services/key-protect/access-api.html)。
+如需向 {{site.data.keyword.keymanagementserviceshort}} 進行鑑別的相關資訊，請參閱[存取 API](/docs/services/key-protect?topic=key-protect-set-up-api)。

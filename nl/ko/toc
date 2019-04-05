@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect/index.html" path="services/key-protect"}
+{: .toc subcollection="key-protect" audience="service" arm="3663407" href="/docs/services/key-protect?topic=key-protect-getting-started-tutorial" path="services/key-protect"}
 Key Protect
 
     {: .navgroup id="learn"}
@@ -10,27 +10,33 @@ Key Protect
 
     {: .topicgroup}
     개념
-        concepts/key-states.md
+        concepts/importing-keys.md
         concepts/envelope-encryption.md
         concepts/key-rotation.md
+        concepts/key-states.md
 
     {: .topicgroup}
     통합
         integrations/integrate-services.md
         integrations/integrate-cos.md
-
+    
     {: .topicgroup}
     튜토리얼
-        [튜토리얼: 엔드-투-엔드 보안을 클라우드 애플리케이션에 적용](https://cloud.ibm.com/docs/tutorials/cloud-e2e-security.html){: new_window}
+        [튜토리얼: 엔드-투-엔드 보안을 클라우드 애플리케이션에 적용](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: new_window}
 
     releases.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     provision.md
-    access-api.md
+
+    {: .topicgroup}
+    API에 액세스
+        set-up-api.md
+        retrieve-access-token.md
+        retrieve-instance-id.md
+
     set-up-cli.md
-    manage-access.md
 
     {: .topicgroup}
     키 작성
@@ -39,23 +45,41 @@ Key Protect
     
     {: .topicgroup}
     키 가져오기
+        create-transport-keys.md
         import-root-keys.md
         import-standard-keys.md
 
+    view-keys.md
+
     {: .topicgroup}
-    키 관리
-        view-keys.md
+    키 보호
         wrap-keys.md
         unwrap-keys.md
+
+    {: .topicgroup}
+    키 순환
+        set-rotation-policy.md
         rotate-keys.md
-        delete-keys.md
+        
+    delete-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Key Protect API 참조](https://cloud.ibm.com/apidocs/key-protect){: new_window}
+    [Key Protect API 참조](https://{DomainName}/apidocs/key-protect){: new_window}
     cli-reference.md
     regions.md
+
+    {: .topicgroup}
+    사용자 액세스 권한
+        manage-access.md
+
     at-events.md
+
+    {: .topicgroup}
+    데이터 보안
+        ha-dr.md
+        data-security.md
+
     related-links.md
     {: .navgroup-end}
 

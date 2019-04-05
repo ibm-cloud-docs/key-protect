@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -158,7 +162,7 @@ Viene visualizzato il seguente errore:
 ```
 {: screen}
 
-Il 15 dicembre 2017, abbiamo aggiunto nuove funzioni, come la [crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html), al servizio {{site.data.keyword.keymanagementserviceshort}}. Puoi ora eseguire il provisioning del servizio {{site.data.keyword.keymanagementserviceshort}} all'interno di un gruppo di risorse senza dover specificare un'organizzazione e uno spazio Cloud Foundry.
+Il 15 dicembre 2017, abbiamo aggiunto nuove funzioni, come la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption), al servizio {{site.data.keyword.keymanagementserviceshort}}. Puoi ora eseguire il provisioning del servizio {{site.data.keyword.keymanagementserviceshort}} all'interno di un gruppo di risorse senza dover specificare un'organizzazione e uno spazio Cloud Foundry.
 {: tsCauses}
 
 Queste modifiche hanno interessato l'interfaccia utente per le istanze più vecchie del servizio. Se hai creato la tua istanza di {{site.data.keyword.keymanagementserviceshort}} prima del 28 settembre 2017, l'interfaccia utente potrebbe non funzionare come previsto.
@@ -193,7 +197,7 @@ Puoi vedere un elenco di chiavi, ma non vedi le opzioni per aggiungere o elimina
 Non hai l'autorizzazione corretta per eseguire le azioni di {{site.data.keyword.keymanagementserviceshort}}.
 {: tsCauses} 
 
-Verifica con il tuo amministratore che ti sia stato assegnato il ruolo corretto nel gruppo di risorse o nell'istanza del servizio applicabile. Per ulteriori informazioni sui ruoli, vedi [Ruoli e autorizzazioni](/docs/services/key-protect/manage-access.html#roles).
+Verifica con il tuo amministratore che ti sia stato assegnato il ruolo corretto nel gruppo di risorse o nell'istanza del servizio applicabile. Per ulteriori informazioni sui ruoli, vedi [Ruoli e autorizzazioni](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
 
 ## Come ottenere aiuto e supporto
@@ -211,6 +215,6 @@ Puoi rivedere i forum per controllare se altri utenti hanno riscontrato lo stess
 - Per domande sul servizio e sulle istruzioni introduttive, utilizza il forum [IBM developerWorks dW Answers ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window}. Includi le tag "ibm-cloud"
 e "key-protect".
 
-Per ulteriori dettagli sull'utilizzo dei forum, consulta il documento relativo a [come ottenere supporto ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](https://{DomainName}/docs/support/index.html#getting-help){: new_window}.
+Per ulteriori dettagli sull'utilizzo dei forum, consulta il documento relativo a [Richiesta di supporto ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](/docs/get-support?topic=get-support-using-avatar){: new_window}.
 
-Per ulteriori informazioni sull'apertura di un ticket di supporto {{site.data.keyword.IBM_notm}} o sui livelli di supporto e sulla gravità dei ticket, vedi [Come contattare il supporto ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}.
+Per ulteriori informazioni sull'apertura di un ticket di supporto {{site.data.keyword.IBM_notm}} o sui livelli di supporto e sulla gravità dei ticket, vedi [Come contattare il supporto ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

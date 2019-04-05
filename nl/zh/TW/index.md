@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 開始使用 {{site.data.keyword.keymanagementserviceshort}}
+# 入門指導教學
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} 可協助您在 {{site.data.keyword.cloud_notm}} 服務之間為應用程式佈建加密金鑰。本指導教學示範如何使用 {{site.data.keyword.keymanagementserviceshort}} 儀表板建立及新增現有加密金鑰，以從一個集中位置來管理資料加密。
 {: shortdesc}
@@ -28,8 +34,8 @@ lastupdated: "2019-01-03"
 從兩種金鑰類型中進行選擇：
 
 <dl>
-  <dt>主要金鑰</dt>
-    <dd>主要金鑰是您在 {{site.data.keyword.keymanagementserviceshort}} 中完全管理的對稱金鑰包裝金鑰。您可以使用主要金鑰，以利用進階加密來保護其他加密金鑰。若要進一步瞭解，請參閱<a href="/docs/services/key-protect/concepts/envelope-encryption.html">封套加密</a>。</dd>
+  <dt>根金鑰</dt>
+    <dd>根金鑰是您在 {{site.data.keyword.keymanagementserviceshort}} 中完全管理的對稱金鑰包裝金鑰。您可以使用根金鑰，以利用進階加密來保護其他加密金鑰。若要進一步瞭解，請參閱<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">使用封套加密保護資料</a>。</dd>
   <dt>標準金鑰</dt>
     <dd>標準金鑰是用於加密的對稱金鑰。您可以使用標準金鑰來直接加密及解密資料。</dd>
 </dl>
@@ -60,7 +66,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>金鑰類型</td>
-        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">金鑰類型</a>。</td>
+        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">金鑰類型</a>。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. <b>建立金鑰</b>設定的說明</caption>
     </table>
@@ -95,7 +101,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>金鑰類型</td>
-        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">金鑰類型</a>。</td>
+        <td>您要在 {{site.data.keyword.keymanagementserviceshort}} 中管理的<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">金鑰類型</a>。</td>
       </tr>
       <tr>
         <td>金鑰資料</td>
@@ -109,9 +115,10 @@ lastupdated: "2019-01-03"
 從 {{site.data.keyword.keymanagementserviceshort}} 儀表板中，您可以檢查新金鑰的一般特徵。 
 
 ## 下一步為何？
+{: #get-started-next-steps}
 
-現在，您可以使用金鑰來編碼應用程式及服務。如果您新增了主要金鑰給服務，建議您進一步瞭解如何使用主要金鑰來保護將您的靜態資料加密的金鑰。請參閱[包裝金鑰](/docs/services/key-protect/wrap-keys.html)以便開始。
+現在，您可以使用金鑰來編碼應用程式及服務。如果您新增了根金鑰給服務，建議您進一步瞭解如何使用根金鑰來保護將您的靜態資料加密的金鑰。請參閱[包裝金鑰](/docs/services/key-protect?topic=key-protect-wrap-keys)以便開始。
 
-- 若要進一步瞭解如何使用主要金鑰管理和保護您的加密金鑰，請參閱[封套加密](/docs/services/key-protect/concepts/envelope-encryption.html)。
-- 若要進一步瞭解如何整合 {{site.data.keyword.keymanagementserviceshort}} 服務與其他雲端資料解決方案，[請參閱整合文件](/docs/services/key-protect/integrations/integrate-services.html)。
+- 若要進一步瞭解如何使用根金鑰來管理和保護加密金鑰，請參閱[使用封套加密保護資料](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
+- 若要進一步瞭解如何整合 {{site.data.keyword.keymanagementserviceshort}} 服務與其他雲端資料解決方案，[請參閱整合文件](/docs/services/key-protect?topic=key-protect-integrate-services)。
 - 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。

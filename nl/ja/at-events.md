@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-22"
+
+keywords: Activity tracker events, KMS API calls, monitor KMS events
+
+subcollection: key-protect
 
 ---
 
@@ -16,62 +20,35 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # {{site.data.keyword.cloudaccesstrailshort}} イベント
-{: #at-events}
+{: #activity-tracker-events}
 
 {{site.data.keyword.cloudaccesstrailfull}} サービスを使用して、ユーザーとアプリケーションが {{site.data.keyword.keymanagementservicefull}} と対話する方法を追跡します。 
 {: shortdesc}
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} サービスは、{{site.data.keyword.cloud_notm}} のサービスの状態を変更する、ユーザーが開始したアクティビティーを記録します。 
 
-詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla){: new_window} を参照してください。
+詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window} を参照してください。
 
 ## イベントのリスト
-{: #events}
+{: #list-activity-tracker-events}
 
 以下の表に、イベントを生成するアクションをリストします。
 
-<table>
-    <tr>
-        <th>アクション</th>
-        <th>説明</th>
-    </tr>
-    <tr>
-        <td>kms.secrets.create</td>
-        <td>鍵を作成します</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.read</td>
-        <td>ID によって鍵を取得します</td>
-    </tr>
-   <tr>
-        <td>kms.secrets.delete</td>
-        <td>ID によって鍵を削除します</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.list</td>
-        <td>鍵のリストを取得します</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.head</td>
-        <td>鍵の数を取得します</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.wrap</td>
-        <td>鍵をラップします</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.unwrap</td>
-        <td>鍵をアンラップします</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.rotate</td>
-        <td>鍵をローテートします</td>
-    </tr>
-    <caption style="caption-side:bottom;">表 1. {{site.data.keyword.cloudaccesstrailfull_notm}} イベントを生成するアクション</caption>
-</table>
+| アクション               | 説明                 |
+| -------------------- | --------------------------- |
+| `kms.secrets.create` | 鍵を作成します                |
+| `kms.secrets.read`   | ID によって鍵を取得します        |
+| `kms.secrets.delete` | ID によって鍵を削除します          |
+| `kms.secrets.list`   | 鍵のリストを取得します     |
+| `kms.secrets.head`   | 鍵の数を取得します |
+| `kms.secrets.wrap`   | 鍵をラップします                  |
+| `kms.secrets.unwrap` | 鍵をアンラップします                |
+| `kms.policies.read`  | 鍵のポリシーを表示します     |
+| `kms.policies.write` | 鍵のポリシーを設定します      |
+{: caption="表 1. {{site.data.keyword.cloudaccesstrailfull_notm}} イベントを生成するアクション" caption-side="top"}
 
 ## イベントの表示場所
-{: #gui}
+{: #view-activity-tracker-events}
 
 <!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
@@ -82,6 +59,6 @@ lastupdated: "2019-01-03"
 API アクティビティーをモニターするには、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域で使用可能なスペースで {{site.data.keyword.cloudaccesstrailshort}} サービスをプロビジョンする必要があります。 その後、ライト・プランを利用している場合は {{site.data.keyword.cloudaccesstrailshort}} UI のアカウント・ビューから、プレミアム・プランを利用している場合は Kibana からイベントを表示することができます。
 
 ## 追加情報
-{: #info}
+{: #activity-tracker-info}
 
 暗号鍵に関する情報の機密性により、{{site.data.keyword.keymanagementserviceshort}} サービスに対する API 呼び出しの結果でイベントが生成されるときに、生成されるイベントには鍵に関する詳細情報は含められません。 このイベントには、クラウド環境で内部的に鍵を識別するために使用できる相関 ID が含められます。 この相関 ID は、`responseHeader.content` フィールドの一部として返されるフィールドです。 この情報を使用して、{{site.data.keyword.keymanagementserviceshort}} 鍵を、{{site.data.keyword.cloudaccesstrailshort}} イベントを通じて報告されたアクションの情報と相互に関連付けることができます。

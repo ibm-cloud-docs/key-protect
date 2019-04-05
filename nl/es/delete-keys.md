@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: delete key, delete key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,15 +25,15 @@ lastupdated: "2019-01-03"
 Puede utilizar {{site.data.keyword.keymanagementservicefull}} para suprimir una clave de cifrado y su contenido, si es un administrador para el espacio de {{site.data.keyword.cloud_notm}} o la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Cuando suprime una clave, destruye el contenido y los datos asociados a ella de forma permanente. La acción no se puede revertir. No se recomienda la destrucción de recursos para los entornos de producción, pero podría ser útil para entornos temporales como la realización de pruebas o QA.
+Cuando suprime una clave, destruye el contenido y los datos asociados a ella de forma permanente. La acción no se puede revertir. No se recomienda la [destrucción de recursos](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) para los entornos de producción, pero podría ser útil para entornos temporales como la realización de pruebas o QA.
 {: important}
 
 ## Supresión de claves con la GUI
-{: #gui}
+{: #delete-key-gui}
 
 Si prefiere suprimir sus claves de cifrado utilizando una interfaz gráfica, puede utilizar la GUI de {{site.data.keyword.keymanagementserviceshort}}.
 
-[Después de crear o importar sus claves existentes en el servicio](/docs/services/key-protect/create-root-keys.html), complete los siguientes pasos para suprimir una clave:
+[Después de crear o importar sus claves existentes en el servicio](/docs/services/key-protect?topic=key-protect-create-root-keys), complete los siguientes pasos para suprimir una clave:
 
 1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/){: new_window}.
 2. Vaya a **Menú** &gt; **Lista de recursos** para ver una lista de sus recursos.
@@ -41,15 +45,15 @@ Si prefiere suprimir sus claves de cifrado utilizando una interfaz gráfica, pue
 Después de suprimir una clave, la clave pasa al estado _Destruida_. Las claves con este estado no son recuperables. Los metadatos asociados con la clave como, por ejemplo, la fecha de supresión de la clave, se mantienen en la base de datos de {{site.data.keyword.keymanagementserviceshort}}.
 
 ## Supresión de claves con la API
-{: #api}
+{: #delete-key-api}
 
 Para suprimir una clave y su contenido, realice una llamada `DELETE` al siguiente punto final.
 
 ```
-https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>
+https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>
 ```
 
-1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio](/docs/services/key-protect/access-api.html).
+1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Recupere el ID de la clave que desea suprimir.
 
@@ -59,10 +63,10 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>
 
     ```cURL
     curl -X DELETE \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'prefer: <return_preference>'
+      https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave> \
+      -H 'authorization: Bearer <señal_IAM>' \
+      -H 'bluemix-instance: <ID_instancia>' \
+      -H 'prefer: <preferencia_retorno>'
     ```
     {: codeblock}
   
@@ -77,7 +81,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>
@@ -85,11 +89,11 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>
       </tr>
       <tr>
         <td><varname>señal_IAM</varname></td>
-        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperación de una señal de acceso</a>.</td>
+        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Recuperación de una señal de acceso</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_instancia</varname></td>
-        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
+        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
       </tr>
       <tr>
         <td><varname>preferencia_retorno</varname></td>

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect CLI plug-in, CLI reference
+
+subcollection: key-protect
 
 ---
 
@@ -16,14 +20,14 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # Consulta de la CLI de {{site.data.keyword.keymanagementserviceshort}}
-{: #key-protect-cli}
+{: #cli-reference}
 
 Puede utilizar el plugin de la CLI de {{site.data.keyword.keymanagementserviceshort}} para gestionar claves en su instancia de {{site.data.keyword.keymanagementserviceshort}}.
 {:shortdesc}
 
-Para instalar el plugin de la CLI, consulte [Configuración de la CLI](/docs/services/key-protect/set-up-cli.html). 
+Para instalar el plugin de la CLI, consulte [Configuración de la CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Cuando inicie sesión en la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli/index.html#overview){: new_window}, se le notificará cuando haya actualizaciones disponibles. Asegúrese de mantener la CLI al día para que pueda utilizar los mandatos y las señales disponibles para el plugin de la CLI de {{site.data.keyword.keymanagementserviceshort}}.
+Cuando inicie sesión en la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}, se le notificará cuando haya actualizaciones disponibles. Asegúrese de mantener la CLI al día para que pueda utilizar los mandatos y las señales disponibles para el plugin de la CLI de {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
 ## Mandatos ibmcloud kp
@@ -40,12 +44,12 @@ Puede especificar uno de los siguientes mandatos:
             <td><a href="#kp-create">kp create</a></td>
             <td><a href="#kp-delete">kp delete</a></td>
             <td><a href="#kp-list">kp list</a></td>
+            <td><a href="#kp-get">kp get</a></td>
             <td><a href="#kp-rotate">kp rotate</a></td>
-            <td><a href="#kp-unwrap">kp unwrap</a></td>
         </tr>
         <tr>
+            <td><a href="#kp-unwrap">kp unwrap</a></td>
             <td><a href="#kp-wrap">kp wrap</a></td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -57,12 +61,13 @@ Puede especificar uno de los siguientes mandatos:
 ## kp create
 {: #kp-create}
 
-[Crea una clave raíz](/docs/services/key-protect/create-root-keys.html) en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} que especifique. 
+[Crea una clave raíz](/docs/services/key-protect?topic=key-protect-create-root-keys) en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} que especifique. 
 
 ```sh
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
+                   [--output FORMAT]
 ```
 {:pre}
 
@@ -83,13 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-k, --key-material</code></dt>
         <dd>Material de clave codificado en base64 que desea almacenar y gestionar en el servicio. Para importar una clave existente, proporcione una clave de 256 bits. Para generar una nueva clave, omita el parámetro <code>--key-material</code>.</dd>
     <dt><code>-s, --standard-key</code></dt>
-        <dd>Establezca el parámetro sólo si desea crear una <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">clave estándar</a>. Para crear una clave raíz, omita el parámetro <code>--standard-key</code>.</dd>
+        <dd>Establezca el parámetro sólo si desea crear una <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">clave estándar</a>. Para crear una clave raíz, omita el parámetro <code>--standard-key</code>.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
 </dl>
 
 ## kp delete
 {: #kp-delete}
 
-[Suprime una clave](/docs/services/key-protect/delete-keys.html) que esté almacenada en el servicio {{site.data.keyword.keymanagementserviceshort}}.
+[Suprime una clave](/docs/services/key-protect?topic=key-protect-delete-keys) que esté almacenada en el servicio {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -124,10 +131,48 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
         <dd>ID de instancia de {{site.data.keyword.cloud_notm}} que identifica la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.</dd>
 </dl>
 
+### Parámetros opcionales
+{: #list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
+</dl>
+
+## kp get
+{: #kp-get}
+
+Recuperar detalles sobre una clave, como por ejemplo los metadatos y el material de la clave.
+
+Si la clave se ha designado como una clave raíz, el sistema no puede devolver el material de clave de dicha clave.
+
+```sh
+ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Parámetros necesarios
+{: #get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>El ID de la clave que desea recuperar. Para recuperar una lista de las claves disponibles, ejecute el mandato <a href="#kp-list">kp list</a>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>ID de instancia de {{site.data.keyword.cloud_notm}} que identifica la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Parámetros opcionales
+{: #get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
+</dl>
+
 ## kp rotate
 {: #kp-rotate}
 
-[Rota una clave](/docs/services/key-protect/wrap-keys.html) almacenada en el servicio {{site.data.keyword.keymanagementserviceshort}}.
+[Rota una clave](/docs/services/key-protect?topic=key-protect-wrap-keys) almacenada en el servicio {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -151,12 +196,14 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>Material de clave codificado en base64 que desea utilizar para rotar una clave raíz existente. Para rotar una clave que inicialmente se importó al servicio, proporcione una clave nueva de 256 bits. Para rotar una clave que inicialmente se generó en {{site.data.keyword.keymanagementserviceshort}}, omita el parámetro <code>--key-material</code>.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
 </dl>
 
 ## kp wrap
 {: #kp-wrap}
 
-[Envuelve una clave de cifrado de datos](/docs/services/key-protect/wrap-keys.html) utilizando una clave raíz que está almacenada en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} que especifique.
+[Envuelve una clave de cifrado de datos](/docs/services/key-protect?topic=key-protect-wrap-keys) utilizando una clave raíz que está almacenada en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} que especifique.
 
 ```sh
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -184,12 +231,14 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Datos de autenticación adicionales (AAD) que se utilizan para proteger aún más una clave. Si se proporcionan para envolver también se deben proporcionar para desenvolver.</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>Clave de cifrado de datos (DEK) con codificación base64 que desea gestionar y proteger. Para importar una clave existente, proporcione una clave de 256 bits. Para generar y envolver una nueva DEK, omita el parámetro <code>--plaintext</code>.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
 </dl>
 
 ## kp unwrap
 {: #kp-unwrap}
 
-[Desenvuelve una clave de cifrado de datos](/docs/services/key-protect/unwrap-keys.html) utilizando una clave raíz que está almacenada en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.
+[Desenvuelve una clave de cifrado de datos](/docs/services/key-protect?topic=key-protect-unwrap-keys) utilizando una clave raíz que está almacenada en la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
@@ -216,6 +265,8 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>Datos de autenticación adicionales (AAD) que se han utilizado para proteger aún más una clave. Puede proporcionar hasta 255 series, delimitadas mediante comas. Si ha proporcionado AAD durante el envolvimiento, debe especificar los mismos AAD durante el desenvolvimiento.</p><p><b>Importante:</b> El servicio {{site.data.keyword.keymanagementserviceshort}} no guarda datos de autenticación adicionales. Si proporciona AAD, guarde los datos en una ubicación segura para asegurarse de que pueda acceder y proporcionar los mismos AAD durante las llamadas de desenvolvimiento subsiguientes.</p></dd>
+    <dt><code>--output</code></dt>
+        <dd>Establezca el formato de salida de la CLI. De forma predeterminada, todos los mandatos se imprimen en formato de tabla. Para cambiar el formato de salida a JSON, utilice <code>--output json</code>.</dd>
 </dl>
 
 

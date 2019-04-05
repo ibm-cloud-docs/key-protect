@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: related links, blogs, sample apps, SLA, service level agreement
+
+subcollection: key-protect
 
 ---
 
@@ -39,7 +43,8 @@ Ressources supplémentaires pour vous aider à mieux comprendre la gestion du ch
 - [Accord sur les niveaux de service {{site.data.keyword.keymanagementservicelong_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 
 ## Services connexes
-{: #related_services}
+{: #related-services}
 
+- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM ![Icône Lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
 

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -29,7 +33,7 @@ lastupdated: "2019-01-03"
 
 {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを削除しようとすると、サービスが期待どおりに削除されません。
 
-{{site.data.keyword.cloud_notm}} ダッシュボードで**「Cloud Foundry サービス」**にナビゲートし、{{site.data.keyword.keymanagementserviceshort}} のインスタンスを選択します。「⋮」アイコンをクリックしてサービス・オファリングのオプションのリストを開き、**「サービスの削除」**をクリックします。
+{{site.data.keyword.cloud_notm}} ダッシュボードで**「Cloud Foundry サービス」**にナビゲートし、{{site.data.keyword.keymanagementserviceshort}} のインスタンスを選択します。 「⋮」アイコンをクリックしてサービス・オファリングのオプションのリストを開き、**「サービスの削除」**をクリックします。
 {: tsSymptoms}
 
 サービスの削除に失敗し、以下のエラーが表示されます。 
@@ -38,10 +42,10 @@ lastupdated: "2019-01-03"
 ```
 {: screen}
 
-2017 年 12 月 15 日に、{{site.data.keyword.keymanagementserviceshort}} は、Cloud Foundry の組織、スペース、役割の使用から IAM およびリソース・グループの使用に移行しました。Cloud Foundry の組織およびスペースを指定することなく、リソース・グループ内で {{site.data.keyword.keymanagementserviceshort}} サービスをプロビジョンできるようになりました。
+2017 年 12 月 15 日に、{{site.data.keyword.keymanagementserviceshort}} は、Cloud Foundry の組織、スペース、役割の使用から IAM およびリソース・グループの使用に移行しました。 Cloud Foundry の組織およびスペースを指定することなく、リソース・グループ内で {{site.data.keyword.keymanagementserviceshort}} サービスをプロビジョンできるようになりました。
 {: tsCauses}
 
-こうした変更により、サービスの古いインスタンスでのプロビジョン解除の動作に影響がありました。{{site.data.keyword.keymanagementserviceshort}} のインスタンスを作成したのが 2017 年 9 月 28 日より前だった場合、サービスの削除は期待どおりに機能しないことがあります。
+こうした変更により、サービスの古いインスタンスでのプロビジョン解除の動作に影響がありました。 {{site.data.keyword.keymanagementserviceshort}} のインスタンスを作成したのが 2017 年 9 月 28 日より前だった場合、サービスの削除は期待どおりに機能しないことがあります。
 
 古い {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを削除するには、まず、レガシー `https://ibm-key-protect.edge.bluemix.net` エンドポイントを使用して {{site.data.keyword.keymanagementserviceshort}} サービスと対話することで、既存の鍵を削除する必要があります。
 {: tsResolve}
@@ -109,7 +113,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
     ```
     {: codeblock}
 
-    `<access_token>`、`<organization_GUID>`、`<space_GUID>`、および `<key_ID>` は、ステップ 3 から 5 で取得した値に置き換えてください。鍵ごとにコマンドを繰り返します。    
+    `<access_token>`、`<organization_GUID>`、`<space_GUID>`、および `<key_ID>` は、ステップ 3 から 5 で取得した値に置き換えてください。 鍵ごとにコマンドを繰り返します。    
 
 8. 以下の cURL コマンドを実行して、鍵が削除されたことを確認します。
 
@@ -156,7 +160,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 ```
 {: screen}
 
-2017 年 12 月 15 日に、新しいフィーチャー ([エンベロープ暗号化](/docs/services/key-protect/concepts/envelope-encryption.html)など) が {{site.data.keyword.keymanagementserviceshort}} サービスに追加されました。 Cloud Foundry の組織およびスペースを指定することなく、リソース・グループ内で {{site.data.keyword.keymanagementserviceshort}} サービスをプロビジョンできるようになりました。
+2017 年 12 月 15 日に、新しいフィーチャー ([エンベロープ暗号化](/docs/services/key-protect?topic=key-protect-envelope-encryption)など) が {{site.data.keyword.keymanagementserviceshort}} サービスに追加されました。 Cloud Foundry の組織およびスペースを指定することなく、リソース・グループ内で {{site.data.keyword.keymanagementserviceshort}} サービスをプロビジョンできるようになりました。
 {: tsCauses}
 
 これらの変更により、古いサービス・インスタンスのユーザー・インターフェースに影響がありました。 {{site.data.keyword.keymanagementserviceshort}} のインスタンスを作成したのが 2017 年 9 月 28 日より前だった場合、ユーザー・インターフェースが予期されたようには動作しないことがあります。
@@ -191,7 +195,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 {{site.data.keyword.keymanagementserviceshort}} アクションを実行するための正しい許可を持っていません。
 {: tsCauses} 
 
-該当するリソース・グループまたはサービス・インスタンスにおいて正しい役割を割り当てられているかどうか、管理者と共に検証してください。 役割について詳しくは、[役割と許可](/docs/services/key-protect/manage-access.html#roles)を参照してください。
+該当するリソース・グループまたはサービス・インスタンスにおいて正しい役割を割り当てられているかどうか、管理者と共に検証してください。 役割について詳しくは、[役割と許可](/docs/services/key-protect?topic=key-protect-manage-access#roles)を参照してください。
 {: tsResolve}
 
 ## ヘルプおよびサポートの利用
@@ -207,6 +211,6 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 - {{site.data.keyword.keymanagementserviceshort}} について技術的な質問がある場合は、[Stack Overflow ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} に質問を投稿し、その質問に「ibm-cloud」と「key-protect」のタグを付けてください。
 - サービスや使用開始の手順についての質問には、[IBM developerWorks dW Answers ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} フォーラムを使用してください。 「ibm-cloud」と「key-protect」のタグを付けてください。
 
-フォーラムの使用について詳しくは、[ヘルプの利用 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/docs/support/index.html#getting-help){: new_window} を参照してください。
+フォーラムの使用について詳しくは、[サポートの利用 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/get-support?topic=get-support-using-avatar){: new_window} を参照してください。
 
-{{site.data.keyword.IBM_notm}} サポート・チケットのオープンや、サポート・レベルおよびチケットの重大度について詳しくは、[サポートへの問い合わせ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window} を参照してください。
+{{site.data.keyword.IBM_notm}} サポート・チケットのオープンや、サポート・レベルおよびチケットの重大度について詳しくは、[サポートへの問い合わせ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/get-support?topic=get-support-getting-customer-support){: new_window} を参照してください。

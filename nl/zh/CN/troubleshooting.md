@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -156,7 +160,7 @@ lastupdated: "2019-01-03"
 ```
 {: screen}
 
-2017 年 12 月 15 日，我们向 {{site.data.keyword.keymanagementserviceshort}} 服务添加了新功能，例如，[包络加密](/docs/services/key-protect/concepts/envelope-encryption.html)。现在，可在资源组内供应 {{site.data.keyword.keymanagementserviceshort}} 服务，而无需指定 Cloud Foundry 组织和空间。
+2017 年 12 月 15 日，我们向 {{site.data.keyword.keymanagementserviceshort}} 服务添加了新功能，例如，[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)。现在，可在资源组内供应 {{site.data.keyword.keymanagementserviceshort}} 服务，而无需指定 Cloud Foundry 组织和空间。
 {: tsCauses}
 
 这些更改影响较旧的服务实例的用户界面。如果在 2017 年 9 月 28 日之前创建 {{site.data.keyword.keymanagementserviceshort}} 实例，那么用户界面可能无法按期望工作。
@@ -191,7 +195,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 您没有正确的权限来执行 {{site.data.keyword.keymanagementserviceshort}} 操作。
 {: tsCauses} 
 
-与您的管理员确认是否已在适用的资源组或服务实例中为您分配了正确的角色。有关角色的更多信息，请参阅[角色和许可权](/docs/services/key-protect/manage-access.html#roles)。
+与您的管理员确认是否已在适用的资源组或服务实例中为您分配了正确的角色。有关角色的更多信息，请参阅[角色和许可权](/docs/services/key-protect?topic=key-protect-manage-access#roles)。
 {: tsResolve}
 
 ## 获取帮助和支持
@@ -207,6 +211,6 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 - 如果有关于 {{site.data.keyword.keymanagementserviceshort}} 的技术问题，请将您的问题发布到 [Stack Overflow ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} 上，并使用“ibm-cloud”和“key-protect”标记问题。
 - 有关服务的问题和入门指示信息，请使用 [IBM developerWorks dW Answers ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} 论坛。请包括“ibm-cloud”和“key-protect”标记。
 
-有关使用论坛的更多详细信息，请参阅[获取帮助 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/docs/support/index.html#getting-help){: new_window}。
+有关使用论坛的更多详细信息，请参阅[获取支持 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/get-support?topic=get-support-using-avatar){: new_window}。
 
-有关提交 {{site.data.keyword.IBM_notm}} 支持凭单或支持级别和凭单严重性的更多信息，请参阅[联系支持人员 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}。
+有关提交 {{site.data.keyword.IBM_notm}} 支持凭单或支持级别和凭单严重性的更多信息，请参阅[联系支持人员 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
+
+subcollection: key-protect
 
 ---
 
@@ -20,17 +24,17 @@ lastupdated: "2019-01-03"
 
 Puede utilizar el plugin de CLI de {{site.data.keyword.keymanagementservicelong_notm}} para crear, importar y gestionar claves de cifrado.
 
-Para obtener más información sobre el uso de la CLI, consulte el [documento de consulta de CLI de {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect/cli-reference.html).
+Para obtener más información sobre el uso del plug-in de CLI de {{site.data.keyword.keymanagementserviceshort}}, consulte el [documento de consulta de CLI de {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-cli-reference).
 {: tip}
 
 ## Instalación del plugin de CLI de {{site.data.keyword.keymanagementserviceshort}}
 {: #install-cli}
 
-Antes de configurar el plugin de CLI de {{site.data.keyword.keymanagementserviceshort}}, instale la CLI de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli/index.html#overview){: new_window}. 
+Antes de configurar el plugin de CLI de {{site.data.keyword.keymanagementserviceshort}}, instale la CLI de [{{site.data.keyword.cloud_notm}}![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}. 
 
 Para instalar las CLI:
 
-1. Instale la CLI de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli/index.html#overview){: new_window}.
+1. Instale la CLI de [{{site.data.keyword.cloud_notm}}![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     Después de instalar la CLI, puede ejecutar mandatos `ibmcloud` para interactuar con sus servicios de nube.
 
@@ -41,7 +45,8 @@ Para instalar las CLI:
     ```
     {: pre}
 
-    **Nota:** Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    {: note}
 
 3. Para empezar a gestionar claves de cifrado, instale el plugin de CLI de {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -64,14 +69,15 @@ Es posible que desee actualizar la CLI periódicamente para utilizar caracterís
 
 Para actualizar la CLI:
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la CLI de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli/index.html#overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     ```sh
     ibmcloud login 
     ```
     {: pre}
 
-    **Nota:** Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    {: note}
 
 2. Instale la actualización desde el repositorio de plugins.
 
@@ -90,14 +96,15 @@ Para actualizar la CLI:
 ## Desinstalación del plugin de CLI de {{site.data.keyword.keymanagementserviceshort}}
 {: #uninstall-cli}
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la CLI de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli/index.html#overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
 
     ```sh
     ibmcloud login 
     ```
     {: pre}
 
-    **Nota:** Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    Si el inicio de sesión falla, ejecute el mandato `ibmcloud login --sso` para intentarlo de nuevo. El parámetro `--sso` es obligatorio al iniciar sesión con un ID federado. Si se utiliza esta opción, vaya al enlace mostrado en la salida de la CLI para generar un código de acceso puntual.
+    {: note}
 
 2. Instale la actualización desde el repositorio de plugins.
 

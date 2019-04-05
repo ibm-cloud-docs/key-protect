@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect API endpoints, available regions
+
+subcollection: key-protect
 
 ---
 
@@ -14,11 +18,12 @@ lastupdated: "2019-01-03"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 
 # 地域とロケーション
 {: #regions}
 
-地域のサービス・エンドポイントを指定することによって、アプリケーションを {{site.data.keyword.keymanagementservicelong_notm}} サービスに接続できます。
+地域のサービス・エンドポイントを指定することによって、アプリケーションを {{site.data.keyword.keymanagementservicelong}} サービスに接続できます。
 {: shortdesc}
 
 ## 使用可能な地域
@@ -30,7 +35,7 @@ lastupdated: "2019-01-03"
 ## サービス・エンドポイント
 {: #service-endpoints}
 
-{{site.data.keyword.keymanagementserviceshort}} リソースをプログラムで管理している場合は、次の表を参照して、[{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect) への接続時に使用する API エンドポイントを判断してください。 
+{{site.data.keyword.keymanagementserviceshort}} リソースをプログラムで管理している場合は、次の表を参照して、[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) への接続時に使用する API エンドポイントを判断してください。 
 
 <table>
     <tr>
@@ -76,7 +81,7 @@ lastupdated: "2019-01-03"
     <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} API の使用可能なエンドポイント</caption>
 </table>
 
-引き続き `https://keyprotect.<region>.bluemix.net` を使用して、操作対象のサービスをターゲットにすることができます。あるいは、新しい `cloud.ibm.com` エンドポイントを使用してアプリケーションを更新することもできます。Cloud Foundry 組織またはスペース内に存在する {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの場合は、既存の `https://ibm-key-protect.edge.bluemix.net` エンドポイントを使用して、{{site.data.keyword.keymanagementserviceshort}} API と相互作用します。
+引き続き `https://keyprotect.<region>.bluemix.net` を使用して、操作対象のサービスをターゲットにすることができます。あるいは、新しい `cloud.ibm.com` エンドポイントを使用してアプリケーションを更新することもできます。 
 {: tip}
 
-{{site.data.keyword.keymanagementserviceshort}} での認証について詳しくは、[API へのアクセス](/docs/services/key-protect/access-api.html)を参照してください。
+{{site.data.keyword.keymanagementserviceshort}} での認証について詳しくは、[API へのアクセス](/docs/services/key-protect?topic=key-protect-set-up-api)を参照してください。

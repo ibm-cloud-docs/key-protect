@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -22,12 +26,12 @@ Puoi creare una chiave di crittografia standard con la GUI {{site.data.keyword.k
 {: shortdesc}
 
 ## Creazione delle chiavi standard con la GUI
-{: #gui}
+{: #create-standard-key-gui}
 
-[Dopo aver creato un'istanza del servizio](/docs/services/key-protect/provision.html), completa la seguente procedura per creare una chiave standard con la GUI {{site.data.keyword.keymanagementserviceshort}}.
+[Dopo aver creato un'istanza del servizio](/docs/services/key-protect?topic=key-protect-provision), completa la seguente procedura per creare una chiave standard con la GUI {{site.data.keyword.keymanagementserviceshort}}.
 
 1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/){: new_window}.
-2. Vai a **Menu** &gt; **Elenco risorse** per visualizzare un elenco delle tue risorse.
+2. Vai a **Menu** &gt; **Resource List** per visualizzare un elenco delle tue risorse.
 3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
 4. Per creare una nuova chiave, fai clic su **Add key** e seleziona la finestra **Create a key**.
 
@@ -47,30 +51,30 @@ Puoi creare una chiave di crittografia standard con la GUI {{site.data.keyword.k
       </tr>
       <tr></tr>
         <td>Tipo di chiave</td>
-        <td>Il <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}. Dall'elenco dei tipi di chiave, seleziona <b>Standard key</b>.</td>
+        <td>Il <a href="/docs/services/key-protect/concepts?topic=key-protect-envelope-encryption#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}. Dall'elenco dei tipi di chiave, seleziona <b>Standard key</b>.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabella 1. Descrive le impostazioni di <b>Create a key</b></caption>
     </table>
 
-Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Create key** per confermare. 
+5. Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Create key** per confermare. 
 
 ## Creazione delle chiavi standard con l'API
-{: #api}
+{: #create-standard-key-api}
 
 Crea una chiave standard effettuando una chiamata `POST` al seguente endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect/access-api.html).
+1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Richiama l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window} con il seguente comando cURL.
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -105,15 +109,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Richiamo di un ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -154,7 +158,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     ```cURL
     curl -X GET \
-      https://keyprotect.us-south.bluemix.net/api/v2/keys \
+      https://us-south.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -162,6 +166,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     {: codeblock}
 
 
-### Operazioni successive
+## Operazioni successive
+{: #create-standard-key-next-steps}
 
 - Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.

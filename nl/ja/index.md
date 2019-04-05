@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-06"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -15,7 +20,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.keymanagementserviceshort}} の概説
+# 入門チュートリアル
+{: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} は、{{site.data.keyword.cloud_notm}} サービス上のアプリの暗号鍵をプロビジョンするときに役立ちます。 このチュートリアルでは、{{site.data.keyword.keymanagementserviceshort}} ダッシュボードを使用して暗号鍵を作成したり、既存の暗号鍵を追加したりする方法を示し、データ暗号化を中央の 1 カ所から管理できるようにします。
 {: shortdesc}
@@ -29,7 +35,7 @@ lastupdated: "2019-01-03"
 
 <dl>
   <dt>ルート鍵</dt>
-    <dd>ルート鍵は、ユーザーが {{site.data.keyword.keymanagementserviceshort}} 内で完全に管理する、対称鍵ラップ鍵です。 ルート鍵を使用して、拡張暗号化によって他の暗号鍵を保護できます。 詳しくは、<a href="/docs/services/key-protect/concepts/envelope-encryption.html">エンベロープ暗号化</a>を参照してください。</dd>
+    <dd>ルート鍵は、ユーザーが {{site.data.keyword.keymanagementserviceshort}} 内で完全に管理する、対称鍵ラップ鍵です。 ルート鍵を使用して、拡張暗号化によって他の暗号鍵を保護できます。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">エンベロープ暗号化を使用したデータ保護</a>を参照してください。</dd>
   <dt>標準鍵</dt>
     <dd>標準鍵は、暗号化に使用される対称鍵です。 標準鍵を使用して、直接、データを暗号化および暗号化解除できます。</dd>
 </dl>
@@ -60,7 +66,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">鍵のタイプ</a>。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. <b>「鍵の作成 (Create a key)」</b>の設定の説明</caption>
     </table>
@@ -95,7 +101,7 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">鍵のタイプ</a>。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。</td>
       </tr>
       <tr>
         <td>鍵の素材</td>
@@ -109,9 +115,10 @@ lastupdated: "2019-01-03"
 {{site.data.keyword.keymanagementserviceshort}} ダッシュボードで、新しい鍵の一般特性を検査できます。 
 
 ## 次に行うこと
+{: #get-started-next-steps}
 
-これで、鍵を使用してアプリやサービスをコーディングできるようになりました。 ルート鍵をサービスに追加した場合、ルート鍵を使用して、保存データを暗号化する鍵を保護する方法についての詳細を確認することをお勧めします。 [鍵のラッピング](/docs/services/key-protect/wrap-keys.html)を確認して開始してください。
+これで、鍵を使用してアプリやサービスをコーディングできるようになりました。 ルート鍵をサービスに追加した場合、ルート鍵を使用して、保存データを暗号化する鍵を保護する方法についての詳細を確認することをお勧めします。 [鍵のラッピング](/docs/services/key-protect?topic=key-protect-wrap-keys)を確認して開始してください。
 
-- ルート鍵を使用した暗号鍵の管理および保護について詳しくは、[エンベロープ暗号化](/docs/services/key-protect/concepts/envelope-encryption.html)を確認してください。
-- {{site.data.keyword.keymanagementserviceshort}} サービスと他のクラウド・データ・ソリューションとの統合について詳しくは、[統合の資料を確認してください](/docs/services/key-protect/integrations/integrate-services.html)。
+- ルート鍵を使用した暗号鍵の管理および保護について詳しくは、[エンベロープ暗号化を使用したデータ保護](/docs/services/key-protect?topic=key-protect-envelope-encryption)を参照してください。
+- {{site.data.keyword.keymanagementserviceshort}} サービスと他のクラウド・データ・ソリューションとの統合について詳しくは、[統合の資料を確認してください](/docs/services/key-protect?topic=key-protect-integrate-services)。
 - プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。

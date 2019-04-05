@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,10 +19,10 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# 封套加密
+# 使用封套加密保護資料
 {: #envelope-encryption}
 
-封套加密這種作法，是使用資料加密金鑰 (DEK) 來加密資料，然後使用您可完全管理的主要金鑰來加密 DEK。
+封套加密這種作法，是使用資料加密金鑰 (DEK) 來加密資料，然後使用您可完全管理的根金鑰來加密 DEK。
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}} 透過進階加密來保護您已儲存的資料，並提供數個優點：
@@ -28,7 +32,7 @@ lastupdated: "2019-01-03"
   <th>說明</th>
   <tr>
     <td>客戶管理的加密金鑰</td>
-    <td>您可以使用此服務來佈建主要金鑰，以保護雲端中已加密資料的安全。主要金鑰作為主要金鑰包裝金鑰，可協助您管理及保護 {{site.data.keyword.cloud_notm}} 資料服務中所佈建的資料加密金鑰 (DEK)。您可以決定匯入現有主要金鑰，還是讓 {{site.data.keyword.keymanagementserviceshort}} 代表您產生它們。</td>
+    <td>您可以使用此服務來佈建根金鑰，以保護雲端中已加密資料的安全。根金鑰作為主要金鑰包裝金鑰，可協助您管理及保護 {{site.data.keyword.cloud_notm}} 資料服務中所佈建的資料加密金鑰 (DEK)。您可以決定匯入現有根金鑰，還是讓 {{site.data.keyword.keymanagementserviceshort}} 代表您產生它們。</td>
   </tr>
   <tr>
     <td>機密性及完整性保護</td>
@@ -36,11 +40,11 @@ lastupdated: "2019-01-03"
   </tr>
   <tr>
     <td>資料的加密清除</td>
-    <td>如果您的組織偵測到安全問題，或者您的應用程式不再需要一組資料，則可以選擇從雲端永久地清除資料。當您刪除保護其他 DEK 的主要金鑰時，即可確保無法再存取或解密這些金鑰的相關聯資料。</td>
+    <td>如果您的組織偵測到安全問題，或者您的應用程式不再需要一組資料，則可以選擇從雲端永久地清除資料。當您刪除保護其他 DEK 的根金鑰時，即可確保無法再存取或解密這些金鑰的相關聯資料。</td>
   </tr>
   <tr>
     <td>委派的使用者存取控制</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} 支援一個集中化存取控制系統，可對您的金鑰啟用精細存取。[透過指派 IAM 使用者角色及進階許可權](/docs/services/key-protect/manage-access.html#roles)，安全管理者就可以決定誰能存取服務中的哪些主要金鑰。</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} 支援一個集中化存取控制系統，可對您的金鑰啟用精細存取。[透過指派 IAM 使用者角色及進階許可權](/docs/services/key-protect?topic=key-protect-manage-access#roles)，安全管理者就可以決定誰能存取服務中的哪些根金鑰。</td>
   </tr>
   <caption style="caption-side:bottom;">表 1. 說明客戶所管理加密的好處</caption>
 </table>
@@ -48,23 +52,23 @@ lastupdated: "2019-01-03"
 ## 如何運作
 {: #overview}
 
-封套加密結合多個加密演算法的長處，用來保護您在雲端中的機密資料。其運作方式是使用您可完全管理的主要金鑰，以利用進階加密來包裝一個以上的資料加密金鑰 (DEK)。此金鑰包裝處理程序會建立已包裝的 DEK，它們能保護您儲存的資料免於遭受未獲授權的存取或曝光。解除包裝 DEK 會使用相同的主要金鑰來反轉封套加密處理程序，進而產生解密且經過鑑別的資料。
+封套加密結合多個加密演算法的長處，用來保護您在雲端中的機密資料。其運作方式是使用您可完全管理的根金鑰，以利用進階加密來包裝一個以上的資料加密金鑰 (DEK)。此金鑰包裝處理程序會建立已包裝的 DEK，它們能保護您儲存的資料免於遭受未獲授權的存取或曝光。解除包裝 DEK 會使用相同的根金鑰來反轉封套加密處理程序，進而產生解密且經過鑑別的資料。
  
 下圖顯示金鑰包裝功能的環境定義視圖。
-![此圖顯示封套加密的環境定義視圖。](../images/envelope-encryption_min.svg)
+![下圖顯示封套加密的環境定義視圖。](../images/envelope-encryption_min.svg)
 
 「NIST 特殊出版品 800-57」的「金鑰管理建議」中，簡要地論述封套加密。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
 
 ## 金鑰類型
 {: #key-types}
 
-對於資料的進階加密及管理，服務支援兩種金鑰類型：主要金鑰及標準金鑰。
+對於資料的進階加密及管理，服務支援兩種金鑰類型：根金鑰及標準金鑰。
 
 <dl>
-  <dt>主要金鑰</dt>
-    <dd>主要金鑰是 {{site.data.keyword.keymanagementserviceshort}} 中的主要資源。它們是對稱金鑰包裝金鑰，用來作為信任主要金鑰，以包裝（加密）及解除包裝（解密）資料服務中所儲存的其他金鑰。使用 {{site.data.keyword.keymanagementserviceshort}}，您可以建立、儲存及管理主要金鑰的生命週期，來完全控制雲端中所儲存的其他金鑰。與標準金鑰不同，主要金鑰永遠無法離開 {{site.data.keyword.keymanagementserviceshort}} 服務的範圍。</dd>
+  <dt>根金鑰</dt>
+    <dd>根金鑰是 {{site.data.keyword.keymanagementserviceshort}} 中的主要資源。它們是對稱金鑰包裝金鑰，用來作為信任根金鑰，以包裝（加密）及解除包裝（解密）資料服務中所儲存的其他金鑰。使用 {{site.data.keyword.keymanagementserviceshort}}，您可以建立、儲存及管理根金鑰的生命週期，來完全控制雲端中所儲存的其他金鑰。與標準金鑰不同，根金鑰永遠無法離開 {{site.data.keyword.keymanagementserviceshort}} 服務的範圍。</dd>
   <dt>標準金鑰</dt>
-    <dd>標準金鑰可以持續保存密碼，例如密碼或加密金鑰。當您使用 {{site.data.keyword.keymanagementserviceshort}} 來儲存標準金鑰時，您會啟用密碼的硬體安全模組 (HSM) 儲存空間，使用 <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> 進行資源的精細存取控制，並且能夠使用 <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 審核對服務的 API 呼叫。</dd>
+    <dd>標準金鑰可以持續保存密碼，例如密碼或加密金鑰。當您使用 {{site.data.keyword.keymanagementserviceshort}} 來儲存標準金鑰時，您會啟用密碼的硬體安全模組 (HSM) 儲存空間，使用 <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> 進行資源的精細存取控制，並且能夠使用 <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> 審核對服務的 API 呼叫。</dd>
 </dl>
 
 在 {{site.data.keyword.keymanagementserviceshort}} 中建立金鑰之後，系統會傳回一個 ID 值，您可以用它來對服務發出 API 呼叫。您可以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 或 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) 來擷取金鑰的 ID 值。 
@@ -72,18 +76,18 @@ lastupdated: "2019-01-03"
 ## 包裝金鑰
 {: #wrapping}
 
-主要金鑰可協助您分組、管理及保護雲端中所儲存的資料加密金鑰 (DEK)。在 {{site.data.keyword.keymanagementserviceshort}} 中指定您可完全管理的主要金鑰，即可使用進階加密來包裝一個以上的 DEK。 
+根金鑰可協助您分組、管理及保護雲端中所儲存的資料加密金鑰 (DEK)。在 {{site.data.keyword.keymanagementserviceshort}} 中指定您可完全管理的根金鑰，即可使用進階加密來包裝一個以上的 DEK。 
 
-在 {{site.data.keyword.keymanagementserviceshort}} 中指定主要金鑰之後，即可使用 {{site.data.keyword.keymanagementserviceshort}} API 將金鑰 wrap 要求傳送至服務。金鑰 wrap 作業同時提供 DEK 的機密性及完整性保護。下圖顯示運作中的金鑰包裝處理程序：
+在 {{site.data.keyword.keymanagementserviceshort}} 中指定根金鑰之後，即可使用 {{site.data.keyword.keymanagementserviceshort}} API 將金鑰 wrap 要求傳送至服務。金鑰 wrap 作業同時提供 DEK 的機密性及完整性保護。下圖顯示運作中的金鑰包裝處理程序：
 ![此圖顯示運作中的金鑰包裝。](../images/wrapping-keys_min.svg)
 
-下表說明執行金鑰 wrap 作業所需的輸入：
+下表說明執行金鑰包裝作業所需的輸入：
 <table>
   <th>輸入</th>
   <th>說明</th>
   <tr>
-    <td>主要金鑰 ID</td>
-    <td>您要用於包裝之主要金鑰的 ID 值。主要金鑰可以匯入至服務，也可以從其 HSM 於 {{site.data.keyword.keymanagementserviceshort}} 中產生。用於包裝的主要金鑰必須是 256、384 或 512 位元，wrap 要求才能成功。</td>
+    <td>根金鑰 ID</td>
+    <td>您要用於包裝之根金鑰的 ID 值。根金鑰可以匯入至服務，也可以從其 HSM 於 {{site.data.keyword.keymanagementserviceshort}} 中產生。用於包裝的根金鑰必須是 128、192 或 256 位元，包裝要求才能成功。</td>
   </tr>
   <tr>
     <td>純文字</td>
@@ -96,14 +100,14 @@ lastupdated: "2019-01-03"
     <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} 中金鑰包裝所需的輸入</caption>
 </table>
 
-如果您傳送 wrap 要求，而未指定要加密的純文字，則 AES-GCM 加密演算法會產生純文字並將其轉換為難理解的資料格式（稱為密文）。此處理程序使用新的金鑰資料來輸出 256 位元 DEK。系統接著會使用 AES 金鑰包裝演算法，它會使用指定的主要金鑰來包裝 DEK 及其金鑰資料。成功的 wrap 作業會傳回以 base64 編碼的已包裝 DEK，而您可以將它儲存在 {{site.data.keyword.cloud_notm}} 應用程式或服務中。 
+如果您傳送 wrap 要求，而未指定要加密的純文字，則 AES-GCM 加密演算法會產生純文字並將其轉換為難理解的資料格式（稱為密文）。此處理程序使用新的金鑰資料來輸出 256 位元 DEK。系統接著會使用 AES 金鑰包裝演算法，它會使用指定的根金鑰來包裝 DEK 及其金鑰資料。成功的 wrap 作業會傳回以 base64 編碼的已包裝 DEK，而您可以將它儲存在 {{site.data.keyword.cloud_notm}} 應用程式或服務中。 
 
 ## 解除包裝金鑰
 {: #unwrapping}
 
 解除包裝資料加密金鑰 (DEK) 會解密並鑑別金鑰內的內容，並將原始金鑰資料傳回給您的資料服務。 
 
-如果您的商業應用程式需要存取已包裝 DEK 的內容，則可以使用 {{site.data.keyword.keymanagementserviceshort}} API 將 unwrap 要求傳送給服務。若要解除包裝 DEK，請指定主要金鑰的 ID 值以及起始 wrap 要求期間所傳回的 `ciphertext` 值。若要完成 unwrap 要求，您也必須提供其他鑑別資料 (AAD)，以檢查金鑰內容的完整性。
+如果您的商業應用程式需要存取已包裝 DEK 的內容，則可以使用 {{site.data.keyword.keymanagementserviceshort}} API 將 unwrap 要求傳送給服務。若要解除包裝 DEK，請指定根金鑰的 ID 值以及起始 wrap 要求期間所傳回的 `ciphertext` 值。若要完成 unwrap 要求，您也必須提供其他鑑別資料 (AAD)，以檢查金鑰內容的完整性。
 
 下圖顯示運作中的金鑰解除包裝。
 ![此圖顯示將資料解除包裝的運作方式。](../images/unwrapping-keys_min.svg)

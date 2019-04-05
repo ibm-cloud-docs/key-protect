@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Cifrado de sobre
+# Protección de datos con cifrado de sobre
 {: #envelope-encryption}
 
 El cifrado de sobre es la práctica de encriptar datos con una clave de cifrado de datos (DEK) y, a continuación, cifrar dicha clave con una clave raíz que puede gestionar de forma integral. 
@@ -40,7 +44,7 @@ El cifrado de sobre es la práctica de encriptar datos con una clave de cifrado 
   </tr>
   <tr>
     <td>Delegación del control de acceso de usuario</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} da soporte a un sistema de control de acceso centralizado para permitir el acceso granular a sus claves. [Mediante los permisos avanzados y la asignación de roles de usuario de IAM](/docs/services/key-protect/manage-access.html#roles), los administradores de seguridad decidirán quién puede acceder a qué claves raíz en el servicio.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} da soporte a un sistema de control de acceso centralizado para permitir el acceso granular a sus claves. [Mediante los permisos avanzados y la asignación de roles de usuario de IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), los administradores de seguridad decidirán quién puede acceder a qué claves raíz en el servicio.</td>
   </tr>
   <caption style="caption-side:bottom;">Tabla 1. Describe los beneficios del cifrado gestionado por el cliente</caption>
 </table>
@@ -64,7 +68,7 @@ El servicio da soporte a dos tipos de clave, las claves raíz y las claves está
   <dt>Claves raíz</dt>
     <dd>Las claves raíz son recursos primarios en {{site.data.keyword.keymanagementserviceshort}}. Son claves para envolver claves simétricas que se utilizan como claves raíz de confianza para envolver (cifrando) y desenvolver (descifrando) otras claves almacenadas en un servicio de datos. Con {{site.data.keyword.keymanagementserviceshort}}, puede crear, almacenar y gestionar el ciclo de vida de las claves raíz para obtener un control total de otras claves almacenadas en la nube. A diferencia de una clave estándar, una clave raíz no puede abandonar los límites del servicio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Claves estándar</dt>
-    <dd>Las claves estándar son una forma de conservar de forma permanente un secreto, como una contraseña o una clave de cifrado. Cuando utiliza {{site.data.keyword.keymanagementserviceshort}} para almacenar claves estándar, habilita el almacenamiento en el módulo de seguridad de hardware (HSM) para sus secretos, el control de acceso preciso para sus recursos con <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> y la posibilidad de auditar las llamadas de API al servicio con <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Las claves estándar son una forma de conservar de forma permanente un secreto, como una contraseña o una clave de cifrado. Cuando utiliza {{site.data.keyword.keymanagementserviceshort}} para almacenar claves estándar, habilita el almacenamiento en el módulo de seguridad de hardware (HSM) para sus secretos, el control de acceso preciso para sus recursos con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> y la posibilidad de auditar las llamadas de API al servicio con <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Después de crear claves en {{site.data.keyword.keymanagementserviceshort}}, el sistema devuelve un valor ID que puede utilizar para realizar llamadas de API al servicio. Puede recuperar el valor del ID para las claves con la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}} o con la [API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -83,7 +87,7 @@ En la siguiente tabla se describen las entradas necesarias para realizar una ope
   <th>Descripción</th>
   <tr>
     <td>ID de clave raíz</td>
-    <td>Valor ID para la clave raíz que desea utilizar para envolver. La clave raíz se puede importar en el servicio, u originar en {{site.data.keyword.keymanagementserviceshort}} a partir de sus HSM. Las claves raíz que se utilizan para envolver deben ser de 256, 384 o 512 bits para que la solicitud de envolvimiento finalice de forma satisfactoria.</td>
+    <td>Valor ID para la clave raíz que desea utilizar para envolver. La clave raíz se puede importar en el servicio, u originar en {{site.data.keyword.keymanagementserviceshort}} a partir de sus HSM. Las claves raíz que se utilizan para envolver deben ser de 128, 192 o 256 bits para que la solicitud de envolvimiento finalice de forma satisfactoria.</td>
   </tr>
   <tr>
     <td>Texto sin formato</td>
@@ -96,14 +100,14 @@ En la siguiente tabla se describen las entradas necesarias para realizar una ope
     <caption style="caption-side:bottom;">Tabla 2. Entradas necesarias para envolver claves en {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-Si envía una solicitud de envolvimiento sin especificar el texto sin formato a cifrar, el algoritmo de cifrado AES-GCM genera y convierte un texto sin formato en un formato ininteligible de datos (texto cifrado). La salida de este proceso es una DEK de 256 bits con el nuevo material de clave. El sistema utiliza entonces un algoritmo para envolver la clave AES, que envuelve la DEK y su material de clave con la clave raíz especificada. Una operación de envolvimiento satisfactoria devuelve una DEK envuelta codificada en base64 que se puede almacenar en un servicio o app de {{site.data.keyword.cloud_notm}}. 
+Si envía una solicitud de envolvimiento sin especificar el texto sin formato a cifrar, el algoritmo de cifrado AES-GCM genera y convierte un texto sin formato en un formato ininteligible de datos (texto cifrado). La salida de este proceso es una DEK de 256 bits con el nuevo material de claves. El sistema utiliza entonces un algoritmo para envolver la clave AES, que envuelve la DEK y su material de claves con la clave raíz especificada. Una operación de envolvimiento satisfactoria devuelve una DEK envuelta codificada en base64 que se puede almacenar en un servicio o app de {{site.data.keyword.cloud_notm}}. 
 
 ## Desenvolvimiento de claves
 {: #unwrapping}
 
-El desenvolvimiento de una clave de cifrado de datos (DEK) descifra y autentica el contenido dentro de la clave, devolviendo el material de clave original para su servicio de datos. 
+El desenvolvimiento de una clave de cifrado de datos (DEK) descifra y autentica el contenido dentro de la clave, devolviendo el material de claves original para su servicio de datos. 
 
-Si su aplicación empresarial necesita acceder al contenido de sus DEK envueltas, puede utilizar la API de {{site.data.keyword.keymanagementserviceshort}} para enviar al servicio una solicitud de desenvolvimiento. Para desenvolver una DEK, se debe especificar el valor del ID de la clave raíz y el valor de `texto cifrado` devuelto durante la solicitud inicial de envolvimiento. Para completar la solicitud de desenvolver, también debe proporcionar los datos adicionales autenticados (AAD) para comprobar la integridad del contenido de la clave.
+Si su aplicación empresarial necesita acceder al contenido de sus DEK envueltas, puede utilizar la API de {{site.data.keyword.keymanagementserviceshort}} para enviar al servicio una solicitud de desenvolvimiento. Para desenvolver una DEK, se debe especificar el valor del ID de la clave raíz y el valor de `ciphertext` devuelto durante la solicitud inicial de envolvimiento. Para completar la solicitud de desenvolver, también debe proporcionar los datos adicionales autenticados (AAD) para comprobar la integridad del contenido de la clave.
 
 El siguiente diagrama muestra el mecanismo del desenvolvimiento de clave.
 ![El diagrama muestra el mecanismo de desenvolvimiento de datos. ](../images/unwrapping-keys_min.svg)

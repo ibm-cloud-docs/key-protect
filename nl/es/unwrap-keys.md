@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,31 +25,31 @@ lastupdated: "2019-01-03"
 Las claves de cifrado de datos (DEK) se desenvuelven para acceder a sus contenidos mediante la API de {{site.data.keyword.keymanagementservicefull}}, si es un usuario con los privilegios necesarios. El proceso de desenvolvimiento descifra y comprueba la integridad y el contenido de las DEK, devolviendo el material original de la clave a su servicio de datos de {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de los datos en reposo en la nube, consulte [Cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html).
+Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de los datos en reposo en la nube, consulte [Protección de datos con cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Desenvolvimiento de claves utilizando la API
-{: #api}
+{: #unwrap-key-api}
 
-[Después de realizar al servicio una llamada de envolvimiento](/docs/services/key-protect/wrap-keys.html), puede desenvolver una clave de cifrado de datos (DEK) específica para acceder a su contenido realizando una llamada `POST` al siguiente punto final.
+[Después de realizar al servicio una llamada de envolvimiento](/docs/services/key-protect?topic=key-protect-wrap-keys), puede desenvolver una clave de cifrado de datos (DEK) específica para acceder a su contenido realizando una llamada `POST` al siguiente punto final.
 
 ```
-https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=unwrap
+https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=unwrap
 ```
 {: codeblock}
 
-1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio](/docs/services/key-protect/access-api.html).
+1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Copie el ID de la clave raíz que ha utilizado para realizar la solicitud inicial de envolvimiento.
 
     Puede recuperar el ID de una clave realizando una solicitud `GET /v2/keys` o visualizando sus claves en la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}}.
 
-3. Copie el valor del `texto cifrado` devuelto durante la solicitud inicial de envolvimiento.
+3. Copie el valor de `ciphertext` devuelto durante la solicitud inicial de envolvimiento.
 
 4. Ejecute el siguiente mandato cURL para descifrar y autenticar el material de la clave.
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=unwrap' \
+      'https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=unwrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <señal_IAM>' \
       -H 'bluemix-instance: <ID_instancia>' \
@@ -69,7 +73,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=unwrap
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>
@@ -77,11 +81,11 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=unwrap
       </tr>
       <tr>
         <td><varname>señal_IAM</varname></td>
-        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperación de una señal de acceso</a>.</td>
+        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Recuperación de una señal de acceso</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_instancia</varname></td>
-        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
+        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_correlación</varname></td>

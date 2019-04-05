@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: Key Protect API endpoints, available regions
+
+subcollection: key-protect
 
 ---
 
@@ -14,11 +18,12 @@ lastupdated: "2019-01-03"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 
 # 지역 및 위치
 {: #regions}
 
-지역 서비스 엔드포인트를 지정하여 {{site.data.keyword.keymanagementservicelong_notm}} 서비스에 애플리케이션을 연결할 수 있습니다.
+지역 서비스 엔드포인트를 지정하여 {{site.data.keyword.keymanagementservicelong}} 서비스에 애플리케이션을 연결할 수 있습니다.
 {: shortdesc}
 
 ## 사용 가능한 지역
@@ -30,7 +35,7 @@ lastupdated: "2019-01-03"
 ## 서비스 엔드포인트
 {: #service-endpoints}
 
-{{site.data.keyword.keymanagementserviceshort}} 리소스를 프로그래밍 방식으로 관리하는 경우 [{{site.data.keyword.keymanagementserviceshort}} API](https://console.bluemix.net/apidocs/key-protect)에 연결할 때 사용할 API 엔드포인트를 판별하려면 다음 표를 확인하십시오. 
+{{site.data.keyword.keymanagementserviceshort}} 리소스를 프로그래밍 방식으로 관리하는 경우 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect)에 연결할 때 사용할 API 엔드포인트를 판별하려면 다음 표를 확인하십시오. 
 
 <table>
     <tr>
@@ -76,7 +81,7 @@ lastupdated: "2019-01-03"
     <caption style="caption-side:bottom;">표 1. {{site.data.keyword.keymanagementserviceshort}} API에 사용 가능한 엔드포인트를 보여줍니다.</caption>
 </table>
 
-오퍼레이션에 필요한 서비스를 대상으로 지정하기 위해 `https://keyprotect.<region>.bluemix.net`을 계속해서 사용할 수 있거나 새 `cloud.ibm.com` 엔드포인트를 사용하여 애플리케이션을 업데이트할 수 있습니다. Cloud Foundry 조직 또는 영역 내에 있는 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스의 경우 레거시 `https://ibm-key-protect.edge.bluemix.net` 엔드포인트를 사용하여 {{site.data.keyword.keymanagementserviceshort}} API와 상호작용하십시오.
+오퍼레이션에 필요한 서비스를 대상으로 지정하기 위해 `https://keyprotect.<region>.bluemix.net`을 계속해서 사용할 수 있거나 새 `cloud.ibm.com` 엔드포인트를 사용하여 애플리케이션을 업데이트할 수 있습니다. 
 {: tip}
 
-{{site.data.keyword.keymanagementserviceshort}} 인증에 대한 자세한 정보는 [API에 액세스](/docs/services/key-protect/access-api.html)를 참조하십시오.
+{{site.data.keyword.keymanagementserviceshort}} 인증에 대한 자세한 정보는 [API에 액세스](/docs/services/key-protect?topic=key-protect-set-up-api)를 참조하십시오.

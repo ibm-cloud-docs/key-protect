@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,10 +19,10 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Chiffrement d'enveloppe
+# Protection des données avec le chiffrement d'enveloppe 
 {: #envelope-encryption}
 
-Le chiffrement d'enveloppe est une procédure consistant à chiffrer des données à l'aide d'une clé DEK (Data Encryption Key), puis à chiffrer la clé DEK avec une clé racine que vous pouvez intégralement gérer. 
+Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des données à l'aide d'une clé DEK (Data Encryption Key), puis à chiffrer la clé DEK avec une clé racine que vous pouvez intégralement gérer.
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}} protège les données stockées via un mécanisme de chiffrement avancé et offre un certain nombre d'avantages :
@@ -32,7 +36,7 @@ Le chiffrement d'enveloppe est une procédure consistant à chiffrer des donnée
   </tr>
   <tr>
     <td>Protection de l'intégrité et de la confidentialité</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} utilise l'algorithme AES (Advanced Encryption Standard) en mode GCM (Galois/Counter Mode) pour créer et protéger les clés. Lorsque vous créez des clés dans le service, {{site.data.keyword.keymanagementserviceshort}} les génère dans les limites de confiance des modules HSM {{site.data.keyword.cloud_notm}} afin que vous soyez le seul à pouvoir accéder à vos clés de chiffrement.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} utilise l'algorithme AES (Advanced Encryption Standard) en mode GCM (Galois/Counter Mode) pour créer et protéger les clés. Lorsque vous créez des clés dans le service, {{site.data.keyword.keymanagementserviceshort}} les génère dans les limites de confiance des modules de sécurité matériels {{site.data.keyword.cloud_notm}} afin que vous soyez le seul à pouvoir accéder à vos clés de chiffrement.</td>
   </tr>
   <tr>
     <td>Destruction cryptographique des données</td>
@@ -40,7 +44,7 @@ Le chiffrement d'enveloppe est une procédure consistant à chiffrer des donnée
   </tr>
   <tr>
     <td>Contrôle d'accès utilisateur délégué</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} prend en charge un système de contrôle d'accès centralisé pour permettre un accès granulaire aux clés. [En affectant des rôles utilisateur et des droits avancés IAM](/docs/services/key-protect/manage-access.html#roles), les administrateurs de sécurité déterminent les personnes autorisées à accéder des clés spécifiques du service.</td>
+    <td>{{site.data.keyword.keymanagementserviceshort}} prend en charge un système de contrôle d'accès centralisé pour permettre un accès granulaire aux clés. [En affectant des rôles utilisateur et des droits avancés IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), les administrateurs de sécurité déterminent les personnes autorisées à accéder des clés spécifiques du service.</td>
   </tr>
   <caption style="caption-side:bottom;">Tableau 1. Description des avantages du chiffrement géré par le client</caption>
 </table>
@@ -50,7 +54,7 @@ Le chiffrement d'enveloppe est une procédure consistant à chiffrer des donnée
 
 Le chiffrement d'enveloppe associe la puissance de plusieurs algorithmes de chiffrement pour protéger les données sensibles du cloud. Il fonctionne en encapsulant une ou plusieurs clés DEK avec un chiffrement avancé via une clé racine que vous pouvez intégralement gérer. Cette procédure d'encapsulage de clés crée des clés DEK encapsulées qui protègent les données stockées contre une exposition ou des accès non autorisés. Le désencapsulage d'une clé DEK annule la procédure de chiffrement d'enveloppe à l'aide de la même clé racine et génère des données déchiffrées et authentifiées.
  
-Le diagramme suivant présente une vue contextuelle de la fonction d'encapsulage de clés.
+Le diagramme suivant présente une vue contextuelle de la fonction de chiffrement d'enveloppe.
 ![Diagramme présentant une vue contextuelle du chiffrement d'enveloppe.](../images/envelope-encryption_min.svg)
 
 Le chiffrement d'enveloppe est abordé dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
@@ -64,7 +68,7 @@ Pour le chiffrement avancé et la gestion des données, le service prend en char
   <dt>Root keys (Clés racine)</dt>
     <dd>Les clés racine représentent les ressources principales de {{site.data.keyword.keymanagementserviceshort}}. Il s'agit de clés d'encapsulage de clés symétriques utilisées en tant que racines de confiance pour l'encapsulage (chiffrement) et le désencapsulage (déchiffrement) d'autres clés stockées dans le service de données. Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez créer et stocker des clés et gérer le cycle de vie de clés racine pour contrôler intégralement d'autres clés dans le cloud. Contrairement à la clé standard, une clé racine doit toujours rester dans les limites du service {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Standard keys (Clés standard)</dt>
-    <dd>Les clés standard permettent de préserver une valeur confidentielle, telle qu'un mot de passe ou une clé de chiffrement. Lorsque vous utilisez {{site.data.keyword.keymanagementserviceshort}} pour stocker des clés standard, vous activez un module de sécurité matériel (HSM) pour vos valeurs confidentielles, le contrôle d'accès à granularité fine à vos ressources avec <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> et la possibilité d'audit des appels d'API au service avec <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Les clés standard permettent de préserver une valeur confidentielle, telle qu'un mot de passe ou une clé de chiffrement. Lorsque vous utilisez {{site.data.keyword.keymanagementserviceshort}} pour stocker des clés standard, vous activez un module de sécurité matériel (HSM) pour vos valeurs confidentielles, le contrôle d'accès à granularité fine à vos ressources avec <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> et la possibilité d'audit des appels d'API au service avec <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Une fois les clés créées dans {{site.data.keyword.keymanagementserviceshort}}, le système renvoie une valeur d'ID que vous pouvez utiliser pour appeler le service via une API. Vous pouvez extraire la valeur d'ID pour vos clés via l'interface graphique de {{site.data.keyword.keymanagementserviceshort}} ou l'[API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -83,7 +87,7 @@ Le tableau suivant décrit les valeurs à entrer pour effectuer une opération d
   <th>Description</th>
   <tr>
     <td>Root key ID</td>
-    <td>Valeur d'ID de la clé racine que vous souhaitez utiliser pour l'encapsulage. La clé racine peut être importée dans le service ou peut provenir des modules HSM du service {{site.data.keyword.keymanagementserviceshort}}. Pour qu'une demande d'encapsulage aboutisse, les clés racine utilisées doivent être des clés de 256, 384 ou 512 bits.</td>
+    <td>Valeur d'ID de la clé racine que vous souhaitez utiliser pour l'encapsulage. La clé racine peut être importée dans le service ou peut provenir des modules HSM du service {{site.data.keyword.keymanagementserviceshort}}. Pour qu'une demande d'encapsulage aboutisse, les clés racine utilisées doivent être des clés de 128, 192 ou 256 bits.</td>
   </tr>
   <tr>
     <td>Plaintext</td>

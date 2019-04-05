@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+
+subcollection: key-protect
 
 ---
 
@@ -21,7 +25,7 @@ lastupdated: "2019-01-03"
 # 문제점 해결
 {: #troubleshooting}
 
-{{site.data.keyword.keymanagementservicefull}} 사용과 관련된 일반 문제점에는 API와 상호작용할 때 올바른 헤더 또는 신임 정보를 제공하는 것이 포함될 수 있습니다. 많은 경우에 다음과 같은 몇 가지 쉬운 단계를 통해 이러한 문제점에서 복구할 수 있습니다.
+{{site.data.keyword.keymanagementservicefull}} 사용과 관련된 일반 문제점에는 API와 상호작용할 때 올바른 헤더 또는 인증 정보를 제공하는 것이 포함될 수 있습니다. 많은 경우에 다음과 같은 몇 가지 쉬운 단계를 통해 이러한 문제점에서 복구할 수 있습니다.
 {: shortdesc}
 
 ## 내 Cloud Foundry 서비스 인스턴스를 삭제할 수 없음
@@ -123,7 +127,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
     ```
     {: codeblock}
 
-    `<access_token>`, `<organization_GUID>` 및 `<space_GUID>`를 3 - 4단계에서 검색한 값으로 바꾸십시오.  
+    `<access_token>`, `<organization_GUID>` 및 `<space_GUID>`를 3 - 4단계에서 검색한 값으로 바꾸십시오. 
 
 9. {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 삭제하십시오.
 
@@ -156,7 +160,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 ```
 {: screen}
 
-2017년 12월 15일에 [엔벨로프 암호화](/docs/services/key-protect/concepts/envelope-encryption.html)와 같은 새로운 기능을 {{site.data.keyword.keymanagementserviceshort}} 서비스에 추가했습니다. 이제 Cloud Foundry 조직 및 영역을 지정할 필요 없이 리소스 그룹 내에서 {{site.data.keyword.keymanagementserviceshort}} 서비스를 프로비저닝할 수 있습니다.
+2017년 12월 15일에 [엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)와 같은 새로운 기능을 {{site.data.keyword.keymanagementserviceshort}} 서비스에 추가했습니다. 이제 Cloud Foundry 조직 및 영역을 지정할 필요 없이 리소스 그룹 내에서 {{site.data.keyword.keymanagementserviceshort}} 서비스를 프로비저닝할 수 있습니다.
 {: tsCauses}
 
 이러한 변경사항은 이전 서비스 인스턴스의 사용자 인터페이스에 영향을 미쳤습니다. 2017년 9월 28일 이전에 {{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 작성한 경우 사용자 인터페이스가 예상대로 작동하지 않을 수 있습니다.
@@ -191,7 +195,7 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 {{site.data.keyword.keymanagementserviceshort}} 조치를 수행할 수 있는 올바른 권한이 없습니다.
 {: tsCauses} 
 
-적용 가능한 리소스 그룹 또는 서비스 인스턴스에서 사용자에게 올바른 역할이 지정되었는지 관리자에게 확인하십시오. 역할에 대한 자세한 정보는 [역할 및 권한](/docs/services/key-protect/manage-access.html#roles)을 참조하십시오.
+적용 가능한 리소스 그룹 또는 서비스 인스턴스에서 사용자에게 올바른 역할이 지정되었는지 관리자에게 확인하십시오. 역할에 대한 자세한 정보는 [역할 및 권한](/docs/services/key-protect?topic=key-protect-manage-access#roles)을 참조하십시오.
 {: tsResolve}
 
 ## 도움 및 지원 받기
@@ -207,6 +211,6 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 - {{site.data.keyword.keymanagementserviceshort}}에 대한 기술적 질문이 있는 경우 [Stack Overflow ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window}에 질문을 게시하고 질문에 "ibm-cloud" 및 "key-protect" 태그를 지정하십시오.
 - 서비스 및 시작하기 지시사항에 대한 질문이 있는 경우 [IBM developerWorks dW Answers ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} 포럼을 활용하십시오. "ibm-cloud" 및 "key-protect" 태그를 포함하십시오.
 
-포럼 활용에 대한 세부사항은 [도움 받기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/docs/support/index.html#getting-help){: new_window}를 참조하십시오.
+포럼 사용에 대한 세부사항은 [지원 받기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/get-support?topic=get-support-using-avatar){: new_window}를 참조하십시오.
 
-{{site.data.keyword.IBM_notm}} 지원 티켓 열기 또는 지원 레벨과 티켓 심각도에 대한 자세한 정보는 [지원 문의 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/docs/support/index.html#contacting-support){: new_window}를 참조하십시오.
+{{site.data.keyword.IBM_notm}} 지원 티켓 열기 또는 지원 레벨과 티켓 심각도에 대한 자세한 정보는 [지원 문의 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}를 참조하십시오.

@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
+
+subcollection: key-protect
 
 ---
+
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -23,28 +28,28 @@ Puede gestionar y proteger sus claves de cifrado con una clave raíz utilizando 
 
 Cuando envuelve una clave de cifrado de datos (DEK) con una clave raíz, {{site.data.keyword.keymanagementserviceshort}} combina la robustez de varios algoritmos para proteger la privacidad y la integridad de sus datos cifrados.  
 
-Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de los datos en reposo en la nube, consulte [Cifrado de sobre](/docs/services/key-protect/concepts/envelope-encryption.html).
+Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de los datos en reposo en la nube, consulte [Protección de datos con cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Envolvimiento de claves utilizando la API
-{: #api}
+{: #wrap-key-api}
 
 Proteja una clave de cifrado de datos (DEK) específica con una clave raíz que gestionará en {{site.data.keyword.keymanagementserviceshort}}.
 
-Cuando proporcione una clave raíz para el envolvimiento, asegúrese de que la clave raíz es de 256, 384 o 512 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CGM.
+Cuando proporcione una clave raíz para el envolvimiento, asegúrese de que la clave raíz es de 128, 192 o 256 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CGM.
 {: note}
 
-[Después de designar una clave raíz en el servicio](/docs/services/key-protect/create-root-keys.html), puede envolver una DEK con cifrado avanzado realizando una llamada `POST` al siguiente punto final.
+[Después de designar una clave raíz en el servicio](/docs/services/key-protect?topic=key-protect-create-root-keys), puede envolver una DEK con cifrado avanzado realizando una llamada `POST` al siguiente punto final.
 
 ```
-https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
+https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap
 ```
 {: codeblock}
 
-1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio.](/docs/services/key-protect/access-api.html)
+1. [Recupere sus credenciales de servicio y de autenticación para trabajar con claves en el servicio.](/docs/services/key-protect?topic=key-protect-set-up-api)
 
 2. Copie el material de la clave de la DEK que desea gestionar y proteger.
 
-    Si tiene privilegios de gestor o escritor para su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}, [puede recuperar el material de una clave específica realizando una solicitud `GET /v2/keys/<key_ID>`](/docs/services/key-protect/view-keys.html#api).
+    Si tiene privilegios de gestor o escritor para su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}, [puede recuperar el material de una clave específica realizando una solicitud `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
 
 3. Copie el ID de la clave raíz que desea utilizar para envolver.
 
@@ -52,7 +57,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
 
     ```cURL
     curl -X POST \
-      'https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap' \
+      'https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap' \
       -H 'accept: application/vnd.ibm.kms.key_action+json' \
       -H 'authorization: Bearer <señal_IAM>' \
       -H 'bluemix-instance: <ID_instancia>' \
@@ -77,7 +82,7 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>
@@ -85,11 +90,11 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
       </tr>
       <tr>
         <td><varname>señal_IAM</varname></td>
-        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperación de una señal de acceso</a>.</td>
+        <td><strong>Obligatorio.</strong> Su señal de acceso de {{site.data.keyword.cloud_notm}}. Incluya el contenido completo de la señal <code>IAM</code>, incluido el valor de Bearer, en la solicitud cURL. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Recuperación de una señal de acceso</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_instancia</varname></td>
-        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
+        <td><strong>Obligatorio.</strong> El único identificador que está asignado a su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Recuperación de un ID de instancia</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_correlación</varname></td>
@@ -127,6 +132,6 @@ https://keyprotect.<región>.bluemix.net/api/v2/keys/<ID_clave>?action=wrap
 
     El valor <code>plaintext</code> representa la DEK desenvuelta y el valor <code>ciphertext</code> representa la DEK envuelta.
     
-    Si desea que {{site.data.keyword.keymanagementserviceshort}} genere una nueva clave de cifrado de datos (DEK) por usted, también puede pasar un cuerpo vacío en una solicitud de envolvimiento. La DEK generada, que contiene el material de clave con codificación base64, se devolverá en la respuesta de cuerpo de entidad, junto con la DEK empaquetada.
+    Si desea que {{site.data.keyword.keymanagementserviceshort}} genere una nueva clave de cifrado de datos (DEK) por usted, también puede pasar un cuerpo vacío en una solicitud de envolvimiento. La DEK generada, que contiene el material de claves con codificación base64, se devolverá en la respuesta de cuerpo de entidad, junto con la DEK empaquetada.
     {: tip}
     

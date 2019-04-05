@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-03-08"
+
+keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -21,15 +25,15 @@ lastupdated: "2019-01-03"
 Puoi utilizzare {{site.data.keyword.keymanagementservicefull}} per creare le chiavi root utilizzando la GUI {{site.data.keyword.keymanagementserviceshort}}, o in modo programmatico con l'API {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Le chiavi root sono chiavi simmetriche per l'impacchettamento della chiave che vengono utilizzate per proteggere la sicurezza dei dati crittografati nel cloud. Per ulteriori informazioni sulle chiavi root, consulta [Crittografia envelope](/docs/services/key-protect/concepts/envelope-encryption.html). 
+Le chiavi root sono chiavi simmetriche per l'impacchettamento della chiave che vengono utilizzate per proteggere la sicurezza dei dati crittografati nel cloud. Per ulteriori informazioni sulle chiavi root, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption). 
 
 ## Creazione delle chiavi root con la GUI
-{: #gui}
+{: #create-root-key-gui}
 
-[Dopo aver creato un'istanza del servizio](/docs/services/key-protect/provision.html), completa la seguente procedura per creare una chiave root con la GUI {{site.data.keyword.keymanagementserviceshort}}.
+[Dopo aver creato un'istanza del servizio](/docs/services/key-protect?topic=key-protect-provision), completa la seguente procedura per creare una chiave root con la GUI {{site.data.keyword.keymanagementserviceshort}}.
 
 1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}){: new_window}.
-2. Vai a **Menu** &gt; **Elenco risorse** per visualizzare un elenco delle tue risorse.
+2. Vai a **Menu** &gt; **Resource List** per visualizzare un elenco delle tue risorse.
 3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
 4. Per creare una nuova chiave, fai clic su **Add key** e seleziona la finestra **Create a key**.
 
@@ -49,30 +53,32 @@ Le chiavi root sono chiavi simmetriche per l'impacchettamento della chiave che v
       </tr>
       <tr>
         <td>Tipo di chiave</td>
-        <td>Il <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}. Dall'elenco dei tipi di chiave, seleziona <b>Root key</b>.</td>
+        <td>Il <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">tipo di chiave</a> che desideri gestire in {{site.data.keyword.keymanagementserviceshort}}. Dall'elenco dei tipi di chiave, seleziona <b>Root key</b>.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabella 1. Descrive le impostazioni di <b>Create a key</b></caption>
     </table>
 
 5. Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Create key** per confermare. 
 
+Le chiavi create nel servizio sono chiavi simmetriche a 256 bit, supportate dall'algoritmo AES-GCM. Per aggiungere sicurezza, le chiavi sono generate dagli HSM (Hardware Security Module) certificati da FIPS 140-2 Level 2 ubicati in data center {{site.data.keyword.cloud_notm}} sicuri. 
+
 ## Creazione delle chiavi root con l'API
-{: #api}
+{: #create-root-key-api}
 
 Crea una chiave root effettuando una chiamata `POST` al seguente endpoint.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect/access-api.html).
+1. [Richiama le tue credenziali del servizio e di autenticazione per utilizzare le chiavi nel servizio](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Richiama l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window} con il seguente comando cURL.
 
     ```cURL
     curl -X POST \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -106,15 +112,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/regions.html#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api#retrieve-token">Richiamo di un token di accesso</a>.</td>
+        <td><strong>Obbligatorio</strong> Il tuo token di accesso {{site.data.keyword.cloud_notm}}. Includi il contenuto completo del token <code>IAM</code>, compreso il valore Bearer, nella richiesta cURL. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Richiamo di un token di accesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Richiamo di un'ID istanza</a>.</td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco che viene assegnato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Richiamo di un ID istanza</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -157,7 +163,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -167,7 +173,8 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     Dopo aver creato una chiave root con il servizio, la chiave rimane nei limiti di {{site.data.keyword.keymanagementserviceshort}} e il materiale della chiave non può essere richiamato.
     {: note} 
 
-### Operazioni successive
+## Operazioni successive
+{: #create-root-key-next-steps}
 
-- Per ulteriori informazioni sulla protezione delle chiavi con la crittografia envelope, controlla [Impacchettamento delle chiavi](/docs/services/key-protect/wrap-keys.html).
+- Per ulteriori informazioni sulla protezione delle chiavi con la crittografia envelope, controlla [Impacchettamento delle chiavi](/docs/services/key-protect?topic=key-protect-wrap-keys).
 - Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.

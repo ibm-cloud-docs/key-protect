@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-18"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Estados de clave
+# Supervisión del ciclo de vida de las claves de cifrado
 {: #key-states}
 
 {{site.data.keyword.keymanagementservicefull}} sigue las directrices de seguridad de [NIST SP 800-57 para estados clave ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
@@ -49,11 +53,11 @@ Las claves criptográficas, durante su ciclo de vida, pasan por varios estados q
   </tr>
   <tr>
     <td>Destruida</td>
-    <td>Las claves suprimidas están en estado <i>destruido</i>. Las claves con este estado no son recuperables. Los metadatos asociados con la clave como, por ejemplo, el nombre y el historial de transiciones de la clave, se mantienen en la base de datos de {{site.data.keyword.keymanagementserviceshort}}.</td>
+    <td>Las claves suprimidas están en estado <i>destruido</i>. Las claves con este estado no son recuperables. Los metadatos asociados con la clave como, por ejemplo, el nombre y el historial de transiciones de la clave, se mantienen en la base de datos de {{site.data.keyword.keymanagementserviceshort}}. </td>
   </tr>
   <caption style="caption-side:bottom;">Tabla 1. Describe los estados y las transiciones de las claves.</caption>
 </table>
 
 Después de añadir una clave para el servicio, utilice el panel de control de {{site.data.keyword.keymanagementserviceshort}} o la API REST de {{site.data.keyword.keymanagementserviceshort}} para ver la configuración y el historial de transiciones de las claves. A efectos de auditoría, también puede supervisar la actividad para una clave integrando {{site.data.keyword.keymanagementserviceshort}} con {{site.data.keyword.cloudaccesstrailfull}}. Después de que se hayan suministrado ambos servicios y de que estén en ejecución, los sucesos de actividad se generan de forma automática y se recopilan en un registro de {{site.data.keyword.cloudaccesstrailshort}} cuando crea y suprime claves en {{site.data.keyword.keymanagementserviceshort}}. 
 
-Para obtener más información, consulte [Supervisión de la actividad de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+Para obtener más información, consulte [Supervisión de la actividad de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

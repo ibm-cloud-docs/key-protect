@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-25"
+
+keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -25,17 +29,17 @@ lastupdated: "2019-01-03"
 定期的に鍵の構成を監査するために、以下を行います。
 
 - いつ鍵が作成されたかを調べ、鍵をローテートする時期かどうかを判断します。
-- [{{site.data.keyword.cloudaccesstrailshort}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") を使用して、{{site.data.keyword.keymanagementserviceshort}} への API 呼び出しをモニターします](/docs/services/cloud-activity-tracker/tutorials/manage_events_cli.html){: new_window}。
+- [{{site.data.keyword.cloudaccesstrailshort}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") を使用して、{{site.data.keyword.keymanagementserviceshort}} への API 呼び出しをモニターします](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}。
 - どのユーザーが鍵へのアクセス権限を持っているか、アクセス権限のレベルは適切かどうかを検査します。
 
-リソースへのアクセス権限の監査について詳しくは、[Cloud IAM を使用したユーザーのアクセス権限の管理](/docs/services/key-protect/manage-access.html)を参照してください。
+リソースへのアクセス権限の監査について詳しくは、[Cloud IAM を使用したユーザーのアクセス権限の管理](/docs/services/key-protect?topic=key-protect-manage-access)を参照してください。
 
 ## GUI を使用した鍵の表示
-{: #gui}
+{: #view-keys-gui}
 
 グラフィカル・インターフェースを使用してサービス内の鍵を検査したい場合は、{{site.data.keyword.keymanagementserviceshort}} ダッシュボードを使用できます。
 
-[サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect/create-root-keys.html)、以下の手順を実行して、鍵を表示します。
+[サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect?topic=key-protect-create-root-keys)、以下の手順を実行して、鍵を表示します。
 
 1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/)。
 2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
@@ -57,17 +61,17 @@ lastupdated: "2019-01-03"
       </tr>
       <tr>
         <td>状態</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) に基づく[鍵の状態](/docs/services/key-protect/concepts/key-states.html)。 状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) に基づく[鍵の状態](/docs/services/key-protect?topic=key-protect-key-states)。 状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
       </tr>
       <tr>
         <td>タイプ</td>
-        <td>サービス内の鍵の指定された目的を説明する、[鍵のタイプ](/docs/services/key-protect/concepts/envelope-encryption.html#key-types)。</td>
+        <td>サービス内の鍵の指定された目的を説明する、[鍵のタイプ](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. <b>「鍵 (Keys)」</b>テーブルの説明</caption>
     </table>
 
 ## API を使用した鍵の表示
-{: #api}
+{: #view-keys-api}
 
 {{site.data.keyword.keymanagementserviceshort}} API を使用して、鍵の内容を取得できます。
 
@@ -77,17 +81,17 @@ lastupdated: "2019-01-03"
 概要を参照するために、次のエンドポイントへの `GET` 呼び出しを行って、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスで管理されている鍵を表示できます。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect/access-api.html)。
+1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. 次の cURL コマンドを実行して、鍵に関する一般的な特性を表示します。
 
     ```cURL
     curl -X GET \
-    https://keyprotect.<region>.bluemix.net/api/v2/keys \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys \
     -H 'accept: application/vnd.ibm.collection+json' \
     -H 'authorization: Bearer <IAM_token>' \
     -H 'bluemix-instance: <instance_ID>' \
@@ -106,15 +110,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -187,7 +191,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
   ```cURL
   curl -X GET \
-  https://keyprotect.<region>.bluemix.net/api/v2/keys?offset=<offset>&limit=<limit> \
+  https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
@@ -252,11 +256,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 特定の鍵に関する詳細情報を表示するには、次のエンドポイントに対して `GET` 呼び出しを行います。
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect/access-api.html)。
+1. [サービス内で鍵の処理を行うために、サービス資格情報および認証資格情報を取得します](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
 2. アクセスまたは管理する鍵の ID を取得します。
 
@@ -266,7 +270,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X GET \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'accept: application/vnd.ibm.kms.key+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
@@ -283,15 +287,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect/regions.html#endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-token">アクセス・トークンの取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.cloud_notm}} アクセス・トークン。 Bearer 値を含む、<code>IAM</code> トークンの全コンテンツを cURL 要求に組み込みます。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">アクセス・トークンの取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに割り当てられた固有 ID。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">インスタンス ID の取得</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
