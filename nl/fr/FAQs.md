@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -55,7 +55,7 @@ Les clés racine constituent les ressources principales de {{site.data.keyword.k
 {: #what-is-envelope-encryption}
 {: faq}
 
-Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des données à l'aide d'une _clé de chiffrement de données_, puis à chiffrer la clé de chiffrement de données avec un _clé de chiffrement de clé_ hautement sécurisée. Vos données sont protégées au repos grâce à plusieurs niveaux de chiffrement. Pour savoir comment activer le chiffrement d'enveloppe pour vos ressources {{site.data.keyword.cloud_notm}}, consultez la section [Intégration de services](/docs/services/key-protect?topic=key-protect-integrate-services).
+Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des données à l'aide d'une _clé de chiffrement de données_, puis à chiffrer la clé de chiffrement de données avec un _clé de chiffrement de clé_ hautement sécurisée.  Vos données sont protégées au repos grâce à plusieurs niveaux de chiffrement. Pour savoir comment activer le chiffrement d'enveloppe pour vos ressources {{site.data.keyword.cloud_notm}}, consultez la section [Intégration de services](/docs/services/key-protect?topic=key-protect-integrate-services).
 
 ## Quelle est la longueur maximale d'un nom de clé ?
 {: #key-names}
@@ -69,8 +69,7 @@ Vous pouvez utiliser un nom de clé de 90 caractères au maximum.
 
 Pour protéger la confidentialité de vos données personnelles, ne stockez pas d'informations permettant de vous identifier personnellement comme métadonnées pour vos clés. Par exemple, votre nom, votre adresse, votre numéro de téléphone, votre adresse e-mail ou toute autre information permettant de vous identifier, de vous contacter ou de vous localiser, ainsi que vos clients et toute autre personne.
 
-
-Vous êtes responsable d'assurer la sécurité de toutes les informations que vous stockez en tant que métadonnées pour les ressources {{site.data.keyword.keymanagementserviceshort}} et les clés de chiffrement. Pour obtenir d'autres exemples de données personnelles, veuillez consulter la section 2.2 du document [NIST Special Publication 800-122 ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+Vous êtes responsable d'assurer la sécurité de toutes les informations que vous stockez en tant que métadonnées pour les ressources {{site.data.keyword.keymanagementserviceshort}} et les clés de chiffrement. Pour obtenir d'autres exemples de données personnelles, veuillez consulter la section 2.2 du document [NIST Special Publication 800-122 ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
 {: important}
 
 ## Peut-on créer des clés dans une région et les utiliser dans une autre région ?

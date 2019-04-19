@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,7 +42,7 @@ Wählen Sie aus zwei Schlüsseltypen aus:
 ## Neue Schlüssel erstellen
 {: #create-keys}
 
-[Nach dem Erstellen einer Instanz von {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps) können Sie im Service Schlüssel angeben. 
+[Nach dem Erstellen einer Instanz von {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps) können Sie im Service Schlüssel angeben. 
 
 Führen Sie die folgenden Schritte aus, um Ihren ersten Verschlüsselungsschlüssel zu erstellen. 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -87,7 +87,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
           <td><varname>use_count</varname></td>
           <td>Die Häufigkeit, mit der ein Transportschlüssel innerhalb seiner Ablaufzeit abgerufen werden kann, bis er nicht mehr zugänglich ist. Der Standardwert ist 1.</td>
         </tr>
-          <caption style="caption-side:bottom;">Tabbelle 1. Beschreibung der Variablen, die zum Hinzufügen eines Rootschlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
+          <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Variablen, die zum Hinzufügen eines Rootschlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
       </table>
 
     Eine erfolgreiche Anforderung `POST api/v2/lockers` erstellt einen Transportschlüssel für Ihre Serviceinstanz und gibt den zugehörigen ID-Wert zusammen mit anderen Metadaten zurück. Die ID ist eine eindeutige Kennung, die Ihrem Transportschlüssel zugeordnet ist und für nachfolgende Aufrufe an die {{site.data.keyword.keymanagementserviceshort}}-API verwendet wird.

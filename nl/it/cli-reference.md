@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ Puoi utilizzare il plugin della CLI {{site.data.keyword.keymanagementserviceshor
 
 Per installare il plugin della CLI, vedi [Configurazione della CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Quando esegui l'accesso alla CLI [{{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-overview){: new_window}, vieni informato quando sono disponibili degli aggiornamenti. Assicurati di tenere aggiornata la tua CLI in modo da poter usare i comandi e gli indicatori disponibili per il plugin della CLI {{site.data.keyword.keymanagementserviceshort}}.
+Quando accedi alla [CLI di {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}, vieni informato quando gli aggiornamenti sono disponibili. Assicurati di tenere aggiornata la tua CLI in modo da poter usare i comandi e gli indicatori disponibili per il plugin della CLI {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
 ## Comandi ibmcloud kp
@@ -58,12 +58,28 @@ Puoi specificare uno dei seguenti comandi:
     <caption style="caption-side:bottom;">Tabella 1. Comandi per la gestione delle chiavi</caption> 
  </table>
 
+ <table summary="Comandi per la gestione delle politiche delle chiavi">
+    <thead>
+        <th colspan="5">Comandi per la gestione delle politiche delle chiavi</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">Tabella 2. Comandi per la gestione delle politiche delle chiavi</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 [Crea una chiave root](/docs/services/key-protect?topic=key-protect-create-root-keys) nell'istanza del servizio {{site.data.keyword.keymanagementserviceshort}} che specifichi. 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 [Elimina una chiave](/docs/services/key-protect?topic=key-protect-delete-keys) archiviata nel tuo servizio {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 Elenca le ultime 200 chiavi disponibili nella tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ Richiama i dettagli su una chiave, come ad esempio i metadati o il materiale del
 
 Se la chiave è stata progettata come una chiave root, il sistema non può restituire il materiale della chiave per tale chiave.
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Esegui la rotazione di una chiave root](/docs/services/key-protect?topic=key-protect-wrap-keys) archiviata nel tuo servizio {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Impacchetta una chiave di crittografia dei dati (o DEK, data encryption key)](/docs/services/key-protect?topic=key-protect-wrap-keys) utilizzando una chiave root archiviata nell'istanza del servizio {{site.data.keyword.keymanagementserviceshort}} da te specificata.
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Spacchetta una DEK (data encryption key)](/docs/services/key-protect?topic=key-protect-unwrap-keys) utilizzando una chiave root archiviata nella tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+Elenca le politiche associate alla chiave root che hai specificato. 
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Parametri obbligatori
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>L'ID della chiave root di cui vuoi eseguire la query. Per richiamare un elenco delle tue chiavi disponibili, esegui il comando <a href="#kp-list">kp list</a>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>L'ID istanza {{site.data.keyword.cloud_notm}} che identifica la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Parametri facoltativi
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+Richiama i dettagli su una politica della chiave, ad esempio l'intervallo di rotazione automatica della chiave. 
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Parametri obbligatori
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>L'ID della chiave di cui vuoi eseguire la query. Per richiamare un elenco delle tue chiavi disponibili, esegui il comando <a href="#kp-list">kp list</a>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>L'ID istanza {{site.data.keyword.cloud_notm}} che identifica la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Parametri facoltativi
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+Crea o sostituisce la politica associata alla chiave root che hai specificato. 
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE 
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### Parametri obbligatori
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>L'ID della chiave di cui vuoi eseguire la query. Per richiamare un elenco delle tue chiavi disponibili, esegui il comando <a href="#kp-list">kp list</a>.</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>Specifica il tipo di politica che vuoi impostare. Per impostare una politica di rotazione, utilizza <code>--set-type rotation</code>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>L'ID istanza {{site.data.keyword.cloud_notm}} che identifica la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Parametri facoltativi
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>Specifica l'intervallo di tempo di rotazione (in mesi) per una chiave. Il valore predefinito è 1.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
+</dl>
 

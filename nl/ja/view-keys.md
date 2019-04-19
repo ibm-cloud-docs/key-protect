@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -61,7 +61,7 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>状態</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) に基づく[鍵の状態](/docs/services/key-protect?topic=key-protect-key-states)。 状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)に基づく[鍵の状態](/docs/services/key-protect?topic=key-protect-key-states)。状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
       </tr>
       <tr>
         <td>タイプ</td>
@@ -78,7 +78,7 @@ subcollection: key-protect
 ### 鍵のリストの取得
 {: #retrieve-keys-api}
 
-概要を参照するために、次のエンドポイントへの `GET` 呼び出しを行って、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスで管理されている鍵を表示できます。
+概要を参照するために、次のエンドポイントへの `GET` 呼び出しをして、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスで管理されている鍵を表示できます。
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys
@@ -177,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    デフォルトでは、`GET api/v2/keys` は最初の 2000 個の鍵を返しますが、照会時に `limit` パラメーターを使用してこの制限を調整できます。 `limit` および `offset` について詳しくは、[鍵のサブセットの取得](#retrieve_subset_keys_api)を参照してください。
+    デフォルトでは、`GET api/v2/keys` は最初の 2000 個の鍵を返しますが、照会時に `limit` パラメーターを使用してこの制限を調整できます。 `limit` および `offset` について詳しくは、[鍵のサブセットの取得](#retrieve-subset-keys-api)を参照してください。
     {: tip}
 
 ### 鍵のサブセットの取得

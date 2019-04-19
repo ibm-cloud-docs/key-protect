@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -22,15 +22,15 @@ subcollection: key-protect
 # 순환 정책 설정
 {: #set-rotation-policy}
 
-{{site.data.keyword.keymanagementservicefull}}를 사용하여 루트 키에 대한 자동 순환 정책을 설정할 수 있습니다.
+{{site.data.keyword.keymanagementservicefull}}를 사용하여 루트 키에 대한 자동 순환 정책을 설정할 수 있습니다. 
 {: shortdesc}
 
 루트 키에 대한 자동 순환 정책을 설정하는 경우 정기적으로 키의 수명을 줄이고 이 키로 보호되는 정보의 양을 제한합니다.
 
-{{site.data.keyword.keymanagementserviceshort}}에서 생성된 루트 키에 대해서만 순환 정책을 작성할 수 있습니다. 초기에 루트 키를 가져온 경우 base64로 인코딩된 새 키 자료를 제공하여 키를 순환해야 합니다. 자세한 정보는 [요청 시 루트 키 순환](/docs/services/key-protect?topic=key-protect-rotate-root-keys)을 참조하십시오.
+{{site.data.keyword.keymanagementserviceshort}}에서 생성된 루트 키에 대해서만 순환 정책을 작성할 수 있습니다. 초기에 루트 키를 가져온 경우 base64로 인코딩된 새 키 자료를 제공하여 키를 순환해야 합니다. 자세한 정보는 [요청 시 루트 키 순환](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys)을 참조하십시오.
 {: note}
 
-{{site.data.keyword.keymanagementserviceshort}}에서 키 순환 옵션에 대해 자세히 보시겠습니까? 자세한 정보는 [키 순환 옵션 비교](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)를 참조하십시오.
+{{site.data.keyword.keymanagementserviceshort}}에서 키 순환 옵션에 대해 자세히 보시겠습니까? 자세한 정보는 [키 순환 옵션 비교](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)를 참조하십시오.
 {: tip}
 
 ## GUI에서 순환 정책 관리

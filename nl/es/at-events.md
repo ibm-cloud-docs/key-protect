@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -27,7 +27,7 @@ Utilice el servicio de {{site.data.keyword.cloudaccesstrailfull}} para realizar 
 
 El servicio de {{site.data.keyword.cloudaccesstrailfull_notm}} registra actividades iniciadas por los usuarios que cambian el estado de un servicio en {{site.data.keyword.cloud_notm}}. 
 
-Para obtener más información, consulte la documentación de [{{site.data.keyword.cloudaccesstrailshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
+Para obtener más información, consulte la documentación de [{{site.data.keyword.cloudaccesstrailshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}.
 
 ## Lista de sucesos
 {: #list-activity-tracker-events}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -55,7 +55,7 @@ Tenez compte des considérations suivantes lorsque vous êtes prêt à importer 
   <dt>Planifiez le chiffrement de votre matériel de clé</dt>
     <dd>Si vous choisissez de chiffrer votre matériel de clé à l'aide d'une clé de transport, définissez une méthode pour exécuter le chiffrement RSA sur le matériel de clé. Vous devez utiliser le schéma de chiffrement <code>RSAES_OAEP_SHA_256</code> comme spécifié par la norme <a href="https://tools.ietf.org/html/rfc3447" target="_blank">PKCS #1 v2.1 relative au chiffrement RSA</a>. Examinez les capacités de votre système interne de gestion des clés ou de votre module HSM sur site pour définir vos options.</dd>
   <dt>Gérez le cycle de vie du matériel de clé importé</dt>
-    <dd>Après avoir importé le matériel de clé dans le service, gardez à l'esprit que vous êtes responsable de la gestion du cycle de vie complet de votre clé. Avec l'API {{site.data.keyword.keymanagementserviceshort}}, vous pouvez définir une date d'expiration pour la clé lorsque vous décidez de la télécharger dans le service. Cependant, si vous souhaitez <a href="/docs/services/key-protect?topic=key-protect-rotate-keys">effectuer une rotation d'une clé racine importée</a>, vous devez générer et fournir un nouveau matériel de clé pour retirer et remplacer la clé existante.</dd>
+    <dd>Après avoir importé le matériel de clé dans le service, gardez à l'esprit que vous êtes responsable de la gestion du cycle de vie complet de votre clé. Avec l'API {{site.data.keyword.keymanagementserviceshort}}, vous pouvez définir une date d'expiration pour la clé lorsque vous décidez de la télécharger dans le service. Cependant, si vous souhaitez <a href="/docs/services/key-protect?topic=key-protect-rotate-keys">effectuer une rotation d'une clé racine importée</a>, vous devez générer et fournir un nouveau matériel de clé pour retirer et remplacer la clé existante. </dd>
 </dl>
 
 ## Utilisation des clés de transport

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ Die regelmäßige Schlüsselrotation unterstützt Sie bei der Einhaltung branche
   <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Vorteile der Schlüsselrotation</caption>
 </table>
 
-Die Schlüsselrotation wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+Die Schlüsselrotation wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
 {: tip}
 
 ## Vergleich Ihrer Optionen für die Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}}
@@ -53,7 +53,7 @@ Rotationsoptionen sind nur für Rootschlüssel verfügbar.
 
 <dl>
   <dt>Rotationsrichtlinie für einen Schlüssel festlegen</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} hilft Ihnen, die Rotation für Verschlüsselungsschlüssel zu vereinfachen, indem Sie Rotationsrichtlinien für diejenigen Schlüssel aktivieren, die Sie im Service generieren. Nach dem Erstellen eines Rootschlüssels können Sie eine Rotationsrichtlinie für den Schlüssel entweder in der grafischen Benutzeroberfläche von {{site.data.keyword.keymanagementserviceshort}} oder mit der API verwalten. <a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">Wählen Sie ein automatisches Rotationsintervall zwischen 1 und 12 Monaten für Ihren Schlüssel</a> entsprechend Ihren Sicherheitsanforderungen aus. Wenn der Schlüssel auf Basis des von Ihnen angegebenen Rotationsintervalls rotieren soll, ersetzt {{site.data.keyword.keymanagementserviceshort}} den Schlüssel automatisch durch neue Schlüsselinformationen.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} hilft Ihnen, die Rotation für Verschlüsselungsschlüssel zu vereinfachen, indem Sie Rotationsrichtlinien für diejenigen Schlüssel aktivieren, die Sie im Service generieren. Nach dem Erstellen eines Rootschlüssels können Sie eine Rotationsrichtlinie für den Schlüssel entweder in der grafischen Benutzeroberfläche von {{site.data.keyword.keymanagementserviceshort}} oder mit der API verwalten. <a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">Wählen Sie ein automatisches Rotationsintervall zwischen 1 und 12 Monaten für Ihren Schlüssel</a> entsprechend Ihren Sicherheitsanforderungen aus. Wenn der Schlüssel auf Basis des von Ihnen angegebenen Rotationsintervalls rotieren soll, ersetzt {{site.data.keyword.keymanagementserviceshort}} den Schlüssel automatisch durch neue Schlüsselinformationen.</dd>
   <dt>Bedarfsgesteuerte Rotation von Schlüsseln</dt>
     <dd>Als Sicherheitsadministrator benötigen Sie möglicherweise mehr Kontrolle über die Häufigkeit der Rotation für Ihre Schlüssel. Wenn Sie keine automatische Rotationsrichtlinie für einen Schlüssel festlegen möchten, können Sie manuell einen neuen Schlüssel erstellen, der einen vorhandenen Schlüssel ersetzt, und anschließend Ihre Anwendungen aktualisieren, sodass sie auf den neuen Schlüssel verweisen. Zur Vereinfachung dieses Prozesses können Sie {{site.data.keyword.keymanagementserviceshort}} verwenden, um den Schlüssel bedarfsgesteuert zu rotieren. In diesem Szenario erstellt {{site.data.keyword.keymanagementserviceshort}} den Schlüssel in Ihrem Namen bei jeder Rotationsanforderung. Der Schlüssel behält die Metadaten und die Schlüssel-ID bei.</dd>
 </dl>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -40,9 +40,9 @@ subcollection: key-protect
 ## CLI를 사용하여 인스턴스 ID 검색
 {: #retrieve-instance-ID-cli}
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}를 사용하여 서비스 인스턴스의 인스턴스 ID를 검색할 수도 있습니다.
+[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 서비스 인스턴스의 인스턴스 ID를 검색할 수도 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 

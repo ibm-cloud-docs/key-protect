@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,9 +42,9 @@ subcollection: key-protect
 ## 키 새로 작성
 {: #create-keys}
 
-[{{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 작성한 후](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps) 서비스에서 키를 지정할 준비가 되었습니다. 
+[{{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 작성하고 나면](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps) 서비스에서 키를 지정할 준비가 된 것입니다. 
 
-다음 단계를 완료하여 첫 암호화 키를 작성하십시오. 
+다음 단계를 완료하여 첫 번째 암호화 키를 작성하십시오. 
 
 1. 애플리케이션 세부사항 페이지에서 **관리** &gt; **키 추가**를 클릭하십시오.
 2. 키를 새로 작성하려면 **키 생성** 창을 선택하십시오.

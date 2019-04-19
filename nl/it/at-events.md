@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -27,7 +27,7 @@ Utilizza il servizio {{site.data.keyword.cloudaccesstrailfull}} per tenere tracc
 
 Il servizio {{site.data.keyword.cloudaccesstrailfull_notm}} registra le attività avviate dall'utente che modificano lo stato di un servizio in {{site.data.keyword.cloud_notm}}. 
 
-Per ulteriori informazioni, vedi la [Documentazione {{site.data.keyword.cloudaccesstrailshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
+Per ulteriori informazioni, vedi la [documentazione di {{site.data.keyword.cloudaccesstrailshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}.
 
 ## Elenco di eventi
 {: #list-activity-tracker-events}
@@ -44,7 +44,7 @@ La seguente tabella elenca le azioni che generano un evento:
 | `kms.secrets.wrap`   | Impacchetta una chiave                  |
 | `kms.secrets.unwrap` | Spacchetta una chiave                |
 | `kms.policies.read`  | Visualizza una politica per una chiave     |
-| `kms.policies.write` | Configura una politica per una chiave     |
+| `kms.policies.write` | Configura una politica per una chiave      |
 {: caption="Tabella 1. Azioni che generano gli eventi {{site.data.keyword.cloudaccesstrailfull_notm}}" caption-side="top"}
 
 ## Dove visualizzare gli eventi

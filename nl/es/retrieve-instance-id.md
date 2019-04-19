@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -40,9 +40,9 @@ Puede ver el ID de instancia que está asociado a la instancia de servicio de {{
 ## Recuperación de un ID de instancia con la CLI
 {: #retrieve-instance-ID-cli}
 
-También puede recuperar el ID de instancia de la instancia de servicio utilizando la CLI de [{{site.data.keyword.cloud_notm}}![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+También puede recuperar el ID de instancia de la instancia de servicio utilizando la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 

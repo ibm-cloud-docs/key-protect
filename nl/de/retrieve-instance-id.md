@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -40,9 +40,9 @@ Sie können die Instanz-ID anzeigen, die Ihrer {{site.data.keyword.keymanagement
 ## Instanz-ID mit der Befehlszeilenschnittstelle abrufen
 {: #retrieve-instance-ID-cli}
 
-Sie können die Instanz-ID für Ihre Serviceinstanz auch über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} abrufen.
+Sie können die Instanz-ID für Ihre Serviceinstanz auch über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} abrufen.
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
 
     ```sh
     ibmcloud login 

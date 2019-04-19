@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -30,7 +30,7 @@ Mit der Kombination aus {{site.data.keyword.keymanagementservicefull}} und {{sit
 
 {{site.data.keyword.cos_full_notm}} stellt Cloudspeicher für unstrukturierte Daten bereit. Unstrukturierte Daten beziehen sich auf Dateien, Audio- und visuelle Medien, PDFs, komprimierte Datenarchive, Backup-Images, Anwendungsartefakte, Geschäftsdokumente oder andere binäre Objekte.  
 
-Damit die Datenintegrität und Verfügbarkeit gewahrt werden kann, zerlegt {{site.data.keyword.cos_full_notm}} Daten und verteilt sie auf Speicherknoten an mehreren geografischen Standorten. In den einzelnen Speicherknoten befinden sich keine vollständigen Datenkopien. Nur eine Teilmenge von Knoten muss verfügbar sein, damit Sie die Daten im Netz komplett abrufen können. Die providerseitige Verschlüsselung wird bereitgestellt, sodass Ihre ruhenden sowie gerade ausgeführten Daten geschützt sind. Zur Verwaltung des Speichers erstellen Sie Buckets und importieren Sie Objekte mithilfe der {{site.data.keyword.cloud_notm}}-Konsole oder programmgesteuert über die [{{site.data.keyword.cos_full_notm}}-REST-API ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-the-ibm-cloud-object-storage-api){: new_window}.
+Damit die Datenintegrität und Verfügbarkeit gewahrt werden kann, zerlegt {{site.data.keyword.cos_full_notm}} Daten und verteilt sie auf Speicherknoten an mehreren geografischen Standorten. In den einzelnen Speicherknoten befinden sich keine vollständigen Datenkopien. Nur eine Teilmenge von Knoten muss verfügbar sein, damit Sie die Daten im Netz komplett abrufen können. Die providerseitige Verschlüsselung wird bereitgestellt, sodass Ihre ruhenden sowie gerade ausgeführten Daten geschützt sind. Zur Verwaltung des Speichers erstellen Sie Buckets und importieren Sie Objekte mithilfe der {{site.data.keyword.cloud_notm}}-Konsole oder programmgesteuert über die [{{site.data.keyword.cos_full_notm}}-REST-API ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window}.
 
 Weitere Informationen finden Sie in [Informationen zu COS ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}.
 

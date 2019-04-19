@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 若要安裝 CLI 外掛程式，請參閱[設定 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。 
 
-登入 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-overview){: new_window} 時，您會在有更新可用時收到通知。請務必將 CLI 保持最新，以便您可以使用適用於 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式的指令及旗標。
+登入 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 時，您會在有更新可用時收到通知。請務必將 CLI 保持最新，以便您可以使用適用於 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式的指令及旗標。
 {: tip}
 
 ## ibmcloud kp 指令
@@ -58,12 +58,28 @@ subcollection: key-protect
     <caption style="caption-side:bottom;">表 1. 管理金鑰用的指令</caption> 
  </table>
 
+ <table summary="管理金鑰原則用的指令">
+    <thead>
+        <th colspan="5">管理金鑰原則用的指令</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">表 2. 管理金鑰原則用的指令</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 在您指定的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中[建立根金鑰](/docs/services/key-protect?topic=key-protect-create-root-keys)。 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -96,9 +112,9 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ## kp delete
 {: #kp-delete}
 
-[刪除](/docs/services/key-protect?topic=key-protect-delete-keys)儲存在您 {{site.data.keyword.keymanagementserviceshort}} 服務中的金鑰。
+[刪除金鑰](/docs/services/key-protect?topic=key-protect-delete-keys)（儲存在您的 {{site.data.keyword.keymanagementserviceshort}} 服務中）。
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 列出 {{site.data.keyword.keymanagementserviceshort}} 服務實例中可用的最後 200 個金鑰。
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 
 如果金鑰被指定為根金鑰，則系統無法傳回該金鑰的金鑰資料。
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -172,11 +188,11 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ## kp rotate
 {: #kp-rotate}
 
-[替換](/docs/services/key-protect?topic=key-protect-wrap-keys)儲存在您 {{site.data.keyword.keymanagementserviceshort}} 服務中的根金鑰。
+[替換根金鑰](/docs/services/key-protect?topic=key-protect-wrap-keys)（儲存在您的 {{site.data.keyword.keymanagementserviceshort}} 服務中）。
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 使用儲存在您提供之 {{site.data.keyword.keymanagementserviceshort}} 服務實例中的根金鑰來[包裝資料加密金鑰](/docs/services/key-protect?topic=key-protect-wrap-keys)。
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 使用儲存在您 {{site.data.keyword.keymanagementserviceshort}} 服務實例中的根金鑰來[解除包裝資料加密金鑰](/docs/services/key-protect?topic=key-protect-unwrap-keys)。
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>設定 CLI 輸出格式。依預設，所有指令都會以表格格式列印。若要將輸出格式變更為 JSON，請使用 <code>--output json</code>。</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+列出與您指定根金鑰相關聯的原則。
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必要參數
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>您要查詢之根金鑰的 ID。若要擷取可用金鑰的清單，請執行 <a href="#kp-list">kp list</a> 指令。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>識別您 {{site.data.keyword.keymanagementserviceshort}} 服務實例的 {{site.data.keyword.cloud_notm}} 實例 ID。</dd>
+</dl>
+
+### 選用性參數
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>設定 CLI 輸出格式。依預設，所有指令都會以表格格式列印。若要將輸出格式變更為 JSON，請使用 <code>--output json</code>。</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+擷取金鑰原則的詳細資料，例如，金鑰的自動替換間隔。
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必要參數
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>您要查詢之金鑰的 ID。若要擷取可用金鑰的清單，請執行 <a href="#kp-list">kp list</a> 指令。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>識別您 {{site.data.keyword.keymanagementserviceshort}} 服務實例的 {{site.data.keyword.cloud_notm}} 實例 ID。</dd>
+</dl>
+
+### 選用性參數
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>設定 CLI 輸出格式。依預設，所有指令都會以表格格式列印。若要將輸出格式變更為 JSON，請使用 <code>--output json</code>。</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+建立或取代與您指定根金鑰相關聯的原則。
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE 
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### 必要參數
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>您要查詢之金鑰的 ID。若要擷取可用金鑰的清單，請執行 <a href="#kp-list">kp list</a> 指令。</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>指定您要設定的原則類型。若要設定替換原則，請使用 <code>--set-type rotation</code>。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>識別您 {{site.data.keyword.keymanagementserviceshort}} 服務實例的 {{site.data.keyword.cloud_notm}} 實例 ID。</dd>
+</dl>
+
+### 選用性參數
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>指定金鑰的替換時間間隔（以月為單位）。預設值是 1。</dd>
+    <dt><code>--output</code></dt>
+        <dd>設定 CLI 輸出格式。依預設，所有指令都會以表格格式列印。若要將輸出格式變更為 JSON，請使用 <code>--output json</code>。</dd>
+</dl>
 

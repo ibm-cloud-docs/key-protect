@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -31,7 +31,7 @@ Quando utilizzi {{site.data.keyword.keymanagementserviceshort}} per creare le ch
   <th>Vantaggio</th>
   <th>Descrizione</th>
   <tr>
-    <td>BYOK (Bring your own key)</td>
+    <td>BYOK (Bring your own key) </td>
     <td>Vuoi controllare completamente e rafforzare le tue procedure di gestione della chiave generando chiavi solide dai tuoi HSM (hardware security module) in loco. Se scegli di esportare le chiavi simmetriche dalla tua infrastruttura di gestione della chiave interna, puoi utilizzare {{site.data.keyword.keymanagementserviceshort}} per utilizzarle in modo sicuro nel cloud.</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ Puoi creare solo una chiave di trasporto per istanza del servizio. Per ulteriori
 
 Dietro le quinte, l'API {{site.data.keyword.keymanagementserviceshort}} guida il processo di creazione della chiave di trasporto.  
 
-La seguente tabella elenca i metodi API che configurano un locker e creano le chiavi di trasporto per la tua istanza del servizio. 
+La seguente tabella elenca i metodi API che configurano un locker e creano le chiavi di trasporto per la tua istanza del servizio.
 
 <table>
   <tr>

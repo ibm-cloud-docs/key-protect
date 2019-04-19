@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -29,7 +29,7 @@ Quando esegui la rotazione della tua chiave root, ne abbrevi la durata e limiti 
 
 Per saperne di più sul modo in cui la rotazione delle chiavi ti aiuta a soddisfare gli standard del settore e le prassi ottimali crittografiche, vedi [Rotazione delle tue chiavi di crittografia](/docs/services/key-protect?topic=key-protect-key-rotation).
 
-La rotazione è disponibile solo per le chiavi root. Per ulteriori informazioni sulle tue opzioni di rotazione della chiave in {{site.data.keyword.keymanagementserviceshort}}, vedi [Confronto delle tue opzioni di rotazione della chiave](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+La rotazione è disponibile solo per le chiavi root. Per ulteriori informazioni sulle tue opzioni di rotazione della chiave in {{site.data.keyword.keymanagementserviceshort}}, vedi [Confronto delle tue opzioni di rotazione della chiave](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Rotazione delle chiavi root con la GUI

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: service instance, create service instance, KMS service instance, Key Protect service instance
+
+subcollection: key-protect
 
 ---
 
@@ -22,7 +26,7 @@ lastupdated: "2019-01-03"
 {: shortdesc}
 
 ## Provisionando por meio do console do {{site.data.keyword.cloud_notm}}
-{: #gui}
+{: #provision-gui}
 
 Para provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} por meio do console do {{site.data.keyword.cloud_notm}}, conclua as etapas a seguir.
 
@@ -34,16 +38,11 @@ Para provisionar uma instância do {{site.data.keyword.keymanagementserviceshort
 {{site.data.keyword.keymanagementserviceshort}} na conta, região e grupo de recursos no qual você efetuou login.
 
 ## Provisionando por meio da CLI do {{site.data.keyword.cloud_notm}}
-{: #cli}
+{: #provision-cli}
 
-É possível provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} usando a CLI do {{site.data.keyword.cloud_notm}}. 
+Também é possível provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} usando a CLI do {{site.data.keyword.cloud_notm}}. 
 
-### Criando uma instância de serviço em sua conta
-{: #provision-acct-lvl}
-
-Para simplificar o acesso às suas chaves de criptografia com funções do [{{site.data.keyword.iamlong}}](/docs/iam/users_roles.html#iamusermanrol), é possível criar uma ou mais instâncias do serviço do {{site.data.keyword.keymanagementserviceshort}} dentro de uma conta, sem precisar especificar uma organização e um espaço. 
-
-1. Efetue login no  {{site.data.keyword.cloud_notm}}  por meio da  [ CLI do {{site.data.keyword.cloud_notm}}  ](/docs/cli/index.html#overview){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} por meio do [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 
@@ -76,50 +75,7 @@ Para simplificar o acesso às suas chaves de criptografia com funções do [{{si
     ```
     {: pre}
 
-### Criando uma instância de serviço dentro de uma organização e espaço
-{: #provision-space-lvl}
+## O que vem a seguir
+{: #provision-service-next-steps}
 
-Para gerenciar o acesso às suas chaves de criptografia com funções do [Cloud
-Foundry](/docs/iam/cfaccess.html), é possível criar uma instância do serviço do {{site.data.keyword.keymanagementserviceshort}} dentro de
-uma organização e espaço especificados.  
-
-1. Efetue login no  {{site.data.keyword.cloud_notm}}  por meio da  [ CLI do {{site.data.keyword.cloud_notm}}  ](/docs/cli/index.html#overview){: new_window}.
-
-    ```sh
-    ibmcloud login 
-    ```
-    {: pre}
-    **Observação:** se o login falhar, execute o comando `ibmcloud login --sso` e tente novamente. O parâmetro `--sso` é necessário quando você efetua login com um ID federado. Se essa opção for usada, acesse o link listado na saída da CLI para gerar uma senha descartável.
-
-2. Selecione a conta, a região, a organização e o espaço onde você gostaria de criar uma instância de serviço do
-{{site.data.keyword.keymanagementserviceshort}}.
-
-    É possível usar o comando a seguir para configurar sua região de destino, organização e espaço.
-
-    ```sh
-    ibmcloud target -r <region> -o <organization_name> -s <space_name>
-    ```
-    {: pre}
-
-3. Provisione uma instância do {{site.data.keyword.keymanagementserviceshort}} dentro dessa conta, região,
-organização e espaço.
-
-    ```sh
-    ibmcloud service create kms tiered-pricing <instance_name>
-    ```
-    {: pre}
-
-    Substitua `<instance_name>` com um único alias para sua instância de serviço.
-
-4. Opcional: verifique se a instância do serviço foi criada com êxito.
-
-    ```sh
-    lista de serviços ibmcloud
-    ```
-    {: pre}
-
-
-### O que vem a seguir
-
-- Para ver um exemplo de como chaves armazenadas no {{site.data.keyword.keymanagementserviceshort}} podem funcionar para criptografar e decriptografar dados, [consulte o aplicativo de amostra no GitHub ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM-Bluemix/key-protect-helloworld-python){: new_window}.
-- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

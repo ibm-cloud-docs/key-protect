@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} 서비스는 {{site.data.keyword.cloud_notm}}에 있는 서비스의 상태를 변경하는 사용자 시작 활동을 기록합니다. 
 
-자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}를 참조하십시오.
+자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}를 참조하십시오.
 
 ## 이벤트 목록
 {: #list-activity-tracker-events}
@@ -44,7 +44,7 @@ subcollection: key-protect
 | `kms.secrets.wrap`   |키 랩핑                  |
 | `kms.secrets.unwrap` |키 랩핑 해제                |
 | `kms.policies.read`  |    키에 대한 정책 보기     |
-| `kms.policies.write` |    키에 대한 정책 설정     |
+| `kms.policies.write` |    키에 대한 정책 설정      |
 {: caption="표 1. {{site.data.keyword.cloudaccesstrailfull_notm}} 이벤트를 생성하는 조치" caption-side="top"}
 
 ## 이벤트 확인 위치

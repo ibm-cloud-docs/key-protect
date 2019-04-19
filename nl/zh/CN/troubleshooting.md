@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -208,9 +208,9 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 
 可以查看论坛以了解是否有其他用户遇到相同问题。使用论坛进行提问时，请标记您的问题，以便 {{site.data.keyword.cloud_notm}} 开发团队可以看到。
 
-- 如果有关于 {{site.data.keyword.keymanagementserviceshort}} 的技术问题，请将您的问题发布到 [Stack Overflow ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} 上，并使用“ibm-cloud”和“key-protect”标记问题。
-- 有关服务的问题和入门指示信息，请使用 [IBM developerWorks dW Answers ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} 论坛。请包括“ibm-cloud”和“key-protect”标记。
+- 如果有关于 {{site.data.keyword.keymanagementserviceshort}} 的技术问题，请将您的问题发布到 [Stack Overflow ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} 上，并使用“ibm-cloud”和“key-protect”标记问题。
+- 有关服务的问题和入门指示信息，请使用 [IBM developerWorks dW Answers ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.ibm.com/answers/topics/key-protect/){: new_window} 论坛。请包括“ibm-cloud”和“key-protect”标记。
 
-有关使用论坛的更多详细信息，请参阅[获取支持 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/get-support?topic=get-support-using-avatar){: new_window}。
+有关使用论坛的更多详细信息，请参阅[获取支持 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window}。
 
 有关提交 {{site.data.keyword.IBM_notm}} 支持凭单或支持级别和凭单严重性的更多信息，请参阅[联系支持人员 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

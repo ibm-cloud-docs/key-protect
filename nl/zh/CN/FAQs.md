@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -71,7 +71,7 @@ subcollection: key-protect
 为保护个人数据的机密性，请不要将个人可标识信息 (PII) 存储为密钥的元数据。个人信息包括您的姓名、地址、电话号码或电子邮件地址，或者包括可能识别、联系或查找到您、您的客户或其他任何人的其他信息。
 
 
-对于存储为 {{site.data.keyword.keymanagementserviceshort}} 资源和加密密钥的元数据的任何信息，您负责确保其安全性。有关个人数据的更多示例，请参阅 [NIST Special Publication 800-122 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window} 的第 2.2 节。
+对于存储为 {{site.data.keyword.keymanagementserviceshort}} 资源和加密密钥的元数据的任何信息，您负责确保其安全性。有关个人数据的更多示例，请参阅 [NIST Special Publication 800-122 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} 的第 2.2 节。
 {: important}
 
 ## 在一个区域创建的密钥可以在另一个区域使用吗？

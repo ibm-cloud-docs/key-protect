@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -24,7 +24,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementservicefull}} segue le linee guida di sicurezza da
 [NIST SP 800-57 for key states
-![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
 {: shortdesc}
 
 ## Transizioni e stati della chiave

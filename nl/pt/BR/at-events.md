@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: Activity tracker events, KMS API calls, monitor KMS events
+
+subcollection: key-protect
 
 ---
 
@@ -16,62 +20,35 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # Eventos do {{site.data.keyword.cloudaccesstrailshort}}
-{: #at-events}
+{: #activity-tracker-events}
 
 Use o serviço {{site.data.keyword.cloudaccesstrailfull}} para controlar como os usuários e os aplicativos interagem com o {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
 O serviço {{site.data.keyword.cloudaccesstrailfull_notm}} registra atividades iniciadas pelo usuário que mudam o estado de um serviço no {{site.data.keyword.cloud_notm}}. 
 
-Para obter mais informações, veja a [Documentação do {{site.data.keyword.cloudaccesstrailshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla){: new_window}.
+Para obter mais informações, consulte a [Documentação do {{site.data.keyword.cloudaccesstrailshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}.
 
 ## Lista de eventos
-{: #events}
+{: #list-activity-tracker-events}
 
 A tabela a seguir lista as ações que geram um evento:
 
-<table>
-    <tr>
-        <th>Ações</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>kms.secrets.create</td>
-        <td>Criar uma chave</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.read</td>
-        <td>Recuperar uma chave por ID</td>
-    </tr>
-   <tr>
-        <td>kms.secrets.delete</td>
-        <td>Excluir uma chave por ID</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.list</td>
-        <td>Recuperar uma lista de chaves</td>
-    </tr>
-    <tr>
-        <td>kms.secrets.head</td>
-        <td>Recuperar o número de chaves</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.wrap</td>
-        <td>Agrupar uma chave</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.unwrap</td>
-        <td>Desagrupar uma chave</td>
-    </tr>
-     <tr>
-        <td>kms.secrets.rotate</td>
-        <td>Girar uma chave</td>
-    </tr>
-    <caption style="caption-side:bottom;">Tabela 1. Ações que geram eventos do  {{site.data.keyword.cloudaccesstrailfull_notm}}</caption>
-</table>
+| Ações               | Descrição                 |
+| -------------------- | --------------------------- |
+| `kms.secrets.create` | Criar uma chave                |
+| `kms.secrets.read`   | Recuperar uma chave por ID        |
+| `kms.secrets.delete` | Excluir uma chave por ID          |
+| `kms.secrets.list`   | Recuperar uma lista de chaves     |
+| `kms.secrets.head`   | Recuperar o número de chaves |
+| `kms.secrets.wrap`   | Agrupar uma chave                  |
+| `kms.secrets.unwrap` | Desagrupar uma chave                |
+| `kms.policies.read`  | Visualizar uma política para uma chave     |
+| `kms.policies.write` | Configurar uma política para uma chave      |
+{: caption="Tabela 1. Ações que geram eventos do  {{site.data.keyword.cloudaccesstrailfull_notm}}" caption-side="top"}
 
 ## Onde visualizar os eventos
-{: #gui}
+{: #view-activity-tracker-events}
 
 <!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
@@ -88,7 +65,7 @@ provisionado. Em seguida, se você tiver um plano Lite, será possível visualiz
 conta na IU do {{site.data.keyword.cloudaccesstrailshort}} e, se tiver um plano Premium, por meio do Kibana.
 
 ## Informações Adicionais
-{: #info}
+{: #activity-tracker-info}
 
 Devido à sensibilidade das informações de uma chave de criptografia, quando um
 evento é gerado como resultado de uma chamada API para o serviço {{site.data.keyword.keymanagementserviceshort}}, o evento que é gerado não inclui

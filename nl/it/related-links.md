@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -38,7 +38,7 @@ Ulteriori risorse per fornirti maggiori informazioni sulla gestione della critto
 - [{{site.data.keyword.keymanagementserviceshort}} Goes From Beta to GA in Dallas ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## Termini del servizio
-{: #info}
+{: #service-terms}
 
 - [{{site.data.keyword.keymanagementservicelong_notm}} Service Level Agreement ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 

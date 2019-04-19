@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -33,7 +33,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}} を使用して、ルート鍵のローテーション・ポリシーを関連付けることができるようになりました。
 
-詳しくは、[ローテーション・ポリシーの設定](/docs/services/key-protect?topic=key-protect-set-rotation-policy)を参照してください。{{site.data.keyword.keymanagementserviceshort}} における鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)を参照してください。
+詳しくは、[ローテーション・ポリシーの設定](/docs/services/key-protect?topic=key-protect-set-rotation-policy)を参照してください。 {{site.data.keyword.keymanagementserviceshort}} における鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)を参照してください。
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} でのトランスポート鍵のサポート (ベータ) の追加
 次の時点の最新情報: 2019 年 3 月 20 日
@@ -42,28 +42,32 @@ subcollection: key-protect
 
 詳しくは、[クラウドへの独自の暗号鍵の取り込み](/docs/services/key-protect?topic=key-protect-importing-keys)を参照してください。
 
-現在のところ、トランスポート鍵はベータ・フィーチャーです。ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
+現在のところ、トランスポート鍵はベータ・フィーチャーです。 ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
 {: important}
 
 ## 2019 年 2 月
 {: #feb-2019}
 
 ### 変更: レガシー {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス
+{: #changed-legacy-service-instances}
+
 次の時点の最新情報: 2019 年 2 月 13 日
 
-2017 年 12 月 15 日より前にプロビジョンされた {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスは、Cloud Foundry をベースにしたレガシー・インフラストラクチャーで稼働しています。このレガシー {{site.data.keyword.keymanagementserviceshort}} サービスは、2019 年 5 月 15 日に廃止される予定です。
+2017 年 12 月 15 日より前にプロビジョンされた {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスは、Cloud Foundry をベースにしたレガシー・インフラストラクチャーで稼働しています。 このレガシー {{site.data.keyword.keymanagementserviceshort}} サービスは、2019 年 5 月 15 日に廃止される予定です。
 
 **廃止による影響**
 
-アクティブな実動鍵が古い {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内にある場合、暗号化されたデータにアクセスできなくなる事態を避けるため、必ず 2019 年 5 月 15 日までに新しいサービス・インスタンスに鍵をマイグレーションしてください。[{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/) でリソース・リストにナビゲートすることによって、レガシー・インスタンスを使用しているかどうかを確認できます。ご使用の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが {{site.data.keyword.cloud_notm}} リソース・リストの「**Cloud Foundry サービス**」セクションにリストされる場合、または、サービスの操作のターゲット指定に `https://ibm-key-protect.edge.bluemix.net` API エンドポイントを使用している場合、{{site.data.keyword.keymanagementserviceshort}} のレガシー・インスタンスを使用しています。2019 年 5 月 15 日以降、レガシー・エンドポイントにはアクセスできなくなり、サービスを操作のターゲットにできなくなります。
+アクティブな実動鍵が古い {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内にある場合、暗号化されたデータにアクセスできなくなる事態を避けるため、必ず 2019 年 5 月 15 日までに新しいサービス・インスタンスに鍵をマイグレーションしてください。 [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/) でリソース・リストにナビゲートすることによって、レガシー・インスタンスを使用しているかどうかを確認できます。 ご使用の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが {{site.data.keyword.cloud_notm}} リソース・リストの「**Cloud Foundry サービス**」セクションにリストされる場合、または、サービスの操作のターゲット指定に `https://ibm-key-protect.edge.bluemix.net` API エンドポイントを使用している場合、{{site.data.keyword.keymanagementserviceshort}} のレガシー・インスタンスを使用しています。 2019 年 5 月 15 日以降、レガシー・エンドポイントにはアクセスできなくなり、サービスを操作のターゲットにできなくなります。
 
-新しいサービス・インスタンスへの暗号鍵のマイグレーションでヘルプが必要な場合、詳しい手順について、[GitHub 内の migration client ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/kms-migration-client){: new_window} を確認してください。鍵の状況またはマイグレーション・プロセスについて追加の質問がある場合、Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) に連絡してください。
+新しいサービス・インスタンスへの暗号鍵のマイグレーションでヘルプが必要な場合、 詳しい手順について、[GitHub 内の migration client ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/kms-migration-client){: new_window} を確認してください。 鍵の状況またはマイグレーション・プロセスについて追加の質問がある場合、Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) に連絡してください。
 {: tip}
 
 ## 2018 年 12 月
 {: #dec-2018}
 
 ### 変更: {{site.data.keyword.keymanagementserviceshort}} API エンドポイント
+{: #changed-api-endpoints}
+
 次の時点の最新情報: 2018 年 12 月 19 日
 
 {{site.data.keyword.cloud_notm}} の新しい統一されたエクスペリエンスに合わせるため、{{site.data.keyword.keymanagementserviceshort}} のサービス API のベース URL が更新されました。
@@ -83,6 +87,8 @@ subcollection: key-protect
 {: #oct-2018}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} が東京地域に拡大されます
+{: #added-tokyo-region}
+
 次の時点の最新情報: 2018 年 10 月 31 日
 
 東京地域で {{site.data.keyword.keymanagementserviceshort}} リソースを作成できるようになりました。 
@@ -90,6 +96,8 @@ subcollection: key-protect
 詳しくは、[地域とロケーション](/docs/services/key-protect?topic=key-protect-regions)を参照してください。
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} CLI プラグイン
+{: #added-cli-plugin}
+
 次の時点の最新情報: 2018 年 10 月 2 日
 
 {{site.data.keyword.keymanagementserviceshort}} CLI プラグインを使用して {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの鍵を管理できるようになりました。
@@ -100,6 +108,8 @@ subcollection: key-protect
 {: #sept-2018}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} でのオンデマンドの鍵ローテーションのサポートの追加
+{: #added-key-rotation}
+
 次の時点の最新情報: 2018 年 9 月 28 日
 
 {{site.data.keyword.keymanagementserviceshort}} を使用してルート鍵をオンデマンドでローテートできるようになりました。
@@ -107,6 +117,8 @@ subcollection: key-protect
 詳しくは、『[鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys)』を参照してください。
 
 ### 追加: クラウド・アプリケーションのエンドツーエンドのセキュリティー・チュートリアル
+{: #added-security-tutorial}
+
 次の時点の最新情報: 2018 年 9 月 14 日
 
 独自の暗号鍵を使用してストレージ・バケット・コンテンツを暗号化するのに役立つコード・サンプルをお探しですか?
@@ -116,6 +128,8 @@ subcollection: key-protect
 詳しくは、[GitHub のサンプル・アプリケーションを確認してください ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} がワシントン DC 地域に拡大されます
+{: #added-wdc-region}
+
 次の時点の最新情報: 2018 年 9 月 10 日
 
 ワシントン DC 地域で {{site.data.keyword.keymanagementserviceshort}} リソースを作成できるようになりました。 
@@ -126,6 +140,8 @@ subcollection: key-protect
 {: #aug-2018}
 
 ### 変更: {{site.data.keyword.keymanagementserviceshort}} API 資料の URL
+{: #changed-api-doc-url}
+
 次の時点の最新情報: 2018 年 8 月 28 日
 
 {{site.data.keyword.keymanagementserviceshort}} API リファレンスが移動しました。 
@@ -137,6 +153,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #mar-2018}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} がフランクフルト地域に拡大されます
+{: #added-frankfurt-region}
+
 次の時点の最新情報: 2018 年 3 月 21 日
 
 フランクフルト地域で {{site.data.keyword.keymanagementserviceshort}} リソースを作成できるようになりました。 
@@ -147,6 +165,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #jan-2018}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} がシドニー地域に拡大されます
+{: #added-sydney-region}
+
 次の時点の最新情報: 2018 年 1 月 31 日
 
 シドニー地域で {{site.data.keyword.keymanagementserviceshort}} リソースを作成できるようになりました。 
@@ -157,6 +177,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #dec-2017}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} で Bring Your Own Key (BYOK) のサポートが追加されます
+{: #added-byok-support}
+
 次の時点の最新情報: 2017 年 12 月 15 日
 
 {{site.data.keyword.keymanagementserviceshort}} で Bring Your Own Key (BYOK) と顧客管理の暗号化がサポートされるようになりました。
@@ -165,6 +187,8 @@ https://{DomainName}/apidocs/key-protect.
 - {{site.data.keyword.cos_full_notm}} バケットの[エンベロープ暗号化](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how)が有効になりました。
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} がロンドン地域に拡大されます
+{: #added-london-region}
+
 次の時点の最新情報: 2017 年 12 月 15 日
 
 {{site.data.keyword.keymanagementserviceshort}} がロンドン地域で使用可能になりました。 
@@ -172,6 +196,8 @@ https://{DomainName}/apidocs/key-protect.
 詳しくは、[地域とロケーション](/docs/services/key-protect?topic=key-protect-regions)を参照してください。
 
 ### 変更: {{site.data.keyword.iamshort}} 役割
+{: #changed-iam-roles}
+
 次の時点の最新情報: 2017 年 12 月 15 日
 
 {{site.data.keyword.keymanagementserviceshort}} リソースで実行できるアクションを決定する {{site.data.keyword.iamshort}} 役割が変更されました。
@@ -186,6 +212,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #sept-2017}
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} で Cloud IAM のサポートが追加されます
+{: #added-iam-support}
+
 次の時点の最新情報: 2017 年 9 月 19 日
 
 {{site.data.keyword.iamshort}} を使用して、{{site.data.keyword.keymanagementserviceshort}} リソースのアクセス・ポリシーを設定して管理できるようになりました。

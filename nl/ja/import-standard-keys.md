@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
 
@@ -50,7 +50,7 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。鍵のタイプのリストから、<b>「標準鍵」</b>を選択します。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。 鍵のタイプのリストから、<b>「標準鍵」</b>を選択します。</td>
       </tr>
       <tr>
         <td>鍵の素材</td>
@@ -173,7 +173,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} API を使用して標準鍵を追加するために必要な変数についての説明</caption>
     </table>
 
-    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window} のセクション 2.2 を参照してください。
+    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} のセクション 2.2 を参照してください。
     {: important}
 
     成功した `POST api/v2/keys` 応答は、鍵の ID 値を他のメタデータと共に返します。 この ID は、鍵に割り当てられた固有の ID で、{{site.data.keyword.keymanagementserviceshort}} API に対する以降の呼び出しに使用されます。
@@ -194,4 +194,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 {: #import-standard-key-next-steps}
 
 - プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。
-

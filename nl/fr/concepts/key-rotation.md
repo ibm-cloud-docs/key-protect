@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ Procéder régulièrement à une rotation des clés vous aide à respecter les n
   <caption style="caption-side:bottom;">Tableau 1. Description des avantages de la rotation des clés</caption>
 </table>
 
-La rotation des clés est abordée dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+La rotation des clés est abordée dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 {: tip}
 
 ## Comparaison de vos options de rotation de clés dans {{site.data.keyword.keymanagementserviceshort}}
@@ -53,7 +53,7 @@ Les options de rotation sont uniquement disponibles pour les clés racine.
 
 <dl>
   <dt>Définition d'une politique de rotation pour une clé</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} vous aide à simplifier la rotation des clés de chiffrement en activant des politiques de rotation pour les clés, que vous générez dans le service. Après avoir créé une clé racine, vous pouvez gérer une politique de rotation pour la clé dans l'interface utilisateur de {{site.data.keyword.keymanagementserviceshort}} ou avec l'API. <a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">Choisissez un intervalle de rotation automatique compris entre 1 et 12 mois pour votre clé</a> en fonction de vos besoins de sécurité actuels. Lorsqu'il est temps de procéder à la rotation de la clé conformément à l'intervalle de rotation spécifié, {{site.data.keyword.keymanagementserviceshort}} remplace automatiquement la clé par le nouveau matériel de clé.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} vous aide à simplifier la rotation des clés de chiffrement en activant des politiques de rotation pour les clés, que vous générez dans le service. Après avoir créé une clé racine, vous pouvez gérer une politique de rotation pour la clé dans l'interface utilisateur de {{site.data.keyword.keymanagementserviceshort}} ou avec l'API. <a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">Choisissez un intervalle de rotation automatique compris entre 1 et 12 mois pour votre clé</a> en fonction de vos besoins de sécurité actuels. Lorsqu'il est temps de procéder à la rotation de la clé conformément à l'intervalle de rotation spécifié, {{site.data.keyword.keymanagementserviceshort}} remplace automatiquement la clé par le nouveau matériel de clé.</dd>
   <dt>Rotation des clés à la demande</dt>
     <dd>En tant qu'administrateur de la sécurité, il est possible que vous souhaitiez avoir plus de contrôle sur la fréquence de rotation de vos clés. Si vous ne souhaitez pas définir une politique de rotation automatique pour une clé, vous pouvez créer une nouvelle clé manuellement pour remplacer une clé existante, puis mettre à jour vos applications pour qu'elles fassent référence à la nouvelle clé. Pour simplifier ce processus, vous pouvez utiliser {{site.data.keyword.keymanagementserviceshort}} pour effectuer une rotation de la clé à la demande. Dans ce scénario, {{site.data.keyword.keymanagementserviceshort}} crée et remplace la clé à votre place à chaque demande de rotation. La clé conserve les mêmes métadonnées et le même ID de clé.</dd>
 </dl>

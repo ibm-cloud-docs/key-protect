@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # Lebenszyklus von Verschlüsselungsschlüsseln überwachen
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} orientiert sich an den Sicherheitsrichtlinien von [NIST SP 800-57 für die Schlüsselstatus ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+{{site.data.keyword.keymanagementservicefull}} orientiert sich an den Sicherheitsrichtlinien von [NIST SP 800-57 für die Schlüsselstatus ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
 {: shortdesc}
 
 ## Schlüsselstatus und -übergänge

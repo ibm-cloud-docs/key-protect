@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # 鍵の削除
-{: #deleting-keys}
+{: #delete-keys}
 
 {{site.data.keyword.cloud_notm}} スペースまたは {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの管理者は、{{site.data.keyword.keymanagementservicefull}} を使用して暗号鍵とその内容を削除できます。
 {: shortdesc}
 
-鍵を削除すると、その内容と関連データが完全に廃棄されます。 このアクションは、元に戻すことはできません。 [リソースを破棄する](/docs/services/key-protect?topic=key-protect-data-security#data-deletion)ことは、実稼働環境ではお勧めできませんが、テストや QA などの一時的な環境には便利な場合があります。
+鍵を削除すると、その内容と関連データが完全に廃棄されます。 このアクションは、元に戻すことはできません。 [リソースを破棄する](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion)ことは、実稼働環境ではお勧めできませんが、テストや QA などの一時的な環境には便利な場合があります。
 {: important}
 
 ## GUI を使用した鍵の削除
@@ -39,7 +39,7 @@ subcollection: key-protect
 2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
 3. {{site.data.keyword.cloud_notm}} リソース・リストで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
 4. アプリケーションの詳細ページで、**「鍵 (Keys)」**テーブルを使用して、サービス内の鍵を表示します。
-5. ⋮ アイコンをクリックして、削除する鍵に関するオプションのリストを開きます。
+5. 「⋯」アイコンをクリックして、削除する鍵に関するオプションのリストを開きます。
 6. オプション・メニューから、**「鍵の削除 (Delete key)」**をクリックし、次の画面で鍵の削除を確認します。
 
 鍵を削除した後、鍵は_破棄_ 状態に遷移します。 この状態の鍵は、リカバリーできなくなっています。 鍵の削除日など、鍵に関連付けられているメタデータは、{{site.data.keyword.keymanagementserviceshort}} データベースに保管されます。

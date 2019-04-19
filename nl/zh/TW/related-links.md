@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -38,7 +38,7 @@ subcollection: key-protect
 - [{{site.data.keyword.keymanagementserviceshort}} Goes From Beta to GA in Dallas ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## 服務條款
-{: #info}
+{: #service-terms}
 
 - [{{site.data.keyword.keymanagementservicelong_notm}} 服務水準合約 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 

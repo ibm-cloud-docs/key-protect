@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -53,10 +53,10 @@ curl -X GET \
 
 `<access_token>` および `<instance_ID>` を、取得したサービス資格情報および認証資格情報に置き換えてください。
 
-何か問題が起こった場合に API 要求を追跡する必要があるときは、cURL 要求の一部として `-v` フラグを組み込むと、応答ヘッダーに `correlation-id` 値が含まれます。この値を使用して、デバッグ目的で、要求の相互関連付けおよび追跡を行うことができます。
+何か問題が起こった場合に API 要求を追跡する必要があるときは、 cURL 要求の一部として `-v` フラグを組み込むと、応答ヘッダーに `correlation-id` 値が含まれます。 この値を使用して、デバッグ目的で、要求の相互関連付けおよび追跡を行うことができます。
 {: tip} 
 
 ## 次に行うこと
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
-Key Protect で暗号鍵の管理を始めるためのすべての設定が整いました。プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。
+Key Protect で暗号鍵の管理を始めるためのすべての設定が整いました。 プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # 监视加密密钥的生命周期
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} 遵循 [ 密钥状态的 NIST SP 800-57 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window} 所提出的安全准则。
+{{site.data.keyword.keymanagementservicefull}} 遵循 [ 密钥状态的 NIST SP 800-57 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window} 所提出的安全准则。
 {: shortdesc}
 
 ## 密钥状态和转换

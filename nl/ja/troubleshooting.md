@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -208,9 +208,9 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 
 フォーラムを参照して、他のユーザーも同じ問題を経験していないか調べることができます。 フォーラムを使用して質問するときは、{{site.data.keyword.cloud_notm}} 開発チームの目に止まるように、質問にタグを付けてください。
 
-- {{site.data.keyword.keymanagementserviceshort}} について技術的な質問がある場合は、[Stack Overflow ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} に質問を投稿し、その質問に「ibm-cloud」と「key-protect」のタグを付けてください。
-- サービスや使用開始の手順についての質問には、[IBM developerWorks dW Answers ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} フォーラムを使用してください。 「ibm-cloud」と「key-protect」のタグを付けてください。
+- {{site.data.keyword.keymanagementserviceshort}} について技術的な質問がある場合は、[Stack Overflow ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} に質問を投稿し、その質問に「ibm-cloud」と「key-protect」のタグを付けてください。
+- サービスや使用開始の手順についての質問には、[IBM developerWorks dW Answers ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.ibm.com/answers/topics/key-protect/){: new_window} フォーラムを使用してください。 「ibm-cloud」と「key-protect」のタグを付けてください。
 
-フォーラムの使用について詳しくは、[サポートの利用 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/get-support?topic=get-support-using-avatar){: new_window} を参照してください。
+フォーラムの使用について詳しくは、[サポートの利用 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window} を参照してください。
 
 {{site.data.keyword.IBM_notm}} サポート・チケットのオープンや、サポート・レベルおよびチケットの重大度について詳しくは、[サポートへの問い合わせ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/get-support?topic=get-support-getting-customer-support){: new_window} を参照してください。

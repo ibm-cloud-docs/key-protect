@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: Key Protect API endpoints, available regions
+
+subcollection: key-protect
 
 ---
 
@@ -14,11 +18,12 @@ lastupdated: "2019-01-03"
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 
 # Regiões e locais
 {: #regions}
 
-É possível conectar seus aplicativos com o serviço do {{site.data.keyword.keymanagementservicelong_notm}}
+É possível conectar seus aplicativos com o serviço do {{site.data.keyword.keymanagementservicelong}}
 especificando um endpoint de serviço regional.
 {: shortdesc}
 
@@ -31,8 +36,7 @@ O {{site.data.keyword.keymanagementserviceshort}} está disponível nas regiões
 ## Terminais de serviço
 {: #service-endpoints}
 
-Se você estiver gerenciando seus recursos do {{site.data.keyword.keymanagementserviceshort}}
-programaticamente, consulte a tabela a seguir para determinar os terminais de API para usar ao se conectar com a API do [{{site.data.keyword.keymanagementserviceshort}}](https://console.bluemix.net/apidocs/key-protect): 
+Se você estiver gerenciando seus recursos do {{site.data.keyword.keymanagementserviceshort}} programaticamente, consulte a tabela a seguir para determinar os terminais de API a serem usados quando você se conectar à API do [{{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect): 
 
 <table>
     <tr>
@@ -79,7 +83,7 @@ programaticamente, consulte a tabela a seguir para determinar os terminais de AP
 </table>
 
 É possível continuar a usar `https://keyprotect.<region>.bluemix.net` para destinar o serviço para
-as operações ou é possível atualizar seus aplicativos com os novos terminais `cloud.ibm.com`. Para as instâncias de serviço do {{site.data.keyword.keymanagementserviceshort}} que existem dentro de uma organização ou espaço do Cloud Foundry, use o terminal de legado `https://ibm-key-protect.edge.bluemix.net` para interagir com a API do {{site.data.keyword.keymanagementserviceshort}}.
+as operações ou é possível atualizar seus aplicativos com os novos terminais `cloud.ibm.com`. 
 {: tip}
 
-Para obter mais informações sobre a autenticação com o {{site.data.keyword.keymanagementserviceshort}}, veja [Acessando a API](/docs/services/key-protect/access-api.html).
+Para obter mais informações sobre a autenticação com o {{site.data.keyword.keymanagementserviceshort}}, veja [Acessando a API](/docs/services/key-protect?topic=key-protect-set-up-api).

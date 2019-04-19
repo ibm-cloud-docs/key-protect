@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 CLI 플러그인을 설치하려면 [CLI 설정](/docs/services/key-protect?topic=key-protect-set-up-cli)을 참조하십시오. 
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}에 로그인하는 경우 업데이트가 있으면 알림을 표시합니다. {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인에 사용 가능한 명령 및 플래그를 사용할 수 있도록 CLI를 최신 상태로 유지하십시오.
+[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}에 로그인하는 경우 업데이트가 있으면 알림을 표시합니다. {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인에 사용 가능한 명령 및 플래그를 사용할 수 있도록 CLI를 최신 상태로 유지하십시오.
 {: tip}
 
 ## ibmcloud kp 명령
@@ -58,12 +58,28 @@ CLI 플러그인을 설치하려면 [CLI 설정](/docs/services/key-protect?topi
     <caption style="caption-side:bottom;">표 1. 키 관리를 위한 명령</caption> 
  </table>
 
+ <table summary="키 정책 관리를 위한 명령">
+    <thead>
+        <th colspan="5">키 정책 관리를 위한 명령</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">표 2. 키 정책 관리를 위한 명령</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 지정하는 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에서 [루트 키를 작성](/docs/services/key-protect?topic=key-protect-create-root-keys)합니다. 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} 서비스에 저장되는 [키를 삭제](/docs/services/key-protect?topic=key-protect-delete-keys)합니다.
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에서 사용 가능한 마지막 200개의 키를 나열합니다.
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 
 키를 루트 키로 지정한 경우 시스템은 이 키의 키 자료를 리턴할 수 없습니다.
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} 서비스에 저장되는 [루트 키를 순환](/docs/services/key-protect?topic=key-protect-wrap-keys)합니다.
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 지정하는 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 저장되는 루트 키를 사용하여 [데이터 암호화 키를 랩핑](/docs/services/key-protect?topic=key-protect-wrap-keys)합니다.
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 저장되는 루트 키를 사용하여 [데이터 암호화 키를 랩핑 해제](/docs/services/key-protect?topic=key-protect-unwrap-keys)합니다.
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+사용자가 지정하는 루트 키와 연관된 정책을 나열합니다.
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 필수 매개변수
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>조회할 루트 키의 ID입니다. 사용 가능한 키의 목록을 검색하려면 <a href="#kp-list">kp list</a> 명령을 실행하십시오.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 식별하는 {{site.data.keyword.cloud_notm}} 인스턴스 ID입니다.</dd>
+</dl>
+
+### 선택적 매개변수
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+키의 자동 순환 간격과 같은 키 정책에 대한 세부사항을 검색합니다.
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 필수 매개변수
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>조회할 키의 ID입니다. 사용 가능한 키의 목록을 검색하려면 <a href="#kp-list">kp list</a> 명령을 실행하십시오.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 식별하는 {{site.data.keyword.cloud_notm}} 인스턴스 ID입니다.</dd>
+</dl>
+
+### 선택적 매개변수
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+사용자가 지정하는 루트 키와 연관된 정책을 작성하거나 대체합니다.
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### 필수 매개변수
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>조회할 키의 ID입니다. 사용 가능한 키의 목록을 검색하려면 <a href="#kp-list">kp list</a> 명령을 실행하십시오.</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>설정할 정책의 유형을 지정합니다. 순환 정책을 설정하려면 <code>--set-type rotation</code>을 사용하십시오.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 식별하는 {{site.data.keyword.cloud_notm}} 인스턴스 ID입니다.</dd>
+</dl>
+
+### 선택적 매개변수
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>키에 대한 순환 시간 간격(분 단위)을 지정합니다. 기본값은 1입니다.</dd>
+    <dt><code>--output</code></dt>
+        <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
+</dl>
 

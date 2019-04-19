@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # Supresión de claves
-{: #deleting-keys}
+{: #delete-keys}
 
 Puede utilizar {{site.data.keyword.keymanagementservicefull}} para suprimir una clave de cifrado y su contenido, si es un administrador para el espacio de {{site.data.keyword.cloud_notm}} o la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Cuando suprime una clave, destruye el contenido y los datos asociados a ella de forma permanente. La acción no se puede revertir. No se recomienda la [destrucción de recursos](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) para los entornos de producción, pero podría ser útil para entornos temporales como la realización de pruebas o QA.
+Cuando suprime una clave, destruye el contenido y los datos asociados a ella de forma permanente. La acción no se puede revertir. No se recomienda la [destrucción de recursos](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) para los entornos de producción, pero podría ser útil para entornos temporales como la realización de pruebas o QA.
 {: important}
 
 ## Supresión de claves con la GUI
@@ -39,7 +39,7 @@ Si prefiere suprimir sus claves de cifrado utilizando una interfaz gráfica, pue
 2. Vaya a **Menú** &gt; **Lista de recursos** para ver una lista de sus recursos.
 3. Desde la lista de recursos de {{site.data.keyword.cloud_notm}} seleccione su instancia suministrada de {{site.data.keyword.keymanagementserviceshort}}.
 4. En la página de detalles de la aplicación, utilice la tabla de **Claves** tabla para examinar las claves en el servicio.
-5. Pulse el icono ⋮ para abrir una lista de opciones para la clave que desea suprimir.
+5. Pulse el icono ⋯ para abrir una lista de opciones para la clave que desea suprimir.
 6. En el menú de opciones, pulse **Suprimir clave** y confirme la supresión clave en la pantalla siguiente.
 
 Después de suprimir una clave, la clave pasa al estado _Destruida_. Las claves con este estado no son recuperables. Los metadatos asociados con la clave como, por ejemplo, la fecha de supresión de la clave, se mantienen en la base de datos de {{site.data.keyword.keymanagementserviceshort}}.

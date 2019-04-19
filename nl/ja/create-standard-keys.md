@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -51,7 +51,7 @@ subcollection: key-protect
       </tr>
       <tr></tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。鍵のタイプのリストから、<b>「標準鍵」</b>を選択します。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect/concepts?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。 鍵のタイプのリストから、<b>「標準鍵」</b>を選択します。</td>
       </tr>
       <caption style="caption-side:bottom;">表 1. <b>「鍵の作成 (Create a key)」</b>の設定の説明</caption>
     </table>
@@ -137,7 +137,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>YYYY-MM-DD</varname><br><varname>HH:MM:SS.SS</varname></td>
-        <td>システム内の鍵の有効期限が切れる日時 (RFC 3339 形式)。 <code>expirationDate</code> 属性を省略した場合、鍵の有効期限は切れません。 </td>
+        <td>システム内の鍵の有効期限が切れる日時 (RFC 3339 形式)。 <code>expirationDate</code> 属性を省略した場合、鍵の有効期限は切れません。</td>
       </tr>
       <tr>
         <td><varname>key_type</varname></td>
@@ -149,7 +149,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} API を使用して標準鍵を追加するために必要な変数についての説明</caption>
     </table>
 
-    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window} のセクション 2.2 を参照してください。
+    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} のセクション 2.2 を参照してください。
     {: important}
 
     成功した `POST api/v2/keys` 応答は、鍵の ID 値を他のメタデータと共に返します。 この ID は、鍵に割り当てられた固有の ID で、{{site.data.keyword.keymanagementserviceshort}} API に対する以降の呼び出しに使用されます。

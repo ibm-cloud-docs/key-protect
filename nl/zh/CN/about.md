@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -30,33 +30,15 @@ subcollection: key-protect
 
 在以下场景中，您可能需要管理密钥：
 
-<table>
-  <tr>
-    <th>场景</th>
-    <th>理由</th>
-  </tr>
-  <tr>
-    <td>您希望在将数据移入云中时执行包络加密。为此，您需要提供自己的主加密密钥，以便可以管理和保护用于加密静态数据的其他密钥。</td>
-    <td>通过 {{site.data.keyword.keymanagementserviceshort}}，可以[使用高度安全的根密钥打包数据加密密钥](/docs/services/key-protect?topic=key-protect-envelope-encryption)。可以自带根密钥，也可以在服务中创建根密钥。</td>
-  </tr>
-  <tr>
-    <td>作为大公司的 IT 管理员，您需要对许多不同服务产品的密钥进行集成、跟踪和轮询。</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} 界面可以简化对多个加密服务的管理。借助该服务，您可以在一个集中的位置对密钥进行管理和排序，也可以按项目分隔密钥并将其存储在不同的 {{site.data.keyword.cloud_notm}} 空间中。</td>
-  </tr>
-  <tr>
-    <td>您是必须遵守数据保护监管规定的某个行业（如金融或法律）的安全管理员。您需要授予受控的密钥访问权，同时不能破坏密钥所保护的数据。</td>
-    <td>借助该服务，可以通过[指定不同的 Identity and Access Management 角色](/docs/services/key-protect?topic=key-protect-manage-access#roles)来控制用户对管理密钥的访问权。例如，对于需要查看密钥创建信息而不需要查看密钥资料的用户，您可以授予只读访问权。</td>
-  <tr>
-    <td>作为开发者，您要将已有的应用程序（例如，自加密存储器）集成到 {{site.data.keyword.keymanagementserviceshort}}。</td>
-    <td>在 {{site.data.keyword.cloud_notm}} 内部或外部的应用程序可以与 {{site.data.keyword.keymanagementserviceshort}} API 集成。您可以将您自己的现有密钥用于应用程序。</td>
-  </tr>
-  <tr>
-    <td>您的开发团队制定了严格的策略，您需要采用一种方法来每 14 天生成密钥和对密钥进行循环。</td>
-    <td>借助 {{site.data.keyword.keymanagementserviceshort}}，可快速从 {{site.data.keyword.cloud_notm}} 硬件安全模块 (HSM) 生成密钥，以持续满足安全需求。</td>
-  </tr>
-</table>
+| 方案 |理由|
+| --- | ---- |
+| 作为一家大公司的 IT 管理员，您需要对许多不同服务产品的加密密钥进行集成、跟踪和轮换。|{{site.data.keyword.keymanagementserviceshort}} 界面可以简化对多个加密服务的管理。借助该服务，您可以在一个集中的位置对加密密钥进行管理和排序，也可以按项目分隔密钥并将其存储在不同的 {{site.data.keyword.cloud_notm}} 空间中。|
+|作为开发者，您要将已有的应用程序（例如，自加密存储器）集成到 {{site.data.keyword.keymanagementserviceshort}}。|在 {{site.data.keyword.cloud_notm}} 内部或外部的应用程序可以与 {{site.data.keyword.keymanagementserviceshort}} API 集成。您可以将您自己的现有密钥用于应用程序。|
+|您的开发团队制定了严格的策略，您需要采用一种方法来每 30 天生成并轮换密钥。| 借助 {{site.data.keyword.keymanagementserviceshort}}, 可快速从 {{site.data.keyword.cloud_notm}} 硬件安全模块 (HSM) 生成密钥。在替换密钥时，您可以针对密钥[按需轮换密钥](/docs/services/key-protect?topic=key-protect-rotate-keys)或[设置轮换策略](/docs/services/key-protect?topic=key-protect-set-rotation-policy)，以满足持续的安全需求。|
+|您是必须遵守数据保护监管规定的某个行业（如金融或法律）的安全管理员。您需要授予受控的密钥访问权，同时不能破坏密钥所保护的数据。|借助该服务，可以通过[指定不同的 Identity and Access Management 角色](/docs/services/key-protect?topic=key-protect-manage-access#roles)来控制用户对管理密钥的访问权。例如，对于需要查看密钥创建信息而不需要查看密钥资料的用户，您可以授予只读访问权。|
+|您希望在将数据移入云中时执行包络加密。为此，您需要提供自己的主加密密钥，以便可以管理和保护用于加密静态数据的其他密钥。| 通过 {{site.data.keyword.keymanagementserviceshort}}, 可以[使用高度安全的根密钥打包（加密）数据加密密钥](/docs/services/key-protect?topic=key-protect-envelope-encryption)。可以自带根密钥，也可以在服务中创建根密钥。|
 
-要查找支持受客户控制并且基于云的硬件安全模块 (HSM) 的专用密钥管理解决方案吗？[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} (Beta)](/docs/services/hs-crypto?topic=hs-crypto-get-started) 与 {{site.data.keyword.keymanagementserviceshort}} 相集成，可为 {{site.data.keyword.cloud_notm}} 启用“保管自有密钥”(Keep Your Own Keys, KYOK) 功能，这样您的组织可以对数据拥有更多控制力和权限。请查看 [{{site.data.keyword.hscrypto}} 产品详细信息页面 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) 以了解更多信息。
+要查找支持受客户控制并且基于云的硬件安全模块 (HSM) 的专用密钥管理解决方案吗？[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) 与 {{site.data.keyword.keymanagementserviceshort}} 相集成，可为 {{site.data.keyword.cloud_notm}} 启用“保管自己的密钥”（KYOK）功能，这样您的组织可以对数据拥有更多控制力和权限。请查看 [{{site.data.keyword.hscrypto}} 产品详细信息页面 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) 以了解更多信息。
 {: tip}
 
 ## {{site.data.keyword.keymanagementserviceshort}} 的工作原理

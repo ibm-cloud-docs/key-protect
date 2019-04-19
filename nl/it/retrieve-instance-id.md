@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -25,7 +25,7 @@ subcollection: key-protect
 Puoi selezionare una sola istanza del servizio {{site.data.keyword.keymanagementservicelong}} per le operazioni includendo il suo identificativo univoco o l'ID istanza, nelle richieste API al servizio.
 {: shortdesc}
 
-## Visualizzazione del tuo ID istanza nella console {{site.data.keyword.cloud_notm}} 
+## Visualizzazione del tuo ID istanza nella console {{site.data.keyword.cloud_notm}}
 {: #view-instance-ID}
 
 Puoi visualizzare l'ID istanza associato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}} passando al tuo elenco di risorse {{site.data.keyword.cloud_notm}}.
@@ -40,9 +40,9 @@ Puoi visualizzare l'ID istanza associato alla tua istanza del servizio {{site.da
 ## Richiamo di un ID istanza con la CLI
 {: #retrieve-instance-ID-cli}
 
-Puoi anche richiamare l'ID istanza per la tua istanza del servizio utilizzando la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+Puoi anche richiamare l'ID istanza per la tua istanza del servizio utilizzando la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
-1. Accedi a {{site.data.keyword.cloud_notm}} con la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Accedi a {{site.data.keyword.cloud_notm}} con la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 

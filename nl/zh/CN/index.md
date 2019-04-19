@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,7 +42,7 @@ subcollection: key-protect
 ## 创建新密钥
 {: #create-keys}
 
-[创建 {{site.data.keyword.keymanagementserviceshort}} 的实例后](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps)，即可开始在服务中指定密钥。 
+[创建 {{site.data.keyword.keymanagementserviceshort}} 的实例后](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps)，即可随时指定服务中的密钥。 
 
 要创建第一个密钥，请完成以下步骤。 
 

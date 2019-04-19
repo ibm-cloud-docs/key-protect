@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -29,7 +29,7 @@ Cuando se rota la clave raíz, se acorta el tiempo de vida de la clave y se limi
 
 Para saber cómo la rotación de claves le ayuda a cumplir los estándares del sector y las mejores prácticas de cifrado, consulte [Rotación de las claves de cifrado](/docs/services/key-protect?topic=key-protect-key-rotation).
 
-La rotación solo está disponible para las claves raíz. Para obtener más información acerca de las opciones de rotación claves en {{site.data.keyword.keymanagementserviceshort}}, consulte [Comparación de las opciones de rotación de claves](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+La rotación solo está disponible para las claves raíz. Para obtener más información acerca de las opciones de rotación claves en {{site.data.keyword.keymanagementserviceshort}}, consulte [Comparación de las opciones de rotación de claves](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Rotación de claves raíz con la GUI

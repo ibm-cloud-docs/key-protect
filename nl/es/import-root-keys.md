@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -139,8 +139,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/lockers
     </tr>
     <tr>
       <td><varname>recuento_uso</varname></td>
-      <td>El número de veces que se puede recuperar una clave de transporte dentro de su hora de caducidad hasta que ya no se pueda acceder a ella. El valor predeterminado
-es 1.</td>
+      <td>El número de veces que se puede recuperar una clave de transporte dentro de su hora de caducidad hasta que ya no se pueda acceder a ella. El valor predeterminado es 1.</td>
     </tr>
       <caption style="caption-side:bottom;">Tabla 2. Describe las variables necesarias para crear una te a transport key {{site.data.keyword.keymanagementserviceshort}} API</caption>
   </table>
@@ -322,7 +321,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">Tabla 4. Describe las variables necesarias para añadir una clave raíz con la API de {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Para proteger la confidencialidad de sus datos personales, evite especificar información de identificación personal (PII), como el nombre o la ubicación, cuando añades claves al servicio. Para obtener más ejemplos sobre la PII, consulte la sección 2.2 de la [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+    Para proteger la confidencialidad de sus datos personales, evite especificar información de identificación personal (PII), como el nombre o la ubicación, cuando añades claves al servicio. Para obtener más ejemplos sobre la PII, consulte la sección 2.2 de la [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
     {: important}
 
     Una respuesta `POST api/v2/keys` satisfactoria devuelve el valor del ID para la clave, junto con otros metadatos. El ID es un identificador exclusivo que se asigna a su clave y que posteriores llamadas lo utilizan para la API de {{site.data.keyword.keymanagementserviceshort}}.

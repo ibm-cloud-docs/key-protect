@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -60,7 +60,7 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>狀態</td>
-        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf) 的[金鑰狀態](/docs/services/key-protect?topic=key-protect-key-states)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
+        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0) 的[金鑰狀態](/docs/services/key-protect?topic=key-protect-key-states)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
       </tr>
       <tr>
         <td>類型</td>
@@ -176,7 +176,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    依預設，`GET api/v2/keys` 會傳回前 2000 個金鑰，但您可以在查詢時間使用 `limit` 參數來調整此限制。若要進一步瞭解 `limit` 及 `offset`，請參閱[擷取金鑰子集](#retrieve_subset_keys_api)。
+    依預設，`GET api/v2/keys` 會傳回前 2000 個金鑰，但您可以在查詢時間使用 `limit` 參數來調整此限制。若要進一步瞭解 `limit` 及 `offset`，請參閱[擷取金鑰子集](#retrieve-subset-keys-api)。
     {: tip}
 
 ### 擷取金鑰子集

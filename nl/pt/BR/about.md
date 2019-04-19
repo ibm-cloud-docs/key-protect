@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
+
+subcollection: key-protect
 
 ---
 
@@ -22,56 +26,25 @@ O {{site.data.keyword.keymanagementservicefull}} ajuda a provisionar chaves crip
 informações.
 {: shortdesc}
 
-## Razões para usar o serviço
-{: #kp-reasons}
+## Razões para usar o {{site.data.keyword.keymanagementserviceshort}}
+{: #use-cases}
 
 Pode ser necessário gerenciar chaves nos cenários a seguir:
 
-<table>
-  <tr>
-    <th>Cenário</th>
-    <th>Razões</th>
-  </tr>
-  <tr>
-    <td>Você precisa criptografar altos volumes de dados sensíveis, tais como registros médicos,
-por recurso individual.</td>
-    <td>É possível integrar o serviço {{site.data.keyword.keymanagementserviceshort}} com soluções de armazenamento, tais como [{{site.data.keyword.cos_full_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage/about-cos.html), para criptografar seus dados em repouso na nuvem. Cada documento pode ser protegido por uma chave
-diferente, portanto, você tem controle granular dos seus dados.</td>
-  </tr>
-  <tr>
-    <td>Você deseja executar criptografia de envelope ao mover dados para a nuvem. É necessário trazer sua própria chave mestra de
-criptografia, assim, é possível alcançar controle total de outras chaves que criptografam seus dados em REST.</td>
-    <td>Com o {{site.data.keyword.keymanagementserviceshort}}, é possível
-[agrupar suas chaves de criptografia de dados com uma chave raiz
-altamente segura](/docs/services/key-protect/concepts/envelope-encryption.html). É possível trazer suas próprias chaves raiz ou criá-las no serviço.</td>
-  </tr>
-  <tr>
-    <td>Como um administrador de TI de uma grande empresa, você precisa integrar, controlar e girar chaves para muitas ofertas de
-serviços diferentes.</td>
-    <td>A interface do {{site.data.keyword.keymanagementserviceshort}}
-simplifica o gerenciamento dos diversos serviços de criptografia. Com esse serviço, é possível gerenciar e classificar chaves em um local
-centralizado ou separar as chaves por projeto e armazená-las em espaços diferentes
-do {{site.data.keyword.cloud_notm}}.</td>
-  </tr>
-  <tr>
-    <td>Você é um administrador de segurança em um segmento de mercado, como finanças ou jurídico, que deve aderir ao controle sobre como os dados
+| Cenários | Razões|
+| --- | ---- |
+| Como um administrador de TI de uma grande empresa, você precisa integrar, controlar e alternar chaves para muitas ofertas de serviços diferentes. | A interface do {{site.data.keyword.keymanagementserviceshort}}
+simplifica o gerenciamento dos diversos serviços de criptografia. Com esse serviço, é possível gerenciar e classificar chaves de criptografia em um local centralizado ou separar as chaves por projeto e armazená-las em espaços diferentes do {{site.data.keyword.cloud_notm}}. |
+| Como um desenvolvedor, você deseja integrar seus aplicativos preexistentes, como armazenamento de autocriptografia, ao {{site.data.keyword.keymanagementserviceshort}}. | Apps dentro ou fora do {{site.data.keyword.cloud_notm}} podem ser integrados às APIs do {{site.data.keyword.keymanagementserviceshort}}. É possível usar suas próprias chaves existentes em seus apps. |
+| Sua equipe de desenvolvimento tem políticas rigorosas, e você precisa de uma maneira de gerar e alternar chaves a cada 30 dias. | Com o {{site.data.keyword.keymanagementserviceshort}}, é possível gerar chaves rapidamente por meio de um hardware security module (HSM) do {{site.data.keyword.cloud_notm}}. Quando for a hora de substituir uma chave, será possível [alternar a chave on demand](/docs/services/key-protect?topic=key-protect-rotate-keys) ou [configurar uma política de rotação](/docs/services/key-protect?topic=key-protect-set-rotation-policy) para que a chave atenda às suas necessidades de segurança em andamento. |
+| Você é um administrador de segurança em um segmento de mercado, como finanças ou jurídico, que deve aderir ao controle sobre como os dados
 são protegidos. É necessário conceder acesso controlado às chaves sem comprometer os dados
-que elas protegem.</td>
-    <td>Com o serviço, é possível controlar o acesso de usuário para gerenciar chaves [designando diferentes funções do Identity and Access Management](/docs/services/key-protect/manage-access.html#roles). Por exemplo, é possível conceder acesso somente leitura aos usuários
-que precisam visualizar informações sobre a criação da chave sem visualizar o material da chave.</td>
-  <tr>
-    <td>Como um desenvolvedor, é possível integrar aplicativos preexistentes, como armazenamento
-autocriptografado, ao {{site.data.keyword.keymanagementserviceshort}}. Também é possível desenvolver seus próprios apps que se integram ao serviço.</td>
-    <td>Apps dentro ou fora do {{site.data.keyword.cloud_notm}} podem ser integrados às APIs do {{site.data.keyword.keymanagementserviceshort}}. É possível usar suas próprias chaves existentes em seus apps. </td>
-  </tr>
-  <tr>
-    <td>Sua equipe de desenvolvimento tem políticas rigorosas e
-você precisa de uma maneira de gerar e girar chaves a cada 14 dias.</td>
-    <td>Com o {{site.data.keyword.cloud_notm}},
-é possível gerar chaves rapidamente de um módulo de segurança de hardware (HSM) para atender às suas necessidades de segurança em
-andamento.</td>
-  </tr>
-</table>
+que elas protegem. | Com o serviço, é possível controlar o acesso de usuário para gerenciar chaves [designando diferentes funções do Identity and Access Management](/docs/services/key-protect?topic=key-protect-manage-access#roles). Por exemplo, é possível conceder acesso somente leitura aos usuários
+que precisam visualizar informações sobre a criação da chave sem visualizar o material da chave. |
+| Você deseja executar criptografia de envelope ao mover dados para a nuvem. É necessário trazer sua própria chave mestra de criptografia, para que seja possível gerenciar e proteger outras chaves que criptografam seus dados em repouso. | Com o {{site.data.keyword.keymanagementserviceshort}}, é possível [agrupar (criptografar) suas chaves de criptografia de dados com uma chave raiz altamente segura](/docs/services/key-protect?topic=key-protect-envelope-encryption). É possível trazer suas próprias chaves raiz ou criá-las no serviço.|
+
+Procurando uma solução de gerenciamento de chaves dedicada que suporte os hardware security modules (HSMs) baseados em nuvem, controlados pelo cliente? O [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) integra-se ao {{site.data.keyword.keymanagementserviceshort}} para ativar o Keep Your Own Keys (KYOK) para o {{site.data.keyword.cloud_notm}}, para que sua organização tenha mais controle e autoridade sobre seus dados. Confira a [{{site.data.keyword.hscrypto}}página de detalhes da oferta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) para saber mais.
+{: tip}
 
 ## Como o {{site.data.keyword.keymanagementserviceshort}}
 funciona
@@ -81,7 +54,7 @@ O {{site.data.keyword.keymanagementservicelong_notm}} ajuda a gerenciar chaves d
 
 Um
 administrador de TI ou de segurança precisa de permissões avançadas que um auditor pode não
-precisar. Para simplificar o acesso, o {{site.data.keyword.keymanagementserviceshort}} é mapeado para as funções do {{site.data.keyword.cloud_notm}} Identity and Access Management para que cada função tenha uma visualização diferente do serviço. Para ajudar a orientar qual visualização e nível de acesso melhor se adéqua às suas necessidades, veja [Gerenciando usuários e acesso](/docs/services/key-protect/manage-access.html#roles).
+precisar. Para simplificar o acesso, o {{site.data.keyword.keymanagementserviceshort}} é mapeado para as funções do {{site.data.keyword.cloud_notm}} Identity and Access Management para que cada função tenha uma visualização diferente do serviço. Para ajudar a orientar qual visualização e nível de acesso melhor se adéqua às suas necessidades, veja [Gerenciando usuários e acesso](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 
 O diagrama a seguir mostra como os gerenciadores, leitores e gravadores podem interagir com as chaves que são
 gerenciadas no serviço.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -22,15 +22,15 @@ subcollection: key-protect
 # Configurazione di una politica di rotazione
 {: #set-rotation-policy}
 
-Puoi configurare una politica di rotazione automatica per una chiave root utilizzando {{site.data.keyword.keymanagementservicefull}}.
+Puoi configurare una politica di rotazione automatica per una chiave root utilizzando {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
 Quando configuri una politica di rotazione automatica per una chiave root, ne abbrevi il ciclo di vita ad intervalli regolari e limiti la quantità di informazioni da essa protetta.
 
-Puoi creare una politica di rotazione solo per le chiavi root generate in {{site.data.keyword.keymanagementserviceshort}}. Se hai importato la chiave root inizialmente, devi fornire del nuovo materiale della chiave con codifica base64 per eseguire la rotazione della chiave. Per ulteriori informazioni, vedi [Rotazione delle chiavi root su richiesta](/docs/services/key-protect?topic=key-protect-rotate-root-keys).
+Puoi creare una politica di rotazione solo per le chiavi root generate in {{site.data.keyword.keymanagementserviceshort}}. Se hai importato la chiave root inizialmente, devi fornire del nuovo materiale della chiave con codifica base64 per eseguire la rotazione della chiave. Per ulteriori informazioni, vedi [Rotazione delle chiavi root su richiesta](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys).
 {: note}
 
-Vuoi saperne di più sulle tue opzioni di rotazione della chiave in {{site.data.keyword.keymanagementserviceshort}}? Per ulteriori informazioni, vedi [Confronto delle tue opzioni di rotazione della chiave](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+Vuoi saperne di più sulle tue opzioni di rotazione della chiave in {{site.data.keyword.keymanagementserviceshort}}? Per ulteriori informazioni, vedi [Confronto delle tue opzioni di rotazione della chiave](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: tip}
 
 ## Gestione delle politiche di rotazione nella GUI
@@ -67,7 +67,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 1. [Richiama le tue credenziali del servizio e di autenticazione](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-2. Richiama la politica di rotazione per una chiave specificata eseguendo il seguente comando cURL. 
+2. Richiama la politica di rotazione per una chiave specificata eseguendo il seguente comando cURL.
 
     ```cURL
     curl -X GET \
@@ -87,7 +87,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Obbligatorio</strong> L'identificativo univoco per la chiave root che ha una politica di rotazione esistente. </td>
+        <td><strong>Obbligatorio</strong> L'identificativo univoco per la chiave root che ha una politica di rotazione esistente.</td>
       </tr>
       <tr>
         <td><varname>region</varname></td>
@@ -108,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         <caption style="caption-side:bottom;">Tabella 1. Descrive le variabili necessarie per creare una politica di rotazione con l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Una risposta `GET api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root che ha una politica di rotazione esistente. 
+    Una risposta `GET api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root che ha una politica di rotazione esistente.
 
     ```
     {
@@ -146,7 +146,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 1. [Richiama le tue credenziali del servizio e di autenticazione](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-2. Crea una politica di rotazione per una chiave specificata eseguendo il seguente comando cURL. 
+2. Crea una politica di rotazione per una chiave specificata eseguendo il seguente comando cURL.
 
     ```cURL
     curl -X PUT \
@@ -206,7 +206,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         <caption style="caption-side:bottom;">Tabella 1. Descrive le variabili necessarie per creare una politica di rotazione con l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Una risposta `PUT api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root che ha una politica di rotazione esistente. 
+    Una risposta `PUT api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root che ha una politica di rotazione esistente.
 
     ```
     {
@@ -242,7 +242,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 1. [Richiama le tue credenziali del servizio e di autenticazione](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-2. Sostituisci la politica di rotazione per una chiave specificata eseguendo il seguente comando cURL. 
+2. Sostituisci la politica di rotazione per una chiave specificata eseguendo il seguente comando cURL.
 
     ```cURL
     curl -X PUT \
@@ -302,7 +302,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         <caption style="caption-side:bottom;">Tabella 1. Descrive le variabili necessarie per creare una politica di rotazione con l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Una risposta `PUT api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica aggiornati associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root con una politica di rotazione aggiornata. 
+    Una risposta `PUT api/v2/keys/{id}/policies` con esito positivo restituisce i dettagli della politica aggiornati associati alla tua chiave. Il seguente oggetto JSON mostra una risposta di esempio per una chiave root con una politica di rotazione aggiornata.
 
     ```
     {

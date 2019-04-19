@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -22,15 +22,15 @@ subcollection: key-protect
 # Définition d'une politique de rotation
 {: #set-rotation-policy}
 
-Vous pouvez définir une politique de rotation automatique pour une clé racine avec {{site.data.keyword.keymanagementservicefull}}.
+Vous pouvez définir une politique de rotation automatique pour une clé racine avec {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
 Lorsque vous définissez une politique de rotation automatique pour une clé racine, vous écourtez la durée de vie de la clé à des intervalles réguliers, et vous limitez le volume d'information qui est protégé par cette clé.
 
-Vous pouvez uniquement créer une politique de rotation pour les clés racine qui sont générées dans {{site.data.keyword.keymanagementserviceshort}}. Si vous avez initialement importé la clé racine, vous devez fournir un nouveau matériel de clé codé en base64 pour effectuer une rotation de la clé. Pour en savoir plus, voir [Rotation des clés racine à la demande](/docs/services/key-protect?topic=key-protect-rotate-root-keys).
+Vous pouvez uniquement créer une politique de rotation pour les clés racine qui sont générées dans {{site.data.keyword.keymanagementserviceshort}}. Si vous avez initialement importé la clé racine, vous devez fournir un nouveau matériel de clé codé en base64 pour effectuer une rotation de la clé. Pour en savoir plus, voir [Rotation des clés racine à la demande](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys).
 {: note}
 
-Vous souhaitez en savoir plus sur les options de rotation de clé dans {{site.data.keyword.keymanagementserviceshort}} ? Consultez la section [Comparaison de vos options de rotation de clés](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options) pour obtenir des informations supplémentaires.
+Vous souhaitez en savoir plus sur les options de rotation de clé dans {{site.data.keyword.keymanagementserviceshort}} ? Consultez la section [Comparaison de vos options de rotation de clés](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options) pour obtenir des informations supplémentaires.
 {: tip}
 
 ## Gestion des politiques de rotation dans l'interface utilisateur
@@ -108,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         <caption style="caption-side:bottom;">Tableau 1. Variables nécessaires pour créer une politique de rotation avec l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Une réponse `GET api/v2/keys/{id}/policies` réussie renvoie les détails de la politique associée à votre clé. L'objet JSON suivant montre un exemple de réponse pour une clé racine ayant une politique de rotation existante. 
+    Une réponse `GET api/v2/keys/{id}/policies` réussie renvoie les détails de la politique associée à votre clé. L'objet JSON suivant montre un exemple de réponse pour une clé racine ayant une politique de rotation existante.
 
     ```
     {
@@ -200,12 +200,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>rotation_interval</varname></td>
-        <td><strong>Obligatoire.</strong> Valeur entière qui détermine l'intervalle de rotation de la clé en mois. Le minimum est <code>1</code> et le maximum est <code>12</code>.        </td>
+        <td><strong>Obligatoire.</strong> Valeur entière qui détermine l'intervalle de rotation de la clé en mois. Le minimum est <code>1</code> et le maximum est <code>12</code>.
+        </td>
       </tr>
         <caption style="caption-side:bottom;">Tableau 1. Variables nécessaires pour créer une politique de rotation avec l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Une réponse `PUT api/v2/keys/{id}/policies` réussie renvoie les détails de la politique associée à votre clé. L'objet JSON suivant montre un exemple de réponse pour une clé racine ayant une politique de rotation existante. 
+    Une réponse `PUT api/v2/keys/{id}/policies` réussie renvoie les détails de la politique associée à votre clé. L'objet JSON suivant montre un exemple de réponse pour une clé racine ayant une politique de rotation existante.
 
     ```
     {
@@ -295,7 +296,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>new_rotation_interval</varname></td>
-        <td><strong>Obligatoire.</strong> Valeur entière qui détermine l'intervalle de rotation de la clé en mois. Le minimum est <code>1</code> et le maximum est <code>12</code>.        </td>
+        <td><strong>Obligatoire.</strong> Valeur entière qui détermine l'intervalle de rotation de la clé en mois. Le minimum est <code>1</code> et le maximum est <code>12</code>.
+        </td>
       </tr>
         <caption style="caption-side:bottom;">Tableau 1. Variables nécessaires pour créer une politique de rotation avec l'API {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -60,7 +60,7 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>状态</td>
-        <td>[密钥状态](/docs/services/key-protect?topic=key-protect-key-states)，基于 [NIST Special Publication 800-57 Recommendation for Key Management ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)。这些状态包括<i>预激活</i>、<i>活动</i>、<i>已停用</i>和<i>已销毁</i>。</td>
+        <td>[密钥状态](/docs/services/key-protect?topic=key-protect-key-states)，基于 [NIST Special Publication 800-57 Recommendation for Key Management ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)。这些状态包括<i>预激活</i>、<i>活动</i>、<i>已停用</i>和<i>已销毁</i>。</td>
       </tr>
       <tr>
         <td>类型</td>
@@ -177,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    缺省情况下，`GET api/v2/keys` 会返回前 2000 个密钥，但可在查询时使用 `limit` 参数调整此限制。要了解有关 `limit` 和 `offset` 的更多信息，请参阅[检索密钥子集](#retrieve_subset_keys_api)。
+    缺省情况下，`GET api/v2/keys` 会返回前 2000 个密钥，但可在查询时使用 `limit` 参数调整此限制。要了解有关 `limit` 和 `offset` 的更多信息，请参阅[检索密钥子集](#retrieve-subset-keys-api)。
     {: tip}
 
 ### 检索密钥子集

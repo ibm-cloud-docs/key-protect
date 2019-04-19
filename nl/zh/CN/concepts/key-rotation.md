@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">表 1. 描述密钥轮换的优点</caption>
 </table>
 
-NIST Special Publication 800-57 Recommendation for Key Management 中对密钥轮换进行了介绍。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}。
+NIST Special Publication 800-57 Recommendation for Key Management 中对密钥轮换进行了介绍。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}。
 {: tip}
 
 ## 在 {{site.data.keyword.keymanagementserviceshort}} 中比较密钥轮换选项
@@ -53,7 +53,7 @@ NIST Special Publication 800-57 Recommendation for Key Management 中对密钥�
 
 <dl>
   <dt>设置密钥轮换策略</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} 有助于简化加密密钥的轮换，方法是为服务中生成的密钥启用轮换策略。创建根密钥之后，可以在 {{site.data.keyword.keymanagementserviceshort}} GUI 中或通过 API 管理密钥的轮换策略。基于持续的安全需求<a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">为密钥选择一个介于 1 到 12 个月之间的自动轮换时间间隔</a>。根据指定的轮换时间间隔，需要轮换密钥时，{{site.data.keyword.keymanagementserviceshort}} 会自动使用新密钥资料替换该密钥。</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} 有助于简化加密密钥的轮换，方法是为服务中生成的密钥启用轮换策略。创建根密钥之后，可以在 {{site.data.keyword.keymanagementserviceshort}} GUI 中或通过 API 管理密钥的轮换策略。基于持续的安全需求<a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">为密钥选择一个介于 1 到 12 个月之间的自动轮换时间间隔</a>。根据指定的轮换时间间隔，需要轮换密钥时，{{site.data.keyword.keymanagementserviceshort}} 会自动使用新密钥资料替换该密钥。</dd>
   <dt>根据需要轮换密钥</dt>
     <dd>作为安全管理员，可能要更好地控制密钥的轮换频率。如果不想为密钥设置自动轮换策略，可以手动创建一个新密钥来替换现有密钥，并随后更新应用程序以使其引用该新密钥。要简化此过程，可以使用 {{site.data.keyword.keymanagementserviceshort}} 来根据需要轮换密钥。在此场景中，{{site.data.keyword.keymanagementserviceshort}} 会代表您为每个轮换请求创建密钥并进行替换。该密钥保留相同的元数据和密钥标识。</dd>
 </dl>

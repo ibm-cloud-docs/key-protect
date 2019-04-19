@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -57,7 +57,7 @@ subcollection: key-protect
 下圖顯示金鑰包裝功能的環境定義視圖。
 ![下圖顯示封套加密的環境定義視圖。](../images/envelope-encryption_min.svg)
 
-「NIST 特殊出版品 800-57」的「金鑰管理建議」中，簡要地論述封套加密。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+「NIST 特殊出版品 800-57」的「金鑰管理建議」中，簡要地論述封套加密。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## 金鑰類型
 {: #key-types}

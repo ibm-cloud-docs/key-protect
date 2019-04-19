@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -49,6 +49,8 @@ subcollection: key-protect
 {: #feb-2019}
 
 ### 已變更：舊式 {{site.data.keyword.keymanagementserviceshort}} 服務實例
+{: #changed-legacy-service-instances}
+
 新增日期：2019-02-13
 
 在 2017 年 12 月 15 日之前佈建的 {{site.data.keyword.keymanagementserviceshort}} 服務實例，是在基於 Cloud Foundry 的舊式基礎架構上執行。此舊式 {{site.data.keyword.keymanagementserviceshort}} 服務將於 2019 年 5 月 15 日解除任務。
@@ -64,6 +66,8 @@ subcollection: key-protect
 {: #dec-2018}
 
 ### 已變更：{{site.data.keyword.keymanagementserviceshort}} API 端點
+{: #changed-api-endpoints}
+
 新增日期：2018-12-19
 
 為了與 {{site.data.keyword.cloud_notm}} 的新一致體驗密切配合，{{site.data.keyword.keymanagementserviceshort}} 已更新其服務 API 的基本 URL。
@@ -83,6 +87,8 @@ subcollection: key-protect
 {: #oct-2018}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到東京地區
+{: #added-tokyo-region}
+
 新增日期：2018-10-31
 
 您現在可以在東京地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
@@ -90,6 +96,8 @@ subcollection: key-protect
 如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式
+{: #added-cli-plugin}
+
 新增日期：2018-10-02
 
 您現在可以使用 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式，以在 {{site.data.keyword.keymanagementserviceshort}} 服務實例中管理金鑰。
@@ -100,6 +108,8 @@ subcollection: key-protect
 {: #sept-2018}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了對隨需應變金鑰替換的支援
+{: #added-key-rotation}
+
 新增日期：2018-09-28
 
 您現在可以使用 {{site.data.keyword.keymanagementserviceshort}}，隨需應變地替換您的根金鑰。
@@ -107,6 +117,8 @@ subcollection: key-protect
 如需相關資訊，請參閱[替換金鑰](/docs/services/key-protect?topic=key-protect-rotate-keys)。
 
 ### 已新增：雲端應用程式的端對端安全指導教學
+{: #added-security-tutorial}
+
 新增日期：2018-09-14
 
 在尋找程式碼範例以協助您用自己的加密金鑰將儲存空間儲存區內容加密？
@@ -116,6 +128,8 @@ subcollection: key-protect
 如需相關資訊，[請參閱 GitHub 中的範例應用程式 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到華盛頓特區地區
+{: #added-wdc-region}
+
 新增日期：2018-09-10
 
 您現在可以在華盛頓特區地區中建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
@@ -126,6 +140,8 @@ subcollection: key-protect
 {: #aug-2018}
 
 ### 已變更：{{site.data.keyword.keymanagementserviceshort}} API 文件 URL
+{: #changed-api-doc-url}
+
 新增日期：2018-08-28
 
 {{site.data.keyword.keymanagementserviceshort}} API 參考資料已移動！ 
@@ -137,6 +153,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #mar-2018}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到法蘭克福地區
+{: #added-frankfurt-region}
+
 新增日期：2018-03-21
 
 您現在可以在法蘭克福地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
@@ -147,6 +165,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #jan-2018}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到雪梨地區
+{: #added-sydney-region}
+
 新增日期：2018-01-31
 
 您現在可以在雪梨地區建立 {{site.data.keyword.keymanagementserviceshort}} 資源。 
@@ -157,6 +177,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #dec-2017}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增對「自攜金鑰 (BYOK)」的支援
+{: #added-byok-support}
+
 新增日期：2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} 現在支援「自攜金鑰 (BYOK)」及客戶管理的加密
@@ -165,6 +187,8 @@ https://{DomainName}/apidocs/key-protect.
 - 已啟用 {{site.data.keyword.cos_full_notm}} 儲存區的[封套加密](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how)。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到倫敦地區
+{: #added-london-region}
+
 新增日期：2017-12-15
 
 現在可以在倫敦地區使用 {{site.data.keyword.keymanagementserviceshort}}。 
@@ -172,6 +196,8 @@ https://{DomainName}/apidocs/key-protect.
 如需相關資訊，請參閱[地區及位置](/docs/services/key-protect?topic=key-protect-regions)。
 
 ### 已變更：{{site.data.keyword.iamshort}} 角色
+{: #changed-iam-roles}
+
 新增日期：2017-12-15
 
 {{site.data.keyword.iamshort}} 角色已變更，這些角色決定您可以對 {{site.data.keyword.keymanagementserviceshort}} 資源執行的動作。
@@ -186,6 +212,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #sept-2017}
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了對 Cloud IAM 的支援
+{: #added-iam-support}
+
 新增日期：2017-09-19
 
 您現在可以使用 {{site.data.keyword.iamshort}} 來設定和管理 {{site.data.keyword.keymanagementserviceshort}} 資源的存取原則。

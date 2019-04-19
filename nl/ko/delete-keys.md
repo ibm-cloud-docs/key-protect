@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # 키 삭제
-{: #deleting-keys}
+{: #delete-keys}
 
 {{site.data.keyword.cloud_notm}} 영역 또는 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스의 관리자인 경우에는 {{site.data.keyword.keymanagementservicefull}}를 사용하여 암호화 키와 해당 컨텐츠를 삭제할 수 있습니다.
 {: shortdesc}
 
-키를 삭제하면 해당 컨텐츠 및 연관된 데이터가 영구 삭제됩니다. 이 조치는 되돌릴 수 없습니다. 프로덕션 환경의 경우에는 [리소스 영구 삭제](/docs/services/key-protect?topic=key-protect-data-security#data-deletion)가 권장되지 않지만, 테스트나 QA 등의 임시 환경의 경우에는 유용할 수 있습니다.
+키를 삭제하면 해당 컨텐츠 및 연관된 데이터가 영구 삭제됩니다. 이 조치는 되돌릴 수 없습니다. 프로덕션 환경의 경우에는 [리소스 영구 삭제](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion)가 권장되지 않지만, 테스트나 QA 등의 임시 환경의 경우에는 유용할 수 있습니다.
 {: important}
 
 ## GUI로 키 삭제
@@ -39,7 +39,7 @@ subcollection: key-protect
 2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
 3. {{site.data.keyword.cloud_notm}} 리소스 목록에서 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스를 선택하십시오.
 4. 애플리케이션 세부사항 페이지에서 **키** 테이블을 사용하여 서비스에서 키를 찾아보십시오.
-5. 아이콘을 클릭하여 삭제할 키에 대한 옵션 목록을 여십시오.
+5. ⋯ 아이콘을 클릭하여 삭제할 키에 대한 옵션 목록을 여십시오.
 6. 옵션 메뉴에서 **키 삭제**를 클릭한 후 다음 화면에서 키 삭제를 확인하십시오.
 
 키를 삭제하면 키가 _영구 삭제됨_ 상태로 전이됩니다. 이 상태의 키는 더 이상 복구 불가능합니다. 키와 연관된 메타데이터(예: 키의 삭제 날짜)가 {{site.data.keyword.keymanagementserviceshort}} 데이터베이스에 보관됩니다.

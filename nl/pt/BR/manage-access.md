@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: user permissions, manage access, IAM roles
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Gerenciando o acesso
+# Gerenciando acesso de usuário
 {: #manage-access}
 
 O {{site.data.keyword.keymanagementservicefull}} suporta um sistema de controle de acesso centralizado, governado pelo {{site.data.keyword.iamlong}}, para ajudar a gerenciar usuários e o acesso às suas chaves de criptografia.
@@ -38,11 +42,15 @@ Com o {{site.data.keyword.iamshort}} (IAM), é possível gerenciar e definir o a
 
 Para simplificar o acesso, o {{site.data.keyword.keymanagementserviceshort}} se alinha com as funções do Cloud IAM para
 que cada usuário tenha uma visualização diferente do serviço, de acordo com a função designada ao usuário. Se você for um
-administrador de segurança para o seu serviço, poderá designar funções do Cloud IAM que correspondam às permissões específicas do
+administrador de segurança do seu serviço, será possível designar as funções do Cloud IAM que correspondem às permissões específicas do
 {{site.data.keyword.keymanagementserviceshort}} que desejar conceder a membros da sua equipe.
 
 A tabela a seguir mostra como as funções de identidade e acesso são mapeadas para as permissões do {{site.data.keyword.keymanagementserviceshort}}:
+
 <table>
+  <col width="20%">
+  <col width="40%">
+  <col width="40%">
   <tr>
     <th>Função de acesso de serviço</th>
     <th>Descrição</th>
@@ -78,14 +86,14 @@ A tabela a seguir mostra como as funções de identidade e acesso são mapeadas 
   </tr>
   <tr>
     <td><p>Gerente</p></td>
-    <td><p>Um gerenciador pode executar todas as ações que um leitor e um gravador podem executar, incluindo a capacidade de excluir
-chaves, convidar novos usuários e designar políticas de acesso para outros usuários.</p></td>
+    <td><p>Um gerenciador pode executar todas as ações que um leitor e um gravador podem executar, incluindo a capacidade de configurar políticas de rotação para chaves, excluir chaves, convidar novos usuários e designar políticas de acesso a outros usuários.</p></td>
     <td>
       <p>
         <ul>
           <li>Todas as ações que um leitor ou um gravador pode executar</li>
+          <li>Designar políticas de acesso de usuário</li>
+          <li>Configurar políticas de rotação de chave</li>
           <li>Excluir chaves</li>
-          <li>Designe políticas de acesso</li>
         </ul>
       </p>
     </td>
@@ -93,11 +101,13 @@ chaves, convidar novos usuários e designar políticas de acesso para outros usu
   <caption style="caption-side:bottom;">Tabela 1. Descreve como as funções de identidade e acesso são mapeadas para permissões do {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou instância de serviço. [Funções do Cloud Foundry ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/cfaccess.html){: new_window} são separadas e definem o acesso no nível da organização ou do espaço. Para saber mais sobre o {{site.data.keyword.iamshort}}, verifique as [Funções e permissões de usuário ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/users_roles.html#userroles){: new_window}.
+As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou instância de serviço. [As funções do Cloud Foundry ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-cfaccess){: new_window} são separadas e definem o acesso no nível da organização ou do espaço. Para saber mais sobre o {{site.data.keyword.iamshort}}, confira [Funções e permissões do usuário ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-userroles){: new_window}.
 {: note}
 
-### O que vem a seguir
+## O que vem a seguir
+{: #manage-access-next-steps}
 
 Os proprietários e administradores de conta podem convidar usuários e configurar políticas de serviço que correspondem às ações do {{site.data.keyword.keymanagementserviceshort}} que os usuários podem executar.
 
-- Para obter mais informações sobre como designar funções de usuário na UI do {{site.data.keyword.cloud_notm}}, veja [Gerenciando o acesso ao IAM ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam/mngiam.html){: new_window}.
+- Para obter mais informações sobre como designar funções de usuário na UI do {{site.data.keyword.cloud_notm}}, veja [Gerenciando o acesso ao IAM ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-getstarted){: new_window}.
+

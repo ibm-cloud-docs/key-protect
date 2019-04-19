@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -41,7 +41,7 @@ subcollection: key-protect
 
 また、{{site.data.keyword.cloud_notm}} CLI を使用して、{{site.data.keyword.keymanagementserviceshort}} のインスタンスをプロビジョンすることもできます。 
 
-1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 

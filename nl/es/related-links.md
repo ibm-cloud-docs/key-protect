@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -38,7 +38,7 @@ Recursos adicionales sobre la gestión del cifrado con {{site.data.keyword.keyma
 - [{{site.data.keyword.keymanagementserviceshort}} Goes From Beta to GA in Dallas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## Términos del servicio
-{: #info}
+{: #service-terms}
 
 - [Acuerdo de nivel de servicio de {{site.data.keyword.keymanagementservicelong_notm}} ![Icono al enlace externo](../../icons/launch-glyph.svg "Iconoal enlace externo")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 

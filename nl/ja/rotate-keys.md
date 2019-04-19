@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -29,7 +29,7 @@ subcollection: key-protect
 
 鍵のローテーションがどのように業界標準や暗号のベスト・プラクティスへの準拠に役立つのかについては、[暗号鍵のローテート](/docs/services/key-protect?topic=key-protect-key-rotation)を参照してください。
 
-ローテーションは、ルート鍵に対してのみ使用可能です。 {{site.data.keyword.keymanagementserviceshort}} での鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)を参照してください。
+ローテーションは、ルート鍵に対してのみ使用可能です。 {{site.data.keyword.keymanagementserviceshort}} での鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)を参照してください。
 {: note}
 
 ## GUI を使用したルート鍵のローテート

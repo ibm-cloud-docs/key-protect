@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -30,33 +30,15 @@ subcollection: key-protect
 
 Die Verwaltung von Schlüsseln kommt zum Beispiel in den folgenden Szenarios in Betracht:
 
-<table>
-  <tr>
-    <th>Szenario</th>
-    <th>Ursachen</th>
-  </tr>
-  <tr>
-    <td>Sie führen eine Envelope-Verschlüsselung durch, wenn Sie Daten in die Cloud verschieben. Sie benötigen Ihren eigenen Masterverschlüsselungsschlüssel, um andere Schlüssel zu verwalten und zu schützen, mit denen Ihre ruhenden Daten verschlüsselt werden.</td>
-    <td>Sie können mit {{site.data.keyword.keymanagementserviceshort}} Ihre [Datenverschlüsselungsschlüssel in einen sehr sicheren Rootschlüssel einschließen](/docs/services/key-protect?topic=key-protect-envelope-encryption). Sie können Ihre eigenen Rootschlüssel verwenden oder im Service neue Rootschlüssel erstellen.</td>
-  </tr>
-  <tr>
-    <td>Als IT-Administrator für ein Großunternehmen müssen Sie Schlüssel für viele unterschiedliche Serviceangebote integrieren, überwachen und turnusmäßig wechseln.</td>
-    <td>Die {{site.data.keyword.keymanagementserviceshort}}-Schnittstelle vereinfacht das Management mehrerer Verschlüsselungsservices. Mit dem Service können Sie Schlüssel an einer zentralen Position verwalten und sortieren oder Schlüssel nach Projekt trennen und in verschiedene {{site.data.keyword.cloud_notm}}-Bereiche aufnehmen.</td>
-  </tr>
-  <tr>
-    <td>Sie sind Sicherheitsadministrator in einem Unternehmensbereich (z. B. Finanzen oder Recht), der die Governance zum Datenschutz einhalten muss. Sie müssen gesteuerten Zugriff von Schlüsseln gewähren, ohne dass die gesicherten Daten beeinträchtigt werden.</td>
-    <td>Mit dem Service können Sie den Benutzerzugriff zum Management von Schlüsseln durch das [Zuweisen unterschiedlicher Identity and Access Management-Rollen steuern](/docs/services/key-protect?topic=key-protect-manage-access#roles). Sie können beispielsweise Benutzern Lesezugriff erteilen, die Informationen zur Schlüsselerstellung anzeigen müssen, ohne die Schlüsselinformationen anzuzeigen.</td>
-  <tr>
-    <td>Als Entwickler können Sie bereits vorhandene Anwendungen, wie zum Beispiel selbstverschlüsselnden Speicher, in {{site.data.keyword.keymanagementserviceshort}} integrieren.</td>
-    <td>Apps in oder außerhalb von {{site.data.keyword.cloud_notm}} können mit den {{site.data.keyword.keymanagementserviceshort}}-APIs integriert werden. Sie können eigene vorhandene Schlüssel für Ihre Apps verwenden. </td>
-  </tr>
-  <tr>
-    <td>Für Ihr Entwicklungsteam gelten strenge Richtlinien und sie benötigen eine Methode, um alle 14 Tage Schlüssel zu generieren und zu wechseln.</td>
-    <td>Mit {{site.data.keyword.keymanagementserviceshort}} können Sie innerhalb kurzer Zeit Schlüssel über ein {{site.data.keyword.cloud_notm}}-Hardwaresicherheitsmodul (HSM) generieren, um die geltenden Sicherheitsvorgaben zeitgerecht zu erfüllen.</td>
-  </tr>
-</table>
+| Szenarios | Ursachen|
+| --- | ---- |
+|Als IT-Administrator für ein Großunternehmen müssen Sie Verschlüsselungsschlüssel für viele unterschiedliche Serviceangebote integrieren, überwachen und turnusmäßig wechseln.| Die {{site.data.keyword.keymanagementserviceshort}}-Schnittstelle vereinfacht das Management mehrerer Verschlüsselungsservices. Mit dem Service können Sie Verschlüsselungsschlüssel an einer zentralen Position verwalten und sortieren oder Schlüssel nach Projekt trennen und in verschiedene {{site.data.keyword.cloud_notm}}-Bereiche aufnehmen.|
+| Als Entwickler können Sie bereits vorhandene Anwendungen, wie zum Beispiel selbstverschlüsselnden Speicher, in {{site.data.keyword.keymanagementserviceshort}} integrieren. | Apps in oder außerhalb von {{site.data.keyword.cloud_notm}} können mit den {{site.data.keyword.keymanagementserviceshort}}-APIs integriert werden. Sie können eigene vorhandene Schlüssel für Ihre Apps verwenden. |
+|Für Ihr Entwicklungsteam gelten strenge Richtlinien und sie benötigen eine Methode, um alle 30 Tage Schlüssel zu generieren und turnusmäßig zu wechseln. |Mit {{site.data.keyword.keymanagementserviceshort}} können Sie innerhalb kurzer Zeit Schlüssel über ein {{site.data.keyword.cloud_notm}}-Hardwaresicherheitsmodul (HSM) generieren. Wenn die Zeit gekommen ist, um einen Schlüssel zu ersetzen, können Sie [den Schlüssel auf Anforderung turnusmäßig wechseln](/docs/services/key-protect?topic=key-protect-rotate-keys) oder [eine Rotationsrichtlinie festlegen](/docs/services/key-protect?topic=key-protect-set-rotation-policy), damit der Schlüssel Ihren stetig wachsenden Anforderungen an die Sicherheit gerecht wird. |
+| Sie sind Sicherheitsadministrator in einem Unternehmensbereich (z. B. Finanzen oder Recht), der die Governance zum Datenschutz einhalten muss. Sie müssen gesteuerten Zugriff von Schlüsseln gewähren, ohne dass die gesicherten Daten beeinträchtigt werden. | Mit dem Service können Sie den Benutzerzugriff zum Management von Schlüsseln durch das [Zuweisen unterschiedlicher Identity and Access Management-Rollen steuern](/docs/services/key-protect?topic=key-protect-manage-access#roles). Sie können beispielsweise Benutzern Lesezugriff erteilen, die Informationen zur Schlüsselerstellung anzeigen müssen, ohne die Schlüsselinformationen anzuzeigen. |
+| Sie führen eine Envelope-Verschlüsselung durch, wenn Sie Daten in die Cloud verschieben. Sie benötigen Ihre eigenen Masterverschlüsselungsschlüssel, um andere Schlüssel zu verwalten und zu schützen, mit denen Ihre ruhenden Daten verschlüsselt werden. |Sie können mit {{site.data.keyword.keymanagementserviceshort}} Ihre [Datenverschlüsselungsschlüssel in einen sehr sicheren Rootschlüssel einschließen (verschlüsseln)](/docs/services/key-protect?topic=key-protect-envelope-encryption). Sie können Ihre eigenen Rootschlüssel verwenden oder im Service neue Rootschlüssel erstellen.|
 
-Sie suchen eine dedizierte Schlüsselmanagementlösung, die kundengesteuerte, cloudbasierte Hardwaresicherheitsmodule (HSMs) unterstützt? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} (Beta)](/docs/services/hs-crypto?topic=hs-crypto-get-started) wird in {{site.data.keyword.keymanagementserviceshort}} integriert, um Keep Your Own Keys (KYOK) für {{site.data.keyword.cloud_notm}} zu ermöglichen und Ihrer Organisation somit mehr Kontrolle und Berechtigung für ihre Daten zu geben. Weitere Informationen finden Sie auf der [Detailseite des {{site.data.keyword.hscrypto}}-Produktangebots ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/services/hyper-protect-crypto-services).
+Sie suchen eine dedizierte Schlüsselmanagementlösung, die kundengesteuerte, cloudbasierte Hardwaresicherheitsmodule (HSMs) unterstützt? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) wird mit {{site.data.keyword.keymanagementserviceshort}} integriert, um Keep Your Own Keys (KYOK) für {{site.data.keyword.cloud_notm}} zu ermöglichen und Ihrer Organisation somit mehr Kontrolle und Berechtigung für ihre Daten zu geben. Weitere Informationen finden Sie auf der [Detailseite des {{site.data.keyword.hscrypto}}-Produktangebots ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/catalog/services/hyper-protect-crypto-services).
 {: tip}
 
 ## Funktionsweise von {{site.data.keyword.keymanagementserviceshort}}

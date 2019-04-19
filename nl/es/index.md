@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,7 +42,7 @@ Elija entre dos tipos de clave:
 ## Creación de nuevas claves
 {: #create-keys}
 
-[Después de crear una instancia de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), estará preparado para designar claves en el servicio. 
+[Después de crear una instancia de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps), estará preparado para designar claves en el servicio. 
 
 Siga estos pasos para crear su primera clave criptográfica. 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">表 1. 說明金鑰替換的好處</caption>
 </table>
 
-「NIST 特殊出版品 800-57」的「金鑰管理建議」中，論述了金鑰替換。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+「NIST 特殊出版品 800-57」的「金鑰管理建議」中，論述了金鑰替換。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 {: tip}
 
 ## 比較 {{site.data.keyword.keymanagementserviceshort}} 中的金鑰替換選項
@@ -53,7 +53,7 @@ subcollection: key-protect
 
 <dl>
   <dt>為金鑰設定替換原則</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} 可協助您簡化加密金鑰的替換，方法是為您在服務中產生的金鑰啟用替換原則。建立根金鑰之後，您可以在 {{site.data.keyword.keymanagementserviceshort}} GUI 中或使用 API 來管理金鑰的替換原則。根據進行中安全需求，<a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">為您的金鑰選擇 1 到 12 個月的自動替換間隔</a>。當要根據您指定的替換間隔來替換金鑰時，{{site.data.keyword.keymanagementserviceshort}} 會自動將金鑰取代為新的金鑰資料。</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} 可協助您簡化加密金鑰的替換，方法是為您在服務中產生的金鑰啟用替換原則。建立根金鑰之後，您可以在 {{site.data.keyword.keymanagementserviceshort}} GUI 中或使用 API 來管理金鑰的替換原則。根據進行中安全需求，<a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">為您的金鑰選擇 1 到 12 個月的自動替換間隔</a>。當要根據您指定的替換間隔來替換金鑰時，{{site.data.keyword.keymanagementserviceshort}} 會自動將金鑰取代為新的金鑰資料。</dd>
   <dt>隨需應變替換金鑰</dt>
     <dd>身為安全管理者，您可能想要進一步控制金鑰的替換頻率。如果您不想為金鑰設定自動替換原則，則可以手動建立新的金鑰來取代現有金鑰，然後更新應用程式，它們才能參照新的金鑰。若要簡化此處理程序，您可以使用 {{site.data.keyword.keymanagementserviceshort}} 隨需應變替換金鑰。在此情境中，{{site.data.keyword.keymanagementserviceshort}} 會代表您為每一個替換要求建立及取代金鑰。金鑰會保留相同的 meta 資料和金鑰 ID。</dd>
 </dl>

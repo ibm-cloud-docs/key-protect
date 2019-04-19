@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 

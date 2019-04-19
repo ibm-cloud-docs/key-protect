@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # 暗号鍵のライフサイクルのモニター
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} は、[NIST SP 800-57 for key states ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window} によるセキュリティー・ガイドラインに従っています。
+{{site.data.keyword.keymanagementservicefull}} は、[NIST SP 800-57 for key states ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window} によるセキュリティー・ガイドラインに従っています。
 {: shortdesc}
 
 ## 鍵の状態および遷移

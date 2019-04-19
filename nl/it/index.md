@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -20,7 +19,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# Esercitazione introduttiva 
+# Esercitazione introduttiva
 {: #getting-started-tutorial}
 
 {{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Questa esercitazione illustra come creare e aggiungere le chiavi di crittografia esistenti utilizzando il dashboard {{site.data.keyword.keymanagementserviceshort}}, quindi puoi gestire la codifica dei dati da un'ubicazione centrale.
@@ -43,7 +42,7 @@ Scegli tra i due tipi di chiave:
 ## Creazione di nuove chiavi
 {: #create-keys}
 
-[Dopo aver creato un'istanza di {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), sei pronto a designare le chiavi nel servizio. 
+[Dopo aver creato un'istanza di {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps), sei pronto a designare le chiavi nel servizio. 
 
 Completa la seguente procedura per creare la tua prima chiave crittografica. 
 

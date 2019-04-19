@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-18"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 

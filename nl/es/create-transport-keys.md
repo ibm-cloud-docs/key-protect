@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -85,8 +85,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/lockers
         </tr>
         <tr>
           <td><varname>recuento_uso</varname></td>
-          <td>El número de veces que se puede recuperar una clave de transporte dentro de su hora de caducidad hasta que ya no se pueda acceder a ella. El valor predeterminado
-es 1.</td>
+          <td>El número de veces que se puede recuperar una clave de transporte dentro de su hora de caducidad hasta que ya no se pueda acceder a ella. El valor predeterminado es 1.</td>
         </tr>
           <caption style="caption-side:bottom;">Tabla 1. Describe las variables necesarias para añadir una clave raíz con la API de {{site.data.keyword.keymanagementserviceshort}}</caption>
       </table>

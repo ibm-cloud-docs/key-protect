@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: delete key, delete key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -16,40 +20,40 @@ lastupdated: "2019-01-03"
 {:important: .important}
 
 # Excluindo chaves
-{: #deleting-keys}
+{: #delete-keys}
 
 É possível usar o {{site.data.keyword.keymanagementservicefull}} para excluir uma chave de criptografia e seus conteúdos, se você é um administrador para o espaço do {{site.data.keyword.cloud_notm}} ou instância de serviço {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Quando você excluir uma chave, fragmentará permanentemente os seus conteúdos e os dados associados. A ação não pode ser invertida. A destruição de recursos não é recomendada para ambientes de produção, mas pode ser útil para ambientes temporários, como de teste ou QA.
+Quando você excluir uma chave, fragmentará permanentemente os seus conteúdos e os dados associados. A ação não pode ser invertida. [Destruindo recursos](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) não é recomendado para ambientes de produção, mas pode ser útil para ambientes provisórios, como de teste ou QA.
 {: important}
 
 ## Excluindo chaves com a GUI
-{: #gui}
+{: #delete-key-gui}
 
 Se você preferir excluir suas chaves de criptografia usando uma interface gráfica, será possível usar a GUI do {{site.data.keyword.keymanagementserviceshort}}.
 
-[Depois de criar ou importar as chaves existentes no serviço](/docs/services/key-protect/create-root-keys.html),conclua as etapas a seguir para excluir a chave:
+[Depois de criar ou importar as chaves existentes no serviço](/docs/services/key-protect?topic=key-protect-create-root-keys),conclua as etapas a seguir para excluir a chave:
 
 1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
 2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
 3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
 4. Na página de detalhes do aplicativo, use a tabela de **Chaves** para procurar as chaves em seu serviço.
-5. Clique no ícone ⋮ para abrir uma lista de opções para a chave que você deseja excluir.
+5. Clique no ícone ⋯ para abrir uma lista de opções para a chave que você deseja excluir.
 6. No menu de opções, clique em **Excluir chave** e confirme a exclusão da chave na próxima tela.
 
 Depois de excluir uma chave, a chave transita para o estado _Destruído_. As chaves nesse estado não são mais recuperáveis. Metadados que estão associados à chave, como a data de exclusão da chave, são mantidos no banco de dados do {{site.data.keyword.keymanagementserviceshort}}.
 
 ## Excluindo chaves com a API
-{: #api}
+{: #delete-key-api}
 
 Para excluir uma chave e os seus conteúdos, faça uma chamada `DELETE` para o terminal a seguir.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
-1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect/access-api.html).
+1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Recupere o ID da chave que você gostaria de excluir.
 
@@ -59,7 +63,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
 
     ```cURL
     curl -X DELETE \
-      https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID> \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'prefer: <return_preference>'
@@ -77,7 +81,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -85,11 +89,11 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>

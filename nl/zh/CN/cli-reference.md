@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 要安装 CLI 插件，请参阅[设置 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。 
 
-登录到 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 后，您会收到可用更新的通知。请确保 CLI 是最新的，以便使用适用于 {{site.data.keyword.keymanagementserviceshort}} CLI 插件的命令和标志。
+登录到 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 后，您会收到可用更新的通知。请确保 CLI 是最新的，以便使用适用于 {{site.data.keyword.keymanagementserviceshort}} CLI 插件的命令和标志。
 {: tip}
 
 ## ibmcloud kp 命令
@@ -58,12 +58,28 @@ subcollection: key-protect
     <caption style="caption-side:bottom;">表 1. 用于管理密钥的命令</caption> 
  </table>
 
+ <table summary="用于管理密钥策略的命令">
+    <thead>
+        <th colspan="5">用于管理密钥策略的命令</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">表 2. 用于管理密钥策略的命令</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 在您指定的 {{site.data.keyword.keymanagementserviceshort}} 服务实例中[创建根密钥](/docs/services/key-protect?topic=key-protect-create-root-keys)。 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL]
                    [-s, --standard-key]
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 删除 {{site.data.keyword.keymanagementserviceshort}} 服务中存储的密钥，如[删除密钥](/docs/services/key-protect?topic=key-protect-delete-keys)中所述。
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 列出 {{site.data.keyword.keymanagementserviceshort}} 服务实例中可用的最后 200 个密钥。
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 
 如果将密钥指定为根密钥，那么系统无法返回该密钥的密钥资料。
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 轮换 {{site.data.keyword.keymanagementserviceshort}} 服务中存储的根密钥，如[轮换根密钥](/docs/services/key-protect?topic=key-protect-wrap-keys)中所述。
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL]
+                 [-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 通过使用您指定的 {{site.data.keyword.keymanagementserviceshort}} 服务实例中存储的根密钥来[打包数据加密密钥](/docs/services/key-protect?topic=key-protect-wrap-keys)。
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 通过使用您指定的 {{site.data.keyword.keymanagementserviceshort}} 服务实例中存储的根密钥来[解包数据加密密钥](/docs/services/key-protect?topic=key-protect-unwrap-keys)。
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+列出与指定的根密钥相关联的策略。
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必需参数
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>要查询的根密钥的标识。要检索可用密钥列表，请运行 <a href="#kp-list">kp list</a> 命令。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>用于标识 {{site.data.keyword.keymanagementserviceshort}} 服务实例的 {{site.data.keyword.cloud_notm}} 实例标识。</dd>
+</dl>
+
+### 可选参数
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+检索有关密钥策略的详细信息，例如，密钥的自动轮换时间间隔。
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必需参数
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>要查询的密钥的标识。要检索可用密钥列表，请运行 <a href="#kp-list">kp list</a> 命令。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>用于标识 {{site.data.keyword.keymanagementserviceshort}} 服务实例的 {{site.data.keyword.cloud_notm}} 实例标识。</dd>
+</dl>
+
+### 可选参数
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+创建或替换与指定的根密钥相关联的策略。
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### 必需参数
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>要查询的密钥的标识。要检索可用密钥列表，请运行 <a href="#kp-list">kp list</a> 命令。</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>指定要设置的策略类型。要设置轮换策略，请使用 <code>--set-type rotation</code>。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>用于标识 {{site.data.keyword.keymanagementserviceshort}} 服务实例的 {{site.data.keyword.cloud_notm}} 实例标识。</dd>
+</dl>
+
+### 可选参数
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>指定密钥的轮换时间间隔(以月为单位）。缺省值为 1。</dd>
+    <dt><code>--output</code></dt>
+        <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
+</dl>
 

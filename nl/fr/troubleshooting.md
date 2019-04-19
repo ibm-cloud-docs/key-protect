@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -77,7 +77,7 @@ Pour supprimer vos clés et votre instance de service :
     ibmcloud iam space <nom_espace> --guid
     ```
     {: codeblock}
-    Remplacez `<organization_name>` et `<space_name>` par les alias uniques que vous avez affecté à vos organisation et espace.
+    Remplacez `<organization_name>` et `<space_name>` par les alias uniques que vous avez affectés à vos organisation et espace. 
 
 4. Extrayez votre jeton d'accès.
 
@@ -209,9 +209,9 @@ Vous pouvez vérifier si {{site.data.keyword.cloud_notm}} est disponible en acc�
 Vous pouvez consulter les forums pour voir si d'autres utilisateurs ont rencontré le
 même problème. Quand vous utilisez les forums pour poser une question, prenez soin d'étiqueter cette dernière de façon à ce qu'elle soit vue par les équipes de développement {{site.data.keyword.cloud_notm}}.
 
-- Si vous avez des questions d'ordre technique sur {{site.data.keyword.keymanagementserviceshort}}, postez votre question sur le forum [Stack Overflow ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} en lui adjoignant les balises "ibm-cloud" et "key-protect".
-- Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum [IBM developerWorks dW Answers ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} forum. Incluez les balises "ibm-cloud" et "key-protect".
+- Si vous avez des questions d'ordre technique sur {{site.data.keyword.keymanagementserviceshort}}, postez votre question sur le forum [Stack Overflow ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} en lui adjoignant les balises "ibm-cloud" et "key-protect".
+- Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum [IBM developerWorks dW Answers ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developer.ibm.com/answers/topics/key-protect/){: new_window} forum. Incluez les balises "ibm-cloud" et "key-protect".
 
-Pour plus d'informations sur l'utilisation des forums, voir la rubrique [Aide et support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/get-support?topic=get-support-using-avatar){: new_window}.
+Pour plus d'informations sur l'utilisation des forums, voir la rubrique [Aide et support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window}.
 
 Pour plus d'informations sur l'ouverture d'un ticket de demande de service {{site.data.keyword.IBM_notm}}, sur les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la rubrique expliquant [comment contacter le support![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

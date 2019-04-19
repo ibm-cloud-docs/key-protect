@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,7 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Criptografia de envelope
+# Protegendo dados com criptografia de envelope
 {: #envelope-encryption}
 
 A criptografia de envelope é a prática de criptografar dados com uma chave de criptografia de dados (DEK) e, em seguida,
@@ -52,7 +56,7 @@ assegura que os dados associados das chaves não possam mais ser acessados nem d
     <td>Controle de acesso do usuário delegado</td>
     <td>O {{site.data.keyword.keymanagementserviceshort}} suporta um sistema de controle de acesso centralizado para permitir
 acesso granular para suas chaves. [Ao designar funções de
-usuário do IAM e permissões avançadas](/docs/services/key-protect/manage-access.html#roles), os administradores de segurança decidem quem pode acessar quais chaves raiz no
+usuário do IAM e permissões avançadas](/docs/services/key-protect?topic=key-protect-manage-access#roles), os administradores de segurança decidem quem pode acessar quais chaves raiz no
 serviço.</td>
   </tr>
   <caption style="caption-side:bottom;">Tabela 1. Descreve os benefícios da criptografia gerenciada por cliente</caption>
@@ -67,13 +71,11 @@ raiz que você pode gerenciar totalmente. Esse processo de agrupamento de chave 
 armazenados de acesso ou exposição não autorizada. O desagrupamento de um DEK reverte o processo de criptografia do envelope
 usando a mesma chave raiz, resultando em dados decriptografados e autenticados.
  
-O diagrama a seguir mostra uma visualização contextual da funcionalidade de agrupamento de chave.
-![O diagrama mostra uma visualização contextual da criptografia deenvelope.](../images/envelope-encryption_min.svg)
-
+O diagrama a seguir mostra uma visualização contextual da funcionalidade de agrupamento de chaves. ![O diagrama mostra uma visualização contextual da criptografia de envelope.](../images/envelope-encryption_min.svg)
 
 A criptografia de envelope é tratada rapidamente em NIST Special Publication 800-57, Recomendação para gerenciamento de
 chave. Para saber mais, consulte [NIST SP
-800-57 Pt. 1 Rev. 4. ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+800-57 Pt. 1 Rev. 4. ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## Tipos de chave
 {: #key-types}
@@ -92,8 +94,8 @@ armazenar e gerenciar o ciclo de vida das chaves raiz para obter controle total 
     <dd>Chaves padrão são uma maneira de persistir um segredo, como uma senha ou uma chave de criptografia. Ao usar o
 {{site.data.keyword.keymanagementserviceshort}} para armazenar chaves padrão, você ativa o armazenamento do
 módulo de segurança de hardware (HSM) para seus segredos, o controle de acesso de baixa granularidade para seus
-recursos com o <a href="/docs/services/key-protect/manage-access.html" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>
-e a capacidade de auditar chamadas API para o serviço com o <a href="/docs/services/key-protect/at-events.html" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+recursos com o <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>
+e a capacidade de auditar chamadas API para o serviço com o <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Depois de criar chaves no {{site.data.keyword.keymanagementserviceshort}}, o sistema retorna um valor de ID que pode
@@ -120,8 +122,7 @@ A tabela a seguir descreve as entradas necessárias para executar uma operação
   <tr>
     <td>ID da chave raiz</td>
     <td>O valor do ID para a chave raiz que você deseja usar para agrupamento. A chave raiz pode ser importada para o serviço ou
-pode se originar no {{site.data.keyword.keymanagementserviceshort}} do HSMs. As chaves raiz que são usadas para
-agrupamento devem ter 256, 384 ou 512 bits para que uma solicitação de diagnóstico possa ter sucesso.</td>
+pode se originar no {{site.data.keyword.keymanagementserviceshort}} do HSMs. As chaves raiz que são usadas para o agrupamento devem ser de 128, 192 ou 256 bits para que uma solicitação de agrupamento possa ser bem-sucedida.</td>
   </tr>
   <tr>
     <td>Texto sem formatação</td>

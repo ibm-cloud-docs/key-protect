@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -25,7 +25,7 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementservicefull}} fornisce un'API REST che può essere utilizzata con qualsiasi linguaggio di programmazione per archiviare, richiamare e generare le chiavi di crittografia.
 {: shortdesc}
 
-## Richiamo delle tue credenziali {{site.data.keyword.cloud_notm}} 
+## Richiamo delle tue credenziali {{site.data.keyword.cloud_notm}}
 {: #retrieve-credentials}
 
 Per utilizzare l'API, devi generare le tue credenziali del servizio e di autenticazione. 
@@ -57,6 +57,6 @@ Vuoi tenere traccia delle tue richieste API nel caso che qualcosa non funzioni? 
 {: tip} 
 
 ## Operazioni successive
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
 È tutto pronto per iniziare a gestire le tue chiavi di crittografia in Key Protect. Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: encryption key states, encryption key lifecycle, manage key lifecycle
+
+subcollection: key-protect
 
 ---
 
@@ -15,10 +19,10 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Estados de chave
+# Monitorando o ciclo de vida de chaves de criptografia
 {: #key-states}
 
-O {{site.data.keyword.keymanagementservicefull}} segue as diretrizes de segurança do [NIST SP 800-57 para estados de chave ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}.
+O {{site.data.keyword.keymanagementservicefull}} segue as diretrizes de segurança do [NIST SP 800-57 para estados de chave ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
 {: shortdesc}
 
 ## Estados e transições de chave
@@ -50,11 +54,11 @@ O {{site.data.keyword.keymanagementserviceshort}} fornece uma interface gráfica
   </tr>
   <tr>
     <td>Destruído</td>
-    <td>As chaves excluídas estão no estado <i>destruído</i>. As chaves nesse estado não são recuperáveis. Metadados que estão associados a uma chave, como o nome e o histórico de transição da chave, são mantidos no banco de dados do {{site.data.keyword.keymanagementserviceshort}}.</td>
+    <td>As chaves excluídas estão no estado <i>destruído</i>. As chaves nesse estado não são recuperáveis. Metadados que estão associados a uma chave, como o nome e o histórico de transição da chave, são mantidos no banco de dados do {{site.data.keyword.keymanagementserviceshort}}. </td>
   </tr>
   <caption style="caption-side:bottom;">Tabela 1. Descreve as transições e os estados da chave.</caption>
 </table>
 
 Depois de incluir uma chave para o serviço, use o painel {{site.data.keyword.keymanagementserviceshort}} ou as APIs de REST do {{site.data.keyword.keymanagementserviceshort}} para visualizar o histórico de transição e a configuração da sua chave. Para propósitos de auditoria, também é possível monitorar a trilha de atividade para uma chave integrando o {{site.data.keyword.keymanagementserviceshort}} com o {{site.data.keyword.cloudaccesstrailfull}}. Depois que ambos os serviços são provisionados e estão em execução, eventos de atividade são gerados e coletados automaticamente em um log do {{site.data.keyword.cloudaccesstrailshort}} quando você cria e exclui chaves no {{site.data.keyword.keymanagementserviceshort}}. 
 
-Para obter mais informações, veja [Monitorando a atividade do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-activity-tracker/services/security_svcs.html#key_protect){: new_window}.
+Para obter mais informações, consulte [Monitorando a atividade do {{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo") ](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -40,9 +40,9 @@ subcollection: key-protect
 ## 使用 CLI 检索实例标识
 {: #retrieve-instance-ID-cli}
 
-也可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 来检索服务实例的实例标识。
+也可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 来检索服务实例的实例标识。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login

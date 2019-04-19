@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -25,9 +25,9 @@ subcollection: key-protect
 最初に {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス用のトランスポート暗号鍵を作成することによって、ルート鍵素材をクラウドにセキュアにインポートできるようになります。
 {: shortdesc}
 
-トランスポート鍵は、ルート鍵素材を暗号化して {{site.data.keyword.keymanagementserviceshort}} にセキュアにインポートするために、指定するポリシーに基づいて使用されます。鍵をクラウドにセキュアにインポートすることについて詳しくは、[クラウドへの独自の暗号鍵の取り込み](/docs/services/key-protect/concepts?topic=key-protect-importing-keys)を参照してください。
+トランスポート鍵は、ルート鍵素材を暗号化して {{site.data.keyword.keymanagementserviceshort}} にセキュアにインポートするために、指定するポリシーに基づいて使用されます。 鍵をクラウドにセキュアにインポートすることについて詳しくは、[クラウドへの独自の暗号鍵の取り込み](/docs/services/key-protect/concepts?topic=key-protect-importing-keys)を参照してください。
 
-現在のところ、トランスポート鍵はベータ・フィーチャーです。ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
+現在のところ、トランスポート鍵はベータ・フィーチャーです。 ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
 {: important}
 
 ## API を使用したトランスポート鍵の作成
@@ -80,17 +80,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
           <td><varname>expiration_time</varname></td>
           <td>
             <p>鍵が有効である期間を示す、トランスポート鍵の作成以降の秒数。</p>
-            <p>最小値は 300 秒 (5 分)、最大値は 86400 (24 時間) です。デフォルト値は 600 (10 分) です。</p>
+            <p>最小値は 300 秒 (5 分)、最大値は 86400 (24 時間) です。 デフォルト値は 600 (10 分) です。</p>
           </td>
         </tr>
         <tr>
           <td><varname>use_count</varname></td>
-          <td>トランスポート鍵を有効期間内に取得できる回数。これを超えるとアクセスできなくなります。デフォルト値は 1 です。</td>
+          <td>トランスポート鍵を有効期間内に取得できる回数。これを超えるとアクセスできなくなります。 デフォルト値は 1 です。</td>
         </tr>
           <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} API を使用してルート鍵を追加するために必要な変数についての説明</caption>
       </table>
 
-    `POST api/v2/lockers` 要求が成功すると、サービス・インスタンス用のトランスポート鍵が作成され、鍵の ID 値およびその他のメタデータが返されます。この ID は、トランスポート鍵に関連付けられた固有 ID であり、{{site.data.keyword.keymanagementserviceshort}} API への以降の呼び出しで使用されます。
+    `POST api/v2/lockers` 要求が成功すると、サービス・インスタンス用のトランスポート鍵が作成され、鍵の ID 値およびその他のメタデータが返されます。 この ID は、トランスポート鍵に関連付けられた固有 ID であり、{{site.data.keyword.keymanagementserviceshort}} API への以降の呼び出しで使用されます。
 
 3. オプション: 以下の呼び出しを実行してサービス・インスタンスについてのメタデータを取得することによって、トランスポート鍵が作成されたことを検証します。
 

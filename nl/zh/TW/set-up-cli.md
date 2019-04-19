@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -30,11 +30,11 @@ subcollection: key-protect
 ## 安裝 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式
 {: #install-cli}
 
-請先安裝 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-overview){: new_window}，然後才能設定 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式。 
+請先安裝 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，然後才能設定 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式。 
 
 若要安裝 CLI，請執行下列動作：
 
-1. 安裝 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-overview){: new_window}。
+1. 安裝 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}。
 
     安裝 CLI 之後，您可以執行 `ibmcloud` 指令，與雲端服務互動。
 
@@ -69,7 +69,7 @@ subcollection: key-protect
 
 若要更新 CLI，請執行下列動作：
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-overview){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -96,7 +96,7 @@ subcollection: key-protect
 ## 解除安裝 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式
 {: #uninstall-cli}
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-overview){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login

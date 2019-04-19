@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} サービスは、{{site.data.keyword.cloud_notm}} のサービスの状態を変更する、ユーザーが開始したアクティビティーを記録します。 
 
-詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window} を参照してください。
+詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window} を参照してください。
 
 ## イベントのリスト
 {: #list-activity-tracker-events}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -19,10 +19,10 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# Protection des données avec le chiffrement d'enveloppe 
+# Protection des données avec le chiffrement d'enveloppe
 {: #envelope-encryption}
 
-Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des données à l'aide d'une clé DEK (Data Encryption Key), puis à chiffrer la clé DEK avec une clé racine que vous pouvez intégralement gérer.
+Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des données à l'aide d'une clé DEK (Data Encryption Key), puis à chiffrer la clé DEK avec une clé racine que vous pouvez intégralement gérer. 
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}} protège les données stockées via un mécanisme de chiffrement avancé et offre un certain nombre d'avantages :
@@ -57,7 +57,7 @@ Le chiffrement d'enveloppe associe la puissance de plusieurs algorithmes de chif
 Le diagramme suivant présente une vue contextuelle de la fonction de chiffrement d'enveloppe.
 ![Diagramme présentant une vue contextuelle du chiffrement d'enveloppe.](../images/envelope-encryption_min.svg)
 
-Le chiffrement d'enveloppe est abordé dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+Le chiffrement d'enveloppe est abordé dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## Types de clé
 {: #key-types}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -57,7 +57,7 @@ subcollection: key-protect
 下图显示密钥打包功能的上下文视图。
 ![该图显示包络加密的上下文视图。](../images/envelope-encryption_min.svg)
 
-在 NIST Special Publication 800-57 Recommendation for Key Management 中简要介绍了包络加密。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}。
+在 NIST Special Publication 800-57 Recommendation for Key Management 中简要介绍了包络加密。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}。
 
 ## 密钥类型
 {: #key-types}

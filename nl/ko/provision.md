@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -41,7 +41,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 프로비저닝할 수도 있습니다. 
 
-1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-overview){: new_window}를 통해 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 통해 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 

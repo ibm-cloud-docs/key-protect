@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -84,7 +84,8 @@ Planen Sie für den Import von Schlüsseln voraus, indem Sie die Informationen z
 ### Schritt 1: Transportschlüssel erstellen
 {: #create-transport-key}
 
-Transportschlüssel sind derzeit ein Beta-Feature. Beta-Features können jederzeit geändert werden. Mit zukünftigen Aktualisierungen werden möglicherweise Änderungen eingeführt, die mit der neuesten Version nicht kompatibel sind.{: important}
+Transportschlüssel sind derzeit ein Beta-Feature. Beta-Features können jederzeit geändert werden. Mit zukünftigen Aktualisierungen werden möglicherweise Änderungen eingeführt, die mit der neuesten Version nicht kompatibel sind.
+{: important}
 
 Erstellen Sie einen Transportschlüssel für Ihre Serviceinstanz, indem Sie einen `POST`-Aufruf an den folgenden Endpunkt absetzen.
 
@@ -317,10 +318,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <td><varname>import_token</varname></td>
         <td>Das Importtoken, mit dem der Aktivitätszustand und die Integrität eines Transportschlüssels überprüft werden. Zur Verschlüsselung Ihrer Schlüsselinformationen mit einem Transportschlüssel müssen Sie dasselbe Importtoken angeben, das Sie in <a href="#retrieve-transport-key">Schritt 2</a> abgerufen haben. Zum Importieren der Rootschlüsselinformationen ohne Transportschlüssel und Importtoken lassen Sie das Attribut <code>importToken</code> aus.</td>
       </tr>
-        <caption style="caption-side:bottom;">Tabbelle 4. Beschreibung der Variablen, die zum Hinzufügen eines Rootschlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
+        <caption style="caption-side:bottom;">Tabelle 4. Beschreibung der Variablen, die zum Hinzufügen eines Rootschlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
     </table>
 
-    Vermeiden Sie zum Schutz der Vertraulichkeit Ihrer persönlichen Daten die Eingabe von personenbezogenen Informationen (PII) beim Hinzufügen von Schlüsseln zum Service. Hierzu gehören beispielsweise Namen oder Standortangaben. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122 ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+    Vermeiden Sie zum Schutz der Vertraulichkeit Ihrer persönlichen Daten die Eingabe von personenbezogenen Informationen (PII) beim Hinzufügen von Schlüsseln zum Service. Hierzu gehören beispielsweise Namen oder Standortangaben. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122 ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
     {: important}
 
     Mit der erfolgreichen Antwort `POST api/v2/keys` werden der ID-Wert für Ihren Schlüssel sowie andere Metadaten zurückgegeben. Die ID ist eine eindeutige Kennung, die Ihrem Schlüssel zugeordnet ist und die für alle nachfolgenden Aufrufe für die {{site.data.keyword.keymanagementserviceshort}}-API verwendet wird.

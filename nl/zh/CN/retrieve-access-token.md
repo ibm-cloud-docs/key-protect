@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -28,9 +28,9 @@ subcollection: key-protect
 ## 使用 CLI 检索访问令牌
 {: #retrieve-token-cli}
 
-可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 快速生成个人 Cloud IAM 访问令牌。
+可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 快速生成个人 Cloud IAM 访问令牌。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -61,7 +61,7 @@ subcollection: key-protect
 
 还可以通过先为应用程序创建[服务标识 API 密钥](/docs/iam?topic=iam-serviceidapikeys)，然后用您的 API 密钥交换 {{site.data.keyword.cloud_notm}} IAM 令牌，从而以编程方式检索访问令牌。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-overview){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -126,4 +126,6 @@ subcollection: key-protect
     访问令牌有效期为 1 小时，但是可根据需要重新生成。要维护对服务的访问，请通过调用 [IAM 身份服务 API](https://{DomainName}/apidocs/iam-identity-token-api) 定期重新生成 API 密钥的访问令牌。   
     {: note }
 
-    
+    <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->
+
+    <!--You use IBM® Cloud Identity and Access Management (IAM) tokens to make authenticated requests to IBM Watson™ services without embedding service credentials in every call. IAM authentication uses access tokens for authentication, which you acquire by sending a request with an API key.-->

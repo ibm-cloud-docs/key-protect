@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -211,10 +211,10 @@ Puoi controllare se {{site.data.keyword.cloud_notm}} è disponibile andando alla
 Puoi rivedere i forum per controllare se altri utenti hanno riscontrato lo stesso problema. Quando stai utilizzando i forum per fare una domanda, contrassegna con una tag la tua domanda in modo che sia visualizzabile dai team di sviluppo
 {{site.data.keyword.cloud_notm}}.
 
-- Se hai domande tecniche su {{site.data.keyword.keymanagementserviceshort}}, inserisci la tua domanda in [Stack Overflow ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} e contrassegnala con le tag "ibm-cloud" e "key-protect".
-- Per domande sul servizio e sulle istruzioni introduttive, utilizza il forum [IBM developerWorks dW Answers ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window}. Includi le tag "ibm-cloud"
+- Se hai domande tecniche su {{site.data.keyword.keymanagementserviceshort}}, inserisci la tua domanda in [Stack Overflow ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} e contrassegnala con le tag "ibm-cloud" e "key-protect".
+- Per domande sul servizio e sulle istruzioni introduttive, utilizza il forum [IBM developerWorks dW Answers ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](https://developer.ibm.com/answers/topics/key-protect/){: new_window}. Includi le tag "ibm-cloud"
 e "key-protect".
 
-Per ulteriori dettagli sull'utilizzo dei forum, consulta il documento relativo a [Richiesta di supporto ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](/docs/get-support?topic=get-support-using-avatar){: new_window}.
+Per ulteriori dettagli sull'utilizzo dei forum, consulta il documento relativo a [Richiesta di supporto ![Icona di link esterno](../../icons/launch-glyph.svg "Icona di link esterno")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window}.
 
 Per ulteriori informazioni sull'apertura di un ticket di supporto {{site.data.keyword.IBM_notm}} o sui livelli di supporto e sulla gravità dei ticket, vedi [Come contattare il supporto ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

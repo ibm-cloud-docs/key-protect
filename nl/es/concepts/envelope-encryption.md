@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -57,7 +57,7 @@ El cifrado de sobre combina la robustez de varios algoritmos de cifrado para pro
 En el diagrama siguiente se muestra una vista contextual de la funcionalidad del envolvimiento de claves.
 ![El diagrama muestra una vista contextual del cifrado de sobre.](../images/envelope-encryption_min.svg)
 
-El cifrado de sobre se trata de forma breve en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+El cifrado de sobre se trata de forma breve en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## Tipos de clave
 {: #key-types}
@@ -112,7 +112,7 @@ Si su aplicación empresarial necesita acceder al contenido de sus DEK envueltas
 El siguiente diagrama muestra el mecanismo del desenvolvimiento de clave.
 ![El diagrama muestra el mecanismo de desenvolvimiento de datos. ](../images/unwrapping-keys_min.svg)
 
-Después de enviar la solicitud de desenvolvimiento, el sistema invierte el proceso de envolvimiento de la clave utilizando los mismos algoritmos AES. Una operación satisfactoria de desenvolvimiento devuelve el valor de `plaintext` codificado en base64 para sus datos de {{site.data.keyword.cloud_notm}} al servicio REST.
+Después de enviar la solicitud de desenvolvimiento, el sistema invierte el proceso de envolvimiento de la clave utilizando los mismos algoritmos AES. Una operación satisfactoria de desenvolvimiento devuelve el valor de `plaintext` codificado en base64 a su servicio de datos en reposo de {{site.data.keyword.cloud_notm}}.
 
 
 

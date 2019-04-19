@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -55,7 +55,7 @@ subcollection: key-protect
 {: #what-is-envelope-encryption}
 {: faq}
 
-엔벨로프 암호화는 _데이터 암호화 키_로 데이터를 암호화한 다음 보안성이 높은 _키-랩핑 키_로 데이터 암호화 키를 암호화하는 것입니다. 저장 데이터는 여러 계층의 암호화를 적용하여 보호됩니다. {{site.data.keyword.cloud_notm}} 리소스에 엔벨로프 암호화를 사용하는 방법에 대해 알아보려면 [서비스 통합](/docs/services/key-protect?topic=key-protect-integrate-services)을 참조하십시오.
+엔벨로프 암호화는 _데이터 암호화 키_로 데이터를 암호화한 다음 보안성이 높은 _키-랩핑 키_로 데이터 암호화 키를 암호화하는 것입니다.  저장 데이터는 여러 계층의 암호화를 적용하여 보호됩니다. {{site.data.keyword.cloud_notm}} 리소스에 엔벨로프 암호화를 사용하는 방법에 대해 알아보려면 [서비스 통합](/docs/services/key-protect?topic=key-protect-integrate-services)을 참조하십시오.
 
 ## 키 이름의 길이는 얼마입니까?
 {: #key-names}
@@ -69,7 +69,7 @@ subcollection: key-protect
 
 개인 데이터의 기밀성을 보호하려면 PII(Personally Identifiable Information)를 키의 메타데이터로 저장하지 마십시오. 개인 정보에는 사용자의 이름, 주소, 전화번호, 이메일 주소 또는 사용자, 사용자의 고객 또는 다른 사용자를 식별하거나 연락하거나 찾을 수 있는 기타 정보가 포함됩니다.
 
-{{site.data.keyword.keymanagementserviceshort}} 리소스 및 암호화 키의 메타데이터로 저장하는 정보에 대한 보안을 보장해야 합니다. 개인 데이터에 대한 추가 예제는 [NIST Special Publication 800-122 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}의 섹션 2.2를 참조하십시오.
+{{site.data.keyword.keymanagementserviceshort}} 리소스 및 암호화 키의 메타데이터로 저장하는 정보에 대한 보안을 보장해야 합니다. 개인 데이터에 대한 추가 예제는 [NIST Special Publication 800-122 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}의 섹션 2.2를 참조하십시오.
 {: important}
 
 ## 한 지역에서 작성된 키를 다른 지역에서 사용할 수 있습니까?

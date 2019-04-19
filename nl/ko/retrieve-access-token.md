@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -28,9 +28,9 @@ subcollection: key-protect
 ## CLI를 사용하여 액세스 토큰 검색
 {: #retrieve-token-cli}
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}를 사용하여 개인용 Cloud IAM 액세스 토큰을 신속하게 생성할 수 있습니다.
+[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 개인용 Cloud IAM 액세스 토큰을 신속하게 생성할 수 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -61,7 +61,7 @@ subcollection: key-protect
 
 먼저 애플리케이션의 [서비스 ID API 키](/docs/iam?topic=iam-serviceidapikeys)를 작성한 다음 API 키를 {{site.data.keyword.cloud_notm}} IAM 토큰으로 교환하여 액세스 토큰을 프로그래밍 방식으로 검색할 수도 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-overview){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -95,7 +95,7 @@ subcollection: key-protect
   ```
   {: pre}
 
-  `<service_ID_name>`를 이전 단계에서 서비스 ID에 지정한 고유 별명으로 바꾸십시오. 보안 위치로 API 키를 다운로드하여 저장하십시오. 
+  `<service_ID_name>`을 이전 단계에서 서비스 ID에 지정한 고유 별명으로 바꾸십시오. 보안 위치로 API 키를 다운로드하여 저장하십시오. 
 
 6. [IAM ID 서비스 API](https://{DomainName}/apidocs/iam-identity-token-api)를 호출하여 액세스 토큰을 검색하십시오.
 
@@ -126,4 +126,6 @@ subcollection: key-protect
     액세스 토큰은 1시간 동안 유효하지만 필요에 따라 재생성할 수 있습니다. 서비스에 대한 액세스를 유지보수하려면 [IAM ID 서비스 API](https://{DomainName}/apidocs/iam-identity-token-api)를 호출하여 정기적으로 API 키에 대한 액세스 토큰을 재생성하십시오.   
     {: note }
 
-    
+    <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->
+
+    <!--You use IBM® Cloud Identity and Access Management (IAM) tokens to make authenticated requests to IBM Watson™ services without embedding service credentials in every call. IAM authentication uses access tokens for authentication, which you acquire by sending a request with an API key.-->

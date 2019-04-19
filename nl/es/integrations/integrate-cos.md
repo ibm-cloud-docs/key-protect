@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -30,7 +30,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} proporciona almacenamiento en la nube para datos no estructurados. Datos no estructurados hace referencia a archivos, soportes de audio/visuales, PDF, archivadores de datos comprimidos, imágenes de copia de seguridad, artefactos de aplicaciones, documentos empresariales o cualquier otro objeto binario.  
 
-Para mantener la disponibilidad y la integridad de los datos, {{site.data.keyword.cos_full_notm}} divide y dispersa datos en nodos de almacenamiento en varias ubicaciones geográficas. No hay una copia completa de los datos en un nodo de almacenamiento concreto, y únicamente un subconjunto de nodos debe estar disponible para poder recuperar completamente los datos en la red. Se proporciona cifrado del lado del proveedor, de forma que los datos estén seguros en reposo o al transportarlos. Para gestionar el almacenamiento, se crean contenedores y objetos de importación con la consola de {{site.data.keyword.cloud_notm}}, o mediante programación con la [API REST de {{site.data.keyword.cos_full_notm}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-the-ibm-cloud-object-storage-api){: new_window}.
+Para mantener la disponibilidad y la integridad de los datos, {{site.data.keyword.cos_full_notm}} divide y dispersa datos en nodos de almacenamiento en varias ubicaciones geográficas. No hay una copia completa de los datos en un nodo de almacenamiento concreto, y únicamente un subconjunto de nodos debe estar disponible para poder recuperar completamente los datos en la red. Se proporciona cifrado del lado del proveedor, de forma que los datos estén seguros en reposo o al transportarlos. Para gestionar el almacenamiento, se crean contenedores y objetos de importación con la consola de {{site.data.keyword.cloud_notm}}, o mediante programación con la [API REST de {{site.data.keyword.cos_full_notm}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window}.
 
 Para obtener más información, consulte [Acerca de COS ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}.
 

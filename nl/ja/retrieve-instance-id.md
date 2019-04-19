@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -40,9 +40,9 @@ subcollection: key-protect
 ## CLI を使用したインスタンス ID の取得
 {: #retrieve-instance-ID-cli}
 
-サービス・インスタンスのインスタンス ID を、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} を使用して取得できます。
+サービス・インスタンスのインスタンス ID を、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して取得できます。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -74,7 +74,7 @@ subcollection: key-protect
 ## API を使用したインスタンス ID の取得
 {: #retrieve-instance-ID-api}
 
-アプリケーションの作成および接続に利用するために、インスタンス ID をプログラマチックに取得したい場合があります。[{{site.data.keyword.cloud_notm}} Resource Controller API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/resource-controller) を呼び出し、JSON 出力を `jq` にパイプすることによって、この値を取り出すことができます。
+アプリケーションの作成および接続に利用するために、インスタンス ID をプログラマチックに取得したい場合があります。 [{{site.data.keyword.cloud_notm}} Resource Controller API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/resource-controller) を呼び出し、JSON 出力を `jq` にパイプすることによって、この値を取り出すことができます。
 
 1. [{{site.data.keyword.cloud_notm}} IAM アクセス・トークンを取得します](/docs/services/key-protect?topic=key-protect-retrieve-access-token)。
 2. [Resource Controller API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/resource-controller) を呼び出して、インスタンス ID を取得します。

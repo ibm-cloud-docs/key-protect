@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -69,7 +69,7 @@ Puede utilizar un nombre de clave con una longitud de hasta 90 caracteres.
 
 Para proteger la confidencialidad de sus datos personales, no almacene información de identificación personal (PII) como metadatos de sus claves. La información personal incluye nombre, dirección, número de teléfono, dirección de correo electrónico u otra información que permita identificar, ponerse en contacto o localizar a usted, a sus clientes o a cualquier otra persona.
 
-Es su responsabilidad garantizar la seguridad de cualquier información que almacene como metadatos de los recursos y las claves de cifrado de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más ejemplos de datos personales, consulte la sección 2.2 de la publicación [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+Es su responsabilidad garantizar la seguridad de cualquier información que almacene como metadatos de los recursos y las claves de cifrado de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más ejemplos de datos personales, consulte la sección 2.2 de la publicación [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
 {: important}
 
 ## ¿Las claves que se crean en una región se pueden utilizar en otra región?

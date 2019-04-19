@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # 刪除金鑰
-{: #deleting-keys}
+{: #delete-keys}
 
 如果您是 {{site.data.keyword.cloud_notm}} 空間或 {{site.data.keyword.keymanagementserviceshort}} 服務實例的管理者，可以使用 {{site.data.keyword.keymanagementservicefull}} 來刪除加密金鑰及其內容。
 {: shortdesc}
 
-當您刪除金鑰時，會永久地清除其內容及相關聯的資料。無法回復此動作。不建議在正式作業環境下[破壞資源](/docs/services/key-protect?topic=key-protect-data-security#data-deletion)，但可能適用於測試或 QA 這類暫時性環境。
+當您刪除金鑰時，會永久地清除其內容及相關聯的資料。無法回復此動作。不建議在正式作業環境下[破壞資源](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion)，但可能適用於測試或 QA 這類暫時性環境。
 {: important}
 
 ## 使用 GUI 刪除金鑰
@@ -39,7 +39,7 @@ subcollection: key-protect
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
 3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
 4. 在應用程式詳細資料頁面上，使用**金鑰**表格，以瀏覽服務中的金鑰。
-5. 按一下 ⋮ 圖示，以開啟您要刪除之金鑰的選項清單。
+5. 按一下 ⋯ 圖示，以開啟您要刪除之金鑰的選項清單。
 6. 從選項功能表，按一下**刪除金鑰**，並在下一個畫面中確認刪除金鑰。
 
 刪除金鑰之後，金鑰會轉移至_已破壞_ 狀態。無法再回復這種狀態下的金鑰。與金鑰相關聯的 meta 資料（例如金鑰刪除日期）會保存在 {{site.data.keyword.keymanagementserviceshort}} 資料庫中。

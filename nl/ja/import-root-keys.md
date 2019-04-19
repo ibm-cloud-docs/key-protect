@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -53,7 +53,7 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>鍵のタイプ</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。鍵のタイプのリストから、<b>「ルート鍵」</b>を選択します。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} で管理する<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">鍵のタイプ</a>。 鍵のタイプのリストから、<b>「ルート鍵」</b>を選択します。</td>
       </tr>
       <tr>
         <td>鍵の素材</td>
@@ -78,13 +78,13 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}} API を使用して、ルート鍵をサービスにインポートできます。
 
-[鍵素材の作成と暗号化のオプションの検討](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead)によって、鍵のインポートについて事前に計画を立ててください。セキュリティーを強化するため、鍵素材をクラウドに取り込む前に[トランスポート鍵](/docs/services/key-protect?topic=key-protect-importing-keys#transport-keys)を使用して暗号化することによって、鍵素材のセキュアなインポートを可能にすることができます。トランスポート鍵を使用せずにルート鍵をインポートする場合、[ステップ 4](#import-root-key) までスキップしてください。
+[鍵素材の作成と暗号化のオプションの検討](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead)によって、鍵のインポートについて事前に計画を立ててください。 セキュリティーを強化するため、鍵素材をクラウドに取り込む前に[トランスポート鍵](/docs/services/key-protect?topic=key-protect-importing-keys#transport-keys)を使用して暗号化することによって、鍵素材のセキュアなインポートを可能にすることができます。 トランスポート鍵を使用せずにルート鍵をインポートする場合、[ステップ 4](#import-root-key) までスキップしてください。
 {: note}
 
 ### ステップ 1: トランスポート鍵の作成
 {: #create-transport-key}
 
-現在のところ、トランスポート鍵はベータ・フィーチャーです。ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
+現在のところ、トランスポート鍵はベータ・フィーチャーです。 ベータ・フィーチャーはいつでも変更される可能性があり、将来の更新で最新バージョンと非互換になるような変更が行われる可能性があります。
 {: important}
 
 以下のエンドポイントへの `POST` 呼び出しを行うことによって、サービス・インスタンス用のトランスポート鍵を作成します。
@@ -134,17 +134,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
       <td><varname>expiration_time</varname></td>
       <td>
         <p>鍵が有効である期間を示す、トランスポート鍵の作成以降の秒数。</p>
-        <p>最小値は 300 秒 (5 分)、最大値は 86400 (24 時間) です。デフォルト値は 600 (10 分) です。</p>
+        <p>最小値は 300 秒 (5 分)、最大値は 86400 (24 時間) です。 デフォルト値は 600 (10 分) です。</p>
       </td>
     </tr>
     <tr>
       <td><varname>use_count</varname></td>
-      <td>トランスポート鍵を有効期間内に取得できる回数。これを超えるとアクセスできなくなります。デフォルト値は 1 です。</td>
+      <td>トランスポート鍵を有効期間内に取得できる回数。これを超えるとアクセスできなくなります。 デフォルト値は 1 です。</td>
     </tr>
       <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} API を使用してトランスポート鍵を作成するために必要な変数についての説明</caption>
   </table>
 
-  `POST api/v2/lockers` が成功すると、トランスポート鍵の ID 値および他のメタデータが応答で返されます。この ID は、トランスポート鍵に関連付けられた固有の ID であり、{{site.data.keyword.keymanagementserviceshort}} API への以降の呼び出しで使用されます。
+  `POST api/v2/lockers` が成功すると、トランスポート鍵の ID 値および他のメタデータが応答で返されます。 この ID は、トランスポート鍵に関連付けられた固有の ID であり、{{site.data.keyword.keymanagementserviceshort}} API への以降の呼び出しで使用されます。
 
 ### ステップ 2: トランスポート鍵およびインポート・トークンの取得
 {: #retrieve-transport-key}
@@ -202,7 +202,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers/<key_id>
 
 <!-- TODO: Add link to tutorial that uses OpenSSL for key generation and encryption (in progress)-->
 
-オンプレミスで鍵素材を生成するには、[対称暗号鍵の作成のオプションを検討](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead)してください。例えば、オンプレミスのハードウェア・セキュリティー・モジュール (HSM) に裏付けられた、組織の内部鍵管理システムを使用して、鍵素材の作成とエクスポートを行いたい場合などが考えられます。
+オンプレミスで鍵素材を生成するには、[対称暗号鍵の作成のオプションを検討](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead)してください。 例えば、オンプレミスのハードウェア・セキュリティー・モジュール (HSM) に裏付けられた、組織の内部鍵管理システムを使用して、鍵素材の作成とエクスポートを行いたい場合などが考えられます。
 {: note}
 
 鍵素材を暗号化するには、次のようにします。
@@ -213,7 +213,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers/<key_id>
 
 2. ステップ 2 で[取得したトランスポート鍵](#retrieve-transport-key)を使用して、鍵素材を暗号化します。
 
-   鍵素材を暗号化するときには、`RSAES_OAEP_SHA_256` 暗号化方式を使用してください。これは、{{site.data.keyword.keymanagementserviceshort}} がトランスポート鍵の作成に使用するデフォルトの方式です。{{site.data.keyword.keymanagementserviceshort}} での暗号化解除の問題を回避するため、鍵素材に対して RSAES_OAEP 暗号化を実行する際、オプションの `label` パラメーターを組み込まないでください。鍵素材に対する RSA 暗号化の実行方法について詳しくは、ご使用のオンプレミス HSM または鍵管理システムの資料を参照してください。
+   鍵素材を暗号化するときには、`RSAES_OAEP_SHA_256` 暗号化方式を使用してください。 これは、{{site.data.keyword.keymanagementserviceshort}} がトランスポート鍵の作成に使用するデフォルトの方式です。 {{site.data.keyword.keymanagementserviceshort}} での暗号化解除の問題を回避するため、鍵素材に対して RSAES_OAEP 暗号化を実行する際、オプションの `label` パラメーターを組み込まないでください。 鍵素材に対する RSA 暗号化の実行方法について詳しくは、ご使用のオンプレミス HSM または鍵管理システムの資料を参照してください。
 
 3. 次のステップに進む前に、暗号化された鍵素材が base64 エンコードされていることを確認します。
 
@@ -312,16 +312,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>encryption_algorithm</varname></td>
-        <td><a href="#encrypt-root-key">鍵素材の暗号化</a>に使用した暗号化方式。現在は <code>RSAES_OAEP_SHA_256</code> がサポートされています。トランスポート鍵およびインポート・トークンを使用せずにルート鍵素材をインポートするには、<code>encryption_algorithm</code> 属性を省略します。</td>
+        <td><a href="#encrypt-root-key">鍵素材の暗号化</a>に使用した暗号化方式。 現在は <code>RSAES_OAEP_SHA_256</code> がサポートされています。 トランスポート鍵およびインポート・トークンを使用せずにルート鍵素材をインポートするには、<code>encryption_algorithm</code> 属性を省略します。</td>
       </tr>
       <tr>
         <td><varname>import_token</varname></td>
-        <td>トランスポート鍵の活動性と保全性を検証するために使用されるインポート・トークン。トランスポート鍵を使用して鍵素材を暗号化する場合は、<a href="#retrieve-transport-key">ステップ 2</a> で取得したのと同じインポート・トークンを提供する必要があります。トランスポート鍵およびインポート・トークンを使用せずにルート鍵素材をインポートするには、<code>importToken</code> 属性を省略します。</td>
+        <td>トランスポート鍵の活動性と保全性を検証するために使用されるインポート・トークン。 トランスポート鍵を使用して鍵素材を暗号化する場合は、<a href="#retrieve-transport-key">ステップ 2</a> で取得したのと同じインポート・トークンを提供する必要があります。トランスポート鍵およびインポート・トークンを使用せずにルート鍵素材をインポートするには、<code>importToken</code> 属性を省略します。</td>
       </tr>
         <caption style="caption-side:bottom;">表 4. {{site.data.keyword.keymanagementserviceshort}} API を使用してルート鍵を追加するために必要な変数についての説明</caption>
     </table>
 
-    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window} のセクション 2.2 を参照してください。
+    個人データの機密性を保護するため、サービスに鍵を追加するときに、個人の名前や場所などの個人情報 (PII) を入力しないようにしてください。 その他の PII の例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} のセクション 2.2 を参照してください。
     {: important}
 
     成功した `POST api/v2/keys` 応答は、鍵の ID 値を他のメタデータと共に返します。 この ID は、鍵に割り当てられた固有の ID で、{{site.data.keyword.keymanagementserviceshort}} API に対する以降の呼び出しに使用されます。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">표 1. 키 순환의 이점에 대한 설명</caption>
 </table>
 
-키 순환은 NIST Special Publication 800-57, Recommendation for Key Management에서 다뤄집니다. 자세한 내용은 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}를 참조하십시오.
+키 순환은 NIST Special Publication 800-57, Recommendation for Key Management에서 다뤄집니다. 자세한 내용은 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}를 참조하십시오.
 {: tip}
 
 ## {{site.data.keyword.keymanagementserviceshort}}에서 키 순환 옵션 비교
@@ -53,7 +53,7 @@ subcollection: key-protect
 
 <dl>
   <dt>키에 대한 순환 정책 설정</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}}는 서비스에서 생성한 키에 순환 정책을 사용하여 암호화 키의 순환을 단순화하는 데 도움이 됩니다. 루트 키를 작성하면 {{site.data.keyword.keymanagementserviceshort}} GUI에서 또는 API를 사용하여 키에 대한 순환 정책을 관리할 수 있습니다. 지속적인 보안 요구에 따라 <a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">키에 대한 자동 순환 간격을 1 - 12개월 중에서 선택</a>하십시오. 지정한 순환 간격에 따라 키를 순환할 때가 되면 {{site.data.keyword.keymanagementserviceshort}}가 키를 새 키 자료로 자동으로 바꿉니다.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}}는 서비스에서 생성한 키에 순환 정책을 사용하여 암호화 키의 순환을 단순화하는 데 도움이 됩니다. 루트 키를 작성하면 {{site.data.keyword.keymanagementserviceshort}} GUI에서 또는 API를 사용하여 키에 대한 순환 정책을 관리할 수 있습니다. 지속적인 보안 요구에 따라 <a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">키에 대한 자동 순환 간격을 1 - 12개월 중에서 선택</a>하십시오. 지정한 순환 간격에 따라 키를 순환할 때가 되면 {{site.data.keyword.keymanagementserviceshort}}가 키를 새 키 자료로 자동으로 바꿉니다.</dd>
   <dt>요청 시 키 순환</dt>
     <dd>보안 관리자로서 키에 대한 순환 빈도 제어를 강화할 수 있습니다. 키에 대한 자동 순환 정책을 설정하지 않으려는 경우, 새 키를 수동으로 작성하여 기존 키를 바꾼 다음, 새 키를 참조하도록 애플리케이션을 업데이트할 수 있습니다. 이 프로세스를 단순화하기 위해 {{site.data.keyword.keymanagementserviceshort}}를 사용하여 요청 시 키를 순환할 수 있습니다. 이 시나리오에서 {{site.data.keyword.keymanagementserviceshort}}는 키를 작성하고 각 순환 요청으로 대신 바꿉니다. 키에는 동일한 메타데이터와 키 ID가 계속 포함됩니다.</dd>
 </dl>
@@ -107,7 +107,7 @@ subcollection: key-protect
 
 | 순환 유형 | 빈도 |설명
 | --- | --- | --- |
-| [정책 기반 키 순환](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | 1 - 12개월마다 | 지속적인 보안 요구에 따라 키에 대한 순환 간격을 1 - 12개월 중에서 선택하십시오. 키에 대한 순환 정책을 설정하면 키의 초기 작성 날짜를 기준으로 시계가 즉시 시작됩니다. 예를 들어, `2019/02/01`에 작성한 키에 대한 월별 순환 정책을 설정하면 {{site.data.keyword.keymanagementserviceshort}}가 `2019/03/01`에 키를 자동으로 순환합니다. |
+| [정책 기반 키 순환](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | 1 - 12개월마다 | 지속적인 보안 요구에 따라 키에 대한 순환 간격을 1 - 12개월 중에서 선택하십시오. 키에 대한 순환 정책을 설정하면 키의 초기 작성 날짜를 기준으로 시계가 즉시 시작됩니다. 예를 들어, `2019/02/01`에 작성한 키에 대한 월별 순환 정책을 설정하면 {{site.data.keyword.keymanagementserviceshort}}가 `2019/03/01`에 키를 자동으로 순환합니다.|
 | [요청 시 키 순환](/docs/services/key-protect?topic=key-protect-rotate-keys) | 시간당 최대 한 번의 순환 | 요청 시 키를 순환하는 경우 {{site.data.keyword.keymanagementserviceshort}}는 각 루트 키에 대해 시간당 한 번의 순환을 허용합니다. |
 {: caption="표 2. {{site.data.keyword.keymanagementserviceshort}}에서 키를 순환하기 위한 순환 빈도 옵션" caption-side="top"}
 

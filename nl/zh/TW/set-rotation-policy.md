@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -27,10 +27,10 @@ subcollection: key-protect
 
 當您為根金鑰設定自動替換原則時，會定期縮短金鑰的生命期限，並且會限制該金鑰所保護的資訊量。
 
-您只能為 {{site.data.keyword.keymanagementserviceshort}} 中產生的根金鑰建立替換原則。如果您一開始匯入根金鑰，則必須提供新的 base64 編碼金鑰資料才能替換金鑰。如需相關資訊，請參閱[隨需應變替換根金鑰](/docs/services/key-protect?topic=key-protect-rotate-root-keys)。
+您只能為 {{site.data.keyword.keymanagementserviceshort}} 中產生的根金鑰建立替換原則。如果您一開始匯入根金鑰，則必須提供新的 base64 編碼金鑰資料才能替換金鑰。如需相關資訊，請參閱[隨需應變替換根金鑰](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys)。
 {: note}
 
-想要進一步瞭解 {{site.data.keyword.keymanagementserviceshort}} 中的金鑰替換選項嗎？請參閱[比較金鑰替換選項](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)，以取得更多資訊。
+想要進一步瞭解 {{site.data.keyword.keymanagementserviceshort}} 中的金鑰替換選項嗎？請參閱[比較金鑰替換選項](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)，以取得更多資訊。
 {: tip}
 
 ## 在 GUI 中管理替換原則

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -57,6 +57,6 @@ curl -X GET \
 {: tip} 
 
 ## 后续工作
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
 您已准备好开始在 Key Protect 中管理加密密钥。要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。

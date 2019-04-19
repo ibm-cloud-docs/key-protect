@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -38,7 +38,7 @@ Ressources supplémentaires pour vous aider à mieux comprendre la gestion du ch
 - [{{site.data.keyword.keymanagementserviceshort}} Goes From Beta to GA in Dallas ![Icône Lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## Conditions générales du service
-{: #info}
+{: #service-terms}
 
 - [Accord sur les niveaux de service {{site.data.keyword.keymanagementservicelong_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 

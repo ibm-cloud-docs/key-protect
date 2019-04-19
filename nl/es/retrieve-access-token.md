@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -28,9 +28,9 @@ Iniciación a las API de {{site.data.keyword.keymanagementservicelong}} autentic
 ## Recuperación de una señal de acceso con la CLI
 {: #retrieve-token-cli}
 
-Puede utilizar la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window} para generar rápidamente su señal de acceso a Cloud IAM.
+Puede utilizar la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} para generar rápidamente su señal de acceso a Cloud IAM.
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 
@@ -61,7 +61,7 @@ Puede utilizar la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace ext
 
 También puede recuperar la señal de acceso mediante programación creando primero una [clave de API de ID de servicio](/docs/iam?topic=iam-serviceidapikeys) de la aplicación e intercambiando la clave de API por una señal IAM de {{site.data.keyword.cloud_notm}}.
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 
@@ -126,4 +126,6 @@ También puede recuperar la señal de acceso mediante programación creando prim
     Las señales de acceso son válidas durante 1 hora, pero puede volver a generarlas cuando las necesite. Para mantener el acceso al servicio, vuelva a generar la señal de acceso de su clave de API de forma periódica llamando a la [API de IAM Identity Services](https://{DomainName}/apidocs/iam-identity-token-api).   
     {: note }
 
-    
+    <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->
+
+    <!--You use IBM® Cloud Identity and Access Management (IAM) tokens to make authenticated requests to IBM Watson™ services without embedding service credentials in every call. IAM authentication uses access tokens for authentication, which you acquire by sending a request with an API key.-->

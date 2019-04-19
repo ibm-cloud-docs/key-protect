@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -49,6 +49,8 @@ subcollection: key-protect
 {: #feb-2019}
 
 ### 변경됨: 레거시 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스
+{: #changed-legacy-service-instances}
+
 신규 기준일: 2019년 2월 13일
 
 2017년 12월 15일 전에 프로비저닝된 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스는 Cloud Foundry를 기반으로 한 레거시 인프라에서 실행됩니다. 이 레거시 {{site.data.keyword.keymanagementserviceshort}} 서비스는 2019년 5월 15일에 종료됩니다.
@@ -64,6 +66,8 @@ subcollection: key-protect
 {: #dec-2018}
 
 ### 변경됨: {{site.data.keyword.keymanagementserviceshort}} API 엔드포인트
+{: #changed-api-endpoints}
+
 신규 기준일: 2018년 12월 19일
 
 {{site.data.keyword.cloud_notm}}의 새 통합 경험에 맞추기 위해 {{site.data.keyword.keymanagementserviceshort}}가 해당 서비스 API의 기본 URL을 업데이트했습니다.
@@ -83,6 +87,8 @@ subcollection: key-protect
 {: #oct-2018}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 도쿄 지역으로 확장됨
+{: #added-tokyo-region}
+
 신규 기준일: 2018년 10월 31일
 
 이제 도쿄 지역에 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 
@@ -90,6 +96,8 @@ subcollection: key-protect
 자세한 정보는 [지역 및 위치](/docs/services/key-protect?topic=key-protect-regions)를 참조하십시오.
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인
+{: #added-cli-plugin}
+
 신규 기준일: 2018년 10월 2일
 
 이제 {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인을 사용하여 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에서 키를 관리할 수 있습니다.
@@ -100,6 +108,8 @@ subcollection: key-protect
 {: #sept-2018}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 요청 시 키 순환에 대한 지원을 추가함
+{: #added-key-rotation}
+
 신규 기준일: 2018년 9월 28일
 
 이제 {{site.data.keyword.keymanagementserviceshort}}를 사용하여 요청 시 루트 키를 순환할 수 있습니다.
@@ -107,6 +117,8 @@ subcollection: key-protect
 자세한 정보는 [키 순환](/docs/services/key-protect?topic=key-protect-rotate-keys)을 참조하십시오.
 
 ### 추가됨: 클라우드 앱에 필요한 엔드-투-엔드 보안 튜토리얼
+{: #added-security-tutorial}
+
 신규 기준일: 2018년 9월 14일
 
 고유 암호화 키를 사용하여 스토리지 버킷 컨텐츠를 암호화하는 데 도움이 되는 코드 샘플을 찾고 계십니까?
@@ -116,6 +128,8 @@ subcollection: key-protect
 자세한 정보는 [GitHub에서 샘플 앱 확인 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}을 수행하십시오.
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 워싱턴 지역으로 확장됨
+{: #added-wdc-region}
+
 신규 기준일: 2018년 9월 10일
 
 이제 워싱턴 지역에서 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 
@@ -126,6 +140,8 @@ subcollection: key-protect
 {: #aug-2018}
 
 ### 변경됨: {{site.data.keyword.keymanagementserviceshort}} API 문서 URL
+{: #changed-api-doc-url}
+
 신규 기준일: 2018년 8월 28일
 
 {{site.data.keyword.keymanagementserviceshort}} API 참조가 이동되었습니다! 
@@ -137,6 +153,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #mar-2018}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 프랑크푸르트 지역으로 확장됨
+{: #added-frankfurt-region}
+
 신규 기준일: 2018년 3월 21일
 
 이제 프랑크푸르트 지역에 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 
@@ -147,6 +165,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #jan-2018}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 시드니 지역으로 확장됨
+{: #added-sydney-region}
+
 신규 기준일: 2018년 1월 31일
 
 이제 시드니 지역에 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 
@@ -157,6 +177,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #dec-2017}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 BYOK(Bring Your Own Key)에 대한 지원을 추가함
+{: #added-byok-support}
+
 신규 기준일: 2017년 12월 15일
 
 이제 {{site.data.keyword.keymanagementserviceshort}}가 BYOK(Bring Your Own Key) 및 고객 관리 암호화를 지원합니다.
@@ -165,6 +187,8 @@ https://{DomainName}/apidocs/key-protect.
 - {{site.data.keyword.cos_full_notm}} 버킷에 대한 [엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how)를 사용으로 설정했습니다.
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 런던 지역으로 확장됨
+{: #added-london-region}
+
 신규 기준일: 2017년 12월 15일
 
 이제 런던 지역에서 {{site.data.keyword.keymanagementserviceshort}}를 사용할 수 있습니다. 
@@ -172,6 +196,8 @@ https://{DomainName}/apidocs/key-protect.
 자세한 정보는 [지역 및 위치](/docs/services/key-protect?topic=key-protect-regions)를 참조하십시오.
 
 ### 변경됨: {{site.data.keyword.iamshort}} 역할
+{: #changed-iam-roles}
+
 신규 기준일: 2017년 12월 15일
 
 {{site.data.keyword.keymanagementserviceshort}} 리소스에 대해 수행할 수 있는 조치를 판별하는 {{site.data.keyword.iamshort}} 역할이 변경되었습니다.
@@ -186,6 +212,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #sept-2017}
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 Cloud IAM에 대한 지원을 추가함
+{: #added-iam-support}
+
 신규 기준일: 2017년 9월 19일
 
 이제 {{site.data.keyword.iamshort}}를 사용하여 {{site.data.keyword.keymanagementserviceshort}} 리소스에 대한 액세스 정책을 설정하고 관리할 수 있습니다.

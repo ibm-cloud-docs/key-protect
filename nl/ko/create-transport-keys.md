@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -85,7 +85,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
         </tr>
         <tr>
           <td><varname>use_count</varname></td>
-          <td>더 이상 액세스할 수 없게 될 때까지 만기 시간 내에 전송 키를 검색할 수 있는 횟수입니다. 기본값은 1입니다. </td>
+          <td>더 이상 액세스할 수 없게 될 때까지 만기 시간 내에 전송 키를 검색할 수 있는 횟수입니다. 기본값은 1입니다.</td>
         </tr>
           <caption style="caption-side:bottom;">표 1. {{site.data.keyword.keymanagementserviceshort}} API를 통해 루트 키를 추가하는 데 필요한 변수에 대한 설명</caption>
       </table>

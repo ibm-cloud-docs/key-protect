@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -62,7 +62,7 @@ Se preferisci ispezionare le chiavi nel tuo servizio con un'interfaccia grafica,
       </tr>
       <tr>
         <td>Stato</td>
-        <td>Lo [stato della chiave](/docs/services/key-protect?topic=key-protect-key-states) basato su [NIST Special Publication 800-57, Recommendation for Key Management ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Questi stati includono <i>Preattiva</i>, <i>Attiva</i>, <i>Disattivata</i> e <i>Distrutta</i>.</td>
+        <td>Lo [stato della chiave](/docs/services/key-protect?topic=key-protect-key-states) basato su [NIST Special Publication 800-57, Recommendation for Key Management ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Questi stati includono <i>Preattiva</i>, <i>Attiva</i>, <i>Disattivata</i> e <i>Distrutta</i>.</td>
       </tr>
       <tr>
         <td>Tipo</td>
@@ -178,7 +178,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    Per impostazione predefinita, `GET api/v2/keys` restituisce le tue prime 2000 chiavi, ma puoi modificare questo limite utilizzando il parametro `limit` al momento della query. Per ulteriori informazioni sui parametri `limit` e `offset`, vedi [Richiamo di un sottoinsieme di chiavi](#retrieve_subset_keys_api).
+    Per impostazione predefinita, `GET api/v2/keys` restituisce le tue prime 2000 chiavi, ma puoi modificare questo limite utilizzando il parametro `limit` al momento della query. Per ulteriori informazioni sui parametri `limit` e `offset`, vedi [Richiamo di un sottoinsieme di chiavi](#retrieve-subset-keys-api).
     {: tip}
 
 ### Richiamo di un sottoinsieme di chiavi

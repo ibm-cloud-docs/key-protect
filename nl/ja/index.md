@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,7 +42,7 @@ subcollection: key-protect
 ## 新しい鍵の作成
 {: #create-keys}
 
-[{{site.data.keyword.keymanagementserviceshort}} のインスタンスを作成すると](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps)、サービスで鍵を指定する準備が整います。 
+[{{site.data.keyword.keymanagementserviceshort}} のインスタンスを作成すると](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps)、サービスで鍵を指定する準備が整います。 
 
 最初の暗号鍵を作成するには、以下の手順を実行します。 
 

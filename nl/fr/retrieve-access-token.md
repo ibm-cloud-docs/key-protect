@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -28,9 +28,9 @@ Commencez à utiliser les API d'{{site.data.keyword.keymanagementservicelong}} e
 ## Extraction d'un jeton d'accès avec l'interface de ligne de commande
 {: #retrieve-token-cli}
 
-Vous pouvez utiliser l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-overview){: new_window} pour générer rapidement votre jeton d'accès Cloud IAM personnel.
+Vous pouvez utiliser l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} pour générer rapidement votre jeton d'accès Cloud IAM personnel. 
 
-1. Connectez-vous à {{site.data.keyword.cloud_notm}} avec l'interface de ligne de commande d'[{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Connectez-vous à {{site.data.keyword.cloud_notm}} avec l'interface de ligne de commande d'[{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 
@@ -61,7 +61,7 @@ Vous pouvez utiliser l'[interface de ligne de commande d'{{site.data.keyword.clo
 
 Vous pouvez extraire votre jeton d'accès à l'aide d'un programme en créant d'abord une [clé d'API d'ID de service](/docs/iam?topic=iam-serviceidapikeys) pour votre application, puis en échangeant votre clé d'API contre un jeton {{site.data.keyword.cloud_notm}} IAM.
 
-1. Connectez-vous à {{site.data.keyword.cloud_notm}} avec l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Connectez-vous à {{site.data.keyword.cloud_notm}} avec l'interface de ligne de commande d'[{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 
@@ -126,4 +126,6 @@ Vous pouvez extraire votre jeton d'accès à l'aide d'un programme en créant d'
     Les jetons d'accès sont valides pendant 1 heure, mais vous pouvez les régénérer si besoin. Pour maintenir l'accès au service, régénérez régulièrement le jeton d'accès pour votre clé d'API en appelant l'[API IAM Identity Services](https://{DomainName}/apidocs/iam-identity-token-api).   
     {: note }
 
-    
+    <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->
+
+    <!--You use IBM® Cloud Identity and Access Management (IAM) tokens to make authenticated requests to IBM Watson™ services without embedding service credentials in every call. IAM authentication uses access tokens for authentication, which you acquire by sending a request with an API key.-->

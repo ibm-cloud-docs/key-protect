@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -60,7 +60,7 @@ Si prefiere examinar las claves en el servicio mediante una interfaz gráfica, p
       </tr>
       <tr>
         <td>Estado</td>
-        <td>[Estado de clave](/docs/services/key-protect?topic=key-protect-key-states) que se basa en el documento [NIST Special Publication 800-57, Recommendation for Key Management ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Incluye los estados <i>Pre-activa</i>, <i>Activa</i>, <i>Desactivada</i> y <i>Destruida</i>.</td>
+        <td>[Estado de clave](/docs/services/key-protect?topic=key-protect-key-states) que se basa en el documento [NIST Special Publication 800-57, Recommendation for Key Management ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Incluye los estados <i>Pre-activa</i>, <i>Activa</i>, <i>Desactivada</i> y <i>Destruida</i>.</td>
       </tr>
       <tr>
         <td>Tipo</td>
@@ -176,7 +176,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    De forma predeterminada, `GET api/v2/keys` devuelve las primeras 2000 claves, pero puede ajustar este límite utilizando el parámetro `limit` al momento. Para obtener más información sobre `limit` y `offset`, consulte [Recuperación de un subconjunto de claves](#retrieve_subset_keys_api).
+    De forma predeterminada, `GET api/v2/keys` devuelve las primeras 2000 claves, pero puede ajustar este límite utilizando el parámetro `limit` al momento. Para obtener más información sobre `limit` y `offset`, consulte [Recuperación de un subconjunto de claves](#retrieve-subset-keys-api).
     {: tip}
 
 ### Recuperación de un subconjunto de claves

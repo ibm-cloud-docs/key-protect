@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -49,8 +48,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Copiez le matériel de clé DEK que vous voulez gérer et protéger.
 
-    Si vous avez des privilèges de responsable ou d'auteur pour l'instance de service {{site.data.keyword.keymanagementserviceshort}}, [vous pouvez extraire
-le matériel de clé en soumettant une demande GET /v2/keys/<key_ID>](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Si vous avez des privilèges de responsable ou d'auteur pour l'instance de service {{site.data.keyword.keymanagementserviceshort}}, [vous pouvez extraire le matériel de clé en soumettant une demande `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
 
 3. Copiez l'ID de la clé racine que vous voulez utiliser pour l'encapsulage.
 

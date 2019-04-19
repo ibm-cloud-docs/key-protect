@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -22,15 +22,15 @@ subcollection: key-protect
 # Rotationsrichtlinie festlegen
 {: #set-rotation-policy}
 
-Mit {{site.data.keyword.keymanagementservicefull}} können Sie eine automatische Rotationsrichtlinie für einen Rootschlüssel festlegen.
+Mit {{site.data.keyword.keymanagementservicefull}} können Sie eine automatische Rotationsrichtlinie für einen Rootschlüssel festlegen. 
 {: shortdesc}
 
 Durch das Festlegen einer automatischen Rotationsrichtlinie für einen Rootschlüssel wird die Laufzeit des Schlüssels verkürzt und die Menge der durch den Schlüssel geschützten Informationen begrenzt.
 
-Eine Rotationsrichtlinie kann nur für Rootschlüssel festgelegt werden, die in {{site.data.keyword.keymanagementserviceshort}} generiert wurden. Wenn Sie den Rootschlüssel ursprünglich importiert haben, müssen Sie neue, mit Base64-Codierung verschlüsselte Schlüsselinformationen für die Schlüsselrotation angeben. Weitere Informationen finden Sie unter [Bedarfsgesteuerte Rotation von Rootschlüsseln](/docs/services/key-protect?topic=key-protect-rotate-root-keys).
+Eine Rotationsrichtlinie kann nur für Rootschlüssel festgelegt werden, die in {{site.data.keyword.keymanagementserviceshort}} generiert wurden. Wenn Sie den Rootschlüssel ursprünglich importiert haben, müssen Sie neue, mit Base64-Codierung verschlüsselte Schlüsselinformationen für die Schlüsselrotation angeben. Weitere Informationen finden Sie unter [Bedarfsgesteuerte Rotation von Rootschlüsseln](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys).
 {: note}
 
-Möchten Sie mehr über Ihre Optionen zur Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}} erfahren? Weitere Informationen finden Sie unter [Vergleich Ihrer Optionen für die Schlüsselrotation](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+Möchten Sie mehr über Ihre Optionen zur Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}} erfahren? Weitere Informationen finden Sie unter [Vergleich Ihrer Optionen für die Schlüsselrotation](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: tip}
 
 ## Rotationsrichtlinien in der GUI verwalten

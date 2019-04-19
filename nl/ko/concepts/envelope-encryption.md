@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # 엔벌로프 암호화로 데이터 보호
 {: #envelope-encryption}
 
-엔벨로프 암호화는 데이터 암호화 키(DEK)로 데이터를 암호화한 다음 완전히 관리할 수 있는 루트 키로 DEK를 암호화하는 것입니다.
+엔벨로프 암호화는 데이터 암호화 키(DEK)로 데이터를 암호화한 다음 완전히 관리할 수 있는 루트 키로 DEK를 암호화하는 것입니다. 
 {: shortdesc}
 
 {{site.data.keyword.keymanagementservicefull}}는 고급 암호화를 사용하여 저장된 데이터를 보호하고 여러 이점을 제공합니다.
@@ -57,7 +57,7 @@ subcollection: key-protect
 다음 다이어그램은 키 랩핑 기능의 컨텍스트 보기를 표시합니다.
 ![다이어그램은 엔벨로프 암호화의 컨텍스트 보기를 표시합니다.](../images/envelope-encryption_min.svg)
 
-엔벨로프 암호화는 NIST Special Publication 800-57, Recommendation for Key Management에서 간단하게 다뤄집니다. 자세한 내용은 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}를 참조하십시오.
+엔벨로프 암호화는 NIST Special Publication 800-57, Recommendation for Key Management에서 간단하게 다뤄집니다. 자세한 내용은 [NIST SP 800-57 Pt. 1 Rev. 4. ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}를 참조하십시오.
 
 ## 키 유형
 {: #key-types}

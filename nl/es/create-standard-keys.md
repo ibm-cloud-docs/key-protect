@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -137,7 +137,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>DD-MM-AAA</varname><br><varname>HH:MM:SS.SS</varname></td>
-        <td>Fecha y hora de caducidad de la clave en el sistema, en formato RFC 3339. Si el atributo <code>expirationDate</code> se omite, la clave no caducará. </td>
+        <td>Fecha y hora de caducidad de la clave en el sistema, en formato RFC 3339. Si el atributo <code>expirationDate</code> se omite, la clave no caducará.</td>
       </tr>
       <tr>
         <td><varname>tipo_clave</varname></td>
@@ -149,7 +149,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">Tabla 2. Describe las variables necesarias para añadir una clave estándar con la API de {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Para proteger la confidencialidad de sus datos personales, evite especificar información de identificación personal (PII), como el nombre o la ubicación, cuando añades claves al servicio. Para obtener más ejemplos sobre la PII, consulte la sección 2.2 de la [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+    Para proteger la confidencialidad de sus datos personales, evite especificar información de identificación personal (PII), como el nombre o la ubicación, cuando añades claves al servicio. Para obtener más ejemplos sobre la PII, consulte la sección 2.2 de la [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
     {: important}
 
     Una respuesta `POST api/v2/keys` satisfactoria devuelve el valor del ID para la clave, junto con otros metadatos. El ID es un identificador exclusivo que se asigna a su clave y que posteriores llamadas lo utilizan para la API de {{site.data.keyword.keymanagementserviceshort}}.

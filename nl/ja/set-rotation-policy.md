@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -22,15 +22,15 @@ subcollection: key-protect
 # ローテーション・ポリシーの設定
 {: #set-rotation-policy}
 
-{{site.data.keyword.keymanagementservicefull}} を使用して、ルート鍵の自動ローテーション・ポリシーを設定できます。
+{{site.data.keyword.keymanagementservicefull}} を使用して、ルート鍵の自動ローテーション・ポリシーを設定できます。 
 {: shortdesc}
 
 ルート鍵の自動ローテーション・ポリシーを設定すると、鍵の存続期間が定期的に短くなり、その鍵で保護される情報量が制限されます。
 
-ローテーション・ポリシーは、{{site.data.keyword.keymanagementserviceshort}} で生成されたルート鍵に対してのみ作成できます。ルート鍵を最初にインポートした場合、鍵をローテートするには、 新しい Base64 エンコードの鍵素材を指定する必要があります。 詳しくは、[オンデマンドでのルート鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-root-keys)を参照してください。
+ローテーション・ポリシーは、{{site.data.keyword.keymanagementserviceshort}} で生成されたルート鍵に対してのみ作成できます。 ルート鍵を最初にインポートした場合、鍵をローテートするには、 新しい Base64 エンコードの鍵素材を指定する必要があります。 詳しくは、[オンデマンドでのルート鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys)を参照してください。
 {: note}
 
-{{site.data.keyword.keymanagementserviceshort}} での鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)を参照してください。
+{{site.data.keyword.keymanagementserviceshort}} での鍵のローテーションのオプションについて詳しくは、[鍵のローテーションのオプションの比較](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)を参照してください。
 {: tip}
 
 ## GUI を使用したローテーション・ポリシーの管理
@@ -108,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} API を使用してローテーション・ポリシーを作成するために必要な変数についての説明</caption>
     </table>
 
-    `GET api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられたポリシー詳細が応答で返されます。以下の JSON オブジェクトは、ルート鍵に既存のローテーション・ポリシーがある場合の応答例を示しています。
+    `GET api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられたポリシー詳細が応答で返されます。 以下の JSON オブジェクトは、ルート鍵に既存のローテーション・ポリシーがある場合の応答例を示しています。
 
     ```
     {
@@ -200,13 +200,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>rotation_interval</varname></td>
-        <td><strong>必須。</strong> 鍵のローテーション間隔を月単位で示す整数値。最小値は <code>1</code>、最大値は <code>12</code> です。
+        <td><strong>必須。</strong> 鍵のローテーション間隔を月単位で示す整数値。 最小値は <code>1</code>、最大値は <code>12</code> です。
         </td>
       </tr>
         <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} API を使用してローテーション・ポリシーを作成するために必要な変数についての説明</caption>
     </table>
 
-    `PUT api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられたポリシー詳細が応答で返されます。以下の JSON オブジェクトは、ルート鍵に既存のローテーション・ポリシーがある場合の応答例を示しています。
+    `PUT api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられたポリシー詳細が応答で返されます。 以下の JSON オブジェクトは、ルート鍵に既存のローテーション・ポリシーがある場合の応答例を示しています。
 
     ```
     {
@@ -296,13 +296,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>new_rotation_interval</varname></td>
-        <td><strong>必須。</strong> 鍵のローテーション間隔を月単位で示す整数値。最小値は <code>1</code>、最大値は <code>12</code> です。
+        <td><strong>必須。</strong> 鍵のローテーション間隔を月単位で示す整数値。 最小値は <code>1</code>、最大値は <code>12</code> です。
         </td>
       </tr>
         <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} API を使用してローテーション・ポリシーを作成するために必要な変数についての説明</caption>
     </table>
 
-    `PUT api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられた更新後のポリシー詳細が応答で返されます。以下の JSON オブジェクトは、ルート鍵のローテーション・ポリシーが更新された場合の応答例を示しています。
+    `PUT api/v2/keys/{id}/policies` が成功すると、鍵と関連付けられた更新後のポリシー詳細が応答で返されます。 以下の JSON オブジェクトは、ルート鍵のローテーション・ポリシーが更新された場合の応答例を示しています。
 
     ```
     {
@@ -326,4 +326,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
     ```
     {:screen}
 
-    鍵のポリシー詳細のうち、`interval_month` 値と `updatedat` 値が更新されています。最初に作成したのとは別のユーザーが鍵のポリシーを更新した場合は、`updatedby` 値も変更され、要求を送信したユーザーの ID が示されます。
+    鍵のポリシー詳細のうち、`interval_month` 値と `updatedat` 値が更新されています。 最初に作成したのとは別のユーザーが鍵のポリシーを更新した場合は、`updatedby` 値も変更され、要求を送信したユーザーの ID が示されます。

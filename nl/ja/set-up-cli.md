@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -30,11 +30,11 @@ subcollection: key-protect
 ## {{site.data.keyword.keymanagementserviceshort}} CLI プラグインのインストール
 {: #install-cli}
 
-{{site.data.keyword.keymanagementserviceshort}} CLI プラグインをセットアップするには、その前に、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} をインストールしておく必要があります。 
+{{site.data.keyword.keymanagementserviceshort}} CLI プラグインをセットアップするには、その前に、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} をインストールしておく必要があります。 
 
 CLI をインストールするには、以下のようにします。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![External linkicon](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} をインストールします。
+1. [{{site.data.keyword.cloud_notm}} CLI ![External linkicon](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} をインストールします。
 
     CLI のインストール後、`ibmcloud` コマンドを実行して、クラウド・サービスと対話できます。
 
@@ -69,7 +69,7 @@ CLI をインストールするには、以下のようにします。
 
 CLI を更新するには、以下のようにします。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -96,7 +96,7 @@ CLI を更新するには、以下のようにします。
 ## {{site.data.keyword.keymanagementserviceshort}} CLI プラグインのアンインストール
 {: #uninstall-cli}
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 

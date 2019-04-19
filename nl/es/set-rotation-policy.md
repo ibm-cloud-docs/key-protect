@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -27,10 +27,10 @@ Puede establecer una política de rotación automática para una clave raíz uti
 
 Cuando se establece una política de rotación automática para una clave raíz, se acorta el tiempo de vida de la clave a intervalos regulares y se limita la cantidad de información que protege dicha clave.
 
-Puede crear una política de rotación sólo para las claves raíz generadas en {{site.data.keyword.keymanagementserviceshort}}. Si inicialmente ha importado la clave raíz, debe proporcionar nuevo material de clave con codificación base64 para rotar la clave. Para obtener más información, consulte [Rotación de claves raíz bajo demanda](/docs/services/key-protect?topic=key-protect-rotate-root-keys).
+Puede crear una política de rotación sólo para las claves raíz generadas en {{site.data.keyword.keymanagementserviceshort}}. Si inicialmente ha importado la clave raíz, debe proporcionar nuevo material de clave con codificación base64 para rotar la clave. Para obtener más información, consulte [Rotación de claves raíz bajo demanda](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys).
 {: note}
 
-¿Desea obtener más información acerca de las opciones de rotación claves en {{site.data.keyword.keymanagementserviceshort}}? Consulte [Comparación de las opciones de rotación de claves](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options) para obtener más información.
+¿Desea obtener más información acerca de las opciones de rotación claves en {{site.data.keyword.keymanagementserviceshort}}? Consulte [Comparación de las opciones de rotación de claves](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options) para obtener más información.
 {: tip}
 
 ## Gestión de las políticas de rotación en la GUI

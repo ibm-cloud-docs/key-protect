@@ -2,14 +2,13 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
 subcollection: key-protect
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -43,7 +42,7 @@ Sélectionnez l'un des deux types de clé :
 ## Création de clés
 {: #create-keys}
 
-[Une fois que vous avez créé une instance {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), vous êtes prêt à désigner des clés dans le service. 
+[Une fois que vous avez créé une instance {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps), vous êtes prêt à désigner des clés dans le service. 
 
 Pour créer votre première clé cryptographique, procédez comme suit : 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # Suppression de clés
-{: #deleting-keys}
+{: #delete-keys}
 
 Vous pouvez utiliser {{site.data.keyword.keymanagementservicefull}} pour supprimer une clé de chiffrement et son contenu, si vous êtes administrateur de l'espace {{site.data.keyword.cloud_notm}} ou de l'instance de service {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Lorsque vous supprimez une clé, vous détruisez définitivement son contenu et les données qui lui sont associées. L'action est irréversible. [La destruction des ressources](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) n'est pas recommandée dans les environnements de production, mais peut être utile dans les environnements temporaires tels que les environnements de test ou d'assurance qualité.
+Lorsque vous supprimez une clé, vous détruisez définitivement son contenu et les données qui lui sont associées. L'action est irréversible. [La destruction des ressources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) n'est pas recommandée dans les environnements de production, mais peut être utile dans les environnements temporaires tels que les environnements de test ou d'assurance qualité.
 {: important}
 
 ## Suppression de clés avec l'interface graphique utilisateur
@@ -39,7 +39,7 @@ Si vous préférez supprimer vos clés de chiffrement à l'aide d'une interface 
 2. Accédez à **Menu** &gt; **Liste de ressources** pour afficher la liste de vos ressources.
 3. Dans la liste de ressources {{site.data.keyword.cloud_notm}}, sélectionnez votre instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
 4. Sur la page des détails de l'application, parcourez les clés de votre service dans le tableau **Clés**.
-5. Cliquez sur l'icône pour ouvrir la liste des options de la clé à supprimer..
+5. Cliquez sur l'icône ⋯ pour ouvrir la liste des options de la clé à supprimer.
 6. Dans le menu d'options, cliquez sur **Supprimer la clé** et confirmez la suppression dans l'écran suivant.
 
 Une fois supprimée, la clé passe à l'état _Détruit_. Les clés qui se trouvent dans cet état sont irrécupérables. Les métadonnées associées à la clé, comme la date de suppression de la clé, sont conservées dans la base de données {{site.data.keyword.keymanagementserviceshort}}.

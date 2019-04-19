@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -30,7 +30,7 @@ subcollection: key-protect
 要了解密钥轮换如何帮助您符合行业标准和加密最佳实践，请参阅[轮换加密密钥](/docs/services/key-protect?topic=key-protect-key-rotation)。
 
 轮换仅适用于根密钥。
-要了解有关 {{site.data.keyword.keymanagementserviceshort}} 中密钥轮换选项的更多信息，请查看[比较密钥轮换选项](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)。
+要了解有关 {{site.data.keyword.keymanagementserviceshort}} 中密钥轮换选项的更多信息，请查看[比较密钥轮换选项](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)。
 {: note}
 
 ## 使用 GUI 轮换根密钥

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -49,6 +49,8 @@ Transportschlüssel sind derzeit ein Beta-Feature. Beta-Features können jederze
 {: #feb-2019}
 
 ### Geändert: traditionelle {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz
+{: #changed-legacy-service-instances}
+
 Neu zum 13.02.2019
 
 {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen, die vor dem 15. Dezember 2017 bereitgestellt wurden, werden auf einer traditionellen, auf Cloud Foundry basierenden Infrastruktur ausgeführt. Dieser traditionelle {{site.data.keyword.keymanagementserviceshort}}-Service wird am 15. Mai 2019 stillgelegt.
@@ -64,6 +66,8 @@ Benötigen Sie Hilfe bei der Migration Ihrer Verschlüsselungsschlüssel in eine
 {: #dec-2018}
 
 ### Geändert: {{site.data.keyword.keymanagementserviceshort}}-API-Endpunkte
+{: #changed-api-endpoints}
+
 Neu zum 19.12.2018
 
 Entsprechend der neuen, vereinheitlichten Benutzererfahrung von {{site.data.keyword.cloud_notm}} hat {{site.data.keyword.keymanagementserviceshort}} die Basis-URLs für seine Service-APIs aktualisiert.
@@ -83,6 +87,8 @@ Beide URLs für jeden regionalen Serviceendpunkt werden zu diesem Zeitpunkt unte
 {: #oct-2018}
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'Tokio'
+{: #added-tokyo-region}
+
 Neu zum 31.10.2018
 
 Sie können nun {{site.data.keyword.keymanagementserviceshort}}-Ressourcen in der Region 'Tokio' erstellen. 
@@ -90,6 +96,8 @@ Sie können nun {{site.data.keyword.keymanagementserviceshort}}-Ressourcen in de
 Weitere Informationen finden Sie in [Regionen und Standorte](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Hinzugefügt: Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}}
+{: #added-cli-plugin}
+
 Neu zum 02.10.2018
 
 Mithilfe des Plug-ins für die Befehlszeilenschnittstelle (CLI) von {{site.data.keyword.keymanagementserviceshort}} können Sie nun Schlüssel in Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verwalten.
@@ -100,6 +108,8 @@ Informationen zur Installation des Plug-ins finden Sie in [Befehlszeilenschnitts
 {: #sept-2018}
 
 ### Hinzugefügt: {{site.data.keyword.keymanagementserviceshort}} bietet nun Unterstützung für bedarfsgesteuerte Schlüsselrotation.
+{: #added-key-rotation}
+
 Neu zum 28.09.2018
 
 {{site.data.keyword.keymanagementserviceshort}} kann nun verwendet werden, um eine bedarfsgesteuerte Rotation von Rootschlüsseln durchzuführen.
@@ -107,6 +117,8 @@ Neu zum 28.09.2018
 Weitere Informationen finden Sie in [Schlüsselrotation](/docs/services/key-protect?topic=key-protect-rotate-keys).
 
 ### Hinzugefügt: Lernprogramm zur End-to-End-Sicherheit für die Cloud-App
+{: #added-security-tutorial}
+
 Neu zum: 14.09.2018
 
 Suchen Sie nach Codebeispielen, die Sie beim Verschlüsseln von Speicherbucketinhalten mit eigenen Verschlüsselungsschlüsseln unterstützen?
@@ -116,6 +128,8 @@ Sie können sich nun mit der Vorgehensweise für das Hinzufügen von End-to-End-
 Weitere Informationen finden Sie in der [Beispielapp in GitHub ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'Washington DC'
+{: #added-wdc-region}
+
 Neu zum: 10.09.2018
 
 Sie können nun {{site.data.keyword.keymanagementserviceshort}}-Ressourcen in der Region 'Washington DC' erstellen. 
@@ -126,6 +140,8 @@ Weitere Informationen finden Sie in [Regionen und Standorte](/docs/services/key-
 {: #aug-2018}
 
 ### Geändert: URL der API-Dokumentation zu {{site.data.keyword.keymanagementserviceshort}}
+{: #changed-api-doc-url}
+
 Neu zum 28.08.2018
 
 Die API-Referenz zu {{site.data.keyword.keymanagementserviceshort}} ist nun an anderer Stelle verfügbar. 
@@ -137,6 +153,8 @@ https://{DomainName}/apidocs/key-protect.
 {: #mar-2018}
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'Frankfurt'
+{: #added-frankfurt-region}
+
 Neu zum 21.03.2018
 
 Sie können nun {{site.data.keyword.keymanagementserviceshort}}-Ressourcen in der Region 'Frankfurt' erstellen. 
@@ -147,6 +165,8 @@ Weitere Informationen finden Sie in [Regionen und Standorte](/docs/services/key-
 {: #jan-2018}
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'Sydney'
+{: #added-sydney-region}
+
 Neu zum 21.01.2018
 
 Sie können nun {{site.data.keyword.keymanagementserviceshort}}-Ressourcen in der Region 'Sydney' erstellen. 
@@ -157,6 +177,8 @@ Weitere Informationen finden Sie in [Regionen und Standorte](/docs/services/key-
 {: #dec-2017}
 
 ### Hinzugefügt: {{site.data.keyword.keymanagementserviceshort}} bietet nun Unterstützung für BYOK (Bring Your Own Key)
+{: #added-byok-support}
+
 Neu zum 15.12.2017
 
 {{site.data.keyword.keymanagementserviceshort}} bietet nun Unterstützung für BYOK (Bring Your Own Key) und eine vom Kunden verwaltete Verschlüsselung.
@@ -165,6 +187,8 @@ Neu zum 15.12.2017
 - [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how) für {{site.data.keyword.cos_full_notm}}-Buckets wurde ermöglicht.
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'London'
+{: #added-london-region}
+
 Neu zum 15.12.2017
 
 {{site.data.keyword.keymanagementserviceshort}} ist nun in der Region 'London' verfügbar. 
@@ -172,6 +196,8 @@ Neu zum 15.12.2017
 Weitere Informationen finden Sie in [Regionen und Standorte](/docs/services/key-protect?topic=key-protect-regions).
 
 ### Geändert: {{site.data.keyword.iamshort}}-Rollen
+{: #changed-iam-roles}
+
 Neu zum 15.12.2017
 
 {{site.data.keyword.iamshort}}-Rollen, die die Aktionen bestimmen, die Sie für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen ausführen können, wurden geändert.
@@ -186,6 +212,8 @@ Weitere Informationen finden Sie in [Benutzerzugriff verwalten](/docs/services/k
 {: #sept-2017}
 
 ### Hinzugefügt: {{site.data.keyword.keymanagementserviceshort}} bietet nun Unterstützung für Cloud IAM
+{: #added-iam-support}
+
 Neu zum 19.09.2017
 
 Sie können {{site.data.keyword.iamshort}} nun dazu verwenden, Zugriffsrichtlinien für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen festzulegen und zu verwalten.

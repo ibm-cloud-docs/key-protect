@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -208,9 +208,9 @@ https://ibm-key-protect.edge.bluemix.net/api/v2/keys \
 
 您可以檢閱討論區，看看是否其他使用者也遇到相同問題。使用討論區提問時，請標記您的問題，以便 {{site.data.keyword.cloud_notm}} 開發團隊能看到它。
 
-- 如果您有 {{site.data.keyword.keymanagementserviceshort}} 的相關技術問題，請將問題張貼在 [Stack Overflow ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window}，並使用 "ibm-cloud" 和 "key-protect" 來標記問題。
-- 若是服務及開始使用指示的相關問題，請使用 [IBM developerWorks dW Answers ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.ibm.com/answers/topics/key-protect/?smartspace=bluemix){: new_window} 討論區。請包含 "ibm-cloud" 和 "key-protect" 標籤。
+- 如果您有 {{site.data.keyword.keymanagementserviceshort}} 的相關技術問題，請將問題張貼在 [Stack Overflow ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window}，並使用 "ibm-cloud" 和 "key-protect" 來標記問題。
+- 若是服務及開始使用指示的相關問題，請使用 [IBM developerWorks dW Answers ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.ibm.com/answers/topics/key-protect/){: new_window} 討論區。請包含 "ibm-cloud" 和 "key-protect" 標籤。
 
-如需使用討論區的詳細資料，請參閱[取得支援 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/get-support?topic=get-support-using-avatar){: new_window}。
+如需使用討論區的詳細資料，請參閱[取得支援 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window}。
 
 如需開立 {{site.data.keyword.IBM_notm}} 支援問題單的相關資訊，或支援層次與問題單嚴重性的相關資訊，請參閱[與支援中心聯絡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

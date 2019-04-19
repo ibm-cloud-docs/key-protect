@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 # 암호화 키의 라이프사이클 모니터링
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}}는 [키 상태와 관련된 NIST SP 800-57 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}의 보안 가이드라인을 따릅니다.
+{{site.data.keyword.keymanagementservicefull}}는 [키 상태와 관련된 NIST SP 800-57 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}의 보안 가이드라인을 따릅니다.
 {: shortdesc}
 
 ## 키 상태 및 상태 전이
@@ -36,7 +36,7 @@ subcollection: key-protect
 
 <table>
   <tr>
-    <th>시/도</th>
+    <th>상태</th>
     <th>설명</th>
   </tr>
   <tr>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # Schlüssel löschen
-{: #deleting-keys}
+{: #delete-keys}
 
 Sie können {{site.data.keyword.keymanagementservicefull}} verwenden, um einen Verschlüsselungsschlüssel und seinen Inhalt zu löschen, wenn Sie der Administrator Ihres {{site.data.keyword.cloud_notm}}-Bereichs oder der {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz sind.
 {: shortdesc}
 
-Wenn Sie einen Schlüssel löschen, werden der Schlüsselinhalt und die zugehörigen Daten permanent zerstört. Die Aktion kann nicht rückgängig gemacht werden. Das [Löschen von Ressourcen](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) wird für Produktionsumgebungen nicht empfohlen, kann aber für temporäre Umgebungen wie Test- oder QS-Umgebungen nützlich sein.
+Wenn Sie einen Schlüssel löschen, werden der Schlüsselinhalt und die zugehörigen Daten permanent zerstört. Die Aktion kann nicht rückgängig gemacht werden. Das [Löschen von Ressourcen](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) wird für Produktionsumgebungen nicht empfohlen, kann aber für temporäre Umgebungen wie Test- oder QS-Umgebungen nützlich sein.
 {: important}
 
 ## Schlüssel mit GUI löschen
@@ -39,7 +39,7 @@ Wenn Sie die Löschung von Verschlüsselungsschlüssel über eine grafische Ober
 2. Rufen Sie **Menü** &gt; **Ressourcenliste** auf, um eine Liste Ihrer Ressourcen anzuzeigen.
 3. Wählen Sie in der {{site.data.keyword.cloud_notm}}-Ressourcenliste die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus.
 4. Verwenden Sie auf der Seite mit den Anwendungsdetails die Tabelle **Schlüssel**, um die Schlüssel im Service zu durchsuchen.
-5. Klicken Sie auf das Symbol, um eine Liste mit Optionen für den Schlüssel zu öffnen, den Sie löschen möchten.
+5. Klicken Sie auf das Symbol ⋯, um eine Liste mit Optionen für den Schlüssel zu öffnen, den Sie löschen möchten.
 6. Klicken Sie im Auswahlmenü auf **Schlüssel löschen** und bestätigen Sie die Schlüssellöschung in der nächsten Anzeige.
 
 Sobald der Schlüssel gelöscht wurde, nimmt der Schlüssel den Status _Gelöscht_ an. Schlüssel, die sich in diesem Status befinden, sind nicht wiederherstellbar. Die zugehörigen Metadaten für den Schlüssel (z. B. das Löschdatum des Schlüssels) werden in der {{site.data.keyword.keymanagementserviceshort}}-Datenbank aufbewahrt.

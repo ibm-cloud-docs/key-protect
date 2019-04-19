@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -30,33 +30,15 @@ subcollection: key-protect
 
 Vous pouvez être amené à gérer des clés dans les scénarios suivants :
 
-<table>
-  <tr>
-    <th>Scénario</th>
-    <th>Raisons</th>
-  </tr>
-  <tr>
-    <td>Si vous souhaitez effectuer un chiffrement d'enveloppe lorsque vous transférez des données dans le cloud. Vous devez apporter votre propre clé de chiffrement principale afin de pouvoir gérer et protéger d'autres clés qui chiffrent vos données au repos. </td>
-    <td>Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez [encapsuler vos clés DEK avec une clé racine hautement sécurisée](/docs/services/key-protect?topic=key-protect-envelope-encryption). Vous pouvez utiliser vos propres clés racine ou créer des clés dans le service.</td>
-  </tr>
-  <tr>
-    <td>En tant que responsable informatique d'une grande entreprise, vous êtes chargé du traitement (intégration, suivi et rotation) des clés pour de nombreuses offres de service différentes.</td>
-    <td>L'interface {{site.data.keyword.keymanagementserviceshort}} simplifie la gestion des services de chiffrement multiples. Avec ce service, vous pouvez gérer et trier des clés dans un emplacement centralisé unique, ou séparer les clés par projet et les héberger dans des espaces {{site.data.keyword.cloud_notm}} différents.</td>
-  </tr>
-  <tr>
-    <td>Vous administrez la sécurité dans le service financier ou juridique d'une entreprise qui est tenue de respecter des règles strictes au niveau de la protection des données. Vous devez accorder des contrôles d'accès aux différentes clés sans pour autant compromettre les données qu'elles sécurisent.</td>
-    <td>Avec ce service, vous pouvez contrôler l'accès utilisateur pour la gestion de clés en [affectant des rôles Identity and Access Management différents](/docs/services/key-protect?topic=key-protect-manage-access#roles). Il vous est ainsi possible d'accorder un accès en lecture seule aux utilisateurs qui ont besoin de voir les informations de création de clé sans afficher le matériel de clé.</td>
-  <tr>
-    <td>En tant que développeur, vous souhaitez intégrer vos applications pré-existantes, telles que le stockage avec auto-chiffrement, à {{site.data.keyword.keymanagementserviceshort}}.</td>
-    <td>Les applications installées sur ou en dehors de {{site.data.keyword.cloud_notm}} peuvent s'intégrer aux API {{site.data.keyword.keymanagementserviceshort}}. Vous pouvez utiliser vos clés existantes pour vos applis. </td>
-  </tr>
-  <tr>
-    <td>Votre équipe de développement applique des règles strictes et vous devez disposer d'un moyen pour générer et effectuer une rotation des clés tous les 14 jours.</td>
-    <td>Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez générer rapidement des clés à partir d'un module de sécurité matériel {{site.data.keyword.cloud_notm}} pour répondre à vos besoins de sécurité actuels.</td>
-  </tr>
-</table>
+| Scénarios | Raisons|
+| --- | ---- |
+| En tant que responsable informatique d'une grande entreprise, vous êtes chargé du traitement (intégration, suivi et rotation) des clés de chiffrement pour de nombreuses offres de service différentes. | L'interface {{site.data.keyword.keymanagementserviceshort}} simplifie la gestion des services de chiffrement multiples. Avec ce service, vous pouvez gérer et trier des clés de chiffrement dans un emplacement centralisé unique, ou séparer les clés par projet et les héberger dans des espaces {{site.data.keyword.cloud_notm}} différents. |
+| En tant que développeur, vous souhaitez intégrer vos applications pré-existantes, telles que le stockage avec auto-chiffrement, à {{site.data.keyword.keymanagementserviceshort}}. | Les applications installées sur ou en dehors de {{site.data.keyword.cloud_notm}} peuvent s'intégrer aux API {{site.data.keyword.keymanagementserviceshort}}. Vous pouvez utiliser vos clés existantes pour vos applis. |
+| Votre équipe de développement applique des règles strictes et vous devez disposer d'un moyen de générer et d'effectuer une rotation des clés tous les 30 jours. | Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez générer rapidement des clés à partir d'un module de sécurité matérielle {{site.data.keyword.cloud_notm}}. Lorsqu'il est temps de remplacer une clé, vous pouvez [effectuer la rotation de la clé à la demande](/docs/services/key-protect?topic=key-protect-rotate-keys) ou [définir une règle de rotation](/docs/services/key-protect?topic=key-protect-set-rotation-policy) pour la clé afin de répondre à vos besoins de sécurité. |
+| Vous administrez la sécurité dans le service financier ou juridique d'une entreprise qui est tenue de respecter des règles strictes au niveau de la protection des données. Vous devez accorder des contrôles d'accès aux différentes clés sans pour autant compromettre les données qu'elles sécurisent. | Avec ce service, vous pouvez contrôler l'accès utilisateur pour la gestion de clés en [affectant des rôles Identity and Access Management différents](/docs/services/key-protect?topic=key-protect-manage-access#roles). Il vous est ainsi possible d'accorder un accès en lecture seule aux utilisateurs qui ont besoin de voir les informations de création de clé sans afficher le matériel de clé. |
+| Si vous souhaitez effectuer un chiffrement d'enveloppe lorsque vous transférez des données dans le cloud. Vous devez disposer de vos propres clés de chiffrement principales afin de pouvoir gérer et protéger d'autres clés qui chiffrent vos données au repos. |Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez [encapsuler (chiffrer) vos clés DEK avec une clé racine hautement sécurisée](/docs/services/key-protect?topic=key-protect-envelope-encryption). Vous pouvez utiliser vos propres clés racine ou créer des clés dans le service.|
 
-Vous recherchez une solution de gestion des clés dédiée qui prenne en charge les modules de sécurité matériels basés sur le cloud et contrôlés par le client ? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} (bêta)](/docs/services/hs-crypto?topic=hs-crypto-get-started) s'intègre à {{site.data.keyword.keymanagementserviceshort}} pour activer la fonction KYOK (Keep Your Own Keys) pour {{site.data.keyword.cloud_notm}}, afin que votre organisation ait plus de contrôle et d'autorité sur ses données. Consultez les [détails de l'offre {{site.data.keyword.hscrypto}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) pour en savoir plus.
+Vous recherchez une solution de gestion des clés dédiée qui prenne en charge les modules de sécurité matériels basés sur le cloud et contrôlés par le client ? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) s'intègre à {{site.data.keyword.keymanagementserviceshort}} pour activer la fonction KYOK (Keep Your Own Keys) pour {{site.data.keyword.cloud_notm}}, afin que votre organisation ait plus de contrôle et d'autorité sur ses données. Consultez les [détails de l'offre {{site.data.keyword.hscrypto}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) pour en savoir plus.
 {: tip}
 
 ## Fonctionnement de {{site.data.keyword.keymanagementserviceshort}}

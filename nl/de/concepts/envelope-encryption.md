@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -56,7 +56,7 @@ Die Envelope-Verschlüsselung kombiniert die Stärke mehrerer Verschlüsselungsa
  
 Im folgenden Diagramm wird eine kontextbezogene Ansicht der Key-Wrapping-Funktion dargestellt. ![Diagramm mit kontextbezogener Ansicht der Envelope-Verschlüsselung.](../images/envelope-encryption_min.svg)
 
-Die Envelope-Verschlüsselung wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' kurz erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+Die Envelope-Verschlüsselung wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' kurz erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## Schlüsseltypen
 {: #key-types}

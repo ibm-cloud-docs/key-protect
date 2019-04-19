@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -29,7 +29,7 @@ subcollection: key-protect
 
 키 순환을 통해 산업 표준 및 암호화 우수 사례를 충족시키는 방법을 알아보려면 [암호화 키 순환](/docs/services/key-protect?topic=key-protect-key-rotation)을 참조하십시오.
 
-순환은 루트 키에만 사용 가능합니다. {{site.data.keyword.keymanagementserviceshort}}에서 키 순환 옵션에 대해 자세히 알아보려면 [키 순환 옵션 비교](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)를 참조하십시오.
+순환은 루트 키에만 사용 가능합니다. {{site.data.keyword.keymanagementserviceshort}}에서 키 순환 옵션에 대해 자세히 알아보려면 [키 순환 옵션 비교](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)를 참조하십시오.
 {: note}
 
 ## GUI로 루트 키 순환

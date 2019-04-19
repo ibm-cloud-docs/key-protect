@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -55,7 +55,7 @@ subcollection: key-protect
   <dt>키 자료를 암호화하기 위한 계획</dt>
     <dd>전송 키를 사용하여 키 자료를 암호화하도록 선택한 경우 키 자료에 대한 RSA 암호화를 실행하기 위한 방법을 결정하십시오. <a href="https://tools.ietf.org/html/rfc3447" target="_blank">PKCS #1 v2.1 standard for RSA encryption</a>에 지정된 대로 <code>RSAES_OAEP_SHA_256</code> 암호화 스킴을 사용해야 합니다. 내부 키 관리 시스템 또는 온프레미스 HSM의 기능을 검토하여 옵션을 결정하십시오.</dd>
   <dt>가져온 키 자료의 라이프사이클 관리</dt>
-    <dd>키 자료를 서비스로 가져온 후에는 키의 전체 라이프사이클을 관리해야 합니다. {{site.data.keyword.keymanagementserviceshort}} API를 사용하여, 키를 서비스에 업로드하도록 결정할 때 키의 만기 날짜를 설정할 수 있습니다. 하지만 <a href="/docs/services/key-protect?topic=key-protect-rotate-keys">가져온 루트 키를 순환</a>하려면 새 키 자료를 생성하고 제공하여 기존 키를 폐기하고 바꿔야 합니다.</dd>
+    <dd>키 자료를 서비스로 가져온 후에는 키의 전체 라이프사이클을 관리해야 합니다. {{site.data.keyword.keymanagementserviceshort}} API를 사용하여, 키를 서비스에 업로드하도록 결정할 때 키의 만기 날짜를 설정할 수 있습니다. 하지만 <a href="/docs/services/key-protect?topic=key-protect-rotate-keys">가져온 루트 키를 순환</a>하려면 새 키 자료를 생성하고 제공하여 기존 키를 폐기하고 바꿔야 합니다. </dd>
 </dl>
 
 ## 전송 키 사용

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -38,7 +38,7 @@ subcollection: key-protect
 - [{{site.data.keyword.keymanagementserviceshort}}가 베타에서 GA가 됨(댈러스) ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## 서비스 이용 약관
-{: #info}
+{: #service-terms}
 
 - [{{site.data.keyword.keymanagementservicelong_notm}} SLA(Service Level Agreement) ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 

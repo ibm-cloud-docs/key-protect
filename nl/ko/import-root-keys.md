@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-03"
 
 keywords: import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -139,7 +139,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
     </tr>
     <tr>
       <td><varname>use_count</varname></td>
-      <td>더 이상 액세스할 수 없게 될 때까지 만기 시간 내에 전송 키를 검색할 수 있는 횟수입니다. 기본값은 1입니다. </td>
+      <td>더 이상 액세스할 수 없게 될 때까지 만기 시간 내에 전송 키를 검색할 수 있는 횟수입니다. 기본값은 1입니다.</td>
     </tr>
       <caption style="caption-side:bottom;">표 2. 전송 키 {{site.data.keyword.keymanagementserviceshort}} API 작성에 필요한 변수에 대한 설명</caption>
   </table>
@@ -321,7 +321,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">표 4. {{site.data.keyword.keymanagementserviceshort}} API를 통해 루트 키를 추가하는 데 필요한 변수에 대한 설명</caption>
     </table>
 
-    개인 데이터의 기밀성을 보호하려면 서비스에 키를 추가할 때 사용자 이름 또는 위치와 같은 PII(Personally Identifiable Information)를 입력하지 않도록 하십시오. PII에 대한 추가 예제는 [NIST Special Publication 800-122 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}의 섹션 2.2를 참조하십시오.
+    개인 데이터의 기밀성을 보호하려면 서비스에 키를 추가할 때 사용자 이름 또는 위치와 같은 PII(Personally Identifiable Information)를 입력하지 않도록 하십시오. PII에 대한 추가 예제는 [NIST Special Publication 800-122 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}의 섹션 2.2를 참조하십시오.
     {: important}
 
     성공한 `POST api/v2/keys` 응답은 기타 메타데이터와 함께 키의 ID 값을 리턴합니다. ID는 키에 지정되어 있으며 {{site.data.keyword.keymanagementserviceshort}} API에 대한 후속 호출에 사용되는 고유 ID입니다.

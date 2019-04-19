@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -51,12 +51,12 @@ curl -X GET \
 ```
 {: codeblock} 
 
-Sustituya `<access_token>` y `<instance_ID>` por las credenciales de autenticación y servicio que ha recuperado.
+Sustituya `<access_token>` e `<instance_ID>` por las credenciales de autenticación y servicio que ha recuperado.
 
 ¿Desea realizar un seguimiento de las solicitudes de API por si algo va mal? Cuando se incluye el distintivo `-v` como parte de la solicitud cURL, se obtiene un valor de `correlation-id` en las cabeceras de respuesta. Puede utilizar este valor para correlacionar y realizar un seguimiento de la solicitud con fines de depuración.
 {: tip} 
 
 ## Qué hacer a continuación
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
 Ya está listo para empezar a gestionar las claves de cifrado en Key Protect. Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

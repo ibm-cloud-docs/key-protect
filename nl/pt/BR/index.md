@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+
+subcollection: key-protect
 
 ---
 
@@ -15,7 +19,8 @@ lastupdated: "2019-01-03"
 {:note: .note}
 {:important: .important}
 
-# Introdução ao {{site.data.keyword.keymanagementserviceshort}}
+# Tutorial de introdução
+{: #getting-started-tutorial}
 
 O {{site.data.keyword.keymanagementservicefull}} ajuda a provisionar chaves criptografadas para apps em serviços {{site.data.keyword.cloud_notm}}. Este tutorial mostra como criar e incluir chaves criptográficas existentes usando o painel do
 {{site.data.keyword.keymanagementserviceshort}}, assim, é possível gerenciar a criptografia de dados de um local
@@ -32,7 +37,7 @@ Escolha entre dois tipos de chave:
 
 <dl>
   <dt>Chaves raiz</dt>
-    <dd>As chaves raiz são chaves simétricas de agrupamento de chaves completamente gerenciadas em {{site.data.keyword.keymanagementserviceshort}}. É possível usar uma chave raiz para proteger outras chaves criptográficas com criptografia avançada. Para saber mais, consulte  <a href="/docs/services/key-protect/concepts/envelope-encryption.html"> Criptografia de Envelope </a>.</dd>
+    <dd>As chaves raiz são chaves simétricas de agrupamento de chaves completamente gerenciadas em {{site.data.keyword.keymanagementserviceshort}}. É possível usar uma chave raiz para proteger outras chaves criptográficas com criptografia avançada. Para saber mais, consulte <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption">Protegendo dados com criptografia de envelope</a>.</dd>
   <dt>Chaves padrão</dt>
     <dd>Chaves padrão são chaves simétricas que são usadas para criptografia. É possível usar uma chave padrão para criptografar e decriptografar dados diretamente.</dd>
 </dl>
@@ -41,7 +46,7 @@ Escolha entre dois tipos de chave:
 {: #create-keys}
 
 [Depois de criar uma
-instância do {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect/?taxonomyNavigation=apps), você está pronto para designar chaves no serviço. 
+instância do {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps), você está pronto para designar chaves no serviço. 
 
 Conclua as etapas a seguir para criar sua primeira chave criptográfica. 
 
@@ -64,7 +69,7 @@ Conclua as etapas a seguir para criar sua primeira chave criptográfica.
       </tr>
       <tr>
         <td>Tipo de chave</td>
-        <td>O <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>O <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabela 1. Descrição das configurações de <b>Criar uma chave</b></caption>
     </table>
@@ -99,7 +104,7 @@ Conclua as etapas a seguir para incluir uma chave existente.
       </tr>
       <tr>
         <td>Tipo de chave</td>
-        <td>O <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}.</td>
+        <td>O <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}.</td>
       </tr>
       <tr>
         <td>Material de chave</td>
@@ -113,9 +118,10 @@ Conclua as etapas a seguir para incluir uma chave existente.
 No painel {{site.data.keyword.keymanagementserviceshort}}, é possível inspecionar as características gerais de suas novas chaves. 
 
 ## O que vem a seguir
+{: #get-started-next-steps}
 
-Agora é possível usar suas chaves para codificar seus apps e serviços. Se você incluiu uma chave raiz no serviço, talvez deseje aprender mais sobre o uso da chave raiz para proteger as chaves que criptografam seus dados em repouso. Veja [Agrupando chaves](/docs/services/key-protect/wrap-keys.html) para começar.
+Agora é possível usar suas chaves para codificar seus apps e serviços. Se você incluiu uma chave raiz no serviço, talvez deseje aprender mais sobre o uso da chave raiz para proteger as chaves que criptografam seus dados em repouso. Veja [Agrupando chaves](/docs/services/key-protect?topic=key-protect-wrap-keys) para começar.
 
-- Para saber mais sobre o gerenciamento e a proteção de suas chaves de criptografia com uma chave raiz, veja [Criptografia de envelope](/docs/services/key-protect/concepts/envelope-encryption.html).
-- Para saber mais sobre como integrar o serviço do {{site.data.keyword.keymanagementserviceshort}} com outras soluções de dados da nuvem, o [ consulte o doc Integrações](/docs/services/key-protect/integrations/integrate-services.html).
+- Para descobrir mais sobre como gerenciar e proteger suas chaves de criptografia com uma chave raiz, confira [Protegendo dados com criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+- Para saber mais sobre como integrar o serviço do {{site.data.keyword.keymanagementserviceshort}} com outras soluções de dados da nuvem, o [ consulte o doc Integrações](/docs/services/key-protect?topic=key-protect-integrate-services).
 - Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

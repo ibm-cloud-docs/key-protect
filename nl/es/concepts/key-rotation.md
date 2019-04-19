@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -40,7 +40,7 @@ La rotación de claves de forma regular le ayuda a cumplir los estándares del s
   <caption style="caption-side:bottom;">Tabla 1. Describe los beneficios de la rotación de claves</caption>
 </table>
 
-La rotación de claves se trata en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+La rotación de claves se trata en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 {: tip}
 
 ## Comparación de las opciones de rotación de claves en {{site.data.keyword.keymanagementserviceshort}}
@@ -53,7 +53,7 @@ Las opciones de rotación sólo están disponibles para las claves raíz.
 
 <dl>
   <dt>Establecimiento de una política de rotación para una clave</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} le ayuda a simplificar la rotación de las claves de cifrado habilitando las políticas de rotación para las claves que genera en el servicio. Tras crear una clave raíz, puede gestionar una política de rotación para la clave en la GUI de {{site.data.keyword.keymanagementserviceshort}} GUI, o con la API. <a href="/docs/services/key-protect?topic=key-protect-rotation-frequency">Elija un intervalo de rotación automático de entre 1 y 12 meses para la clave</a> en función de sus necesidades regulares de seguridad. Cuando es hora de rotar la clave, en base al intervalo de rotación que ha especificado, {{site.data.keyword.keymanagementserviceshort}} sustituye automáticamente la clave por material de clave nuevo.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} le ayuda a simplificar la rotación de las claves de cifrado habilitando las políticas de rotación para las claves que genera en el servicio. Tras crear una clave raíz, puede gestionar una política de rotación para la clave en la GUI de {{site.data.keyword.keymanagementserviceshort}} GUI, o con la API. <a href="/docs/services/key-protect?topic=key-protect-key-rotation#rotation-frequency">Elija un intervalo de rotación automático de entre 1 y 12 meses para la clave</a> en función de sus necesidades actuales de seguridad. Cuando es hora de rotar la clave, en base al intervalo de rotación que ha especificado, {{site.data.keyword.keymanagementserviceshort}} sustituye automáticamente la clave por material de clave nuevo.</dd>
   <dt>Rotación de claves bajo demanda</dt>
     <dd>Como administrador de seguridad, es posible que desee tener más control sobre la frecuencia de rotación de las claves. Si no desea establecer una política de rotación automática para una clave, puede crear manualmente una clave nueva para sustituir una clave existente y, a continuación, actualizar las aplicaciones de modo que hagan referencia a la nueva clave. Para simplificar este proceso, puede utilizar {{site.data.keyword.keymanagementserviceshort}} para rotar la clave bajo demanda. En este caso, {{site.data.keyword.keymanagementserviceshort}} crea y sustituye la clave en su nombre por cada solicitud de rotación. La clave retiene los mismos metadatos y el mismo ID de clave.</dd>
 </dl>
@@ -107,7 +107,7 @@ Rote sus claves de forma regular, por ejemplo, cada 30 días, para seguir las me
 
 | Tipo de rotación | Frecuencia | Descripción
 | --- | --- | --- |
-| [Rotación de claves basada en políticas](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Cada 1 - 12 meses | Elija un intervalo de rotación entre 1 y 12 meses para su clave en función de sus necesidades regulares de seguridad. Después de establecer una política de rotación para una clave, el reloj se inicia de forma inmediatamente, basado en la fecha de creación inicial de la clave. Por ejemplo, si establece una política de rotación mensual para una clave que ha creado el `01/02/2019`, {{site.data.keyword.keymanagementserviceshort}} rota automáticamente la clave el `01/03/2019`.|
+| [Rotación de claves basada en políticas](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Cada 1 - 12 meses | Elija un intervalo de rotación entre 1 y 12 meses para su clave en función de sus necesidades actuales de seguridad. Después de establecer una política de rotación para una clave, el reloj se inicia de forma inmediatamente, basado en la fecha de creación inicial de la clave. Por ejemplo, si establece una política de rotación mensual para una clave que ha creado el `01/02/2019`, {{site.data.keyword.keymanagementserviceshort}} rota automáticamente la clave el `01/03/2019`.|
 | [Rotación de claves bajo demanda](/docs/services/key-protect?topic=key-protect-rotate-keys) | Hasta una rotación por hora | Si rota una clave bajo demanda, {{site.data.keyword.keymanagementserviceshort}} permite una rotación por hora para cada clave raíz. |
 {: caption="Tabla 2. Opciones de frecuencia de rotación para la rotación de claves en {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 

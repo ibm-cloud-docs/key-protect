@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -41,7 +41,7 @@ subcollection: key-protect
 
 您也可以使用 {{site.data.keyword.cloud_notm}} CLI 来供应 {{site.data.keyword.keymanagementserviceshort}} 的实例。 
 
-1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-overview){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -59,8 +59,8 @@ subcollection: key-protect
         <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에서 키에 지정한 고유 키 ID입니다. ID 값을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect)를 통해 서비스에 대한 호출을 작성할 수 있습니다.</td>
       </tr>
       <tr>
-        <td>시/도</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)를 기반으로 한 [키 상태](/docs/services/key-protect?topic=key-protect-key-states)입니다. 이러한 상태는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>입니다.</td>
+        <td>상태</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)를 기반으로 한 [키 상태](/docs/services/key-protect?topic=key-protect-key-states)입니다. 이러한 상태에는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>이 있습니다.</td>
       </tr>
       <tr>
         <td>유형</td>
@@ -176,7 +176,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    기본적으로 `GET api/v2/keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 알아보려면 [키의 서브세트 검색](#retrieve_subset_keys_api)을 참조하십시오.
+    기본적으로 `GET api/v2/keys`는 처음 2000개의 키를 리턴하지만 조회 시 `limit` 매개변수를 사용하여 이 한계를 조정할 수 있습니다. `limit` 및 `offset`에 대해 자세히 알아보려면 [키의 서브세트 검색](#retrieve-subset-keys-api)을 참조하십시오.
     {: tip}
 
 ### 키의 서브세트 검색

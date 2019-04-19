@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-04-03"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -19,7 +19,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# Protezione dei dati con la crittografia envelope 
+# Protezione dei dati con la crittografia envelope
 {: #envelope-encryption}
 
 La crittografia envelope è la pratica di codificare i dati con una chiave di crittografia dei dati (o DEK, data encryption key) e poi codificare la DEK con una chiave root che puoi completamente gestire. 
@@ -57,7 +57,7 @@ La crittografia envelope combina la forza di più algoritmi di codifica per prot
 Il seguente diagramma mostra una vista contestuale della funzionalità di impacchettamento della chiave.
 ![Il diagramma mostra una vista contestuale della crittografia envelope.](../images/envelope-encryption_min.svg)
 
-La crittografia envelope è trattata brevemente in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4. ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: new_window}
+La crittografia envelope è trattata brevemente in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4. ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
 
 ## Tipi di chiave
 {: #key-types}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ Mithilfe des Plug-ins für die Befehlszeilenschnittstelle (CLI) von {{site.data.
 
 Informationen zur Installation der Befehlszeilenschnittstelle finden Sie in [Befehlszeilenschnittstelle einrichten](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Wenn Sie sich an der [{{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} anmelden, werden Sie bei Verfügbarkeit von Aktualisierungen benachrichtigt. Stellen Sie sicher, dass sich die Befehlszeilenschnittstelle stets auf dem neuesten Stand befindet, damit Sie die Befehle und Flags nutzen können, die für das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} verfügbar sind.
+Wenn Sie sich an der [{{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} anmelden, werden Sie bei Verfügbarkeit von Aktualisierungen benachrichtigt. Stellen Sie sicher, dass sich die Befehlszeilenschnittstelle stets auf dem neuesten Stand befindet, damit Sie die Befehle und Flags nutzen können, die für das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} verfügbar sind.
 {: tip}
 
 ## ibmcloud kp commands
@@ -58,12 +58,28 @@ Sie können einen der folgenden Befehle angeben:
     <caption style="caption-side:bottom;">Tabelle 1. Befehle für die Verwaltung von Schlüsseln</caption> 
  </table>
 
+ <table summary="Befehle für die Verwaltung von Schlüsselrichtlinien">
+    <thead>
+        <th colspan="5">Befehle für die Verwaltung von Schlüsselrichtlinien</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">Tabelle 2. Befehle für die Verwaltung von Schlüsselrichtlinien</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 [Erstellen Sie einen Rootschlüssel](/docs/services/key-protect?topic=key-protect-create-root-keys) in der angegebenen {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz. 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 [Löschen Sie einen Schlüssel](/docs/services/key-protect?topic=key-protect-delete-keys), der im {{site.data.keyword.keymanagementserviceshort}}-Service gespeichert ist.
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 Listen Sie die letzten 200 Schlüssel auf, die in der {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügbar sind.
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ Rufen Sie die Details zu einem Schlüssel ab, wie z. B. Schlüsselmetadaten und 
 
 Wenn der Schlüssel als Rootschlüssel bezeichnet wurde, kann das System die Schlüsselinformationen für diesen Schlüssel nicht zurückgeben.
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Führen Sie eine Rotation für einen Rootschlüssel durch](/docs/services/key-protect?topic=key-protect-wrap-keys), der im {{site.data.keyword.keymanagementserviceshort}}-Service gespeichert ist.
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Führen Sie Wrapping für einen Datenverschlüsselungsschlüssel durch](/docs/services/key-protect?topic=key-protect-wrap-keys), indem Sie einen Rootschlüssel verwenden, der in der angegebenen {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz gespeichert ist.
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Heben Sie das Wrapping eines Datenverschlüsselungsschlüssels auf](/docs/services/key-protect?topic=key-protect-unwrap-keys), indem Sie einen Rootschlüssel verwenden, der in der {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz gespeichert ist.
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+Es werden die Richtlinien aufgeführt, die dem von Ihnen angegebenen Rootschlüssel zugeordnet sind.
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Erforderliche Parameter
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>Die ID des Rootschlüssels, der abgefragt werden soll. Führen Sie den Befehl <a href="#kp-list">kp list</a> aus, um eine Liste der verfügbaren Schlüssel abzurufen.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>Die {{site.data.keyword.cloud_notm}}-Instanz-ID, die die {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz identifiziert.</dd>
+</dl>
+
+### Optionale Parameter
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+Rufen Sie die Details zu einer Schlüsselrichtlinie ab, wie z. B. das automatische Rotationsintervall des Schlüssels.
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Erforderliche Parameter
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>Die ID des Schlüssels, der abgefragt werden soll. Führen Sie den Befehl <a href="#kp-list">kp list</a> aus, um eine Liste der verfügbaren Schlüssel abzurufen.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>Die {{site.data.keyword.cloud_notm}}-Instanz-ID, die die {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz identifiziert.</dd>
+</dl>
+
+### Optionale Parameter
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+Erstellen Sie die Richtlinie, die dem von Ihnen angegebenen Rootschlüssel zugeordnet ist, oder ersetzen Sie sie.
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE 
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### Erforderliche Parameter
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>Die ID des Schlüssels, der abgefragt werden soll. Führen Sie den Befehl <a href="#kp-list">kp list</a> aus, um eine Liste der verfügbaren Schlüssel abzurufen.</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>Geben Sie den Typ der Richtlinie an, den Sie festlegen möchten. Verwenden Sie den Befehl <code>--set-type rotation</code>, um eine Rotationsrichtlinie festzulegen.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>Die {{site.data.keyword.cloud_notm}}-Instanz-ID, die die {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz identifiziert.</dd>
+</dl>
+
+### Optionale Parameter
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>Geben Sie das Rotationszeitintervall (in Monaten) für einen Schlüssel an. Der Standardwert ist 1.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
+</dl>
 

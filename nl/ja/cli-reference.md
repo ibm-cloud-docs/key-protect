@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 
 CLI プラグインをインストールするには、[CLI のセットアップ](/docs/services/key-protect?topic=key-protect-set-up-cli)を参照してください。 
 
-[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-overview){: new_window} にログインすると、更新が使用可能な場合は通知されます。 {{site.data.keyword.keymanagementserviceshort}} CLI プラグインで使用可能なコマンドおよびフラグを使用できるように、CLI は必ず最新状態に保ってください。
+[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} にログインすると、更新が使用可能な場合は通知されます。 {{site.data.keyword.keymanagementserviceshort}} CLI プラグインで使用可能なコマンドおよびフラグを使用できるように、CLI は必ず最新状態に保ってください。
 {: tip}
 
 ## ibmcloud kp コマンド
@@ -58,12 +58,28 @@ CLI プラグインをインストールするには、[CLI のセットアッ�
     <caption style="caption-side:bottom;">表 1. 鍵を管理するためのコマンド</caption> 
  </table>
 
+ <table summary="鍵ポリシーを管理するためのコマンド">
+    <thead>
+        <th colspan="5">鍵ポリシーを管理するためのコマンド</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">表 2. 鍵ポリシーを管理するためのコマンド</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 指定した {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスで[ルート鍵を作成](/docs/services/key-protect?topic=key-protect-create-root-keys)します。 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -90,7 +106,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-s, --standard-key</code></dt>
         <dd>このパラメーターを設定するのは、<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">標準鍵</a>を作成する場合のみです。 ルート鍵を作成するには、<code>--standard-key</code> パラメーターを省略します。</dd>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
 ## kp delete
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} サービスで保管されている[鍵を削除](/docs/services/key-protect?topic=key-protect-delete-keys)します。
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスで使用可能な最新の 200 個の鍵をリストします。
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -136,7 +152,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 
 <dl>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
 ## kp get
@@ -146,7 +162,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 
 ルート鍵として指定された鍵の場合、システムはその鍵の鍵素材を返すことはできません。
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -166,7 +182,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 <dl>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
 ## kp rotate
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} サービスで保管されている[ルート鍵をローテート](/docs/services/key-protect?topic=key-protect-wrap-keys)します。
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
@@ -197,7 +213,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-k, --key-material</code></dt>
         <dd>既存のルート鍵をローテートする際に使用する Base64 エンコードの鍵素材。 サービスに最初にインポートされた鍵をローテートするには、新しい 256 ビットの鍵を指定します。 {{site.data.keyword.keymanagementserviceshort}} で最初に生成された鍵をローテートするには、<code>--key-material</code> パラメーターを省略します。</dd>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
 ## kp wrap
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 指定した {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに保管されているルート鍵を使用して、[データ暗号鍵をラップ](/docs/services/key-protect?topic=key-protect-wrap-keys)します。
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -232,7 +248,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-p, --plaintext</code></dt>
         <dd>管理および保護する Base64 エンコードのデータ暗号鍵 (DEK)。 既存の鍵をインポートする場合は、256 ビットの鍵を指定します。 新しい DEK を生成およびラップする場合は、<code>--plaintext</code> パラメーターを省略します。</dd>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
 ## kp unwrap
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスに保管されているルート鍵を使用して、[データ暗号鍵をアンラップ](/docs/services/key-protect?topic=key-protect-unwrap-keys)します。
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -266,8 +282,96 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
     <dt><code>-a, --aad</code></dt>
         <dd><p>鍵のセキュリティーを高めるために使用された追加認証データ (AAD)。 コンマで区切って最大 255 個のストリングを指定できます。 wrap で AAD を指定した場合、unwrap で同じ AAD を指定する必要があります。</p><p><b>重要:</b> {{site.data.keyword.keymanagementserviceshort}} サービスは、追加認証データを保存しません。 AAD を提供する場合は、同じ AAD にアクセスすることや、後続のアンラップ要求時に同じ AAD を提供することが確実にできるようにするため、データを安全な場所に保存してください。</p></dd>
     <dt><code>--output</code></dt>
-        <dd>CLI 出力形式を設定します。すべてのコマンドで、デフォルトの出力形式は表形式です。出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+指定したルート鍵と関連付けられたポリシーをリストします。
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必須パラメーター
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>照会するルート鍵の ID。使用可能な鍵のリストを取得するには、<a href="#kp-list">kp list</a> コマンドを実行します。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを識別する {{site.data.keyword.cloud_notm}} インスタンス ID。</dd>
+</dl>
+
+### オプション・パラメーター
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+鍵の自動ローテーション間隔など、鍵ポリシーに関する詳細を取得します。
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### 必須パラメーター
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>照会する鍵の ID。使用可能な鍵のリストを取得するには、<a href="#kp-list">kp list</a> コマンドを実行します。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを識別する {{site.data.keyword.cloud_notm}} インスタンス ID。</dd>
+</dl>
+
+### オプション・パラメーター
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+指定したルート鍵と関連付けられたポリシーを作成または置換します。
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE 
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### 必須パラメーター
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>照会する鍵の ID。使用可能な鍵のリストを取得するには、<a href="#kp-list">kp list</a> コマンドを実行します。</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>設定するポリシーのタイプを指定します。ローテーション・ポリシーの設定には、<code>--set-type rotation</code> を使用します。</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを識別する {{site.data.keyword.cloud_notm}} インスタンス ID。</dd>
+</dl>
+
+### オプション・パラメーター
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>鍵のローテーション時間間隔を月単位で指定します。デフォルト値は 1 です。</dd>
+    <dt><code>--output</code></dt>
+        <dd>CLI 出力形式を設定します。 すべてのコマンドで、デフォルトの出力形式は表形式です。 出力形式を JSON に変更するには <code>--output json</code> を使用します。</dd>
+</dl>
 

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: related links, blogs, sample apps, SLA, service level agreement
+
+subcollection: key-protect
 
 ---
 
@@ -34,12 +38,13 @@ Recursos adicionais para ajudá-lo a aprender sobre como gerenciar a criptografi
 - [{{site.data.keyword.keymanagementserviceshort}} Vai de Beta a GA em Dallas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: new_window}
 
 ## Termos de serviço
-{: #info}
+{: #service-terms}
 
 - [{{site.data.keyword.keymanagementservicelong_notm}} Acordo de Nível de Serviço ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: new_window}
 
 ## Serviços relacionados
-{: #related_services}
+{: #related-services}
 
+- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/hardware-security-module){: new_window}
 

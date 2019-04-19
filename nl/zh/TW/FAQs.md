@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -70,7 +70,7 @@ subcollection: key-protect
 為了保護個人資料的機密性，請不要將個人識別資訊 (PII) 儲存為金鑰的 meta 資料。個人資訊包括您的姓名、地址、電話號碼、電子郵件位址，或者可識別、聯絡或找到您、您的客戶或其他人的其他資訊。
 
 
-您要負責確保所有您儲存為 {{site.data.keyword.keymanagementserviceshort}} 資源及加密金鑰的 meta 資料的資訊安全。如需其他個人資料範例，請參閱 [NIST 特殊出版品 800-122 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window} 的第 2.2 節。
+您要負責確保所有您儲存為 {{site.data.keyword.keymanagementserviceshort}} 資源及加密金鑰的 meta 資料的資訊安全。如需其他個人資料範例，請參閱 [NIST 特殊出版品 800-122 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} 的第 2.2 節。
 {: important}
 
 ## 可以在其他地區使用某個地區中建立的金鑰嗎？

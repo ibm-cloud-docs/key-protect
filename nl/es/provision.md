@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -41,7 +41,7 @@ Para suministrar una instancia de {{site.data.keyword.keymanagementserviceshort}
 
 También puede suministrar una instancia de {{site.data.keyword.keymanagementserviceshort}} utilizando la CLI de {{site.data.keyword.cloud_notm}}. 
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} a través de la CLI de [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} mediante la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 

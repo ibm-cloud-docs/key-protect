@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -30,44 +30,22 @@ subcollection: key-protect
 
 Potresti aver bisogno di gestire le chiavi nei seguenti scenari:
 
-<table>
-  <tr>
-    <th>Scenario</th>
-    <th>Motivi</th>
-  </tr>
-  <tr>
-    <td>Vuoi eseguire la crittografia envelope poiché sposti i dati nel cloud. Hai bisogno di utilizzare la tua chiave di crittografia master, in modo da poter gestire e proteggere le altre chiavi che codificano i tuoi dati inattivi.</td>
-    <td>Con {{site.data.keyword.keymanagementserviceshort}}, puoi [impacchettare le tue chiavi di crittografia dei dati con una chiave root altamente sicura](/docs/services/key-protect?topic=key-protect-envelope-encryption). Puoi portare le tue proprie chiavi root o crearle nel servizio.</td>
-  </tr>
-  <tr>
-    <td>Come amministratore IT per una grande azienda, hai bisogno di integrare, tracciare e ruotare
-le chiavi per molte offerte di servizio differenti.</td>
-    <td>L'interfaccia {{site.data.keyword.keymanagementserviceshort}}
-semplifica la gestione di più servizi di codifica. Con il servizio, puoi gestire
-e ordinare le chiavi in un'ubicazione centralizzata o puoi separarle per progetto e posizionarle
-in spazi {{site.data.keyword.cloud_notm}} differenti.</td>
-  </tr>
-  <tr>
-    <td>Sei un amministratore della sicurezza di una azienda, come un leader finanziario o un avvocato, che deve
+| Scenari | Motivi|
+| --- | ---- |
+| Come amministratore IT per una grande azienda, hai bisogno di integrare, tracciare e ruotare le chiavi di crittografia per molte offerte di servizio differenti. | L'interfaccia {{site.data.keyword.keymanagementserviceshort}}
+semplifica la gestione di più servizi di codifica. Con il servizio, puoi gestire e ordinare le chiavi di crittografia in un'ubicazione centralizzata o puoi separarle per progetto e posizionarle in spazi {{site.data.keyword.cloud_notm}} differenti. |
+| Come sviluppatore, vuoi integrare le tue applicazioni pre-esistenti, come l'archiviazione con crittografia automatica, in {{site.data.keyword.keymanagementserviceshort}}. | La applicazioni in o al di fuori di {{site.data.keyword.cloud_notm}} possono
+essere integrate con le API {{site.data.keyword.keymanagementserviceshort}}. Puoi utilizzare le tue chiavi esistenti per le tue applicazioni. |
+| Il tuo team di sviluppo ha politiche rigorose e hai bisogno di un modo per generare e ruotare le chiavi ogni 30 giorni. | Con {{site.data.keyword.keymanagementserviceshort}}, puoi generare le chiavi rapidamente da un HSM (hardware security module) {{site.data.keyword.cloud_notm}}. Quando è il momento di sostituire una chiave, puoi [ruotare la chiave su richiesta](/docs/services/key-protect?topic=key-protect-rotate-keys) oppure [impostare una politica di rotazione](/docs/services/key-protect?topic=key-protect-set-rotation-policy) per la chiave per soddisfare le tue esigenze di sicurezza continuativa. |
+| Sei un amministratore della sicurezza di una azienda, come un leader finanziario o un avvocato, che deve
 rispettare la governance su come vengono protetti i dati. Devi concedere l'accesso controllato alle chiavi
-senza compromettere la sicurezza dei dati.</td>
-    <td>Con il servizio, puoi controllare l'accesso utente per gestire le chiavi
+senza compromettere la sicurezza dei dati. | Con il servizio, puoi controllare l'accesso utente per gestire le chiavi
 [assegnando ruoli di gestione dell'accesso e dell'identità differenti](/docs/services/key-protect?topic=key-protect-manage-access#roles). Ad esempio,
 puoi concedere l'accesso in sola lettura agli utenti che necessitano di visualizzare le informazioni sulla creazione delle chiavi senza
-visualizzare il materiale della chiave.</td>
-  <tr>
-    <td>Come sviluppatore, vuoi integrare le tue applicazioni pre-esistenti, come l'archiviazione con crittografia automatica, in {{site.data.keyword.keymanagementserviceshort}}. </td>
-    <td>La applicazioni in o al di fuori di {{site.data.keyword.cloud_notm}} possono
-essere integrate con le API {{site.data.keyword.keymanagementserviceshort}}. Puoi utilizzare le tue chiavi esistenti per le tue applicazioni. </td>
-  </tr>
-  <tr>
-    <td>Il tuo team di sviluppo ha politiche rigorose e hai bisogno di un modo per generare e ruotare
-le chiavi ogni 14 giorni.</td>
-    <td>Con {{site.data.keyword.keymanagementserviceshort}}, puoi generare le chiavi rapidamente da un HSM (Hardware Security Module) {{site.data.keyword.cloud_notm}} per soddisfare i tuoi bisogni di sicurezza continuativa.</td>
-  </tr>
-</table>
+visualizzare il materiale della chiave. |
+| Vuoi eseguire la crittografia envelope poiché sposti i dati nel cloud. Hai bisogno di utilizzare le tue chiavi di crittografia master in modo da poter gestire e proteggere le altre chiavi che codificano i tuoi dati inattivi. | Con {{site.data.keyword.keymanagementserviceshort}}, puoi [impacchettare (crittografare) le tue chiavi di crittografia dei dati con una chiave root altamente sicura](/docs/services/key-protect?topic=key-protect-envelope-encryption). Puoi portare le tue proprie chiavi root o crearle nel servizio.|
 
-Stai cercando una soluzione di gestione delle chiavi dedicata che supporta gli HSM (hardware security module) basati sul cloud e controllati dal cliente? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} (Beta)](/docs/services/hs-crypto?topic=hs-crypto-get-started) si integra con {{site.data.keyword.keymanagementserviceshort}} per abilitare KYOK (Keep Your Own Keys) per {{site.data.keyword.cloud_notm}}, in modo che la tua organizzazione abbia maggiore controllo e autorità sui propri dati. Per ulteriori informazioni, vedi la [pagina dei dettagli dell'offerta {{site.data.keyword.hscrypto}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/services/hyper-protect-crypto-services).
+Stai cercando una soluzione di gestione delle chiavi dedicata che supporta gli HSM (hardware security module) basati sul cloud e controllati dal cliente? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) si integra con {{site.data.keyword.keymanagementserviceshort}} per abilitare KYOK (Keep Your Own Keys) per {{site.data.keyword.cloud_notm}}, in modo che la tua organizzazione abbia maggiore controllo e autorità sui propri dati. Per ulteriori informazioni, vedi la [pagina dei dettagli dell'offerta {{site.data.keyword.hscrypto}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/services/hyper-protect-crypto-services).
 {: tip}
 
 ## Come funziona {{site.data.keyword.keymanagementserviceshort}}

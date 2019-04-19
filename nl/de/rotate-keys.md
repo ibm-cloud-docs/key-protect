@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -29,7 +29,7 @@ Durch die Rotation des Rootschlüssels wird die Laufzeit des Schlüssels verkür
 
 Die Schlüsselrotation unterstützt Sie bei der Einhaltung branchenspezifischer Vorgaben und dem Einsatz bewährter Verschlüsselungsverfahren. Informationen hierzu finden Sie in [Rotation für Ihre Verschlüsselungsschlüssel](/docs/services/key-protect?topic=key-protect-key-rotation).
 
-Die Rotation ist nur für Rootschlüssel verfügbar. Weitere Informationen zu den Optionen für Ihre Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}} finden Sie unter [Vergleich Ihrer Optionen für die Schlüsselrotation](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options).
+Die Rotation ist nur für Rootschlüssel verfügbar. Weitere Informationen zu den Optionen für Ihre Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}} finden Sie unter [Vergleich Ihrer Optionen für die Schlüsselrotation](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Schlüsselrotation für Rootschlüssel mit der GUI

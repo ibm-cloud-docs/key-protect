@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-04-03"
+
+keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
+
+subcollection: key-protect
 
 ---
 
@@ -22,9 +26,9 @@ lastupdated: "2019-01-03"
 {: shortdesc}
 
 ## Criando chaves padrão com a GUI
-{: #gui}
+{: #create-standard-key-gui}
 
-[Depois de criar uma instância do serviço](/docs/services/key-protect/provision.html), conclua as etapas a seguir para criar uma chave padrão com a GUI do {{site.data.keyword.keymanagementserviceshort}}.
+[Depois de criar uma instância do serviço](/docs/services/key-protect?topic=key-protect-provision), conclua as etapas a seguir para criar uma chave padrão com a GUI do {{site.data.keyword.keymanagementserviceshort}}.
 
 1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
 2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
@@ -47,29 +51,36 @@ lastupdated: "2019-01-03"
       </tr>
       <tr></tr>
         <td>Tipo de chave</td>
-        <td>O <a href="/docs/services/key-protect/concepts/envelope-encryption.html#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}. Na lista de tipos de chave, selecione <b>Chave padrão</b>.</td>
+        <td>O <a href="/docs/services/key-protect/concepts?topic=key-protect-envelope-encryption#key-types">tipo de chave</a> que você gostaria de gerenciar no {{site.data.keyword.keymanagementserviceshort}}. Na lista de tipos de chave, selecione <b>Chave padrão</b>.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabela 1. Descreve as configurações <b>Criar uma chave</b></caption>
     </table>
 
-45 Quando terminar de preencher os detalhes da chave, clique em **Criar chave** para confirmar. 
+5. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Criar chave** para confirmar. 
 
 ## Criando chaves padrão com a API
-{: #api}
+{: #create-standard-key-api}
 
 Crie uma chave padrão fazendo uma chamada `POST` para o terminal a seguir.
 
 ```
-https://keyprotect.<region>.bluemix.net/api/v2/keys
+https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect/access-api.html).
+1. [Recupere suas credenciais de serviço e autenticação para trabalhar com chaves no serviço](/docs/services/key-protect?topic=key-protect-set-up-api).
 
 2. Chame a API do [{{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window} com o comando cURL a seguir.
 
     ```cURL
-    curl -X POST \ https://keyprotect.<region>.bluemix.net/api/v2/keys \ -H 'authorization: Bearer <IAM_token>' \ -H 'bluemix-instance: <instance_ID>' \ -H 'content-type: application/vnd.ibm.kms.key+json' \ -H 'correlation-id: <correlation_ID>' \ -H 'prefer: <return_preference>' \ -d '{
+    curl -X POST \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' \
+      -H 'content-type: application/vnd.ibm.kms.key+json' \
+      -H 'correlation-id: <correlation_ID>' \
+      -H 'prefer: <return_preference>' \
+      -d '{
      "metadata": {
        "collectionType": "application/vnd.ibm.kms.key+json",
        "collectionTotal": 1
@@ -93,15 +104,15 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect/regions.html#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-token">Recuperando um token de acesso</a>.</td>
+        <td><strong>Necessário.</strong> Seu token de acesso do {{site.data.keyword.cloud_notm}}. Inclua o conteúdo integral do token <code>IAM</code>, incluindo valor Bearer, na solicitação cURL. Para obter mais informações, veja <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Recuperando um token de acesso</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect/access-api.html#retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
+        <td><strong>Necessário.</strong> O identificador exclusivo que é designado para sua instância de serviço {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, veja <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Recuperando um ID da instância</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -121,7 +132,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
       </tr>
       <tr>
         <td><varname>YYYY-MM-DD</varname><br><varname>HH:MM:SS.SS</varname></td>
-        <td>A data e hora em que a chave expira no sistema, em formato RFC 3339. Se o atributo <code>expirationDate</code> for omitido, a chave não expirará. </td>
+        <td>A data e hora em que a chave expira no sistema, em formato RFC 3339. Se o atributo <code>expirationDate</code> for omitido, a chave não expirará.</td>
       </tr>
       <tr>
         <td><varname>key_type</varname></td>
@@ -133,7 +144,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
         <caption style="caption-side:bottom;">Tabela 2. Descreve as variáveis que são necessárias para incluir uma chave padrão com a API do {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Para proteger a confidencialidade de seus dados pessoais, evite inserir informações pessoalmente identificáveis (PII), como seu nome ou local, ao incluir chaves no serviço. Para obter mais exemplos de PII, consulte a seção 2.2 do [NIST Special Publication 800-122 ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+    Para proteger a confidencialidade de seus dados pessoais, evite inserir informações pessoalmente identificáveis (PII), como seu nome ou local, ao incluir chaves no serviço. Para obter mais exemplos de PII, consulte a seção 2.2 do [NIST Special Publication 800-122 ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
     {: important}
 
     Uma resposta `POST api/v2/keys` bem-sucedida retorna o valor de ID para a sua chave, junto com outros metadados. O ID é um identificador exclusivo que é designado para sua chave e é usado para chamadas subsequentes para a API do {{site.data.keyword.keymanagementserviceshort}}.
@@ -142,7 +153,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
 
     ```cURL
     curl -X GET \
-      https://keyprotect.us-south.bluemix.net/api/v2/keys \
+      https://us-south.kms.cloud.ibm.com/api/v2/keys \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
@@ -150,6 +161,7 @@ https://keyprotect.<region>.bluemix.net/api/v2/keys
     {: codeblock}
 
 
-### O que vem a seguir
+## O que vem a seguir
+{: #create-standard-key-next-steps}
 
 - Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.

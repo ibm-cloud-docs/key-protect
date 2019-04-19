@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -51,7 +51,7 @@ Per ulteriori informazioni sull'utilizzo delle chiavi root per proteggere le chi
 
 Le chiavi root sono le risorse principali in {{site.data.keyword.keymanagementserviceshort}}. Sono le chiavi di impacchettamento della chiave simmetriche utilizzate come radice di attendibilità per la protezione di altre chiavi che vengono archiviate nel servizio di dati con la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption). Con {{site.data.keyword.keymanagementserviceshort}}, puoi creare, memorizzare e gestire il ciclo di vita delle chiavi root per ottenere il controllo completo di altre chiavi archiviate nel cloud. 
 
-## Cos'è la crittografia envelope? 
+## Cos'è la crittografia envelope?
 {: #what-is-envelope-encryption}
 {: faq}
 
@@ -69,7 +69,7 @@ Puoi utilizzare un nome chiave con una lunghezza massima di 90 caratteri.
 
 Per proteggere la riservatezza dei tuoi dati personali, evita di archiviare informazioni d'identificazione personale (PII) come dei metadati per le tue chiavi. Le informazioni personali includono i tuoi nome, indirizzo, numero di telefono, indirizzo email o altre informazioni che potrebbero identificare, contattare o individuare te, i tuoi clienti o chiunque altro.
 
-Sei responsabile di garantire la sicurezza di tutte le informazioni che archivi come metadati per le chiavi di crittografia e le risorse {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori esempi di dati personali, vedi la sezione 2.2 di [NIST Special Publication 800-122 ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
+Sei responsabile di garantire la sicurezza di tutte le informazioni che archivi come metadati per le chiavi di crittografia e le risorse {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori esempi di dati personali, vedi la sezione 2.2 di [NIST Special Publication 800-122 ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
 {: important}
 
 ## Le chiavi possono essere create in una regione e utilizzate in un'altra regione?

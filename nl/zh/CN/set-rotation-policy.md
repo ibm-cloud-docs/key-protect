@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -27,10 +27,10 @@ subcollection: key-protect
 
 为根密钥设置自动轮换策略时，将定期缩短密钥的生命周期，并限制受该密钥保护的信息量。
 
-只能为 {{site.data.keyword.keymanagementserviceshort}} 中生成的根密钥创建轮换策略。如果最初导入的是根密钥，那么必须提供新的 Base64 编码的密钥资料，才能轮换密钥。有关更多信息，请参阅[根据需要轮换根密钥](/docs/services/key-protect?topic=key-protect-rotate-root-keys)。
+只能为 {{site.data.keyword.keymanagementserviceshort}} 中生成的根密钥创建轮换策略。如果最初导入的是根密钥，那么必须提供新的 Base64 编码的密钥资料，才能轮换密钥。有关更多信息，请参阅[根据需要轮换根密钥](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-keys)。
 {: note}
 
-要了解有关 {{site.data.keyword.keymanagementserviceshort}} 中密钥轮换选项的更多信息吗？请查看[比较密钥轮换选项](/docs/services/key-protect?topic=key-protect-compare-key-rotation-options)以获取更多信息。
+要了解有关 {{site.data.keyword.keymanagementserviceshort}} 中密钥轮换选项的更多信息吗？请查看[比较密钥轮换选项](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options)以获取更多信息。
 {: tip}
 
 ## 在 GUI 中管理轮换策略

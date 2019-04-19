@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-03"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -61,7 +61,7 @@ Wenn Sie die Überprüfung von Verschlüsselungsschlüssel über eine grafische 
       </tr>
       <tr>
         <td>Status</td>
-        <td>Der [Schlüsselstatus](/docs/services/key-protect?topic=key-protect-key-states) basiert auf der Dokumentation ['NIST Special Publication 800-57, Recommendation for Key Management' ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf). Diese Status sind <i>Vor Aktivierung</i>, <i>Aktiv</i>, <i>Inaktiviert</i> und <i>Gelöscht</i>.</td>
+        <td>Der [Schlüsselstatus](/docs/services/key-protect?topic=key-protect-key-states) basiert auf der Dokumentation ['NIST Special Publication 800-57, Recommendation for Key Management' ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Diese Status sind <i>Vor Aktivierung</i>, <i>Aktiv</i>, <i>Inaktiviert</i> und <i>Gelöscht</i>.</td>
       </tr>
       <tr>
         <td>Typ</td>
@@ -177,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    Standardmäßig werden mit `GET api/v2/keys` die ersten 2000 Schlüssel zurückgegeben. Sie können diesen Grenzwert jedoch anpassen, indem Sie den Parameter `limit` bei der Abfrage verwenden. Weitere Informationen zu `limit` und `offset` finden Sie in [Untergruppe von Schlüsseln abrufen](#retrieve_subset_keys_api).
+    Standardmäßig werden mit `GET api/v2/keys` die ersten 2000 Schlüssel zurückgegeben. Sie können diesen Grenzwert jedoch anpassen, indem Sie den Parameter `limit` bei der Abfrage verwenden. Weitere Informationen zu `limit` und `offset` finden Sie in [Untergruppe von Schlüsseln abrufen](#retrieve-subset-keys-api).
     {: tip}
 
 ### Untergruppe von Schlüsseln abrufen

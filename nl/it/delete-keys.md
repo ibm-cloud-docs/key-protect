@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # Eliminazione delle chiavi
-{: #deleting-keys}
+{: #delete-keys}
 
 Puoi utilizzare {{site.data.keyword.keymanagementservicefull}} per eliminare una chiave crittografata e il suo contenuto, se sei un amministratore del tuo spazio {{site.data.keyword.cloud_notm}} o dell'istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-Quando elimini una chiave, distruggi permanentemente il suo contenuto e i dati associati. L'azione è irreversibile. [Eliminare in modo permanente le risorse](/docs/services/key-protect?topic=key-protect-data-security#data-deletion) non è consigliato negli ambienti di produzione, ma può essere utile negli ambienti temporanei come test o QA.
+Quando elimini una chiave, distruggi permanentemente il suo contenuto e i dati associati. L'azione è irreversibile. [Eliminare in modo permanente le risorse](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) non è consigliato negli ambienti di produzione, ma può essere utile negli ambienti temporanei come test o QA.
 {: important}
 
 ## Eliminazione delle chiavi con la GUI
@@ -39,7 +39,7 @@ Se preferisci eliminare le tue chiavi di crittografia con un'interfaccia grafica
 2. Vai a **Menu** &gt; **Resource List** per visualizzare un elenco delle tue risorse.
 3. Dal tuo elenco risorse {{site.data.keyword.cloud_notm}}, seleziona la tua istanza di cui è stato eseguito il provisioning di {{site.data.keyword.keymanagementserviceshort}}.
 4. Nella pagina dei dettagli dell'applicazione, utilizza la tabella **Keys** per sfogliare le chiavi nel tuo servizio.
-5. Fai clic sull'icona con tre punti per aprire un elenco di opzioni per la chiave che desideri eliminare.
+5. Fai clic sull'icona ⋯ per aprire un elenco di opzioni per la chiave che desideri eliminare. 
 6. Dal menu di opzioni, fai clic su **Delete key** e conferma l'eliminazione della chiave nella schermata successiva.
 
 Dopo aver eliminato una chiave, la chiave passa allo stato _Destroyed_. Le chiavi in questo stato non sono più ripristinabili. I metadati associati alla chiave, come la data di eliminazione della chiave, vengono conservati nel database {{site.data.keyword.keymanagementserviceshort}}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -55,7 +55,7 @@ Rootschlüssel sind primäre Ressourcen in {{site.data.keyword.keymanagementserv
 {: #what-is-envelope-encryption}
 {: faq}
 
-Die Envelope-Verschlüsselung ist das Vorgehen, Daten mit einem _Datenverschlüsselungsschlüssel_ zu verschlüsseln und anschließend den Datenverschlüsselungsschlüssel mit einem hoch sicheren _Key-Wrapping-Schlüssel_ zu verschlüsseln. Ihre ruhenden Daten werden durch Anwendung mehrerer Verschlüsselungsebenen geschützt. Weitere Informationen zum Aktivieren der Envelope-Verschlüsselung für Ihre {{site.data.keyword.cloud_notm}}-Ressourcen finden Sie unter [Services integrieren](/docs/services/key-protect?topic=key-protect-integrate-services).
+Die Envelope-Verschlüsselung ist das Vorgehen, Daten mit einem _Datenverschlüsselungsschlüssel_ zu verschlüsseln und anschließend den Datenverschlüsselungsschlüssel mit einem hoch sicheren _Key-Wrapping-Schlüssel_ zu verschlüsseln.  Ihre ruhenden Daten werden durch Anwendung mehrerer Verschlüsselungsebenen geschützt. Weitere Informationen zum Aktivieren der Envelope-Verschlüsselung für Ihre {{site.data.keyword.cloud_notm}}-Ressourcen finden Sie unter [Services integrieren](/docs/services/key-protect?topic=key-protect-integrate-services).
 
 ## Wie lang darf ein Schlüsselname sein?
 {: #key-names}
@@ -63,14 +63,14 @@ Die Envelope-Verschlüsselung ist das Vorgehen, Daten mit einem _Datenverschlüs
 
 Es kann ein Schlüsselname mit einer Länge von maximal 90 Zeichen verwendet werden.
 
-##  Kann ich personenbezogene Daten als Metadaten für meine Schlüssel speichern?
+## Kann ich personenbezogene Daten als Metadaten für meine Schlüssel speichern?
 {: #personal-data}
 {: faq}
 
 Zum Schutz der Vertraulichkeit Ihrer personenbezogenen Daten speichern Sie keine persönlichen Daten (personally identifiable information, PII) als Metadaten für Ihre Schlüssel. Zu den personenbezogenen Daten gehören Ihr Name, Ihre Adresse, Telefonnummer, E-Mail-Adresse und andere Informationen, anhand derer Sie, Ihre Kunden oder andere Personen identifiziert, kontaktiert oder lokalisiert werden könnten.
 
-Es liegt in Ihrer Verantwortung, die Sicherheit aller Informationen sicherzustellen, die Sie als Metadaten für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen und -Verschlüsselungsschlüssel speichern. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122 ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf){: new_window}.
-    {: important}
+Es liegt in Ihrer Verantwortung, die Sicherheit aller Informationen sicherzustellen, die Sie als Metadaten für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen und -Verschlüsselungsschlüssel speichern. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122 ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+{: important}
 
 ## Können Schlüssel, die in einer Region erstellt werden, in einer anderen Region verwendet werden?
 {: #keys-across-regions}

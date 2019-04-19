@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -61,7 +61,8 @@ Beachten Sie die folgenden Hinweise, wenn Sie bereit sind, Rootschlüsselinforma
 ## Transportschlüssel verwenden
 {: #transport-keys}
 
-Transportschlüssel sind derzeit ein Beta-Feature. Beta-Features können jederzeit geändert werden. Mit zukünftigen Aktualisierungen werden möglicherweise Änderungen eingeführt, die mit der neuesten Version nicht kompatibel sind.{: important}
+Transportschlüssel sind derzeit ein Beta-Feature. Beta-Features können jederzeit geändert werden. Mit zukünftigen Aktualisierungen werden möglicherweise Änderungen eingeführt, die mit der neuesten Version nicht kompatibel sind.
+{: important}
 
 Wenn Sie Ihre Schlüsselinformationen verschlüsseln möchten, bevor Sie sie in {{site.data.keyword.keymanagementserviceshort}} importieren, können Sie mit der {{site.data.keyword.keymanagementserviceshort}}-API einen Transportverschlüsselungsschlüssel für Ihre Serviceinstanz erstellen. 
 

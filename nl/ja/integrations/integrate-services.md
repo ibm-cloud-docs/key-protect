@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -53,7 +53,7 @@ subcollection: key-protect
           <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
         </td>
         <td>
-          <p>ルート鍵を {{site.data.keyword.databases-for-postgresql}} デプロイメントと関連付けることによって、データベースを保護します。詳しくは、[{{site.data.keyword.databases-for-postgresql}} の資料](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect)を確認してください。</p>
+          <p>ルート鍵を {{site.data.keyword.databases-for-postgresql}} デプロイメントと関連付けることによって、データベースを保護します。 詳しくは、[{{site.data.keyword.databases-for-postgresql}} の資料](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect)を確認してください。</p>
         </td>
     </tr>
       <tr>
@@ -61,7 +61,7 @@ subcollection: key-protect
           <p>{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)</p>
         </td>
         <td>
-          <p>ルート鍵を {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware インスタンスと関連付けることによって、保存データの暗号化に関する戦略を強化します。詳しくは、[{{site.data.keyword.cloudant_short_notm}} の資料](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)を確認してください。</p>
+          <p>ルート鍵を {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware インスタンスと関連付けることによって、保存データの暗号化に関する戦略を強化します。 詳しくは、[{{site.data.keyword.cloudant_short_notm}} の資料](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)を確認してください。</p>
         </td>
     </tr>
    <caption style="caption-side:bottom;">表 1. {{site.data.keyword.keymanagementserviceshort}} で使用可能な統合についての説明</caption>

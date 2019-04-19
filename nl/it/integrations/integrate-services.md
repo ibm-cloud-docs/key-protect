@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -114,7 +114,7 @@ Quando sei pronto per integrare un servizio, usa la seguente procedura per crear
 
 1. Dalla barra dei menu, fai clic su **Gestisci** &gt; **Sicurezza** &gt; **Accesso (IAM)** e seleziona **Autorizzazioni**. 
 2. Fai clic su **Crea**.
-3. Seleziona un servizio di origine e di destinazione per l'autorizzazione. 
+3. Seleziona un servizio di origine e di destinazione per l'autorizzazione.
  
   Per **Servizio di origine**, seleziona il servizio di dati cloud che vuoi integrare con {{site.data.keyword.keymanagementserviceshort}}. Per **Servizio di destinazione**, seleziona **{{site.data.keyword.keymanagementservicelong_notm}}**.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-03"
 
 keywords: delete key, delete key API examples
 
@@ -20,12 +20,12 @@ subcollection: key-protect
 {:important: .important}
 
 # 删除密钥
-{: #deleting-keys}
+{: #delete-keys}
 
 如果您是 {{site.data.keyword.cloud_notm}} 空间或 {{site.data.keyword.keymanagementserviceshort}} 服务实例的管理员，那么您可以使用 {{site.data.keyword.keymanagementservicefull}} 来删除加密密钥及其内容。
 {: shortdesc}
 
-删除密钥时，会永久粉碎其内容和关联的数据。该操作无法撤销。建议不要对生产环境[销毁资源](/docs/services/key-protect?topic=key-protect-data-security#data-deletion)，但是对临时环境（如测试或 QA）销毁资源可能很有用。
+删除密钥时，会永久粉碎其内容和关联的数据。该操作无法撤销。建议不要对生产环境[销毁资源](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion)，但是对临时环境（如测试或 QA）销毁资源可能很有用。
 {: important}
 
 ## 使用 GUI 删除密钥
@@ -39,7 +39,7 @@ subcollection: key-protect
 2. 转至**菜单** &gt; **资源列表**，以查看资源的列表。
 3. 从 {{site.data.keyword.cloud_notm}} 资源列表中，选择您供应的 {{site.data.keyword.keymanagementserviceshort}} 实例。
 4. 在应用程序详细信息页面中，使用**密钥**表来浏览服务中的密钥。
-5. 单击 ⋮ 图标以打开要删除的密钥的选项列表。
+5. 单击 ⋯ 图标以打开要删除的密钥的选项列表。
 6. 从选项菜单中，单击**删除密钥**，然后在下一个屏幕中进行确认。
 
 删除密钥后，该密钥会转变为_已销毁_状态。处于此状态的密钥不再可恢复。与密钥关联的元数据（例如，密钥的删除日期）会保存在 {{site.data.keyword.keymanagementserviceshort}} 数据库中。

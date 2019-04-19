@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -30,11 +30,11 @@ Weitere Informationen zur Verwendung des {{site.data.keyword.keymanagementservic
 ## Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} installieren
 {: #install-cli}
 
-Bevor Sie das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} einrichten können, müssen Sie die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} installieren. 
+Bevor Sie das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} einrichten können, müssen Sie die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} installieren. 
 
 Gehen Sie wie folgt vor, um die Befehlszeilenschnittstellen zu installieren:
 
-1. Installieren Sie die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Installieren Sie die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     Nach der Installation der Befehlszeilenschnittstelle können Sie `ibmcloud`-Befehle ausführen, um mit den Cloud-Services zu interagieren.
 
@@ -69,7 +69,7 @@ Sie können die Befehlszeilenschnittstelle regelmäßig aktualisieren, um neue F
 
 Gehen Sie wie folgt vor, um die Befehlszeilenschnittstelle zu aktualisieren:
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
 
     ```sh
     ibmcloud login 
@@ -96,7 +96,7 @@ Gehen Sie wie folgt vor, um die Befehlszeilenschnittstelle zu aktualisieren:
 ## Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} deinstallieren
 {: #uninstall-cli}
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-overview){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
 
     ```sh
     ibmcloud login 

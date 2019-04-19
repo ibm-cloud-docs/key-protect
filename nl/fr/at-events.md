@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-03"
 
 keywords: Activity tracker events, KMS API calls, monitor KMS events
 
@@ -27,7 +27,7 @@ Utilisez le service {{site.data.keyword.cloudaccesstrailfull}} pour savoir comme
 
 Le service {{site.data.keyword.cloudaccesstrailfull_notm}} enregistre les activités initiées par l'utilisateur qui changent l'état d'un service dans {{site.data.keyword.cloud_notm}}. 
 
-Pour plus d'informations, veuillez consulter la [documentation d'{{site.data.keyword.cloudaccesstrailshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla){: new_window}.
+Pour plus d'informations, veuillez consulter la [documentation d'{{site.data.keyword.cloudaccesstrailshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}.
 
 ## Liste des événements
 {: #list-activity-tracker-events}
@@ -43,8 +43,8 @@ Le tableau suivant répertorie les actions qui génèrent un événement :
 | `kms.secrets.head`   | Extraire le nombre de clés |
 | `kms.secrets.wrap`   | Encapsuler une clé                  |
 | `kms.secrets.unwrap` | Désencapsuler une clé                |
-| `kms.policies.read`  | Afficher la politique d'une clé      |
-| `kms.policies.write` | Définir une politique pour une clé       |
+| `kms.policies.read`  | Afficher la politique d'une clé     |
+| `kms.policies.write` | Définir une politique pour une clé      |
 {: caption="Tableau 1. Actions qui génèrent des événements {{site.data.keyword.cloudaccesstrailfull_notm}}" caption-side="top"}
 
 ## Où consulter les événements

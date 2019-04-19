@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -57,6 +57,6 @@ curl -X GET \
 {: tip} 
 
 ## 다음에 수행할 작업
-{: #whats-next-form-api}
+{: #set-up-api-next-steps}
 
 Key Protect에서 암호화 키 관리를 시작할 준비가 되었습니다. 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.

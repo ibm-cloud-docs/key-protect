@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -43,7 +43,7 @@ Per eseguire il provisioning di un'istanza di {{site.data.keyword.keymanagements
 
 Puoi anche eseguire il provisioning di un'istanza di {{site.data.keyword.keymanagementserviceshort}} utilizzando la CLI {{site.data.keyword.cloud_notm}}. 
 
-1. Accedi a {{site.data.keyword.cloud_notm}} attraverso la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-overview){: new_window}.
+1. Accedi a {{site.data.keyword.cloud_notm}} tramite la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
     ```sh
     ibmcloud login 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-04-03"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser le plug-in d'interface de ligne de commande de {{site.data.
 
 Pour installer le plug-in d'interface de ligne de commande, voir [Configuration de l'interface de ligne de commande](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Lorsque vous vous connectez à [interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-overview){: new_window}, vous êtes averti lorsque des mises à jour sont disponibles. Veillez à tenir à jour votre interface de ligne de commande de manière à pouvoir utiliser les commandes et indicateurs disponibles pour le plug-in d'interface de ligne de commande de {{site.data.keyword.keymanagementserviceshort}}.
+Lorsque vous vous connectez à l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}, vous êtes averti lorsque des mises à jour sont disponibles. Veillez à tenir à jour votre interface de ligne de commande de manière à pouvoir utiliser les commandes et indicateurs disponibles pour le plug-in d'interface de ligne de commande de {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
 ## Commandes ibmcloud kp
@@ -58,12 +58,28 @@ Vous pouvez spécifier l'une des commandes suivantes :
     <caption style="caption-side:bottom;">Table 1. Commandes de gestion des clés</caption> 
  </table>
 
+ <table summary="Commandes de gestion des règles de clés">
+    <thead>
+        <th colspan="5">Commandes de gestion des règles de clés</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#kp-policy-list">kp policy list</a></td>
+            <td><a href="#kp-policy-get">kp policy get</a></td>
+            <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <caption style="caption-side:bottom;">Tableau 2. Commandes de gestion des règles de clés</caption> 
+ </table>
+
 ## kp create
 {: #kp-create}
 
 [Créer une clé racine](/docs/services/key-protect?topic=key-protect-create-root-keys) dans l'instance de service {{site.data.keyword.keymanagementserviceshort}} que vous indiquez. 
 
-```sh
+```
 ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
@@ -98,7 +114,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 
 [Supprimer une clé](/docs/services/key-protect?topic=key-protect-delete-keys) stockée dans votre service {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -118,7 +134,7 @@ ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 Répertorier les 200 dernières clés disponibles dans votre instance de service {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -146,7 +162,7 @@ Extrayez les détails d'une clé, comme les métadonnées de clé et le matérie
 
 Si la clé a été conçue en tant que clé racine, le système ne peut pas renvoyer le matériel de clé pour cette clé.
 
-```sh
+```
 ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
@@ -174,9 +190,9 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Procéder à la rotation d'une clé racine](/docs/services/key-protect?topic=key-protect-wrap-keys) stockée dans votre service {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-p, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
@@ -205,7 +221,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Encapsuler une clé de chiffrement de données](/docs/services/key-protect?topic=key-protect-wrap-keys) à l'aide d'une clé racine stockée dans l'instance de service {{site.data.keyword.keymanagementserviceshort}} que vous spécifiez.
 
-```sh
+```
 ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
@@ -240,7 +256,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 [Désencapsuler une clé de chiffrement de données](/docs/services/key-protect?topic=key-protect-unwrap-keys) à l'aide d'une clé racine stockée dans votre instance de service {{site.data.keyword.keymanagementserviceshort}}.
 
-```sh
+```
 ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
@@ -269,5 +285,93 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
+## kp policy list
+{: #kp-policy-list}
 
+Répertorier les règles associées à la clé racine spécifiée.
+
+```
+ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Paramètres requis
+{: #policy-list-req-params}
+
+<dl>
+    <dt><code>KEY_ID</code></dt>
+        <dd>ID de la clé racine à demander. Pour obtenir la liste des clés disponibles, exécutez la commande <a href="#kp-list">kp list</a>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>ID instance {{site.data.keyword.cloud_notm}} qui identifie votre instance de service {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Paramètres facultatifs
+{: #policy-list-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
+</dl>
+
+## kp policy get
+{: #kp-policy-get}
+
+Extraire les détails d'une règle de clé, comme l'intervalle de rotation automatique de la clé.
+
+```
+ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+```
+{: pre}
+
+### Paramètres requis
+{: #policy-get-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>ID de la clé à demander. Pour obtenir la liste des clés disponibles, exécutez la commande <a href="#kp-list">kp list</a>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>ID instance {{site.data.keyword.cloud_notm}} qui identifie votre instance de service {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Paramètres facultatifs
+{: #policy-get-opt-params}
+
+<dl>
+    <dt><code>--output</code></dt>
+        <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
+</dl>
+
+## kp policy set
+{: #kp-policy-set}
+
+Créer ou remplacer la règle associée à la clé racine spécifiée.
+
+```
+ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+                 --set-type POLICY_TYPE 
+                 [--policy INTERVAL]
+```
+{: pre}
+
+### Paramètres requis
+{: #policy-set-req-params}
+
+<dl>
+   <dt><code>KEY_ID</code></dt>
+        <dd>ID de la clé à demander. Pour obtenir la liste des clés disponibles, exécutez la commande <a href="#kp-list">kp list</a>.</dd>
+   <dt><code>--set-type</code></dt>
+        <dd>Spécifiez le type de règle à définir. Pour définir une règle de rotation, utilisez <code>--set-type rotation</code>.</dd>
+    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+        <dd>ID instance {{site.data.keyword.cloud_notm}} qui identifie votre instance de service {{site.data.keyword.keymanagementserviceshort}}.</dd>
+</dl>
+
+### Paramètres facultatifs
+{: #policy-set-opt-params}
+
+<dl>
+   <dt><code>-p, --policy</code></dt>
+        <dd>Spécifiez l'intervalle de rotation (en mois) pour une clé. La valeur par défaut est 1.</dd>
+    <dt><code>--output</code></dt>
+        <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
+</dl>
 
