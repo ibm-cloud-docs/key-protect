@@ -32,9 +32,9 @@ O {{site.data.keyword.cos_full_notm}} fornece armazenamento em nuvem para dados 
 
 Para manter a integridade e a disponibilidade de dados, o {{site.data.keyword.cos_full_notm}} fatia e dispersa dados para nós de armazenamento em múltiplas localizações geográficas. Nenhuma cópia completa dos dados reside em nenhum nó de
 armazenamento único e apenas um subconjunto de nós precisa estar disponível para que você possa recuperar totalmente os dados na
-rede. Criptografia do lado do provedor é fornecida, então, seus dados são protegidos em repouso e em andamento. Para gerenciar o armazenamento, crie depósitos e importe objetos com o console do {{site.data.keyword.cloud_notm}} ou usando programaticamente a [API de REST do {{site.data.keyword.cos_full_notm}}![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window}.
+rede. Criptografia do lado do provedor é fornecida, então, seus dados são protegidos em repouso e em andamento. Para gerenciar o armazenamento, crie depósitos e importe objetos com o console do {{site.data.keyword.cloud_notm}} ou usando programaticamente a [API de REST do {{site.data.keyword.cos_full_notm}}![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
 
-Para obter mais informações, consulte [Sobre o COS ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}.
+Para obter mais informações, consulte [Sobre o COS ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
 
 ## Como a integração funciona
 {: #kp_cos_how}

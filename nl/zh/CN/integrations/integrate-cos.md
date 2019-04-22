@@ -30,9 +30,9 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} 用于为非结构化数据提供云存储。非结构化数据是指文件、音频/视频媒体、PDF、压缩的数据归档、备份映像、应用程序工件、业务文档或其他任何二进制对象。  
 
-为了保持数据完整性和可用性，{{site.data.keyword.cos_full_notm}} 会对数据执行分片，还会将数据分散到跨多个地理位置的存储节点。数据完整副本不会位于任何单个存储节点中，只需要有一部分节点可用，就可以在网络上完整检索到数据。提供了提供者端加密，以确保您的静态和动态数据的安全。要管理存储器，请使用 {{site.data.keyword.cloud_notm}} 控制台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window} 以编程方式创建存储区和导入对象。
+为了保持数据完整性和可用性，{{site.data.keyword.cos_full_notm}} 会对数据执行分片，还会将数据分散到跨多个地理位置的存储节点。数据完整副本不会位于任何单个存储节点中，只需要有一部分节点可用，就可以在网络上完整检索到数据。提供了提供者端加密，以确保您的静态和动态数据的安全。要管理存储器，请使用 {{site.data.keyword.cloud_notm}} 控制台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window} 以编程方式创建存储区和导入对象。
 
-有关更多信息，请参阅[关于 COS ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}。
+有关更多信息，请参阅[关于 COS ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}。
 
 ## 集成的工作方式
 {: #kp_cos_how}

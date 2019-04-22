@@ -30,9 +30,9 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} provides cloud storage for unstructured data. Unstructured data refers to files, audio/visual media, PDFs, compressed data archives, backup images, application artifacts, business documents, or any other binary object.  
 
-To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}} slices and disperses data to storage nodes across multiple geographic locations. No complete copy of the data resides in any single storage node, and only a subset of nodes needs to be available so you can fully retrieve the data on the network. Provider-side encryption is provided, so your data is secured at rest and in flight. To manage storage, you create buckets and import objects with the {{site.data.keyword.cloud_notm}} console, or programmatically by using the [{{site.data.keyword.cos_full_notm}} REST API ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window}.
+To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}} slices and disperses data to storage nodes across multiple geographic locations. No complete copy of the data resides in any single storage node, and only a subset of nodes needs to be available so you can fully retrieve the data on the network. Provider-side encryption is provided, so your data is secured at rest and in flight. To manage storage, you create buckets and import objects with the {{site.data.keyword.cloud_notm}} console, or programmatically by using the [{{site.data.keyword.cos_full_notm}} REST API ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
 
-For more information, see [About COS ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}.
+For more information, see [About COS ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
 
 ## How the integration works
 {: #kp_cos_how}

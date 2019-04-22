@@ -30,9 +30,9 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} は、非構造化データ用のクラウド・ストレージを提供します。 非構造化データとは、ファイル、オーディオビジュアル・メディア、PDF、圧縮データ・アーカイブ、バックアップ・イメージ、アプリケーション成果物、ビジネス文書、その他のバイナリー・オブジェクトを指します。  
 
-データの保全性と可用性を維持するために、{{site.data.keyword.cos_full_notm}} は、複数の地理的位置にわたる複数のストレージ・ノード間に、データをスライスし、分散させます。 データの完全なコピーは、単一のストレージ・ノードには存在しません。ノードのサブセットが使用可能であれば、ネットワーク上のデータを完全に取り出すことができます。 プロバイダー・サイドで暗号化が提供されているため、データは保存中も移動中も保護されています。 ストレージを管理するには、バケットを作成し、{{site.data.keyword.cloud_notm}} コンソールを使用して、あるいは [{{site.data.keyword.cos_full_notm}}REST API ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window} を使用してプログラムで、オブジェクトをインポートします。
+データの保全性と可用性を維持するために、{{site.data.keyword.cos_full_notm}} は、複数の地理的位置にわたる複数のストレージ・ノード間に、データをスライスし、分散させます。 データの完全なコピーは、単一のストレージ・ノードには存在しません。ノードのサブセットが使用可能であれば、ネットワーク上のデータを完全に取り出すことができます。 プロバイダー・サイドで暗号化が提供されているため、データは保存中も移動中も保護されています。 ストレージを管理するには、バケットを作成し、{{site.data.keyword.cloud_notm}} コンソールを使用して、あるいは [{{site.data.keyword.cos_full_notm}}REST API ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window} を使用してプログラムで、オブジェクトをインポートします。
 
-詳しくは、[COS 概要 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window} を参照してください。
+詳しくは、[COS 概要 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window} を参照してください。
 
 ## 統合が動作する仕組み
 {: #kp_cos_how}

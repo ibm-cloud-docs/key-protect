@@ -30,9 +30,9 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} 為非結構化資料提供雲端儲存空間。非結構化資料是指檔案、視聽媒體、PDF、壓縮的資料保存檔、備份映像檔、應用程式構件、商業文件或任何其他二進位物件。  
 
-為了維護資料完整性及可用性，{{site.data.keyword.cos_full_notm}} 會切割資料，並將其分散至多個地理位置的儲存節點。任何單一儲存節點中都沒有完整的資料副本，只需要使用一部分的節點，如此您就可以完整擷取網路上的資料。提供了提供者端加密，因此您的靜置及進行中資料都受到保護。若要管理儲存空間，請使用 {{site.data.keyword.cloud_notm}} 主控台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about){: new_window} 透過程式設計方式，來建立儲存區以及匯入物件。
+為了維護資料完整性及可用性，{{site.data.keyword.cos_full_notm}} 會切割資料，並將其分散至多個地理位置的儲存節點。任何單一儲存節點中都沒有完整的資料副本，只需要使用一部分的節點，如此您就可以完整擷取網路上的資料。提供了提供者端加密，因此您的靜置及進行中資料都受到保護。若要管理儲存空間，請使用 {{site.data.keyword.cloud_notm}} 主控台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window} 透過程式設計方式，來建立儲存區以及匯入物件。
 
-如需相關資訊，請參閱[關於 COS ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage){: new_window}。
+如需相關資訊，請參閱[關於 COS ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}。
 
 ## 整合的運作方式
 {: #kp_cos_how}
