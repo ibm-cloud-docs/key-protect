@@ -48,7 +48,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Copy the key material of the DEK that you want to manage and protect.
 
-    If you have manager or writer privileges for your {{site.data.keyword.keymanagementserviceshort}} service instance, [you can retrieve the key material for a specific key by making a `GET /v2/keys/<key_ID>` request](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    If you have manager or writer privileges for your {{site.data.keyword.keymanagementserviceshort}} service instance, [you can retrieve the key material for a specific key by making a `GET /v2/keys/<key_ID>` request](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copy the ID of the root key that you want to use for wrapping.
 
@@ -81,7 +81,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>

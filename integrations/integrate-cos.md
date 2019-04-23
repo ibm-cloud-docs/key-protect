@@ -35,7 +35,7 @@ To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}}
 For more information, see [About COS ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
 
 ## How the integration works
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} integrates with {{site.data.keyword.cos_full_notm}} to help you achieve full control of the security of your data.  
 
@@ -49,7 +49,7 @@ The following figure shows how {{site.data.keyword.keymanagementserviceshort}} i
 To learn more about how envelope encryption works in {{site.data.keyword.keymanagementserviceshort}}, see [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Adding envelope encryption to your storage buckets
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [After you designate a root key in {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) and [grant access between your services](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), you can enable envelope encryption for a specified storage bucket by using the {{site.data.keyword.cos_full_notm}} GUI.
 
@@ -70,4 +70,4 @@ From the {{site.data.keyword.cos_full_notm}} GUI, you can browse the buckets tha
 ## What's next
 {: #cos-integration-next-steps}
 
-- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: new_window}. 

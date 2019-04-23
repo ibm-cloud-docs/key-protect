@@ -46,7 +46,7 @@ If you prefer to rotate your root keys by using a graphical interface, you can u
 5. Click the ⋯ icon to open a list of options for the key that you want to rotate.
 6. From the options menu, click **Rotate key** and confirm the rotation in the next screen.
 
-If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Importing root keys with the GUI](/docs/services/key-protect?topic=key-protect-import-root-keys#gui).
+If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Importing root keys with the GUI](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-gui).
 {: note}
 
 ## Rotating root keys by using the API
@@ -87,7 +87,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>

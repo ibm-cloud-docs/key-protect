@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-04-11"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -91,7 +91,7 @@ The following table describes the inputs needed to perform a key wrap operation:
   </tr>
   <tr>
     <td>Plaintext</td>
-    <td>Optional: The key material of the DEK that contains the data you want to manage and protect. A plaintext that is used for key wrapping must be base64 encoded. To generate a 256-bit DEK, you can omit the `plaintext` attribute. The service generates a base64 encoded DEK to use for key wrapping.</td>
+    <td>Optional: The data encryption key (DEK) that you want to use for data encryption. This value must be base64 encoded. To generate a new DEK, you can omit the <code>plaintext</code> property. Key Protect generates a random plaintext (32 bytes) that is rooted in an HSM and then wraps that value.</td>
   </tr>
   <tr>
     <td>Additional authentication data (AAD)</td>
