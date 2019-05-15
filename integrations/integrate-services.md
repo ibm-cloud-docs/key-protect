@@ -53,7 +53,7 @@ subcollection: key-protect
           <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
         </td>
         <td>
-          <p>Protect your databases by associating root keys with your {{site.data.keyword.databases-for-postgresql}} deployment. To learn more, check out the [{{site.data.keyword.databases-for-postgresql}} documentation](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect).</p>
+          <p>Protect your databases by associating root keys with your {{site.data.keyword.databases-for-postgresql}} deployment. To learn more, check out the [{{site.data.keyword.databases-for-postgresql}} documentation](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).</p>
         </td>
     </tr>
       <tr>
