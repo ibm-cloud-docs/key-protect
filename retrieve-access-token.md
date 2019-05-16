@@ -22,7 +22,7 @@ subcollection: key-protect
 # Retrieving an access token
 {: #retrieve-access-token}
 
-Get started with the {{site.data.keyword.keymanagementservicelong}} APIs by using authenticating your requests to the service with an {{site.data.keyword.iamlong}} (IAM) access token.
+Get started with the {{site.data.keyword.keymanagementservicelong}} APIs by authenticating your requests to the service with an {{site.data.keyword.iamlong}} (IAM) access token.
 {: shortdesc}
 
 ## Retrieving an access token with the CLI
