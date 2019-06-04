@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -36,7 +37,7 @@ To learn more about security controls across {{site.data.keyword.cloud_notm}}, s
 ### Data encryption
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/hardware-security-module){:new_window} to generate provider-managed key material and perform [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
+{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://www.ibm.com/cloud/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
 
 Access to the service takes place over HTTPS, and internal {{site.data.keyword.keymanagementserviceshort}} communication uses the Transport Layer Security (TLS) 1.2 protocol to encrypt data in transit.
 
@@ -55,7 +56,7 @@ To help you determine what data is protected by a key, you can view how your {{s
 
 {{site.data.keyword.keymanagementserviceshort}} meets controls for global, industry, and regional compliance standards, including GDPR, HIPAA, and ISO 27001/27017/27018, and others. 
 
-For a complete listing of {{site.data.keyword.cloud_notm}} compliance certifications, see [Compliance on the {{site.data.keyword.cloud_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){:new_window}.
+For a complete listing of {{site.data.keyword.cloud_notm}} compliance certifications, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
 {: tip}
 
 ### EU support
@@ -63,7 +64,7 @@ For a complete listing of {{site.data.keyword.cloud_notm}} compliance certificat
 
 {{site.data.keyword.keymanagementserviceshort}} has extra controls in place to protect your {{site.data.keyword.keymanagementserviceshort}} resources in the European Union (EU). 
 
-If you use {{site.data.keyword.keymanagementserviceshort}} resources in the Frankfurt, Germany region to process personal data for European citizens, you can enable the EU Supported setting for your {{site.data.keyword.cloud_notm}} account. To find out more, see [Enabling the EU Supported setting](/docs/account?topic=account-enabling-hipaa#bill_eusupported) and [Requesting support for resources in the European Union](/docs/get-support?topic=get-support-getting-customer-support#eusupported).
+If you use {{site.data.keyword.keymanagementserviceshort}} resources in the Frankfurt, Germany region to process personal data for European citizens, you can enable the EU Supported setting for your {{site.data.keyword.cloud_notm}} account. To find out more, see [Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) and [Requesting support for resources in the European Union](/docs/get-support?topic=get-support-getting-customer-support#eusupported).
 
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}
@@ -72,24 +73,24 @@ The GDPR seeks to create a harmonized data protection law framework across the E
 
 {{site.data.keyword.IBM_notm}} is committed to providing our clients and {{site.data.keyword.IBM_notm}} Business Partners with innovative data privacy, security, and governance solutions to assist them in their journey to GDPR readiness.
 
-To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort}} resources, [enable the EU supported setting](/docs/account?topic=account-enabling-hipaa#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account. You can learn more about how {{site.data.keyword.keymanagementserviceshort}} processes and protects personal data by reviewing the following addendums.
+To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort}} resources, [enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account. You can learn more about how {{site.data.keyword.keymanagementserviceshort}} processes and protects personal data by reviewing the following addendums.
 
-- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){:new_window}
-- [{{site.data.keyword.IBM_notm}} Data Processing Addendum (DPA) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/customer/csol/terms/?cat=dpa){:new_window}
+- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){: external}
+- [{{site.data.keyword.IBM_notm}} Data Processing Addendum (DPA)](https://www.ibm.com/support/customer/csol/terms/?cat=dpa){: external}
 
 ### HIPAA support
 {: #hipaa-ready}
 
 {{site.data.keyword.keymanagementserviceshort}} meets controls for the US Health Insurance Portability and Accountability Act (HIPAA) to ensure safeguarding of protected health information (PHI). 
 
-If you or your company is a covered entity as defined by HIPAA, you can enable the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account. To find out more, see [Enabling the HIPAA Supported setting](/docs/account?topic=account-enabling-hipaa#enabling-hipaa).
+If you or your company is a covered entity as defined by HIPAA, you can enable the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account. To find out more, see [Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa).
 
 ### ISO 27001, 27017, 27018
 {: #iso}
 
-{{site.data.keyword.keymanagementserviceshort}} is ISO 27001, 27017, 27018 certified. You can view compliance certifications by visiting [Compliance on the {{site.data.keyword.cloud_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){:new_window}. 
+{{site.data.keyword.keymanagementserviceshort}} is ISO 27001, 27017, 27018 certified. You can view compliance certifications by visiting [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}. 
 
 ### SOC 2 Type 1
 {: #soc2-type1}
 
-{{site.data.keyword.keymanagementserviceshort}} is SOC 2 Type 1 certified. For information about requesting an {{site.data.keyword.cloud_notm}} SOC 2 report, see [Compliance on the {{site.data.keyword.cloud_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){:new_window}.
+{{site.data.keyword.keymanagementserviceshort}} is SOC 2 Type 1 certified. For information about requesting an {{site.data.keyword.cloud_notm}} SOC 2 report, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
