@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-04"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -104,11 +104,11 @@ You can also retrieve your access token programmatically by first creating a [se
       "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    In the request, replace `<API_KEY>` with the API key that you created in the previous step. The following truncated example shows the token output:
+    In the request, replace `<API_KEY>` with the API key that you created in the previous step. The following truncated example shows the contents of the `token.json` file:
 
     ```
     {
