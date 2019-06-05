@@ -84,7 +84,7 @@ Plan ahead for importing keys by [reviewing your options for creating and encryp
 ### Step 1: Create a transport key
 {: #create-transport-key}
 
-Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes are incompatible with the latest version.
+Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes that are incompatible with the latest version.
 {: important}
 
 Create a transport key for your service instance by making a `POST` call to the following endpoint.
