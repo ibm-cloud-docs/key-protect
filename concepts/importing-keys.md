@@ -61,7 +61,7 @@ Keep the following considerations in mind when you're ready to import root key m
 ## Using transport keys
 {: #transport-keys}
 
-Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes are incompatible with the latest version.
+Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes that are incompatible with the latest version.
 {: important}
 
 If you want to encrypt your key material before you import it into {{site.data.keyword.keymanagementserviceshort}}, you can create a transport encryption key for your service instance by using the {{site.data.keyword.keymanagementserviceshort}} API. 
