@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-24"
+lastupdated: "2019-06-06"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -26,6 +26,14 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 ## May 2019
 {: #may-2019}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} upgrades HSMs to FIPS 140-2 Level 3
+{: #upgraded-hsms}
+New as of: 2019-05-22
+
+{{site.data.keyword.keymanagementserviceshort}} now uses {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 for cryptographic storage and operations. Your {{site.data.keyword.keymanagementserviceshort}} keys are stored in FIPS 140-2 Level 3-compliant, tamper-evident hardware for all regions. 
+
+To learn more about the features and benefits of {{site.data.keyword.cloud_notm}} HSM 7.0, check out the [product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
 {: #legacy-service-eol}

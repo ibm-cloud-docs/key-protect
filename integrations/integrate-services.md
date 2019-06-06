@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-06-06"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -74,7 +74,7 @@ When you integrate a supported service with {{site.data.keyword.keymanagementser
 
 For example, you can create a root key, manage the key in {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect the data that is stored across different cloud services.
 
-![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations_min.svg)
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg)
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods
 {: #envelope-encryption-api-methods}
