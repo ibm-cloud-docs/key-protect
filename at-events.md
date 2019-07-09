@@ -61,8 +61,6 @@ The following table lists the {{site.data.keyword.keymanagementserviceshort}} ac
 | `kms.secrets.rewrap`     | Rewrap a key                |
 | `kms.policies.read`      | View a policy for a key     |
 | `kms.policies.write`     | Set a policy for a key      |
-| `kms.importtoken.create` | Create an import token      |
-| `kms.importtoken.read`   | Retrieve an import token    |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
 
 ## Viewing events
