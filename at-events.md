@@ -58,7 +58,6 @@ The following table lists the {{site.data.keyword.keymanagementserviceshort}} ac
 | `kms.secrets.head`       | Retrieve the number of keys |
 | `kms.secrets.wrap`       | Wrap a key                  |
 | `kms.secrets.unwrap`     | Unwrap a key                |
-| `kms.secrets.rewrap`     | Rewrap a key                |
 | `kms.policies.read`      | View a policy for a key     |
 | `kms.policies.write`     | Set a policy for a key      |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
