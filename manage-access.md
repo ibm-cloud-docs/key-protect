@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ The following table shows how identity and access roles map to {{site.data.keywo
   <caption style="caption-side:bottom;">Table 1. Describes how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
 </table>
 
-Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-cfaccess){: new_window} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-userroles){: new_window}.
+Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles](/docs/iam?topic=iam-cfaccess){: external} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions](/docs/iam?topic=iam-userroles){: external}.
 {: note}
 
 ## What's next
@@ -105,5 +106,5 @@ Cloud IAM user roles provide access at the service or service instance level. [C
 
 Account owners and admins can invite users and set service policies that correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the users can perform.
 
-- For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-getstarted){: new_window}.
+- For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access](/docs/iam?topic=iam-getstarted){: external}.
 

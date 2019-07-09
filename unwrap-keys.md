@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Unwrapping keys
 {: #unwrap-keys}
 
-You can unwrap a data encryption key (DEK) to access its contents by using the {{site.data.keyword.keymanagementservicefull}} API, if you are a privileged user. Unwrapping a DEK decrypts and checks the integrity of its contents, returning the original key material to your {{site.data.keyword.cloud_notm}} data service.
+You can unwrap a data encryption key (DEK) to access its contents by using the {{site.data.keyword.keymanagementservicefull}} API. Unwrapping a DEK decrypts and checks the integrity of its contents, returning the original key material to your {{site.data.keyword.cloud_notm}} data service.
 {: shortdesc}
 
 To learn how key wrapping helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
@@ -107,3 +108,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key.
+    {: note}

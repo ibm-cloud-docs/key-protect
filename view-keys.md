@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,7 +29,7 @@ subcollection: key-protect
 Audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the key.
-- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}.
+- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/key-protect?topic=key-protect-at-events).
 - Inspect which users have access to keys and if the level of access is appropriate.
 
 For more information about auditing access to your resources, see [Managing user access with Cloud IAM](/docs/services/key-protect?topic=key-protect-manage-access).
@@ -40,7 +41,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 [After you create or import your existing keys into the service](/docs/services/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/).
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/).
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. Browse the general characteristics of your keys from the application details page:
@@ -56,11 +57,11 @@ If you prefer to inspect the keys in your service by using a graphical interface
       </tr>
       <tr>
         <td>ID</td>
-        <td>A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect).</td>
+        <td>A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect).</td>
       </tr>
       <tr>
         <td>State</td>
-        <td>The [key state](/docs/services/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
+        <td>The [key state](/docs/services/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
       </tr>
       <tr>
         <td>Type</td>
@@ -163,7 +164,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
-            "mode": "GCM"
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -328,7 +329,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "GCM"
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -338,4 +339,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
+    For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.

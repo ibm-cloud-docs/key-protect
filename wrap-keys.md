@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Wrapping keys
 {: #wrap-keys}
 
-You can manage and protect your encryption keys with a root key by using the {{site.data.keyword.keymanagementservicelong}} API, if you are a privileged user.
+You can manage and protect your encryption keys with a root key by using the {{site.data.keyword.keymanagementservicelong}} API.
 {: shortdesc}
 
 When you wrap a data encryption key (DEK) with a root key, {{site.data.keyword.keymanagementserviceshort}} combines the strength of multiple algorithms to protect the privacy and the integrity of your encrypted data.  
@@ -34,7 +35,7 @@ To learn how key wrapping helps you control the security of at-rest data in the 
 
 You can protect a specified data encryption key (DEK) with a root key that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
-When you supply a root key for wrapping, ensure that the root key is 128, 192, or 256 bits so that the wrap call can succeed. If you create a root key in the service, {{site.data.keyword.keymanagementserviceshort}} generates a 256-bit key from its HSMs, supported by the AES-GCM algorithm.
+When you supply a root key for wrapping, ensure that the root key is 128, 192, or 256 bits so that the wrap call can succeed. If you create a root key in the service, {{site.data.keyword.keymanagementserviceshort}} generates a 256-bit key from its HSMs, supported by the AES-CBC-PAD algorithm.
 {: note}
 
 [After you designate a root key in the service](/docs/services/key-protect?topic=key-protect-create-root-keys), you can wrap a DEK with advanced encryption by making a `POST` call to the following endpoint.
@@ -126,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    The <code>plaintext</code> value represents the unwrapped DEK, and <code>ciphertext</code> value represents the wrapped DEK.
+    The `plaintext` value represents the unwrapped DEK, and `ciphertext` value represents the wrapped DEK.
     
     If you want {{site.data.keyword.keymanagementserviceshort}} to generate a new data encryption key (DEK) on your behalf, you can also pass in an empty body on a wrap request. Your generated DEK, containing the base64 encoded key material, is returned in the response entity-body, along with the wrapped DEK.
     {: tip}

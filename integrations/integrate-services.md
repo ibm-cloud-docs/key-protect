@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [After you create an instance of the service](/docs/services/key-protect?topic=key-protect-provision), you can integrate {{site.data.keyword.keymanagementserviceshort}} with the following supported services:
 
-<table>
-    <tr>
-        <th>Service</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>Add [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to your storage buckets by using {{site.data.keyword.keymanagementserviceshort}}. Use root keys that you manage in {{site.data.keyword.keymanagementserviceshort}} to protect the data encryption keys that encrypt your data at rest. To learn more, check out [Integrating with {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>Use [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to protect secrets in your {{site.data.keyword.containershort_notm}} cluster. To learn more, check out [Encrypting Kubernetes secrets by using {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>Protect your databases by associating root keys with your {{site.data.keyword.databases-for-postgresql}} deployment. To learn more, check out the [{{site.data.keyword.databases-for-postgresql}} documentation](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)</p>
-        </td>
-        <td>
-          <p>Strengthen your encryption at rest strategy by associating root keys with your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware instance. To learn more, check out the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control).</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">Table 1. Describes the integrations that are available for {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+| Service | Description |
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} | Add [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to your storage buckets by using {{site.data.keyword.keymanagementserviceshort}}. Use root keys that you manage in {{site.data.keyword.keymanagementserviceshort}} to protect the data encryption keys that encrypt your data at rest. To learn more, check out [Integrating with {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} | Protect your databases by associating root keys with your {{site.data.keyword.databases-for-postgresql}} deployment. To learn more, check out the [{{site.data.keyword.databases-for-postgresql}} documentation](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).|
+| {{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated) | Strengthen your encryption at rest strategy by associating root keys with your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware instance. To learn more, check out the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control). |
+| {{site.data.keyword.containerlong_notm}} | Use [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to protect secrets in your {{site.data.keyword.containershort_notm}} cluster. To learn more, check out [Encrypting Kubernetes secrets by using {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).|
+{: caption="Table 1. Describes the integrations that are available with {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 ## Understanding your integration 
 {: #understand-integration}
@@ -83,23 +52,13 @@ Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drive
 
 The following table lists the API methods that add or remove envelope encryption on a resource.
 
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">Wrap (encrypt) a data encryption key</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">Unwrap (decrypt) a data encryption key</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods</caption>
-</table>
+| Method | Description |
+| --- | --- |
+| `POST /keys/{root_key_ID}?action=wrap` | [Wrap (encrypt) a data encryption key](/docs/services/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{root_key_ID}?action=unwrap` | [Unwrap (decrypt) a data encryption key](/docs/services/key-protect?topic=key-protect-unwrap-keys) |
+{: caption="Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
 
-To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
+To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
 {: tip}
 
 ## Integrating a supported service
@@ -107,7 +66,7 @@ To find out more about programmatically managing your keys in {{site.data.keywor
 
 To add an integration, create an authorization between services by using the {{site.data.keyword.iamlong}} dashboard. Authorizations enable service to service access policies, so you can associate a resource in your cloud data service with a [root key](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
-Be sure to provision both services in the same region before you create an authorization. To learn more about service authorizations, see [Granting access between services ![External link icon](../../../icons/launch-glyph.svg "External link icon")](/docs/iam?topic=iam-serviceauth){: new_window}.
+Be sure to provision both services in the same region before you create an authorization. To learn more about service authorizations, see [Granting access between services](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
 When you're ready to integrate a service, use the following steps to create an authorization:

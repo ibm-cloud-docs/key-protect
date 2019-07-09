@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ You can use a key name that is up to 90 characters in length.
 
 To protect the confidentiality of your personal data, do not store personally identifiable information (PII) as metadata for your keys. Personal information includes your name, address, phone number, email address, or other information that might identify, contact, or locate you, your customers, or anyone else.
 
-You are responsible for ensuring the security of any information that you store as metadata for {{site.data.keyword.keymanagementserviceshort}} resources and encryption keys. For more examples of personal data, see section 2.2 of the [NIST Special Publication 800-122 ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+You are responsible for ensuring the security of any information that you store as metadata for {{site.data.keyword.keymanagementserviceshort}} resources and encryption keys. For more examples of personal data, see section 2.2 of the [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## Can keys that are created in one region be used in another region?
@@ -89,7 +90,7 @@ Your encryption keys are confined to the region that you created them in. {{site
 
 You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}} service instance. For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
-To find out more, check out [Activity Tracker events](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+To find out more, check out [Activity Tracker events](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## What happens when I delete a key?
 {: #key-destruction}
@@ -104,3 +105,4 @@ Before you delete a key, ensure that you no longer require access to any data th
 {: faq}
 
 If you decide to move on from {{site.data.keyword.keymanagementserviceshort}}, you must delete any remaining keys from your service instance before you can deprovision the service. After you delete your service instance, {{site.data.keyword.keymanagementserviceshort}} uses [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to crypto-shred any data that is associated with the service instance. 
+

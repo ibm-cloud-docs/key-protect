@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-07-09"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -11,16 +11,17 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:tsSymptoms: .tsSymptoms} 
-{:tsCauses: .tsCauses} 
-{:tsResolve: .tsResolve}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:tsSymptoms: .tsSymptoms} 
+{:tsCauses: .tsCauses} 
+{:tsResolve: .tsResolve}
 
 # Troubleshooting
 {: #troubleshooting}
@@ -50,14 +51,14 @@ Verify with your administrator that you are assigned the correct role in the app
 If you have problems or questions when you are using {{site.data.keyword.keymanagementserviceshort}}, you can check {{site.data.keyword.cloud_notm}}, or get help by searching for information or by asking questions through a forum. You can also open a support ticket.
 {: shortdesc}
 
-You can check whether {{site.data.keyword.cloud_notm}} is available by going to the [status page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/status?tags=platform,runtimes,services).
+You can check whether {{site.data.keyword.cloud_notm}} is available by going to the [status page](https://{DomainName}/status?tags=platform,runtimes,services){: external}.
 
 You can review the forums to see whether other users ran into the same problem. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
 
-- If you have technical questions about {{site.data.keyword.keymanagementserviceshort}}, post your question on [Stack Overflow ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: new_window} and tag your question with "ibm-cloud" and "key-protect".
-- For questions about the service and getting started instructions, use the [IBM developerWorks dW Answers ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/answers/topics/key-protect/){: new_window} forum. Include the "ibm-cloud"
+- If you have technical questions about {{site.data.keyword.keymanagementserviceshort}}, post your question on [Stack Overflow](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: external} and tag your question with "ibm-cloud" and "key-protect".
+- For questions about the service and getting started instructions, use the [IBM developerWorks dW Answers](https://developer.ibm.com/answers/topics/key-protect/){: external} forum. Include the "ibm-cloud"
 and "key-protect" tags.
 
-See [Getting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: new_window} for more details about using the forums.
+See [Getting support](/docs/get-support?topic=get-support-getting-customer-support#using-avatar){: external} for more details about using the forums.
 
-For more information about opening an {{site.data.keyword.IBM_notm}} support case, or about support levels and case severities, see [Contacting support ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/get-support?topic=get-support-getting-customer-support){: new_window}.
+For more information about opening an {{site.data.keyword.IBM_notm}} support ticket, or about support levels and ticket severities, see [Contacting support](/docs/get-support?topic=get-support-getting-customer-support){: external}.

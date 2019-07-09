@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-06"
+lastupdated: "2019-07-09"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 

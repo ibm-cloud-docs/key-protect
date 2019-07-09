@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,6 +24,18 @@ subcollection: key-protect
 {: #releases}
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
+{: shortdesc}
+
+## June 2019
+{: #june-2019}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for {{site.data.keyword.at_full_notm}}
+{: #added-at-logdna-support}
+New as of: 2019-06-22
+
+You can now monitor API calls to the {{site.data.keyword.keymanagementserviceshort}} service by using {{site.data.keyword.at_full_notm}}. 
+
+To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [Activity Tracker events](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## May 2019
 {: #may-2019}
@@ -79,9 +92,9 @@ New as of: 2019-02-13
 
 **What this means to you**
 
-If you have active production keys in an older {{site.data.keyword.keymanagementserviceshort}} service instance, ensure that you migrate the keys to a new service instance by 15 May 2019 to avoid losing access to your encrypted data. You can check to see whether you're using a legacy instance by navigating to your resource list from the [{{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/). If your {{site.data.keyword.keymanagementserviceshort}} service instance is listed in the **Cloud Foundry Services** section of the {{site.data.keyword.cloud_notm}} resource list, or if you're using the  `https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for the service, you're using a legacy instance of the {{site.data.keyword.keymanagementserviceshort}}. After 15 May 2019, the legacy endpoint will no longer be accessible, and you won't be able to target the service for operations.
+If you have active production keys in an older {{site.data.keyword.keymanagementserviceshort}} service instance, ensure that you migrate the keys to a new service instance by 15 May 2019 to avoid losing access to your encrypted data. You can check to see whether you're using a legacy instance by navigating to your resource list from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/). If your {{site.data.keyword.keymanagementserviceshort}} service instance is listed in the **Cloud Foundry Services** section of the {{site.data.keyword.cloud_notm}} resource list, or if you're using the  `https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for the service, you're using a legacy instance of the {{site.data.keyword.keymanagementserviceshort}}. After 15 May 2019, the legacy endpoint will no longer be accessible, and you won't be able to target the service for operations.
 
-Need help with migrating your encryption keys into a new service instance? For detailed steps, check out the [migration client in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. If you have additional questions about the status of your keys or the migration process, reach out to Terry Mosbaugh at [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+Need help with migrating your encryption keys into a new service instance? For detailed steps, check out the [migration client in GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}. If you have additional questions about the status of your keys or the migration process, reach out to Terry Mosbaugh at [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
 {: tip}
 
 ## December 2018
@@ -147,7 +160,7 @@ Looking for code samples to help you encrypt storage bucket content with your ow
 
 You can now practice adding end to end security for your cloud application by following [the new tutorial](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security).
 
-For more information, [check out the sample app in GitHub ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
+For more information, [check out the sample app in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Washington DC region
 {: #added-wdc-region}

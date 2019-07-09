@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ You can create an instance of {{site.data.keyword.keymanagementservicefull}} by 
 
 To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
-1. [Log in to your {{site.data.keyword.cloud_notm}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}){: new_window}.
+1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}){: external}.
 2. Click **Catalog** to view the list of services that are available on {{site.data.keyword.cloud_notm}}.
 3. From the All Categories navigation pane, click the **Security and Identity** category.
 4. From the list of services, click the **{{site.data.keyword.keymanagementserviceshort}}** tile.
@@ -41,7 +42,7 @@ To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from
 
 You can also provision an instance of {{site.data.keyword.keymanagementserviceshort}} by using the {{site.data.keyword.cloud_notm}} CLI. 
 
-1. Log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -77,4 +78,4 @@ You can also provision an instance of {{site.data.keyword.keymanagementservicesh
 ## What's next
 {: #provision-service-next-steps}
 
-To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/key-protect){: new_window}.
+To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.

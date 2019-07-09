@@ -2,63 +2,98 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
-keywords: Activity tracker events, KMS API calls, monitor KMS events
+keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
 subcollection: key-protect
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.cloudaccesstrailshort}} events
-{: #activity-tracker-events}
+<!-- Include your AT events file in the Reference nav group in your toc file. -->
 
-Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}. 
+<!-- Make sure that the AT events file has the H1 ID set to: {: #at_events} -->
+
+# Activity Tracker events
+{: #at-events}
+
+As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. 
+<!-- There are multiple scenarios depending on which version of Activity Tracker is enabled in your service. Choose the scenario that best suits your service, and delete the other ones.--> 
 
-For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started){: new_window}.
+<!-- Scenario 3. Add if your service is AT-enabled for IBM Cloud Activity Tracker with LogDNA and also for IBM Cloud Activity Tracker  -->
+
+Activity Tracker records user-initiated activities that change the state of a service in the {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. 
+
+There are currently two Activity Tracker services that are available in the {{site.data.keyword.cloud_notm}} catalog. {{site.data.keyword.keymanagementserviceshort}} sends events to both services, and you can use either service to monitor your {{site.data.keyword.keymanagementserviceshort}} activity in {{site.data.keyword.cloud_notm}}. However, the {{site.data.keyword.cloudaccesstrailfull}} is deprecated and no new instances can be created, and support for existing service instances is available only through 30 September 2019.
+
+For more information, see:
+* [{{site.data.keyword.at_full}}](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started)
+* [{{site.data.keyword.cloudaccesstrailfull}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started) (deprecated)
+
+<!-- If you have multiple events that might not be related, you can create different sections to group them. -->
 
 ## List of events
-{: #list-activity-tracker-events}
+{: #at-actions}
 
-The following table lists the actions that generate an event:
+The following table lists the {{site.data.keyword.keymanagementserviceshort}} actions that generate an event:
 
-| Action               | Description                 |
-| -------------------- | --------------------------- |
-| `kms.secrets.create` | Create a key                |
-| `kms.secrets.read`   | Retrieve a key by ID        |
-| `kms.secrets.delete` | Delete a key by ID          |
-| `kms.secrets.list`   | Retrieve a list of keys     |
-| `kms.secrets.head`   | Retrieve the number of keys |
-| `kms.secrets.wrap`   | Wrap a key                  |
-| `kms.secrets.unwrap` | Unwrap a key                |
-| `kms.policies.read`  | View a policy for a key     |
-| `kms.policies.write` | Set a policy for a key      |
-{: caption="Table 1. Actions that generate {{site.data.keyword.cloudaccesstrailfull_notm}} events" caption-side="top"}
+| Action                   | Description                 |
+| ------------------------ | --------------------------- |
+| `kms.secrets.create`     | Create a key                |
+| `kms.secrets.read`       | Retrieve a key by ID        |
+| `kms.secrets.delete`     | Delete a key by ID          |
+| `kms.secrets.list`       | Retrieve a list of keys     |
+| `kms.secrets.head`       | Retrieve the number of keys |
+| `kms.secrets.wrap`       | Wrap a key                  |
+| `kms.secrets.unwrap`     | Unwrap a key                |
+| `kms.secrets.rewrap`     | Rewrap a key                |
+| `kms.policies.read`      | View a policy for a key     |
+| `kms.policies.write`     | Set a policy for a key      |
+| `kms.importtoken.create` | Create an import token      |
+| `kms.importtoken.read`   | Retrieve an import token    |
+{: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
 
-## Where to view the events
-{: #view-activity-tracker-events}
+## Viewing events
+{: #at-ui}
+
+You can view the Activity Tracker events that are associated with your {{site.data.keyword.keymanagementserviceshort}} service instance by using [{{site.data.keyword.at_full_notm}}](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started) or [{{site.data.keyword.cloudaccesstrailfull_notm}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started) (deprecated).
+
+<!-- As in the previous section, there are multiple scenarios depending on which version of Activity Tracker is enabled in your service. Choose the scenario that best suits your service, and delete the other ones. --> 
+
+<!-- Scenario 3: If your service is AT-enabled for IBM Cloud Activity Tracker with LogDNA and also for IBM Cloud Activity Tracker, add the information that is relevant from scenario 1 and scenario 2. -->
+
+<!-- Option 2: Location based service: A location-based service generates events in the same location where the service instance is provisioned. For example, Certificate Manager. -->
+
+### Using {{site.data.keyword.at_full_notm}}
+{: #at-ui-logdna}
+
+Events that are generated by an instance of {{site.data.keyword.keymanagementserviceshort}} are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location. 
+
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-launch#launch_step2).
 
 <!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
 
-{{site.data.keyword.cloudaccesstrailshort}} events are available in the {{site.data.keyword.cloudaccesstrailshort}} **account domain** that is available in the {{site.data.keyword.cloud_notm}} region where the events are generated.
+### Using {{site.data.keyword.cloudaccesstrailfull_notm}} (deprecated)
+{: #at-ui-legacy}
 
-For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
+{{site.data.keyword.cloudaccesstrailshort}} events are available in the {{site.data.keyword.cloudaccesstrailshort}} **account domain** that is available in the {{site.data.keyword.cloud_notm}} region where the events are generated. For more information, see [Viewing events](/docs/services/cloud-activity-tracker/how-to/manage-events-ui?topic=cloud-activity-tracker-getting-started#gs_step4).
 
-To monitor the API activity, you must provision the {{site.data.keyword.cloudaccesstrailshort}} service in a space that is available in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned. Then, you can view events through the account view in the {{site.data.keyword.cloudaccesstrailshort}} UI if you have a lite plan, and through Kibana if you have a premium plan.
 
-## Additional information
-{: #activity-tracker-info}
+## Analyzing events
+{: #at-events-analyze}
 
-Due to the sensitivity of the information for an encryption key, when an event is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}} service, the event that is generated does not include detailed information about the key. The event includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `responseHeader.content` field. You can use this information to correlate the {{site.data.keyword.keymanagementserviceshort}} key with the information of the action reported through the {{site.data.keyword.cloudaccesstrailshort}} event.
+<!-- Provide information about the events in your service that add additional information in requestData and responseData. See the IAM Events topic for a sample topic that includes this section: https://cloud.ibm.com/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-at_events_iam.  -->
+
+Due to the sensitivity of the information for an encryption key, when an event is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}} service, the event that is generated does not include detailed information about the key. The event includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `responseBody.content` field. You can use this information to correlate the {{site.data.keyword.keymanagementserviceshort}} key with the information of the action reported through the {{site.data.keyword.cloudaccesstrailshort}} event.
