@@ -90,16 +90,6 @@ With each rotation request, {{site.data.keyword.keymanagementserviceshort}} asso
 To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your root keys, see [Rotating keys](/docs/services/key-protect?topic=key-protect-rotate-keys). 
 {: tip}
 
-### Rewrapping data after rotating a key
-{: #rewrap-data-after-key-rotation}
-
-After a rotation completes, new root key material becomes available for protecting data encryption keys (DEKs) with [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption). Retired root key material moves to the _Deactivated_ state, where it can only be used to unwrap and access older DEKs that aren't yet protected by the latest root key. 
-
-To secure your envelope encryption workflow, [rewrap your DEKs](/docs/services/key-protect?topic=key-protect-rewrap-keys) after you rotate a root key so that your at-rest data is protected by the newest root key. Alternatively if {{site.data.keyword.keymanagementserviceshort}} detects that you're using retired root key material to unwrap a DEK, the service automatically reencrypts the DEK and returns a wrapped data encryption key (WDEK) that's based on the latest root key. Store and use the new WDEK for future unwrap operations that the DEKs are protected with the newest root key material.
-
-To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rewrap data encryption keys, see [Rewrapping keys](/docs/services/key-protect?topic=key-protect-rewrap-keys).
-{: tip}
-
 ## Frequency of key rotation
 {: #rotation-frequency}
 
