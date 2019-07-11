@@ -237,7 +237,7 @@ For usage notes, check out the following examples for setting your `limit` and `
   </tr>
   <tr>
     <td><code>.../keys?offset=25&limit=50</code></td>
-    <td>Lists keys 26 - 50.</td>
+    <td>Lists keys 26 - 75.</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=3000&limit=50</code></td>
