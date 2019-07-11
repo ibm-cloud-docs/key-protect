@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 {:deprecated: .deprecated}
 
-# Regions and locations
+# Regions and endpoints
 {: #regions}
 
 You can connect your applications with the {{site.data.keyword.keymanagementservicelong}} service by specifying a regional service endpoint.
