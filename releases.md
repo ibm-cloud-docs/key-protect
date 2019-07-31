@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-31"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -19,12 +19,24 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 
 # What's new
 {: #releases}
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
+
+## July 2019
+{: #july-2019}
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for private endpoints
+{: #added-private-endpoints}
+New as of: 2019-07-31
+
+You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the {{site.data.keyword.cloud_notm}} private network by targeting a private endpoint for the service.
+
+To get started, enable [virtual routing and forwarding (VRF) and service endpoints](docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/services/key-protect?topic=key-protect-private-endpoints).
 
 ## June 2019
 {: #june-2019}

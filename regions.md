@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-31"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,65 +24,63 @@ subcollection: key-protect
 # Regions and endpoints
 {: #regions}
 
-You can connect your applications with the {{site.data.keyword.keymanagementservicelong}} service by specifying a regional service endpoint.
+Review region and connectivity options for interacting with {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 ## Available regions
 {: #available-regions}
 
-{{site.data.keyword.keymanagementserviceshort}} is available in the following regions and locations:
-![The image shows the regions where the Key Protect service is available.](images/world-map_min.svg)
+{{site.data.keyword.keymanagementserviceshort}} is available in the following regions:
+
+![The image shows the regions where the Key Protect service is available.](images/world-map_min.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
+
+You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/services/key-protect?topic=key-protect-ha-dr#availability).
+
+## Connectivity options
+{: #connectivity-options}
+
+{{site.data.keyword.keymanagementserviceshort}} offers two connectivity options for interacting with its service APIs.
+
+<dl>
+    <dt>Public endpoints</dt>
+        <dd>By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
+        </dd>
+    <dt>Private endpoints</dt>
+        <dd>For added benefits, you can also enable <a href="/docs/account?topic=account-vrf-service-endpoint" target="_blank" class="external"> virtual routing and forwarding (VRF) and service endpoints</a> for your infrastructure account. When you enable VRF for your account, you can connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP that is accessible only through the {{site.data.keyword.cloud_notm}} private network. To learn more about VRF, see <a href="/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud" target="_blank" class="external">Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}</a>. To learn how to connect to {{site.data.keyword.keymanagementserviceshort}} by using a private endpoint, see <a href="/docs/services/key-protect?topic=key-protect-private-endpoints">Using private endpoints</a>.
+        </dd>
+</dl>
 
 ## Service endpoints
 {: #service-endpoints}
 
-If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect): 
+If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect). 
 
-<table>
-    <tr>
-        <th>Location</th>
-        <th>Service API endpoint</th>
-    </tr>
-    <tr>
-        <td>Dallas</td>
-        <td>
-            <code>us-south.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <tr>
-        <td>Washington DC</td>
-        <td>
-            <code>us-east.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <tr>
-        <td>London</td>
-        <td>
-            <code>eu-gb.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <tr>
-        <td>Frankfurt</td>
-        <td>
-            <code>eu-de.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <tr>
-        <td>Sydney</td>
-        <td>
-            <code>au-syd.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <tr>
-        <td>Tokyo</td>
-        <td>
-            <code>jp-tok.kms.cloud.ibm.com</code>
-        </td>
-    </tr>
-    <caption style="caption-side:bottom;">Table 1. Shows the available endpoints for the {{site.data.keyword.keymanagementserviceshort}} API</caption>
-</table>
+| Region        | Public endpoints             |
+| ------------- | ---------------------------- |
+| Dallas        | `us-south.kms.cloud.ibm.com` |
+| Washington DC | `us-east.kms.cloud.ibm.com`  |
+| London        | `eu-gb.kms.cloud.ibm.com`    |
+| Frankfurt     | `eu-de.kms.cloud.ibm.com`    |
+| Sydney        | `au-syd.kms.cloud.ibm.com`   |
+| Tokyo         | `jp-tok.kms.cloud.ibm.com`   |
+{: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
+{: #table-1}
+{: tab-title="Public"}
+{: class="comparison-tab-table"}
+{: row-headers}
 
-You can continue to use `https://keyprotect.<region>.bluemix.net` to target the service for operations, or you can update your applications with the new `cloud.ibm.com` endpoints. 
-{: tip}
+| Region        | Private endpoints                    |
+| ------------- | ------------------------------------ |
+| Dallas        | `private.us-south.kms.cloud.ibm.com` |
+| Washington DC | `private.us-east.kms.cloud.ibm.com`  |
+| London        | `private.eu-gb.kms.cloud.ibm.com`    |
+| Frankfurt     | `private.eu-de.kms.cloud.ibm.com`    |
+| Sydney        | `private.au-syd.kms.cloud.ibm.com`   |
+| Tokyo         | `private.jp-tok.kms.cloud.ibm.com`   |
+{: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
+{: #table-1}
+{: tab-title="Private"}
+{: class="comparison-tab-table"}
+{: row-headers}
 
 For more information about authenticating with {{site.data.keyword.keymanagementserviceshort}}, see [Accessing the API](/docs/services/key-protect?topic=key-protect-set-up-api).

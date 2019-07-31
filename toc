@@ -35,6 +35,7 @@ Key Protect
         set-up-api.md
         retrieve-access-token.md
         retrieve-instance-id.md
+        private-network.md
 
     set-up-cli.md
 
