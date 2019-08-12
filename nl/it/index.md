@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -72,7 +73,7 @@ Completa la seguente procedura per creare la tua prima chiave crittografica.
 
 3. Una volta che hai finito di compilare i dettagli della chiave, fai clic su **Create key** per confermare. 
 
-Le chiavi create nel servizio sono chiavi simmetriche a 256 bit, supportate dall'algoritmo AES-GCM. Per aggiungere sicurezza, le chiavi sono generate dagli HSM (Hardware Security Module) certificati da FIPS 140-2 Level 2 ubicati in data center {{site.data.keyword.cloud_notm}} sicuri. 
+Le chiavi create nel servizio sono chiavi simmetriche a 256 bit, supportate dall'algoritmo AES-CBC-PAD. Per maggiore sicurezza, le chiavi vengono generate dagli HSM (Hardware Security Module) certificati FIPS 140-2 Level 3 ubicati in data center {{site.data.keyword.cloud_notm}} sicuri. 
 
 ## Importazione delle tue chiavi
 {: #import-keys}
@@ -120,4 +121,4 @@ Ora puoi utilizzare le chiavi per crittografare i tuoi servizi e le tue applicaz
 
 - Per trovare ulteriori informazioni sulla gestione e protezione delle tue chiavi crittografate con una chiave root, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 - Per ulteriori informazioni sull'integrazione del servizio {{site.data.keyword.keymanagementserviceshort}} con altre soluzioni di dati cloud, [controlla la documentazione di Integrations](/docs/services/key-protect?topic=key-protect-integrate-services).
-- Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
+- Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/apidocs/key-protect){: external}.

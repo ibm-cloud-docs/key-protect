@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,7 +28,7 @@ Puoi utilizzare il plugin della CLI {{site.data.keyword.keymanagementserviceshor
 
 Per installare il plugin della CLI, vedi [Configurazione della CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Quando accedi alla [CLI di {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}, vieni informato quando gli aggiornamenti sono disponibili. Assicurati di tenere aggiornata la tua CLI in modo da poter usare i comandi e gli indicatori disponibili per il plugin della CLI {{site.data.keyword.keymanagementserviceshort}}.
+Quando accedi alla [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}, ricevi una notifica quando sono disponibili degli aggiornamenti. Assicurati di tenere aggiornata la tua CLI in modo da poter usare i comandi e gli indicatori disponibili per il plugin della CLI {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
 ## Comandi ibmcloud kp
@@ -58,7 +59,7 @@ Puoi specificare uno dei seguenti comandi:
     <caption style="caption-side:bottom;">Tabella 1. Comandi per la gestione delle chiavi</caption> 
  </table>
 
- <table summary="Comandi per la gestione delle politiche delle chiavi">
+ <table summary="Comandi per la gestione delle politiche delle chiavi"> 
     <thead>
         <th colspan="5">Comandi per la gestione delle politiche delle chiavi</th>
     </thead>
@@ -87,6 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ```
 {:pre}
 
+```sh
+$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+```
+{:screen}
+
 ### Parametri obbligatori
 {: #create-req-params}
 
@@ -105,7 +115,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
         <dd>Il materiale della chiave con codifica base64 che vuoi archiviare e gestire nel servizio. Per importare una chiave esistente, fornisci una chiave a 256 bit. Per generare una nuova chiave, ometti il parametro <code>--key-material</code>.</dd>
     <dt><code>-s, --standard-key</code></dt>
         <dd>Imposta il parametro solo se vuoi creare una <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">chiave standard</a>. Per creare una chiave root, ometti il parametro <code>--standard-key</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
@@ -118,6 +128,17 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
+
+SUCCESS
+
+Deleted Key
+584fb0d9-dec2-47b8-bde5-50f05fd66261
+```
+{: screen}
 
 ### Parametri obbligatori
 {: #delete-req-params}
@@ -139,6 +160,18 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp list -i $KP_INSTANCE_ID
+Retrieving keys...
+
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
+```
+{: screen}
+
 ### Parametri obbligatori
 {: #list-req-params}
 
@@ -151,7 +184,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: #list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
@@ -167,6 +200,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
+
+SUCCESS
+
+Key ID                                 Key Name          Description     Creation Date                   Expiration Date
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
+```
+{:screen}
+
 ### Parametri obbligatori
 {: #get-req-params}
 
@@ -181,7 +225,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
@@ -195,6 +239,14 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Rotating root key...
+
+SUCCESS
+```
+{:screen}
 
 ### Parametri obbligatori
 {: #rotate-req-params}
@@ -212,7 +264,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>Il materiale della chiave con codifica base64 che vuoi usare per eseguire la rotazione di una chiave root esistente. Per eseguire la rotazione di una chiave che era stata inizialmente importata nel servizio, fornisci una nuova chiave da 256 bit. Per eseguire la rotazione di una chiave che era stata inizialmente generata in {{site.data.keyword.keymanagementserviceshort}}, ometti il parametro <code>--key-material</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
@@ -247,7 +299,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Gli ulteriori dati di autenticazione (o AAD, additional authentication data) che vengono utilizzati per proteggere ulteriormente una chiave. Se sono stati forniti all'impacchettamento, devono essere forniti allo spacchettamento.</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>la DEK (data encryption key) con codifica base64 che vuoi gestire e proteggere. Per importare una chiave esistente, fornisci una chiave a 256 bit. Per generare e impacchettare una nuova DEK, ometti il parametro <code>--plaintext</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
@@ -281,14 +333,14 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>Gli ulteriori dati di autenticazione (o AAD, additional authentication data) che erano stati utilizzati per proteggere ulteriormente una chiave. Puoi fornire fino a 255 stringhe, ciascuna delimitata da una virgola. Se hai fornito gli AAD all'impacchettamento, devi specificare gli stessi AAD allo spacchettamento.</p><p><b>Importante:</b> il servizio {{site.data.keyword.keymanagementserviceshort}} non salva dati di autenticazione aggiuntivi. Se fornisci un AAD, salva i dati in un luogo sicuro per assicurarti di poter accedere e fornire lo stesso AAD durante le seguenti richieste di spacchettamento.</p></dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
 ## kp policy list
 {: #kp-policy-list}
 
-Elenca le politiche associate alla chiave root che hai specificato. 
+Elenca le politiche associate alla chiave root che hai specificato.
 
 ```
 ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -309,14 +361,14 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
 ## kp policy get
 {: #kp-policy-get}
 
-Richiama i dettagli su una politica della chiave, ad esempio l'intervallo di rotazione automatica della chiave. 
+Richiama i dettagli su una politica della chiave, ad esempio l'intervallo di rotazione automatica della chiave.
 
 ```
 ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -337,14 +389,14 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 
 ## kp policy set
 {: #kp-policy-set}
 
-Crea o sostituisce la politica associata alla chiave root che hai specificato. 
+Crea o sostituisce la politica associata alla chiave root che hai specificato.
 
 ```
 ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
@@ -371,7 +423,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>-p, --policy</code></dt>
         <dd>Specifica l'intervallo di tempo di rotazione (in mesi) per una chiave. Il valore predefinito è 1.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Imposta il formato di output della CLI. Per impostazione predefinita, tutti i comandi vengono restituiti nel formato tabella. Per modificare il formato di output con JSON, utilizza <code>--output json</code>.</dd>
 </dl>
 

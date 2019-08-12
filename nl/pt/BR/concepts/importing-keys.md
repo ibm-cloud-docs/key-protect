@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ As chaves de transporte são um tipo de recurso no {{site.data.keyword.keymanage
 
 Quando você [cria uma chave de transporte](/docs/services/key-protect?topic=key-protect-create-transport-keys) para sua instância de serviço, o {{site.data.keyword.keymanagementserviceshort}} gera uma chave RSA de 4.096 bits. O serviço criptografa a chave privada e, em seguida, retorna a chave pública e um token de importação que é possível usar para criptografar e importar seu material da chave raiz. 
 
-Quando estiver pronto para [importar uma chave raiz](/docs/services/key-protect?topic=key-protect-import-root-keys#api) no {{site.data.keyword.keymanagementserviceshort}}, forneça o material da chave raiz criptografada e o token de importação que é usado para verificar a integridade da chave pública. Para concluir a solicitação, o {{site.data.keyword.keymanagementserviceshort}} usa a chave privada que está associada à sua instância de serviço para decriptografar o material da chave raiz criptografada. Esse processo assegura que apenas a chave de transporte que você gerou no {{site.data.keyword.keymanagementserviceshort}} possa decriptografar o material da chave que você importa e armazena no serviço.
+Quando estiver pronto para [importar uma chave raiz](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) no {{site.data.keyword.keymanagementserviceshort}}, forneça o material da chave raiz criptografada e o token de importação que é usado para verificar a integridade da chave pública. Para concluir a solicitação, o {{site.data.keyword.keymanagementserviceshort}} usa a chave privada que está associada à sua instância de serviço para decriptografar o material da chave raiz criptografada. Esse processo assegura que apenas a chave de transporte que você gerou no {{site.data.keyword.keymanagementserviceshort}} possa decriptografar o material da chave que você importa e armazena no serviço.
 
 É possível criar apenas uma chave de transporte por instância de serviço. Para saber mais sobre limites de recuperação para chaves de transporte, [consulte o {{site.data.keyword.keymanagementserviceshort}}doc de referência da API ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: note} 

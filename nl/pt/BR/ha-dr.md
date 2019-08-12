@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,11 +33,11 @@ Use essa página para saber mais sobre as estratégias de alta disponibilidade e
 
 O {{site.data.keyword.keymanagementserviceshort}}  é um serviço regional de diversos locatários. 
 
-É possível criar recursos do {{site.data.keyword.keymanagementserviceshort}} em uma das [{{site.data.keyword.cloud_notm}}regiões](/docs/services/key-protect?topic=key-protect-regions#regions) suportadas, que representam a área geográfica na qual as solicitações do {{site.data.keyword.keymanagementserviceshort}} são manipuladas e processadas. Cada região do {{site.data.keyword.cloud_notm}} contém [múltiplas zonas de disponibilidade ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/) para atender aos requisitos de acesso local, baixa latência e segurança da região.
+É possível criar recursos do {{site.data.keyword.keymanagementserviceshort}} em uma das [{{site.data.keyword.cloud_notm}}regiões](/docs/services/key-protect?topic=key-protect-regions#regions) suportadas, que representam a área geográfica na qual as solicitações do {{site.data.keyword.keymanagementserviceshort}} são manipuladas e processadas. Cada região do {{site.data.keyword.cloud_notm}} contém [múltiplas zonas de disponibilidade](https://www.ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/){: external} para atender aos requisitos de acesso local, baixa latência e segurança para a região.
 
 Ao planejar sua estratégia de criptografia em repouso com o {{site.data.keyword.cloud_notm}}, lembre-se de que o fornecimento do {{site.data.keyword.keymanagementserviceshort}} em uma região mais próxima a você mais provavelmente resultará em conexões mais rápidas e mais confiáveis ao interagir com as APIs do {{site.data.keyword.keymanagementserviceshort}}. Escolha uma região específica se os usuários, os apps ou os serviços que dependem de um recurso do {{site.data.keyword.keymanagementserviceshort}} estiverem geograficamente concentrados. Lembre-se de que os usuários e os serviços muito distantes da região podem ter latência mais alta. 
 
-Suas chaves de criptografia estão limitadas à região em que foram criadas. O {{site.data.keyword.keymanagementserviceshort}} não copia ou exporta chaves de criptografia para outras regiões.
+As suas chaves de criptografia estão limitadas à região na qual você as cria. O {{site.data.keyword.keymanagementserviceshort}} não copia ou exporta chaves de criptografia para outras regiões.
 {: note}
 
 ## Recuperação de desastre

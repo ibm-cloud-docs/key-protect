@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -66,7 +66,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
         </tr>
         <tr>
           <td><varname>region</varname></td>
-          <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+          <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
         </tr>
         <tr>
           <td><varname>IAM_token</varname></td>

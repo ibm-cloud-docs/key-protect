@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ subcollection: key-protect
 
 서비스 인스턴스의 [전송 키를 작성](/docs/services/key-protect?topic=key-protect-create-transport-keys)할 때 {{site.data.keyword.keymanagementserviceshort}}는 4096비트 RSA 키를 생성합니다. 서비스는 개인 키를 암호화한 다음 루트 키 자료를 암호화하고 가져오기 위해 사용할 수 있는 공개 키와 가져오기 토큰을 리턴합니다. 
 
-{{site.data.keyword.keymanagementserviceshort}}로 [루트 키를 가져올](/docs/services/key-protect?topic=key-protect-import-root-keys#api) 준비가 되면 공개 키의 무결성을 확인하는 데 사용되는 가져오기 토큰과 암호화된 루트 키 자료를 제공합니다. 요청을 완료하기 위해 {{site.data.keyword.keymanagementserviceshort}}가 서비스 인스턴스와 연관된 개인 키를 사용하여 암호화된 루트 키 자료를 복호화합니다. 이 프로세스에서는 {{site.data.keyword.keymanagementserviceshort}}에서 생성한 전송 키만 서비스에 가져와 저장한 키 자료를 복호화할 수 있습니다.
+{{site.data.keyword.keymanagementserviceshort}}로 [루트 키를 가져올](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) 준비가 되면 공개 키의 무결성을 확인하는 데 사용되는 가져오기 토큰과 암호화된 루트 키 자료를 제공합니다. 요청을 완료하기 위해 {{site.data.keyword.keymanagementserviceshort}}가 서비스 인스턴스와 연관된 개인 키를 사용하여 암호화된 루트 키 자료를 복호화합니다. 이 프로세스에서는 {{site.data.keyword.keymanagementserviceshort}}에서 생성한 전송 키만 서비스에 가져와 저장한 키 자료를 복호화할 수 있습니다.
 
 서비스 인스턴스마다 하나의 전송 키만 작성할 수 있습니다. 전송 키의 검색 한계에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")를 참조](https://{DomainName}/apidocs/key-protect){: new_window}하십시오.
 {: note} 

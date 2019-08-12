@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ Vous pouvez utiliser un nom de clé de 90 caractères au maximum.
 
 Pour protéger la confidentialité de vos données personnelles, ne stockez pas d'informations permettant de vous identifier personnellement comme métadonnées pour vos clés. Par exemple, votre nom, votre adresse, votre numéro de téléphone, votre adresse e-mail ou toute autre information permettant de vous identifier, de vous contacter ou de vous localiser, ainsi que vos clients et toute autre personne.
 
-Vous êtes responsable d'assurer la sécurité de toutes les informations que vous stockez en tant que métadonnées pour les ressources {{site.data.keyword.keymanagementserviceshort}} et les clés de chiffrement. Pour obtenir d'autres exemples de données personnelles, veuillez consulter la section 2.2 du document [NIST Special Publication 800-122 ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+Vous êtes responsable d'assurer la sécurité de toutes les informations que vous stockez en tant que métadonnées pour les ressources {{site.data.keyword.keymanagementserviceshort}} et les clés de chiffrement. Pour obtenir d'autres exemples de données personnelles, veuillez consulter la section 2.2 du document [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## Peut-on créer des clés dans une région et les utiliser dans une autre région ?
@@ -89,7 +90,7 @@ Vos clés de chiffrement sont confinées dans la région où vous les créez. {{
 
 Vous pouvez utiliser le service {{site.data.keyword.cloudaccesstrailfull_notm}} pour savoir comment les utilisateurs et les applications interagissent avec votre instance de service {{site.data.keyword.keymanagementserviceshort}}. Par exemple, lorsque vous créez, importez, supprimez ou lisez une clé dans {{site.data.keyword.keymanagementserviceshort}}, un événement {{site.data.keyword.cloudaccesstrailshort}} est généré. Ces événements sont transmis automatiquement au service {{site.data.keyword.cloudaccesstrailshort}} dans la région dans laquelle le service {{site.data.keyword.keymanagementserviceshort}} a été mis à disposition.
 
-Pour en savoir plus, veuillez consultez la section [Evénements Activity Tracker](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+Pour en savoir plus, veuillez consultez la section [Evénements Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## Que se passe-t-il si je supprime une clé ?
 {: #key-destruction}
@@ -104,3 +105,4 @@ Avant de supprimer une clé, assurez-vous que vous n'avez plus besoin d'accéder
 {: faq}
 
 Si vous décidez de ne plus utiliser {{site.data.keyword.keymanagementserviceshort}}, vous devez supprimer toutes les clés restantes de votre instance de service avant de pouvoir annuler l'accès au service. Après avoir supprimé votre instance de service, {{site.data.keyword.keymanagementserviceshort}} utilise le [chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption) pour chiffrer toutes les données associées à l'instance de service. 
+

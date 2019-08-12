@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -39,7 +40,7 @@ Deseja saber mais sobre as opções de rotação de chave no {{site.data.keyword
 
 Se você preferir gerenciar políticas para suas chaves raiz usando uma interface gráfica, será possível usar a GUI do {{site.data.keyword.keymanagementserviceshort}}.
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
 2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
 3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
 4. Na página de detalhes do aplicativo, use a tabela de **Chaves** para procurar as chaves em seu serviço.
@@ -92,7 +93,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -185,7 +186,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -281,7 +282,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>

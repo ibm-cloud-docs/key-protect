@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,7 +33,7 @@ subcollection: key-protect
 
 [在建立服務的實例之後](/docs/services/key-protect?topic=key-protect-provision)，請完成下列步驟以使用 {{site.data.keyword.keymanagementserviceshort}} GUI 來建立根金鑰。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}){: new_window}。
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}){: external}。
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
 3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
 4. 若要建立新的金鑰，請按一下**新增金鑰**，然後選取**建立金鑰**視窗。
@@ -60,7 +61,7 @@ subcollection: key-protect
 
 5. 當您填寫完金鑰的詳細資料時，請按一下**建立金鑰**以便確認。 
 
-在服務中所建立的金鑰是 AES-GCM 演算法所支援的對稱 256 位元金鑰。為了提高安全，金鑰是由位於安全 {{site.data.keyword.cloud_notm}} 資料中心的 FIPS 140-2 Level 2 認證硬體安全模組 (HSM) 所產生。 
+在服務中所建立的金鑰是 AES-CBC-PAD 演算法所支援的對稱 256 位元金鑰。為了提高安全，金鑰是由位於安全 {{site.data.keyword.cloud_notm}} 資料中心的 FIPS 140-2 Level 3 認證硬體安全模組 (HSM) 所產生。 
 
 ## 使用 API 建立根金鑰
 {: #create-root-key-api}
@@ -74,7 +75,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 1. [擷取服務及鑑別認證以在服務中使用金鑰](/docs/services/key-protect?topic=key-protect-set-up-api)。
 
-2. 使用下列 cURL 指令，來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
+2. 使用下列 cURL 指令來呼叫 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}。
 
     ```cURL
     curl -X POST \
@@ -101,9 +102,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
-    {: tip}
-
     根據下表取代範例要求中的變數。
     <table>
       <tr>
@@ -112,7 +110,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -148,13 +146,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <td><varname>key_type</varname></td>
         <td>
           <p>決定金鑰資料是否可以離開服務的布林值。</p>
-          <p>當您將 <code>extractable</code> 屬性設為 <code>false</code> 時，服務會建立一個根金鑰，您可以將它用於 <code>wrap</code> 或 <code>unwrap</code> 作業。</p>
+          <p>當您將 <code>extractable</code> 屬性設為 <code>false</code> 時，服務會建立一個主要金鑰，您可以將它用於 <code>wrap</code> 或 <code>unwrap</code> 作業。</p>
         </td>
       </tr>
-        <caption style="caption-side:bottom;">表 1. 說明使用 {{site.data.keyword.keymanagementserviceshort}} API 新增根金鑰所需的變數</caption>
+        <caption style="caption-side:bottom;">表 1. 說明使用 {{site.data.keyword.keymanagementserviceshort}} API 新增主要金鑰所需的變數</caption>
     </table>
 
-    若要保護您個人資料的機密性，請在將金鑰新增至服務時避免輸入個人識別資訊 (PII)（例如您的姓名或位置）。如需其他 PII 範例，請參閱 [NIST 特殊出版品 800-122 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} 的第 2.2 節。
+    若要保護您個人資料的機密性，請在將金鑰新增至服務時避免輸入個人識別資訊 (PII)（例如您的姓名或位置）。如需其他 PII 範例，請參閱 [NIST 特殊出版品 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external} 的第 2.2 節。
     {: important}
 
     成功的 `POST api/v2/keys` 回應會傳回您金鑰的 ID 值，以及其他 meta 資料。ID 是指派給您金鑰的唯一 ID，並用於後續的 {{site.data.keyword.keymanagementserviceshort}} API 呼叫。
@@ -170,11 +168,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    在您使用服務建立根金鑰之後，金鑰會保留在 {{site.data.keyword.keymanagementserviceshort}} 的範圍內，而且無法擷取其金鑰資料。
+    在您使用服務建立主要金鑰之後，金鑰會保留在 {{site.data.keyword.keymanagementserviceshort}} 的範圍內，而且無法擷取其金鑰資料。
     {: note} 
 
 ## 下一步為何？
 {: #create-root-key-next-steps}
 
 - 若要進一步瞭解如何使用封套加密來保護金鑰，請參閱[包裝金鑰](/docs/services/key-protect?topic=key-protect-wrap-keys)。
-- 若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
+- 若要進一步瞭解 [ 中透過程式設計方式來管理金鑰的相關資訊，請參閱{{site.data.keyword.keymanagementserviceshort}} API 參考文件](https://{DomainName}/apidocs/key-protect){: external}。

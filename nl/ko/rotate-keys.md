@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -39,14 +40,14 @@ subcollection: key-protect
 
 [키를 새로 작성하거나 기존 루트 키를 서비스로 가져온 후](/docs/services/key-protect?topic=key-protect-create-root-keys) 다음 단계를 완료하여 키를 순환하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")에 로그인](https://{DomainName}/){: new_window}하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔에 로그인하십시오](https://{DomainName}/){: external}.
 2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
 3. {{site.data.keyword.cloud_notm}} 리소스 목록에서 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스를 선택하십시오.
 4. 애플리케이션 세부사항 페이지에서 **키** 테이블을 사용하여 서비스에서 키를 찾아보십시오.
 5. ⋯ 아이콘을 클릭하여 순환할 키에 대한 옵션 목록을 여십시오.
 6. 옵션 메뉴에서 **키 삭제**를 클릭한 후 다음 화면에서 순환을 확인하십시오.
 
-초기에 루트 키를 가져온 경우 base64로 인코딩된 새 키 자료를 제공하여 키를 순환해야 합니다. 자세한 정보는 [GUI를 사용하여 루트 키 가져오기](/docs/services/key-protect?topic=key-protect-import-root-keys#gui)를 참조하십시오.
+초기에 루트 키를 가져온 경우 base64로 인코딩된 새 키 자료를 제공하여 키를 순환해야 합니다. 자세한 정보는 [GUI를 사용하여 루트 키 가져오기](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-gui)를 참조하십시오.
 {: note}
 
 ## API를 사용하여 루트 키 순환
@@ -87,7 +88,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>

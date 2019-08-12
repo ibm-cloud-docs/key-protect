@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-13"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Desagrupando chaves
 {: #unwrap-keys}
 
-É possível desagrupar uma chave de criptografia de dados (DEK) para acessar seu conteúdo usando a API do {{site.data.keyword.keymanagementservicefull}}, se você for um usuário privilegiado. O desagrupamento de uma DEK decriptograda e verifica a integridade de seu conteúdo, retornando o material de chave original para o serviço de dados do {{site.data.keyword.cloud_notm}}.
+É possível desagrupar uma chave de criptografia de dados (DEK) para acessar os seus conteúdos usando a API do {{site.data.keyword.keymanagementservicefull}}. O desagrupamento de uma DEK decriptograda e verifica a integridade de seu conteúdo, retornando o material de chave original para o serviço de dados do {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 Para saber como o agrupamento de chaves ajuda a controlar a segurança dos dados em repouso na nuvem, consulte [Protegendo dados com criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
@@ -61,9 +62,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
     <table>
       <tr>
@@ -72,7 +70,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -109,3 +107,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    Se o {{site.data.keyword.keymanagementserviceshort}} detectar que você girou a chave raiz que é usada para desagrupar e acessar os seus dados, o serviço também retornará uma chave de criptografia de dados recém-agrupada (`ciphertext`) no corpo de resposta de desagrupamento. Armazene e use o novo valor `ciphertext` para operações futuras de criptografia de envelope para que os seus dados sejam protegidos pela chave raiz mais recente.
+    {: note}

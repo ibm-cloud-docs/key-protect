@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Chaves de quebra
 {: #wrap-keys}
 
-É possível gerenciar e proteger suas chaves de criptografia com uma chave raiz usando a API do {{site.data.keyword.keymanagementservicelong}}, se você for um usuário privilegiado.
+É possível gerenciar e proteger as suas chaves de criptografia com uma chave raiz usando a API do {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 Ao agrupar uma chave de criptografia de dados (DEK) com uma chave raiz, o {{site.data.keyword.keymanagementserviceshort}} combina a força de múltiplos algoritmos para proteger a privacidade e a integridade de seus dados criptografados.  
@@ -34,7 +35,7 @@ Para saber como o agrupamento de chaves ajuda a controlar a segurança dos dados
 
 É possível proteger uma chave de criptografia de dados especificada (DEK) com uma chave raiz que você gerencia em {{site.data.keyword.keymanagementserviceshort}}.
 
-Quando você fornecer uma chave raiz para agrupamento, assegure-se de que a chave raiz seja 128, 192 ou 256 bits para que a chamada de agrupamento possa ser bem-sucedida. Se você criar uma chave raiz no serviço, o {{site.data.keyword.keymanagementserviceshort}} gerará uma chave de 256 bits de seus HSMs, suportada pelo algoritmo AES-GCM.
+Quando você fornecer uma chave raiz para agrupamento, assegure-se de que a chave raiz seja 128, 192 ou 256 bits para que a chamada de agrupamento possa ser bem-sucedida. Se você criar uma chave raiz no serviço, o {{site.data.keyword.keymanagementserviceshort}} gerará uma chave de 256 bits de seus HSMs, suportada pelo algoritmo AES-CBC-PAD.
 {: note}
 
 [Após você designar uma chave raiz no serviço](/docs/services/key-protect?topic=key-protect-create-root-keys), poderá agrupar uma DEK com criptografia avançada fazendo uma chamada `POST` para o terminal a seguir.
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Copie o material de chave do DEK que você deseja gerenciar e proteger.
 
-    Se você tiver privilégios de gerenciador ou de gravador para sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}, [será possível recuperar o material da chave para uma chave específica fazendo uma solicitação `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Se você tiver privilégios de gerenciador ou de gravador para a sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}} , [será possível recuperar o material da chave para uma chave específica fazendo uma solicitação `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copie o ID da chave raiz que você deseja usar para agrupamento.
 
@@ -68,9 +69,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
 
     <table>
@@ -80,7 +78,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -128,7 +126,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    O valor <code>plaintext</code> representa a DEK desagrupada e o valor <code>ciphertext</code> representa a DEK agrupada.
+    O valor `plaintext` representa a DEK desagrupada e o valor `ciphertext` representa a DEK agrupada.
     
     Se você desejar que o {{site.data.keyword.keymanagementserviceshort}} gere uma nova chave de criptografia de dados (DEK) em seu nome, também será possível passar um corpo vazio em uma solicitação de agrupamento. Sua DEK gerada, contendo o material de chave codificado em Base64, é retornada no corpo da entidade de resposta juntamente com a DEK agrupada.
     {: tip}

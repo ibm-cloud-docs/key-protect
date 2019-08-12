@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,7 +33,7 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
 
 [Après avoir créé une instance du service](/docs/services/key-protect?topic=key-protect-provision), procédez comme suit pour créer une clé standard avec l'interface graphique {{site.data.keyword.keymanagementserviceshort}}.
 
-1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}){: new_window}.
+1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Accédez à **Menu** &gt; **Liste de ressources** pour afficher la liste de vos ressources.
 3. Dans la liste de ressources {{site.data.keyword.cloud_notm}}, sélectionnez votre instance {{site.data.keyword.keymanagementserviceshort}} mise à disposition.
 4. Pour créer une nouvelle clé, cliquez sur **Ajouter une clé** et sélectionnez la fenêtre **Créer une clé**.
@@ -60,7 +61,7 @@ Les clés racine sont des clés d'encapsulage de clés symétriques qui permette
 
 5. Une fois les détails de la clé indiqués, cliquez sur **Create key** pour confirmer l'opération. 
 
-Les clés qui sont créées dans le service sont des clés symétriques de 256 bits prises en charge par l'algorithme AES-GCM. Pour renforcer la sécurité, elles sont générées par des modules de sécurités matériels (ou modules HSM) certifiés FIPS 140-2 niveau 2 résidant dans des centres de données {{site.data.keyword.cloud_notm}} sécurisés. 
+Les clés qui sont créées dans le service sont des clés symétriques de 256 bits prises en charge par l'algorithme AES-CBC-PAD. Pour renforcer la sécurité, elles sont générées par des modules de sécurité matériels (ou modules HSM) certifiés FIPS 140-2 niveau 3 résidant dans des centres de données {{site.data.keyword.cloud_notm}} sécurisés. 
 
 ## Création de clés racine avec l'API
 {: #create-root-key-api}
@@ -74,7 +75,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 1. [Extrayez vos données d'authentification et de service afin d'utiliser les clés dans le service](/docs/services/key-protect?topic=key-protect-set-up-api).
 
-2. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window} avec la commande cURL suivante :
+2. Appelez l'[API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external} à l'aide de la commande cURL suivante.
 
     ```cURL
     curl -X POST \
@@ -101,9 +102,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Remplacez les variables de l'exemple de demande conformément au tableau suivant :
     <table>
       <tr>
@@ -112,7 +110,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Noeud final de service régional</a>.</td>
+        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Noeud final de service régional</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -154,7 +152,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         <caption style="caption-side:bottom;">Tableau 1. Description des variables requises pour ajouter une clé racine à l'aide de l'API {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    Pour protéger la confidentialité de vos données personnelles, évitez d'entrer des informations identifiant la personne, comme votre nom ou votre emplacement, lorsque vous ajoutez des clés au service. Pour visualiser d'autres exemples d'informations identifiant la personne, voir la section 2.2 du document [NIST Special Publication 800-122 ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+    Pour protéger la confidentialité de vos données personnelles, évitez d'entrer des informations identifiant la personne, comme votre nom ou votre emplacement, lorsque vous ajoutez des clés au service. Pour obtenir d'autres exemples d'informations identifiant la personne, veuillez consulter la section 2.2 du document [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
     {: important}
 
     Une réponse `POST api/v2/keys` qui aboutit renvoie la valeur de l'ID de la clé, ainsi que d'autres métadonnées. L'ID est un identificateur unique qui est affecté à la clé et qui est utilisé pour les appels adressés ultérieurement à {{site.data.keyword.keymanagementserviceshort}}.
@@ -177,4 +175,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 {: #create-root-key-next-steps}
 
 - Pour plus d'informations sur la protection de clés à l'aide du chiffrement d'enveloppe, voir [Encapsulage de clés](/docs/services/key-protect?topic=key-protect-wrap-keys).
-- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
+- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, [voir la documentation de référence {{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -72,7 +73,7 @@ subcollection: key-protect
 
 3. 키의 세부사항 채우기를 완료한 후 확인하려면 **키 작성**을 클릭하십시오. 
 
-서비스에서 작성된 키는 대칭 256비트 키이며, AES-GCM 알고리즘으로 지원됩니다. 보안 추가를 위해 키가 보안 {{site.data.keyword.cloud_notm}} 데이터 센터에 있는 FIPS 140-2 레벨 2 공인 HSM(Hardware Security Module)에서 생성됩니다. 
+서비스에서 작성되는 키는 대칭 256비트 키이며, AES-CBC-PAD 알고리즘에 의해 지원됩니다. 보안 강화를 위해 키는 보안 {{site.data.keyword.cloud_notm}} 데이터 센터에 있는 FIPS 140-2 레벨 3 공인 HSM(Hardware Security Module)에 의해 생성됩니다. 
 
 ## 고유 키 가져오기
 {: #import-keys}
@@ -120,4 +121,4 @@ subcollection: key-protect
 
 - 루트 키로 암호화 키 관리 및 보호에 대해 자세히 알아보려면 [엔벨로프 암호화로 데이터 보호](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 참조하십시오.
 - {{site.data.keyword.keymanagementserviceshort}} 서비스와 다른 클라우드 데이터 솔루션과의 통합에 대해 자세히 알아보려면 [통합 문서를 확인](/docs/services/key-protect?topic=key-protect-integrate-services)하십시오.
-- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.
+- 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서를 확인하십시오](https://cloud.ibm.com/apidocs/key-protect){: external}.

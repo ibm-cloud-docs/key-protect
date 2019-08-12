@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-13"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Spacchettamento delle chiavi
 {: #unwrap-keys}
 
-Puoi spacchettare una chiave di crittografia dei dati (o DEK, data encryption key) per accedere ai suoi contenuti utilizzando l'API {{site.data.keyword.keymanagementservicefull}}, se sei un utente privilegiato. Lo spacchettamento di una DEK decodifica e controlla l'integrità del suo contenuto, restituendo il materiale della chiave di origine al tuo servizio di dati {{site.data.keyword.cloud_notm}}.
+Puoi spacchettare una chiave di crittografia dei dati (o DEK, data encryption key) per accedere ai suoi contenuti utilizzando l'API {{site.data.keyword.keymanagementservicefull}}. Lo spacchettamento di una DEK decodifica e controlla l'integrità del suo contenuto, restituendo il materiale della chiave di origine al tuo servizio di dati {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 Per ulteriori informazioni su come l'impacchettamento ti aiuta a controllare la sicurezza dei dati inattivi nel cloud, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
@@ -62,9 +63,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     ```
     {: codeblock}
 
-    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Sostituisci le variabili nella richiesta di esempio in base alla seguente tabella.
     <table>
       <tr>
@@ -73,7 +71,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -110,3 +108,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    Se {{site.data.keyword.keymanagementserviceshort}} rileva che hai ruotato la chiave root utilizzata per spacchettare e accedere ai tuoi dati, il servizio restituisce anche una chiave di crittografia dei dati appena impacchettata (`ciphertext`) nel corpo della risposta di spacchettamento. Archivia e utilizza il nuovo valore `ciphertext` per future operazioni di crittografia envelope in modo che i tuoi dati siano protetti dall'ultima chiave root.
+    {: note}

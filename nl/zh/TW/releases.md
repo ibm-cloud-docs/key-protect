@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,41 @@ subcollection: key-protect
 # 新增功能
 {: #releases}
 
-掌握最新的 {{site.data.keyword.keymanagementservicefull}} 可用新增特性。 
+掌握最新的 {{site.data.keyword.keymanagementservicefull}} 可用新增特性。
+{: shortdesc}
+
+## 2019 年 6 月
+{: #june-2019}
+
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 新增了對 {{site.data.keyword.at_full_notm}} 的支援
+{: #added-at-logdna-support}
+新增日期：2019-06-22
+
+透過使用 {{site.data.keyword.at_full_notm}}，您現在可以監視 {{site.data.keyword.keymanagementserviceshort}} 服務的 API 呼叫。 
+
+若要進一步瞭解監視 {{site.data.keyword.keymanagementserviceshort}} 活動的相關資訊，請參閱[Activity Tracker 事件](/docs/services/key-protect?topic=key-protect-at-events)。
+
+## 2019 年 5 月
+{: #may-2019}
+
+### 已新增：{{site.data.keyword.keymanagementserviceshort}} 將 HSM 升級至 FIPS 140-2 Level 3
+{: #upgraded-hsms}
+新增日期：2019-05-22
+
+{{site.data.keyword.keymanagementserviceshort}} 現在使用{{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 以加密儲存空間與作業。您的 {{site.data.keyword.keymanagementserviceshort}} 金鑰是以 FIPS 140-2 Level 3 標準儲存在防竄改硬體中（適用於所有地區）。 
+
+若要進一步瞭解 {{site.data.keyword.cloud_notm}} HSM 7.0 特性與優點的相關資訊，請查閱[產品頁面](https://www.ibm.com/cloud/hardware-security-module){: external}。
+
+### 結束支援：Cloud Foundry 型 {{site.data.keyword.keymanagementserviceshort}} 服務實例
+{: #legacy-service-eol}
+新增日期：2019-05-15
+
+根據 Cloud Foundry 的舊式 {{site.data.keyword.keymanagementserviceshort}} 服務已於 2019 年 5 月 15 日結束支援。不再支援 Cloud Foundry 管理的 {{site.data.keyword.keymanagementserviceshort}} 服務實例，並且將不再提供舊式服務的更新項目。建議客戶使用 IAM 管理的 {{site.data.keyword.keymanagementserviceshort}} 服務實例，以便使用服務的最新特性。
+
+若您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例是在 2017 年 12 月 15 日之後建立，則為 IAM 管理的服務實例且不會受到此變更的影響。若有其他問題，請聯絡 Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) 以取得協助。
+
+需要從 {{site.data.keyword.cloud_notm}} 資源清單的 **Cloud Foundry 服務**區段移除 {{site.data.keyword.keymanagementserviceshort}} 服務實例嗎？您可以使用[支援中心](https://{DomainName}/unifiedsupport/cases/add)聯絡我們，方法是從您的主控台視圖中提交移除項目的要求。
+{: tip}
 
 ## 2019 年 3 月
 {: #mar-2019}
@@ -57,9 +92,9 @@ subcollection: key-protect
 
 **這對您來說有何意義？**
 
-如果您在較舊的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中具有作用中的正式作業金鑰，請確定您將金鑰移轉到 2019 年 5 月 15 日的新服務實例，以避免失去已加密資料的存取權。您可以導覽至 [{{site.data.keyword.cloud_notm}} 主控台![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/) 中的資源清單，以查看您是否使用舊式實例。如果 {{site.data.keyword.keymanagementserviceshort}} 服務實例列在 {{site.data.keyword.cloud_notm}} 資源清單的 **Cloud Foundry 服務**區段中，或者如果您是使用 `https://ibm-key-protect.edge.bluemix.net` API 端點來設定服務目標作業，則會使用 {{site.data.keyword.keymanagementserviceshort}} 的舊式實例。在 2019 年 5 月 15 日之後，無法再存取舊式端點，您將無法設定作業的目標服務。
+如果您在較舊的 {{site.data.keyword.keymanagementserviceshort}} 服務實例中具有作用中的正式作業金鑰，請確定您將金鑰移轉到 2019 年 5 月 15 日的新服務實例，以避免失去已加密資料的存取權。藉由從 [{{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/)導覽至資源清單，您可以進行檢查來查看是否您正在使用舊式實例。如果 {{site.data.keyword.keymanagementserviceshort}} 服務實例列在 {{site.data.keyword.cloud_notm}} 資源清單的 **Cloud Foundry 服務**區段中，或者如果您是使用 `https://ibm-key-protect.edge.bluemix.net` API 端點來設定服務目標作業，則會使用 {{site.data.keyword.keymanagementserviceshort}} 的舊式實例。在 2019 年 5 月 15 日之後，無法再存取舊式端點，您將無法設定作業的目標服務。
 
-需要協助來將加密金鑰移轉至新的服務實例嗎？如需詳細步驟，請參閱 [GitHub 中的移轉用戶端 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}。如果您對金鑰的狀態或移轉程序有其他問題，請透過 [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com) 連繫 Terry Mosbaugh。
+需要協助來將加密金鑰移轉至新的服務實例嗎？如需詳細步驟，請查閱 [GitHub 中的移轉用戶端](https://github.com/IBM-Cloud/kms-migration-client){: external}。如果您對金鑰的狀態或移轉程序有其他問題，請透過 [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com) 連繫 Terry Mosbaugh。
 {: tip}
 
 ## 2018 年 12 月
@@ -102,7 +137,7 @@ subcollection: key-protect
 
 您現在可以使用 {{site.data.keyword.keymanagementserviceshort}} CLI 外掛程式，以在 {{site.data.keyword.keymanagementserviceshort}} 服務實例中管理金鑰。
 
-若要了解如何安裝外掛程式，請參閱[設定 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。若要進一步了解 {{site.data.keyword.keymanagementserviceshort}} CLI，[請參閱 CLI 參考資料文件](/docs/services/key-protect?topic=key-protect-cli-reference)。
+若要了解如何安裝外掛程式，請參閱[設定 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。若要進一步瞭解 {{site.data.keyword.keymanagementserviceshort}} CLI，[請參閱 CLI 參考資料文件](/docs/services/key-protect?topic=key-protect-cli-reference)。
 
 ## 2018 年 9 月
 {: #sept-2018}
@@ -125,7 +160,7 @@ subcollection: key-protect
 
 您現在可以遵循[新的指導教學](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security)，練習為雲端應用程式新增端對端安全。
 
-如需相關資訊，[請參閱 GitHub 中的範例應用程式 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
+如需相關資訊，請查閱[GitHub 中的範例應用程式](https://github.com/IBM-Cloud/secure-file-storage){: external}。
 
 ### 已新增：{{site.data.keyword.keymanagementserviceshort}} 擴展到華盛頓特區地區
 {: #added-wdc-region}

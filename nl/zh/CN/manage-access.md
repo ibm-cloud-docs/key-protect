@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">表 1. 描述身份和访问角色如何映射到 {{site.data.keyword.keymanagementserviceshort}} 许可权</caption>
 </table>
 
-Cloud IAM 用户角色提供的是服务或服务实例级别的访问权。[Cloud Foundry 角色 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam?topic=iam-cfaccess){: new_window} 是分开的，在组织或空间级别定义访问权。要了解有关 {{site.data.keyword.iamshort}} 的更多信息，请查看[用户角色和许可权 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam?topic=iam-userroles){: new_window}。
+Cloud IAM 用户角色提供的是服务或服务实例级别的访问权。[Cloud Foundry 角色](/docs/iam?topic=iam-cfaccess){: external}是分开的，在组织或空间级别定义访问权。要了解有关 {{site.data.keyword.iamshort}} 的更多信息，请查看[用户角色和许可权](/docs/iam?topic=iam-userroles){: external}。
 {: note}
 
 ## 后续工作
@@ -105,5 +106,5 @@ Cloud IAM 用户角色提供的是服务或服务实例级别的访问权。[Clo
 
 帐户所有者和管理员可以邀请用户并设置对应于用户可以执行的 {{site.data.keyword.keymanagementserviceshort}} 操作的服务策略。
 
-- 有关在 {{site.data.keyword.cloud_notm}} UI 中分配用户角色的更多信息，请参阅[管理 IAM 访问权 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/iam?topic=iam-getstarted){: new_window}。
+- 有关在 {{site.data.keyword.cloud_notm}} UI 中分配用户角色的更多信息，请参阅[管理 IAM 访问权](/docs/iam?topic=iam-getstarted){: external}。
 

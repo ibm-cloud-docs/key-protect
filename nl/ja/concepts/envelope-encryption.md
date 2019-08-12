@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,27 +28,13 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementservicefull}} は、拡張暗号化を使用して保管データを保護し、以下のようないくつかの利点を提供します。
 
-<table>
-  <th>利点</th>
-  <th>説明</th>
-  <tr>
-    <td>顧客管理の暗号鍵</td>
-    <td>ユーザーは、サービスを使用して、クラウド内の暗号化データのセキュリティーを保護するためにルート鍵をプロビジョンできます。 ルート鍵はマスター鍵ラップ鍵としての機能を果たし、{{site.data.keyword.cloud_notm}} データ・サービス内でプロビジョンされたデータ暗号鍵 (DEK) を管理および保護するのに役立ちます。 ユーザーは、既存のルート鍵をインポートするのか、代わりに {{site.data.keyword.keymanagementserviceshort}} に生成させるのかを決定します。</td>
-  </tr>
-  <tr>
-    <td>機密性と保全性の保護</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} は、Galois/Counter Mode (GCM) で拡張暗号化標準 (AES) アルゴリズムを使用して、鍵を作成および保護します。 サービスで鍵を作成する場合、{{site.data.keyword.keymanagementserviceshort}} は {{site.data.keyword.cloud_notm}} ハードウェア・セキュリティー・モジュール (HSM) の信頼境界内に鍵を生成するため、ユーザーのみが暗号鍵へのアクセス権限を持ちます。</td>
-  </tr>
-  <tr>
-    <td>データの暗号シュレッディング</td>
-    <td>組織でセキュリティー問題が検出された場合、またはアプリで一連のデータが不要になった場合、そのデータをクラウドから完全に破棄することを選択できます。 他の DEK を保護しているルート鍵を削除すると、その鍵に関連付けられているデータにはアクセスすることも、暗号化解除することもできなくなります。</td>
-  </tr>
-  <tr>
-    <td>委任されたユーザー・アクセス制御</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} では、鍵に対する細分化されたアクセスを可能にするために、集中アクセス制御システムをサポートしています。 [IAM ユーザー役割と拡張許可を割り当てることにより](/docs/services/key-protect?topic=key-protect-manage-access#roles)、セキュリティー管理者は、サービス内でどのユーザーがどのルート鍵にアクセスできるかを決定します。</td>
-  </tr>
-  <caption style="caption-side:bottom;">表 1. ユーザー管理の暗号化の利点についての説明</caption>
-</table>
+| 利点 | 説明 |
+| --- | --- |
+| ユーザー管理の暗号鍵 | ユーザーは、サービスを使用してルート鍵をプロビジョンし、クラウド内の暗号化データのセキュリティーを保護できます。 ルート鍵はマスター鍵ラップ鍵としての機能を果たし、{{site.data.keyword.cloud_notm}} データ・サービス内でプロビジョンされたデータ暗号鍵 (DEK) を管理および保護するのに役立ちます。 ユーザーは、既存のルート鍵をインポートするのか、代わりに {{site.data.keyword.keymanagementserviceshort}} で生成するのかを決定します。 |
+| 機密性と保全性の保護 | {{site.data.keyword.keymanagementserviceshort}} は、Galois/Counter Mode (GCM) で拡張暗号化標準 (AES) アルゴリズムを使用して、鍵を保護します。 このサービスで鍵を作成する場合、{{site.data.keyword.keymanagementserviceshort}} は {{site.data.keyword.cloud_notm}} ハードウェア・セキュリティー・モジュール (HSM) の信頼境界内に鍵を生成するため、暗号鍵へのアクセス権限を持つのは当該ユーザーのみです。 |
+| データの暗号シュレッディング | 組織でセキュリティー問題が検出された場合、またはアプリで一連のデータが不要になった場合、そのデータをクラウドから完全に破棄するよう選択できます。 他の DEK を保護しているルート鍵を削除すると、その鍵に関連付けられているデータにはアクセスすることも、暗号化解除することもできなくなります。 |
+| 委任されたユーザー・アクセス制御 | {{site.data.keyword.keymanagementserviceshort}} では、鍵に対する細分化されたアクセスを可能にするために、集中アクセス制御システムをサポートしています。 [IAM ユーザー役割と拡張許可を割り当てることにより](/docs/services/key-protect?topic=key-protect-manage-access#roles)、セキュリティー管理者はサービス内でどのユーザーがどのルート鍵にアクセスできるのかを決定します。 |
+{: caption="表 1. ユーザー管理の暗号化の利点についての説明" caption-side="top"}
 
 ## 仕組み
 {: #overview}
@@ -57,7 +44,7 @@ subcollection: key-protect
 次の図は、鍵ラッピング機能のコンテキスト・ビューを示しています。
 ![図は、エンベロープ暗号化のコンテキスト・ビューを示しています。](../images/envelope-encryption_min.svg)
 
-エンベロープ暗号化については、NIST Special Publication 800-57, Recommendation for Key Management に簡単な説明があります。 詳しくは、[NIST SP 800-57 Pt. 1 Rev. 4 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window} を参照してください。
+エンベロープ暗号化については、NIST Special Publication 800-57, Recommendation for Key Management に簡単な説明があります。 詳しくは、[NIST SP 800-57 Pt. 1 Rev. 4](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external} を参照してください。
 
 ## 鍵のタイプ
 {: #key-types}
@@ -68,7 +55,7 @@ subcollection: key-protect
   <dt>ルート鍵</dt>
     <dd>ルート鍵は、{{site.data.keyword.keymanagementserviceshort}} の 1 次リソースです。 これは、データ・サービス内に保管されている他の鍵をラッピング (暗号化) およびアンラッピング (暗号化解除) するための信頼のルートとして使用される、対称鍵ラップ鍵です。 {{site.data.keyword.keymanagementserviceshort}} を使用して、ルート鍵の作成、保管、およびライフサイクルの管理を行うことができます。これにより、クラウド内に保管された他の鍵を完全に制御できるようになります。 標準鍵とは異なり、ルート鍵は {{site.data.keyword.keymanagementserviceshort}} サービスの境界から外に出ることは決してできません。</dd>
   <dt>標準鍵</dt>
-    <dd>標準鍵は、パスワードや暗号鍵などの機密事項を永続化する手段です。 {{site.data.keyword.keymanagementserviceshort}} を使用して標準鍵を保管すると、機密事項用のハードウェア・セキュリティー・モジュール (HSM) ストレージ、<a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> を使用したリソースへのきめ細かいアクセス制御、および <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> を使用したサービスへの API 呼び出しの監査機能が使用可能になります。</dd>
+    <dd>標準鍵は、パスワードや暗号鍵などの機密事項を永続化する手段です。 {{site.data.keyword.keymanagementserviceshort}} を使用して標準鍵を保管すると、機密事項用のハードウェア・セキュリティー・モジュール (HSM) ストレージ、<a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> を使用したリソースへのきめ細かいアクセス制御、および <a href="/docs/services/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a> を使用したサービスへの API 呼び出しの監査機能が使用可能になります。</dd>
 </dl>
 
 {{site.data.keyword.keymanagementserviceshort}} で鍵を作成すると、システムは ID 値を返します。これを使用して、サービスに対して API 呼び出しを行うことができます。 {{site.data.keyword.keymanagementserviceshort}} GUI または [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) を使用して、鍵の ID 値を取得できます。 
@@ -81,23 +68,13 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementserviceshort}} 内でルート鍵を指定した後、{{site.data.keyword.keymanagementserviceshort}} API を使用して、サービスに対して鍵ラップ要求を送信できます。 鍵ラップ操作は、DEK の機密性と保全性の両方の保護を実現します。 次の図は、鍵ラッピング・プロセスのアクションを示しています。![図は、鍵ラッピングのアクションを示しています。](../images/wrapping-keys_min.svg)
 
 次の表は、鍵ラップ操作を実行するために必要な入力について説明しています。
-<table>
-  <th>入力</th>
-  <th>説明</th>
-  <tr>
-    <td>ルート鍵 ID</td>
-    <td>ラッピングに使用するルート鍵の ID 値。 ルート鍵は、サービスにインポートすることも、{{site.data.keyword.keymanagementserviceshort}} でその HSM から発生させることもできます。 ラップ要求を正常に実行できるように、ラッピングに使用されるルート鍵は 128 ビット、192 ビット、または 256 ビットでなければなりません。</td>
-  </tr>
-  <tr>
-    <td>プレーン・テキスト</td>
-    <td>オプション: 管理および保護するデータが入っている DEK の鍵の素材。 鍵ラッピングに使用されるプレーン・テキストは、Base64 エンコードでなければなりません。 256 ビット DEK を生成する場合は、`plaintext` 属性を省略できます。 サービスは、鍵ラッピングに使用するために base64 エンコード DEK を生成します。</td>
-  </tr>
-  <tr>
-    <td>追加認証データ (AAD)</td>
-    <td>オプション: 鍵の内容の保全性をチェックするストリングの配列。 各ストリングは、最大 255 文字を保持できます。 ラップ要求時に AAD を提供した場合は、後続のアンラップ要求時にも同じ AAD を指定する必要があります。</td>
-  </tr>
-    <caption style="caption-side:bottom;">表 2. {{site.data.keyword.keymanagementserviceshort}} の鍵ラッピングに必要な入力</caption>
-</table>
+
+| 入力 | 説明 |
+| --- | --- |
+| ルート鍵 ID | ラッピングに使用するルート鍵の ID 値。 ルート鍵は、サービスにインポートすることも、{{site.data.keyword.keymanagementserviceshort}} でその HSM から発生させることもできます。 ラップ要求を正常に実行できるように、ラッピングに使用されるルート鍵は 128 ビット、192 ビット、または 256 ビットでなければなりません。 |
+| プレーン・テキスト | オプション: データ暗号化に使用するデータ暗号鍵 (DEK)。 この値は base64 エンコードでなければなりません。 新規 DEK を生成する場合は、`plaintext` プロパティーを省略できます。 Key Protect は、HSM をルートとするランダム・プレーン・テキスト (32 バイト) を生成し、その値をラップします。 |
+| 追加認証データ (AAD) | オプション: 鍵の内容の保全性をチェックするストリングの配列。 各ストリングは、最大 255 文字を保持できます。 ラップ要求時に AAD を指定した場合は、後続のアンラップ要求時にも同じ AAD を指定する必要があります。 |
+{: caption="表 2. {{site.data.keyword.keymanagementserviceshort}} の鍵ラッピングに必要な入力" caption-side="top"}
 
 暗号化するプレーン・テキストを指定せずにラップ要求を送信すると、AES-GCM 暗号化アルゴリズムによりプレーン・テキストが生成され、暗号文と呼ばれる理解できない形式のデータに変換されます。 このプロセスは、新しい鍵の素材を使用して 256 ビット DEK を出力します。 次に、システムは、AES 鍵ラッピング・アルゴリズムを使用します。このアルゴリズムは、指定されたルート鍵を使用して DEK とその鍵素材をラップします。 ラップ操作に成功すると、Base64 エンコードでラップされた DEK が返され、それを {{site.data.keyword.cloud_notm}} アプリやサービスに保管できます。 
 

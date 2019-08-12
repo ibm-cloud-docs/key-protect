@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -39,14 +40,14 @@ Si prefiere rotar sus claves raíz utilizando una interfaz gráfica, puede utili
 
 [Después de crear o importar sus claves raíz existentes en el servicio](/docs/services/key-protect?topic=key-protect-create-root-keys), complete los siguientes pasos para rotar una clave:
 
-1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/){: new_window}.
+1. [Inicie la sesión en la consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/){: external}.
 2. Vaya a **Menú** &gt; **Lista de recursos** para ver una lista de sus recursos.
 3. Desde la lista de recursos de {{site.data.keyword.cloud_notm}} seleccione su instancia suministrada de {{site.data.keyword.keymanagementserviceshort}}.
 4. En la página de detalles de la aplicación, utilice la tabla de **Claves** tabla para examinar las claves en el servicio.
 5. Pulse el icono ⋯ para abrir una lista de opciones para la clave que desea rotar.
 6. En el menú de opciones, pulse **Rotar clave** y confirme la rotación en la pantalla siguiente.
 
-Si inicialmente ha importado la clave raíz, debe proporcionar nuevo material de clave con codificación base64 para rotar la clave. Para obtener más información, consulte [Importación de claves raíz con la interfaz gráfica de usuario](/docs/services/key-protect?topic=key-protect-import-root-keys#gui).
+Si inicialmente ha importado la clave raíz, debe proporcionar nuevo material de clave con codificación base64 para rotar la clave. Para obtener más información, consulte [Importación de claves raíz con la interfaz gráfica de usuario](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-gui).
 {: note}
 
 ## Rotación de raíz claves utilizando la API
@@ -87,7 +88,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=rotate
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>

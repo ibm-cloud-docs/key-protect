@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Sie können eine Instanz von {{site.data.keyword.keymanagementservicefull}} erst
 
 Zur Bereitstellung einer Instanz von {{site.data.keyword.keymanagementserviceshort}} über die {{site.data.keyword.cloud_notm}}-Konsole müssen Sie die folgenden Schritte ausführen:
 
-1. [Melden Sie sich bei Ihrem {{site.data.keyword.cloud_notm}}-Konto ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}){: new_window} an.
+1. [Melden Sie sich bei Ihrem {{site.data.keyword.cloud_notm}}-Konto an](https://{DomainName}){: external}.
 2. Klicken Sie auf **Katalog**, um die Liste der Services anzuzeigen, die unter {{site.data.keyword.cloud_notm}} zur Verfügung stehen.
 3. Klicken Sie im Navigationsbereich 'Alle Kategorien' auf die Kategorie **Sicherheit und Identität**.
 4. Klicken Sie in der Serviceliste auf die **{{site.data.keyword.keymanagementserviceshort}}**-Kachel.
@@ -41,7 +42,7 @@ Zur Bereitstellung einer Instanz von {{site.data.keyword.keymanagementservicesho
 
 Sie können eine Instanz von {{site.data.keyword.keymanagementserviceshort}} auch über die {{site.data.keyword.cloud_notm}}-CLI bereitstellen. 
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} an.
 
     ```sh
     ibmcloud login 
@@ -65,7 +66,7 @@ Sie können eine Instanz von {{site.data.keyword.keymanagementserviceshort}} auc
     ```
     {: pre}
 
-    Ersetzen Sie `<instance_name>` mit einem eindeutigen Alias für Ihre Serviceinstanz.
+    Ersetzen Sie `<instance_name>` durch einen eindeutigen Alias für Ihre Serviceinstanz.
 
 4. Optional: Überprüfen Sie, ob die Serviceinstanz erfolgreich erstellt wurde.
 
@@ -77,4 +78,4 @@ Sie können eine Instanz von {{site.data.keyword.keymanagementserviceshort}} auc
 ## Weitere Schritte
 {: #provision-service-next-steps}
 
-Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln [finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation](https://{DomainName}/apidocs/key-protect){: external}.

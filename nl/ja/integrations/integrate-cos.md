@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} は、非構造化データ用のクラウド・ストレージを提供します。 非構造化データとは、ファイル、オーディオビジュアル・メディア、PDF、圧縮データ・アーカイブ、バックアップ・イメージ、アプリケーション成果物、ビジネス文書、その他のバイナリー・オブジェクトを指します。  
 
-データの保全性と可用性を維持するために、{{site.data.keyword.cos_full_notm}} は、複数の地理的位置にわたる複数のストレージ・ノード間に、データをスライスし、分散させます。 データの完全なコピーは、単一のストレージ・ノードには存在しません。ノードのサブセットが使用可能であれば、ネットワーク上のデータを完全に取り出すことができます。 プロバイダー・サイドで暗号化が提供されているため、データは保存中も移動中も保護されています。 ストレージを管理するには、バケットを作成し、{{site.data.keyword.cloud_notm}} コンソールを使用して、あるいは [{{site.data.keyword.cos_full_notm}}REST API ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window} を使用してプログラムで、オブジェクトをインポートします。
+データの保全性と可用性を維持するために、{{site.data.keyword.cos_full_notm}} は、複数の地理的位置にわたる複数のストレージ・ノード間に、データをスライスし、分散させます。 データの完全なコピーは、単一のストレージ・ノードには存在しません。ノードのサブセットが使用可能であれば、ネットワーク上のデータを完全に取り出すことができます。 プロバイダー・サイドで暗号化が提供されているため、データは保存中も移動中も保護されています。 ストレージを管理するには、バケットを作成し、{{site.data.keyword.cloud_notm}} コンソールを使用して、あるいは [{{site.data.keyword.cos_full_notm}}REST API](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external} を使用してプログラムで、オブジェクトをインポートします。
 
-詳しくは、[COS 概要 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window} を参照してください。
+詳しくは、[COS 概要 (About COS) ](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}を参照してください。
 
 ## 統合が動作する仕組み
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} は {{site.data.keyword.cos_full_notm}} と統合して、データのセキュリティーを完全に管理できるように支援します。  
 
@@ -49,7 +50,7 @@ _顧客管理の暗号化_ のセキュリティー上の利点を活用する�
 {{site.data.keyword.keymanagementserviceshort}} 内でエンベロープ暗号化がどのように機能するかについて詳しくは、[エンベロープ暗号化を使用したデータ保護](/docs/services/key-protect?topic=key-protect-envelope-encryption)を参照してください。
 
 ## ストレージ・バケットへのエンベロープ暗号化の追加
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [{{site.data.keyword.keymanagementserviceshort}} でルート鍵を指定](/docs/services/key-protect?topic=key-protect-create-root-keys)し、[サービス間のアクセス権限を付与](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access)した後で、{{site.data.keyword.cos_full_notm}} GUI を使用して、指定のストレージ・バケットに対してエンベロープ暗号化を有効にすることができます。
 
@@ -70,4 +71,4 @@ _顧客管理の暗号化_ のセキュリティー上の利点を活用する�
 ## 次に行うこと
 {: #cos-integration-next-steps}
 
-- ストレージ・バケットを {{site.data.keyword.keymanagementserviceshort}} 鍵と関連付けることについて詳しくは、[Manage encryption ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window} を参照してください。 
+- ストレージ・バケットと {{site.data.keyword.keymanagementserviceshort}} 鍵との関連付けについて詳しくは、[Manage encryption](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external} を参照してください。 

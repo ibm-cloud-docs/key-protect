@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Encapsulage de clés
 {: #wrap-keys}
 
-Si vous êtes un utilisateur privilégié, vous pouvez gérer et protéger vos clés de chiffrement avec une clé racine à l'aide de l'API {{site.data.keyword.keymanagementservicelong}}.
+Vous pouvez gérer et protéger vos clés de chiffrement avec une clé racine à l'aide de l'API {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 Lorsque vous encapsulez une clé DEK (Data Encryption Key) avec une clé racine, {{site.data.keyword.keymanagementserviceshort}} associe la puissance de plusieurs algorithmes pour protéger la confidentialité et l'intégrité des données chiffrées.  
@@ -34,7 +35,7 @@ Pour découvrir comment l'encapsulage de clés peut vous aider à contrôler la 
 
 Vous pouvez protéger la clé DEK indiquée avec une clé racine que vous gérez dans {{site.data.keyword.keymanagementserviceshort}}.
 
-Lorsque vous indiquez une clé racine pour l'encapsulage, vérifiez qu'il s'agit d'une clé racine de 128, 192 ou 256 bits pour que l'opération aboutisse. Si vous créez une clé racine dans le service, {{site.data.keyword.keymanagementserviceshort}} génère à partir de son module de sécurité matériel une clé 256 bits prise en charge par l'algorithme AES-GCM.
+Lorsque vous indiquez une clé racine pour l'encapsulage, vérifiez qu'il s'agit d'une clé racine de 128, 192 ou 256 bits pour que l'opération aboutisse. Si vous créez une clé racine dans le service, {{site.data.keyword.keymanagementserviceshort}} génère à partir de son module de sécurité matériel une clé 256 bits prise en charge par l'algorithme AES-CBC-PAD.
 {: note}
 
 [Après avoir désigné une clé racine dans le service](/docs/services/key-protect?topic=key-protect-create-root-keys), vous pouvez encapsuler une clé DEK avec un chiffrement avancé en soumettant un appel `POST` au noeud final suivant.
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Copiez le matériel de clé DEK que vous voulez gérer et protéger.
 
-    Si vous avez des privilèges de responsable ou d'auteur pour l'instance de service {{site.data.keyword.keymanagementserviceshort}}, [vous pouvez extraire le matériel de clé en soumettant une demande `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Si vous avez des privilèges de responsable ou d'auteur pour l'instance de service {{site.data.keyword.keymanagementserviceshort}}, [vous pouvez extraire le matériel de clé en soumettant une demande `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copiez l'ID de la clé racine que vous voulez utiliser pour l'encapsulage.
 
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    Pour utiliser les clés dans une organisation et un espace Cloud Foundry de votre compte, remplacez `Bluemix-Instance` par les en-têtes `Bluemix-org` et `Bluemix-space` appropriés. [Pour plus d'informations, voir la documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Remplacez les variables de l'exemple de demande conformément au tableau suivant :
 
     <table>
@@ -81,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Noeud final de service régional</a>.</td>
+        <td><strong>Obligatoire.</strong> Abréviation de la région, comme <code>us-south</code> ou <code>eu-gb</code>, représentant la zone géographique dans laquelle votre instance de service {{site.data.keyword.keymanagementserviceshort}} réside. Pour plus d'informations, voir <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Noeud final de service régional</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -129,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    La valeur <code>plaintext</code> représente la DEK désencapsulée et la valeur <code>ciphertext</code> représente la DEK encapsulée.
+    La valeur `plaintext` représente la DEK désencapsulée et la valeur `ciphertext` représente la DEK encapsulée.
     
     Si vous voulez que {{site.data.keyword.keymanagementserviceshort}} génère pour vous une nouvelle clé de chiffrement de données (DEK), vous pouvez également transmettre une section body vide dans votre demande d'encapsulage. La clé de chiffrement de données générée, qui contient le matériel de clé codé en base64, est renvoyée dans la section entity-body de la réponse, avec la clé de chiffrement de données encapsulée.
     {: tip}

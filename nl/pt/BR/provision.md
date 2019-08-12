@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 Para provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} por meio do console do {{site.data.keyword.cloud_notm}}, conclua as etapas a seguir.
 
-1. [Efetue login em sua conta do {{site.data.keyword.cloud_notm}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}){: new_window}.
+1. [Efetue login em sua conta do {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Clique em **Catálogo** para visualizar a lista de serviços que estão disponíveis no {{site.data.keyword.cloud_notm}}.
 3. Na área de janela de navegação Todas as categorias, clique na categoria **Segurança e identidade**.
 4. Na lista de serviços, clique no azulejo **{{site.data.keyword.keymanagementserviceshort}}**.
@@ -42,7 +43,7 @@ Para provisionar uma instância do {{site.data.keyword.keymanagementserviceshort
 
 Também é possível provisionar uma instância do {{site.data.keyword.keymanagementserviceshort}} usando a CLI do {{site.data.keyword.cloud_notm}}. 
 
-1. Efetue login no {{site.data.keyword.cloud_notm}} por meio do [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} por meio da [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -66,7 +67,7 @@ Também é possível provisionar uma instância do {{site.data.keyword.keymanage
     ```
     {: pre}
 
-    Substitua `<instance_name>` com um único alias para sua instância de serviço.
+    Substitua `<instance_name>` por um alias exclusivo para a sua instância de serviço.
 
 4. Opcional: verifique se a instância do serviço foi criada com êxito.
 
@@ -78,4 +79,4 @@ Também é possível provisionar uma instância do {{site.data.keyword.keymanage
 ## O que vem a seguir
 {: #provision-service-next-steps}
 
-Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [confira o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.

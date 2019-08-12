@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: delete key, delete key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -35,7 +36,7 @@ subcollection: key-protect
 
 [サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect?topic=key-protect-create-root-keys)、鍵を削除するには以下の手順を実行します。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/){: new_window}。
+1. [{{site.data.keyword.cloud_notm}} コンソールにログインします](https://{DomainName}/){: external}。
 2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
 3. {{site.data.keyword.cloud_notm}} リソース・リストで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
 4. アプリケーションの詳細ページで、**「鍵 (Keys)」**テーブルを使用して、サービス内の鍵を表示します。
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       -H 'prefer: <return_preference>'
     ```
     {: codeblock}
-  
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
-    {: tip}
 
     次の表に従って、例の要求内の変数を置き換えてください。
     <table>
@@ -81,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -132,4 +130,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {: screen}
 
-    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
+    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料](https://{DomainName}/apidocs/key-protect){: external}を参照してください。

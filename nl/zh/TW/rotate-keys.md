@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -39,14 +40,14 @@ subcollection: key-protect
 
 [在建立金鑰或將現有根金鑰匯入到服務之後](/docs/services/key-protect?topic=key-protect-create-root-keys)，請完成下列步驟來替換金鑰：
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){: new_window}。
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/){: external}。
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
 3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
 4. 在應用程式詳細資料頁面上，使用**金鑰**表格，以瀏覽服務中的金鑰。
 5. 按一下 ⋯ 圖示，以開啟您要替換之金鑰的選項清單。
 6. 從選項功能表，按一下**替換金鑰**，並在下一個畫面中確認替換。
 
-如果您一開始匯入根金鑰，則必須提供新的 base64 編碼金鑰資料才能替換金鑰。如需相關資訊，請參閱[使用 GUI 匯入根金鑰](/docs/services/key-protect?topic=key-protect-import-root-keys#gui)。
+如果您一開始匯入根金鑰，則必須提供新的 base64 編碼金鑰資料才能替換金鑰。如需相關資訊，請參閱[使用 GUI 匯入根金鑰](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-gui)。
 {: note}
 
 ## 使用 API 替換根金鑰
@@ -87,7 +88,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>

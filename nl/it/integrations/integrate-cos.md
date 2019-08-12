@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} fornisce l'archiviazione cloud per i dati non strutturati. I dati non strutturati si riferiscono a file, supporti audio/video, PDF, archivi di dati compressi, immagini di backup, risorse dell'applicazione, documenti di business o tutti gli altri oggetti binari.  
 
-Per mantenere l'integrità e la disponibilità dei dati, {{site.data.keyword.cos_full_notm}} suddivide e distribuisce i dati ai nodi di archiviazione tra più ubicazioni geografiche. Nessuna copia completa dei dati risiede in un singolo nodo di archiviazione e solo un sottoinsieme di nodi deve essere disponibile in modo che puoi recuperare appieno i dati sulla rete. Viene fornita la codifica lato fornitore, per cui i dati sono protetti sia quando inattivi che attivi. Per gestire l'archiviazione, crea i bucket e importa gli oggetti con la console {{site.data.keyword.cloud_notm}} o in modo programmatico utilizzando l'[{{site.data.keyword.cos_full_notm}} API REST ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
+Per mantenere l'integrità e la disponibilità dei dati, {{site.data.keyword.cos_full_notm}} suddivide e distribuisce i dati ai nodi di archiviazione tra più ubicazioni geografiche. Nessuna copia completa dei dati risiede in un singolo nodo di archiviazione e solo un sottoinsieme di nodi deve essere disponibile in modo che puoi recuperare appieno i dati sulla rete. Viene fornita la codifica lato fornitore, per cui i dati sono protetti sia quando inattivi che attivi. Per gestire l'archiviazione, crea i bucket e importa gli oggetti con la console {{site.data.keyword.cloud_notm}} o in modo programmatico utilizzando l'[API REST {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-Per ulteriori informazioni, vedi [About COS ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
+Per ulteriori informazioni, vedi [Informazioni su COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## Come funziona l'integrazione
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} si integra con {{site.data.keyword.cos_full_notm}} per aiutarti ad avere il controllo completo della sicurezza dei tuoi dati.  
 
@@ -49,7 +50,7 @@ La seguente figura mostra in che modo {{site.data.keyword.keymanagementservicesh
 Per ulteriori informazioni su come funziona la crittografia envelope in {{site.data.keyword.keymanagementserviceshort}}, consulta [Protezione dei dati con la crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Aggiunta della crittografia envelope ai tuoi bucket di archiviazione
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [Dopo aver designato una chiave root in {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) e [concesso l'accesso tra i tuoi servizi](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), puoi abilitare la crittografia envelope per un bucket di archiviazione specificato utilizzando la GUI {{site.data.keyword.cos_full_notm}}.
 
@@ -70,4 +71,4 @@ Dalla GUI {{site.data.keyword.cos_full_notm}}, puoi sfogliare i bucket protetti 
 ## Operazioni successive
 {: #cos-integration-next-steps}
 
-- Per ulteriori informazioni sull'associazione dei tuoi bucket di archiviazione con le chiavi {{site.data.keyword.keymanagementserviceshort}}, vedi [Manage encryption ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- Per ulteriori informazioni sull'associazione dei tuoi bucket di archiviazione con le chiavi {{site.data.keyword.keymanagementserviceshort}}, vedi [Manage encryption](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

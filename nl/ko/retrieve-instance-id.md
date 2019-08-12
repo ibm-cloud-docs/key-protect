@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} 리소스 목록으로 이동하여 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스와 연관된 인스턴스 ID를 볼 수 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")에 로그인](https://{DomainName}){: new_window}하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔에 로그인하십시오](https://{DomainName}){: external}.
 2. **메뉴** &gt; **리소스 목록**으로 이동한 다음 **서비스**를 클릭하여 클라우드 서비스 목록을 찾아보십시오.
 3. {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 설명하는 테이블 행을 클릭하십시오.
 4. 서비스 세부사항 보기에서 **GUID** 값을 복사하십시오.
@@ -40,9 +41,9 @@ subcollection: key-protect
 ## CLI를 사용하여 인스턴스 ID 검색
 {: #retrieve-instance-ID-cli}
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 서비스 인스턴스의 인스턴스 ID를 검색할 수도 있습니다.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 서비스 인스턴스에 대한 인스턴스 ID를 검색할 수도 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -74,10 +75,10 @@ subcollection: key-protect
 ## API를 사용하여 인스턴스 ID 검색
 {: #retrieve-instance-ID-api}
 
-애플리케이션을 빌드하고 연결하는 데 도움이 되도록 프로그래밍 방식으로 인스턴스 ID를 검색할 수 있습니다. [{{site.data.keyword.cloud_notm}} 리소스 제어기 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/resource-controller)를 호출한 다음 JSON 출력을 `jq`로 보내 이 값을 추출할 수 있습니다.
+애플리케이션을 빌드하고 연결하는 데 도움이 되도록 프로그래밍 방식으로 인스턴스 ID를 검색할 수 있습니다. [{{site.data.keyword.cloud_notm}} 리소스 제어기 API](https://{DomainName}/apidocs/resource-controller)를 호출한 후 JSON 출력을 `jq`로 보내 이 값을 추출할 수 있습니다. 
 
 1. [{{site.data.keyword.cloud_notm}} IAM 액세스 토큰을 검색](/docs/services/key-protect?topic=key-protect-retrieve-access-token)하십시오.
-2. [리소스 제어기 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/resource-controller)를 호출하여 인스턴스 ID를 검색하십시오.
+2. [리소스 제어기 API](https://{DomainName}/apidocs/resource-controller)를 호출하여 인스턴스 ID를 검색하십시오.
 
     ```sh
     curl -X GET \

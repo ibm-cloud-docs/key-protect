@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -61,7 +61,7 @@ Tenez compte des considérations suivantes lorsque vous êtes prêt à importer 
 ## Utilisation des clés de transport
 {: #transport-keys}
 
-Les clés de transport sont actuellement une fonction bêta. Les fonctions bêta peuvent changer à tout moment, et les mises à jour futures peuvent introduire des changements qui sont incompatibles avec la dernière version.
+Les clés de transport sont actuellement une fonction bêta. Les fonctions bêta peuvent changer à tout moment et les mises à jour futures peuvent introduire des changements qui sont incompatibles avec la dernière version.
 {: important}
 
 Si vous souhaitez chiffrer votre matériel de clé avant de l'importer dans {{site.data.keyword.keymanagementserviceshort}}, vous pouvez créer une clé de chiffrement de transport pour votre instance de service à l'aide de l'API {{site.data.keyword.keymanagementserviceshort}}. 
@@ -73,7 +73,7 @@ Les clés de transport sont un type de ressources dans {{site.data.keyword.keyma
 
 Lorsque vous [créez une clé de transport](/docs/services/key-protect?topic=key-protect-create-transport-keys) pour votre instance de service, {{site.data.keyword.keymanagementserviceshort}} génère une clé RSA de 4096 bits. Le service chiffre la clé privée puis renvoie la clé publique et un jeton d'importation que vous pouvez utiliser pour chiffrer et importer votre matériel de clé racine. 
 
-Lorsque vous êtes prêt à [importer une clé racine](/docs/services/key-protect?topic=key-protect-import-root-keys#api) dans {{site.data.keyword.keymanagementserviceshort}}, vous fournissez le matériel de clé racine chiffré et le jeton d'importation qui est utilisé pour vérifier l'intégrité de la clé publique. Pour effectuer la demande, {{site.data.keyword.keymanagementserviceshort}} utilise la clé privée associée à votre instance de service pour déchiffrer le matériel de clé racine chiffré. Ce processus assure que seule la clé de transport que vous avez générée dans {{site.data.keyword.keymanagementserviceshort}} peut déchiffrer le matériel de clé que vous importez et stockez dans le service.
+Lorsque vous êtes prêt à [importer une clé racine](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) dans {{site.data.keyword.keymanagementserviceshort}}, vous fournissez le matériel de clé racine chiffré et le jeton d'importation qui est utilisé pour vérifier l'intégrité de la clé publique. Pour effectuer la demande, {{site.data.keyword.keymanagementserviceshort}} utilise la clé privée associée à votre instance de service pour déchiffrer le matériel de clé racine chiffré. Ce processus assure que seule la clé de transport que vous avez générée dans {{site.data.keyword.keymanagementserviceshort}} peut déchiffrer le matériel de clé que vous importez et stockez dans le service.
 
 Vous ne pouvez créer qu'une seule clé de transport par instance de service. Pour en savoir plus sur les limites d'extraction des clés de transport, veuillez consulter la [documentation sur les références d'API de {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: note} 

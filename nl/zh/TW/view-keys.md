@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,7 +29,7 @@ subcollection: key-protect
 定期審核您的金鑰配置：
 
 - 檢查金鑰的建立時間，並決定是否應該替換金鑰。
-- [使用 {{site.data.keyword.cloudaccesstrailshort}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示") 監視對 {{site.data.keyword.keymanagementserviceshort}} 的 API 呼叫](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}。
+- [使用 {{site.data.keyword.cloudaccesstrailshort}} 監視 {{site.data.keyword.keymanagementserviceshort}} 的 API 呼叫](/docs/services/key-protect?topic=key-protect-at-events)。
 - 檢查哪些使用者可以存取金鑰，以及存取層次是否適當。
 
 如需審核資源存取權的相關資訊，請參閱[使用 Cloud IAM 管理使用者存取](/docs/services/key-protect?topic=key-protect-manage-access)。
@@ -40,7 +41,7 @@ subcollection: key-protect
 
 [在建立金鑰或將現有金鑰匯入到服務之後](/docs/services/key-protect?topic=key-protect-create-root-keys)，請完成下列步驟來檢視金鑰。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/)。
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}/)。
 2. 移至**功能表** &gt; **資源清單**以檢視資源的清單。
 3. 從 {{site.data.keyword.cloud_notm}} 資源清單，選取已佈建的 {{site.data.keyword.keymanagementserviceshort}} 實例。
 4. 從應用程式詳細資料頁面，瀏覽金鑰的一般特徵：
@@ -56,11 +57,11 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 服務已指派給您金鑰的唯一金鑰 ID。您可以使用 ID 值，利用 [{{site.data.keyword.keymanagementserviceshort}} API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect) 來呼叫服務。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} 服務已指派給您金鑰的唯一金鑰 ID。您可以使用 ID 值，利用 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) 來呼叫服務。</td>
       </tr>
       <tr>
         <td>狀態</td>
-        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0) 的[金鑰狀態](/docs/services/key-protect?topic=key-protect-key-states)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
+        <td>根據 [NIST 特殊出版品 800-57 的金鑰管理建議](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)的[金鑰狀態](/docs/services/key-protect?topic=key-protect-key-states)。這些狀態包括<i>啟動前</i>、<i>作用中</i>、<i>取消啟動</i> 及<i>已破壞</i>。</td>
       </tr>
       <tr>
         <td>類型</td>
@@ -98,9 +99,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
-    {: tip}
-
     根據下表取代範例要求中的變數。
     <table>
       <tr>
@@ -109,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -166,7 +164,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
-            "mode": "GCM"
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -237,7 +235,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
   </tr>
   <tr>
     <td><code>.../keys?offset=25&limit=50</code></td>
-    <td>列出金鑰 26 - 50。</td>
+    <td>列出金鑰 26 - 75。</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=3000&limit=50</code></td>
@@ -286,7 +284,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -329,7 +327,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "GCM"
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -339,4 +337,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    如需可用參數的詳細說明，請參閱 {{site.data.keyword.keymanagementserviceshort}} [REST API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
+    如需可用參數的詳細說明，請參閱{{site.data.keyword.keymanagementserviceshort}} [REST API 參考文件](https://{DomainName}/apidocs/key-protect){: external}。

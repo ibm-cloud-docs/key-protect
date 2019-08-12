@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [Después de crear una instancia de un servicio](/docs/services/key-protect?topic=key-protect-provision), puede integrar {{site.data.keyword.keymanagementserviceshort}} con los siguientes servicios soportados:
 
-<table>
-    <tr>
-        <th>Servicio</th>
-        <th>Descripción</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>Añada [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption) a sus depósitos de almacenamiento utilizando {{site.data.keyword.keymanagementserviceshort}}. Utilice claves raíz que gestiona en {{site.data.keyword.keymanagementserviceshort}} para proteger las claves de cifrado de datos que cifran los datos en reposo. Para obtener más información, consulte [Integración con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>Utilice el [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption) para proteger secretos en el clúster de {{site.data.keyword.containershort_notm}}. Para obtener más información, consulte [Cifrado de secretos de Kubernetes mediante {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>Proteja sus bases de datos asociando claves raíz a su despliegue de {{site.data.keyword.databases-for-postgresql}}. Para obtener más información, consulte la documentación de [{{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect).</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicado)</p>
-        </td>
-        <td>
-          <p>Refuerce la estrategia de cifrado en reposo asociando claves raíz a la instancia de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}. Para obtener más información, consulte la [documentación de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control).</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">Tabla 1. Describe las integraciones disponibles para {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+| Servicio | Descripción |
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} | Añada [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption) a sus depósitos de almacenamiento utilizando {{site.data.keyword.keymanagementserviceshort}}. Utilice claves raíz que gestiona en {{site.data.keyword.keymanagementserviceshort}} para proteger las claves de cifrado de datos que cifran los datos en reposo. Para obtener más información, consulte [Integración con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} | Proteja sus bases de datos asociando claves raíz a su despliegue de {{site.data.keyword.databases-for-postgresql}}. Para obtener más información, consulte la [documentación de {{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).|
+| {{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicado) | Refuerce la estrategia de cifrado en reposo asociando claves raíz a la instancia de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}. Para obtener más información, consulte la [documentación de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control). |
+| {{site.data.keyword.containerlong_notm}} | Utilice el [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption) para proteger secretos en el clúster de {{site.data.keyword.containershort_notm}}. Para obtener más información, consulte [Cifrado de secretos de Kubernetes mediante {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).|
+{: caption="Tabla 1. Describe las integraciones disponibles con {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 ## Comprensión de la integración 
 {: #understand-integration}
@@ -74,7 +43,7 @@ Cuando integra un servicio con soporte con {{site.data.keyword.keymanagementserv
 
 Por ejemplo, puede crear una clave raíz, gestionar la clave en {{site.data.keyword.keymanagementserviceshort}} y utilizar la clave raíz para proteger los datos que se almacenan en distintos servicios en la nube.
 
-![El diagrama muestra una vista contextual de su integración de {{site.data.keyword.keymanagementserviceshort}}.](../images/kp-integrations_min.svg)
+![El diagrama muestra una vista contextual de su integración de {{site.data.keyword.keymanagementserviceshort}}.](../images/kp-integrations.svg)
 
 ### Métodos de API de {{site.data.keyword.keymanagementserviceshort}}
 {: #envelope-encryption-api-methods}
@@ -83,23 +52,13 @@ De forma transparente para el usuario, la API de {{site.data.keyword.keymanageme
 
 En la tabla siguiente se listan los métodos API que añaden o eliminan el cifrado de sobre en un recurso.
 
-<table>
-  <tr>
-    <th>Método</th>
-    <th>Descripción</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{ID_clave_raíz}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">Envuelve (cifra) una clave de cifrado de datos</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{ID_clave_raíz}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">Desenvuelve (descifra) una clave de cifrado de datos</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabla 2. Describe los métodos API de {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+| Método | Descripción |
+| --- | --- |
+| `POST /keys/{ID_clave_raíz}?action=wrap` | [Envuelve (cifra) una clave de cifrado de datos](/docs/services/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{ID_clave_raíz}?action=unwrap` | [Desenvuelve (descifra) una clave de cifrado de datos](/docs/services/key-protect?topic=key-protect-unwrap-keys) |
+{: caption="Tabla 2. Describe los métodos API de {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
-Para obtener más información sobre la gestión de claves mediante programación en {{site.data.keyword.keymanagementserviceshort}}, consulte la [documentación de consulta de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Para obtener más información sobre la gestión de claves mediante programación en {{site.data.keyword.keymanagementserviceshort}}, consulte la [documentación de consulta de la API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.
 {: tip}
 
 ## Integración de un servicio con soporte
@@ -107,7 +66,7 @@ Para obtener más información sobre la gestión de claves mediante programació
 
 Para añadir una integración, cree una autorización entre los servicios utilizando el panel de control de {{site.data.keyword.iamlong}}. Las autorizaciones habilitan las políticas de acceso de servicio a servicio, de modo que pueda asociar un recurso en su servicio de datos en la nube con una [clave raíz](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) que gestiona en {{site.data.keyword.keymanagementserviceshort}}.
 
-Asegúrese de proporcionar los servicios en la misma región antes de crear una autorización. Para obtener más información sobre las autorizaciones de servicio, consulte [Concesión de acceso entre servicios ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/iam?topic=iam-serviceauth){: new_window}.
+Asegúrese de proporcionar los servicios en la misma región antes de crear una autorización. Para obtener más información sobre las autorizaciones de servicio, consulte [Concesión de acceso entre servicios](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
 Cuando esté listo para integrar un servicio, utilice los pasos siguientes para crear una autorización:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ subcollection: key-protect
 
 개인 데이터의 기밀성을 보호하려면 PII(Personally Identifiable Information)를 키의 메타데이터로 저장하지 마십시오. 개인 정보에는 사용자의 이름, 주소, 전화번호, 이메일 주소 또는 사용자, 사용자의 고객 또는 다른 사용자를 식별하거나 연락하거나 찾을 수 있는 기타 정보가 포함됩니다.
 
-{{site.data.keyword.keymanagementserviceshort}} 리소스 및 암호화 키의 메타데이터로 저장하는 정보에 대한 보안을 보장해야 합니다. 개인 데이터에 대한 추가 예제는 [NIST Special Publication 800-122 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}의 섹션 2.2를 참조하십시오.
+{{site.data.keyword.keymanagementserviceshort}} 리소스 및 암호화 키의 메타데이터로 저장하는 정보에 대한 보안을 보장해야 합니다. 개인 데이터에 대한 추가 예제는 [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}의 섹션 2.2를 참조하십시오.
 {: important}
 
 ## 한 지역에서 작성된 키를 다른 지역에서 사용할 수 있습니까?
@@ -89,7 +90,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} 서비스를 사용하여 사용자 및 애플리케이션이 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스와 상호작용하는 방법을 추적할 수 있습니다. 예를 들어, {{site.data.keyword.keymanagementserviceshort}}에서 키 작성, 가져오기, 삭제 또는 읽기를 수행할 때 {{site.data.keyword.cloudaccesstrailshort}} 이벤트가 생성됩니다. 이러한 이벤트는 {{site.data.keyword.keymanagementserviceshort}} 서비스가 프로비저닝된 지역과 동일한 지역의 {{site.data.keyword.cloudaccesstrailshort}} 서비스에 자동으로 전달됩니다.
 
-자세한 내용을 알아보려면 [활동 트래커 이벤트](/docs/services/key-protect?topic=key-protect-activity-tracker-events)를 참조하십시오.
+자세한 내용을 알아보려면 [활동 트래커 이벤트](/docs/services/key-protect?topic=key-protect-at-events)를 참조하십시오.
 
 ## 키를 삭제하면 어떻게 됩니까?
 {: #key-destruction}
@@ -104,3 +105,4 @@ subcollection: key-protect
 {: faq}
 
 {{site.data.keyword.keymanagementserviceshort}}를 사용하지 않기로 결정하는 경우, 서비스를 디프로비저닝하려면 먼저 서비스 인스턴스에서 남은 키를 삭제해야 합니다. 서비스 인스턴스를 삭제한 후 {{site.data.keyword.keymanagementserviceshort}}는 [엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 사용하여 서비스 인스턴스와 연관된 모든 데이터의 암호를 파쇄합니다. 
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: create transport encryption key, secure import, key-wrapping key, transport key API examples
 
@@ -66,7 +66,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/lockers
         </tr>
         <tr>
           <td><varname>region</varname></td>
-          <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+          <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
         </tr>
         <tr>
           <td><varname>IAM_token</varname></td>

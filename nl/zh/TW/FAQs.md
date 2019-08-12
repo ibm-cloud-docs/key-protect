@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -70,7 +71,7 @@ subcollection: key-protect
 為了保護個人資料的機密性，請不要將個人識別資訊 (PII) 儲存為金鑰的 meta 資料。個人資訊包括您的姓名、地址、電話號碼、電子郵件位址，或者可識別、聯絡或找到您、您的客戶或其他人的其他資訊。
 
 
-您要負責確保所有您儲存為 {{site.data.keyword.keymanagementserviceshort}} 資源及加密金鑰的 meta 資料的資訊安全。如需其他個人資料範例，請參閱 [NIST 特殊出版品 800-122 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} 的第 2.2 節。
+您要負責確保所有您儲存為 {{site.data.keyword.keymanagementserviceshort}} 資源及加密金鑰的 meta 資料的資訊安全。如需個人資料的更多範例，請參閱 [NIST 特殊出版品 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external} 的第 2.2 節。
 {: important}
 
 ## 可以在其他地區使用某個地區中建立的金鑰嗎？
@@ -91,7 +92,7 @@ subcollection: key-protect
 
 您可以使用 {{site.data.keyword.cloudaccesstrailfull_notm}} 服務來追蹤使用者及應用程式與 {{site.data.keyword.keymanagementserviceshort}} 服務實例的互動情況。例如，當您在 {{site.data.keyword.keymanagementserviceshort}} 中建立、匯入、刪除或讀取金鑰時，會產生 {{site.data.keyword.cloudaccesstrailshort}} 事件。這些事件會自動轉遞至與 {{site.data.keyword.keymanagementserviceshort}} 服務佈建所在地區相同之地區的 {{site.data.keyword.cloudaccesstrailshort}} 服務。
 
-若要進一步瞭解，請參閱 [Activity Tracker 事件](/docs/services/key-protect?topic=key-protect-activity-tracker-events)。
+若要進一步瞭解，請參閱 [Activity Tracker 事件](/docs/services/key-protect?topic=key-protect-at-events)。
 
 ## 刪除金鑰時會發生什麼情況？
 {: #key-destruction}
@@ -106,3 +107,4 @@ subcollection: key-protect
 {: faq}
 
 如果您決定從 {{site.data.keyword.keymanagementserviceshort}} 繼續，則必須在可以取消佈建服務之前，先刪除服務實例中所有剩餘的金鑰。刪除服務實例之後，{{site.data.keyword.keymanagementserviceshort}} 會使用[封套加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)來加密/解構與服務實例相關聯的任何資料。 
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,7 +28,7 @@ subcollection: key-protect
 
 CLI 플러그인을 설치하려면 [CLI 설정](/docs/services/key-protect?topic=key-protect-set-up-cli)을 참조하십시오. 
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}에 로그인하는 경우 업데이트가 있으면 알림을 표시합니다. {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인에 사용 가능한 명령 및 플래그를 사용할 수 있도록 CLI를 최신 상태로 유지하십시오.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}에 로그인할 경우, 업데이트가 있으면 알림이 표시됩니다. {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인에 사용 가능한 명령 및 플래그를 사용할 수 있도록 CLI를 최신 상태로 유지하십시오.
 {: tip}
 
 ## ibmcloud kp 명령
@@ -58,7 +59,7 @@ CLI 플러그인을 설치하려면 [CLI 설정](/docs/services/key-protect?topi
     <caption style="caption-side:bottom;">표 1. 키 관리를 위한 명령</caption> 
  </table>
 
- <table summary="키 정책 관리를 위한 명령">
+ <table summary="키 정책 관리를 위한 명령"> 
     <thead>
         <th colspan="5">키 정책 관리를 위한 명령</th>
     </thead>
@@ -87,6 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ```
 {:pre}
 
+```sh
+$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+```
+{:screen}
+
 ### 필수 매개변수
 {: #create-req-params}
 
@@ -105,7 +115,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
         <dd>서비스에 저장하고 관리할 base64로 인코딩된 키 자료입니다. 기존 키를 가져오려면 256비트 키를 제공하십시오. 새 키를 생성하려면 <code>--key-material</code> 매개변수를 생략하십시오.</dd>
     <dt><code>-s, --standard-key</code></dt>
         <dd><a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">표준 키</a>를 작성할 경우에만 매개변수를 설정하십시오. 루트 키를 작성하려면 <code>--standard-key</code> 매개변수를 생략하십시오.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -118,6 +128,17 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
+
+SUCCESS
+
+Deleted Key
+584fb0d9-dec2-47b8-bde5-50f05fd66261
+```
+{: screen}
 
 ### 필수 매개변수
 {: #delete-req-params}
@@ -139,6 +160,18 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp list -i $KP_INSTANCE_ID
+Retrieving keys...
+
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
+```
+{: screen}
+
 ### 필수 매개변수
 {: #list-req-params}
 
@@ -151,7 +184,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: #list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -167,6 +200,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
+
+SUCCESS
+
+Key ID                                 Key Name          Description     Creation Date                   Expiration Date
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
+```
+{:screen}
+
 ### 필수 매개변수
 {: #get-req-params}
 
@@ -181,7 +225,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -192,9 +236,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 
 ```
 ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
-                 [-k, --key-material KEY_MATERIAL]
+                 [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Rotating root key...
+
+SUCCESS
+```
+{:screen}
 
 ### 필수 매개변수
 {: #rotate-req-params}
@@ -212,7 +264,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>기존 루트 키에 사용할 base64로 인코딩된 키 자료입니다. 초기에 서비스로 가져온 키를 순환하려면 새 256비트 키를 제공하십시오. {{site.data.keyword.keymanagementserviceshort}}에서 초기에 생성된 키를 순환하려면 <code>--key-material</code> 매개변수를 생략하십시오.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -247,7 +299,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>키를 보안하는 데 사용되는 추가 인증 데이터(AAD)입니다. 랩핑에 제공된 경우 랩핑 해제에 제공되어야 합니다.</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>관리하고 보호할 base64로 인코딩된 데이터 암호화 키(DEK)입니다. 기존 키를 가져오려면 256비트 키를 제공하십시오. 새 DEK를 생성하고 랩핑하려면 <code>--plaintext</code> 매개변수를 생략하십시오.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -281,7 +333,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>키를 보안하는 데 사용된 추가 인증 데이터(AAD)입니다. 각각 쉼표로 구분하여 최대 255개의 문자열을 제공할 수 있습니다. 랩핑에 AAD를 제공한 경우 랩핑 해제에 동일한 AAD를 지정해야 합니다.</p><p><b>중요사항:</b> {{site.data.keyword.keymanagementserviceshort}} 서비스는 추가 인증 데이터를 저장하지 않습니다. AAD를 제공하는 경우에는 후속 랩핑 해제 요청 중에 동일한 AAD를 액세스 및 제공할 수 있도록 안전한 위치에 데이터를 저장하십시오.</p></dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -309,7 +361,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -337,7 +389,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 
@@ -371,7 +423,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>-p, --policy</code></dt>
         <dd>키에 대한 순환 시간 간격(분 단위)을 지정합니다. 기본값은 1입니다.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>CLI 출력 형식을 설정하십시오. 기본적으로 모든 명령은 표 형식으로 인쇄됩니다. 출력 형식을 JSON으로 변경하려면 <code>--output json</code>을 사용하십시오.</dd>
 </dl>
 

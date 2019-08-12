@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 {:deprecated: .deprecated}
 
-# Regiões e locais
+# Regiões e terminais
 {: #regions}
 
 É possível conectar seus aplicativos com o serviço do {{site.data.keyword.keymanagementservicelong}}
@@ -82,8 +82,7 @@ Se você estiver gerenciando seus recursos do {{site.data.keyword.keymanagements
     <caption style="caption-side:bottom;">Tabela 1. Mostra os terminais disponíveis para a API do {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-É possível continuar a usar `https://keyprotect.<region>.bluemix.net` para destinar o serviço para
-as operações ou é possível atualizar seus aplicativos com os novos terminais `cloud.ibm.com`. 
+É possível continuar a usar `https://keyprotect.<region>.bluemix.net` para destinar o serviço para as operações ou é possível atualizar os seus aplicativos com os novos terminais `cloud.ibm.com`.
 {: tip}
 
 Para obter mais informações sobre a autenticação com o {{site.data.keyword.keymanagementserviceshort}}, veja [Acessando a API](/docs/services/key-protect?topic=key-protect-set-up-api).

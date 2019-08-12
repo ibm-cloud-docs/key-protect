@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 {:deprecated: .deprecated}
 
-# 地域とロケーション
+# 地域とエンドポイント
 {: #regions}
 
 地域のサービス・エンドポイントを指定することによって、アプリケーションを {{site.data.keyword.keymanagementservicelong}} サービスに接続できます。

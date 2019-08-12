@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-13"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 解除包裝金鑰
 {: #unwrap-keys}
 
-如果您是特許使用者，則可以使用 {{site.data.keyword.keymanagementservicefull}} API，以解除包裝資料加密金鑰 (DEK) 來存取其內容。解除包裝 DEK 會解密其內容並檢查內容完整性，並將原始金鑰資料傳回給 {{site.data.keyword.cloud_notm}} 資料服務。
+您可以使用 {{site.data.keyword.keymanagementservicefull}} API 來解除包裝資料加密金鑰 (DEK) 以存取其內容。解除包裝 DEK 會解密其內容並檢查內容完整性，並將原始金鑰資料傳回給 {{site.data.keyword.cloud_notm}} 資料服務。
 {: shortdesc}
 
 若要瞭解金鑰包裝如何協助您控制雲端中靜置資料的安全，請參閱[使用封套加密保護資料](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
@@ -62,9 +63,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
-    {: tip}
-
     根據下表取代範例要求中的變數。
     <table>
       <tr>
@@ -73,11 +71,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>必要。</strong>您用於起始 wrap 要求之根金鑰的唯一 ID。</td>
+        <td><strong>必要。</strong>您用於起始 wrap 要求之主要金鑰的唯一 ID。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -110,3 +108,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    若 {{site.data.keyword.keymanagementserviceshort}} 偵測到您替換用於解除包裝與存取資料的根金鑰，則服務同時會傳回在解除包裝回應內文中新包裝的資料加密金鑰 (`ciphertext`)。儲存並使用未來封套加密作業的新 `ciphertext` 值，以便您的資料會受到最新根金鑰的保護。
+    {: note}

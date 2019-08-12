@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -72,7 +73,7 @@ Siga estos pasos para crear su primera clave criptográfica.
 
 3. Cuando haya terminado de cumplimentar los detalles de la clave, pulse **Crear una clave** para confirmar. 
 
-Las claves creadas en el servicio son claves simétricas de 256 bits, soportadas por el algoritmo AES-GCM. Para una mayor seguridad, las claves se generan con módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 Nivel 2 que se ubican en centros de datos seguros de {{site.data.keyword.cloud_notm}}. 
+Las claves creadas en el servicio son claves simétricas de 256 bits, soportadas por el algoritmo AES-CBC-PAD. Para una mayor seguridad, las claves se generan con módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 Nivel 3 que se ubican en centros de datos seguros de {{site.data.keyword.cloud_notm}}. 
 
 ## Importación de sus propias claves
 {: #import-keys}
@@ -120,4 +121,4 @@ Ahora puede utilizar sus claves para codificar las apps y servicios. Si ha añad
 
 - Para encontrar más información sobre la gestión y la protección de las claves de cifrado con una clave raíz, consulte [Protección de datos con cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 - Para obtener más información sobre la integración del servicio {{site.data.keyword.keymanagementserviceshort}} con otras soluciones de datos en la nube, [consulte el documento de Integraciones](/docs/services/key-protect?topic=key-protect-integrate-services).
-- Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+- Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/apidocs/key-protect){: external}.

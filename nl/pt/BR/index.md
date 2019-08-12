@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -76,7 +77,7 @@ Conclua as etapas a seguir para criar sua primeira chave criptográfica.
 
 3. Quando você tiver concluído o preenchimento dos detalhes da chave, clique em **Criar chave** para confirmar. 
 
-Chaves que são criadas no serviço são chaves simétricas de 256 bits, suportadas pelo algoritmo AES-GCM. Para segurança adicional, as chaves são geradas por módulos de segurança de hardware (HSMs) certificados FIPS 140-2 Nível 2 que estão localizados em data centers seguros do {{site.data.keyword.cloud_notm}}. 
+As chaves que são criadas no serviço são chaves simétricas de 256 bits, suportadas pelo algoritmo AES-CBC-PAD. Para obter segurança adicional, as chaves são geradas pelos módulos de segurança de hardware (HSMs) certificados FIPS 140-2 Nível 3 que estão localizados em data centers do {{site.data.keyword.cloud_notm}} seguros. 
 
 ## Importando suas próprias chaves
 {: #import-keys}
@@ -124,4 +125,4 @@ Agora é possível usar suas chaves para codificar seus apps e serviços. Se voc
 
 - Para descobrir mais sobre como gerenciar e proteger suas chaves de criptografia com uma chave raiz, confira [Protegendo dados com criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 - Para saber mais sobre como integrar o serviço do {{site.data.keyword.keymanagementserviceshort}} com outras soluções de dados da nuvem, o [ consulte o doc Integrações](/docs/services/key-protect?topic=key-protect-integrate-services).
-- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+- Para descobrir mais sobre como gerenciar programaticamente as suas chaves, [confira o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/apidocs/key-protect){: external}.

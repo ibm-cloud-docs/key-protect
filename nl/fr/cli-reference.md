@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,7 +28,7 @@ Vous pouvez utiliser le plug-in d'interface de ligne de commande de {{site.data.
 
 Pour installer le plug-in d'interface de ligne de commande, voir [Configuration de l'interface de ligne de commande](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Lorsque vous vous connectez à l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}, vous êtes averti lorsque des mises à jour sont disponibles. Veillez à tenir à jour votre interface de ligne de commande de manière à pouvoir utiliser les commandes et indicateurs disponibles pour le plug-in d'interface de ligne de commande de {{site.data.keyword.keymanagementserviceshort}}.
+Lorsque vous vous connectez à l'[interface de ligne de commande {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}, vous êtes averti quand des mises à jour sont disponibles. Veillez à tenir à jour votre interface de ligne de commande de manière à pouvoir utiliser les commandes et indicateurs disponibles pour le plug-in d'interface de ligne de commande de {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
 ## Commandes ibmcloud kp
@@ -58,7 +59,7 @@ Vous pouvez spécifier l'une des commandes suivantes :
     <caption style="caption-side:bottom;">Table 1. Commandes de gestion des clés</caption> 
  </table>
 
- <table summary="Commandes de gestion des règles de clés">
+ <table summary="Commandes de gestion des règles de clés"> 
     <thead>
         <th colspan="5">Commandes de gestion des règles de clés</th>
     </thead>
@@ -87,6 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ```
 {:pre}
 
+```sh
+$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+```
+{:screen}
+
 ### Paramètres requis
 {: #create-req-params}
 
@@ -105,7 +115,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
         <dd>Elément de clé codée en base64 que vous voulez stocker et gérer dans le service. Pour importer une clé existante, indiquez une clé de 256 bits. Pour générer une nouvelle clé, omettez le paramètre <code>--key-material</code>.</dd>
     <dt><code>-s, --standard-key</code></dt>
         <dd>Définissez ce paramètre uniquement si vous voulez créer une <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">clé standard</a>. Pour créer une clé racine, omettez le paramètre <code>--standard-key</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -118,6 +128,17 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
+
+SUCCESS
+
+Deleted Key
+584fb0d9-dec2-47b8-bde5-50f05fd66261
+```
+{: screen}
 
 ### Paramètres requis
 {: #delete-req-params}
@@ -139,6 +160,18 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp list -i $KP_INSTANCE_ID
+Retrieving keys...
+
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
+```
+{: screen}
+
 ### Paramètres requis
 {: #list-req-params}
 
@@ -151,7 +184,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: #list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -167,6 +200,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
+
+SUCCESS
+
+Key ID                                 Key Name          Description     Creation Date                   Expiration Date
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
+```
+{:screen}
+
 ### Paramètres requis
 {: #get-req-params}
 
@@ -181,7 +225,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -195,6 +239,14 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Rotating root key...
+
+SUCCESS
+```
+{:screen}
 
 ### Paramètres requis
 {: #rotate-req-params}
@@ -212,7 +264,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>Elément de clé codée en base64 que vous voulez utiliser pour procéder à la rotation d'une clé racine existante. Pour procéder à la rotation d'une clé initialement importée dans le service, fournissez une nouvelle clé de 256 bits. Pour procéder à la rotation d'une clé initialement générée dans {{site.data.keyword.keymanagementserviceshort}}, omettez le paramètre <code>--key-material</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -247,7 +299,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Données d'authentification supplémentaires (AAD) utilisées pour sécuriser davantage une clé. Si elles sont fournies à l'encapsulage, elles doivent l'être au désencapsulage.</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>Clé de chiffrement de données codée en base64 (clé DEK) que vous voulez gérer et protéger. Pour importer une clé existante, indiquez une clé de 256 bits. Pour générer et encapsuler une nouvelle clé DEK, omettez le paramètre <code>--plaintext</code>.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -281,7 +333,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>Données d'authentification supplémentaires (AAD) utilisées pour sécuriser davantage une clé. Vous pouvez entrer jusqu'à 255 chaînes séparées par une virgule. Si vous indiquez des données d'authentification supplémentaires à l'encapsulage, vous devez indiquer les mêmes données lors du désencapsulage.</p><p><b>Important :</b> le service {{site.data.keyword.keymanagementserviceshort}} ne sauvegarde pas les données d'authentification supplémentaires. Si vous indiquez des données d'authentification supplémentaires, sauvegardez ces données dans un emplacement sécurisé afin de pouvoir y accéder et fournir les mêmes données lors des demandes de désencapsulage ultérieures.</p></dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -309,7 +361,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -337,7 +389,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 
@@ -371,7 +423,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>-p, --policy</code></dt>
         <dd>Spécifiez l'intervalle de rotation (en mois) pour une clé. La valeur par défaut est 1.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Définissez le format de sortie de l'interface de ligne de commande. Par défaut, toutes les commandes impriment au format tableau. Pour modifier le format de sortie à JSON, utilisez <code>--output json</code>.</dd>
 </dl>
 

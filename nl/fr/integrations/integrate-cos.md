@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} permet le stockage de données non structurées dans le cloud. Les données non structurées représentent des fichiers, des supports audiovisuels, des fichiers PDF, des archives de données compressées, des images de sauvegarde, des artefacts d'application, des documents professionnels et tout autre objet binaire.  
 
-Pour assurer l'intégrité et la disponibilité des données, {{site.data.keyword.cos_full_notm}} fractionne et transmet les données à des noeuds de stockage situés dans différentes zones géographiques. Aucune copie complète des données ne se trouve sur un noeud de stockage unique et un seul sous-ensemble de noeuds disponible suffit pour vous permettre d'extraire les données sur le réseau. Un chiffrement côté fournisseur est mis en oeuvre pour sécuriser les données au repos et en cours de traitement. Pour gérer le stockage, vous pouvez créer des compartiments et importer des objets à l'aide de la console {{site.data.keyword.cloud_notm}} ou à l'aide d'un programme via l'[API REST {{site.data.keyword.cos_full_notm}} ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
+Pour assurer l'intégrité et la disponibilité des données, {{site.data.keyword.cos_full_notm}} fractionne et transmet les données à des noeuds de stockage situés dans différentes zones géographiques. Aucune copie complète des données ne se trouve sur un noeud de stockage unique et un seul sous-ensemble de noeuds disponible suffit pour vous permettre d'extraire les données sur le réseau. Un chiffrement côté fournisseur est mis en oeuvre pour sécuriser les données au repos et en cours de traitement. Pour gérer le stockage, vous pouvez créer des compartiments et importer des objets à l'aide de la console {{site.data.keyword.cloud_notm}}, ou à l'aide d'un programme via l'[API REST {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-Pour plus d'informations, voir [A propos de COS ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
+Pour plus d'informations, voir [A propos de COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## Fonctionnement de l'intégration
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} s'intègre à {{site.data.keyword.cos_full_notm}} pour vous permettre de contrôler intégralement la sécurité de vos données.  
 
@@ -49,7 +50,7 @@ La figure ci-dessous explique comment {{site.data.keyword.keymanagementservicesh
 Pour savoir comment fonctionne le chiffrement d'enveloppe dans {{site.data.keyword.keymanagementserviceshort}}, voir [Protection des données avec le chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Ajout du chiffrement d'enveloppe à des compartiments de stockage
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [Après avoir désigné une clé racine dans {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) et [accordé un accès entre vos services](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), vous pouvez activer le chiffrement d'enveloppe pour un compartiment de stockage spécifique à l'aide de l'interface graphique {{site.data.keyword.cos_full_notm}}.
 
@@ -70,4 +71,4 @@ Dans l'interface graphique {{site.data.keyword.cos_full_notm}}, vous pouvez parc
 ## Etapes suivantes
 {: #cos-integration-next-steps}
 
-- Pour plus d'informations sur l'association de vos compartiments de stockage à des clés {{site.data.keyword.keymanagementserviceshort}}, voir [Gestion du chiffrement ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- Pour plus d'informations sur l'association de vos compartiments de stockage à des clés {{site.data.keyword.keymanagementserviceshort}}, voir [Gestion du chiffrement](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

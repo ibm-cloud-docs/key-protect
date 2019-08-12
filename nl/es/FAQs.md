@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ Puede utilizar un nombre de clave con una longitud de hasta 90 caracteres.
 
 Para proteger la confidencialidad de sus datos personales, no almacene información de identificación personal (PII) como metadatos de sus claves. La información personal incluye nombre, dirección, número de teléfono, dirección de correo electrónico u otra información que permita identificar, ponerse en contacto o localizar a usted, a sus clientes o a cualquier otra persona.
 
-Es su responsabilidad garantizar la seguridad de cualquier información que almacene como metadatos de los recursos y las claves de cifrado de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más ejemplos de datos personales, consulte la sección 2.2 de la publicación [NIST Special Publication 800-122 ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+Es su responsabilidad garantizar la seguridad de cualquier información que almacene como metadatos de los recursos y las claves de cifrado de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más ejemplos de datos personales, consulte la sección 2.2 de la [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## ¿Las claves que se crean en una región se pueden utilizar en otra región?
@@ -89,7 +90,7 @@ Las claves de cifrado están limitadas a la región donde se han creado. {{site.
 
 Puede utilizar el servicio {{site.data.keyword.cloudaccesstrailfull_notm}} para realizar un seguimiento de cómo los usuarios y las aplicaciones interactúan con la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Por ejemplo, al crear, importar, suprimir o leer una clave en {{site.data.keyword.keymanagementserviceshort}}, se genera un suceso de {{site.data.keyword.cloudaccesstrailshort}}. Estos sucesos se reenvían automáticamente al servicio de {{site.data.keyword.cloudaccesstrailshort}} en la misma región donde se proporciona el servicio de {{site.data.keyword.keymanagementserviceshort}}.
 
-Para obtener más información, consulte [Sucesos de Activity Tracker](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+Para obtener más información, consulte [Sucesos de Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## ¿Qué sucede cuando suprimo una clave?
 {: #key-destruction}
@@ -104,3 +105,4 @@ Antes de suprimir una clave, asegúrese de que ya no necesita acceder a ninguno 
 {: faq}
 
 Si decide pasar a una versión superior de {{site.data.keyword.keymanagementserviceshort}}, debe suprimir las claves restantes de la instancia de servicio antes de poder dejar de suministrar el servicio. Una vez suprimida la instancia de servicio, {{site.data.keyword.keymanagementserviceshort}} utiliza el [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption) para destruir criptográficamente todos los datos asociados a la instancia de servicio. 
+

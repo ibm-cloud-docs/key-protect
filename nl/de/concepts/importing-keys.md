@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ Transportschlüssel sind ein Ressourcentyp in {{site.data.keyword.keymanagements
 
 Wenn Sie [einen Transportschlüssel](/docs/services/key-protect?topic=key-protect-create-transport-keys) für Ihre Serviceinstanz erstellen, generiert {{site.data.keyword.keymanagementserviceshort}} einen 4096-Bit-RSA-Schlüssel. Der Service verschlüsselt den privaten Schlüssel und gibt dann den öffentlichen Schlüssel und ein Importtoken zurück, die Sie zum Verschlüsseln und Importieren der Rootschlüsselinformationen verwenden können. 
 
-Wenn Sie bereit sind, [einen Rootschlüssel](/docs/services/key-protect?topic=key-protect-import-root-keys#api) in {{site.data.keyword.keymanagementserviceshort}} zu importieren, stellen Sie die verschlüsselten Rootschlüsselinformationen und das Importtoken bereit, die zur Überprüfung der Integrität des öffentlichen Schlüssels verwendet werden. Für die Ausführung der Anforderung verwendet {{site.data.keyword.keymanagementserviceshort}} den privaten Schlüssel, der Ihrer Serviceinstanz zugeordnet ist, um die verschlüsselten Rootschlüsselinformationen zu entschlüsseln. Mit diesem Prozess wird sichergestellt, dass nur der Transportschlüssel, den Sie in {{site.data.keyword.keymanagementserviceshort}} erstellt haben, die Schlüsselinformationen entschlüsseln kann, die Sie in den Service importieren und dort speichern.
+Wenn Sie bereit sind, [einen Rootschlüssel](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) in {{site.data.keyword.keymanagementserviceshort}} zu importieren, stellen Sie die verschlüsselten Rootschlüsselinformationen und das Importtoken bereit, die zur Überprüfung der Integrität des öffentlichen Schlüssels verwendet werden. Für die Ausführung der Anforderung verwendet {{site.data.keyword.keymanagementserviceshort}} den privaten Schlüssel, der Ihrer Serviceinstanz zugeordnet ist, um die verschlüsselten Rootschlüsselinformationen zu entschlüsseln. Mit diesem Prozess wird sichergestellt, dass nur der Transportschlüssel, den Sie in {{site.data.keyword.keymanagementserviceshort}} erstellt haben, die Schlüsselinformationen entschlüsseln kann, die Sie in den Service importieren und dort speichern.
 
 Sie können pro Serviceinstanz nur einen Transportschlüssel erstellen. Weitere Informationen zu den Abrufbegrenzungen für Transportschlüssel finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: note} 

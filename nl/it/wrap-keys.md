@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Impacchettamento delle chiavi
 {: #wrap-keys}
 
-Puoi gestire e proteggere le tue chiavi di crittografia con una chiave root utilizzando l'API {{site.data.keyword.keymanagementservicelong}}, se sei un utente privilegiato.
+Puoi gestire e proteggere le tue chiavi di crittografia con una chiave root utilizzando l'API {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 Quando impacchetti una chiave di crittografia dei dati (o DEK, data encryption key) con una chiave root, {{site.data.keyword.keymanagementserviceshort}} combina la forza di più algoritmi per proteggere la riservatezza e l'integrità dei tuoi dati crittografati.  
@@ -34,7 +35,7 @@ Per ulteriori informazioni su come l'impacchettamento ti aiuta a controllare la 
 
 Puoi proteggere una chiave di crittografia dei dati (o DEK, data encryption key) specificata con una chiave root che gestisci in {{site.data.keyword.keymanagementserviceshort}}.
 
-Quando fornisci una chiave root per l'impacchettamento, assicurati che la chiave root sia di 128, 192 o 256 bit in modo che la chiamata di impacchettamento possa avere esito positivo. Se crei una chiave root nel servizio, {{site.data.keyword.keymanagementserviceshort}} genera una chiave di 256-bit dai suoi HSM, supportata dall'algoritmo AES-GCM.
+Quando fornisci una chiave root per l'impacchettamento, assicurati che la chiave root sia di 128, 192 o 256 bit in modo che la chiamata di impacchettamento possa avere esito positivo. Se crei una chiave root nel servizio, {{site.data.keyword.keymanagementserviceshort}} genera una chiave a 256 bit dai suoi HSM, supportata dall'algoritmo AES-CBC-PAD.
 {: note}
 
 [Dopo aver designato una chiave root nel servizio](/docs/services/key-protect?topic=key-protect-create-root-keys), puoi impacchettare una DEK con la crittografia avanzata effettuando una chiamata `POST` al seguente endpoint.
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Copia il materiale della chiave della DEK che vuoi gestire e proteggere.
 
-    Se disponi dei privilegi da scrittore o gestore per la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}, [puoi richiamare il materiale della chiave per una chiave specifica effettuando una richiesta `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Se disponi dei privilegi di scrittore o gestore per la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}, [puoi richiamare il materiale della chiave per una chiave specifica effettuando una richiesta `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copia l'ID della chiave root che vuoi utilizzare per l'impacchettamento.
 
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    Per utilizzare le chiavi in un'organizzazione o uno spazio Cloud Foundry nel tuo account, sostituisci `Bluemix-Instance` con le intestazioni `Bluemix-org` e `Bluemix-space` appropriate. [Per ulteriori informazioni, vedi la documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Sostituisci le variabili nella richiesta di esempio in base alla seguente tabella.
 
     <table>
@@ -81,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Endpoint di servizio regionali</a>.</td>
+        <td><strong>Obbligatorio</strong> L'abbreviazione della regione, come <code>us-south</code> o <code>eu-gb</code>, che rappresenta l'area geografica in cui si trova la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori informazioni, vedi <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Endpoint di servizio regionali</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -105,7 +103,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>additional_data</varname></td>
-        <td>Gli ulteriori dati di autenticazione (o AAD, additional authentication data) che vengono utilizzati per proteggere ulteriormente la chiave. Ogni stringa può contenere fino a 255 caratteri. Se fornisci AAD quando effettui una chiamata di impacchettamento, devi specificare lo stesso AAD durante la seguente chiamata di spacchettamento.<br></br>Importante: il servizio {{site.data.keyword.keymanagementserviceshort}} non salva i dati di autenticazione aggiuntivi. Se fornisci un AAD, salva i dati in un luogo sicuro per assicurarti di poter accedere e fornire lo stesso AAD durante le seguenti richieste di spacchettamento.</td>
+        <td>Gli ulteriori dati di autenticazione (o AAD, additional authentication data) che vengono utilizzati per proteggere ulteriormente la chiave. Ogni stringa può contenere fino a 255 caratteri. Se fornisci AAD quando effettui una chiamata di impacchettamento, devi specificare lo stesso AAD durante la seguente chiamata di spacchettamento.<br></br>Importante: il servizio {{site.data.keyword.keymanagementserviceshort}} non salva dati di autenticazione aggiuntivi. Se fornisci un AAD, salva i dati in un luogo sicuro per assicurarti di poter accedere e fornire lo stesso AAD durante le seguenti richieste di spacchettamento.</td>
       </tr>
       <caption style="caption-side:bottom;">Tabella 1. Descrive le variabili necessarie per impacchettare una chiave specificata in {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
@@ -129,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    Il valore <code>plaintext</code> rappresenta la DEK spacchettata e il valore <code>ciphertext</code> rappresenta la DEK impacchettata.
+    Il valore `plaintext` rappresenta la DEK spacchettata e il valore `ciphertext` rappresenta la DEK impacchettata.
     
     Se desideri che {{site.data.keyword.keymanagementserviceshort}} generi una nuova DEK per tuo conto, puoi anche passare un corpo che non contiene alcun dato in una richiesta di impacchettamento. La tua DEK generata, contenente il materiale con codifica base64, viene restituita nel corpo-entità della risposta, insieme alla DEK impacchettata.
     {: tip}

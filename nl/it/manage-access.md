@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -98,7 +99,8 @@ La seguente tabella mostra come i ruoli di identità e accesso vengono associati
   <caption style="caption-side:bottom;">Tabella 1. Descrive come i ruoli di identità e accesso vengono associati alle autorizzazioni {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-I ruoli utente Cloud IAM forniscono l'accesso al livello dell'istanza del servizio o del servizio. I [ruoli Cloud Foundry ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam?topic=iam-cfaccess){: new_window} sono separati e definiscono l'accesso a livello di organizzazione o di spazio. Per ulteriori informazioni su {{site.data.keyword.iamshort}}, consulta [Ruoli utente e autorizzazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam?topic=iam-userroles){: new_window}.
+I ruoli utente Cloud IAM forniscono l'accesso al livello dell'istanza del servizio o del servizio. [Ruoli Cloud Foundry](/docs/iam?topic=iam-cfaccess){: external} sono separati e definiscono l'accesso al livello dello spazio o dell'organizzazione. Per ulteriori informazioni su {{site.data.keyword.iamshort}}, consulta
+[Ruoli utente e autorizzazioni](/docs/iam?topic=iam-userroles){: external}.
 {: note}
 
 ## Operazioni successive
@@ -106,5 +108,5 @@ I ruoli utente Cloud IAM forniscono l'accesso al livello dell'istanza del serviz
 
 Gli amministratori e i proprietari dell'account possono invitare gli utenti e configurare le politiche del servizio che corrispondono alle azioni {{site.data.keyword.keymanagementserviceshort}} che possono eseguire gli utenti.
 
-- Per ulteriori informazioni sull'assegnazione dei ruoli utente nella IU {{site.data.keyword.cloud_notm}}, vedi [Gestione dell'accesso IAM ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam?topic=iam-getstarted){: new_window}.
+- Per ulteriori informazioni sull'assegnazione dei ruoli utente nella IU {{site.data.keyword.cloud_notm}}, vedi [Gestione dell'accesso IAM](/docs/iam?topic=iam-getstarted){: external}.
 

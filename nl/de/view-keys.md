@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,7 +29,7 @@ subcollection: key-protect
 Prüfen Sie Ihre Schlüsselkonfiguration regelmäßig:
 
 - Untersuchen Sie, wann die Schlüssel erstellt wurden und stellen Sie fest, ob es an der Zeit ist, den Schlüssel zu wechseln.
-- [Überwachen Sie API-Aufrufe für {{site.data.keyword.keymanagementserviceshort}} mit {{site.data.keyword.cloudaccesstrailshort}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}.
+- [Überwachen Sie API-Aufrufe an {{site.data.keyword.keymanagementserviceshort}} mit {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/key-protect?topic=key-protect-at-events).
 - Untersuchen Sie, welche Benutzer auf Schlüssel zugreifen können, und ob entsprechende Zugriffsberechtigungen
 erteilt wurden.
 
@@ -41,7 +42,7 @@ Wenn Sie die Überprüfung von Verschlüsselungsschlüssel über eine grafische 
 
 [Nach dem Erstellen oder Importieren der vorhandenen Schlüssel in den Service](/docs/services/key-protect?topic=key-protect-create-root-keys) müssen Sie die folgenden Schritte ausführen, um Ihre Schlüssel anzuzeigen.
 
-1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/) an.
+1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole an](https://{DomainName}/).
 2. Rufen Sie **Menü** &gt; **Ressourcenliste** auf, um eine Liste Ihrer Ressourcen anzuzeigen.
 3. Wählen Sie in der {{site.data.keyword.cloud_notm}}-Ressourcenliste die bereitgestellte Instanz von {{site.data.keyword.keymanagementserviceshort}} aus.
 4. Durchsuchen Sie die allgemeinen Merkmale Ihrer Schlüssel auf der Seite mit den Anwendungsdetails:
@@ -57,11 +58,11 @@ Wenn Sie die Überprüfung von Verschlüsselungsschlüssel über eine grafische 
       </tr>
       <tr>
         <td>ID</td>
-        <td>Eine eindeutige Schlüssel-ID, die Ihrem Schlüssel vom {{site.data.keyword.keymanagementserviceshort}}-Service zugewiesen wurde. Mit dem ID-Wert können Sie den Service mit der [{{site.data.keyword.keymanagementserviceshort}}-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect) aufrufen.</td>
+        <td>Eine eindeutige Schlüssel-ID, die Ihrem Schlüssel vom {{site.data.keyword.keymanagementserviceshort}}-Service zugewiesen wurde. Mit dem ID-Wert können Sie den Service mit der [{{site.data.keyword.keymanagementserviceshort}}-API](https://{DomainName}/apidocs/key-protect) aufrufen.</td>
       </tr>
       <tr>
         <td>Status</td>
-        <td>Der [Schlüsselstatus](/docs/services/key-protect?topic=key-protect-key-states) basiert auf der Dokumentation ['NIST Special Publication 800-57, Recommendation for Key Management' ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Diese Status sind <i>Vor Aktivierung</i>, <i>Aktiv</i>, <i>Inaktiviert</i> und <i>Gelöscht</i>.</td>
+        <td>Der [Schlüsselstatus](/docs/services/key-protect?topic=key-protect-key-states), basierend auf der Dokumentation [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Diese Status sind <i>Vor Aktivierung</i>, <i>Aktiv</i>, <i>Inaktiviert</i> und <i>Gelöscht</i>.</td>
       </tr>
       <tr>
         <td>Typ</td>
@@ -99,9 +100,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Ersetzen Sie die Variablen in der Beispielanforderung anhand der Angaben in der folgenden Tabelle.
     <table>
       <tr>
@@ -110,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regionale Serviceendpunkte</a>.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regionale Serviceendpunkte</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -167,7 +165,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
-            "mode": "GCM"
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -240,7 +238,7 @@ Hinweise zur Verwendung liefern Ihnen die folgenden Beispiele für das Festlegen
   </tr>
   <tr>
     <td><code>.../keys?offset=25&limit=50</code></td>
-    <td>Listet die Schlüssel 26 - 50 auf.</td>
+    <td>Listet die Schlüssel 26 - 75 auf.</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=3000&limit=50</code></td>
@@ -289,7 +287,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regionale Serviceendpunkte</a> enthält weitere Informationen hierzu.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regionale Serviceendpunkte</a> enthält weitere Informationen hierzu.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -310,7 +308,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       <caption style="caption-side:bottom;">Tabelle 4. Beschreibung der Variablen, die zum Anzeigen eines angegebenen Schlüssels mit der {{site.data.keyword.keymanagementserviceshort}}-API erforderlich sind.</caption>
     </table>
 
-    Die erfolgreiche Antwort `GET api/v2/keys/<key_ID>` gibt Details zu Ihrem Schlüssel und zu den Schlüsselinformationen zurück. Das folgende JSON-Objekt zeigt ein Beispiel für einen zurückgegebenen Wert für einen Standardschlüssel.
+    Eine erfolgreiche `GET api/v2/keys/<key_ID>`-Antwort gibt Details zu Schlüssel und Schlüsselinformationen zurück. Das folgende JSON-Objekt zeigt ein Beispiel für einen zurückgegebenen Wert für einen Standardschlüssel.
 
     ```
     {
@@ -332,7 +330,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "GCM"
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -342,4 +340,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    Eine detaillierte Beschreibung der verfügbaren Parameter finden Sie in der [REST-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window} für {{site.data.keyword.keymanagementserviceshort}}.
+    Eine detaillierte Beschreibung der verfügbaren Parameter finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-[REST-API-Referenzdokumentation](https://{DomainName}/apidocs/key-protect){: external}.

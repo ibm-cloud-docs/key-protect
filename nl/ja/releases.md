@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,41 @@ subcollection: key-protect
 # 最新情報
 {: #releases}
 
-{{site.data.keyword.keymanagementservicefull}} で使用可能な新規フィーチャーに関する最新情報を確認してください。 
+{{site.data.keyword.keymanagementservicefull}} で使用可能な新規フィーチャーに関する最新情報を確認してください。
+{: shortdesc}
+
+## 2019 年 6 月
+{: #june-2019}
+
+### 追加: {{site.data.keyword.keymanagementserviceshort}} での {{site.data.keyword.at_full_notm}} のサポートの追加
+{: #added-at-logdna-support}
+次の時点の最新情報: 2019 年 6 月 22 日
+
+{{site.data.keyword.at_full_notm}} を使用して、{{site.data.keyword.keymanagementserviceshort}} サービスへの API 呼び出しをモニターできるようになりました。 
+
+{{site.data.keyword.keymanagementserviceshort}} アクティビティーのモニターについて詳しくは、[Activity Tracker イベント](/docs/services/key-protect?topic=key-protect-at-events)を参照してください。
+
+## 2019 年 5 月
+{: #may-2019}
+
+### 追加: {{site.data.keyword.keymanagementserviceshort}} による HSM の FIPS 140-2 レベル 3 へのアップグレード
+{: #upgraded-hsms}
+次の時点の最新情報: 2019 年 5 月 22 日
+
+{{site.data.keyword.keymanagementserviceshort}} での暗号の保管と操作に、{{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 が使用されるようになりました。 {{site.data.keyword.keymanagementserviceshort}} 鍵はすべての地域で FIPS 140-2 レベル 3 準拠の、改ざんの証拠機能を備えたハードウェアに保管されます。 
+
+{{site.data.keyword.cloud_notm}} HSM 7.0 のフィーチャーと利点について詳しくは、[製品ページ](https://www.ibm.com/cloud/hardware-security-module){: external}を確認してください。
+
+### サポート終了: Cloud Foundry ベースの {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス
+{: #legacy-service-eol}
+次の時点の最新情報: 2019 年 5 月 15 日
+
+Cloud Foundry をベースにしたレガシー {{site.data.keyword.keymanagementserviceshort}} サービスは、2019 年 5 月 15 日にサポート終了となりました。 Cloud Foundry 管理の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスはサポートされなくなっており、レガシー・サービスに対する更新も提供されなくなります。 サービスの最新フィーチャーを活用できるように、IAM 管理の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの使用が推奨されています。
+
+2017 年 12 月 15 日より後に {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを作成した場合、そのサービス・インスタンスは IAM 管理であり、この変更による影響はありません。 その他のご質問については、Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) にご連絡ください。
+
+{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを {{site.data.keyword.cloud_notm}} リソース・リストの **「Cloud Foundry サービス」** セクションから削除する必要がある場合、コンソール・ビューから項目の削除要求を送信して、[サポート・センター](https://{DomainName}/unifiedsupport/cases/add)でお問い合わせいただくことができます。
+{: tip}
 
 ## 2019 年 3 月
 {: #mar-2019}
@@ -57,9 +92,9 @@ subcollection: key-protect
 
 **廃止による影響**
 
-アクティブな実動鍵が古い {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内にある場合、暗号化されたデータにアクセスできなくなる事態を避けるため、必ず 2019 年 5 月 15 日までに新しいサービス・インスタンスに鍵をマイグレーションしてください。 [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/) でリソース・リストにナビゲートすることによって、レガシー・インスタンスを使用しているかどうかを確認できます。 ご使用の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが {{site.data.keyword.cloud_notm}} リソース・リストの「**Cloud Foundry サービス**」セクションにリストされる場合、または、サービスの操作のターゲット指定に `https://ibm-key-protect.edge.bluemix.net` API エンドポイントを使用している場合、{{site.data.keyword.keymanagementserviceshort}} のレガシー・インスタンスを使用しています。 2019 年 5 月 15 日以降、レガシー・エンドポイントにはアクセスできなくなり、サービスを操作のターゲットにできなくなります。
+アクティブな実動鍵が古い {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンス内にある場合、暗号化されたデータにアクセスできなくなる事態を避けるため、必ず 2019 年 5 月 15 日までに新しいサービス・インスタンスに鍵をマイグレーションしてください。 [{{site.data.keyword.cloud_notm}} コンソール](https://{DomainName}/)でリソース・リストにナビゲートすることによって、レガシー・インスタンスを使用しているかどうかを確認できます。 ご使用の {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが {{site.data.keyword.cloud_notm}} リソース・リストの「**Cloud Foundry サービス**」セクションにリストされる場合、または、サービスの操作のターゲット指定に `https://ibm-key-protect.edge.bluemix.net` API エンドポイントを使用している場合、{{site.data.keyword.keymanagementserviceshort}} のレガシー・インスタンスを使用しています。 2019 年 5 月 15 日以降、レガシー・エンドポイントにはアクセスできなくなり、サービスを操作のターゲットにできなくなります。
 
-新しいサービス・インスタンスへの暗号鍵のマイグレーションでヘルプが必要な場合、 詳しい手順について、[GitHub 内の migration client ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/kms-migration-client){: new_window} を確認してください。 鍵の状況またはマイグレーション・プロセスについて追加の質問がある場合、Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) に連絡してください。
+新しいサービス・インスタンスへの暗号鍵のマイグレーションでヘルプが必要な場合、 詳しい手順について、[GitHub 内の migration client](https://github.com/IBM-Cloud/kms-migration-client){: external} を確認してください。 鍵の状況またはマイグレーション・プロセスについて追加の質問がある場合、Terry Mosbaugh ([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com)) に連絡してください。
 {: tip}
 
 ## 2018 年 12 月
@@ -125,7 +160,7 @@ subcollection: key-protect
 
 [新しいチュートリアル](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security)に従うことで、クラウド・アプリケーションのエンドツーエンドのセキュリティーを追加する練習ができるようになりました。
 
-詳しくは、[GitHub のサンプル・アプリケーションを確認してください ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}。
+詳しくは、[GitHub のサンプル・アプリケーションを確認してください](https://github.com/IBM-Cloud/secure-file-storage){: external}。
 
 ### 追加: {{site.data.keyword.keymanagementserviceshort}} がワシントン DC 地域に拡大されます
 {: #added-wdc-region}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,12 +33,12 @@ O {{site.data.keyword.cos_full_notm}} fornece armazenamento em nuvem para dados 
 
 Para manter a integridade e a disponibilidade de dados, o {{site.data.keyword.cos_full_notm}} fatia e dispersa dados para nós de armazenamento em múltiplas localizações geográficas. Nenhuma cópia completa dos dados reside em nenhum nó de
 armazenamento único e apenas um subconjunto de nós precisa estar disponível para que você possa recuperar totalmente os dados na
-rede. Criptografia do lado do provedor é fornecida, então, seus dados são protegidos em repouso e em andamento. Para gerenciar o armazenamento, crie depósitos e importe objetos com o console do {{site.data.keyword.cloud_notm}} ou usando programaticamente a [API de REST do {{site.data.keyword.cos_full_notm}}![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
+rede. Criptografia do lado do provedor é fornecida, então, seus dados são protegidos em repouso e em andamento. Para gerenciar o armazenamento, você cria depósitos e importa objetos com o console do {{site.data.keyword.cloud_notm}} ou programaticamente usando a [ API de REST do {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-Para obter mais informações, consulte [Sobre o COS ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
+Para obter mais informações, consulte [Sobre o COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## Como a integração funciona
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 O {{site.data.keyword.keymanagementserviceshort}} se integra com {{site.data.keyword.cos_full_notm}} para
 ajudá-lo a atingir controle total da segurança de seus dados.  
@@ -63,9 +64,9 @@ o {{site.data.keyword.cos_full_notm}} para proteger ainda mais suas chaves de cr
 Para saber mais sobre como a criptografia de envelope funciona no {{site.data.keyword.keymanagementserviceshort}}, consulte [Protegendo dados com criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Incluindo criptografia de envelope para seus buckets de armazenamento
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
-[Após designar uma chave de raiz no {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) e [conceder acesso entre seus serviços](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), é possível ativar a criptografia de envelope para um depósito de armazenamento especificado usando a GUI do {{site.data.keyword.cos_full_notm}}.
+[Após você designar uma chave raiz no {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) e [conceder acesso entre os seus serviços](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), será possível ativar a criptografia de envelope para um bucket de armazenamento especificado usando a GUI do {{site.data.keyword.cos_full_notm}}.
 
  Para ativar opções de configuração avançada para o seu bucket de armazenamento, assegure-se de que uma [autorização](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access) exista entre as suas instâncias de serviço do {{site.data.keyword.cos_full_notm}} e do {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
@@ -84,4 +85,4 @@ Na GUI do {{site.data.keyword.cos_full_notm}}, é possível procurar pelos bucke
 ## O que vem a seguir
 {: #cos-integration-next-steps}
 
-- Para obter mais informações sobre como associar os seus buckets de armazenamento com chaves do {{site.data.keyword.keymanagementserviceshort}}, veja [Gerenciar criptografia ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- Para obter mais informações sobre como associar os seus depósitos de armazenamento com chaves do {{site.data.keyword.keymanagementserviceshort}}, consulte [Gerenciar criptografia](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

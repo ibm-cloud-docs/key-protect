@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} 為非結構化資料提供雲端儲存空間。非結構化資料是指檔案、視聽媒體、PDF、壓縮的資料保存檔、備份映像檔、應用程式構件、商業文件或任何其他二進位物件。  
 
-為了維護資料完整性及可用性，{{site.data.keyword.cos_full_notm}} 會切割資料，並將其分散至多個地理位置的儲存節點。任何單一儲存節點中都沒有完整的資料副本，只需要使用一部分的節點，如此您就可以完整擷取網路上的資料。提供了提供者端加密，因此您的靜置及進行中資料都受到保護。若要管理儲存空間，請使用 {{site.data.keyword.cloud_notm}} 主控台或使用 [{{site.data.keyword.cos_full_notm}} REST API ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window} 透過程式設計方式，來建立儲存區以及匯入物件。
+為了維護資料完整性及可用性，{{site.data.keyword.cos_full_notm}} 會切割資料，並將其分散至多個地理位置的儲存節點。任何單一儲存節點中都沒有完整的資料副本，只需要使用一部分的節點，如此您就可以完整擷取網路上的資料。提供了提供者端加密，因此您的靜置及進行中資料都受到保護。若要管理儲存空間，請使用 {{site.data.keyword.cloud_notm}} 主控台或使用 [{{site.data.keyword.cos_full_notm}} REST API](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}，透過程式設計方式來建立儲存區以及匯入物件。
 
-如需相關資訊，請參閱[關於 COS ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}。
+如需相關資訊，請參閱[關於 COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}。
 
 ## 整合的運作方式
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} 與 {{site.data.keyword.cos_full_notm}} 整合，以協助您完全控制資料安全。  
 
@@ -49,7 +50,7 @@ subcollection: key-protect
 若要進一步瞭解封套加密如何在 {{site.data.keyword.keymanagementserviceshort}} 中運作，請參閱[使用封套加密保護資料](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
 
 ## 為儲存空間儲存區新增封套加密
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [在{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) 中指定根金鑰並[授與服務之間的存取權](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access)之後，即可使用 {{site.data.keyword.cos_full_notm}} GUI 來啟用所指定儲存空間儲存區的封套加密。
 
@@ -70,4 +71,4 @@ subcollection: key-protect
 ## 下一步為何？
 {: #cos-integration-next-steps}
 
-- 如需將儲存空間儲存區與 {{site.data.keyword.keymanagementserviceshort}} 金鑰相關聯的相關資訊，請參閱[管理加密 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}。 
+- 如需將儲存空間儲存區與 {{site.data.keyword.keymanagementserviceshort}} 金鑰相關聯的相關資訊，請參閱[管理加密](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}。 

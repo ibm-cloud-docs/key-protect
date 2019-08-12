@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,11 +31,11 @@ Para saber mais sobre como usar o plug-in da CLI do {{site.data.keyword.keymanag
 ## Instalando o plug-in da CLI do {{site.data.keyword.keymanagementserviceshort}}
 {: #install-cli}
 
-Antes de configurar o plug-in da CLI do {{site.data.keyword.keymanagementserviceshort}}, instale a CLI do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}. 
+Antes de poder configurar o plug-in da CLI do {{site.data.keyword.keymanagementserviceshort}}, instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}. 
 
 Para instalar as CLIs:
 
-1. Instale a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     Após instalar a CLI, será possível executar os comandos `ibmcloud` para interagir com os serviços de nuvem.
 
@@ -69,7 +70,7 @@ Você pode desejar atualizar a CLI periodicamente para usar novos recursos.
 
 Para atualizar a CLI:
 
-1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -96,7 +97,7 @@ Para atualizar a CLI:
 ## Desinstalando o plug-in da CLI do {{site.data.keyword.keymanagementserviceshort}}
 {: #uninstall-cli}
 
-1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 

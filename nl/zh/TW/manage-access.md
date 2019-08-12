@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">表 1. 說明身分及存取角色如何對映至 {{site.data.keyword.keymanagementserviceshort}} 許可權</caption>
 </table>
 
-Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-cfaccess){: new_window} 是分開的，並且定義組織或空間層次的存取權。若要進一步瞭解 {{site.data.keyword.iamshort}}，請參閱[使用者角色及許可權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-userroles){: new_window}。
+Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud Foundry 角色](/docs/iam?topic=iam-cfaccess){: external}是分開的，並且定義組織或空間層次的存取權。若要進一步瞭解 {{site.data.keyword.iamshort}} 的相關資訊，請參閱[使用者角色與許可權](/docs/iam?topic=iam-userroles){: external}。
 {: note}
 
 ## 下一步為何？
@@ -105,5 +106,5 @@ Cloud IAM 使用者角色提供服務或服務實例層次的存取權。[Cloud 
 
 帳戶擁有者及管理者可以邀請使用者，以及設定對應於使用者可執行之 {{site.data.keyword.keymanagementserviceshort}} 動作的服務原則。
 
-- 如需在 {{site.data.keyword.cloud_notm}} 使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取權 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/iam?topic=iam-getstarted){: new_window}。
+- 如需 {{site.data.keyword.cloud_notm}} 使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取](/docs/iam?topic=iam-getstarted){: external}。
 

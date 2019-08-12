@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,11 +31,11 @@ subcollection: key-protect
 ## {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인 설치
 {: #install-cli}
 
-{{site.data.keyword.keymanagementserviceshort}} CLI 플러그인을 설정하려면 [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 설치하십시오. 
+{{site.data.keyword.keymanagementserviceshort}} CLI 플러그인을 설정하려면 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 설치하십시오. 
 
 CLI를 설치하려면 다음을 수행하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 설치하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 설치하십시오.
 
     CLI를 설치한 후 `ibmcloud` 명령을 실행하여 클라우드 서비스와 상호작용할 수 있습니다.
 
@@ -69,7 +70,7 @@ CLI를 설치하려면 다음을 수행하십시오.
 
 CLI를 업데이트하려면 다음을 수행하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -96,7 +97,7 @@ CLI를 업데이트하려면 다음을 수행하십시오.
 ## {{site.data.keyword.keymanagementserviceshort}} CLI 플러그인 설치 제거
 {: #uninstall-cli}
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 

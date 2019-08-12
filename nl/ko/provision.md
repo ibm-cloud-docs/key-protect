@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} 콘솔에서 {{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 프로비저닝하려면 다음 단계를 완료하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 계정 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}){: new_window}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} 계정에 로그인하십시오](https://{DomainName}){: external}.
 2. **카탈로그**를 클릭하여 {{site.data.keyword.cloud_notm}}에서 사용 가능한 서비스의 목록을 보십시오.
 3. 모든 카테고리 탐색 분할창에서 **보안 및 ID** 카테고리를 클릭하십시오.
 4. 서비스 목록에서 **{{site.data.keyword.keymanagementserviceshort}}** 타일을 클릭하십시오.
@@ -41,7 +42,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.keymanagementserviceshort}}의 인스턴스를 프로비저닝할 수도 있습니다. 
 
-1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 통해 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 통해 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -65,7 +66,7 @@ subcollection: key-protect
     ```
     {: pre}
 
-    `<instance_name>`을 서비스 인스턴스의 고유 별명으로 바꾸십시오.
+    `<instance_name>`을 서비스 인스턴스의 고유 별명으로 바꾸십시오. 
 
 4. 선택사항: 서비스 인스턴스가 작성되었는지 확인하십시오.
 
@@ -77,4 +78,4 @@ subcollection: key-protect
 ## 다음에 수행할 작업
 {: #provision-service-next-steps}
 
-프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.
+프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서를 확인하십시오](https://{DomainName}/apidocs/key-protect){: external}.

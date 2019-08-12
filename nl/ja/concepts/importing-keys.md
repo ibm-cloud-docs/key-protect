@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -32,13 +32,13 @@ subcollection: key-protect
   <th>説明</th>
   <tr>
     <td>独自の鍵の取り込み (Bring Your Own Key (BYOK)) </td>
-    <td>強い鍵をオンプレミスのハードウェア・セキュリティー・モジュール (HSM) から生成することによって、鍵管理手法を完全に制御し、強化する必要があるとします。 社内の鍵管理インフラストラクチャーから対称鍵をエクスポートすることを選択する場合、{{site.data.keyword.keymanagementserviceshort}} を使用して、それらの鍵をクラウドにセキュアに取り込むことができます。</td>
+    <td>強い鍵をオンプレミスのハードウェア・セキュリティー・モジュール (HSM) から生成することによって、鍵管理手法を完全に制御し、強化する必要があるとします。 使用している内部鍵管理インフラストラクチャーから対称鍵をエクスポートすることを選択する場合、{{site.data.keyword.keymanagementserviceshort}} を使用して、それらの鍵をクラウドにセキュアに取り込むことができます。</td>
   </tr>
   <tr>
     <td>ルート鍵素材のセキュアなインポート</td>
     <td>鍵をクラウドにエクスポートするときには、鍵素材が送信中に確実に保護されることが望まれます。 <a href="#transport-keys">トランスポート鍵の使用</a>によって中間者攻撃を防ぐことで、ルート鍵素材を {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスにセキュアにインポートできます。</td>
   </tr>
-  <caption style="caption-side:bottom;">表 1. 鍵素材のインポートに関する利点の説明</caption>
+  <caption style="caption-side:bottom;">表 1. 鍵素材のインポートの利点の説明</caption>
 </table>
 
 
@@ -53,9 +53,9 @@ subcollection: key-protect
   <dt>{{site.data.keyword.keymanagementserviceshort}} への鍵素材のインポートのオプションを選択する</dt>
     <dd>環境またはワークロードで必要なセキュリティー・レベルに基づいて、ルート鍵のインポートの 2 つのオプションから選択します。 デフォルトでは、{{site.data.keyword.keymanagementserviceshort}} は、Transport Layer Security (TLS) 1.2 プロトコルを使用して、転送中の鍵素材を暗号化します。 PoC (概念検証) を実施しようとしている場合、または初めてサービスを試してみようとしている場合は、このデフォルト・オプションを使用して、ルート鍵素材を {{site.data.keyword.keymanagementserviceshort}} にインポートできます。 TLS を超えるセキュリティー・メカニズムを必要とするワークロードの場合は、<a href="#transport-keys">トランスポート鍵を使用</a>して、ルート鍵素材の暗号化とサービスへのインポートを行うことも可能です。</dd>
   <dt>鍵素材の暗号化について事前に計画を立てる</dt>
-    <dd>トランスポート鍵を使用して鍵素材を暗号化することを選択した場合、鍵素材に対して RSA 暗号化を実行する方法を決定します。 <a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA 暗号化についての PKCS #1 v2.1 標準</a>で指定されているように <code>RSAES_OAEP_SHA_256</code> 暗号化スキームを使用する必要があります。 社内の鍵管理システムまたはオンプレミス HSM の機能を確認して、オプションを決定してください。</dd>
+    <dd>トランスポート鍵を使用して鍵素材を暗号化することを選択した場合、鍵素材に対して RSA 暗号化を実行する方法を決定します。 <a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA 暗号化についての PKCS #1 v2.1 標準</a>で指定されているように <code>RSAES_OAEP_SHA_256</code> 暗号化スキームを使用する必要があります。 使用している内部鍵管理システムまたはオンプレミス HSM の機能を確認して、オプションを決定してください。</dd>
   <dt>インポートされた鍵素材のライフサイクルを管理する</dt>
-    <dd>鍵素材をサービスにインポートした後、鍵のライフサイクル全体を管理する責任があることに留意してください。 {{site.data.keyword.keymanagementserviceshort}} API を使用して、鍵をサービスにアップロードすると決めたときに鍵の有効期限日付を設定できます。 ただし、<a href="/docs/services/key-protect?topic=key-protect-rotate-keys">インポートされたルート鍵をローテート</a>したい場合は、既存の鍵を無効にして置き換えるために、新しい鍵素材を生成して提供する必要があります。 </dd>
+    <dd>鍵素材をサービスにインポートした後、鍵のライフサイクル全体を管理する責任があることに留意してください。 鍵をサービスにアップロードすることを決定した場合は、{{site.data.keyword.keymanagementserviceshort}} API を使用して鍵の有効期限日付を設定できます。 ただし、<a href="/docs/services/key-protect?topic=key-protect-rotate-keys">インポートされたルート鍵をローテート</a>したい場合は、既存の鍵を無効にして置き換えるために、新しい鍵素材を生成して提供する必要があります。 </dd>
 </dl>
 
 ## トランスポート鍵の使用
@@ -73,9 +73,9 @@ subcollection: key-protect
 
 サービス・インスタンス用の[トランスポート鍵を作成](/docs/services/key-protect?topic=key-protect-create-transport-keys)すると、{{site.data.keyword.keymanagementserviceshort}} によって 4096 ビット RSA 鍵が生成されます。 このサービスによって秘密鍵が暗号化され、その後で公開鍵とインポート・トークンが返されるので、それらをルート鍵素材の暗号化およびインポートのために使用できます。 
 
-{{site.data.keyword.keymanagementserviceshort}} への[ルート鍵のインポート](/docs/services/key-protect?topic=key-protect-import-root-keys#api)を行う準備ができたら、暗号化されたルート鍵素材と、公開鍵の保全性を検証するために使用されるインポート・トークンを提供します。 要求を実行するために、{{site.data.keyword.keymanagementserviceshort}} は、サービス・インスタンスと関連付けられた秘密鍵を使用して、暗号化されたルート鍵素材を暗号化解除します。 このプロセスは、{{site.data.keyword.keymanagementserviceshort}} で生成したトランスポート鍵のみが、サービスにインポートして保管する鍵素材を暗号化解除できることを保証します。
+{{site.data.keyword.keymanagementserviceshort}} への[ルート鍵のインポート](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api)を行う準備ができたら、暗号化されたルート鍵素材と、公開鍵の保全性を検証するために使用されるインポート・トークンを提供します。 要求を実行するために、{{site.data.keyword.keymanagementserviceshort}} は、サービス・インスタンスと関連付けられた秘密鍵を使用して、暗号化されたルート鍵素材を暗号化解除します。 このプロセスは、{{site.data.keyword.keymanagementserviceshort}} で生成したトランスポート鍵のみが、サービスにインポートして保管する鍵素材を暗号化解除できることを保証します。
 
-サービス・インスタンス当たり 1 つのみのトランスポート鍵を作成できます。 トランスポート鍵の取得に関する制限について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
+1 つのサービス・インスタンスで作成できるトランスポート鍵は 1 つのみです。 トランスポート鍵の取得に関する制限について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
 {: note} 
 
 ### API メソッド

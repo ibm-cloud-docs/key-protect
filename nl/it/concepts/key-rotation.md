@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,13 @@ La rotazione delle chiavi ha luogo quando ritiri il materiale della chiave origi
 
 Eseguire la rotazione delle chiavi su base regolare aiuta a soddisfare gli standard del settore e le prassi ottimali crittografiche. La seguente tabella descrive i vantaggi principali della rotazione delle chiavi:
 
-<table>
-  <th>Vantaggio</th>
-  <th>Descrizione</th>
-  <tr>
-    <td>Gestione del periodo di crittografia per le chiavi</td>
-    <td>La rotazione della chiave limita per quanto tempo le tue informazioni vengono protette da una singola chiave. Eseguendo la rotazione delle tue chiavi root a intervalli regolari, puoi anche abbreviare il periodo di crittografia delle chiavi. Più lunga è la durata di una chiave di crittografia e più elevata è la probabilità di una violazione della sicurezza.</td>
-  </tr>
-  <tr>
-    <td>Mitigazione degli incidenti</td>
-    <td>Se la tua organizzazione rileva un problema di sicurezza, puoi eseguire immediatamente la rotazione della chiave per attenuare o ridurre i costi associati alla compromissione di una chiave.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabella 1. Descrive i vantaggi della rotazione delle chiavi</caption>
-</table>
+| Vantaggio | Descrizione |
+| --- | --- |
+| Gestione del periodo di crittografia per le chiavi | La rotazione della chiave limita per quanto tempo le tue informazioni vengono protette da una singola chiave. Eseguendo la rotazione delle tue chiavi root a intervalli regolari, puoi anche abbreviare il periodo di crittografia delle chiavi. Più lunga è la durata di una chiave di crittografia e più elevata è la probabilità di una violazione della sicurezza. |
+| Mitigazione degli incidenti | Se la tua organizzazione rileva un problema di sicurezza, puoi eseguire immediatamente la rotazione della chiave per attenuare o ridurre i costi associati alla compromissione di una chiave. |
+{: caption="Tabella 1. Descrive i vantaggi della rotazione delle chiavi" caption-side="top"}
 
-La rotazione delle chiavi è trattata in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4. ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+La rotazione delle chiavi è trattata in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Confronto delle tue opzioni di rotazione della chiave in {{site.data.keyword.keymanagementserviceshort}}
@@ -74,7 +67,7 @@ Tieni presenti le seguenti considerazioni quando ti prepari ad utilizzare {{site
   <dt>Rotazione delle chiavi root che porti nel servizio</dt>
     <dd>Per ruotare una chiave root che hai inizialmente importato nel servizio, devi generare e fornire del nuovo materiale della chiave per la chiave. Puoi utilizzare {{site.data.keyword.keymanagementserviceshort}} per ruotare le chiavi root importate su richiesta fornendo il nuovo materiale della chiave come parte della richiesta di rotazione. I metadati per la chiave root, come il relativo ID della chiave, non cambiano quando ruoti la chiave. Poiché devi fornire il nuovo materiale della chiave per ruotare una chiave importata, non sono disponibili delle politiche di rotazione automatica per le chiavi root che hanno importato il materiale della chiave.</dd>
   <dt>Gestione del materiale della chiave ritirato</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} crea del nuovo materiale della chiave dopo che hai ruotato una chiave root. Il servizio ritira il vecchio materiale della chiave e conserva le versioni ritirate finché la chiave root non viene eliminata. Quando utilizzi la chiave root per la crittografia envelope, {{site.data.keyword.keymanagementserviceshort}} utilizza solo il materiale più recente associato alla chiave. Il materiale della chiave ritirato non può essere più utilizzato per proteggere le chiavi, ma rimane disponibile per le operazioni di spacchettamento. Se {{site.data.keyword.keymanagementserviceshort}} rileva che stai utilizzando del materiale della chiave ritirato per spacchettare le DEK, il servizio fornisce una DEK appena impacchettata basata sul materiale della chiave root più recente. Puoi utilizzare la DEK appena impacchettata per impacchettare nuovamente le chiavi con il materiale della chiave più recente.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} crea del nuovo materiale della chiave dopo che hai ruotato una chiave root. Il servizio ritira il vecchio materiale della chiave e conserva le versioni ritirate finché la chiave root non viene eliminata. Quando utilizzi la chiave root per la crittografia envelope, {{site.data.keyword.keymanagementserviceshort}} utilizza solo il materiale più recente associato alla chiave. Il materiale della chiave ritirato non può essere più utilizzato per proteggere le chiavi, ma rimane disponibile per le operazioni di spacchettamento. Se {{site.data.keyword.keymanagementserviceshort}} rileva che stai utilizzando del materiale della chiave ritirato per spacchettare le DEK, il servizio fornisce una DEK appena impacchettata basata sul materiale della chiave root più recente.</dd>
  <dt>Abilitazione della rotazione della chiave per i servizi di dati {{site.data.keyword.cloud_notm}}</dt>
     <dd>Per abilitare queste opzioni di rotazione della chiave per il tuo servizio di dati su {{site.data.keyword.cloud_notm}}, il servizio di dati deve essere integrato con {{site.data.keyword.keymanagementserviceshort}}. Fai riferimento alla documentazione per il tuo servizio di dati {{site.data.keyword.cloud_notm}} o <a href="/docs/services/key-protect?topic=key-protect-integrate-services">vedi il nostro elenco di servizi integrati per ulteriori informazioni</a>.</dd>
 </dl>
@@ -94,9 +87,8 @@ Con ciascuna richiesta di rotazione, {{site.data.keyword.keymanagementservicesho
 
 ![Il diagramma mostra una vista in scala ridotta dello stack di chiavi root.](../images/root-key-stack_min.svg)
 
-Dopo il completamento di una rotazione, il nuovo materiale della chiave root diventa disponibile per proteggere le future DEK (data encryption key) con la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption). Il materiale della chiave ritirato passa allo stato _Disattivato_, dove può essere utilizzato solo per spacchettare e accedere alle DEK meno recenti che non sono ancora protette dal materiale della chiave root più recente. Se {{site.data.keyword.keymanagementserviceshort}} rileva che stai utilizzando del materiale della chiave root ritirato per spacchettare una DEK meno recente, il servizio automaticamente crittografa nuovamente la DEK e restituisce una WDEK (wrapped data encryption key) basata sul materiale della chiave root più recente. Archivia e usa la nuova WDEK per future operazioni di spacchettamento, quindi proteggi le tue DEK con il materiale della chiave root più recente.
-
-Per ulteriori informazioni su come utilizzare l'API {{site.data.keyword.keymanagementserviceshort}} per eseguire la rotazione delle tue chiavi root, vedi [Rotazione delle chiavi](/docs/services/key-protect?topic=key-protect-rotate-keys).
+Per ulteriori informazioni su come utilizzare l'API {{site.data.keyword.keymanagementserviceshort}} per eseguire la rotazione delle tue chiavi root, vedi [Rotazione delle chiavi](/docs/services/key-protect?topic=key-protect-rotate-keys). 
+{: tip}
 
 ## Frequenza di rotazione delle chiavi
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ Dopo che hai generato una chiave root in {{site.data.keyword.keymanagementservic
 
 Esegui la rotazione delle tue chiavi regolarmente, ad esempio ogni 30 giorni, per soddisfare le prassi ottimali crittografiche. 
 
-| Tipo di rotazione | Frequenza | Descrizione
+| Tipo di rotazione | Frequenza | Descrizione |
 | --- | --- | --- |
 | [Rotazione della chiave basata sulla politica](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Ogni 1 - 12 mesi | Scegli un intervallo di rotazione compreso tra 1 e 12 mesi per la tua chiave in base alle tue esigenze di sicurezza continuativa. Dopo aver configurato una politica di rotazione per una chiave, l'orologio parte immediatamente in base alla data di creazione iniziale per la chiave. Ad esempio, se configuri una politica di rotazione mensile per una chiave che hai creato il `2019/02/01`, {{site.data.keyword.keymanagementserviceshort}} ruota automaticamente la chiave il `2019/03/01`.|
 | [Rotazione della chiave su richiesta](/docs/services/key-protect?topic=key-protect-rotate-keys) | Fino a una rotazione per ora | Se stai ruotando una chiave su richiesta, {{site.data.keyword.keymanagementserviceshort}} consente una rotazione all'ora per ciascuna chiave root. |

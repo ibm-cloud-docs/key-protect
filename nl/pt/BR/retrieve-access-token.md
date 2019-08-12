@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,15 +23,15 @@ subcollection: key-protect
 # Recuperando um token de acesso
 {: #retrieve-access-token}
 
-Comece com as APIs do {{site.data.keyword.keymanagementservicelong}} autenticando suas solicitações para o serviço com um token de acesso {{site.data.keyword.iamlong}} (IAM).
+Comece com as APIs do {{site.data.keyword.keymanagementservicelong}} autenticando as suas solicitações para o serviço com um token de acesso do {{site.data.keyword.iamlong}} (IAM).
 {: shortdesc}
 
 ## Recuperando um token de acesso com a CLI
 {: #retrieve-token-cli}
 
-É possível usar a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} para gerar rapidamente seu token pessoal de acesso do Cloud IAM.
+É possível usar a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external} para gerar rapidamente o seu token de acesso do Cloud IAM pessoal.
 
-1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -61,7 +62,7 @@ Comece com as APIs do {{site.data.keyword.keymanagementservicelong}} autenticand
 
 Também é possível recuperar seu token de acesso programaticamente primeiro criando uma [chave de API do ID do serviço](/docs/iam?topic=iam-serviceidapikeys) para seu aplicativo e, em seguida, trocando sua chave de API por um token do {{site.data.keyword.cloud_notm}} IAM.
 
-1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Efetue login no {{site.data.keyword.cloud_notm}} com a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -95,20 +96,20 @@ Também é possível recuperar seu token de acesso programaticamente primeiro cr
   ```
   {: pre}
 
-  Substitua `<service_ID_name>` pelo alias exclusivo que você designou para seu ID de serviço na etapa anterior. Salve sua chave API por meio de seu download para um local seguro. 
+  Substitua `<service_ID_name>` pelo alias exclusivo que você designou para o seu ID de serviço na etapa anterior. Salve sua chave API por meio de seu download para um local seguro. 
 
 6. Chame a [API de serviços de identidade do IAM](https://{DomainName}/apidocs/iam-identity-token-api) para recuperar seu token de acesso.
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    Na solicitação, substitua `<API_KEY>` pela chave de API que você criou na etapa anterior. O exemplo truncado a seguir mostra a saída do token:
+    Na solicitação, substitua `<API_KEY>` pela chave de API que você criou na etapa anterior. O exemplo truncado a seguir mostra os conteúdos do arquivo `token.json`:
 
     ```
     {

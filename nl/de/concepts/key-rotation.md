@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,13 @@ Die Schlüsselrotation findet statt, wenn die ursprünglichen Schlüsselinformat
 
 Die regelmäßige Schlüsselrotation unterstützt Sie bei der Einhaltung branchenspezifischer Vorgaben und dem Einsatz bewährter Verschlüsselungsverfahren. Die folgenden Tabelle enthält Beschreibungen der wichtigsten Vorteile der Schlüsselrotation:
 
-<table>
-  <th>Vorteil</th>
-  <th>Beschreibung</th>
-  <tr>
-    <td>Verwaltung von Verschlüsselungsperioden für Schlüssel</td>
-    <td>Bei der Schlüsselrotation wird die Dauer des Schutzes für Ihre Informationen durch einen einzelnen Schlüssel begrenzt. Durch eine regelmäßige Rotation der Rootschlüssel wird auch die Verschlüsselungsperiode der Schlüssel verkürzt. Je länger die Laufzeit eines Verschlüsselungsschlüssels ist, desto höher ist die Wahrscheinlichkeit eines Sicherheitsverstoßes.</td>
-  </tr>
-  <tr>
-    <td>Schadensbegrenzung bei Vorfällen</td>
-    <td>Wenn Ihre Organisation ein Sicherheitsproblem feststellt, können Sie eine sofortige Rotation des Schlüssels durchführen, um Kosten im Zusammenhang mit einem beeinträchtigen Schlüssel zu mindern oder zu reduzieren.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Vorteile der Schlüsselrotation</caption>
-</table>
+| Vorteil | Beschreibung |
+| --- | --- |
+| Verwaltung von Verschlüsselungsperioden für Schlüssel | Bei der Schlüsselrotation wird die Dauer des Schutzes für Ihre Informationen durch einen einzelnen Schlüssel begrenzt. Durch eine regelmäßige Rotation der Rootschlüssel wird auch die Verschlüsselungsperiode der Schlüssel verkürzt. Je länger die Laufzeit eines Verschlüsselungsschlüssels ist, desto höher ist die Wahrscheinlichkeit eines Sicherheitsverstoßes. |
+| Schadensbegrenzung bei Vorfällen | Wenn Ihre Organisation ein Sicherheitsproblem feststellt, können Sie eine sofortige Rotation des Schlüssels durchführen, um Kosten im Zusammenhang mit einem beeinträchtigen Schlüssel zu mindern oder zu reduzieren. |
+{: caption="Tabelle 1. Beschreibung der Vorteile der Schlüsselrotation" caption-side="top"}
 
-Die Schlüsselrotation wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4. ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}.
+Die Schlüsselrotation wird in der Dokumentation 'NIST Special Publication 800-57, Recommendation for Key Management' erläutert. Weitere Informationen finden Sie in [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Vergleich Ihrer Optionen für die Schlüsselrotation in {{site.data.keyword.keymanagementserviceshort}}
@@ -74,7 +67,7 @@ Beachten Sie die folgenden Hinweise, wenn Sie vorhaben, {{site.data.keyword.keym
   <dt>Rotation von eigenen Rootschlüsseln, die Sie im Service verwenden</dt>
     <dd>Um einen Rootschlüssel zu rotieren, den Sie erst in den Service importiert haben, müssen Sie für den Schlüssel neue Schlüsselinformationen generieren und diese für den Schlüssel bereitstellen. Sie können mit {{site.data.keyword.keymanagementserviceshort}} importierte Rootschlüssel bedarfsgesteuert rotieren, indem Sie als Teil der Rotationsanforderung neue Schlüsselinformationen angeben. Die Metadaten für den Rootschlüssel, wie z. B. die Schlüssel-ID, ändern sich bei der Rotation des Schlüssels nicht. Da Sie neue Schlüsselinformationen bereitstellen müssen, um einen importierten Schlüssel zu rotieren, sind für Rootschlüssel mit importierten Schlüsselinformationen keine automatischen Rotationsrichtlinien verfügbar.</dd>
   <dt>Außer Kraft gesetzte Schlüsselinformationen verwalten</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} erstellt neue Schlüsselinformationen, nachdem Sie einen Rootschlüssel rotiert haben. Der Service setzt das alte Schlüsselmaterial außer Kraft und behält die außer Kraft gesetzten Versionen bei, bis der Rootschlüssel gelöscht wird. Wenn Sie den Rootschlüssel für die Envelope-Verschlüsselung verwenden, verwendet {{site.data.keyword.keymanagementserviceshort}} nur die neuesten Schlüsselinformationen, die dem Schlüssel zugeordnet sind. Die außer Kraft gesetzten Schlüsselinformationen können nicht mehr für den Schutz von Schlüsseln verwendet werden, bleiben jedoch für Operationen zum Aufheben von Wrappings verfügbar. Wenn {{site.data.keyword.keymanagementserviceshort}} erkennt, dass Sie zum Aufheben von Wrappings für DEKs außer Kraft gesetzte Schlüsselinformationen verwenden, stellt der Service einen neu eingeschlossenen DEK bereit, der auf den neuesten Rootschlüsselinformationen beruht. Sie können den neu eingeschlossenen DEK verwenden, um die Schlüssel mit den neuesten Schlüsselinformationen erneut einzuschließen.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} erstellt neue Schlüsselinformationen, nachdem Sie einen Rootschlüssel rotiert haben. Der Service setzt das alte Schlüsselmaterial außer Kraft und behält die außer Kraft gesetzten Versionen bei, bis der Rootschlüssel gelöscht wird. Wenn Sie den Rootschlüssel für die Envelope-Verschlüsselung verwenden, verwendet {{site.data.keyword.keymanagementserviceshort}} nur die neuesten Schlüsselinformationen, die dem Schlüssel zugeordnet sind. Die außer Kraft gesetzten Schlüsselinformationen können nicht mehr für den Schutz von Schlüsseln verwendet werden, bleiben jedoch für Operationen zum Aufheben von Wrappings verfügbar. Wenn {{site.data.keyword.keymanagementserviceshort}} erkennt, dass Sie zum Aufheben von Wrappings für DEKs außer Kraft gesetzte Schlüsselinformationen verwenden, stellt der Service einen neu eingeschlossenen DEK bereit, der auf den neuesten Rootschlüsselinformationen beruht.</dd>
  <dt>Schlüsselrotation für {{site.data.keyword.cloud_notm}}-Datenservices aktivieren</dt>
     <dd>Damit diese Schlüsselrotationsoptionen für Ihren Datenservice in {{site.data.keyword.cloud_notm}} aktiviert werden können, muss der Datenservice in {{site.data.keyword.keymanagementserviceshort}} integriert sein. Weitere Informationen hierzu finden Sie in der Dokumentation für Ihren {{site.data.keyword.cloud_notm}}-Datenservice oder in <a href="/docs/services/key-protect?topic=key-protect-integrate-services">unserer Liste von integrierten Services</a>.</dd>
 </dl>
@@ -94,9 +87,8 @@ Bei jeder Rotationsanforderung ordnet {{site.data.keyword.keymanagementservicesh
 
 ![Diagramm mit einer Mikroansicht des Rootschlüsselstacks.](../images/root-key-stack_min.svg)
 
-Nach dem Abschluss einer Rotation werden die neuen Rootschlüsselinformationen für den Schutz zukünftiger Datenverschlüsselungsschlüssel (DEKs) mit [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption) verfügbar. Außer Kraft gesetzte Schlüsselinformationen werden in den Status _Inaktiviert_ versetzt. In diesem Status können sie nur dazu verwendet werden, das Wrapping für ältere DEKs, die noch nicht durch die neuesten Rootschlüsselinformationen geschützt werden, aufzuheben und auf diese DEKs zuzugreifen. Wenn {{site.data.keyword.keymanagementserviceshort}} feststellt, dass außer Kraft gesetzte Rootschlüsselinformationen für das Aufheben des Wrappings eines älteren DEK verwendet werden, verschlüsselt der Service den DEK automatisch erneut und gibt einen Datenverschlüsselungsschlüssel mit Wrapping (Wrapped Data Encryption Key, WDEK) zurück, der auf den neuesten Rootschlüsselinformationen basiert. Speichern Sie den neuen WDEK und verwenden Sie ihn für zukünftige Operationen zum Aufheben des Wrappings. Auf diese Weise schützen Sie Ihre DEKs mit den neuesten Rootschlüsselinformationen.
-
-Weitere Informationen zur Verwendung der {{site.data.keyword.keymanagementserviceshort}}-API für die Rootschlüsselrotation finden Sie in [Schlüsselrotation](/docs/services/key-protect?topic=key-protect-rotate-keys).
+Weitere Informationen zur Verwendung der {{site.data.keyword.keymanagementserviceshort}}-API für die Rootschlüsselrotation finden Sie in [Schlüsselrotation](/docs/services/key-protect?topic=key-protect-rotate-keys). 
+{: tip}
 
 ## Häufigkeit der Schlüsselrotation
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ Nach der Generierung eines Rootschlüssels in {{site.data.keyword.keymanagements
 
 Führen Sie eine regelmäßige Schlüsselrotation durch, z. B. alle 30 Tage. Dies entspricht den bewährten Verschlüsselungsverfahren. 
 
-| Rotationstyp | Häufigkeit | Beschreibung
+| Rotationstyp | Häufigkeit | Beschreibung |
 | --- | --- | --- |
 | [Richtlinienbasierte Schlüsselrotation](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Alle 1 - 12 Monate | Wählen Sie ein Rotationsintervall zwischen 1 und 12 Monaten für Ihren Schlüssel basierend auf Ihren aktuellen Sicherheitsanforderungen aus. Nachdem Sie eine Rotationsrichtlinie für einen Schlüssel festgelegt haben, beginnt die Uhr sofort zu laufen, basierend auf dem ursprünglichen Erstellungsdatum für den Schlüssel. Wenn Sie beispielsweise eine monatliche Rotationsrichtlinie für einen Schlüssel festlegen, den Sie am `01.02.2019` erstellt haben, rotiert {{site.data.keyword.keymanagementserviceshort}} den Schlüssel automatisch am `01.03.2019`.|
 | [Bedarfsgesteuerte Schlüsselrotation](/docs/services/key-protect?topic=key-protect-rotate-keys) | Bis zu einer Rotation pro Stunde | Wenn Sie einen Schlüssel bedarfsgesteuert rotieren, lässt {{site.data.keyword.keymanagementserviceshort}} für jeden Rootschlüssel eine Rotation pro Stunde zu. |

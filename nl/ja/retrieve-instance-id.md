@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} リソース・リストにナビゲートすることによって、{{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスと関連付けられたインスタンス ID を表示できます。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}){: new_window}。
+1. [{{site.data.keyword.cloud_notm}} コンソールにログインします](https://{DomainName}){: external}。
 2. **「メニュー」** &gt; **「リソース・リスト」**と進み、**「サービス」**をクリックして、クラウド・サービスのリストを表示します。
 3. {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスを記述している表の行をクリックします。
 4. サービス詳細ビューから **GUID** 値をコピーします。
@@ -40,9 +41,9 @@ subcollection: key-protect
 ## CLI を使用したインスタンス ID の取得
 {: #retrieve-instance-ID-cli}
 
-サービス・インスタンスのインスタンス ID を、[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して取得できます。
+サービス・インスタンスのインスタンス ID を、[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用して取得することもできます。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用して、{{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -74,10 +75,10 @@ subcollection: key-protect
 ## API を使用したインスタンス ID の取得
 {: #retrieve-instance-ID-api}
 
-アプリケーションの作成および接続に利用するために、インスタンス ID をプログラマチックに取得したい場合があります。 [{{site.data.keyword.cloud_notm}} Resource Controller API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/resource-controller) を呼び出し、JSON 出力を `jq` にパイプすることによって、この値を取り出すことができます。
+アプリケーションの作成および接続に利用するために、インスタンス ID をプログラマチックに取得したい場合があります。 [{{site.data.keyword.cloud_notm}} Resource Controller API](https://{DomainName}/apidocs/resource-controller) を呼び出し、JSON 出力を `jq` にパイプすることによって、この値を取り出すことができます。
 
 1. [{{site.data.keyword.cloud_notm}} IAM アクセス・トークンを取得します](/docs/services/key-protect?topic=key-protect-retrieve-access-token)。
-2. [Resource Controller API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/resource-controller) を呼び出して、インスタンス ID を取得します。
+2. [Resource Controller API](https://{DomainName}/apidocs/resource-controller) を呼び出して、インスタンス ID を取得します。
 
     ```sh
     curl -X GET \

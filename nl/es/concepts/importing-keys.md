@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ Las claves de transporte son un tipo de recurso en {{site.data.keyword.keymanage
 
 Cuando se [crea una clave de transporte](/docs/services/key-protect?topic=key-protect-create-transport-keys) para la instancia de servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave RSA de 4096 bits. El servicio cifra la clave privada y, a continuación, devuelve la clave pública y una señal de importación que puede utilizar para cifrar e importar el material de claves raíz. 
 
-Cuando esté listo para [importar una clave raíz](/docs/services/key-protect?topic=key-protect-import-root-keys#api) en {{site.data.keyword.keymanagementserviceshort}}, proporcione el material de la clave raíz cifrado y la señal de importación que se utiliza para verificar la integridad de la clave pública. Para completar la solicitud, {{site.data.keyword.keymanagementserviceshort}} utiliza la clave privada asociada a la instancia de servicio para descifrar el material de la clave raíz cifrado. Este proceso garantiza que únicamente la clave de transporte que ha generado en {{site.data.keyword.keymanagementserviceshort}} puede descifrar el material de clave que importa y almacena en el servicio.
+Cuando esté listo para [importar una clave raíz](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) en {{site.data.keyword.keymanagementserviceshort}}, proporcione el material de la clave raíz cifrado y la señal de importación que se utiliza para verificar la integridad de la clave pública. Para completar la solicitud, {{site.data.keyword.keymanagementserviceshort}} utiliza la clave privada asociada a la instancia de servicio para descifrar el material de la clave raíz cifrado. Este proceso garantiza que únicamente la clave de transporte que ha generado en {{site.data.keyword.keymanagementserviceshort}} puede descifrar el material de clave que importa y almacena en el servicio.
 
 Sólo puede crear una clave de transporte por instancia de servicio. Para obtener más información sobre los límites de recuperación de las claves de transporte, [consulte el documento de referencia de API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: note} 

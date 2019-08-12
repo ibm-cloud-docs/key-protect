@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,15 +23,15 @@ subcollection: key-protect
 # Ein Zugriffstoken abrufen
 {: #retrieve-access-token}
 
-Beginnen Sie Ihre Arbeit mit den {{site.data.keyword.keymanagementservicelong}}-APIs, indem Sie Ihre Anforderungen an den Service mit einem {{site.data.keyword.iamlong}}- (IAM-) Zugriffstoken authentifizieren.
+Beginnen Sie Ihre Arbeit mit den {{site.data.keyword.keymanagementservicelong}}-APIs, indem Sie Ihre Anforderungen an den Service mit einem IAM-Zugriffstoken ({{site.data.keyword.iamlong}}) authentifizieren.
 {: shortdesc}
 
 ## Zugriffstoken mit der Befehlszeilenschnittstelle abrufen
 {: #retrieve-token-cli}
 
-Mit der [{{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} können Sie umgehend Ihr persönliches Cloud IAM-Zugriffstoken generieren.
+Mit der [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} können Sie umgehend Ihr persönliches Cloud-IAM-Zugriffstoken generieren.
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} an.
 
     ```sh
     ibmcloud login 
@@ -61,7 +62,7 @@ Mit der [{{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../..
 
 Sie können Ihr Zugriffstoken auch programmgesteuert abrufen, indem Sie zuerst einen [Service-ID-API-Schlüssel](/docs/iam?topic=iam-serviceidapikeys) für Ihre Anwendung erstellen und anschließend Ihren API-Schlüssel durch ein {{site.data.keyword.cloud_notm}} IAM-Token ersetzen.
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} an.
 
     ```sh
     ibmcloud login 
@@ -101,14 +102,14 @@ Sie können Ihr Zugriffstoken auch programmgesteuert abrufen, indem Sie zuerst e
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    Ersetzen Sie in der Anforderung `<API_KEY>` durch den API-Schlüssel, den Sie im vorherigen Schritt erstellt haben. Im folgenden gekürzten Beispiel sehen Sie die Tokenausgabe:
+    Ersetzen Sie in der Anforderung `<API_KEY>` durch den API-Schlüssel, den Sie im vorherigen Schritt erstellt haben. Im folgenden gekürzten Beispiel wird der Inhalt der Datei `token.json` dargestellt:
 
     ```
     {

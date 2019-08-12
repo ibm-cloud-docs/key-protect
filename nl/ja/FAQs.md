@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ subcollection: key-protect
 
 個人データの機密性を保護するため、鍵のメタデータとして個人情報 (PII) を保管しないでください。 個人情報には、自分の名前、住所、電話番号、E メール・アドレス、および自分自身や顧客、その他の人を特定したり、連絡を取ったり、居場所を見つけたりすることができるその他の情報が含まれます。
 
-{{site.data.keyword.keymanagementserviceshort}} リソースおよび暗号鍵のメタデータとして保管する情報のセキュリティーを確保する責任はお客様にあります。 その他の個人データの例については、[NIST Special Publication 800-122 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} のセクション 2.2 を参照してください。
+{{site.data.keyword.keymanagementserviceshort}} リソースおよび暗号鍵のメタデータとして保管する情報のセキュリティーを確保する責任はお客様にあります。 その他の個人データの例については、[NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external} のセクション 2.2 を参照してください。
 {: important}
 
 ## ある地域で作成された鍵を別の地域で使用できますか
@@ -89,7 +90,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloudaccesstrailfull_notm}} サービスを使用して、ユーザーおよびアプリケーションが {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスとどのように対話するのかを追跡できます。 例えば、{{site.data.keyword.keymanagementserviceshort}} で鍵の作成、インポート、削除、または読み取りを行うと、{{site.data.keyword.cloudaccesstrailshort}} イベントが生成されます。 これらのイベントは、{{site.data.keyword.keymanagementserviceshort}} サービスがプロビジョンされる地域と同じ地域の {{site.data.keyword.cloudaccesstrailshort}} サービスに自動的に転送されます。
 
-詳しくは、[Activity Tracker イベント](/docs/services/key-protect?topic=key-protect-activity-tracker-events)を参照してください。
+詳しくは、[Activity Tracker イベント](/docs/services/key-protect?topic=key-protect-at-events)を参照してください。
 
 ## 鍵を削除するとどうなりますか。
 {: #key-destruction}
@@ -104,3 +105,4 @@ subcollection: key-protect
 {: faq}
 
 {{site.data.keyword.keymanagementserviceshort}} から移動すると決めた場合、残っている鍵をサービス・インスタンスから削除してからでないと、サービスをプロビジョン解除することはできません。 サービス・インスタンスが削除された後、{{site.data.keyword.keymanagementserviceshort}} は、[エンベロープ暗号化](/docs/services/key-protect?topic=key-protect-envelope-encryption)を使用して、そのサービス・インスタンスと関連付けられたすべてのデータの暗号シュレッディングを行います。 
+

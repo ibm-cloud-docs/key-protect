@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 关于 {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} 可帮助您为 {{site.data.keyword.cloud_notm}} 服务中的应用程序供应加密的密钥。在管理密钥的生命周期时，您应当了解，密钥受已通过 FIPS 140-2 Level 2 认证的基于云的硬件安全模块 (HSM) 保护，可防止信息被盗。
+{{site.data.keyword.keymanagementservicefull}} 可帮助您为 {{site.data.keyword.cloud_notm}} 服务中的应用程序供应加密的密钥。在管理密钥的生命周期时，您应当了解，密钥受已通过 FIPS 140-2 Level 3 认证的基于云的硬件安全模块 (HSM) 保护，可防止信息被盗。
 {: shortdesc}
 
 ## 使用 {{site.data.keyword.keymanagementserviceshort}} 的原因
@@ -38,13 +39,13 @@ subcollection: key-protect
 |您是必须遵守数据保护监管规定的某个行业（如金融或法律）的安全管理员。您需要授予受控的密钥访问权，同时不能破坏密钥所保护的数据。|借助该服务，可以通过[指定不同的 Identity and Access Management 角色](/docs/services/key-protect?topic=key-protect-manage-access#roles)来控制用户对管理密钥的访问权。例如，对于需要查看密钥创建信息而不需要查看密钥资料的用户，您可以授予只读访问权。|
 |您希望在将数据移入云中时执行包络加密。为此，您需要提供自己的主加密密钥，以便可以管理和保护用于加密静态数据的其他密钥。| 通过 {{site.data.keyword.keymanagementserviceshort}}, 可以[使用高度安全的根密钥打包（加密）数据加密密钥](/docs/services/key-protect?topic=key-protect-envelope-encryption)。可以自带根密钥，也可以在服务中创建根密钥。|
 
-要查找支持受客户控制并且基于云的硬件安全模块 (HSM) 的专用密钥管理解决方案吗？[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) 与 {{site.data.keyword.keymanagementserviceshort}} 相集成，可为 {{site.data.keyword.cloud_notm}} 启用“保管自己的密钥”（KYOK）功能，这样您的组织可以对数据拥有更多控制力和权限。请查看 [{{site.data.keyword.hscrypto}} 产品详细信息页面 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) 以了解更多信息。
+要查找支持受客户控制并且基于云的硬件安全模块 (HSM) 的专用密钥管理解决方案吗？[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) 与 {{site.data.keyword.keymanagementserviceshort}} 相集成，可为 {{site.data.keyword.cloud_notm}} 启用“保管自己的密钥”（KYOK）功能，这样您的组织可以对数据拥有更多控制力和权限。请查看 <a href="https://{DomainName}/catalog/services/hyper-protect-crypto-services" target="_blank" class="external">{{site.data.keyword.hscrypto}} 产品详细信息页面</a>以了解更多信息。
 {: tip}
 
 ## {{site.data.keyword.keymanagementserviceshort}} 的工作原理
 {: #kp-how}
 
-{{site.data.keyword.keymanagementservicelong_notm}} 通过与 {{site.data.keyword.cloud_notm}} Identity and Access Management 角色保持一致，帮助您管理整个组织中的加密密钥。
+{{site.data.keyword.keymanagementservicelong_notm}} 通过与 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) 角色保持一致，帮助您管理整个组织中的加密密钥。
 
 IT 或安全管理员需要高级权限，而审计员可能不需要。为了简化访问，{{site.data.keyword.keymanagementserviceshort}} 映射到 {{site.data.keyword.cloud_notm}} Identity and Access Management 角色，这样每个角色将看到该服务的不同视图。要获取有关哪个视图和访问级别最符合您需求的指南，请参阅[管理用户和访问权](/docs/services/key-protect?topic=key-protect-manage-access#roles)。
 

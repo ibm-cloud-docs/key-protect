@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ Es kann ein Schlüsselname mit einer Länge von maximal 90 Zeichen verwendet wer
 
 Zum Schutz der Vertraulichkeit Ihrer personenbezogenen Daten speichern Sie keine persönlichen Daten (personally identifiable information, PII) als Metadaten für Ihre Schlüssel. Zu den personenbezogenen Daten gehören Ihr Name, Ihre Adresse, Telefonnummer, E-Mail-Adresse und andere Informationen, anhand derer Sie, Ihre Kunden oder andere Personen identifiziert, kontaktiert oder lokalisiert werden könnten.
 
-Es liegt in Ihrer Verantwortung, die Sicherheit aller Informationen sicherzustellen, die Sie als Metadaten für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen und -Verschlüsselungsschlüssel speichern. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122 ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+Es liegt in Ihrer Verantwortung, die Sicherheit aller Informationen sicherzustellen, die Sie als Metadaten für {{site.data.keyword.keymanagementserviceshort}}-Ressourcen und -Verschlüsselungsschlüssel speichern. Weitere Beispiele für personenbezogene Daten finden Sie in Abschnitt 2.2 des Dokuments [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## Können Schlüssel, die in einer Region erstellt werden, in einer anderen Region verwendet werden?
@@ -89,7 +90,7 @@ Ihre Verschlüsselungsschlüssel sind auf die Region beschränkt, in der Sie sie
 
 Mit dem {{site.data.keyword.cloudaccesstrailfull_notm}}-Service können Sie verfolgen, wie Benutzer und Anwendungen mit Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz interagieren. Beispiel: Wenn Sie einen Schlüssel in {{site.data.keyword.keymanagementserviceshort}} erstellen, importieren, löschen oder lesen, wird ein {{site.data.keyword.cloudaccesstrailshort}}-Ereignis generiert. Diese Ereignisse werden automatisch an den {{site.data.keyword.cloudaccesstrailshort}}-Service in derselben Region weitergeleitet, in der auch der {{site.data.keyword.keymanagementserviceshort}}-Service bereitgestellt wird.
 
-Weitere Informationen finden Sie unter [Activity Tracker-Ereignisse](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+Weitere Informationen finden Sie unter [Activity Tracker-Ereignisse](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## Was passiert, wenn ich einen Schlüssel lösche?
 {: #key-destruction}
@@ -104,3 +105,4 @@ Stellen Sie vor dem Löschen eines Schlüssels sicher, dass Sie keinen Zugriff a
 {: faq}
 
 Wenn Sie sich entscheiden, von {{site.data.keyword.keymanagementserviceshort}} zu wechseln, müssen Sie alle verbleibenden Schlüssel aus Ihrer Serviceinstanz löschen, bevor Sie die Einrichtung des Service wieder zurücknehmen können. Nachdem Sie Ihre Serviceinstanz gelöscht haben, verwendet {{site.data.keyword.keymanagementserviceshort}} die [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption) zum verschlüsselten Schreddern aller Daten, die der Serviceinstanz zugeordnet sind. 
+

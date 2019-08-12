@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,14 @@ subcollection: key-protect
 
 定期替換金鑰有助於您符合業界標準和加密最佳作法。下表說明金鑰替換的主要好處：
 
-<table>
-  <th>優點</th>
-  <th>說明</th>
-  <tr>
-    <td>金鑰的加密期間管理</td>
-    <td>金鑰替換會限制單一金鑰保護資訊的時間長度。藉由定期替換根金鑰，您也縮短了金鑰的加密期間。加密金鑰的生命期限越長，安全侵害的機率便越高。</td>
-  </tr>
-  <tr>
-    <td>突發事件降低</td>
-    <td>如果您的組織偵測到安全問題，您可以立即替換金鑰以便降低或減少與金鑰洩漏相關聯的成本。</td>
-  </tr>
-  <caption style="caption-side:bottom;">表 1. 說明金鑰替換的好處</caption>
-</table>
+|優點|說明
+|
+| --- | --- |
+|金鑰的加密期間管理|金鑰替換會限制單一金鑰保護資訊的時間長度。藉由定期替換根金鑰，您也縮短了金鑰的加密期間。加密金鑰的生命期限越長，安全侵害的機率便越高。|
+|突發事件降低|如果您的組織偵測到安全問題，您可以立即替換金鑰以便降低或減少與金鑰洩漏相關聯的成本。|
+{: caption="表 1. 說明金鑰替換的好處" caption-side="top"}
 
-「NIST 特殊出版品 800-57」的「金鑰管理建議」中，論述了金鑰替換。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4. ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+「NIST 特殊出版品 800-57」的「金鑰管理建議」中，論述了金鑰替換。若要進一步瞭解，請參閱 [NIST SP 800-57 Pt. 1 Rev. 4。](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## 比較 {{site.data.keyword.keymanagementserviceshort}} 中的金鑰替換選項
@@ -61,7 +55,7 @@ subcollection: key-protect
 ## 金鑰替換的運作方式 
 {: #how-key-rotation-works}
 
-金鑰替換的運作方式是將金鑰資料安全地從_作用中_ 狀態轉移為_取消啟動_ 金鑰狀態。為了取代取消啟動或已淘汰的金鑰資料，新的金鑰資料會移入_作用中_ 狀態，並且可用於加密作業。
+金鑰替換的運作方式是將金鑰資料安全地從_作用中_ 狀態轉移為_取消啟動_ 金鑰狀態。若要取代取消啟動或已淘汰的金鑰資料，新的金鑰資料會移入_作用中_ 狀態，並且可用於加密作業。
 
 ### 使用 {{site.data.keyword.keymanagementserviceshort}} 替換金鑰
 {: #use-key-protect-rotate-keys}
@@ -74,7 +68,7 @@ subcollection: key-protect
   <dt>替換您帶至服務的根金鑰</dt>
     <dd>若要替換您最初匯入至服務的根金鑰，您必須產生並提供金鑰的新金鑰資料。您可以使用 {{site.data.keyword.keymanagementserviceshort}}，藉由在替換要求中提供新的金鑰資料，以隨需應變替換匯入的根金鑰。當您替換金鑰時，根金鑰的 meta 資料（例如，其金鑰 ID）不會變更。因為您必須提供新的金鑰資料才能替換匯入的金鑰，所以自動替換原則不適用於已匯入金鑰資料的根金鑰。</dd>
   <dt>管理已淘汰的金鑰資料</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} 會在您替換根金鑰之後建立新的金鑰資料。服務會重試舊的金鑰資料，並保留已淘汰的版本，直到刪除根金鑰為止。當您使用封套加密的根金鑰時，{{site.data.keyword.keymanagementserviceshort}} 只會使用與金鑰相關聯的最新金鑰資料。無法再使用已淘汰的金鑰資料來保護金鑰，但它仍可用於解除包裝作業。如果 {{site.data.keyword.keymanagementserviceshort}} 偵測到您是使用已淘汰的金鑰資料來解除包裝 DEK，服務會根據最新的根金鑰資料提供剛包裝的 DEK。您可以使用新包裝的 DEK 來使用最新的金鑰資料重新包裝金鑰。</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} 會在您替換根金鑰之後建立新的金鑰資料。服務會重試舊的金鑰資料，並保留已淘汰的版本，直到刪除根金鑰為止。當您使用封套加密的根金鑰時，{{site.data.keyword.keymanagementserviceshort}} 只會使用與金鑰相關聯的最新金鑰資料。無法再使用已淘汰的金鑰資料來保護金鑰，但它仍可用於解除包裝作業。如果 {{site.data.keyword.keymanagementserviceshort}} 偵測到您是使用已淘汰的金鑰資料來解除包裝 DEK，服務會根據最新的根金鑰資料提供剛包裝的 DEK。</dd>
  <dt>啟用 {{site.data.keyword.cloud_notm}} 資料服務的金鑰替換</dt>
     <dd>若要在 {{site.data.keyword.cloud_notm}} 上為您的資料服務啟用這些金鑰替換選項，資料服務必須已與 {{site.data.keyword.keymanagementserviceshort}} 整合。請參閱 {{site.data.keyword.cloud_notm}} 資料服務的文件，或<a href="/docs/services/key-protect?topic=key-protect-integrate-services">參閱我們的整合服務清單，以進一步瞭解</a>。</dd>
 </dl>
@@ -94,9 +88,8 @@ subcollection: key-protect
 
 ![此圖顯示根金鑰堆疊的微小視圖。](../images/root-key-stack_min.svg)
 
-替換完成之後，新的根金鑰資料便可用於使用[封套加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)保護未來的資料加密金鑰 (DEK)。已淘汰的金鑰資料會移到_取消啟動_ 狀態，只能用來解除包裝及存取較舊且尚未被最新根金鑰資料保護的 DEK。如果 {{site.data.keyword.keymanagementserviceshort}} 偵測到您正在使用已淘汰的根金鑰資料解除包裝較舊的 DEK，服務會自動重新加密 DEK 並傳回已包裝且根據最新根金鑰資料的資料加密金鑰 (WDEK)。請儲存並使用新的 WDEK 來進行未來的 unwrap 作業，以便用最新的根金鑰資料保護 DEK。
-
 若要了解如何使用 {{site.data.keyword.keymanagementserviceshort}} API 來替換您的根金鑰，請參閱[替換金鑰](/docs/services/key-protect?topic=key-protect-rotate-keys)。
+{: tip}
 
 ## 金鑰替換的頻率
 {: #rotation-frequency}
@@ -106,6 +99,7 @@ subcollection: key-protect
 請定期替換金鑰，例如每 30 天一次，以符合加密最佳作法。 
 
 | 替換類型 | 頻率 |說明
+|
 | --- | --- | --- |
 | [原則型金鑰替換](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | 每隔 1 到 12 個月 | 根據進行中安全需求，為您的金鑰選擇 1 到 12 個月的替換間隔。在為金鑰設定替換原則之後，時鐘會根據金鑰的起始建立日期立即開始。例如，如果您為在 `2019/02/01` 建立的金鑰設定每月替換原則，{{site.data.keyword.keymanagementserviceshort}} 即會在 `2019/03/01` 自動替換金鑰。|
 | [隨需應變金鑰替換](/docs/services/key-protect?topic=key-protect-rotate-keys) | 每小時最多一次替換 | 如果您是以隨需應變方式替換金鑰，則 {{site.data.keyword.keymanagementserviceshort}} 容許每個根金鑰每小時替換一次。|

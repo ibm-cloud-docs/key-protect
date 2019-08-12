@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,13 @@ La rotation des clés s'effectue lorsque vous retirez le matériel de clé d'ori
 
 Procéder régulièrement à une rotation des clés vous aide à respecter les normes en vigueur de l'industrie et les meilleures pratiques en matière de cryptographie. Le tableau suivant décrit les principaux avantages de la rotation des clés :
 
-<table>
-  <th>Avantage</th>
-  <th>Description</th>
-  <tr>
-    <td>Gestion de la cryptopériode des clés</td>
-    <td>La rotation des clés limite la durée durant laquelle vos informations sont protégées par une clé spécifique. En procédant à une rotation des clés à intervalles réguliers, vous raccourcissez également la cryptopériode des clés. Plus la durée de vie d'une clé de chiffrement est longue, plus le risque de violation de la sécurité est élevé.</td>
-  </tr>
-  <tr>
-    <td>Atténuation d'incidents</td>
-    <td>Si votre organisation détecte un problème de sécurité, vous pouvez immédiatement effectuer une rotation de la clé afin d'atténuer ou de réduire les coûts associés à une clé non fiable.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tableau 1. Description des avantages de la rotation des clés</caption>
-</table>
+| Avantage | Description |
+| --- | --- |
+| Gestion de la cryptopériode des clés | La rotation des clés limite la durée durant laquelle vos informations sont protégées par une clé spécifique. En procédant à une rotation des clés à intervalles réguliers, vous raccourcissez également la cryptopériode des clés. Plus la durée de vie d'une clé de chiffrement est longue, plus le risque de violation de la sécurité est élevé. |
+| Atténuation d'incidents | Si votre organisation détecte un problème de sécurité, vous pouvez immédiatement effectuer une rotation de la clé afin d'atténuer ou de réduire les coûts associés à une clé non fiable. |
+{: caption="Tableau 1. Description des avantages de la rotation des clés" caption-side="top"}
 
-La rotation des clés est abordée dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône de lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+La rotation des clés est abordée dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Comparaison de vos options de rotation de clés dans {{site.data.keyword.keymanagementserviceshort}}
@@ -74,7 +67,7 @@ Tenez compte des considérations suivantes lorsque vous vous préparez à utilis
   <dt>Rotation des clés racine que vous apportez au service</dt>
     <dd>Pour effectuer une rotation d'une clé racine initialement importée vers le service, vous devez générer et fournir un nouveau matériel de clé pour la clé. Vous pouvez utiliser {{site.data.keyword.keymanagementserviceshort}} pour effectuer une rotation des clés racine importées à la demande en fournissant un nouveau matériel de clé dans le cadre de la demande de rotation. Les métadonnées de la clé racine, telles que son ID de clé, ne changent pas lorsque vous effectuez une rotation de clé. Comme vous devez fournir un nouveau matériel de clé pour effectuer la rotation d'une clé importée, les politiques de rotation automatiques ne sont pas disponibles pour les clés racine qui ont un matériel de clé importé.</dd>
   <dt>Gestion du matériel de clé retiré</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} crée un nouveau matériel de clé après la rotation d'une clé racine. Le service retire l'ancien matériel de clé et conserve les versions retirées jusqu'à ce que la clé racine soit supprimée. Lorsque vous utilisez la clé racine pour le chiffrement d'enveloppe, {{site.data.keyword.keymanagementserviceshort}} utilise uniquement le dernier matériel de clé associé à la clé. Le matériel de clé retiré ne peut plus être utilisé pour protéger les clés, mais il reste disponible pour les opérations de désencapsulage. Si {{site.data.keyword.keymanagementserviceshort}} détecte que vous utilisez un matériel de clé retiré pour désencapsuler les clés de chiffrement de données, le service fournit une clés de chiffrement de données nouvellement encapsulée, basée sur le dernier matériel de clé racine. Vous pouvez utiliser la nouvelle clés de chiffrement de données encapsulée pour ré-encapsuler les clés avec le dernier matériel de clé.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} crée un nouveau matériel de clé après la rotation d'une clé racine. Le service retire l'ancien matériel de clé et conserve les versions retirées jusqu'à ce que la clé racine soit supprimée. Lorsque vous utilisez la clé racine pour le chiffrement d'enveloppe, {{site.data.keyword.keymanagementserviceshort}} utilise uniquement le dernier matériel de clé associé à la clé. Le matériel de clé retiré ne peut plus être utilisé pour protéger les clés, mais il reste disponible pour les opérations de désencapsulage. Si {{site.data.keyword.keymanagementserviceshort}} détecte que vous utilisez un matériel de clé retiré pour désencapsuler les clés de chiffrement de données, le service fournit une clés de chiffrement de données nouvellement encapsulée, basée sur le dernier matériel de clé racine.</dd>
  <dt>Activation de la rotation des clés pour les services de données {{site.data.keyword.cloud_notm}}</dt>
     <dd>Pour activer ces options de rotation de clés pour votre service de données sur {{site.data.keyword.cloud_notm}}, le service de données doit être intégré à {{site.data.keyword.keymanagementserviceshort}}. Reportez-vous à la documentation de votre service de données {{site.data.keyword.cloud_notm}} ou <a href="/docs/services/key-protect?topic=key-protect-integrate-services">consultez notre liste des services intégrés pour en savoir plus</a>.</dd>
 </dl>
@@ -94,9 +87,8 @@ A chaque demande de rotation, {{site.data.keyword.keymanagementserviceshort}} as
 
 ![Diagramme illustrant une vue miniature de la pile de clés racine.](../images/root-key-stack_min.svg)
 
-Une fois la rotation terminée, le nouveau matériel de clé racine est disponible pour protéger les futures clés de chiffrement de données avec le [chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption). Le matériel retiré est placé à l'état _Désactivé_, dans lequel il ne peut être utilisé que pour désencapsuler et accéder aux anciennes clés de chiffrement de données qui ne sont pas encore protégées par le matériel le plus récent. Si {{site.data.keyword.keymanagementserviceshort}} détecte que vous utilisez du matériel retiré pour désencapsuler une ancienne clé de chiffrement de données, le service chiffre de nouveau automatiquement la clé de chiffrement de données et renvoie une clé de chiffrement de données encapsulée selon le dernier matériel de clé racine. Stockez et utilisez la nouvelle clé de chiffrement de données encapsulée pour vos futures opérations de désencapsulage de manière à protéger vos clés de chiffrement de données avec le matériel de clé racine le plus récent.
-
-Pour savoir comment utiliser l'API {{site.data.keyword.keymanagementserviceshort}} pour effectuer une rotation de vos clés racine, voir [Rotation des clés](/docs/services/key-protect?topic=key-protect-rotate-keys).
+Pour savoir comment utiliser l'API {{site.data.keyword.keymanagementserviceshort}} pour effectuer une rotation de vos clés racine, voir [Rotation des clés](/docs/services/key-protect?topic=key-protect-rotate-keys). 
+{: tip}
 
 ## Fréquence de rotation des clés
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ Après avoir généré une clé racine dans {{site.data.keyword.keymanagementser
 
 Effectuez régulièrement une rotation des clés, par exemple tous les 30 jours pour respecter les meilleures pratiques en matière de cryptographie. 
 
-| Type de rotation | Fréquence | Description
+| Type de rotation | Fréquence | Description |
 | --- | --- | --- |
 | [Rotation des clés basée sur des politiques](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Tous les 1 à 12 mois | Choisissez un intervalle de rotation compris entre 1 et 12 mois pour votre clé en fonction de vos besoins en sécurité actuels. Une fois qu'une politique de rotation est définie pour une clé, l'horloge démarre immédiatement en fonction de la date de création initiale de la clé. Par exemple, si vous définissez une politique de rotation mensuelle pour une clé que vous avez créée le `01/02/2019`, {{site.data.keyword.keymanagementserviceshort}} effectuera une rotation automatique de la clé le `01/03/2019`.|
 | [Rotation des clés à la demande](/docs/services/key-protect?topic=key-protect-rotate-keys) | Jusqu'à une rotation par heure | Si vous effectuez une rotation de clé à la demande, {{site.data.keyword.keymanagementserviceshort}} autorise une rotation par heure pour chaque clé racine. |

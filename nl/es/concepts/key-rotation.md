@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,13 @@ La rotación de claves tiene lugar cuando retira el material de clave original d
 
 La rotación de claves de forma regular le ayuda a cumplir los estándares del sector y las mejores prácticas de cifrado. La siguiente tabla describe los mayores beneficios de la rotación de claves:
 
-<table>
-  <th>Ventajas</th>
-  <th>Descripción</th>
-  <tr>
-    <td>Gestión de período criptográfico de claves</td>
-    <td>La rotación de claves limita la cantidad de tiempo que la información está protegida por una clave. Rotando las claves raíz a intervalos regulares, también se reduce el período criptográfico de las claves. Cuanto más largo es el tiempo de vida de una clave de cifrado, más alta es la probabilidad de que se produzca una brecha de seguridad.</td>
-  </tr>
-  <tr>
-    <td>Mitigación de incidencias</td>
-    <td>Si su organización detecta un problema de seguridad, puede rotar inmediatamente la clave para mitigar o reducir los costes asociados con un riesgo de las claves.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabla 1. Describe los beneficios de la rotación de claves</caption>
-</table>
+| Ventajas | Descripción |
+| --- | --- |
+| Gestión de período criptográfico de claves | La rotación de claves limita la cantidad de tiempo que la información está protegida por una clave. Rotando las claves raíz a intervalos regulares, también se reduce el período criptográfico de las claves. Cuanto más largo es el tiempo de vida de una clave de cifrado, más alta es la probabilidad de que se produzca una brecha de seguridad. |
+| Mitigación de incidencias | Si su organización detecta un problema de seguridad, puede rotar inmediatamente la clave para mitigar o reducir los costes asociados con un riesgo de las claves. |
+{: caption="Tabla 1. Describe los beneficios de la rotación de claves" caption-side="top"}
 
-La rotación de claves se trata en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+La rotación de claves se trata en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Comparación de las opciones de rotación de claves en {{site.data.keyword.keymanagementserviceshort}}
@@ -74,7 +67,7 @@ Tenga presentes las consideraciones siguientes al prepararse para utilizar {{sit
   <dt>Rotación de las claves raíz que se han traído al servicio</dt>
     <dd>Para rotar una clave raíz que inicialmente ha importado al servicio, debe generar y proporcionar nuevo material de clave para la clave. Puede utilizar {{site.data.keyword.keymanagementserviceshort}} para rotar bajo demanda las claves raíz importadas suministrando nuevo material de clave como parte de la solicitud de rotación. Los metadatos de la clave raíz, como por ejemplo su ID de clave, no cambian cuando se rota la clave. Debido a que debe proporcionar un nuevo material de clave para rotar una clave importada, no hay políticas de rotación automáticas disponibles para las claves raíz que hayan importado material de clave.</dd>
   <dt>Gestión del material de clave retirado</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} crea un nuevo material de clave cuando se rota una clave raíz. El servicio retira el material de clave antiguo y conserva las versiones retiradas hasta que se suprime la clave raíz. Cuando se utiliza la clave raíz para el cifrado de sobre, {{site.data.keyword.keymanagementserviceshort}} sólo utiliza el material de clave más reciente asociado a la clave. El material de clave retirado ya no se puede utilizar para proteger las claves, pero permanece disponible para las operaciones de desenvolver. Si {{site.data.keyword.keymanagementserviceshort}} detecta que está utilizando material de clave retirado para desempaquetar las DEK, el servicio proporciona una DEK recién envuelta basada en el último material de clave raíz. Puede utilizar la DEK recién envuelta para volver a envolver las claves con el material de clave más reciente.</dd>
+    <dd>{{site.data.keyword.keymanagementserviceshort}} crea un nuevo material de clave cuando se rota una clave raíz. El servicio retira el material de clave antiguo y conserva las versiones retiradas hasta que se suprime la clave raíz. Cuando se utiliza la clave raíz para el cifrado de sobre, {{site.data.keyword.keymanagementserviceshort}} sólo utiliza el material de clave más reciente asociado a la clave. El material de clave retirado ya no se puede utilizar para proteger las claves, pero permanece disponible para las operaciones de desenvolver. Si {{site.data.keyword.keymanagementserviceshort}} detecta que está utilizando material de clave retirado para desempaquetar las DEK, el servicio proporciona una DEK recién envuelta basada en el último material de clave raíz.</dd>
  <dt>Habilitación de la rotación de claves para los servicios de datos de {{site.data.keyword.cloud_notm}}</dt>
     <dd>Para habilitar estas opciones de rotación de claves para el servicio de datos en {{site.data.keyword.cloud_notm}}, el servicio de datos debe estar integrado con {{site.data.keyword.keymanagementserviceshort}}. Consulte la documentación de su servicio de datos de {{site.data.keyword.cloud_notm}} o <a href="/docs/services/key-protect?topic=key-protect-integrate-services">consulte nuestra lista de servicios integrados para obtener más información.</a>.</dd>
 </dl>
@@ -94,9 +87,8 @@ Con cada solicitud de rotación, {{site.data.keyword.keymanagementserviceshort}}
 
 ![El diagrama muestra una micro vista de la pila de claves raíz.](../images/root-key-stack_min.svg)
 
-Cuando se completa una rotación, el nuevo material de claves raíz pasa a estar disponible para proteger claves de cifrado de datos (DEK) futuras con [cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption). El material de claves retirado pasa al estado _Desactivado_, donde solo se puede utilizar para desenvolver y acceder a DEK más antiguas que todavía no están protegidas por el último material de claves raíz. Si {{site.data.keyword.keymanagementserviceshort}} detecta que utiliza material de claves raíz retirado para desenvolver una DEK antigua, el servicio vuelve a cifrar automáticamente la DEK y devuelve una clave de cifrado de datos envuelta (WDEK) que se basa en el último material de claves raíz. Almacene y utilice la nueva WDEK para futuras operaciones de desenvolvimiento para proteger a sus DEK con el último material de claves raíz.
-
-Para saber cómo utilizar la API de {{site.data.keyword.keymanagementserviceshort}} para rotar sus claves raíz, consulte [Rotación de claves](/docs/services/key-protect?topic=key-protect-rotate-keys).
+Para saber cómo utilizar la API de {{site.data.keyword.keymanagementserviceshort}} para rotar sus claves raíz, consulte [Rotación de claves](/docs/services/key-protect?topic=key-protect-rotate-keys). 
+{: tip}
 
 ## Frecuencia de la rotación de claves
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ Después de generar una clave raíz en {{site.data.keyword.keymanagementservices
 
 Rote sus claves de forma regular, por ejemplo, cada 30 días, para seguir las mejores prácticas de cifrado. 
 
-| Tipo de rotación | Frecuencia | Descripción
+| Tipo de rotación | Frecuencia | Descripción |
 | --- | --- | --- |
 | [Rotación de claves basada en políticas](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | Cada 1 - 12 meses | Elija un intervalo de rotación entre 1 y 12 meses para su clave en función de sus necesidades actuales de seguridad. Después de establecer una política de rotación para una clave, el reloj se inicia de forma inmediatamente, basado en la fecha de creación inicial de la clave. Por ejemplo, si establece una política de rotación mensual para una clave que ha creado el `01/02/2019`, {{site.data.keyword.keymanagementserviceshort}} rota automáticamente la clave el `01/03/2019`.|
 | [Rotación de claves bajo demanda](/docs/services/key-protect?topic=key-protect-rotate-keys) | Hasta una rotación por hora | Si rota una clave bajo demanda, {{site.data.keyword.keymanagementserviceshort}} permite una rotación por hora para cada clave raíz. |

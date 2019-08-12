@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-13"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 解包密钥
 {: #unwrap-keys}
 
-如果您是特权用户，那么可以使用 {{site.data.keyword.keymanagementservicefull}} API 将数据加密密钥 (DEK) 解包以访问其内容。解包 DEK 会解密其内容并检查内容完整性，从而将原始密钥资料返回给 {{site.data.keyword.cloud_notm}} 数据服务。
+可以使用 {{site.data.keyword.keymanagementservicefull}} API 将数据加密密钥 (DEK) 解包以访问其内容。解包 DEK 会解密其内容并检查内容完整性，从而将原始密钥资料返回给 {{site.data.keyword.cloud_notm}} 数据服务。
 {: shortdesc}
 
 要了解密钥打包如何帮助您控制云中静态数据的安全性，请参阅[使用包络加密保护数据](/docs/services/key-protect?topic=key-protect-envelope-encryption)。
@@ -62,9 +63,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     ```
     {: codeblock}
 
-    要使用帐户中 Cloud Foundry 组织和空间内的密钥，请将 `Bluemix-Instance` 替换为相应的 `Bluemix-org` 和 `Bluemix-space` 头。[有关更多信息，请参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
-    {: tip}
-
     根据下表替换示例请求中的变量。
     <table>
       <tr>
@@ -73,7 +71,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">区域服务端点</a>。</td>
+        <td><strong>必需</strong>。区域缩写（例如，<code>us-south</code> 或 <code>eu-gb</code>），表示 {{site.data.keyword.keymanagementserviceshort}} 服务实例所在的地理区域。有关更多信息，请参阅<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">区域服务端点</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -110,3 +108,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    如果 {{site.data.keyword.keymanagementserviceshort}} 检测到您轮换使用用于解包和访问数据的根密钥，那么服务还会在解包响应主体中返回新打包的数据加密密钥 (`ciphertext`)。针对未来包络加密操作存储并使用新的 `ciphertext` 值，从而通过最新根密钥保护数据。
+    {: note}

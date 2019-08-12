@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,27 +28,13 @@ Le chiffrement d'enveloppe est une procédure qui consiste à chiffrer des donn�
 
 {{site.data.keyword.keymanagementservicefull}} protège les données stockées via un mécanisme de chiffrement avancé et offre un certain nombre d'avantages :
 
-<table>
-  <th>Avantage</th>
-  <th>Description</th>
-  <tr>
-    <td>Clés de chiffrement gérées par le client</td>
-    <td>Avec le service, vous pouvez mettre à disposition des clés racine pour assurer la sécurité des données chiffrées dans le cloud. Les clés racine sont utilisées en tant que clés principales d'encapsulage de clés pour vous aider à gérer et à protéger les clés DEK disponibles dans les services de données {{site.data.keyword.cloud_notm}}. Vous pouvez décider d'importer des clés racine existantes ou demander à {{site.data.keyword.keymanagementserviceshort}} de les générer pour vous.</td>
-  </tr>
-  <tr>
-    <td>Protection de l'intégrité et de la confidentialité</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} utilise l'algorithme AES (Advanced Encryption Standard) en mode GCM (Galois/Counter Mode) pour créer et protéger les clés. Lorsque vous créez des clés dans le service, {{site.data.keyword.keymanagementserviceshort}} les génère dans les limites de confiance des modules de sécurité matériels {{site.data.keyword.cloud_notm}} afin que vous soyez le seul à pouvoir accéder à vos clés de chiffrement.</td>
-  </tr>
-  <tr>
-    <td>Destruction cryptographique des données</td>
-    <td>Si votre organisation détecte un problème de sécurité ou que votre application n'a plus besoin d'un ensemble de données, vous pouvez décider de détruire définitivement les données du cloud. Lorsque vous supprimez une clé racine qui protège d'autres clés DEK, les données associées à la clé ne sont plus accessibles ou ne peuvent plus être déchiffrées.</td>
-  </tr>
-  <tr>
-    <td>Contrôle d'accès utilisateur délégué</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} prend en charge un système de contrôle d'accès centralisé pour permettre un accès granulaire aux clés. [En affectant des rôles utilisateur et des droits avancés IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), les administrateurs de sécurité déterminent les personnes autorisées à accéder des clés spécifiques du service.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tableau 1. Description des avantages du chiffrement géré par le client</caption>
-</table>
+| Avantage | Description |
+| --- | --- |
+| Clés de chiffrement gérées par le client | Avec le service, vous pouvez mettre à disposition des clés racine pour assurer la sécurité des données chiffrées dans le cloud. Les clés racine sont utilisées en tant que clés principales d'encapsulage de clés pour vous aider à gérer et à protéger les clés DEK disponibles dans les services de données {{site.data.keyword.cloud_notm}}. Vous pouvez décider d'importer des clés racine existantes ou demander à {{site.data.keyword.keymanagementserviceshort}} de les générer pour vous. |
+| Protection de l'intégrité et de la confidentialité | {{site.data.keyword.keymanagementserviceshort}} utilise l'algorithme AES (Advanced Encryption Standard) en mode GCM (Galois/Counter Mode) pour protéger les clés. Lorsque vous créez des clés dans le service, {{site.data.keyword.keymanagementserviceshort}} les génère dans les limites de confiance des modules de sécurité matériels {{site.data.keyword.cloud_notm}} afin que vous soyez le seul à pouvoir accéder à vos clés de chiffrement. |
+| Destruction cryptographique des données  | Si votre organisation détecte un problème de sécurité ou que votre application n'a plus besoin d'un ensemble de données, vous pouvez décider de détruire définitivement les données du cloud. Lorsque vous supprimez une clé racine qui protège d'autres clés DEK, les données associées à la clé ne sont plus accessibles ou ne peuvent plus être déchiffrées. |
+| Contrôle d'accès utilisateur délégué | {{site.data.keyword.keymanagementserviceshort}} prend en charge un système de contrôle d'accès centralisé pour permettre un accès granulaire aux clés. [En affectant des rôles utilisateur et des droits avancés IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), les administrateurs de sécurité déterminent les personnes autorisées à accéder des clés spécifiques du service. |
+{: caption="Tableau 1. Description des avantages du chiffrement géré par le client" caption-side="top"}
 
 ## Fonctionnement
 {: #overview}
@@ -57,7 +44,7 @@ Le chiffrement d'enveloppe associe la puissance de plusieurs algorithmes de chif
 Le diagramme suivant présente une vue contextuelle de la fonction de chiffrement d'enveloppe.
 ![Diagramme présentant une vue contextuelle du chiffrement d'enveloppe.](../images/envelope-encryption_min.svg)
 
-Le chiffrement d'enveloppe est abordé dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4. ![Icône lien externe](../../../icons/launch-glyph.svg "Icône de lien externe")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+Le chiffrement d'enveloppe est abordé dans le document NIST Special Publication 800-57, Recommendation for Key Management. Pour en savoir plus, voir [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 
 ## Types de clé
 {: #key-types}
@@ -68,7 +55,7 @@ Pour le chiffrement avancé et la gestion des données, le service prend en char
   <dt>Root keys (Clés racine)</dt>
     <dd>Les clés racine représentent les ressources principales de {{site.data.keyword.keymanagementserviceshort}}. Il s'agit de clés d'encapsulage de clés symétriques utilisées en tant que racines de confiance pour l'encapsulage (chiffrement) et le désencapsulage (déchiffrement) d'autres clés stockées dans le service de données. Avec {{site.data.keyword.keymanagementserviceshort}}, vous pouvez créer et stocker des clés et gérer le cycle de vie de clés racine pour contrôler intégralement d'autres clés dans le cloud. Contrairement à la clé standard, une clé racine doit toujours rester dans les limites du service {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Standard keys (Clés standard)</dt>
-    <dd>Les clés standard permettent de préserver une valeur confidentielle, telle qu'un mot de passe ou une clé de chiffrement. Lorsque vous utilisez {{site.data.keyword.keymanagementserviceshort}} pour stocker des clés standard, vous activez un module de sécurité matériel (HSM) pour vos valeurs confidentielles, le contrôle d'accès à granularité fine à vos ressources avec <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> et la possibilité d'audit des appels d'API au service avec <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Les clés standard permettent de préserver une valeur confidentielle, telle qu'un mot de passe ou une clé de chiffrement. Lorsque vous utilisez {{site.data.keyword.keymanagementserviceshort}} pour stocker des clés standard, vous activez un module de sécurité matériel (HSM) pour vos valeurs confidentielles, le contrôle d'accès à granularité fine à vos ressources avec <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> et la possibilité d'audit des appels d'API au service avec <a href="/docs/services/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Une fois les clés créées dans {{site.data.keyword.keymanagementserviceshort}}, le système renvoie une valeur d'ID que vous pouvez utiliser pour appeler le service via une API. Vous pouvez extraire la valeur d'ID pour vos clés via l'interface graphique de {{site.data.keyword.keymanagementserviceshort}} ou l'[API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -82,23 +69,13 @@ Après avoir désigné une clé racine dans {{site.data.keyword.keymanagementser
 ![Le diagramme présente le déroulement de l'encapsulage de clés.](../images/wrapping-keys_min.svg)
 
 Le tableau suivant décrit les valeurs à entrer pour effectuer une opération d'encapsulation de clés :
-<table>
-  <th>Valeurs à entrer</th>
-  <th>Description</th>
-  <tr>
-    <td>Root key ID</td>
-    <td>Valeur d'ID de la clé racine que vous souhaitez utiliser pour l'encapsulage. La clé racine peut être importée dans le service ou peut provenir des modules HSM du service {{site.data.keyword.keymanagementserviceshort}}. Pour qu'une demande d'encapsulage aboutisse, les clés racine utilisées doivent être des clés de 128, 192 ou 256 bits.</td>
-  </tr>
-  <tr>
-    <td>Plaintext</td>
-    <td>Facultatif : matériel de la clé DEK qui contient les données à gérer et à protéger. Le texte brut utilisé pour l'encapsulage de clé doit être codé en base64. Pour générer une clé DEK de 256 bits, vous pouvez omettre l'attribut `plaintext`. Le service génère une clé DEK codée en base64 à utiliser pour l'encapsulage de clés.</td>
-  </tr>
-  <tr>
-    <td>Additional authentication data (AAD)</td>
-    <td>Facultatif : Tableau de chaînes qui vérifie l'intégrité du contenu de la clé. Chaque chaîne peut inclure jusqu'à 255 caractères. Si vous indiquez des données d'authentification supplémentaires lors d'une demande d'encapsulage, vous devez indiquer les mêmes données lors de la demande de désencapsulage ultérieure.</td>
-  </tr>
-    <caption style="caption-side:bottom;">Tableau 2. Entrées requises pour l'encapsulage de clés dans {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+
+| Valeurs à entrer | Description |
+| --- | --- |
+| Root key ID | Valeur d'ID de la clé racine que vous souhaitez utiliser pour l'encapsulage. La clé racine peut être importée dans le service ou peut provenir des modules HSM du service {{site.data.keyword.keymanagementserviceshort}}. Pour qu'une demande d'encapsulage aboutisse, les clés racine utilisées doivent être des clés de 128, 192 ou 256 bits. |
+| Plaintext | Facultatif : Clé de chiffrement de données (DEK) à utiliser pour le chiffrement de données. Cette valeur doit être codée en base64. Pour générer une nouvelle clé DEK, vous pouvez omettre la propriété `plaintext`. Key Protect génère un texte brut aléatoire (32 octets), qui est rootée dans un HSM puis encapsule cette valeur. |
+| Additional authentication data (AAD) | Facultatif : Tableau de chaînes qui vérifie l'intégrité du contenu de la clé. Chaque chaîne peut inclure jusqu'à 255 caractères. Si vous indiquez des données d'authentification supplémentaires lors d'une demande d'encapsulage, vous devez indiquer les mêmes données lors de la demande de désencapsulage ultérieure. |
+{: caption="Tableau 2. Entrées requises pour l'encapsulage de clés dans {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 Si vous envoyez une demande d'encapsulage sans indiquer le texte brut à chiffrer, l'algorithme de chiffrement AES-GCM génère et convertit un texte brut en données incompréhensibles appelées "texte chiffré". Cette procédure génère une clé DEK de 256 bits avec un nouveau matériel de clé. Le système utilise ensuite un algorithme d'encapsulage de clé AES, qui encapsule la clé DEK et son matériel avec la clé racine indiquée. Une opération d'encapsulage réussie renvoie une clé DEK encapsulée en base64 que vous pouvez stocker dans une application ou un service {{site.data.keyword.cloud_notm}}. 
 

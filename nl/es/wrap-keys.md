@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Envolvimiento de claves
 {: #wrap-keys}
 
-Puede gestionar y proteger sus claves de cifrado con una clave raíz utilizando la API de {{site.data.keyword.keymanagementservicelong}}, si es un usuario con los privilegios necesarios.
+Puede gestionar y proteger sus claves de cifrado con una clave raíz utilizando la API de {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 Cuando envuelve una clave de cifrado de datos (DEK) con una clave raíz, {{site.data.keyword.keymanagementserviceshort}} combina la robustez de varios algoritmos para proteger la privacidad y la integridad de sus datos cifrados.  
@@ -34,7 +35,7 @@ Para conocer cómo el envolvimiento de claves ayuda a controlar la seguridad de 
 
 Proteja una clave de cifrado de datos (DEK) específica con una clave raíz que gestionará en {{site.data.keyword.keymanagementserviceshort}}.
 
-Cuando proporcione una clave raíz para el envolvimiento, asegúrese de que la clave raíz es de 128, 192 o 256 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CGM.
+Cuando proporcione una clave raíz para el envolvimiento, asegúrese de que la clave raíz es de 128, 192 o 256 bits para que la llamada de envolvimiento sea satisfactoria. Si crea una clave raíz en el servicio, {{site.data.keyword.keymanagementserviceshort}} genera una clave de 256 bits a partir de sus HSM, soportada por el algoritmo AES-CBC-PAD.
 {: note}
 
 [Después de designar una clave raíz en el servicio](/docs/services/key-protect?topic=key-protect-create-root-keys), puede envolver una DEK con cifrado avanzado realizando una llamada `POST` al siguiente punto final.
@@ -48,7 +49,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap
 
 2. Copie el material de la clave de la DEK que desea gestionar y proteger.
 
-    Si tiene privilegios de gestor o escritor para su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}, [puede recuperar el material de una clave específica realizando una solicitud `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Si tiene privilegios de gestor o escritor para su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}, [puede recuperar el material de una clave específica realizando una solicitud `GET /v2/keys/<key_ID>`](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copie el ID de la clave raíz que desea utilizar para envolver.
 
@@ -69,9 +70,6 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap
     ```
     {: codeblock}
 
-    Para trabajar con claves dentro de un espacio y organización de Cloud Foundry en su cuenta, sustituya `Bluemix-Instance` con las cabeceras adecuadas de `Bluemix-org` y `Bluemix-space`. [Para obtener más información, consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Sustituya las variables en la solicitud de ejemplo siguiendo la siguiente tabla.
 
     <table>
@@ -81,7 +79,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap
       </tr>
       <tr>
         <td><varname>región</varname></td>
-        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Puntos finales de servicio regionales</a>.</td>
+        <td><strong>Obligatorio.</strong> La abreviatura de región, como <code>us-south</code> o <code>eu-gb</code>, que representa el área geográfica donde reside su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}. Para obtener más información, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Puntos finales de servicio regionales</a>.</td>
       </tr>
       <tr>
         <td><varname>ID_clave</varname></td>
@@ -129,7 +127,7 @@ https://<región>.kms.cloud.ibm.com/api/v2/keys/<ID_clave>?action=wrap
     ```
     {:screen}
 
-    El valor <code>plaintext</code> representa la DEK desenvuelta y el valor <code>ciphertext</code> representa la DEK envuelta.
+    El valor `plaintext` representa la DEK desenvuelta y el valor `ciphertext` representa la DEK envuelta.
     
     Si desea que {{site.data.keyword.keymanagementserviceshort}} genere una nueva clave de cifrado de datos (DEK) por usted, también puede pasar un cuerpo vacío en una solicitud de envolvimiento. La DEK generada, que contiene el material de claves con codificación base64, se devolverá en la respuesta de cuerpo de entidad, junto con la DEK empaquetada.
     {: tip}

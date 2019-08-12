@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -51,7 +52,7 @@ curl -X GET \
 ```
 {: codeblock} 
 
-將 `<access_token>` 及 `<instance_ID>` 取代為您的擷取服務和鑑別認證。
+以擷取的服務與鑑別認證來取代 `<access_token>` 與 `<instance_ID>`。
 
 想要在發生錯誤時追蹤您的 API 要求嗎？當您在 cURL 要求中包括 `-v` 旗標時，即會在回應標頭中獲得 `correlation-id` 值。您可以使用此值來產生關聯，並追蹤要求以進行除錯。
 {: tip} 
@@ -59,4 +60,4 @@ curl -X GET \
 ## 下一步為何？
 {: #set-up-api-next-steps}
 
-您已準備好開始在 Key Protect 中管理加密金鑰。若要進一步瞭解如何以程式設計方式管理您的金鑰，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
+您已準備好開始在 Key Protect 中管理加密金鑰。若要進一步瞭解 [ 中透過程式設計方式來管理金鑰的相關資訊，請參閱{{site.data.keyword.keymanagementserviceshort}} API 參考文件](https://{DomainName}/apidocs/key-protect){: external}。

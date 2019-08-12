@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,7 +28,7 @@ subcollection: key-protect
 
 要安装 CLI 插件，请参阅[设置 CLI](/docs/services/key-protect?topic=key-protect-set-up-cli)。 
 
-登录到 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 后，您会收到可用更新的通知。请确保 CLI 是最新的，以便使用适用于 {{site.data.keyword.keymanagementserviceshort}} CLI 插件的命令和标志。
+登录到 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 后，您会收到有关更新可用的通知。请确保 CLI 是最新的，以便使用适用于 {{site.data.keyword.keymanagementserviceshort}} CLI 插件的命令和标志。
 {: tip}
 
 ## ibmcloud kp 命令
@@ -87,6 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ```
 {:pre}
 
+```sh
+$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+```
+{:screen}
+
 ### 必需参数
 {: #create-req-params}
 
@@ -105,7 +115,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
         <dd>要在服务中存储和管理的 Base64 编码的密钥资料。要导入现有密钥，请提供 256 位密钥。要生成新密钥，请省略 <code>--key-material</code> 参数。</dd>
     <dt><code>-s, --standard-key</code></dt>
         <dd>只有在创建<a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">标准密钥</a>时，才需要设置此参数。要创建根密钥，请省略 <code>--standard-key</code> 参数。</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -118,6 +128,17 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
+
+SUCCESS
+
+Deleted Key
+584fb0d9-dec2-47b8-bde5-50f05fd66261
+```
+{: screen}
 
 ### 必需参数
 {: #delete-req-params}
@@ -139,6 +160,18 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp list -i $KP_INSTANCE_ID
+Retrieving keys...
+
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
+```
+{: screen}
+
 ### 必需参数
 {: #list-req-params}
 
@@ -151,7 +184,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: #list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -167,6 +200,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
+
+SUCCESS
+
+Key ID                                 Key Name          Description     Creation Date                   Expiration Date
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
+```
+{:screen}
+
 ### 必需参数
 {: #get-req-params}
 
@@ -181,7 +225,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -195,6 +239,14 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Rotating root key...
+
+SUCCESS
+```
+{:screen}
 
 ### 必需参数
 {: #rotate-req-params}
@@ -212,7 +264,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>要用于轮换现有根密钥的 Base64 编码的密钥资料。要轮换最初导入到服务中的密钥，请提供新的 256 位密钥。要轮换最初在 {{site.data.keyword.keymanagementserviceshort}} 中生成的密钥，请省略 <code>--key-material</code> 参数。</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -247,7 +299,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>用于进一步保护密钥的附加认证数据 (AAD)。如果在打包时提供了 AAD，那么在解包时也必须提供相同的 AAD。</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>要管理和保护的 Base64 编码的数据加密密钥 (DEK)。要导入现有密钥，请提供 256 位密钥。要生成并打包新的 DEK，请省略 <code>--plaintext</code> 参数。</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -281,7 +333,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>用于进一步保护密钥的附加认证数据 (AAD)。最多可以提供 255 个字符串，以逗号分隔。如果在打包时提供了 AAD，那么在解包时也必须指定相同的 AAD。</p><p><b>重要信息：</b>{{site.data.keyword.keymanagementserviceshort}} 服务不会保存附加认证数据。如果提供 AAD，请将数据保存到安全位置，以确保您可以在随后的解包请求期间访问并提供同一 AAD。</p></dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -309,7 +361,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -337,7 +389,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 
@@ -371,7 +423,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>-p, --policy</code></dt>
         <dd>指定密钥的轮换时间间隔(以月为单位）。缺省值为 1。</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>设置 CLI 输出格式。缺省情况下，会以表格式打印所有命令。要将输出格式更改为 JSON，请使用 <code>--output json</code>。</dd>
 </dl>
 

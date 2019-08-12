@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 包裝金鑰
 {: #wrap-keys}
 
-如果您是特許使用者，則可以使用 {{site.data.keyword.keymanagementservicelong}} API，以利用根金鑰來管理及保護加密金鑰。
+您可以使用 {{site.data.keyword.keymanagementservicelong}} API 來管理與保護具有根金鑰的加密金鑰。
 {: shortdesc}
 
 當您使用根金鑰來包裝資料加密金鑰 (DEK) 時，{{site.data.keyword.keymanagementserviceshort}} 會結合多個演算法的長處，來保護已加密資料的隱私權及完整性。  
@@ -34,7 +35,7 @@ subcollection: key-protect
 
 您可以使用您在 {{site.data.keyword.keymanagementserviceshort}} 中管理的根金鑰來保護指定的資料加密金鑰 (DEK)。
 
-當您提供用於包裝的根金鑰時，請確定根金鑰是 128、192 或 256 位元，wrap 呼叫才能成功。如果您在服務中建立根金鑰，則 {{site.data.keyword.keymanagementserviceshort}} 會從 AES-GCM 演算法所支援的 HSM 產生 256 位元金鑰。
+當您提供用於包裝的根金鑰時，請確定根金鑰是 128、192 或 256 位元，wrap 呼叫才能成功。若您在服務中建立根金鑰，{{site.data.keyword.keymanagementserviceshort}} 會從 AES-CBC-PAD 演算法所支援的 HSM 產生 256 位元金鑰。
 {: note}
 
 [在服務中指定根金鑰之後](/docs/services/key-protect?topic=key-protect-create-root-keys)，即可對下列端點發出 `POST` 呼叫，以使用進階加密來包裝 DEK。
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. 複製您要管理及保護之 DEK 的金鑰資料。
 
-    如果您具有 {{site.data.keyword.keymanagementserviceshort}} 服務實例的管理員或作者專用權，則[可以提出 `GET /v2/keys/<key_ID>` 要求來擷取特定金鑰的金鑰資料](/docs/services/key-protect?topic=key-protect-view-keys#api)。
+    如果您具有 {{site.data.keyword.keymanagementserviceshort}} 服務實例的管理員或作者專用權，則[可以提出 `GET /v2/keys/<key_ID>` 要求來擷取特定金鑰的金鑰資料](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	)。
 
 3. 複製您要用於包裝之根金鑰的 ID。
 
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    若要在您帳戶的 Cloud Foundry 組織及空間內使用金鑰，請將 `Bluemix-Instance` 取代為適當的 `Bluemix-org` 及 `Bluemix-space` 標頭。[如需相關資訊，請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
-    {: tip}
-
     根據下表取代範例要求中的變數。
 
     <table>
@@ -81,11 +79,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地區服務端點</a>。</td>
+        <td><strong>必要。</strong>代表 {{site.data.keyword.keymanagementserviceshort}} 服務實例所在地理區域的地區縮寫，例如 <code>us-south</code> 或 <code>eu-gb</code>。如需相關資訊，請參閱<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地區服務端點</a>。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>必要。</strong>您要用於包裝之根金鑰的唯一 ID。</td>
+        <td><strong>必要。</strong>您要用於包裝之主要金鑰的唯一 ID。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -129,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    <code>plaintext</code> 值代表未包裝的 DEK，<code>ciphertext</code> 值代表已包裝 DEK。
+    `plaintext` 值代表未包裝的 DEK，`ciphertext` 值代表已包裝 DEK。
     
     如果您想要 {{site.data.keyword.keymanagementserviceshort}} 代表您產生新的資料加密金鑰 (DEK)，您也可以在 wrap 要求傳入空的內文。所產生的 DEK（包含以 base64 編碼的金鑰資料）會在回應實體內文中傳回，並且隨附已包裝的 DEK。
     {: tip}

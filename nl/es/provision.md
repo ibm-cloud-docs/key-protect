@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Puede crear una instancia de {{site.data.keyword.keymanagementservicefull}} util
 
 Para suministrar una instancia de {{site.data.keyword.keymanagementserviceshort}} desde la consola de {{site.data.keyword.cloud_notm}}, complete los siguientes pasos.
 
-1. [Inicie sesión en su cuenta de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}){: new_window}.
+1. [Inicie una sesión en su cuenta de {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Pulse **Catálogo** para ver la lista de servicios que están disponibles en {{site.data.keyword.cloud_notm}}.
 3. En el panel de navegación Todas las categorías, pulse la categoría **Seguridad e identidad**.
 4. Desde la lista de servicios, pulse el mosaico **{{site.data.keyword.keymanagementserviceshort}}**.
@@ -41,7 +42,7 @@ Para suministrar una instancia de {{site.data.keyword.keymanagementserviceshort}
 
 También puede suministrar una instancia de {{site.data.keyword.keymanagementserviceshort}} utilizando la CLI de {{site.data.keyword.cloud_notm}}. 
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} mediante la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} mediante la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -77,4 +78,4 @@ También puede suministrar una instancia de {{site.data.keyword.keymanagementser
 ## Qué hacer a continuación
 {: #provision-service-next-steps}
 
-Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.

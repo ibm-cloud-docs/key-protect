@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [서비스의 인스턴스를 작성한 후](/docs/services/key-protect?topic=key-protect-provision), {{site.data.keyword.keymanagementserviceshort}}를 지원되는 다음 서비스와 통합할 수 있습니다.
 
-<table>
-    <tr>
-        <th>서비스</th>
-        <th>설명</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>{{site.data.keyword.keymanagementserviceshort}}를 사용하여 스토리지 버킷에 [엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 추가하십시오. {{site.data.keyword.keymanagementserviceshort}}에서 관리하는 루트 키를 사용하여 저장 데이터를 암호화하는 데이터 암호화 키를 보호하십시오. 자세한 내용은 [{{site.data.keyword.cos_full_notm}}와 통합](/docs/services/key-protect?topic=key-protect-integrate-cos)을 참조하십시오.</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>[엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 사용하여 {{site.data.keyword.containershort_notm}} 클러스터에서 시크릿을 보호하십시오. 자세한 내용은 [{{site.data.keyword.keymanagementserviceshort}}를 사용하여 Kubernetes 시크릿 암호화](/docs/containers?topic=containers-encryption#keyprotect)를 참조하십시오.</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>루트 키를 {{site.data.keyword.databases-for-postgresql}} 배치와 연관시켜 데이터베이스를 보호하십시오. 자세한 내용은 [{{site.data.keyword.databases-for-postgresql}} 문서](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect)를 참조하십시오.</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloud_notm}}({{site.data.keyword.cloud_notm}} 데디케이티드)의 {{site.data.keyword.cloudant_short_notm}}</p>
-        </td>
-        <td>
-          <p>{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 인스턴스와 루트 키를 연관시켜 저장 암호화 전략을 강화하십시오. 자세한 내용은 [{{site.data.keyword.cloudant_short_notm}} 문서](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)를 참조하십시오.</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">표 1. {{site.data.keyword.keymanagementserviceshort}}에 사용 가능한 통합에 대한 설명</caption>
-</table>
+|서비스 |설명 |
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} |{{site.data.keyword.keymanagementserviceshort}}를 사용하여 스토리지 버킷에 [엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 추가하십시오. {{site.data.keyword.keymanagementserviceshort}}에서 관리하는 루트 키를 사용하여 저장 데이터를 암호화하는 데이터 암호화 키를 보호하십시오. 자세한 내용은 [{{site.data.keyword.cos_full_notm}}와 통합](/docs/services/key-protect?topic=key-protect-integrate-cos)을 참조하십시오.|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} |루트 키를 {{site.data.keyword.databases-for-postgresql}} 배치와 연관시켜 데이터베이스를 보호하십시오. 자세한 내용은 [{{site.data.keyword.databases-for-postgresql}} 문서](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect)를 참조하십시오.|
+| {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}({{site.data.keyword.cloud_notm}} 데디케이티드) |{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 인스턴스와 루트 키를 연관시켜 저장 암호화 전략을 강화하십시오. 자세한 내용은 [{{site.data.keyword.cloudant_short_notm}} 문서](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)를 참조하십시오. |
+| {{site.data.keyword.containerlong_notm}} |[엔벨로프 암호화](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 사용하여 {{site.data.keyword.containershort_notm}} 클러스터에서 시크릿을 보호하십시오. 자세한 내용은 [{{site.data.keyword.keymanagementserviceshort}}를 사용하여 Kubernetes 시크릿 암호화](/docs/containers?topic=containers-encryption#keyprotect)를 참조하십시오.|
+{: caption="표 1. {{site.data.keyword.keymanagementserviceshort}}에서 사용 가능한 통합에 대한 설명 " caption-side="top"}
 
 ## 통합 이해 
 {: #understand-integration}
@@ -74,7 +43,7 @@ subcollection: key-protect
 
 예를 들어, 루트 키를 작성하고 {{site.data.keyword.keymanagementserviceshort}}에서 키를 관리하며 루트 키를 사용하여 여러 클라우드 서비스에 저장된 데이터를 보호할 수 있습니다.
 
-![다이어그램은 {{site.data.keyword.keymanagementserviceshort}} 통합의 컨텍스트 보기를 표시합니다.](../images/kp-integrations_min.svg)
+![다이어그램은 {{site.data.keyword.keymanagementserviceshort}} 통합의 컨텍스트 보기를 표시합니다.](../images/kp-integrations.svg)
 
 ### {{site.data.keyword.keymanagementserviceshort}} API 메소드
 {: #envelope-encryption-api-methods}
@@ -83,23 +52,13 @@ subcollection: key-protect
 
 다음 표에는 리소스에 대한 엔벨로프 암호화를 추가하거나 제거하는 API 메소드가 나열되어 있습니다.
 
-<table>
-  <tr>
-    <th>메소드</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">데이터 암호화 키 랩핑(암호화)</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">데이터 암호화 키 랩핑 해제(복호화)</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">표 2. {{site.data.keyword.keymanagementserviceshort}} API 메소드에 대한 설명</caption>
-</table>
+|메소드 |설명 |
+| --- | --- |
+| `POST /keys/{root_key_ID}?action=wrap` | [데이터 암호화 키 랩핑(암호화)](/docs/services/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{root_key_ID}?action=unwrap` | [데이터 암호화 키 랩핑 해제(복호화)](/docs/services/key-protect?topic=key-protect-unwrap-keys) |
+{: caption="표 2. {{site.data.keyword.keymanagementserviceshort}} API 메소드에 대한 설명" caption-side="top"}
 
-{{site.data.keyword.keymanagementserviceshort}}에서 프로그래밍 방식으로 키를 관리하는 방법에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.
+{{site.data.keyword.keymanagementserviceshort}}에서 프로그래밍 방식으로 키를 관리하는 방법에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서](https://{DomainName}/apidocs/key-protect){: external}를 확인하십시오.
 {: tip}
 
 ## 지원되는 서비스 통합
@@ -107,7 +66,7 @@ subcollection: key-protect
 
 통합을 추가하려면 {{site.data.keyword.iamlong}} 대시보드를 사용하여 서비스 간의 권한을 작성하십시오. 서비스에서 권한을 통해 서비스 액세스 정책을 제공할 수 있으므로 사용자가 클라우드 데이터베이스 서비스의 리소스를 {{site.data.keyword.keymanagementserviceshort}}에서 관리하는 [루트 키](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)와 연관시킬 수 있습니다.
 
-권한을 작성하기 전에 두 개의 서비스를 동일한 지역에 프로비저닝해야 합니다. 서비스 권한에 대해 자세히 알아보려면 [서비스 간 액세스 부여 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-serviceauth){: new_window}를 참조하십시오.
+권한을 작성하기 전에 두 개의 서비스를 동일한 지역에 프로비저닝해야 합니다. 서비스 권한에 대해 자세히 알아보려면 [서비스 간 액세스 부여](/docs/iam?topic=iam-serviceauth){: external}를 참조하십시오.
 {: note}
 
 서비스를 통합할 준비가 되면 다음 단계를 사용하여 권한을 작성하십시오.

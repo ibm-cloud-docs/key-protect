@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [Dopo aver creato un'istanza del servizio](/docs/services/key-protect?topic=key-protect-provision), puoi integrare {{site.data.keyword.keymanagementserviceshort}} con i seguenti servizi supportati:
 
-<table>
-    <tr>
-        <th>Servizio</th>
-        <th>Descrizione</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>Aggiungi la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) ai tuoi bucket di archiviazione utilizzando {{site.data.keyword.keymanagementserviceshort}}. Utilizza le chiavi root che gestisci in {{site.data.keyword.keymanagementserviceshort}} per proteggere le chiavi di crittografia dei dati che codificano i tuoi dati inattivi. Per ulteriori informazioni, consulta [Integrazione con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>Utilizza la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) per proteggere i segreti nel tuo cluster {{site.data.keyword.containershort_notm}}. Per ulteriori informazioni, consulta [Crittografia dei segreti Kubernetes mediante {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>Proteggi i tuoi database associando delle chiavi root alla tua distribuzione {{site.data.keyword.databases-for-postgresql}}. Per ulteriori informazioni, consulta la [Documentazione di {{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect).</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloudant_short_notm}} per {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)</p>
-        </td>
-        <td>
-          <p>Rafforza la tua strategia di crittografia inattiva associando delle chiavi root alla tua istanza {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware. Per ulteriori informazioni, consulta la [Documentazione di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control).</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">Tabella 1. Descrive le integrazioni disponibili per {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+| Servizio | Descrizione |
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} | Aggiungi la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) ai tuoi bucket di archiviazione utilizzando {{site.data.keyword.keymanagementserviceshort}}. Utilizza le chiavi root che gestisci in {{site.data.keyword.keymanagementserviceshort}} per proteggere le chiavi di crittografia dei dati che codificano i tuoi dati inattivi. Per ulteriori informazioni, consulta [Integrazione con {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} | Proteggi i tuoi database associando delle chiavi root alla tua distribuzione {{site.data.keyword.databases-for-postgresql}}. Per ulteriori informazioni, consulta la [documentazione di {{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).|
+| {{site.data.keyword.cloudant_short_notm}} per {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated) | Rafforza la tua strategia di crittografia inattiva associando delle chiavi root alla tua istanza {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware. Per ulteriori informazioni, consulta la [Documentazione di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control). |
+| {{site.data.keyword.containerlong_notm}} | Utilizza la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) per proteggere i segreti nel tuo cluster {{site.data.keyword.containershort_notm}}. Per ulteriori informazioni, consulta [Crittografia dei segreti Kubernetes mediante {{site.data.keyword.keymanagementserviceshort}} ](/docs/containers?topic=containers-encryption#keyprotect).|
+{: caption="Tabella 1. Descrive le integrazioni disponibili con {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 ## Informazioni sulla tua integrazione 
 {: #understand-integration}
@@ -74,7 +43,7 @@ Quando integri un servizio supportato con {{site.data.keyword.keymanagementservi
 
 Ad esempio, puoi creare una chiave root, gestire la chiave in {{site.data.keyword.keymanagementserviceshort}} e utilizzarla per proteggere i dati memorizzati tra diversi servizi cloud.
 
-![Il diagramma mostra una vista contestuale della tua integrazione {{site.data.keyword.keymanagementserviceshort}}.](../images/kp-integrations_min.svg)
+![Il diagramma mostra una vista contestuale della tua integrazione {{site.data.keyword.keymanagementserviceshort}}.](../images/kp-integrations.svg)
 
 ### Metodi API {{site.data.keyword.keymanagementserviceshort}}
 {: #envelope-encryption-api-methods}
@@ -83,23 +52,13 @@ Dietro le quinte, l'API {{site.data.keyword.keymanagementserviceshort}} guida il
 
 La seguente tabella elenca i metodi API che aggiungono o rimuovono la crittografia envelope su una risorsa.
 
-<table>
-  <tr>
-    <th>Metodo</th>
-    <th>Descrizione</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">Impacchetta (codifica) una chiave di crittografia dei dati (o DEK, data encryption key)</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">Spacchetta (decodifica) una chiave di crittografia dei dati (o DEK, data encryption key)</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabella 2. Descrive i metodi API {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+| Metodo | Descrizione |
+| --- | --- |
+| `POST /keys/{root_key_ID}?action=wrap` | [Impacchetta (codifica) una chiave di crittografia dei dati](/docs/services/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{root_key_ID}?action=unwrap` | [Spacchetta (decodifica) una chiave di crittografia dei dati](/docs/services/key-protect?topic=key-protect-unwrap-keys) |
+{: caption="Tabella 2. Descrive i metodi API {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
-Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi in {{site.data.keyword.keymanagementserviceshort}}, consulta la [Documentazione di riferimento API di {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi in {{site.data.keyword.keymanagementserviceshort}}, consulta la [documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.
 {: tip}
 
 ## Integrazione di un servizio supportato
@@ -107,7 +66,7 @@ Per ulteriori informazioni sulla gestione a livello programmatico delle tue chia
 
 Per aggiungere un'integrazione, crea un'autorizzazione tra i servizi utilizzando il dashboard {{site.data.keyword.iamlong}}. Le autorizzazioni abilitano le politiche di accesso da servizio a servizio, pertanto puoi associare una risorsa nel tuo servizio di dati cloud con una [chiave root](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) che gestisci in {{site.data.keyword.keymanagementserviceshort}}.
 
-Prima di creare un'autorizzazione, assicurati di fornire entrambi i servizi nella stessa regione. Per ulteriori informazioni sulle autorizzazioni dei servizi, vedi [Concessione dell'accesso tra i servizi ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](/docs/iam?topic=iam-serviceauth){: new_window}.
+Prima di creare un'autorizzazione, assicurati di fornire entrambi i servizi nella stessa regione. Per ulteriori informazioni sulle autorizzazioni dei servizi, vedi [Concessione dell'accesso tra i servizi](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
 Quando sei pronto per integrare un servizio, usa la seguente procedura per creare un'autorizzazione:

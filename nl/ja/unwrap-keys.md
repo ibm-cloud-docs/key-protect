@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-13"
+lastupdated: "2019-07-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 鍵のアンラッピング
 {: #unwrap-keys}
 
-特権ユーザーの場合、{{site.data.keyword.keymanagementservicefull}} API を使用して、データ暗号化鍵 (DEK) をアンラップして、内容にアクセスすることができます。 DEK をアンラップすると、暗号化解除して内容の保全性を確認し、元の鍵素材を {{site.data.keyword.cloud_notm}} データ・サービスに返します。
+{{site.data.keyword.keymanagementservicefull}} API を使用して、データ暗号化鍵 (DEK) をアンラップし、内容にアクセスすることができます。 DEK をアンラップすると、暗号化解除して内容の保全性を確認し、元の鍵素材を {{site.data.keyword.cloud_notm}} データ・サービスに返します。
 {: shortdesc}
 
 鍵ラッピングが、クラウド内の保存データのセキュリティー管理にどのように役立つかについては、[エンベロープ暗号化を使用したデータ保護](/docs/services/key-protect?topic=key-protect-envelope-encryption)を参照してください。
@@ -62,9 +63,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     ```
     {: codeblock}
 
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
-    {: tip}
-
     次の表に従って、例の要求内の変数を置き換えてください。
     <table>
       <tr>
@@ -73,7 +71,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -110,3 +108,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
     }
     ```
     {:screen}
+
+    データのアンラップとアクセスに使用されるルート鍵がローテートされたことを {{site.data.keyword.keymanagementserviceshort}} が検出した場合、このサービスはアンラップ応答本体で、新しくラップされたデータ暗号鍵 (`ciphertext`) も戻します。 データが最新のルート鍵で保護されるように、この新しい `ciphertext` 値を保管し、今後のエンベロープ暗号化操作で使用してください。
+    {: note}

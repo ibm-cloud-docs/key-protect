@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}}는 구조화되지 않은 데이터의 클라우드 스토리지를 제공합니다. 구조화되지 않은 데이터는 파일, 오디오/비주얼 미디어, PDF, 압축된 데이터 아카이브, 백업 이미지, 애플리케이션 아티팩트, 비즈니스 문서 또는 기타 바이너리 오브젝트를 나타냅니다.  
 
-데이터 무결성과 가용성을 유지보수하려면 {{site.data.keyword.cos_full_notm}}가 데이터를 자르고 여러 지리적 위치의 스토리지 노드에 분산시킵니다. 데이터의 완전한 사본은 단일 스토리지 노드에 없으며, 네트워크에서 데이터를 완벽하게 검색할 수 있도록 노드의 서브세트만 사용 가능해야 합니다. 제공자 측 암호화가 제공되므로 데이터는 저장 시 그리고 전송 시에 보안됩니다. 스토리지를 관리하려면 {{site.data.keyword.cloud_notm}} 콘솔을 사용하거나 프로그래밍 방식으로 [{{site.data.keyword.cos_full_notm}} REST API ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}를 사용하여 버킷을 작성하고 오브젝트를 가져옵니다.
+데이터 무결성과 가용성을 유지보수하려면 {{site.data.keyword.cos_full_notm}}가 데이터를 자르고 여러 지리적 위치의 스토리지 노드에 분산시킵니다. 데이터의 완전한 사본은 단일 스토리지 노드에 없으며, 네트워크에서 데이터를 완벽하게 검색할 수 있도록 노드의 서브세트만 사용 가능해야 합니다. 제공자 측 암호화가 제공되므로 데이터는 저장 시 그리고 전송 시에 보안됩니다. 스토리지를 관리하려면 {{site.data.keyword.cloud_notm}} 콘솔을 사용하거나 프로그래밍 방식으로 [{{site.data.keyword.cos_full_notm}} REST API](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}를 사용하여 버킷을 작성하고 오브젝트를 가져옵니다.
 
-자세한 정보는 [COS 정보 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}를 참조하십시오.
+자세한 정보는 [COS 정보](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}를 참조하십시오.
 
 ## 통합 작동 방식
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}}가 {{site.data.keyword.cos_full_notm}}와 통합되어 있어 사용자가 데이터 보안을 완전히 제어할 수 있습니다.  
 
@@ -49,7 +50,7 @@ _고객 관리 암호화_의 보안 이점을 사용하기 위해 {{site.data.ke
 {{site.data.keyword.keymanagementserviceshort}}에서 엔벨로프 암호화가 작동하는 방식에 대해 자세히 알아보려면 [엔벨로프 암호화로 데이터 보호](/docs/services/key-protect?topic=key-protect-envelope-encryption)를 참조하십시오.
 
 ## 스토리지 버킷에 엔벨로프 암호화 추가
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [{{site.data.keyword.keymanagementserviceshort}}에 루트 키를 지정](/docs/services/key-protect?topic=key-protect-create-root-keys)하고 [서비스 간 액세스를 부여](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access)한 후 {{site.data.keyword.cos_full_notm}} GUI를 사용하여 지정된 스토리지 버킷에 대한 엔벨로프 암호화를 사용으로 설정할 수 있습니다.
 
@@ -70,4 +71,4 @@ _고객 관리 암호화_의 보안 이점을 사용하기 위해 {{site.data.ke
 ## 다음에 수행할 작업
 {: #cos-integration-next-steps}
 
-- 스토리지 버킷을 {{site.data.keyword.keymanagementserviceshort}} 키와 연관시키는 데 대한 자세한 정보는 [암호화 관리 ![외부 링크 아이콘](../../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}를 참조하십시오. 
+- 스토리지 버킷을 {{site.data.keyword.keymanagementserviceshort}} 키와 연관시키는 데 대한 자세한 내용은 [암호화 관리](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}를 참조하십시오. 

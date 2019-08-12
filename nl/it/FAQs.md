@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -69,7 +70,7 @@ Puoi utilizzare un nome chiave con una lunghezza massima di 90 caratteri.
 
 Per proteggere la riservatezza dei tuoi dati personali, evita di archiviare informazioni d'identificazione personale (PII) come dei metadati per le tue chiavi. Le informazioni personali includono i tuoi nome, indirizzo, numero di telefono, indirizzo email o altre informazioni che potrebbero identificare, contattare o individuare te, i tuoi clienti o chiunque altro.
 
-Sei responsabile di garantire la sicurezza di tutte le informazioni che archivi come metadati per le chiavi di crittografia e le risorse {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori esempi di dati personali, vedi la sezione 2.2 di [NIST Special Publication 800-122 ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+Sei responsabile di garantire la sicurezza di tutte le informazioni che archivi come metadati per le chiavi di crittografia e le risorse {{site.data.keyword.keymanagementserviceshort}}. Per ulteriori esempi di dati personali, vedi la sezione 2.2 di [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## Le chiavi possono essere create in una regione e utilizzate in un'altra regione?
@@ -90,7 +91,7 @@ Le tue chiavi di crittografia sono confinate nella regione in cui le hai create.
 
 Puoi utilizzare il servizio {{site.data.keyword.cloudaccesstrailfull_notm}} per tenere traccia di come gli utenti e le applicazioni interagiscono con la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}. Ad esempio, quando crei, importi, elimini o leggi una chiave in {{site.data.keyword.keymanagementserviceshort}}, viene generato un evento {{site.data.keyword.cloudaccesstrailshort}}. Questi eventi vengono automaticamente inoltrati al servizio {{site.data.keyword.cloudaccesstrailshort}} nella stessa regione in cui è stato eseguito il provisioning del servizio {{site.data.keyword.keymanagementserviceshort}}.
 
-Per ulteriori informazioni, vedi [Eventi del Programma di traccia dell'attività](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+Per ulteriori informazioni, vedi [Eventi di Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## Cosa succede quando elimino una chiave?
 {: #key-destruction}
@@ -105,3 +106,4 @@ Prima di eliminare una chiave, assicurati di non richiedere più l'accesso ai da
 {: faq}
 
 Se decidi di smettere di utilizzare {{site.data.keyword.keymanagementserviceshort}}, devi eliminare tutte le chiavi rimanenti dalla tua istanza del servizio prima di poter annullare il provisioning del servizio. Dopo aver eliminato la tua istanza del servizio, {{site.data.keyword.keymanagementserviceshort}} utilizza la [crittografia envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) per eliminare a livello crittografico tutti i dati associati all'istanza del servizio. 
+

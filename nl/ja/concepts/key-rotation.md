@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,31 +23,23 @@ subcollection: key-protect
 # 暗号鍵のローテート
 {: #key-rotation}
 
-ルート鍵の元の鍵素材を無効にし、新しい暗号鍵素材を生成することによって鍵を変更すると、鍵がローテーションされます。
+ルート鍵の元の鍵素材を無効にし、新しい暗号鍵素材を生成することによって鍵を鍵を再設定すると、鍵がローテーションされます。
 
 定期的に鍵をローテートすると、業界標準や暗号のベスト・プラクティスに準拠するのに役立ちます。 以下の表では、鍵のローテーションの主な利点について説明します。
 
-<table>
-  <th>利点</th>
-  <th>説明</th>
-  <tr>
-    <td>鍵の暗号期間の管理</td>
-    <td>鍵のローテーションは、情報が単一の鍵によって保護される期間を制限します。 定期的な間隔でルート鍵をローテートすることで、鍵の暗号期間も短くなります。 暗号鍵の存続期間が長くなればなるほど、セキュリティー・ブリーチの可能性が高まります。</td>
-  </tr>
-  <tr>
-    <td>インシデントの緩和</td>
-    <td>組織でセキュリティー問題が検出された場合、即時に鍵をローテートすることで、鍵漏えいに伴うコストを緩和または削減できます。</td>
-  </tr>
-  <caption style="caption-side:bottom;">表 1. 鍵のローテーションの利点の説明</caption>
-</table>
+| 利点 | 説明 |
+| --- | --- |
+| 鍵の暗号期間の管理 | 鍵のローテーションは、情報が単一の鍵によって保護される期間を制限します。 定期的な間隔でルート鍵をローテートすることで、鍵の暗号期間も短くなります。 暗号鍵の存続期間が長くなるほど、セキュリティー・ブリーチの可能性が高まります。 |
+| インシデントの軽減 | 組織でセキュリティー問題が検出された場合、即時に鍵をローテートすることで、鍵漏えいに伴うコストを軽減または削減できます。 |
+{: caption="表 1. 鍵のローテーションの利点の説明" caption-side="top"}
 
-鍵のローテーションは、NIST Special Publication 800-57 の『Recommendation for Key Management』で説明されています。 詳しくは、[NIST SP 800-57 Pt. 1 Rev. 4 ![外部リンク・アイコン](../../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window} を参照してください。
+鍵のローテーションは、NIST Special Publication 800-57 の『Recommendation for Key Management』で説明されています。 詳しくは、[NIST SP 800-57 Pt. 1 Rev. 4](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external} を参照してください。
 {: tip}
 
 ## {{site.data.keyword.keymanagementserviceshort}} での鍵のローテーションのオプションの比較
 {: #compare-key-rotation-options}
 
-{{site.data.keyword.keymanagementserviceshort}} では、[鍵のローテーション・ポリシーの設定](/docs/services/key-protect?topic=key-protect-set-rotation-policy)または[オンデマンドでの鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys)を、無効にされたルート鍵素材の追跡を必要とせずに行うことができます。 
+{{site.data.keyword.keymanagementserviceshort}} では、[鍵のローテーション・ポリシーの設定](/docs/services/key-protect?topic=key-protect-set-rotation-policy)および[オンデマンドでの鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys)を、無効にされたルート鍵素材の追跡を必要とせずに行うことができます。 
 
 ローテーションのオプションは、ルート鍵に対してのみ使用可能です。
 {: note}
@@ -74,7 +67,7 @@ subcollection: key-protect
   <dt>サービスに取り込んだルート鍵のローテート</dt>
     <dd>ユーザーがサービスにインポートしたものが元であるルート鍵をローテートするには、鍵の新しい鍵素材を生成して提供する必要があります。 ローテーション要求の一環として新しい鍵素材を供給することによって、{{site.data.keyword.keymanagementserviceshort}} を使用して、インポートされたルート鍵をオンデマンドでローテートできます。 ルート鍵のメタデータ (鍵 ID など) は、鍵をローテートしても変更されません。 インポートされた鍵をローテートするためには新しい鍵素材を提供する必要があるため、鍵素材がインポートされたものであるルート鍵には自動ローテーション・ポリシーは使用できません。</dd>
   <dt>無効にされた鍵素材の管理</dt>
-    <dd>ルート鍵をローテートすると、新しい鍵素材が {{site.data.keyword.keymanagementserviceshort}} によって作成されます。 このサービスは、古い鍵素材を無効にし、ルート鍵が削除されるまで無効状態を保持します。 エンベロープ暗号化にルート鍵を使用する場合、鍵と関連付けられた最新の鍵素材のみが {{site.data.keyword.keymanagementserviceshort}} によって使用されます。 無効にされた鍵素材は鍵を保護するためには使用できなくなりますが、アンラップ操作には使用可能なままです。 {{site.data.keyword.keymanagementserviceshort}} は、廃止された鍵素材が DEK をアンラップするために使用されていることを検出すると、最新のルート鍵素材に基づいた、新しくラップされた DEK を提供します。 この新しくラップされた DEK を使用して、最新の鍵素材で鍵をラップし直すことができます。</dd>
+    <dd>ルート鍵をローテートすると、新しい鍵素材が {{site.data.keyword.keymanagementserviceshort}} によって作成されます。 このサービスは、古い鍵素材を無効にし、ルート鍵が削除されるまで無効にしたものを保持します。 エンベロープ暗号化にルート鍵を使用する場合、鍵と関連付けられた最新の鍵素材のみが {{site.data.keyword.keymanagementserviceshort}} によって使用されます。 無効にされた鍵素材は鍵を保護するためには使用できなくなりますが、アンラップ操作には使用可能なままです。 無効にされた鍵素材が DEK のアンラップに使用されていることを {{site.data.keyword.keymanagementserviceshort}} が検出した場合、このサービスは最新のルート鍵素材に基づいている新しくラップされた DEK を提供します。</dd>
  <dt>{{site.data.keyword.cloud_notm}} データ・サービスに対する鍵のローテーションの有効化</dt>
     <dd>鍵のローテーションに関するこれらのオプションを {{site.data.keyword.cloud_notm}} 上のデータ・サービスで使用可能にするには、データ・サービスが {{site.data.keyword.keymanagementserviceshort}} と統合されている必要があります。 {{site.data.keyword.cloud_notm}} データ・サービスの資料を参照するか、または、<a href="/docs/services/key-protect?topic=key-protect-integrate-services">統合されたサービスのリスト</a>で詳細を確認してください。</dd>
 </dl>
@@ -94,9 +87,8 @@ subcollection: key-protect
 
 ![この図は、ルート鍵スタックのミクロ・ビューを示しています。](../images/root-key-stack_min.svg)
 
-ローテーションが完了すると、新しいルート鍵素材が、[エンベロープ暗号化](/docs/services/key-protect?topic=key-protect-envelope-encryption)で今後のデータ暗号鍵 (DEK) を保護するために使用可能になります。 廃止された鍵素材は_非アクティブ_ 状態に移行し、最新のルート鍵素材でまだ保護されていない古い DEK のアンラップおよびアクセスにのみ使用できます。 廃止されたルート鍵素材を使用して古い DEK をアンラップしていることが {{site.data.keyword.keymanagementserviceshort}} で検出されると、サービスによって自動的に DEK が再暗号化され、最新のルート鍵素材に基づいたラップ済みデータ暗号鍵 (WDEK) が返されます。 今後のアンラップ操作用に新しい WDEK が保管されて使用されるため、最新のルート鍵素材で DEK を保護することになります。
-
-{{site.data.keyword.keymanagementserviceshort}} API を使用してルート鍵をローテートする方法については、『[鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys)』を参照してください。
+{{site.data.keyword.keymanagementserviceshort}} API を使用してルート鍵をローテートする方法については、[鍵のローテート](/docs/services/key-protect?topic=key-protect-rotate-keys)を参照してください。
+{: tip}
 
 ## 鍵のローテーションの頻度
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ subcollection: key-protect
 
 暗号のベスト・プラクティスに準拠するために、例えば 30 日ごとなど、定期的に鍵をローテートしてください。 
 
-| ローテーション・タイプ | 頻度 | 説明
+| ローテーション・タイプ | 頻度 | 説明 |
 | --- | --- | --- |
 | [ポリシー・ベースの鍵のローテーション](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | 1 カ月ごとから12 カ月ごと | 現在のセキュリティーのニーズに基づいて、1 カ月から 12 カ月の範囲で鍵のローテーション間隔を選択します。 鍵にローテーション・ポリシーを設定すると、鍵の初期作成日に基づいて即時に刻時機構が始動します。 例えば、`2019/02/01` に作成した鍵に月次ローテーション・ポリシーを設定した場合、{{site.data.keyword.keymanagementserviceshort}} はその鍵を `2019/03/01` に自動的にローテートします。|
 | [オンデマンドでの鍵のローテーション](/docs/services/key-protect?topic=key-protect-rotate-keys) | 1 時間当たり最大 1 回のローテーション | 鍵をオンデマンドでローテートする場合、{{site.data.keyword.keymanagementserviceshort}} では、各ルート鍵について、1 時間に 1 回のローテーションが許可されます。 |

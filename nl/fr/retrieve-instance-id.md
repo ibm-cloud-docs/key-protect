@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Vous pouvez cibler une instance de service {{site.data.keyword.keymanagementserv
 
 Vous pouvez afficher l'ID d'instance associé à votre instance de service {{site.data.keyword.keymanagementserviceshort}} en accédant à votre liste de ressources {{site.data.keyword.cloud_notm}}.
 
-1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}){: new_window}.
+1. [Connectez-vous à la console {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Accédez à **Menu** &gt; **Liste de ressources** puis cliquez sur **Services** pour parcourir la liste de vos services cloud.
 3. Cliquez sur la ligne qui décrit votre instance de service {{site.data.keyword.keymanagementserviceshort}}.
 4. Dans la vue détaillée du service, copiez la valeur **GUID**.
@@ -40,9 +41,9 @@ Vous pouvez afficher l'ID d'instance associé à votre instance de service {{sit
 ## Extraction d'un ID d'instance avec l'interface de ligne de commande
 {: #retrieve-instance-ID-cli}
 
-Vous pouvez également extraire l'ID d'instance de votre instance de service à l'aide de l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+Vous pouvez également extraire l'ID instance de votre instance de service en utilisant l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
-1. Connectez-vous à {{site.data.keyword.cloud_notm}} avec l'interface de ligne de commande d'[{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Connectez-vous à {{site.data.keyword.cloud_notm}} via l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -74,10 +75,10 @@ Vous pouvez également extraire l'ID d'instance de votre instance de service à 
 ## Extraction d'un ID d'instance avec l'API
 {: #retrieve-instance-ID-api}
 
-Si vous le souhaitez, vous pouvez extraire l'ID d'instance à l'aide d'un programme pour générer et connecter votre application. Vous pouvez appeler l'[API {{site.data.keyword.cloud_notm}} Resource Controller ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/resource-controller), puis acheminer la sortie JSON vers `jq` pour extraire cette valeur.
+Si vous le souhaitez, vous pouvez extraire l'ID d'instance à l'aide d'un programme pour générer et connecter votre application. Vous pouvez appeler l'[API {{site.data.keyword.cloud_notm}} Resource Controller](https://{DomainName}/apidocs/resource-controller), puis acheminer la sortie JSON vers `jq` pour extraire cette valeur.
 
 1. [Extrayez un jeton d'accès {{site.data.keyword.cloud_notm}} IAM](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. Appelez l'[API Resource Controller ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/resource-controller) pour extraire votre ID d'instance.
+2. Appelez l'[API Resource Controller](https://{DomainName}/apidocs/resource-controller) pour extraire votre ID instance.
 
     ```sh
     curl -X GET \

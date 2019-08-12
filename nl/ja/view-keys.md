@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -29,7 +30,7 @@ subcollection: key-protect
 定期的に鍵の構成を監査するために、以下を行います。
 
 - いつ鍵が作成されたかを調べ、鍵をローテートする時期かどうかを判断します。
-- [{{site.data.keyword.cloudaccesstrailshort}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") を使用して、{{site.data.keyword.keymanagementserviceshort}} への API 呼び出しをモニターします](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}。
+- [{{site.data.keyword.cloudaccesstrailshort}} を使用して、{{site.data.keyword.keymanagementserviceshort}} への API 呼び出しをモニターします](/docs/services/key-protect?topic=key-protect-at-events)。
 - どのユーザーが鍵へのアクセス権限を持っているか、アクセス権限のレベルは適切かどうかを検査します。
 
 リソースへのアクセス権限の監査について詳しくは、[Cloud IAM を使用したユーザーのアクセス権限の管理](/docs/services/key-protect?topic=key-protect-manage-access)を参照してください。
@@ -41,7 +42,7 @@ subcollection: key-protect
 
 [サービス内に鍵を作成するか、既存の鍵をインポートした後](/docs/services/key-protect?topic=key-protect-create-root-keys)、以下の手順を実行して、鍵を表示します。
 
-1. [{{site.data.keyword.cloud_notm}} コンソール ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}/)。
+1. [{{site.data.keyword.cloud_notm}} コンソールにログインします](https://{DomainName}/)。
 2. **「メニュー」**&gt;**「リソース・リスト」**に移動し、リソースのリストを表示します。
 3. {{site.data.keyword.cloud_notm}} リソース・リストで、{{site.data.keyword.keymanagementserviceshort}} のプロビジョン済みインスタンスを選択します。
 4. アプリケーションの詳細ページで、以下のような鍵の一般的な特性を参照します。
@@ -57,11 +58,11 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} サービスによって鍵に割り当てられた固有の鍵 ID。 この ID 値を使用して、[{{site.data.keyword.keymanagementserviceshort}} API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect)でサービスを呼び出すことができます。</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} サービスによって鍵に割り当てられた固有の鍵 ID。 この ID 値を使用して、[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect) でサービスを呼び出すことができます。</td>
       </tr>
       <tr>
         <td>状態</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)に基づく[鍵の状態](/docs/services/key-protect?topic=key-protect-key-states)。状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0) に基づく[鍵の状態](/docs/services/key-protect?topic=key-protect-key-states)。状態には、<i>アクティブ化前</i>、<i>アクティブ</i>、<i>非アクティブ化</i>、および <i>破棄</i> があります。</td>
       </tr>
       <tr>
         <td>タイプ</td>
@@ -99,9 +100,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
-    {: tip}
-
     次の表に従って、例の要求内の変数を置き換えてください。
     <table>
       <tr>
@@ -110,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -167,7 +165,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
-            "mode": "GCM"
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -238,7 +236,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
   </tr>
   <tr>
     <td><code>.../keys?offset=25&limit=50</code></td>
-    <td>26 から 50 までの鍵をリストします。</td>
+    <td>26 から 75 までの鍵をリストします。</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=3000&limit=50</code></td>
@@ -287,7 +285,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地域サービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -330,7 +328,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
                 "bitLength": "256",
-            "mode": "GCM"
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -340,4 +338,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
+    使用可能なパラメーターについて詳しくは、{{site.data.keyword.keymanagementserviceshort}} [REST API リファレンス資料](https://{DomainName}/apidocs/key-protect){: external}を参照してください。

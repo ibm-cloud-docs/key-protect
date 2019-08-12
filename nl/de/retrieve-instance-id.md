@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Sie können eine einzelne {{site.data.keyword.keymanagementservicelong}}-Service
 
 Sie können die Instanz-ID anzeigen, die Ihrer {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz zugeordnet ist, indem Sie zu Ihrer {{site.data.keyword.cloud_notm}}-Ressourcenliste navigieren.
 
-1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}){: new_window} an.
+1. [Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole an](https://{DomainName}){: external}.
 2. Gehen Sie zu **Menü** &gt; **Ressourcenliste** und klicken Sie auf **Services**, um eine Liste Ihrer Cloud-Services zu durchsuchen.
 3. Klicken Sie auf die Tabellenzeile, die Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz beschreibt.
 4. Kopieren Sie in der Ansicht für Servicedetails den Wert für **GUID**.
@@ -40,9 +41,9 @@ Sie können die Instanz-ID anzeigen, die Ihrer {{site.data.keyword.keymanagement
 ## Instanz-ID mit der Befehlszeilenschnittstelle abrufen
 {: #retrieve-instance-ID-cli}
 
-Sie können die Instanz-ID für Ihre Serviceinstanz auch über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} abrufen.
+Sie können die Instanz-ID für Ihre Serviceinstanz auch über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} abrufen.
 
-1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} an.
+1. Melden Sie sich bei {{site.data.keyword.cloud_notm}} über die [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} an.
 
     ```sh
     ibmcloud login 
@@ -74,10 +75,10 @@ Sie können die Instanz-ID für Ihre Serviceinstanz auch über die [{{site.data.
 ## Instanz-ID mit der API abrufen
 {: #retrieve-instance-ID-api}
 
-Das programmgesteuerte Abrufen der Instanz-ID kann hilfreich sein, um Sie bei der Erstellung und Verbindung Ihrer Anwendung zu unterstützen. Sie können die [{{site.data.keyword.cloud_notm}}-Ressourcencontroller-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/resource-controller) aufrufen und anschließend die JSON-Ausgabe über eine Pipe an `jq` leiten, um diesen Wert zu extrahieren.
+Das programmgesteuerte Abrufen der Instanz-ID kann hilfreich sein, um Sie bei der Erstellung und Verbindung Ihrer Anwendung zu unterstützen. Sie können die [{{site.data.keyword.cloud_notm}}-Resourcencontroller-API](https://{DomainName}/apidocs/resource-controller) aufrufen und anschließend die JSON-Ausgabe über eine Pipe an `jq` leiten, um diesen Wert zu extrahieren.
 
 1. [Rufen Sie ein {{site.data.keyword.cloud_notm}} IAM-Zugriffstoken ab](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. Rufen Sie die [Ressourcencontroller-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/resource-controller) auf, um Ihre Instanz-ID abzurufen.
+2. Rufen Sie die [Resourcencontroller-API](https://{DomainName}/apidocs/resource-controller) auf, um Ihre Instanz-ID abzurufen.
 
     ```sh
     curl -X GET \

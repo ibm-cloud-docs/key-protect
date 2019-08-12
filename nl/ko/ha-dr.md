@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,7 +33,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}}는 멀티테넌트 지역 서비스입니다. 
 
-{{site.data.keyword.keymanagementserviceshort}} 요청이 처리되는 지리적 지역을 나타내는, 지원되는 [{{site.data.keyword.cloud_notm}} 지역](/docs/services/key-protect?topic=key-protect-regions#regions) 중 하나에서 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 각 {{site.data.keyword.cloud_notm}} 지역에는 로컬 액세스, 짧은 대기 시간 및 지역에 대한 보안 요구사항을 충족시키기 위한 [다중 가용성 구역 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/)이 포함됩니다.
+{{site.data.keyword.keymanagementserviceshort}} 요청이 처리되는 지리적 지역을 나타내는, 지원되는 [{{site.data.keyword.cloud_notm}} 지역](/docs/services/key-protect?topic=key-protect-regions#regions) 중 하나에서 {{site.data.keyword.keymanagementserviceshort}} 리소스를 작성할 수 있습니다. 각 {{site.data.keyword.cloud_notm}} 지역에는 로컬 액세스, 짧은 대기 시간 및 지역에 대한 보안 요구사항을 충족시키기 위한 [다중 가용성 구역](https://www.ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/){: external}이 포함됩니다. 
 
 {{site.data.keyword.cloud_notm}}에서 저장 암호화 전략을 계획할 때 가장 가까운 지역에서 {{site.data.keyword.keymanagementserviceshort}}를 프로비저닝하면 {{site.data.keyword.keymanagementserviceshort}} API와 상호작용할 때 연결이 빨라지고 신뢰성이 높아질 수 있다는 점을 유념하십시오. {{site.data.keyword.keymanagementserviceshort}} 리소스에 의존하는 사용자, 앱 또는 서비스가 지리적으로 집중되어 있는 경우 특정 지역을 선택하십시오. 지역에서 멀리 떨어진 사용자 및 서비스의 대기 시간이 길어질 수 있다는 점을 기억하십시오. 
 

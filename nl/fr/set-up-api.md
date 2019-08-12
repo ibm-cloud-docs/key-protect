@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -51,7 +52,7 @@ curl -X GET \
 ```
 {: codeblock} 
 
-Remplacez `<access_token>` et `<instance_ID>` par les données d'authentification et d'identification de service extraites. 
+Remplacez `<access_token>` et `<instance_ID>` par les données d'authentification et d'identification de service extraites.
 
 Vous souhaitez effectuer le suivi de vos demandes d'API en cas de problème ? Lorsque vous incluez le drapeau `-v` dans le cadre d'une demande cURL, vous obtenez une valeur `correlation-id` dans les en-têtes de réponse. Vous pouvez utiliser cette valeur pour établir une corrélation et suivre la demande à des fins de débogage.
 {: tip} 
@@ -59,4 +60,4 @@ Vous souhaitez effectuer le suivi de vos demandes d'API en cas de problème ? Lo
 ## Etapes suivantes
 {: #set-up-api-next-steps}
 
-Vous êtes maintenant prêt pour commencer à gérer vos clés de chiffrement dans Key Protect. Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Vous êtes maintenant prêt pour commencer à gérer vos clés de chiffrement dans Key Protect. Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, [voir la documentation de référence {{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.

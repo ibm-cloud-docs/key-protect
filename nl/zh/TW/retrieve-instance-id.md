@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 您可以導覽至 {{site.data.keyword.cloud_notm}} 資源清單，以檢視與 {{site.data.keyword.keymanagementserviceshort}} 服務實例相關聯的實例 ID。
 
-1. [登入 {{site.data.keyword.cloud_notm}} 主控台 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}){: new_window}。
+1. [登入 {{site.data.keyword.cloud_notm}} 主控台](https://{DomainName}){: external}。
 2. 移至**功能表** &gt; **資源清單**，然後按一下**服務**，以瀏覽您的雲端服務清單。
 3. 按一下說明您的 {{site.data.keyword.keymanagementserviceshort}} 服務實例的表格列。
 4. 從服務詳細資料視圖中，複製 **GUID** 值。
@@ -40,9 +41,9 @@ subcollection: key-protect
 ## 使用 CLI 擷取實例 ID
 {: #retrieve-instance-ID-cli}
 
-您也可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 來擷取服務實例的實例 ID。
+您也可以使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 來擷取服務實例的實例 ID。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 來登入 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -74,10 +75,10 @@ subcollection: key-protect
 ## 使用 API 擷取實例 ID
 {: #retrieve-instance-ID-api}
 
-您可能想要以程式設計方式擷取實例 ID，以協助您建置及連接應用程式。您可以呼叫 [{{site.data.keyword.cloud_notm}} Resource Controller API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/resource-controller)，然後將 JSON 輸出傳送至 `jq`，以擷取此值。
+您可能想要以程式設計方式擷取實例 ID，以協助您建置及連接應用程式。您可以呼叫 [{{site.data.keyword.cloud_notm}} Resource Controller API](https://{DomainName}/apidocs/resource-controller)，然後將 JSON 輸出傳送至 `jq`，以擷取此值。
 
 1. [擷取 {{site.data.keyword.cloud_notm}} IAM 存取記號](/docs/services/key-protect?topic=key-protect-retrieve-access-token)。
-2. 呼叫 [Resource Controller API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/resource-controller) 來擷取您的實例 ID。
+2. 呼叫 [Resource Controller API](https://{DomainName}/apidocs/resource-controller) 以擷取您的實例 ID。
 
     ```sh
     curl -X GET \

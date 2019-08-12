@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,13 +23,13 @@ subcollection: key-protect
 # 키 보기
 {: #view-keys}
 
-{{site.data.keyword.keymanagementservicefull}}는 암호화 키를 확인, 관리, 감사할 수 있는 중앙 집중식 시스템을 제공합니다. 키와 키에 대한 액세스 제한사항을 감사하여 자원의 보안을 유지하십시오.
+{{site.data.keyword.keymanagementservicefull}}는 암호화 키를 확인, 관리, 감사할 수 있는 중앙 집중식 시스템을 제공합니다. 키와 키에 대한 액세스 제한사항을 감사하여 리소스의 보안을 유지하십시오.
 {: shortdesc}
 
 정기적으로 키 구성 감사:
 
 - 키가 작성된 시점을 확인하고 키를 순환할 시점인지 판별합니다.
-- [{{site.data.keyword.cloudaccesstrailshort}}로 {{site.data.keyword.keymanagementserviceshort}}에 대한 API 호출을 모니터합니다. ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}
+- [{{site.data.keyword.cloudaccesstrailshort}}로 {{site.data.keyword.keymanagementserviceshort}}에 대한 API 호출을 모니터하십시오](/docs/services/key-protect?topic=key-protect-at-events).
 - 어떤 사용자에게 키에 대한 액세스 권한이 있고, 해당 액세스 레벨은 적합한지 검사합니다.
 
 리소스에 대한 액세스 감사에 대한 자세한 정보는 [Cloud IAM으로 사용자 액세스 관리](/docs/services/key-protect?topic=key-protect-manage-access)를 참조하십시오.
@@ -40,7 +41,7 @@ subcollection: key-protect
 
 [키를 작성하거나 기존 키를 서비스로 가져온 후](/docs/services/key-protect?topic=key-protect-create-root-keys) 다음 단계를 완료하여 키를 확인하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/)에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} 콘솔에 로그인하십시오](https://{DomainName}/).
 2. **메뉴** &gt; **리소스 목록**으로 이동하여 리소스 목록을 보십시오.
 3. {{site.data.keyword.cloud_notm}} 리소스 목록에서 {{site.data.keyword.keymanagementserviceshort}}의 프로비저닝된 인스턴스를 선택하십시오.
 4. 애플리케이션 세부사항 페이지에서 키의 일반 특성을 찾아보십시오.
@@ -56,11 +57,11 @@ subcollection: key-protect
       </tr>
       <tr>
         <td>ID</td>
-        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에서 키에 지정한 고유 키 ID입니다. ID 값을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect)를 통해 서비스에 대한 호출을 작성할 수 있습니다.</td>
+        <td>{{site.data.keyword.keymanagementserviceshort}} 서비스에서 키에 지정한 고유 키 ID입니다. ID 값을 사용하여 [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect)를 통해 서비스에 대한 호출을 작성할 수 있습니다.</td>
       </tr>
       <tr>
         <td>상태</td>
-        <td>[NIST Special Publication 800-57, Recommendation for Key Management![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)를 기반으로 한 [키 상태](/docs/services/key-protect?topic=key-protect-key-states)입니다. 이러한 상태에는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>이 있습니다.</td>
+        <td>[NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0)를 기반으로 한 [키 상태](/docs/services/key-protect?topic=key-protect-key-states)입니다. 이러한 상태에는 <i>활성화 이전</i>, <i>활성</i>, <i>비활성화됨</i> 및 <i>영구 삭제됨</i>이 있습니다.</td>
       </tr>
       <tr>
         <td>유형</td>
@@ -98,9 +99,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    계정에서 Cloud Foundry 조직과 영역 내의 키에 대한 작업을 수행하려면 `Bluemix-Instance`를 적절한 `Bluemix-org` 및 `Bluemix-space` 헤더로 바꾸십시오. 자세한 정보는 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
-    {: tip}
-
     다음 표에 따라 예제 요청의 변수를 대체하십시오.
     <table>
       <tr>
@@ -109,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -166,7 +164,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
-            "mode": "GCM"
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -237,7 +235,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
   </tr>
   <tr>
     <td><code>.../keys?offset=25&limit=50</code></td>
-    <td>26 - 50 키를 나열합니다.</td>
+    <td>키 26 - 75를 나열합니다.</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=3000&limit=50</code></td>
@@ -286,7 +284,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
+        <td><strong>필수.</strong> {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 상주하는 지리적 영역을 표시하는 지역 약어(예: <code>us-south</code> 또는 <code>eu-gb</code>)입니다. 자세한 정보는 <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">지역 서비스 엔드포인트</a>를 참조하십시오.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -329,7 +327,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "GCM"
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -339,4 +337,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    사용 가능한 매개변수에 대한 자세한 설명은 {{site.data.keyword.keymanagementserviceshort}} [REST API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 참조하십시오.
+    사용 가능한 매개변수에 대한 자세한 설명은 {{site.data.keyword.keymanagementserviceshort}} [REST API 참조 문서](https://{DomainName}/apidocs/key-protect){: external}를 참조하십시오.

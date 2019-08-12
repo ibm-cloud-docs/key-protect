@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -71,7 +72,7 @@ subcollection: key-protect
 为保护个人数据的机密性，请不要将个人可标识信息 (PII) 存储为密钥的元数据。个人信息包括您的姓名、地址、电话号码或电子邮件地址，或者包括可能识别、联系或查找到您、您的客户或其他任何人的其他信息。
 
 
-对于存储为 {{site.data.keyword.keymanagementserviceshort}} 资源和加密密钥的元数据的任何信息，您负责确保其安全性。有关个人数据的更多示例，请参阅 [NIST Special Publication 800-122 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window} 的第 2.2 节。
+对于存储为 {{site.data.keyword.keymanagementserviceshort}} 资源和加密密钥的元数据的任何信息，您负责确保其安全性。有关个人数据的更多示例，请参阅 [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external} 的第 2.2 节。
 {: important}
 
 ## 在一个区域创建的密钥可以在另一个区域使用吗？
@@ -91,7 +92,7 @@ subcollection: key-protect
 
 可以使用 {{site.data.keyword.cloudaccesstrailfull_notm}} 服务来跟踪用户和应用程序如何与 {{site.data.keyword.keymanagementserviceshort}} 服务实例交互。例如，在 {{site.data.keyword.keymanagementserviceshort}} 中创建、导入、删除或读取密钥时，将生成 {{site.data.keyword.cloudaccesstrailshort}} 事件。这些事件将自动转发至在供应 {{site.data.keyword.keymanagementserviceshort}} 服务的区域中的 {{site.data.keyword.cloudaccesstrailshort}} 服务。
 
-要了解更多信息，请查看 [Activity Tracker 事件](/docs/services/key-protect?topic=key-protect-activity-tracker-events)。
+要了解更多信息，请查看 [Activity Tracker 事件](/docs/services/key-protect?topic=key-protect-at-events)。
 
 ## 删除密钥时会发生什么？
 {: #key-destruction}
@@ -106,3 +107,4 @@ subcollection: key-protect
 {: faq}
 
 如果您决定离开 {{site.data.keyword.keymanagementserviceshort}} 并继续下一步，那么必须从服务实例中删除其余所有密钥才能撤销该服务。删除服务实例之后，{{site.data.keyword.keymanagementserviceshort}} 会使用[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)对与服务实例相关联的所有数据进行碎片化加密处理。 
+

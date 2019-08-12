@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,6 +24,40 @@ subcollection: key-protect
 {: #releases}
 
 Bleiben Sie auf dem Laufenden mit den neuen Features, die für {{site.data.keyword.keymanagementservicefull}} verfügbar sind. 
+{: shortdesc}
+
+## Juni 2019
+{: #june-2019}
+
+### Hinzugefügt: {{site.data.keyword.keymanagementserviceshort}} bietet nun Unterstützung für {{site.data.keyword.at_full_notm}}
+{: #added-at-logdna-support}
+Neu zum 22.06.2019
+
+Sie können jetzt API-Aufrufe für den {{site.data.keyword.keymanagementserviceshort}}-Service mithilfe von {{site.data.keyword.at_full_notm}} überwachen. 
+
+Weitere Informationen zur Überwachung der {{site.data.keyword.keymanagementserviceshort}}-Aktivität finden Sie unter [Activity Tracker-Ereignisse](/docs/services/key-protect?topic=key-protect-at-events).
+
+## Mai 2019
+{: #may-2019}
+
+### Hinzugefügt: {{site.data.keyword.keymanagementserviceshort}} aktualisiert HSMs auf FIPS 140-2 Level 3
+{: #upgraded-hsms}
+Neu zum 22.05.2019
+
+{{site.data.keyword.keymanagementserviceshort}} verwendet jetzt {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 für kryptografische Speicherung und Operationen. Ihre {{site.data.keyword.keymanagementserviceshort}}-Schlüssel werden für alle Regionen in FIPS 140-2 Level 3-konformer Hardware mit Manipulationsnachweis gespeichert. 
+
+Weitere Informationen zu den Features und Vorteilen von {{site.data.keyword.cloud_notm}} HSM 7.0 finden Sie auf der [Produktseite](https://www.ibm.com/cloud/hardware-security-module){: external}.
+
+### Ende der Unterstützung: Cloud Foundry-basierte {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen
+{: #legacy-service-eol}
+Neu zum 15.05.2019
+
+Der traditionelle {{site.data.keyword.keymanagementserviceshort}}-Service, basierend auf Cloud Foundry, wird seit dem 15. Mai 2019 nicht mehr unterstützt. Cloud Foundry-verwaltete {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen werden nicht mehr unterstützt, und Aktualisierungen für den traditionellen Service werden nicht mehr bereitgestellt. Den Kunden wird geraten, IAM-verwaltete {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanzen zu verwenden, um von den neuesten Funktionen für den Service zu profitieren.
+
+Wenn Sie Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz nach dem 15. Dezember 2017 erstellt haben, ist Ihre Serviceinstanz IAM-verwaltet und von dieser Änderung nicht betroffen. Wenden Sie sich bei weiteren Fragen an Terry Mosbaugh unter [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+
+Müssen Sie eine {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz aus dem Abschnitt **Cloud Foundry-Services** Ihrer {{site.data.keyword.cloud_notm}}-Ressourcenliste entfernen? Sie können uns im [Support Center](https://{DomainName}/unifiedsupport/cases/add) erreichen, indem Sie eine Anforderung zum Entfernen des Eintrags aus Ihrer Konsolenansicht einreichen.
+{: tip}
 
 ## März 2019
 {: #mar-2019}
@@ -57,9 +92,9 @@ Neu zum 13.02.2019
 
 **Was bedeutet das für Sie?**
 
-Wenn Sie über aktive Produktionsschlüssel in einer älteren {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügen, achten Sie darauf, die Schlüssel bis zum 15. Mai 2019 auf eine neue Serviceinstanz zu migrieren, um sich den Zugriff auf die verschlüsselten Daten zu erhalten. Sie können prüfen, ob Sie eine traditionelle Instanz verwenden, indem Sie über die [{{site.data.keyword.cloud_notm}}-Konsole ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/) zu Ihrer Ressourcenliste navigieren. Wenn Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz im Abschnitt **Cloud Foundry Services** der {{site.data.keyword.cloud_notm}}-Ressourcenliste aufgeführt ist oder wenn Sie den API-Endpunkt `https://ibm-key-protect.edge.bluemix.net` als Ziel der Operationen für den Service verwenden, verwenden Sie eine traditionelle Instanz von {{site.data.keyword.keymanagementserviceshort}}. Nach dem 15. Mai 2019 ist der traditionelle Endpunkt nicht mehr zugänglich und Sie können den Service nicht mehr als Ziel für Operationen verwenden.
+Wenn Sie über aktive Produktionsschlüssel in einer älteren {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügen, achten Sie darauf, die Schlüssel bis zum 15. Mai 2019 auf eine neue Serviceinstanz zu migrieren, um sich den Zugriff auf die verschlüsselten Daten zu erhalten. Sie können prüfen, ob Sie eine traditionelle Instanz verwenden, indem Sie über die [{{site.data.keyword.cloud_notm}}-Konsole](https://{DomainName}/) zu Ihrer Ressourcenliste navigieren. Wenn Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz im Abschnitt **Cloud Foundry Services** der {{site.data.keyword.cloud_notm}}-Ressourcenliste aufgeführt ist oder wenn Sie den API-Endpunkt `https://ibm-key-protect.edge.bluemix.net` als Ziel der Operationen für den Service verwenden, verwenden Sie eine traditionelle Instanz von {{site.data.keyword.keymanagementserviceshort}}. Nach dem 15. Mai 2019 ist der traditionelle Endpunkt nicht mehr zugänglich und Sie können den Service nicht mehr als Ziel für Operationen verwenden.
 
-Benötigen Sie Hilfe bei der Migration Ihrer Verschlüsselungsschlüssel in eine neue Serviceinstanz? Ausführliche Informationen zu den nötigen Schritten finden Sie unter [Migrations-Client in GitHub ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. Bei weiteren Fragen zum Status Ihrer Schlüssel oder zum Migrationsprozess erreichen Sie Terry Mosbaugh unter [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+Benötigen Sie Hilfe bei der Migration Ihrer Verschlüsselungsschlüssel in eine neue Serviceinstanz? Ausführliche Informationen zu den nötigen Schritten finden Sie unter [Migrations-Client in GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}. Bei weiteren Fragen zum Status Ihrer Schlüssel oder zum Migrationsprozess erreichen Sie Terry Mosbaugh unter [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
 {: tip}
 
 ## Dezember 2018
@@ -125,7 +160,7 @@ Suchen Sie nach Codebeispielen, die Sie beim Verschlüsseln von Speicherbucketin
 
 Sie können sich nun mit der Vorgehensweise für das Hinzufügen von End-to-End-Sicherheit zu Ihrer Cloudanwendung vertraut machen, indem Sie das [neue Lernprogramm](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security) ausführen.
 
-Weitere Informationen finden Sie in der [Beispielapp in GitHub ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
+Weitere Informationen finden Sie in der [Beispielapp in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
 
 ### Hinzugefügt: Erweiterung von {{site.data.keyword.keymanagementserviceshort}} auf die Region 'Washington DC'
 {: #added-wdc-region}

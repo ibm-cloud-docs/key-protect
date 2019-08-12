@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,27 +28,13 @@ El cifrado de sobre es la práctica de encriptar datos con una clave de cifrado 
 
 {{site.data.keyword.keymanagementservicefull}} protege los datos almacenados con cifrado avanzado y ofrece varias ventajas:
 
-<table>
-  <th>Ventajas</th>
-  <th>Descripción</th>
-  <tr>
-    <td>Claves de cifrado gestionadas por el cliente</td>
-    <td>Con el servicio, puede suministrar claves raíz para proteger la seguridad de los datos cifrados en la nube. Las claves raíz sirven como claves de envolvimiento de claves maestras y que ayudan a gestionar y proteger las claves de cifrado de datos (DEK) suministradas en los servicios de datos de {{site.data.keyword.cloud_notm}}. Puede decidir si importar sus claves raíz existentes o hacer que {{site.data.keyword.keymanagementserviceshort}} las genere en su nombre.</td>
-  </tr>
-  <tr>
-    <td>Protección de integridad y confidencialidad</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} utiliza el algoritmo AES (Advanced Encryption Standard) en la modalidad Galois/Counter (GCM) para crear y proteger claves. Cuando se crean claves en el servicio, {{site.data.keyword.keymanagementserviceshort}} las genera dentro de los límites de confianza de los módulos de seguridad de hardware (HSM) de {{site.data.keyword.cloud_notm}}, de modo que sólo usted tendrá acceso a sus claves de cifrado.</td>
-  </tr>
-  <tr>
-    <td>Destrucción criptográfica de datos</td>
-    <td>Si su organización detecta un problema de seguridad o una app ya no necesita un conjunto de datos, puede optar por destruir los datos permanentemente de la nube. Cuando se suprime una clave raíz que protege otras claves DEK, se asegura que no será posible acceder a los datos o descifrar los datos asociados a las claves.</td>
-  </tr>
-  <tr>
-    <td>Delegación del control de acceso de usuario</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} da soporte a un sistema de control de acceso centralizado para permitir el acceso granular a sus claves. [Mediante los permisos avanzados y la asignación de roles de usuario de IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), los administradores de seguridad decidirán quién puede acceder a qué claves raíz en el servicio.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabla 1. Describe los beneficios del cifrado gestionado por el cliente</caption>
-</table>
+| Ventajas | Descripción |
+| --- | --- |
+| Claves de cifrado gestionadas por el cliente | Con el servicio, puede suministrar claves raíz para proteger la seguridad de los datos cifrados en la nube. Las claves raíz sirven como claves de envolvimiento de claves maestras y que ayudan a gestionar y proteger las claves de cifrado de datos (DEK) suministradas en los servicios de datos de {{site.data.keyword.cloud_notm}}. Puede decidir si importar sus claves raíz existentes o hacer que {{site.data.keyword.keymanagementserviceshort}} las genere en su nombre. |
+| Protección de integridad y confidencialidad | {{site.data.keyword.keymanagementserviceshort}} utiliza el algoritmo AES (Advanced Encryption Standard) en la modalidad Galois/Counter (GCM) para proteger claves. Cuando se crean claves en el servicio, {{site.data.keyword.keymanagementserviceshort}} las genera dentro de los límites de confianza de los módulos de seguridad de hardware (HSM) de {{site.data.keyword.cloud_notm}}, de modo que sólo usted tendrá acceso a sus claves de cifrado. |
+| Destrucción criptográfica de datos  | Si su organización detecta un problema de seguridad o una app ya no necesita un conjunto de datos, puede optar por destruir los datos permanentemente de la nube. Cuando se suprime una clave raíz que protege otras claves DEK, se asegura que no será posible acceder a los datos o descifrar los datos asociados a las claves. |
+| Delegación del control de acceso de usuario | {{site.data.keyword.keymanagementserviceshort}} da soporte a un sistema de control de acceso centralizado para permitir el acceso granular a sus claves. [Mediante los permisos avanzados y la asignación de roles de usuario de IAM](/docs/services/key-protect?topic=key-protect-manage-access#roles), los administradores de seguridad decidirán quién puede acceder a qué claves raíz en el servicio. |
+{: caption="Tabla 1. Describe los beneficios del cifrado gestionado por el cliente" caption-side="top"}
 
 ## Cómo funciona
 {: #overview}
@@ -57,7 +44,7 @@ El cifrado de sobre combina la robustez de varios algoritmos de cifrado para pro
 En el diagrama siguiente se muestra una vista contextual de la funcionalidad del envolvimiento de claves.
 ![El diagrama muestra una vista contextual del cifrado de sobre.](../images/envelope-encryption_min.svg)
 
-El cifrado de sobre se trata de forma breve en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4. ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+El cifrado de sobre se trata de forma breve en la NIST Special Publication 800-57, Recommendation for Key Management. Para obtener más información, consulte [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 
 ## Tipos de clave
 {: #key-types}
@@ -68,7 +55,7 @@ El servicio da soporte a dos tipos de clave, las claves raíz y las claves está
   <dt>Claves raíz</dt>
     <dd>Las claves raíz son recursos primarios en {{site.data.keyword.keymanagementserviceshort}}. Son claves para envolver claves simétricas que se utilizan como claves raíz de confianza para envolver (cifrando) y desenvolver (descifrando) otras claves almacenadas en un servicio de datos. Con {{site.data.keyword.keymanagementserviceshort}}, puede crear, almacenar y gestionar el ciclo de vida de las claves raíz para obtener un control total de otras claves almacenadas en la nube. A diferencia de una clave estándar, una clave raíz no puede abandonar los límites del servicio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Claves estándar</dt>
-    <dd>Las claves estándar son una forma de conservar de forma permanente un secreto, como una contraseña o una clave de cifrado. Cuando utiliza {{site.data.keyword.keymanagementserviceshort}} para almacenar claves estándar, habilita el almacenamiento en el módulo de seguridad de hardware (HSM) para sus secretos, el control de acceso preciso para sus recursos con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> y la posibilidad de auditar las llamadas de API al servicio con <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Las claves estándar son una forma de conservar de forma permanente un secreto, como una contraseña o una clave de cifrado. Cuando utiliza {{site.data.keyword.keymanagementserviceshort}} para almacenar claves estándar, habilita el almacenamiento en el módulo de seguridad de hardware (HSM) para sus secretos, el control de acceso preciso para sus recursos con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> y la posibilidad de auditar las llamadas de API al servicio con <a href="/docs/services/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Después de crear claves en {{site.data.keyword.keymanagementserviceshort}}, el sistema devuelve un valor ID que puede utilizar para realizar llamadas de API al servicio. Puede recuperar el valor del ID para las claves con la interfaz gráfica de usuario de {{site.data.keyword.keymanagementserviceshort}} o con la [API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -82,23 +69,13 @@ Después de designar una clave raíz en {{site.data.keyword.keymanagementservice
 ![El diagrama muestra el funcionamiento del envolvimiento de clave.](../images/wrapping-keys_min.svg)
 
 En la siguiente tabla se describen las entradas necesarias para realizar una operación de envolvimiento:
-<table>
-  <th>Entrada</th>
-  <th>Descripción</th>
-  <tr>
-    <td>ID de clave raíz</td>
-    <td>Valor ID para la clave raíz que desea utilizar para envolver. La clave raíz se puede importar en el servicio, u originar en {{site.data.keyword.keymanagementserviceshort}} a partir de sus HSM. Las claves raíz que se utilizan para envolver deben ser de 128, 192 o 256 bits para que la solicitud de envolvimiento finalice de forma satisfactoria.</td>
-  </tr>
-  <tr>
-    <td>Texto sin formato</td>
-    <td>Opcional: El material de la clave de la DEK que contiene los datos que desea gestionar y proteger. El texto sin formato que se utiliza para el envolvimiento de claves debe estar codificado en base64. Para generar una DEK de 256 bits, puede omitir el atributo `plaintext`. El servicio genera una DEK codificada en base64 para utilizarla para el envolvimiento de claves.</td>
-  </tr>
-  <tr>
-    <td>Datos de autenticación adicionales (Additional authentication data - AAD)</td>
-    <td>Opcional: Una matriz de series que comprueba la integridad del contenido de la clave. Cada serie puede contener hasta 255 caracteres. Si proporciona datos de autenticación adicionales (AAD) durante la solicitud de envolvimiento, debe especificar los mismos AAD durante la posterior solicitud de desenvolvimiento.</td>
-  </tr>
-    <caption style="caption-side:bottom;">Tabla 2. Entradas necesarias para envolver claves en {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+
+| Entrada | Descripción |
+| --- | --- |
+| ID de clave raíz | Valor ID para la clave raíz que desea utilizar para envolver. La clave raíz se puede importar en el servicio, u originar en {{site.data.keyword.keymanagementserviceshort}} a partir de sus HSM. Las claves raíz que se utilizan para envolver deben ser de 128, 192 o 256 bits para que la solicitud de envolvimiento finalice de forma satisfactoria. |
+| Texto sin formato | Opcional: Clave de cifrado de datos (DEK) que desea usar para el cifrado de datos. Este valor debe estar codificado en base64. Para generar una nueva DEK, puede omitir la propiedad `plaintext`. Key Protect genera un texto sin formato aleatorio (32 bytes) que tiene su raíz en un HSM y, a continuación, envuelve dicho valor. |
+| Datos de autenticación adicionales (Additional authentication data - AAD) | Opcional: Una matriz de series que comprueba la integridad del contenido de la clave. Cada serie puede contener hasta 255 caracteres. Si proporciona datos de autenticación adicionales (AAD) durante la solicitud de envolvimiento, debe especificar los mismos AAD durante la posterior solicitud de desenvolvimiento. |
+{: caption="Tabla 2. Entradas necesarias para envolver claves en {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 Si envía una solicitud de envolvimiento sin especificar el texto sin formato a cifrar, el algoritmo de cifrado AES-GCM genera y convierte un texto sin formato en un formato ininteligible de datos (texto cifrado). La salida de este proceso es una DEK de 256 bits con el nuevo material de claves. El sistema utiliza entonces un algoritmo para envolver la clave AES, que envuelve la DEK y su material de claves con la clave raíz especificada. Una operación de envolvimiento satisfactoria devuelve una DEK envuelta codificada en base64 que se puede almacenar en un servicio o app de {{site.data.keyword.cloud_notm}}. 
 

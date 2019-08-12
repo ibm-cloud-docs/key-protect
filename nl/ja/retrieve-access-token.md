@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,9 +29,9 @@ subcollection: key-protect
 ## CLI を使用したアクセス・トークンの取得
 {: #retrieve-token-cli}
 
-[{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して、個人用 Cloud IAM アクセス・トークンを迅速に生成できます。
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用すると、個人用 Cloud IAM アクセス・トークンを迅速に生成できます。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用して、{{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -61,7 +62,7 @@ subcollection: key-protect
 
 アクセス・トークンは、アプリケーションの [サービス ID API 鍵](/docs/iam?topic=iam-serviceidapikeys)を作成してから、{{site.data.keyword.cloud_notm}} IAM トークン用に API 鍵を交換することによって、プログラマチックに取得することもできます。
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用して、{{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -101,14 +102,14 @@ subcollection: key-protect
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    要求内の `<API_KEY>` を、前のステップで作成した API 鍵に置き換えてください。 次の省略された例に、 トークン出力を示しています。
+    要求内の `<API_KEY>` を、前のステップで作成した API 鍵に置き換えてください。 以下の省略された例は、`token.json` ファイルの内容を示しています。
 
     ```
     {

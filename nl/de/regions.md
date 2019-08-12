@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 {:deprecated: .deprecated}
 
-# Regionen und Standorte
+# Regionen und Endpunkte
 {: #regions}
 
 Sie können Ihre Anwendungen mit dem {{site.data.keyword.keymanagementservicelong}}-Service verbinden, indem Sie einen regionalen Serviceendpunkt angeben.

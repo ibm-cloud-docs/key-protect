@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} proporciona almacenamiento en la nube para datos no estructurados. Datos no estructurados hace referencia a archivos, soportes de audio/visuales, PDF, archivadores de datos comprimidos, imágenes de copia de seguridad, artefactos de aplicaciones, documentos empresariales o cualquier otro objeto binario.  
 
-Para mantener la disponibilidad y la integridad de los datos, {{site.data.keyword.cos_full_notm}} divide y dispersa datos en nodos de almacenamiento en varias ubicaciones geográficas. No hay una copia completa de los datos en un nodo de almacenamiento concreto, y únicamente un subconjunto de nodos debe estar disponible para poder recuperar completamente los datos en la red. Se proporciona cifrado del lado del proveedor, de forma que los datos estén seguros en reposo o al transportarlos. Para gestionar el almacenamiento, se crean contenedores y objetos de importación con la consola de {{site.data.keyword.cloud_notm}}, o mediante programación con la [API REST de {{site.data.keyword.cos_full_notm}} ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
+Para mantener la disponibilidad y la integridad de los datos, {{site.data.keyword.cos_full_notm}} divide y dispersa datos en nodos de almacenamiento en varias ubicaciones geográficas. No hay una copia completa de los datos en un nodo de almacenamiento concreto, y únicamente un subconjunto de nodos debe estar disponible para poder recuperar completamente los datos en la red. Se proporciona cifrado del lado del proveedor, de forma que los datos estén seguros en reposo o al transportarlos. Para gestionar el almacenamiento, se crean grupos y objetos de importación con la consola de {{site.data.keyword.cloud_notm}}, o mediante programación con la [API REST de {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-Para obtener más información, consulte [Acerca de COS ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
+Para obtener más información, consulte [Acerca de COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## Funcionamiento de la integración
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} se integra con {{site.data.keyword.cos_full_notm}} para ayudarle a lograr el control total de la seguridad de sus datos.  
 
@@ -48,7 +49,7 @@ En la figura siguiente se muestra cómo {{site.data.keyword.keymanagementservice
 Para obtener más información sobre cómo funciona el cifrado de sobre de {{site.data.keyword.keymanagementserviceshort}}, consulte [Protección de datos con cifrado de sobre](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Adición del cifrado de sobre a sus contenedores de almacenamiento
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [Después de designar una clave raíz en {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) y de [otorgar acceso entre sus servicios](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), puede habilitar el cifrado de sobre para un contenedor de almacenamiento concreto mediante la interfaz gráfica de usuario de {{site.data.keyword.cos_full_notm}}.
 
@@ -69,4 +70,4 @@ Desde la interfaz gráfica de usuario de {{site.data.keyword.cos_full_notm}}, ex
 ## Qué hacer a continuación
 {: #cos-integration-next-steps}
 
-- Para obtener más información acerca de asociar sus depósitos de almacenamiento con claves de {{site.data.keyword.keymanagementserviceshort}}, consulte [Gestionar cifrado ![Icono de enlace externo](../../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- Para obtener más información acerca de asociar sus grupos de almacenamiento con claves de {{site.data.keyword.keymanagementserviceshort}}, consulte [Gestionar cifrado](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

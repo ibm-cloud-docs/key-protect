@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:important: .important}
 {:deprecated: .deprecated}
 
-# 地區及位置
+# 地區及端點
 {: #regions}
 
 您可以指定地區服務端點，以使用 {{site.data.keyword.keymanagementservicelong}} 服務來連接應用程式。

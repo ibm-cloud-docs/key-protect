@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,6 +24,40 @@ subcollection: key-protect
 {: #releases}
 
 {{site.data.keyword.keymanagementservicefull}}에 사용 가능한 새 기능을 최신 상태로 유지하십시오. 
+{: shortdesc}
+
+## 2019년 6월
+{: #june-2019}
+
+### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 {{site.data.keyword.at_full_notm}}에 대한 지원을 추가함
+{: #added-at-logdna-support}
+신규 기준일: 2019년 6월 22일
+
+이제 {{site.data.keyword.at_full_notm}}를 사용하여 {{site.data.keyword.keymanagementserviceshort}} 서비스에 대한 API 호출을 모니터할 수 있습니다.  
+
+{{site.data.keyword.keymanagementserviceshort}} 활동 모니터링에 대해 자세히 알아보려면 [활동 트래커 이벤트](/docs/services/key-protect?topic=key-protect-at-events)를 참조하십시오.
+
+## 2019년 5월
+{: #may-2019}
+
+### 추가됨: {{site.data.keyword.keymanagementserviceshort}}에서 HSM을 FIPS 140-2 Level 3로 업그레이드
+{: #upgraded-hsms}
+신규 기준일: 2019년 5월 22일
+
+{{site.data.keyword.keymanagementserviceshort}}에서는 이제 암호화 스토리지 및 오퍼레이션에 {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0을 사용합니다. 사용자의 {{site.data.keyword.keymanagementserviceshort}} 키는 모든 지역에 대해 FIPS 140-2 Level 3과 호환되는 하드웨어에 저장됩니다.  
+
+{{site.data.keyword.cloud_notm}} HSM 7.0의 기능 및 혜택에 대해 더 알아보려면 [제품 페이지](https://www.ibm.com/cloud/hardware-security-module){: external}를 확인하십시오.
+
+### 지원 종료: Cloud Foundry 기반 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스
+{: #legacy-service-eol}
+신규 기준일: 2019년 5월 15일
+
+Cloud Foundry 기반의 레거시 {{site.data.keyword.keymanagementserviceshort}} 서비스는 2019년 5월 15일부로 지원이 종료되었습니다. Cloud Foundry 관리 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스는 더 이상 지원되지 않으며, 레거시 서비스로의 업그레이드도 더 이상 제공되지 않습니다. 고객은 서비스의 최신 기능을 활용하기 위해 IAM에서 관리되는 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 사용하도록 권장됩니다.
+
+2017년 12월 15일 이후에 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 작성한 경우, 서비스 인스턴스는 IAM에서 관리되며 이 변경사항의 영향을 받지 않습니다. 추가 질문은 Terry Mosbaugh([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com))에 문의하십시오.
+
+{{site.data.keyword.cloud_notm}} 리소스 목록의 **Cloud Foundry Services** 섹션에서 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스를 제거해야 합니까? [지원 센터](https://{DomainName}/unifiedsupport/cases/add)에 방문하여 콘솔 보기에서 항목 제거 요청을 제출하십시오.
+{: tip}
 
 ## 2019년 3월
 {: #mar-2019}
@@ -57,9 +92,9 @@ subcollection: key-protect
 
 **의미하는 내용**
 
-이전 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 활성 프로덕션 키가 있는 경우, 암호화된 데이터에 대한 액세스 권한을 잃지 않기 위해 2019년 5월 15일까지 키를 새 서비스 인스턴스로 마이그레이션해야 합니다. [{{site.data.keyword.cloud_notm}} 콘솔 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/)에서 리소스 목록으로 이동하여 레거시 인스턴스를 사용하는지 여부를 확인할 수 있습니다. {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 {{site.data.keyword.cloud_notm}} 리소스 목록의 **Cloud Foundry Services** 섹션에 나열되어 있거나 서비스의 대상 오퍼레이션에 `https://ibm-key-protect.edge.bluemix.net` API 엔드포인트를 사용하는 경우, {{site.data.keyword.keymanagementserviceshort}}의 레거시 인스턴스를 사용하고 있는 것입니다. 2019년 5월 15일 후에는 레거시 엔드포인트에 더 이상 액세스할 수 없으며 오퍼레이션에 대해 서비스를 대상으로 지정할 수 없습니다.
+이전 {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스에 활성 프로덕션 키가 있는 경우, 암호화된 데이터에 대한 액세스 권한을 잃지 않기 위해 2019년 5월 15일까지 키를 새 서비스 인스턴스로 마이그레이션해야 합니다. [{{site.data.keyword.cloud_notm}} 콘솔](https://{DomainName}/)에서 리소스 목록으로 이동하여 레거시 인스턴스를 사용하는지 여부를 확인할 수 있습니다. {{site.data.keyword.keymanagementserviceshort}} 서비스 인스턴스가 {{site.data.keyword.cloud_notm}} 리소스 목록의 **Cloud Foundry Services** 섹션에 나열되어 있거나 서비스의 대상 오퍼레이션에 `https://ibm-key-protect.edge.bluemix.net` API 엔드포인트를 사용하는 경우, {{site.data.keyword.keymanagementserviceshort}}의 레거시 인스턴스를 사용하고 있는 것입니다. 2019년 5월 15일 후에는 레거시 엔드포인트에 더 이상 액세스할 수 없으며 오퍼레이션에 대해 서비스를 대상으로 지정할 수 없습니다.
 
-암호화 키를 새 서비스 인스턴스로 마이그레이션하는 데 도움이 필요합니까? 자세한 단계는 [GitHub의 마이그레이션 클라이언트 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}를 참조하십시오. 마이그레이션 프로세스 또는 키의 상태에 대한 추가 질문이 있는 경우 Terry Mosbaugh([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com))에게 문의하십시오.
+암호화 키를 새 서비스 인스턴스로 마이그레이션하는 데 도움이 필요합니까? 자세한 단계는 [GitHub의 마이그레이션 클라이언트](https://github.com/IBM-Cloud/kms-migration-client){: external}를 참조하십시오. 마이그레이션 프로세스 또는 키의 상태에 대한 추가 질문이 있는 경우 Terry Mosbaugh([mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com))에게 문의하십시오.
 {: tip}
 
 ## 2018년 12월
@@ -125,7 +160,7 @@ subcollection: key-protect
 
 이제 [새 튜토리얼](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security)에 따라 클라우드 애플리케이션에 필요한 엔드-투-엔드 보안 추가를 연습할 수 있습니다.
 
-자세한 정보는 [GitHub에서 샘플 앱 확인 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}을 수행하십시오.
+자세한 정보는 [GitHub에서 샘플 앱을 확인](https://github.com/IBM-Cloud/secure-file-storage){: external}하십시오.
 
 ### 추가됨: {{site.data.keyword.keymanagementserviceshort}}가 워싱턴 지역으로 확장됨
 {: #added-wdc-region}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,6 +24,40 @@ subcollection: key-protect
 {: #releases}
 
 Consulte información actualizada sobre las nuevas características disponibles para {{site.data.keyword.keymanagementservicefull}}. 
+{: shortdesc}
+
+## Junio de 2019
+{: #june-2019}
+
+### Se ha añadido: {{site.data.keyword.keymanagementserviceshort}} añade soporte para {{site.data.keyword.at_full_notm}}
+{: #added-at-logdna-support}
+Novedad desde: 22-06-2019
+
+Ahora puede supervisar llamadas de API al servicio {{site.data.keyword.keymanagementserviceshort}} mediante {{site.data.keyword.at_full_notm}}. 
+
+Para obtener más información sobre la supervisión de la actividad de {{site.data.keyword.keymanagementserviceshort}}, consulte [sucesos de Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
+
+## Mayo de 2019
+{: #may-2019}
+
+### Se ha añadido: {{site.data.keyword.keymanagementserviceshort}} actualiza HSM a FIPS 140-2 Nivel 3
+{: #upgraded-hsms}
+Novedad desde: 22-05-2019
+
+{{site.data.keyword.keymanagementserviceshort}} ahora utiliza el Módulo de seguridad de hardware 7.0 de {{site.data.keyword.cloud_notm}} para las operaciones y el almacenamiento criptográfico. Las claves de {{site.data.keyword.keymanagementserviceshort}} se almacenan en conformidad con FIPS 140-2 Nivel 3, hardware con detección de manipulaciones para todas las regiones. 
+
+Para obtener más información sobre las características y las ventajas de {{site.data.keyword.cloud_notm}} HSM 7.0, consulte la [página de producto](https://www.ibm.com/cloud/hardware-security-module){: external}.
+
+### Fin de soporte: instancias de servicio de {{site.data.keyword.keymanagementserviceshort}} basadas en Cloud Foundry
+{: #legacy-service-eol}
+Novedad desde: 15-05-2019
+
+La finalización del soporte del servicio {{site.data.keyword.keymanagementserviceshort}} existente, basado en Cloud Foundry, se alcanzó el 15 de mayo de 2019. Las instancias de servicio de {{site.data.keyword.keymanagementserviceshort}} gestionadas por Cloud Foundry ya no están soportadas, y ya no se van a proporcionar actualizaciones al servicio existente. Se recomienda a los clientes que utilicen instancias de servicio de {{site.data.keyword.keymanagementserviceshort}} que estén gestionadas por IAM para poder disfrutar de las características más recientes del servicio.
+
+Si ha creado la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} después del 15 de diciembre de 2017, entonces la instancia de servicio es gestionada por IAM y no se ve afectada por este cambio. Si tiene alguna otra pregunta, póngase en contacto con Terry Mosbaugh en la dirección [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+
+¿Necesita eliminar una instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} de la sección **Servicios de Cloud Foundry** de la lista de recursos de {{site.data.keyword.cloud_notm}}? Póngase en contacto con nosotros en el [Centro de soporte](https://{DomainName}/unifiedsupport/cases/add) enviando una solicitud para eliminar la entrada de la vista de consola.
+{: tip}
 
 ## Marzo de 2019
 {: #mar-2019}
@@ -57,9 +92,9 @@ Las instancias de servicio de {{site.data.keyword.keymanagementserviceshort}} su
 
 **Qué significa esto para usted**
 
-Si tiene claves de producción activas en una instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} más antigua, asegúrese de migrar las claves a una instancia de servicio nueva para el 15 de mayo de 2019 para evitar perder el acceso a los datos cifrados. Puede comprobar si está utilizando una instancia heredada navegando hasta la lista de recursos desde la [consola de {{site.data.keyword.cloud_notm}}![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/). Si la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} se lista en la sección **Servicios de Cloud Foundry** de la lista de recursos de {{site.data.keyword.cloud_notm}}, o si utiliza el punto final de la API `https://ibm-key-protect.edge.bluemix.net` como destino para las operaciones del servicio, esto significa que está utilizando una instancia heredada de {{site.data.keyword.keymanagementserviceshort}}. A partir del 15 de mayo de 2019, el punto final heredado ya no será accesible y no podrá utilizar el servicio como destino para las operaciones.
+Si tiene claves de producción activas en una instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} más antigua, asegúrese de migrar las claves a una instancia de servicio nueva para el 15 de mayo de 2019 para evitar perder el acceso a los datos cifrados. Puede comprobar si está utilizando una instancia heredada navegando hasta la lista de recursos desde la [consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}/). Si la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} se lista en la sección **Servicios de Cloud Foundry** de la lista de recursos de {{site.data.keyword.cloud_notm}}, o si utiliza el punto final de la API `https://ibm-key-protect.edge.bluemix.net` como destino para las operaciones del servicio, esto significa que está utilizando una instancia heredada de {{site.data.keyword.keymanagementserviceshort}}. A partir del 15 de mayo de 2019, el punto final heredado ya no será accesible y no podrá utilizar el servicio como destino para las operaciones.
 
-¿Necesita ayuda para migrar las claves de cifrado a una instancia de servicio nueva? Para ver los pasos detallados, consulte el [cliente de migración en GitHub ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. Si tiene preguntas adicionales sobre el estado de sus claves o el proceso de migración, póngase en contacto con Terry Mosbaugh en [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+¿Necesita ayuda para migrar las claves de cifrado a una instancia de servicio nueva? Para ver los pasos detallados, consulte el [cliente de migración en GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}. Si tiene preguntas adicionales sobre el estado de sus claves o el proceso de migración, póngase en contacto con Terry Mosbaugh en [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
 {: tip}
 
 ## Diciembre de 2018
@@ -125,7 +160,7 @@ Novedad desde: 14-09-2018
 
 Ahora puede practicar añadiendo seguridad global para su aplicación de nube siguiendo [la nueva guía de aprendizaje](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security).
 
-Para obtener más información, [consulte la app de ejemplo en GitHub ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
+Para obtener más información, [consulte la app de ejemplo en GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
 
 ### Se ha añadido: {{site.data.keyword.keymanagementserviceshort}} se expande a la región de Washington DC
 {: #added-wdc-region}

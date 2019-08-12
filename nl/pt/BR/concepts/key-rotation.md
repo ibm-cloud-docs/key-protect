@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,23 +27,15 @@ A rotação de teclas ocorre quando você obsoleta o material da chave original 
 
 Fazer a rotação das chaves regularmente ajuda a atender os padrões de mercado e as melhores práticas criptográficas. A tabela a seguir descreve os principais benefícios da rotação de chave:
 
-<table>
-  <th>Benefício</th>
-  <th>Descrição</th>
-  <tr>
-    <td>Gerenciamento do período criptográfico para as chaves</td>
-    <td>A rotação de chave limita por quanto tempo suas informações são protegidas por uma única chave. Ao fazer a rotação das chaves raiz em intervalos regulares, você também encurte o período criptográfico das chaves. Quanto mais longo o tempo
-de vida de uma chave de criptografia, maior a probabilidade de uma violação de segurança.</td>
-  </tr>
-  <tr>
-    <td>Mitigação de incidente</td>
-    <td>Se a sua organização detectar um problema de segurança, será possível fazer a rotação da chave imediatamente para mitigar ou reduzir custos que estão associados com o comprometimento da chave.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabela 1. Descreve os benefícios da rotação de chave</caption>
-</table>
+| Benefício | Descrição |
+| --- | --- |
+| Gerenciamento do período criptográfico para as chaves | A rotação de chave limita por quanto tempo suas informações são protegidas por uma única chave. Ao fazer a rotação das chaves raiz em intervalos regulares, você também encurte o período criptográfico das chaves. Quanto mais longo o tempo
+de vida de uma chave de criptografia, maior a probabilidade de uma violação de segurança. |
+| Mitigação de incidente | Se a sua organização detectar um problema de segurança, será possível fazer a rotação da chave imediatamente para mitigar ou reduzir custos que estão associados com o comprometimento da chave. |
+{: caption="Tabela 1. Descreve os benefícios da rotação de chave" caption-side="top"}
 
 A rotação de chave é tratada na Publicação Especial do NIST 800-57, Recomendação para o gerenciamento de chave. Para saber mais, consulte [NIST SP
-800-57 Pt. 1 Rev. 4. ![Ícone de link externo](../../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Comparando suas opções de rotação de chave no {{site.data.keyword.keymanagementserviceshort}}
@@ -76,7 +69,7 @@ Lembre-se das considerações a seguir conforme você se prepara para usar o {{s
   <dt>Girando chaves raiz que você traz para o serviço</dt>
     <dd>Para girar uma chave raiz que você importou inicialmente para o serviço, deve-se gerar e fornecer novo material de chave para a chave. É possível usar o {{site.data.keyword.keymanagementserviceshort}} para girar as chaves raiz importadas on demand, fornecendo o novo material de chave como parte da solicitação de rotação. Os metadados para a chave raiz, como seu ID da chave, não mudam ao girar a chave. Como um novo material de chave deve ser fornecido para girar uma chave importada, as políticas de rotação automática não estão disponíveis para chaves raiz que possuam material de chave importado.</dd>
   <dt>Gerenciando material de chave obsoleto</dt>
-    <dd>O {{site.data.keyword.keymanagementserviceshort}} cria um novo material de chave depois de girar uma chave raiz. O serviço obsoleta o material de chave antigo e retém as versões obsoletas até que a chave raiz seja excluída. Quando você usa a chave raiz para criptografia de envelope, o {{site.data.keyword.keymanagementserviceshort}} usa apenas o material de chave mais recente que está associado à chave. O material de chave obsoleto não pode mais ser usado para proteger chaves, mas permanece disponível para operações de desagrupamento. Se o {{site.data.keyword.keymanagementserviceshort}} detectar que você está usando o material de chave obsoleto para desagrupar DEKs, o serviço fornecerá um DEK recém-agrupado que se baseia no material da chave raiz mais recente. É possível usar a DEK recém-agrupada para reagrupar chaves com o material da chave mais recente.</dd>
+    <dd>O {{site.data.keyword.keymanagementserviceshort}} cria um novo material de chave depois de girar uma chave raiz. O serviço obsoleta o material de chave antigo e retém as versões obsoletas até que a chave raiz seja excluída. Quando você usa a chave raiz para criptografia de envelope, o {{site.data.keyword.keymanagementserviceshort}} usa apenas o material de chave mais recente que está associado à chave. O material de chave obsoleto não pode mais ser usado para proteger chaves, mas permanece disponível para operações de desagrupamento. Se o {{site.data.keyword.keymanagementserviceshort}} detectar que você está usando o material de chave obsoleto para desagrupar DEKs, o serviço fornecerá um DEK recém-agrupado que se baseia no material da chave raiz mais recente.</dd>
  <dt>Ativando a rotação de chave para serviços de dados do {{site.data.keyword.cloud_notm}}</dt>
     <dd>Para ativar essas opções de rotação de chave para seu serviço de dados no {{site.data.keyword.cloud_notm}}, o serviço de dados deve ser integrado ao {{site.data.keyword.keymanagementserviceshort}}. Consulte a documentação para seu serviço de dados do {{site.data.keyword.cloud_notm}} ou <a href="/docs/services/key-protect?topic=key-protect-integrate-services">confira a nossa lista de serviços integrados para saber mais</a>.</dd>
 </dl>
@@ -95,9 +88,8 @@ Com cada solicitação de rotação, o {{site.data.keyword.keymanagementservices
 
 ![O diagrama mostra uma microvisualização da pilha de chaves raiz.](../images/root-key-stack_min.svg)
 
-Depois que uma rotação é concluída, o novo material de chave raiz se torna disponível para proteger futuras chaves de criptografia de dados (DEKs) com a [criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption). O material de chave obsoleto é movido para o estado _Desativado_, no qual ele pode ser usado apenas para desagrupar e acessar as DEKs mais antigas que ainda não estão protegidas pelo material de chave raiz mais recente. Se o {{site.data.keyword.keymanagementserviceshort}} detectar que você está usando o material de chave raiz obsoleto para desagrupar uma DEK mais antiga, o serviço automaticamente criptografará novamente a DEK e retornará uma chave de criptografia de dados agrupada (WDEK) que se baseia no material de chave raiz mais recente. Armazene e use a nova WDEK para operações futuras de desagrupamento e, assim, proteja as suas DEKs com o material de chave raiz mais recente.
-
-Para saber como usar a API do {{site.data.keyword.keymanagementserviceshort}} para girar as chaves raiz, consulte [Girando chaves](/docs/services/key-protect?topic=key-protect-rotate-keys).
+Para saber como usar a API do {{site.data.keyword.keymanagementserviceshort}} para girar as chaves raiz, consulte [Girando chaves](/docs/services/key-protect?topic=key-protect-rotate-keys). 
+{: tip}
 
 ## Frequência de rotação de chave
 {: #rotation-frequency}
@@ -106,7 +98,7 @@ Depois de gerar uma chave raiz no {{site.data.keyword.keymanagementserviceshort}
 
 Gire suas chaves regularmente, por exemplo, a cada 30 dias, para atender às melhores práticas criptográficas. 
 
-| Tipo de rotação | Frequência | Descrição
+| Tipo de rotação | Frequência | Descrição |
 | --- | --- | --- |
 | [Rotação de chave baseada em política](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | A cada 1 a 12 meses | Escolha um intervalo de rotação entre 1 a 12 meses para sua chave com base em suas necessidades de segurança contínua. Depois de configurar uma política de rotação para uma chave, o relógio será iniciado imediatamente com base na data de criação inicial para a chave. Por exemplo, se você configurar uma política de rotação mensal para uma chave que você criou em `2019/02/01`, o {{site.data.keyword.keymanagementserviceshort}} girará automaticamente a chave em `2019/03/01`.|
 | [Rotação de chave on demand](/docs/services/key-protect?topic=key-protect-rotate-keys) | Até uma rotação por hora | Se você estiver girando uma chave on demand, o {{site.data.keyword.keymanagementserviceshort}} permitirá uma rotação por hora para cada chave raiz. |

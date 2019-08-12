@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,7 +29,7 @@ O {{site.data.keyword.keymanagementservicefull}} fornece um sistema centralizado
 Audite a configuração de chaves com regularidade:
 
 - Examine quando as chaves foram criadas e determine se é hora de girar a chave.
-- [Monitorar chamadas API para {{site.data.keyword.keymanagementserviceshort}} com {{site.data.keyword.cloudaccesstrailshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/services/cloud-activity-tracker/tutorials?topic=cloud-activity-tracker-kp){: new_window}.
+- [Monitore chamadas API para o {{site.data.keyword.keymanagementserviceshort}} com o {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/key-protect?topic=key-protect-at-events).
 - Inspecione quais usuários têm acesso a chaves e se o nível de acesso é apropriado.
 
 Para obter mais informações sobre o acesso de auditoria a seus recursos, consulte [Gerenciando acesso de usuário com o Cloud IAM](/docs/services/key-protect?topic=key-protect-manage-access).
@@ -40,8 +41,7 @@ Se você preferir inspecionar as chaves em seu serviço usando uma interface gr�
 
 [Depois de criar ou importar suas chaves existentes para o serviço](/docs/services/key-protect?topic=key-protect-create-root-keys), conclua as etapas a seguir para visualizar suas chaves.
 
-1. [Efetue login no console do {{site.data.keyword.cloud_notm}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/).
+1. [Efetue login no console do {{site.data.keyword.cloud_notm}}](https://{DomainName}/).
 2. Acesse **Menu** &gt; **Lista de recursos** para visualizar uma lista de seus recursos.
 3. Em sua lista de recursos do {{site.data.keyword.cloud_notm}}, selecione a sua instância provisionada do {{site.data.keyword.keymanagementserviceshort}}.
 4. Procure as características gerais de suas chaves por meio da página de detalhes do aplicativo:
@@ -57,11 +57,11 @@ Se você preferir inspecionar as chaves em seu serviço usando uma interface gr�
       </tr>
       <tr>
         <td>ID</td>
-        <td>Um ID de chave exclusiva que foi designado à sua chave pelo serviço do {{site.data.keyword.keymanagementserviceshort}}. É possível usar o valor de ID para fazer chamadas para o serviço com a API do [{{site.data.keyword.keymanagementserviceshort}}![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect).</td>
+        <td>Um ID de chave exclusiva que foi designado à sua chave pelo serviço do {{site.data.keyword.keymanagementserviceshort}}. É possível usar o valor de ID para fazer chamadas para o serviço com a [API do {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect).</td>
       </tr>
       <tr>
         <td>Estado</td>
-        <td>O [estado de chave](/docs/services/key-protect?topic=key-protect-key-states) baseado em [NIST Special Publication 800-57, Recomendação para gerenciamento de chave ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Esses estados incluem <i>Pré-ativo</i>, <i>Ativo</i>, <i>Desativado</i> e <i>Destruído</i>.</td>
+        <td>O [estado de chave](/docs/services/key-protect?topic=key-protect-key-states) baseado em [NIST Special Publication 800-57, Recomendação para gerenciamento de chave](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). Esses estados incluem <i>Pré-ativo</i>, <i>Ativo</i>, <i>Desativado</i> e <i>Destruído</i>.</td>
       </tr>
       <tr>
         <td>Tipo</td>
@@ -99,9 +99,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    Para trabalhar com chaves dentro de uma organização e um espaço do Cloud Foundry em sua conta, substitua `Bluemix-Instance` pelos cabeçalhos `Bluemix-org` e `Bluemix-space` apropriados. [Para obter mais informações, consulte o doc de referência da API do {{site.data.keyword.keymanagementserviceshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Substitua as variáveis na solicitação de exemplo de acordo com a tabela a seguir.
     <table>
       <tr>
@@ -110,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais regionais em serviço</a>.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Para obter mais informações, consulte <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais regionais em serviço</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -154,7 +151,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           "lastUpdateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "lastRotateDate": "YYYY-MM-DDTHH:MM:SSZ",
           "algorithmMetadata": {
-            "bitLength": "256", "mode": "GCM"
+            "bitLength": "256",
+            "mode": "CBC_PAD"
           },
           "extractable": false,
           "imported": true
@@ -227,7 +225,7 @@ Para obter notas de uso, verifique os exemplos a seguir para configurar os seus 
   </tr>
   <tr>
     <td><code>.../keys?offset=25 & limit=50</code></td>
-    <td>Lista chaves 26-50.</td>
+    <td>Lista as chaves 26 - 75.</td>
   </tr>
   <tr>
     <td><code>.../keys?offset=30 00 & limit=50</code></td>
@@ -276,7 +274,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Veja <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Terminais em serviço regionais</a> para obter mais informações.</td>
+        <td><strong>Necessário.</strong> A abreviação da região, como <code>us-south</code> ou <code>eu-gb</code>, que representa a área geográfica na qual reside sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Veja <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Terminais em serviço regionais</a> para obter mais informações.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -297,7 +295,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       <caption style="caption-side:bottom;">Tabela 4. Descreve as variáveis que são necessárias para visualizar uma chave especificada com a API do {{site.data.keyword.keymanagementserviceshort}}</caption>
     </table>
 
-    Uma `GET api/v2/keys/<key_ID>` bem-sucedida retorna detalhes sobre a sua chave e o material da chave. O objeto JSON a seguir mostra um valor retornado de exemplo para uma chave padrão.
+    Uma resposta `GET api/v2/keys/<key_ID>` bem-sucedida retorna detalhes sobre a sua chave e o material da chave. O objeto JSON a seguir mostra um valor retornado de exemplo para uma chave padrão.
 
     ```
     {
@@ -313,7 +311,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "createdBy": "...",
             "creationDate": "YYYY-MM-DDTHH:MM:SSZ",
             "algorithmMetadata": {
-                "bitLength": "256", "mode": "GCM"
+                "bitLength": "256",
+                "mode": "CBC_PAD"
             },
             "extractable": true,
             "imported": false
@@ -323,4 +322,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    Para obter uma descrição detalhada dos parâmetros disponíveis, veja o {{site.data.keyword.keymanagementserviceshort}} [documento de referência da API de REST ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+    Para obter uma descrição detalhada dos parâmetros disponíveis, consulte o {{site.data.keyword.keymanagementserviceshort}} [doc de referência da API de REST](https://{DomainName}/apidocs/key-protect){: external}.

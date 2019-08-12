@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ subcollection: key-protect
   <caption style="caption-side:bottom;">表 1. ID およびアクセス役割が {{site.data.keyword.keymanagementserviceshort}} 許可にどのようにマップされるのかについての説明</caption>
 </table>
 
-Cloud IAM ユーザー役割は、サービス・レベルまたはサービス・インスタンス・レベルでアクセス権限を提供します。 [Cloud Foundry 役割 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam?topic=iam-cfaccess){: new_window} は、これとは別個のもので、組織レベルまたはスペース・レベルでアクセス権限を定義します。 {{site.data.keyword.iamshort}} について詳しくは、[ユーザーの役割と許可 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam?topic=iam-userroles){: new_window} を参照してください。
+Cloud IAM ユーザー役割は、サービス・レベルまたはサービス・インスタンス・レベルでアクセス権限を提供します。 [Cloud Foundry 役割](/docs/iam?topic=iam-cfaccess){: external} は、これとは別個のもので、組織レベルまたはスペース・レベルでアクセス権限を定義します。 {{site.data.keyword.iamshort}} について詳しくは、[ユーザーの役割と許可](/docs/iam?topic=iam-userroles){: external}を確認してください。
 {: note}
 
 ## 次に行うこと
@@ -105,5 +106,5 @@ Cloud IAM ユーザー役割は、サービス・レベルまたはサービス�
 
 アカウントの所有者および管理者は、ユーザーを招待し、ユーザーが実行できる {{site.data.keyword.keymanagementserviceshort}} アクションに対応するサービス・ポリシーを設定できます。
 
-- {{site.data.keyword.cloud_notm}} UI でのユーザー役割の割り当てについて詳しくは、[IAM アクセス権限の管理 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](/docs/iam?topic=iam-getstarted){: new_window} を参照してください。
+- {{site.data.keyword.cloud_notm}} UI でのユーザー役割の割り当てについて詳しくは、[IAM アクセス権限の管理](/docs/iam?topic=iam-getstarted){: external}を参照してください。
 

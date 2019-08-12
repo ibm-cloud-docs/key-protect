@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Vous pouvez créer une instance de {{site.data.keyword.keymanagementservicefull}
 
 Pour mettre à disposition une instance de {{site.data.keyword.keymanagementserviceshort}} à partir de la console {{site.data.keyword.cloud_notm}}, procédez comme suit :
 
-1. [Connectez-vous à votre compte {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}){: new_window}.
+1. [Connectez-vous à votre compte {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Cliquez sur **Catalogue** pour afficher la liste des services disponibles sur {{site.data.keyword.cloud_notm}}.
 3. Dans le panneau de navigation Toutes les catégories, cliquez sur la catégorie **Sécurité et identité**.
 4. Dans la liste de services, cliquez sur la vignette **{{site.data.keyword.keymanagementserviceshort}}**.
@@ -41,7 +42,7 @@ Pour mettre à disposition une instance de {{site.data.keyword.keymanagementserv
 
 Vous pouvez également mettre à disposition une instance de {{site.data.keyword.keymanagementserviceshort}} à l'aide de l'interface de ligne de commande d'{{site.data.keyword.cloud_notm}}. 
 
-1. Connectez-vous à {{site.data.keyword.cloud_notm}} via l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Connectez-vous à {{site.data.keyword.cloud_notm}} via l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -77,4 +78,4 @@ Vous pouvez également mettre à disposition une instance de {{site.data.keyword
 ## Etapes suivantes
 {: #provision-service-next-steps}
 
-Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, [voir la documentation de référence {{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.

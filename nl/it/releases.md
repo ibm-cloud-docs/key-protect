@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -23,6 +24,40 @@ subcollection: key-protect
 {: #releases}
 
 Rimani aggiornato con le nuove funzioni disponibili per {{site.data.keyword.keymanagementservicefull}}. 
+{: shortdesc}
+
+## Giugno 2019
+{: #june-2019}
+
+### Aggiunto: {{site.data.keyword.keymanagementserviceshort}} aggiunge il supporto per {{site.data.keyword.at_full_notm}}
+{: #added-at-logdna-support}
+Novità a partire da: 22-06-2019
+
+Puoi ora monitorare le chiamate API al servizio{{site.data.keyword.keymanagementserviceshort}} utilizzando {{site.data.keyword.at_full_notm}}. 
+
+Per ulteriori informazioni sul monitoraggio dell'attività di {{site.data.keyword.keymanagementserviceshort}}, vedi [Eventi di Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
+
+## Maggio 2019
+{: #may-2019}
+
+### Aggiunto: {{site.data.keyword.keymanagementserviceshort}} esegue l'upgrade degli HSM a FIPS 140-2 Level 3
+{: #upgraded-hsms}
+Novità a partire da: 22-05-2019
+
+{{site.data.keyword.keymanagementserviceshort}} adesso utilizza {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 per l'archiviazione e le operazioni crittografiche. Le tue chiavi {{site.data.keyword.keymanagementserviceshort}} vengono memorizzate in hardware a prova di manomissione conformi a FIPS 140-2 Level 3 per tutte le regioni. 
+
+Per ulteriori informazioni sulle funzioni e sui vantaggi di {{site.data.keyword.cloud_notm}} HSM 7.0, consulta la [pagina del prodotto](https://www.ibm.com/cloud/hardware-security-module){: external}.
+
+### Fine del supporto: istanze del servizio {{site.data.keyword.keymanagementserviceshort}} basate su Cloud Foundry
+{: #legacy-service-eol}
+Novità a partire da: 15-05-2019
+
+Il servizio {{site.data.keyword.keymanagementserviceshort}} legacy, basato su Cloud Foundry, ha raggiunto la fine del supporto il 15 maggio 2019. Le istanze del servizio {{site.data.keyword.keymanagementserviceshort}} gestite da Cloud Foundry non sono più supportate e non verranno più forniti aggiornamenti al servizio legacy. I clienti sono invitati a utilizzare le istanze del servizio {{site.data.keyword.keymanagementserviceshort}} gestite da IAM per trarre vantaggio dalle ultime funzioni del servizio.
+
+Se hai creato la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}} dopo il 15 dicembre 2017, la tua istanza del servizio è gestita da IAM e non è influenzata da questa modifica. Per ulteriori domande, contatta Terry Mosbaugh all'indirizzo [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+
+Hai bisogno di rimuovere un'istanza del servizio {{site.data.keyword.keymanagementserviceshort}} dalla sezione **Servizi Cloud Foundry** del tuo elenco risorse {{site.data.keyword.cloud_notm}}? Puoi contattarci attraverso il [Centro di supporto](https://{DomainName}/unifiedsupport/cases/add) inviando una richiesta per rimuovere la voce dalla vista della tua console.
+{: tip}
 
 ## Marzo 2019
 {: #mar-2019}
@@ -51,15 +86,15 @@ Le chiavi di trasporto sono al momento una funzione beta. Le funzioni beta posso
 ### Modificato: istanze del servizio {{site.data.keyword.keymanagementserviceshort}} legacy
 {: #changed-legacy-service-instances}
 
-Novità a partire da: 12-03-2019
+Novità a partire da: 13-02-2019
 
 Le istanze del servizio {{site.data.keyword.keymanagementserviceshort}} di cui è stato eseguito il provisioning prima del 15 dicembre 2017 sono in esecuzione su un'infrastruttura legacy basata su Cloud Foundry. Questo servizio {{site.data.keyword.keymanagementserviceshort}} legacy sarà disattivato il 15 maggio 2019.
 
 **Significato per l'utente**
 
-Se hai delle chiavi di produzione attive in un'istanza del servizio {{site.data.keyword.keymanagementserviceshort}} precedente, assicurati di migrare le chiavi alla nuova istanza del servizio entro il 15 maggio 2019 per evitare di perdere l'accesso ai tuoi dati crittografati. Puoi controllare se stai utilizzando un'istanza legacy andando al tuo elenco di risorse dalla [console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/). Se la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}} viene elencata nella sezione **Cloud Foundry Services** dell'elenco di risorse {{site.data.keyword.cloud_notm}} o se stai utilizzando l'endpoint API `https://ibm-key-protect.edge.bluemix.net` per selezionare le operazioni per il servizio, stai utilizzando un'istanza legacy di {{site.data.keyword.keymanagementserviceshort}}. Dopo il 15 maggio 2019, l'endpoint legacy non sarà più accessibile e non potrai selezionare il servizio per le operazioni.
+Se hai delle chiavi di produzione attive in un'istanza del servizio {{site.data.keyword.keymanagementserviceshort}} precedente, assicurati di migrare le chiavi alla nuova istanza del servizio entro il 15 maggio 2019 per evitare di perdere l'accesso ai tuoi dati crittografati. Puoi controllare se stai utilizzando un'istanza legacy andando al tuo elenco di risorse dalla [console {{site.data.keyword.cloud_notm}}](https://{DomainName}/). Se la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}} viene elencata nella sezione **Cloud Foundry Services** dell'elenco di risorse {{site.data.keyword.cloud_notm}} o se stai utilizzando l'endpoint API `https://ibm-key-protect.edge.bluemix.net` per selezionare le operazioni per il servizio, stai utilizzando un'istanza legacy di {{site.data.keyword.keymanagementserviceshort}}. Dopo il 15 maggio 2019, l'endpoint legacy non sarà più accessibile e non potrai selezionare il servizio per le operazioni.
 
-Hai bisogno di aiuto con la migrazione delle tue chiavi di crittografia in una nuova istanza del servizio? Per le istruzioni dettagliate, vedi il [client di migrazione in GitHub ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM-Cloud/kms-migration-client){: new_window}. Se hai ulteriori domande sullo stato delle tue chiavi o sul processo di migrazione, contatta Terry Mosbaugh con [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+Hai bisogno di aiuto con la migrazione delle tue chiavi di crittografia in una nuova istanza del servizio? Per istruzioni dettagliate, controlla il [client di migrazione in GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}. Se hai ulteriori domande sullo stato delle tue chiavi o sul processo di migrazione, contatta Terry Mosbaugh con [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
 {: tip}
 
 ## Dicembre 2018
@@ -68,7 +103,7 @@ Hai bisogno di aiuto con la migrazione delle tue chiavi di crittografia in una n
 ### Modificato: endpoint API {{site.data.keyword.keymanagementserviceshort}}
 {: #changed-api-endpoints}
 
-Novità a partire da: 19-03-2019
+Novità a partire da: 19-12-2018
 
 Per allinearsi con la nuova esperienza unificata di {{site.data.keyword.cloud_notm}}, {{site.data.keyword.keymanagementserviceshort}} ha aggiornato gli URL di base per le proprie API del servizio.
 
@@ -125,7 +160,7 @@ Cerchi degli esempi di codice per aiutarti a crittografare il contenuto del buck
 
 Puoi ora esercitarti ad aggiungere la sicurezza end-to-end per la tua applicazione cloud attenendoti alla [nuova esercitazione](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security).
 
-Per ulteriori informazioni, [consulta l'applicazione di esempio in GitHub ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM-Cloud/secure-file-storage){: new_window}.
+Per ulteriori informazioni, [controlla l'applicazione di esempio in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
 
 ### Aggiunto: {{site.data.keyword.keymanagementserviceshort}} si espande nella regione Washington DC
 {: #added-wdc-region}

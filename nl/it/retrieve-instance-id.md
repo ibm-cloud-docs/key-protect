@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Puoi selezionare una sola istanza del servizio {{site.data.keyword.keymanagement
 
 Puoi visualizzare l'ID istanza associato alla tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}} passando al tuo elenco di risorse {{site.data.keyword.cloud_notm}}.
 
-1. [Accedi alla console {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}){: new_window}.
+1. [Accedi alla console {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Vai a **Menu** &gt; **Resource List** e fai poi clic su **Services** per selezionare un elenco di tuoi servizi cloud.
 3. Fai clic sulla tabella che descrive la tua istanza del servizio {{site.data.keyword.keymanagementserviceshort}}.
 4. Dalla vista dei dettagli del servizio, copia il valore **GUID**.
@@ -40,9 +41,9 @@ Puoi visualizzare l'ID istanza associato alla tua istanza del servizio {{site.da
 ## Richiamo di un ID istanza con la CLI
 {: #retrieve-instance-ID-cli}
 
-Puoi anche richiamare l'ID istanza per la tua istanza del servizio utilizzando la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+Puoi anche richiamare l'ID istanza per la tua istanza del servizio utilizzando la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
-1. Accedi a {{site.data.keyword.cloud_notm}} con la [CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Accedi a {{site.data.keyword.cloud_notm}} con la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -76,10 +77,10 @@ per generare una passcode monouso.
 ## Richiamo di un ID istanza con l'API
 {: #retrieve-instance-ID-api}
 
-Potresti voler richiamare l'ID istanza in modo programmatico per aiutarti a creare e connettere la tua applicazione. Puoi richiamare l'[API {{site.data.keyword.cloud_notm}} Resource Controller ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/resource-controller) e poi inviare l'output JSON a `jq` per estrarre questo valore.
+Potresti voler richiamare l'ID istanza in modo programmatico per aiutarti a creare e connettere la tua applicazione. Puoi richiamare l'[API {{site.data.keyword.cloud_notm}} Resource Controller](https://{DomainName}/apidocs/resource-controller) e poi inviare l'output JSON a `jq` per estrarre questo valore.
 
 1. [Richiama un token di accesso {{site.data.keyword.cloud_notm}} IAM](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. Richiama l'[API Resource Controller ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/resource-controller) per richiamare il tuo ID istanza.
+2. Richiama l'[API Resource Controller](https://{DomainName}/apidocs/resource-controller) per recuperare il tuo ID istanza.
 
     ```sh
     curl -X GET \

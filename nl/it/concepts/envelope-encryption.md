@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,27 +28,13 @@ La crittografia envelope è la pratica di codificare i dati con una chiave di cr
 
 {{site.data.keyword.keymanagementservicefull}} protegge i tuoi dati archiviati con la codifica avanzata e offre diversi vantaggi:
 
-<table>
-  <th>Vantaggio</th>
-  <th>Descrizione</th>
-  <tr>
-    <td>Chiavi di crittografia gestite dal cliente</td>
-    <td>Con il servizio, puoi fornire le chiavi di crittografia per proteggere la sicurezza dei tuoi dati codificati nel cloud. Le chiavi root sono utilizzate come chiavi master di impacchettamento della chiave, che ti aiutano a gestire e proteggere le chiavi di crittografia dei dati (DEK) fornite nei servizi di dati {{site.data.keyword.cloud_notm}}. Decidi se importare le tue chiavi root esistenti o che {{site.data.keyword.keymanagementserviceshort}} le generi al tuo posto.</td>
-  </tr>
-  <tr>
-    <td>Protezione integrità e riservatezza</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} utilizza l'algoritmo AES (Advanced Encryption Standard) in GCM (Galois/Counter Mode) per creare e proteggere le chiavi. Quando crei le chiavi nel servizio, {{site.data.keyword.keymanagementserviceshort}} le genera in un limite di trust di HSM (Hardware Security Module) {{site.data.keyword.cloud_notm}}, quindi solo tu hai accesso alle tue chiavi di crittografia.</td>
-  </tr>
-  <tr>
-    <td>Distruzione crittografica dei dati</td>
-    <td>Se la tua organizzazione rileva un problema di sicurezza o la tua applicazione non ha più bisogno di una serie di dati, puoi scegliere di eliminare i dati in modo permanente dal cloud. Quando elimini una chiave root che protegge altre DEK, ti assicuri che i dati associati alle chiavi non siano più accessibili o decodificabili.</td>
-  </tr>
-  <tr>
-    <td>Controllo dell'accesso utente delegato</td>
-    <td>{{site.data.keyword.keymanagementserviceshort}} supporta un sistema di controllo dell'accesso centralizzato per abilitare l'accesso granulare alle tue chiavi. [Assegnando i ruoli utente IAM e le autorizzazioni avanzate](/docs/services/key-protect?topic=key-protect-manage-access#roles), gli amministratori della sicurezza possono decidere chi può accedere a quali chiavi root nel servizio.</td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabella 1. Descrive i vantaggi della codifica gestita dal cliente</caption>
-</table>
+| Vantaggio | Descrizione |
+| --- | --- |
+| Chiavi di crittografia gestite dal cliente | Con il servizio, puoi fornire le chiavi di crittografia per proteggere la sicurezza dei tuoi dati codificati nel cloud. Le chiavi root sono utilizzate come chiavi master di impacchettamento della chiave, che ti aiutano a gestire e proteggere le chiavi di crittografia dei dati (DEK) fornite nei servizi di dati {{site.data.keyword.cloud_notm}}. Decidi se importare le tue chiavi root esistenti o che {{site.data.keyword.keymanagementserviceshort}} le generi al tuo posto. |
+| Protezione integrità e riservatezza | {{site.data.keyword.keymanagementserviceshort}} utilizza l'algoritmo AES (Advanced Encryption Standard) in GCM (Galois/Counter Mode) per proteggere le chiavi. Quando crei le chiavi nel servizio, {{site.data.keyword.keymanagementserviceshort}} le genera in un limite di trust di HSM (Hardware Security Module) {{site.data.keyword.cloud_notm}}, quindi solo tu hai accesso alle tue chiavi di crittografia. |
+| Distruzione crittografica dei dati  | Se la tua organizzazione rileva un problema di sicurezza o la tua applicazione non ha più bisogno di una serie di dati, puoi scegliere di eliminare i dati in modo permanente dal cloud. Quando elimini una chiave root che protegge altre DEK, ti assicuri che i dati associati alle chiavi non siano più accessibili o decodificabili. |
+| Controllo dell'accesso utente delegato | {{site.data.keyword.keymanagementserviceshort}} supporta un sistema di controllo dell'accesso centralizzato per abilitare l'accesso granulare alle tue chiavi. [Assegnando i ruoli utente IAM e le autorizzazioni avanzate](/docs/services/key-protect?topic=key-protect-manage-access#roles), gli amministratori della sicurezza possono decidere chi può accedere a quali chiavi root nel servizio. |
+{: caption="Tabella 1. Descrive i vantaggi della codifica gestita dal cliente" caption-side="top"}
 
 ## Come funziona
 {: #overview}
@@ -57,7 +44,7 @@ La crittografia envelope combina la forza di più algoritmi di codifica per prot
 Il seguente diagramma mostra una vista contestuale della funzionalità di impacchettamento della chiave.
 ![Il diagramma mostra una vista contestuale della crittografia envelope.](../images/envelope-encryption_min.svg)
 
-La crittografia envelope è trattata brevemente in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4. ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}
+La crittografia envelope è trattata brevemente in NIST Special Publication 800-57, Recommendation for Key Management. Per ulteriori informazioni, consulta [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 
 ## Tipi di chiave
 {: #key-types}
@@ -68,7 +55,7 @@ Il servizio supporta due tipi di chiavi, le chiavi root e le chiavi standard, pe
   <dt>Chiavi root</dt>
     <dd>Le chiavi root sono le risorse principali in {{site.data.keyword.keymanagementserviceshort}}. Sono le chiavi di impacchettamento della chiave simmetriche utilizzate come radice di attendibilità per l'impacchettamento (crittografia) e lo spacchettamento (decrittografia) di altre chiavi archiviate in un servizio di dati. Con {{site.data.keyword.keymanagementserviceshort}}, puoi creare, memorizzare e gestire il ciclo di vita delle chiavi root per ottenere il controllo completo di altre chiavi archiviate nel cloud. A differenza di una chiave standard, una chiave root non può mai lasciare i confini del servizio {{site.data.keyword.keymanagementserviceshort}}.</dd>
   <dt>Chiavi standard</dt>
-    <dd>Le chiavi standard sono un modo per rendere persistente un segreto, ad esempio una password o una chiave di crittografia. Quando usi {{site.data.keyword.keymanagementserviceshort}} per archiviare le chiavi standard, abiliti l'archiviazione HSM (Hardware Security Module) per i tuoi segreti, un controllo dell'accesso dettagliato alle tue risorse con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> e la capacità di controllare le chiamate API al servizio con <a href="/docs/services/key-protect?topic=key-protect-activity-tracker-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
+    <dd>Le chiavi standard sono un modo per rendere persistente un segreto, ad esempio una password o una chiave di crittografia. Quando usi {{site.data.keyword.keymanagementserviceshort}} per archiviare le chiavi standard, abiliti l'archiviazione HSM (Hardware Security Module) per i tuoi segreti, un controllo dell'accesso dettagliato alle tue risorse con <a href="/docs/services/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a> e la capacità di controllare le chiamate API al servizio con <a href="/docs/services/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.</dd>
 </dl>
 
 Dopo aver creato le chiavi in {{site.data.keyword.keymanagementserviceshort}}, il sistema restituisce un valore ID che puoi utilizzare per effettuare le chiamate API al servizio. Puoi richiamare il valore ID per le tue chiavi con la GUI {{site.data.keyword.keymanagementserviceshort}} o la [API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect). 
@@ -82,23 +69,13 @@ Dopo aver designato una chiave root in {{site.data.keyword.keymanagementservices
 ![Il seguente diagramma mostra l'impacchettamento della chiave in azione.](../images/wrapping-keys_min.svg)
 
 La seguente tabella descrive gli input necessari per eseguire un'operazione di impacchettamento della chiave:
-<table>
-  <th>Input</th>
-  <th>Descrizione</th>
-  <tr>
-    <td>ID chiave root</td>
-    <td>Il valore ID della chiave root che vuoi utilizzare per l'impacchettamento. La chiave root può essere importata nel servizio oppure può essere originata in {{site.data.keyword.keymanagementserviceshort}} dai propri HSM. Le chiavi root utilizzate per l'impacchettamento devono essere di 128, 192 o 256 bit in modo che una richiesta di impacchettamento possa avere esito positivo.</td>
-  </tr>
-  <tr>
-    <td>Testo non crittografato</td>
-    <td>Facoltativo: il materiale della chiave della DEK che contiene i dati che vuoi gestire e proteggere. Un testo non crittografato che viene utilizzato per l'impacchettamento della chiave che deve essere codificato con base64. Per generare una DEK a 256-bit, puoi omettere l'attributo `plaintext`. Il servizio genera una DEK codificata con base64 da utilizzare per l'impacchettamento della chiave.</td>
-  </tr>
-  <tr>
-    <td>Ulteriori dati di autenticazione (AAD)</td>
-    <td>Facoltativo: un array di stringhe che controlla l'integrità dei contenuti della chiave. Ogni stringa può contenere fino a 255 caratteri. Se fornisci AAD durante una richiesta di impacchettamento, devi specificare lo stesso AAD durante la richiesta di spacchettamento successiva.</td>
-  </tr>
-    <caption style="caption-side:bottom;">Tabella 2. Input richiesto per l'impacchettamento della chiave in {{site.data.keyword.keymanagementserviceshort}}</caption>
-</table>
+
+| Input | Descrizione |
+| --- | --- |
+| ID chiave root | Il valore ID della chiave root che vuoi utilizzare per l'impacchettamento. La chiave root può essere importata nel servizio oppure può essere originata in {{site.data.keyword.keymanagementserviceshort}} dai propri HSM. Le chiavi root utilizzate per l'impacchettamento devono essere di 128, 192 o 256 bit in modo che una richiesta di impacchettamento possa avere esito positivo. |
+| Testo non crittografato | Facoltativo : la DEK (data encryption key) che vuoi utilizzare per la crittografia dei dati. Questo valore deve essere codificato in base64. Per generare una nuova DEK, puoi omettere la proprietà `plaintext`. Key Protect genera un testo non crittografato casuale (32 byte) che viene inserito in un HSM e quindi impacchetta il valore. |
+| Ulteriori dati di autenticazione (AAD) | Facoltativo: un array di stringhe che controlla l'integrità dei contenuti della chiave. Ogni stringa può contenere fino a 255 caratteri. Se fornisci AAD durante una richiesta di impacchettamento, devi specificare lo stesso AAD durante la richiesta di spacchettamento successiva. |
+{: caption="Tabella 2. Input richiesto per l'impacchettamento della chiave in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 Se invii una richiesta di impacchettamento senza specificare il testo non crittografato da codificare, l'algoritmo di codifica AES-GCM genera e converte un testo non crittografato in una forma incomprensibile di dati chiamato testo cifrato. Questo processo fornisce una DEK a 256-bit con il nuovo materiale della chiave. Il sistema quindi utilizza l'algoritmo di impacchettamento della chiave AES, che impacchetta la DEK e il relativo materiale della chiave con la chiave root specificata. Un'operazione di impacchettamento corretta restituisce una DEK impacchettata codificata con base64 che puoi archiviare in un servizio o un'applicazione {{site.data.keyword.cloud_notm}}. 
 

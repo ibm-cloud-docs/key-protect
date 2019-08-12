@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ Puede elegir como destino una instancia de servicio de {{site.data.keyword.keyma
 
 Puede ver el ID de instancia que está asociado a la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}} yendo a la lista de recursos de {{site.data.keyword.cloud_notm}}.
 
-1. [Inicie sesión en la consola de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}){: new_window}.
+1. [Inicie la sesión en la consola de {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Vaya a **Menú** &gt; **Lista de recursos** y, a continuación, pulse **Servicios** para examinar una lista de los servicios de nube.
 3. Pulse en la fila de la tabla que describe la instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}.
 4. En la vista de detalles de servicio, copie el valor de **GUID**.
@@ -40,9 +41,9 @@ Puede ver el ID de instancia que está asociado a la instancia de servicio de {{
 ## Recuperación de un ID de instancia con la CLI
 {: #retrieve-instance-ID-cli}
 
-También puede recuperar el ID de instancia de la instancia de servicio utilizando la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+También puede recuperar el ID de instancia de la instancia de servicio utilizando la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
-1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Inicie sesión en {{site.data.keyword.cloud_notm}} con la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -75,10 +76,10 @@ También puede recuperar el ID de instancia de la instancia de servicio utilizan
 {: #retrieve-instance-ID-api}
 
 Puede que desee recuperar el ID de instancia mediante programación para ayudarle a crear y conectar la aplicación. Puede llamar a la
-[API del controlador de recursos de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/resource-controller) y después canalizar la salida de JSON a `jq` para extraer este valor.
+[API del controlador de recursos de {{site.data.keyword.cloud_notm}}](https://{DomainName}/apidocs/resource-controller) y después canalizar la salida de JSON a `jq` para extraer este valor.
 
-1. [Recupere una señal de acceso IAM de {{site.data.keyword.cloud_notm}}](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. Llame a la [API del controlador de recursos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/resource-controller) para recuperar el ID de instancia.
+1. [Recupere una señal de acceso de {{site.data.keyword.cloud_notm}} IAM](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
+2. Llame a la [API del controlador de recursos](https://{DomainName}/apidocs/resource-controller) para recuperar el ID de instancia.
 
     ```sh
     curl -X GET \

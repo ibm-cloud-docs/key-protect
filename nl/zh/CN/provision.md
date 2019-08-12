@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 要从 {{site.data.keyword.cloud_notm}} 控制台供应 {{site.data.keyword.keymanagementserviceshort}} 的实例，请完成以下步骤。
 
-1. [登录到 {{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}){: new_window}。
+1. [登录到 {{site.data.keyword.cloud_notm}} 帐户](https://{DomainName}){: external}。
 2. 单击**目录**以查看 {{site.data.keyword.cloud_notm}} 上可用的服务的列表。
 3. 在“所有类别”导航窗格中，单击**安全性和身份**类别。
 4. 从服务列表中，单击 **{{site.data.keyword.keymanagementserviceshort}}** 磁贴。
@@ -41,7 +42,7 @@ subcollection: key-protect
 
 您也可以使用 {{site.data.keyword.cloud_notm}} CLI 来供应 {{site.data.keyword.keymanagementserviceshort}} 的实例。 
 
-1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -77,4 +78,4 @@ subcollection: key-protect
 ## 后续工作
 {: #provision-service-next-steps}
 
-要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
+要了解有关以编程方式管理密钥的更多信息，请[查看 {{site.data.keyword.keymanagementserviceshort}} API 参考文档](https://{DomainName}/apidocs/key-protect){: external}。

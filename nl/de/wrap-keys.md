@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Wrapping für Schlüssel durchführen
 {: #wrap-keys}
 
-Sie als privilegierter Benutzer können Ihre Verschlüsselungsschlüssel mit dem Rootschlüssel mithilfe der {{site.data.keyword.keymanagementservicelong}}-API verwalten und schützen.
+Sie können Ihre Verschlüsselungsschlüssel mit einem Rootschlüssel mithilfe der {{site.data.keyword.keymanagementservicelong}}-API verwalten und schützen.
 {: shortdesc}
 
 Wenn Sie für einen Datenverschlüsselungsschlüssel (DEK) Wrapping anhand eines Rootschlüssels durchführen, kombiniert {{site.data.keyword.keymanagementserviceshort}} die Stärke mehrerer Algorithmen, um den Datenschutz und die Integrität Ihrer verschlüsselten Daten zu gewährleisten.  
@@ -34,7 +35,7 @@ Informationen darüber, wie Key-Wrapping Sie unterstützt, die Sicherheit ruhend
 
 Sie können einen bestimmten Datenverschlüsselungsschlüssel (DEK) mit einem Rootschlüssel schützen, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten.
 
-Wenn Sie einen Rootschlüssel für das Wrapping angeben, achten Sie darauf, dass der Rootschlüssel 128, 192 oder 256 Bit umfasst, damit der Wrapping-Aufruf erfolgreich ist. Wenn Sie einen Rootschlüssel im Service erstellen, generiert {{site.data.keyword.keymanagementserviceshort}} einen 256-Bit-Schlüssel aus den HSMs, der vom AES-GCM-Algorithmus unterstützt wird.
+Wenn Sie einen Rootschlüssel für das Wrapping angeben, achten Sie darauf, dass der Rootschlüssel 128, 192 oder 256 Bit umfasst, damit der Wrapping-Aufruf erfolgreich ist. Wenn Sie einen Rootschlüssel im Service erstellen, generiert {{site.data.keyword.keymanagementserviceshort}} einen 256-Bit-Schlüssel aus den HSMs, unterstützt vom AES-CBC-PAD-Algorithmus.
 {: note}
 
 [Nach der Angabe eines Rootschlüssels im Service](/docs/services/key-protect?topic=key-protect-create-root-keys) können Sie einen DEK mit der erweiterten Verschlüsselung mithilfe eines `POST`-Aufrufs zum folgenden Endpunkt einschließen.
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. Kopieren Sie die Schlüsselinformationen, die Sie verwalten und schützen möchten.
 
-    Wenn Sie über Manager- oder Schreibzugriffsberechtigungen für Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügen, [können Sie die Schlüsselinformationen für einen bestimmten Schlüssel mit der Anforderung `GET /v2/keys/<key_ID>` abrufen](/docs/services/key-protect?topic=key-protect-view-keys#api).
+    Wenn Sie über Manager- oder Schreibberechtigung für Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz verfügen, [können Sie die Schlüsselinformationen für einen bestimmten Schlüssel mit einer Anforderung `GET /v2/keys/<key_ID>` abrufen](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Kopieren Sie die ID des Rootschlüssels, den Sie für das Wrapping verwenden möchten.
 
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    Um mit Schlüsseln in Cloud Foundry-Organisationen und -Bereichen zu arbeiten, ersetzen Sie `Bluemix-Instance` durch die entsprechenden Header `Bluemix-org` und `Bluemix-space`. [Weitere Informationen finden Sie in der {{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
-    {: tip}
-
     Ersetzen Sie die Variablen in der Beispielanforderung anhand der Angaben in der folgenden Tabelle.
 
     <table>
@@ -81,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">Regionale Serviceendpunkte</a>.</td>
+        <td><strong>Erforderlich.</strong> Die Regionsabkürzung, z. B. <code>us-south</code> oder <code>eu-gb</code>, die den geografischen Bereich darstellt, in dem sich Ihre {{site.data.keyword.keymanagementserviceshort}}-Serviceinstanz befindet. Weitere Informationen finden Sie in <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regionale Serviceendpunkte</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -129,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    Der <code>plaintext</code>-Wert stellt den DEK ohne Wrapping dar, der <code>ciphertext</code>-Wert den DEK nach dem Wrapping.
+    Der `plaintext`-Wert stellt den DEK ohne Wrapping dar, der `ciphertext`-Wert den DEK nach dem Wrapping.
     
     Wenn {{site.data.keyword.keymanagementserviceshort}} einen neuen Datenverschlüsselungsschlüssel (DEK) generieren soll, können Sie auch einen leeren Hauptteil in einer Wrapping-Anforderung übergeben. Der generierte DEK, der die mit Base64-Codierung verschlüsselten Schlüsselinformationen enthält, wird im Entitätshauptteil der Antwort zusammen mit dem DEK nach dem Wrapping zurückgegeben.
     {: tip}

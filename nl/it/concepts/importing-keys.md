@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ Le chiavi di trasporto sono un tipo di risorsa in {{site.data.keyword.keymanagem
 
 Quando [crei una chiave di trasporto](/docs/services/key-protect?topic=key-protect-create-transport-keys) per la tua istanza del servizio, {{site.data.keyword.keymanagementserviceshort}} genera una chiave RSA a 4096-bit. Il servizio crittografa la chiave privata e poi restituisce la chiave pubblica e un token di importazione che puoi utilizzare per la crittografia e l'importazione del tuo materiale della chiave root. 
 
-Quando sei pronto per [importare una chiave root](/docs/services/key-protect?topic=key-protect-import-root-keys#api) in {{site.data.keyword.keymanagementserviceshort}}, fornisci il materiale della chiave root crittografato e il token di importazione che è stato utilizzato per verificare l'integrità della chiave pubblica. Per completare la richiesta, {{site.data.keyword.keymanagementserviceshort}} utilizza la chiave privata associata alla tua istanza del servizio per decrittografare il materiale della chiave root crittografato. Questo processo garantisce che solo la chiave di trasporto che hai generato in {{site.data.keyword.keymanagementserviceshort}} possa decrittografare il materiale della chiave che importi e archivi nel servizio.
+Quando sei pronto per [importare una chiave root](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api) in {{site.data.keyword.keymanagementserviceshort}}, fornisci il materiale della chiave root crittografato e il token di importazione che è stato utilizzato per verificare l'integrità della chiave pubblica. Per completare la richiesta, {{site.data.keyword.keymanagementserviceshort}} utilizza la chiave privata associata alla tua istanza del servizio per decrittografare il materiale della chiave root crittografato. Questo processo garantisce che solo la chiave di trasporto che hai generato in {{site.data.keyword.keymanagementserviceshort}} possa decrittografare il materiale della chiave che importi e archivi nel servizio.
 
 Puoi creare solo una chiave di trasporto per istanza del servizio. Per ulteriori informazioni sui limiti di richiamo per le chiavi di trasporto, [vedi la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
 {: note} 

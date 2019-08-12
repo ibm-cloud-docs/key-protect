@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -32,7 +33,7 @@ Para trabajar con la API, debe generar credenciales de servicio y autenticación
 
 Para recopilar las credenciales:
 
-1. [Genere una señal de acceso IAM de {{site.data.keyword.cloud_notm}}](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
+1. [Genere una señal de acceso de {{site.data.keyword.cloud_notm}} IAM](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
 2. [Recupere el ID de instancia que identifica de forma exclusiva su instancia de servicio de {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## Cómo crear una solicitud de API
@@ -59,4 +60,4 @@ Sustituya `<access_token>` e `<instance_ID>` por las credenciales de autenticaci
 ## Qué hacer a continuación
 {: #set-up-api-next-steps}
 
-Ya está listo para empezar a gestionar las claves de cifrado en Key Protect. Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Ya está listo para empezar a gestionar las claves de cifrado en Key Protect. Para obtener más información sobre la gestión de sus claves mediante programación, [consulte la documentación de referencia de la API de {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.

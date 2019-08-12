@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -28,9 +29,9 @@ subcollection: key-protect
 ## 使用 CLI 检索访问令牌
 {: #retrieve-token-cli}
 
-可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 快速生成个人 Cloud IAM 访问令牌。
+可以使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 快速生成个人 Cloud IAM 访问令牌。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -61,7 +62,7 @@ subcollection: key-protect
 
 还可以通过先为应用程序创建[服务标识 API 密钥](/docs/iam?topic=iam-serviceidapikeys)，然后用您的 API 密钥交换 {{site.data.keyword.cloud_notm}} IAM 令牌，从而以编程方式检索访问令牌。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 登录到 {{site.data.keyword.cloud_notm}}。
+1. 通过 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 登录到 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -95,20 +96,20 @@ subcollection: key-protect
   ```
   {: pre}
 
-  将 `<service_ID_name>` 替换为先前步骤中指定给服务标识的唯一别名。通过将 API 密钥下载到安全位置来保存该密钥。 
+  将 `<service_ID_name>` 替换为先前步骤中分配给服务标识的唯一别名。通过将 API 密钥下载到安全位置来保存该密钥。 
 
 6. 调用 [IAM 身份服务 API](https://{DomainName}/apidocs/iam-identity-token-api) 来检索访问令牌。
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    在请求中，将 `<API_KEY>` 替换为先前步骤中创建的 API 密钥。以下截断的示例显示令牌输出：
+    在请求中，将 `<API_KEY>` 替换为先前步骤中创建的 API 密钥。以下截断的示例显示 `token.json` 文件的内容：
 
     ```
     {

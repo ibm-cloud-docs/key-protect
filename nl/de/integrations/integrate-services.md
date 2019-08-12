@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [Nach der Erstellung einer Instanz des Service](/docs/services/key-protect?topic=key-protect-provision) können Sie {{site.data.keyword.keymanagementserviceshort}} in die folgenden unterstützten Services integrieren:
 
-<table>
-    <tr>
-        <th>Service</th>
-        <th>Beschreibung</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>Fügen Sie eine [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption) mithilfe von {{site.data.keyword.keymanagementserviceshort}} zu den Speicherbuckets hinzu. Verwenden Sie Rootschlüssel, die Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten, um die Datenverschlüsselungsschlüssel zu schützen, mit denen die ruhenden Daten verschlüsselt sind. Weitere Informationen finden Sie in [Integration mit {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>Verwenden Sie die [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption), um geheime Schlüssel im {{site.data.keyword.containershort_notm}}-Cluster zu schützen. Weitere Informationen finden Sie in [Geheime Kubernetes-Schlüssel mit {{site.data.keyword.keymanagementserviceshort}} verschlüsseln](/docs/containers?topic=containers-encryption#keyprotect).</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>Schützen Sie Ihre Datenbanken durch Zuordnung von Rootschlüsseln zu Ihrer {{site.data.keyword.databases-for-postgresql}}-Bereitstellung. Weitere Informationen finden Sie in der [Dokumentation zu {{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect).</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloudant_short_notm}} für {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}}-dediziert)</p>
-        </td>
-        <td>
-          <p>Stärken Sie Ihre Strategie der Verschlüsselung ruhender Daten, indem Sie Rootschlüssel zu Ihrer {{site.data.keyword.cloudant_short_notm}}-dedizierten Hardwareinstanz zuordnen. Weitere Informationen finden Sie in der [Dokumentation zu {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control).</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">Tabelle 1. Beschreibung der Integrationen, die für {{site.data.keyword.keymanagementserviceshort}} verfügbar sind</caption>
-</table>
+| Service | Beschreibung |
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} | Fügen Sie eine [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption) mithilfe von {{site.data.keyword.keymanagementserviceshort}} zu den Speicherbuckets hinzu. Verwenden Sie Rootschlüssel, die Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten, um die Datenverschlüsselungsschlüssel zu schützen, mit denen die ruhenden Daten verschlüsselt sind. Weitere Informationen finden Sie in [Integration mit {{site.data.keyword.cos_full_notm}}](/docs/services/key-protect?topic=key-protect-integrate-cos).|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} | Schützen Sie Ihre Datenbanken durch Zuordnung von Rootschlüsseln zu Ihrer {{site.data.keyword.databases-for-postgresql}}-Bereitstellung. Weitere Informationen finden Sie in der [Dokumentation zu {{site.data.keyword.databases-for-postgresql}}](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect).|
+| {{site.data.keyword.cloudant_short_notm}} für {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated) | Stärken Sie Ihre Strategie der Verschlüsselung ruhender Daten, indem Sie Rootschlüssel zu Ihrer {{site.data.keyword.cloudant_short_notm}}-dedizierten Hardwareinstanz zuordnen. Weitere Informationen finden Sie in der [Dokumentation zu {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control). |
+| {{site.data.keyword.containerlong_notm}} | Verwenden Sie die [Envelope-Verschlüsselung](/docs/services/key-protect?topic=key-protect-envelope-encryption), um geheime Schlüssel im {{site.data.keyword.containershort_notm}}-Cluster zu schützen. Weitere Informationen finden Sie in [Geheime Kubernetes-Schlüssel mit {{site.data.keyword.keymanagementserviceshort}} verschlüsseln](/docs/containers?topic=containers-encryption#keyprotect).|
+{: caption="Tabelle 1. Beschreibung der Integrationen, die mit {{site.data.keyword.keymanagementserviceshort}} verfügbar sind" caption-side="top"}
 
 ## Informationen zur Integration 
 {: #understand-integration}
@@ -74,7 +43,7 @@ Bei der Integration eines unterstützten Service mit {{site.data.keyword.keymana
 
 Beispiel: Sie können einen Rootschlüssel erstellen, diesen Schlüssel in {{site.data.keyword.keymanagementserviceshort}} verwalten und den Rootschlüssel dazu verwenden, die Daten zu schützen, die in verschiedenen Cloud-Services gespeichert sind.
 
-![Diagramm mit kontextbezogener Ansicht Ihrer {{site.data.keyword.keymanagementserviceshort}}-Integration.](../images/kp-integrations_min.svg)
+![Diagramm mit kontextbezogener Ansicht Ihrer {{site.data.keyword.keymanagementserviceshort}}-Integration.](../images/kp-integrations.svg)
 
 ### {{site.data.keyword.keymanagementserviceshort}}-API-Methoden
 {: #envelope-encryption-api-methods}
@@ -83,23 +52,13 @@ Im Hintergrund führt die {{site.data.keyword.keymanagementserviceshort}}-API de
 
 In der folgenden Tabelle sind die API-Methoden aufgeführt, mit denen die Envelope-Verschlüsselung für eine Ressource hinzugefügt oder entfernt wird.
 
-<table>
-  <tr>
-    <th>Methode</th>
-    <th>Beschreibung</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">Einschließen (Verschlüsseln) eines Datenverschlüsselungsschlüssels</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">Ausschließen (Entschlüsseln) eines Datenverschlüsselungsschlüssels</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">Tabelle 2. Beschreibung der {{site.data.keyword.keymanagementserviceshort}}-API-Methoden</caption>
-</table>
+| Methode | Beschreibung |
+| --- | --- |
+| `POST /keys/{root_key_ID}?action=wrap` | [Wrapping (Verschlüsselung) eines Datenverschlüsselungsschlüssels durchführen](/docs/services/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{root_key_ID}?action=unwrap` | [Aufhebung eines Wrappings (Entschlüsselung) eines Datenverschlüsselungsschlüssels durchführen](/docs/services/key-protect?topic=key-protect-unwrap-keys) |
+{: caption="Tabelle 2. Beschreibung der {{site.data.keyword.keymanagementserviceshort}}-API-Methoden" caption-side="top"}
 
-Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{site.data.keyword.keymanagementserviceshort}} finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{site.data.keyword.keymanagementserviceshort}} finden Sie in der [{{site.data.keyword.keymanagementserviceshort}}-API-Referenzdokumentation](https://{DomainName}/apidocs/key-protect){: external}.
 {: tip}
 
 ## Unterstützten Service integrieren
@@ -107,7 +66,7 @@ Weitere Informationen zur programmgesteuerten Verwaltung von Schlüsseln in {{si
 
 Wenn Sie eine Integration hinzufügen möchten, richten Sie über das {{site.data.keyword.iamlong}}-Dashboard eine Berechtigung zwischen den Services ein. Mit den Berechtigungen werden Service-zu-Service-Zugriffsrichtlinien aktiviert, die es Ihnen ermöglichen, eine Ressource im Clouddatenservice einem [Rootschlüssel](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) zuzuordnen, den Sie in {{site.data.keyword.keymanagementserviceshort}} verwalten.
 
-Stellen Sie sicher, dass beide Services in derselben Region bereitgestellt werden, bevor Sie eine Berechtigung erstellen. Weitere Informationen zu Serviceberechtigungen finden Sie in [Zugriff zwischen Services erteilen![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-serviceauth){: new_window}.
+Stellen Sie sicher, dass beide Services in derselben Region bereitgestellt werden, bevor Sie eine Berechtigung erstellen. Weitere Informationen zu Serviceautorisierungen finden Sie unter [Zugriff zwischen Services erteilen](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
 Wenn Sie bereit sind, einen Service zu integrieren, führen Sie die folgenden Schritte aus, um eine Berechtigung zu erstellen:

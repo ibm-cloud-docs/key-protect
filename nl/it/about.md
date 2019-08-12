@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Informazioni su {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Mentre gestisci il ciclo di vita delle tue chiavi, puoi ottenere dei benefici sapendo che le tue chiavi sono protette dagli HSM (Hardware Security Module) basati sul cloud certificati FIPS 140-2 Level 2 che proteggono dal furto di informazioni.
+{{site.data.keyword.keymanagementservicefull}} ti aiuta ad eseguire il provisioning di chiavi crittografate per le applicazioni nei servizi {{site.data.keyword.cloud_notm}}. Mentre gestisci il ciclo di vita delle tue chiavi, puoi ottenere dei benefici sapendo che le tue chiavi sono protette dagli HSM (Hardware Security Module) basati sul cloud certificati FIPS 140-2 Level 3 che proteggono dal furto di informazioni.
 {: shortdesc}
 
 ## Motivi per usare {{site.data.keyword.keymanagementserviceshort}}
@@ -45,14 +46,13 @@ puoi concedere l'accesso in sola lettura agli utenti che necessitano di visualiz
 visualizzare il materiale della chiave. |
 | Vuoi eseguire la crittografia envelope poiché sposti i dati nel cloud. Hai bisogno di utilizzare le tue chiavi di crittografia master in modo da poter gestire e proteggere le altre chiavi che codificano i tuoi dati inattivi. | Con {{site.data.keyword.keymanagementserviceshort}}, puoi [impacchettare (crittografare) le tue chiavi di crittografia dei dati con una chiave root altamente sicura](/docs/services/key-protect?topic=key-protect-envelope-encryption). Puoi portare le tue proprie chiavi root o crearle nel servizio.|
 
-Stai cercando una soluzione di gestione delle chiavi dedicata che supporta gli HSM (hardware security module) basati sul cloud e controllati dal cliente? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) si integra con {{site.data.keyword.keymanagementserviceshort}} per abilitare KYOK (Keep Your Own Keys) per {{site.data.keyword.cloud_notm}}, in modo che la tua organizzazione abbia maggiore controllo e autorità sui propri dati. Per ulteriori informazioni, vedi la [pagina dei dettagli dell'offerta {{site.data.keyword.hscrypto}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/services/hyper-protect-crypto-services).
+Stai cercando una soluzione di gestione delle chiavi dedicata che supporta gli HSM (hardware security module) basati sul cloud e controllati dal cliente? [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) si integra con {{site.data.keyword.keymanagementserviceshort}} per abilitare KYOK (Keep Your Own Keys) per {{site.data.keyword.cloud_notm}}, in modo che la tua organizzazione abbia maggiore controllo e autorità sui propri dati. Per ulteriori informazioni, vedi la <a href="https://{DomainName}/catalog/services/hyper-protect-crypto-services" target="_blank" class="external">pagina dei dettagli dell'offerta {{site.data.keyword.hscrypto}}</a>.
 {: tip}
 
 ## Come funziona {{site.data.keyword.keymanagementserviceshort}}
 {: #kp-how}
 
-{{site.data.keyword.keymanagementservicelong_notm}} ti aiuta nella gestione delle chiavi di crittografia nella tua organizzazione eseguendo l'allineamento con i ruoli di gestione dell'accesso e dell'identità
-{{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.keymanagementservicelong_notm}} ti aiuta a gestire le chiavi di crittografia nella tua organizzazione eseguendo l'allineamento con i ruoli di {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
 
 Un amministratore della sicurezza o IT
 necessita di autorizzazioni avanzate rispetto a un revisore. Per semplificare l'accesso, {{site.data.keyword.keymanagementserviceshort}}

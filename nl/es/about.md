@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # Acerca de {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} le ayuda a suministrar claves cifradas para apps en servicios de {{site.data.keyword.cloud_notm}}. A medida que gestiona el ciclo de vida de sus claves, puede beneficiarse de saber que sus claves están aseguradas por módulos de hardware (HSM) con certificación FIPS 140-2 Nivel 2 basados en la nube que le protegen contra el robo de información.
+{{site.data.keyword.keymanagementservicefull}} le ayuda a suministrar claves cifradas para apps en servicios de {{site.data.keyword.cloud_notm}}. A medida que gestiona el ciclo de vida de sus claves, puede beneficiarse de saber que sus claves están aseguradas por módulos de hardware (HSM) con certificación FIPS 140-2 Nivel 3 basados en la nube que le protegen contra el robo de información.
 {: shortdesc}
 
 ## Motivos para utilizar {{site.data.keyword.keymanagementserviceshort}}
@@ -38,13 +39,13 @@ Es posible que necesite gestionar claves en los siguientes casos de ejemplo:
 | Como administrador de seguridad de un sector, como finanzas o jurídico, debe ajustarse a las regulaciones sobre cómo se deben proteger datos. Necesita otorgar acceso controlado a las claves sin poner en riesgo los datos que se protegen. | Con el servicio, puede controlar el acceso de usuario para gestionar claves [asignando distintos roles de Identity and Access Management](/docs/services/key-protect?topic=key-protect-manage-access#roles). Por ejemplo, puede otorgar acceso de solo lectura a los usuarios que requieran ver la información de creación de claves, sin ver el material de la clave. |
 | Puede que desee realizar el cifrado de sobre a medida que mueve sus datos a la nube. Necesitará traer sus propias claves de cifrado maestras para poder gestionar y proteger otras claves que cifren los datos en reposo. | Con {{site.data.keyword.keymanagementserviceshort}}, puede [envolver (cifrar) sus claves de cifrado con una clave raíz altamente segura](/docs/services/key-protect?topic=key-protect-envelope-encryption). Puede traer sus propias claves de raíz o crearlas en el servicio.|
 
-¿Busca una solución de gestión de claves dedicada que dé soporte a módulos de seguridad de hardware (HSM) controlados por el cliente? .[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) se integra con {{site.data.keyword.keymanagementserviceshort}} para habilitar Keep Your Own Keys (KYOK) para {{site.data.keyword.cloud_notm}}, de forma que su organización tiene más control y autoridad sobre sus datos. Consulte la [página de detalles de la oferta de {{site.data.keyword.hscrypto}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Iono de enlace externo")](https://{DomainName}/catalog/services/hyper-protect-crypto-services) para obtener más información.
+¿Busca una solución de gestión de claves dedicada que dé soporte a módulos de seguridad de hardware (HSM) controlados por el cliente? .[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started) se integra con {{site.data.keyword.keymanagementserviceshort}} para habilitar Keep Your Own Keys (KYOK) para {{site.data.keyword.cloud_notm}}, de forma que su organización tiene más control y autoridad sobre sus datos. Consulte la <a href="https://{DomainName}/catalog/services/hyper-protect-crypto-services" target="_blank" class="external">página de detalles de la oferta de {{site.data.keyword.hscrypto}}</a> para obtener más información.
 {: tip}
 
 ## Cómo funciona {{site.data.keyword.keymanagementserviceshort}}
 {: #kp-how}
 
-{{site.data.keyword.keymanagementservicelong_notm}} le ayuda a gestionar las claves en toda su organización alineando los roles de {{site.data.keyword.cloud_notm}} Identity and Access Management.
+{{site.data.keyword.keymanagementservicelong_notm}} le ayuda a gestionar las claves en toda su organización alineando los roles de {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM).
 
 Un administrador de TI o de seguridad necesita permisos avanzados que un auditor. Para simplificar el acceso, {{site.data.keyword.keymanagementserviceshort}} se correlaciona con los roles de {{site.data.keyword.cloud_notm}} Identity and Access Management de forma que cada rol tiene una vista distinta del servicio. Para ayudarle a saber qué vista y nivel de acceso se ajustan mejor a sus necesidades, consulte [Gestión de accesos y usuarios](/docs/services/key-protect?topic=key-protect-manage-access#roles).
 

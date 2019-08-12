@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ IAM({{site.data.keyword.iamshort}})을 사용하면 계정에서 사용자 및 �
   <caption style="caption-side:bottom;">표 1. ID 및 액세스 역할이 {{site.data.keyword.keymanagementserviceshort}} 권한에 맵핑되는 방법에 대한 설명</caption>
 </table>
 
-Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-cfaccess){: new_window}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다. {{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-userroles){: new_window}을 확인하십시오.
+Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에서 액세스를 제공합니다. [Cloud Foundry 역할](/docs/iam?topic=iam-cfaccess){: external}은 이와는 별개로 조직 또는 영역 레벨에서 액세스를 정의합니다. {{site.data.keyword.iamshort}}에 대해 자세히 알아보려면 [사용자 역할 및 권한](/docs/iam?topic=iam-userroles){: external}을 확인하십시오.
 {: note}
 
 ## 다음에 수행할 작업
@@ -105,5 +106,5 @@ Cloud IAM 사용자 역할은 서비스 또는 서비스 인스턴스 레벨에�
 
 계정 소유자와 관리자는 사용자를 초대할 수 있으며 사용자가 수행할 수 있는 {{site.data.keyword.keymanagementserviceshort}} 조치에 대응되는 서비스 정책을 설정할 수 있습니다.
 
-- {{site.data.keyword.cloud_notm}} UI에서 사용자 역할을 지정하는 방법에 대한 자세한 정보는 [IAM 액세스 관리 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/iam?topic=iam-getstarted){: new_window}를 참조하십시오.
+- {{site.data.keyword.cloud_notm}} UI에서 사용자 역할을 지정하는 방법에 대한 자세한 정보는 [IAM 액세스 관리](/docs/iam?topic=iam-getstarted){: external}를 참조하십시오.
 

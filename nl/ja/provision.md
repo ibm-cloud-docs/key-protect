@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,7 +31,7 @@ subcollection: key-protect
 
 {{site.data.keyword.cloud_notm}} コンソールから {{site.data.keyword.keymanagementserviceshort}} のインスタンスをプロビジョンするには、以下の手順を実行します。
 
-1. [{{site.data.keyword.cloud_notm}} アカウント ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン") にログインします](https://{DomainName}){: new_window}。
+1. [{{site.data.keyword.cloud_notm}} アカウントにログインします](https://{DomainName}){: external}。
 2. **「カタログ」**をクリックして、{{site.data.keyword.cloud_notm}} 上で使用可能なサービスのリストを表示します。
 3. 「すべてのカテゴリー」ナビゲーション・ペインで、**「セキュリティーおよび ID」**カテゴリーをクリックします。
 4. サービスのリストで、**「{{site.data.keyword.keymanagementserviceshort}}」**タイルをクリックします。
@@ -41,7 +42,7 @@ subcollection: key-protect
 
 また、{{site.data.keyword.cloud_notm}} CLI を使用して、{{site.data.keyword.keymanagementserviceshort}} のインスタンスをプロビジョンすることもできます。 
 
-1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を使用して {{site.data.keyword.cloud_notm}} にログインします。
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} を使用して {{site.data.keyword.cloud_notm}} にログインします。
 
     ```sh
     ibmcloud login 
@@ -77,4 +78,4 @@ subcollection: key-protect
 ## 次に行うこと
 {: #provision-service-next-steps}
 
-プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を確認してください。
+プログラムでの鍵の管理について詳しくは、[{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料](https://{DomainName}/apidocs/key-protect){: external}を確認してください。

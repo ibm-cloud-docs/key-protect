@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,15 +23,15 @@ subcollection: key-protect
 # 액세스 토큰 검색
 {: #retrieve-access-token}
 
-{{site.data.keyword.iamlong}}(IAM) 액세스 토큰으로 서비스에 대한 요청 인증을 사용하여 {{site.data.keyword.keymanagementservicelong}} API를 시작하십시오.
+{{site.data.keyword.iamlong}}(IAM) 액세스 토큰으로 서비스에 대한 요청을 인증하여 {{site.data.keyword.keymanagementservicelong}} API를 시작하십시오.
 {: shortdesc}
 
 ## CLI를 사용하여 액세스 토큰 검색
 {: #retrieve-token-cli}
 
-[{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 개인용 Cloud IAM 액세스 토큰을 신속하게 생성할 수 있습니다.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 개인용 Cloud IAM 액세스 토큰을 신속하게 생성할 수 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -61,7 +62,7 @@ subcollection: key-protect
 
 먼저 애플리케이션의 [서비스 ID API 키](/docs/iam?topic=iam-serviceidapikeys)를 작성한 다음 API 키를 {{site.data.keyword.cloud_notm}} IAM 토큰으로 교환하여 액세스 토큰을 프로그래밍 방식으로 검색할 수도 있습니다.
 
-1. [{{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
+1. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}를 사용하여 {{site.data.keyword.cloud_notm}}에 로그인하십시오.
 
     ```sh
     ibmcloud login 
@@ -101,14 +102,14 @@ subcollection: key-protect
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    요청에서 `<API_KEY>`를 이전 단계에서 작성한 API 키로 바꾸십시오. 다음 잘린 예는 토큰 출력을 표시합니다.
+    요청에서 `<API_KEY>`를 이전 단계에서 작성한 API 키로 바꾸십시오. 다음 잘린 예는 `token.json` 파일의 컨텐츠를 표시합니다. 
 
     ```
     {

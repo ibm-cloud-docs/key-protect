@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}} 会在您为服务实例[创建传输密钥](/docs/services/key-protect?topic=key-protect-create-transport-keys)时生成 4096 位的 RSA 密钥。该服务会加密专用密钥，并随后返回可用于加密根密钥资料的公用密钥和可用于导入根密钥资料的导入令牌。 
 
-准备好[导入根密钥](/docs/services/key-protect?topic=key-protect-import-root-keys#api)到 {{site.data.keyword.keymanagementserviceshort}} 时，您需要提供已加密的根密钥资料和用于验证公用密钥完整性的导入令牌。要完成该请求，{{site.data.keyword.keymanagementserviceshort}} 会使用与您的服务实例相关联的专用密钥来解密已加密的根密钥资料。此过程可确保只有在 {{site.data.keyword.keymanagementserviceshort}} 中生成的传输密钥才能解密您导入并存储在服务中的密钥资料。
+准备好[导入根密钥](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api)到 {{site.data.keyword.keymanagementserviceshort}} 时，您需要提供已加密的根密钥资料和用于验证公用密钥完整性的导入令牌。要完成该请求，{{site.data.keyword.keymanagementserviceshort}} 会使用与您的服务实例相关联的专用密钥来解密已加密的根密钥资料。此过程可确保只有在 {{site.data.keyword.keymanagementserviceshort}} 中生成的传输密钥才能解密您导入并存储在服务中的密钥资料。
 
 每个服务实例只能创建一个传输密钥。要了解有关传输密钥的检索限制的更多信息，请[参阅 {{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
 {: note} 

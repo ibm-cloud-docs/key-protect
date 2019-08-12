@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,7 +23,7 @@ subcollection: key-protect
 # 鍵のラッピング
 {: #wrap-keys}
 
-特権ユーザーの場合、{{site.data.keyword.keymanagementservicelong}} API を使用して、ルート鍵を使って暗号鍵を管理および保護することができます。
+{{site.data.keyword.keymanagementservicelong}} API を使用して、ルート鍵を使って暗号鍵を管理および保護することができます。
 {: shortdesc}
 
 ルート鍵を使用してデータ暗号鍵 (DEK) をラップすると、{{site.data.keyword.keymanagementserviceshort}} は複数のアルゴリズムの長所を組み合わせて、暗号化データのプライバシーおよび保全性を保護します。  
@@ -34,7 +35,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}} 内で管理するルート鍵を使用して、指定されたデータ暗号化鍵 (DEK) を保護することができます。
 
-ラッピングのためにルート鍵を提供する場合、ラップ呼び出しが成功できるように、ルート鍵が 128 ビット、192 ビット、または 256 ビットであることを確認してください。 サービス内にルート鍵を作成する場合、{{site.data.keyword.keymanagementserviceshort}} はその HSM から、AES-GCM アルゴリズムによってサポートされている 256 ビット鍵を生成します。
+ラッピングのためにルート鍵を提供する場合、ラップ呼び出しが成功できるように、ルート鍵が 128 ビット、192 ビット、または 256 ビットであることを確認してください。 サービス内にルート鍵を作成する場合、{{site.data.keyword.keymanagementserviceshort}} はその HSM から、AES-CBC-PAD アルゴリズムによってサポートされている 256 ビット鍵を生成します。
 {: note}
 
 [サービス内でルート鍵を指定した後](/docs/services/key-protect?topic=key-protect-create-root-keys)、以下のエンドポイントへの `POST` 呼び出しを行うことにより、拡張暗号化を使用して DEK をラップできます。
@@ -48,7 +49,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 2. 管理および保護する DEK の鍵の素材をコピーします。
 
-    {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの管理者またはライターの特権を持っている場合、[`GET /v2/keys/<key_ID>` 要求を行うことで、特定の鍵の鍵素材を取得できます](/docs/services/key-protect?topic=key-protect-view-keys#api)。
+    {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスの管理者またはライターの特権を持っている場合、[`GET /v2/keys/<key_ID>` 要求を行うことで、特定の鍵の鍵素材を取得できます](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	)。
 
 3. ラッピングに使用するルート鍵の ID をコピーします。
 
@@ -69,9 +70,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {: codeblock}
 
-    ご使用のアカウントの Cloud Foundry 組織およびスペース内で鍵の処理を行うには、`Bluemix-Instance` を、適切な `Bluemix-org` および `Bluemix-space` のヘッダーに置き換えます。 [詳しくは、{{site.data.keyword.keymanagementserviceshort}} API リファレンス資料 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/key-protect){: new_window} を参照してください。
-    {: tip}
-
     次の表に従って、例の要求内の変数を置き換えてください。
 
     <table>
@@ -81,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
+        <td><strong>必須。</strong> {{site.data.keyword.keymanagementserviceshort}} サービス・インスタンスが存在している地理的領域を表す、地域の省略形 (例: <code>us-south</code> または <code>eu-gb</code>)。 詳しくは、<a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">地域のサービス・エンドポイント</a>を参照してください。</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -129,7 +127,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     ```
     {:screen}
 
-    <code>plaintext</code> の値はアンラップ DEK を表し、<code>ciphertext</code> の値はラップされた DEK を表します。
+    `plaintext` の値はアンラップ DEK を表し、`ciphertext` の値はラップされた DEK を表します。
     
     {{site.data.keyword.keymanagementserviceshort}} がユーザーの代わりに新規データ暗号鍵 (DEK) を生成するようにする場合、ラップ要求で空の本体を渡すこともできます。 Base64 エンコードの鍵素材が含まれている生成された DEK が、ラップされた DEK とともに応答のエンティティー本体で返されます。
     {: tip}

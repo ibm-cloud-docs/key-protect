@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -97,7 +98,7 @@ In der folgenden Tabelle erhalten Sie Informationen dazu, wie die Identitäts- u
   <caption style="caption-side:bottom;">Tabelle 1. Informationen zur Zuordnung von Identitäts- und Zugriffsrollen zu {{site.data.keyword.keymanagementserviceshort}}-Berechtigungen</caption>
 </table>
 
-Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [Cloud Foundry-Rollen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-cfaccess){: new_window} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene. Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie in [Benutzerrollen und -berechtigungen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-userroles){: new_window}.
+Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [Cloud Foundry-Rollen](/docs/iam?topic=iam-cfaccess){: external} sind separat und definieren den Zugriff auf Organisations- oder Bereichsebene. Weitere Informationen zu {{site.data.keyword.iamshort}} finden Sie unter [Benutzerrollen und -berechtigungen](/docs/iam?topic=iam-userroles){: external}.
 {: note}
 
 ## Weitere Schritte
@@ -105,5 +106,5 @@ Cloud-IAM-Benutzerrollen bieten Zugriff auf Service- oder Serviceinstanzebene. [
 
 Kontoeigner und Administratoren können Benutzer einladen und Servicerichtlinien festlegen, die den {{site.data.keyword.keymanagementserviceshort}}-Aktionen entsprechen, die die Benutzer ausführen können.
 
-- Weitere Informationen zur Zuweisung von Benutzerrollen in der {{site.data.keyword.cloud_notm}}-Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/iam?topic=iam-getstarted){: new_window}.
+- Weitere Informationen zur Zuweisung von Benutzerrollen in der {{site.data.keyword.cloud_notm}}-Benutzerschnittstelle finden Sie unter [IAM-Zugriff verwalten](/docs/iam?topic=iam-getstarted){: external}.
 

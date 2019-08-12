@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, transport encryption key 
 
@@ -73,7 +73,7 @@ subcollection: key-protect
 
 當您為服務實例[建立傳輸金鑰](/docs/services/key-protect?topic=key-protect-create-transport-keys)時，{{site.data.keyword.keymanagementserviceshort}} 會產生一個 4096 位元的 RSA 金鑰。此服務會加密私密金鑰，然後傳回公開金鑰和可用於加密及匯入根金鑰資料的匯入記號。 
 
-當您備妥要[將根金鑰匯入](/docs/services/key-protect?topic=key-protect-import-root-keys#api)至 {{site.data.keyword.keymanagementserviceshort}} 時，您會提供加密的根金鑰資料，以及用來驗證公開金鑰完整性的匯入記號。為了完成要求，{{site.data.keyword.keymanagementserviceshort}} 會使用與服務實例相關聯的私密金鑰，以解密已加密的根金鑰資料。這項程序可確保只有在 {{site.data.keyword.keymanagementserviceshort}} 中產生的傳輸金鑰可以解密您在服務中匯入及儲存的金鑰資料。
+當您備妥要[將根金鑰匯入](/docs/services/key-protect?topic=key-protect-import-root-keys#import-root-key-api)至 {{site.data.keyword.keymanagementserviceshort}} 時，您會提供加密的根金鑰資料，以及用來驗證公開金鑰完整性的匯入記號。為了完成要求，{{site.data.keyword.keymanagementserviceshort}} 會使用與服務實例相關聯的私密金鑰，以解密已加密的根金鑰資料。這項程序可確保只有在 {{site.data.keyword.keymanagementserviceshort}} 中產生的傳輸金鑰可以解密您在服務中匯入及儲存的金鑰資料。
 
 每個服務實例只能建立一個傳輸金鑰。若要進一步瞭解傳輸金鑰的擷取限制，[請參閱 {{site.data.keyword.keymanagementserviceshort}} API 參考資料文件 ![外部鏈結圖示](../../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/key-protect){: new_window}。
 {: note} 

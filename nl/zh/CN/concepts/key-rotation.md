@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -26,21 +27,13 @@ subcollection: key-protect
 
 定期轮换密钥有助于符合行业标准和加密最佳实践。下表描述了密钥轮换的主要优点：
 
-<table>
-  <th>优点</th>
-  <th>描述</th>
-  <tr>
-    <td>密钥的加密期管理</td>
-    <td>密钥轮换可限制信息受单个密钥保护的时长。通过定期轮换根密钥，还可以缩短密钥的加密期。加密密钥的生命周期越长，出现安全漏洞的可能性越高。</td>
-  </tr>
-  <tr>
-    <td>事件缓解</td>
-    <td>如果您的组织检测到安全问题，您可以立即轮换密钥，以降低或减少与密钥泄漏相关的成本。</td>
-  </tr>
-  <caption style="caption-side:bottom;">表 1. 描述密钥轮换的优点</caption>
-</table>
+|优点|描述|
+| --- | --- |
+|密钥的加密期管理|密钥轮换可限制信息受单个密钥保护的时长。通过定期轮换根密钥，还可以缩短密钥的加密期。加密密钥的生命周期越长，出现安全漏洞的可能性越高。|
+|事件缓解|如果您的组织检测到安全问题，您可以立即轮换密钥，以降低或减少与密钥泄漏相关的成本。|
+{: caption="表 1. 描述密钥轮换的优点" caption-side="top"}
 
-NIST Special Publication 800-57 Recommendation for Key Management 中对密钥轮换进行了介绍。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: new_window}。
+NIST Special Publication 800-57 Recommendation for Key Management 中对密钥轮换进行了介绍。要了解更多信息，请参阅 [NIST SP 800-57 Pt.1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## 在 {{site.data.keyword.keymanagementserviceshort}} 中比较密钥轮换选项
@@ -74,7 +67,7 @@ NIST Special Publication 800-57 Recommendation for Key Management 中对密钥�
   <dt>轮换移至服务的根密钥</dt>
     <dd>要轮换最初导入到服务的根密钥，必须为该密钥生成并提供新的密钥资料。可以使用 {{site.data.keyword.keymanagementserviceshort}} 来根据需要轮换已导入的根密钥，方法是将新密钥资料作为轮换请求的一部分提供。根密钥的元数据（例如，密钥标识）在轮换密钥时不会更改。由于必须提供新的密钥资料才能轮换已导入的密钥，因此自动轮换策略不适用于已导入密钥资料的根密钥。</dd>
   <dt>管理已撤销的密钥资料</dt>
-    <dd>轮换根密钥之后，{{site.data.keyword.keymanagementserviceshort}} 会创建新的密钥资料。服务将撤销旧密钥资料并保留已撤销的版本，直到删除根密钥为止。使用根密钥进行包络加密时，{{site.data.keyword.keymanagementserviceshort}} 仅会使用与该密钥关联的最新密钥资料。已撤销的密钥资料不能再用于保护密钥，但仍可用于解包操作。当 {{site.data.keyword.keymanagementserviceshort}} 检测到您正在使用已撤销的密钥资料来解包 DEK 时，该服务会提供基于最新根密钥资料的新打包的 DEK。您可以借助最新的根密钥资料，使用新打包的 DEK 来重新打包密钥。</dd>
+    <dd>轮换根密钥之后，{{site.data.keyword.keymanagementserviceshort}} 会创建新的密钥资料。服务将撤销旧密钥资料并保留已撤销的版本，直到删除根密钥为止。使用根密钥进行包络加密时，{{site.data.keyword.keymanagementserviceshort}} 仅会使用与该密钥关联的最新密钥资料。已撤销的密钥资料不能再用于保护密钥，但仍可用于解包操作。当 {{site.data.keyword.keymanagementserviceshort}} 检测到您正在使用已撤销的密钥资料来解包 DEK 时，该服务会提供基于最新根密钥资料的新打包的 DEK。</dd>
  <dt>为 {{site.data.keyword.cloud_notm}} 数据服务启用密钥轮换</dt>
     <dd>要在 {{site.data.keyword.cloud_notm}} 上为数据服务启用这些密钥轮换选项，必须将数据服务与 {{site.data.keyword.keymanagementserviceshort}} 相集成。请参阅 {{site.data.keyword.cloud_notm}} 数据服务的文档，或<a href="/docs/services/key-protect?topic=key-protect-integrate-services">查看我们的集成服务列表以了解更多信息</a>。</dd>
 </dl>
@@ -94,9 +87,8 @@ NIST Special Publication 800-57 Recommendation for Key Management 中对密钥�
 
 ![该图显示了根密钥堆栈的微观视图。](../images/root-key-stack_min.svg)
 
-轮换完成后，新的根密钥资料即可用于以[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)方式来保护未来数据加密密钥 (DEK)。已撤销的密钥资料会变为_已停用_状态，并且只能用于解包和访问尚未受最新根密钥资料保护的较旧 DEK。当 {{site.data.keyword.keymanagementserviceshort}} 服务检测到您正在使用已撤销的根密钥资料来解包较旧 DEK 时，它会自动重新加密 DEK，并返回基于最新根密钥资料打包的数据加密密钥 (WDEK)。您可以存储新的 WDEK 并将其用于未来的解包操作中，以便使用最新的根密钥资料来保护 DEK。
-
 要了解如何使用 {{site.data.keyword.keymanagementserviceshort}} API 来轮换根密钥，请参阅[轮换密钥](/docs/services/key-protect?topic=key-protect-rotate-keys)。
+{: tip}
 
 ## 密钥轮换的频率
 {: #rotation-frequency}
@@ -105,7 +97,7 @@ NIST Special Publication 800-57 Recommendation for Key Management 中对密钥�
 
 根据加密最佳实践，应定期轮换密钥，例如每 30 天。 
 
-| 轮换类型| 频率| 描述
+| 轮换类型| 频率|描述|
 | --- | --- | --- |
 | [基于策略的密钥轮换](/docs/services/key-protect?topic=key-protect-set-rotation-policy) | 每 1 - 12 个月|基于持续的安全需求为密钥选择一个介于 1 到 12 个月之间的轮换时间间隔。为密钥设置轮换策略之后，时钟将根据密钥的初始创建日期立即启动。例如，如果为 `2019/02/01` 创建的密钥设置按每月轮换策略，那么 {{site.data.keyword.keymanagementserviceshort}} 会在 `2019/03/01` 自动轮换该密钥。|
 | [根据需求的密钥轮换](/docs/services/key-protect?topic=key-protect-rotate-keys) | 最多每小时轮换一次|如果根据需求轮换密钥，那么在 {{site.data.keyword.keymanagementserviceshort}} 中，每个根密钥可以每小时轮换一次。|

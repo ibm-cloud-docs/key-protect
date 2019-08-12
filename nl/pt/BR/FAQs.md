@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -70,7 +71,7 @@ A criptografia de envelope é a prática de criptografar dados com uma _chave de
 
 Para proteger a confidencialidade de seus dados pessoais, não armazene informações pessoalmente identificáveis (PII) como metadados para suas chaves. As informações pessoais incluem seu nome, endereço, número do telefone, endereço de e-mail ou outras informações que possam identificar, contatar ou localizar você, seus clientes ou qualquer outra pessoa.
 
-Você é responsável por assegurar a segurança de quaisquer informações que você armazene como metadados para recursos do {{site.data.keyword.keymanagementserviceshort}} e chaves de criptografia. Para obter mais exemplos de dados pessoais, consulte a seção 2.2 da [Publicação especial NIST 800-122 ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: new_window}.
+Você é responsável por assegurar a segurança de quaisquer informações que você armazene como metadados para recursos do {{site.data.keyword.keymanagementserviceshort}} e chaves de criptografia. Para obter mais exemplos de dados pessoais, consulte a seção 2.2 da [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
 ## As chaves que são criadas em uma região podem ser usadas em outra região?
@@ -91,7 +92,7 @@ O {{site.data.keyword.keymanagementserviceshort}} suporta um sistema de controle
 É possível usar o serviço {{site.data.keyword.cloudaccesstrailfull_notm}} para controlar como os usuários e aplicativos interagem com sua instância de serviço do {{site.data.keyword.keymanagementserviceshort}}. Por exemplo, ao criar, importar, excluir ou ler uma chave no {{site.data.keyword.keymanagementserviceshort}}, um evento do {{site.data.keyword.cloudaccesstrailshort}} é gerado. Esses eventos são encaminhados automaticamente para o serviço {{site.data.keyword.cloudaccesstrailshort}} na mesma
 região em que o serviço {{site.data.keyword.keymanagementserviceshort}} é provisionado.
 
-Para descobrir mais, confira os [eventos do Activity Tracker](/docs/services/key-protect?topic=key-protect-activity-tracker-events).
+Para descobrir mais, confira os [eventos do Activity Tracker](/docs/services/key-protect?topic=key-protect-at-events).
 
 ## O que acontece quando eu excluo uma chave?
 {: #key-destruction}
@@ -106,3 +107,4 @@ Antes de excluir uma chave, verifique se você não precisa mais de acesso a alg
 {: faq}
 
 Se você decidir mudar do {{site.data.keyword.keymanagementserviceshort}}, deverá excluir qualquer chave restante de sua instância de serviço antes de poder desprover o serviço. Depois de excluir sua instância de serviço, o {{site.data.keyword.keymanagementserviceshort}} usará a [criptografia de envelope](/docs/services/key-protect?topic=key-protect-envelope-encryption) para cripto-fragmentar quaisquer dados que estejam associados à instância de serviço. 
+

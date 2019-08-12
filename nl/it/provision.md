@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -31,7 +32,7 @@ Puoi creare un'istanza di {{site.data.keyword.keymanagementservicefull}} utilizz
 Per eseguire il provisioning di un'istanza di {{site.data.keyword.keymanagementserviceshort}} dalla console
 {{site.data.keyword.cloud_notm}}, completa la seguente procedura.
 
-1. [Accedi al tuo account {{site.data.keyword.cloud_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}){: new_window}.
+1. [Accedi al tuo account {{site.data.keyword.cloud_notm}}](https://{DomainName}){: external}.
 2. Fai clic su **Catalogo** per visualizzare l'elenco dei sevizi disponibili in {{site.data.keyword.cloud_notm}}.
 3. Dal riquadro di navigazione Tutte le categorie, fai clic sulla categoria **Sicurezza e identità**.
 4. Dall'elenco di servizi, fai clic sul tile **{{site.data.keyword.keymanagementserviceshort}}**.
@@ -43,7 +44,7 @@ Per eseguire il provisioning di un'istanza di {{site.data.keyword.keymanagements
 
 Puoi anche eseguire il provisioning di un'istanza di {{site.data.keyword.keymanagementserviceshort}} utilizzando la CLI {{site.data.keyword.cloud_notm}}. 
 
-1. Accedi a {{site.data.keyword.cloud_notm}} tramite la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
+1. Accedi a {{site.data.keyword.cloud_notm}} tramite la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
     ibmcloud login 
@@ -81,4 +82,4 @@ per generare una passcode monouso.
 ## Operazioni successive
 {: #provision-service-next-steps}
 
-Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/key-protect){: new_window}.
+Per ulteriori informazioni sulla gestione a livello programmatico delle tue chiavi, [consulta la documentazione di riferimento API {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/apidocs/key-protect){: external}.

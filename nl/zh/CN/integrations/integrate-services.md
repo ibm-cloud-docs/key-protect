@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,45 +28,13 @@ subcollection: key-protect
 
 [创建服务实例后](/docs/services/key-protect?topic=key-protect-provision)，您可以将 {{site.data.keyword.keymanagementserviceshort}} 与以下受支持的服务相集成：
 
-<table>
-    <tr>
-        <th>服务</th>
-        <th>描述</th>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.cos_full_notm}}</p>
-        </td>
-        <td>
-          <p>使用 {{site.data.keyword.keymanagementserviceshort}} 向存储区添加[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)。使用在 {{site.data.keyword.keymanagementserviceshort}} 中管理的根密钥来保护加密静态数据的数据加密密钥。要了解更多信息，请查看[与 {{site.data.keyword.cos_full_notm}} 集成](/docs/services/key-protect?topic=key-protect-integrate-cos)。</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.containerlong_notm}}</p>
-        </td>
-        <td>
-          <p>使用[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)来保护 {{site.data.keyword.containershort_notm}} 集群中的密钥。要了解更多信息，请查看[使用 {{site.data.keyword.keymanagementserviceshort}} 加密 Kubernetes 密钥](/docs/containers?topic=containers-encryption#keyprotect)。</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-          <p>{{site.data.keyword.databases-for-postgresql_full_notm}}</p>
-        </td>
-        <td>
-          <p>通过将根密钥与 {{site.data.keyword.databases-for-postgresql}} 部署相关联来保护数据库。要了解更多信息，请查看 [{{site.data.keyword.databases-for-postgresql}} 文档](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-key-protect)。</p>
-        </td>
-    </tr>
-      <tr>
-        <td>
-          <p>{{site.data.keyword.cloud_notm}} 的 {{site.data.keyword.cloudant_short_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)</p>
-        </td>
-        <td>
-          <p>通过将根密钥与 {{site.data.keyword.cloudant_short_notm}} 专用硬件实例相关联来加强静态加密策略。要了解更多信息，请查看 [{{site.data.keyword.cloudant_short_notm}} 文档](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)。</p>
-        </td>
-    </tr>
-   <caption style="caption-side:bottom;">表 1. 描述适用于 {{site.data.keyword.keymanagementserviceshort}} 的集成</caption>
-</table>
+|服务|描述|
+| --- | --- |
+| {{site.data.keyword.cos_full_notm}} |使用 {{site.data.keyword.keymanagementserviceshort}} 向存储区添加[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)。使用在 {{site.data.keyword.keymanagementserviceshort}} 中管理的根密钥来保护加密静态数据的数据加密密钥。要了解更多信息，请查看[与 {{site.data.keyword.cos_full_notm}} 集成](/docs/services/key-protect?topic=key-protect-integrate-cos)。|
+| {{site.data.keyword.databases-for-postgresql_full_notm}} |通过将根密钥与 {{site.data.keyword.databases-for-postgresql}} 部署相关联来保护数据库。要了解更多信息，请查看 [{{site.data.keyword.databases-for-postgresql}} 文档](/docs/services/databases-for-postgresql?topic=cloud-databases-key-protect)。|
+|{{site.data.keyword.cloud_notm}} 的 {{site.data.keyword.cloudant_short_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)|通过将根密钥与 {{site.data.keyword.cloudant_short_notm}} 专用硬件实例相关联来加强静态加密策略。要了解更多信息，请查看 [{{site.data.keyword.cloudant_short_notm}} 文档](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control)。|
+| {{site.data.keyword.containerlong_notm}} |使用[包络加密](/docs/services/key-protect?topic=key-protect-envelope-encryption)来保护 {{site.data.keyword.containershort_notm}} 集群中的密钥。要了解更多信息，请查看[使用 {{site.data.keyword.keymanagementserviceshort}} 加密 Kubernetes 密钥](/docs/containers?topic=containers-encryption#keyprotect)。|
+{: caption="表 1. 描述适用于 {{site.data.keyword.keymanagementserviceshort}} 的集成" caption-side="top"}
 
 ## 了解集成 
 {: #understand-integration}
@@ -74,7 +43,7 @@ subcollection: key-protect
 
 例如，您可以创建根密钥，在 {{site.data.keyword.keymanagementserviceshort}} 中管理密钥，并使用根密钥来保护跨不同云服务存储的数据。
 
-![该图显示 {{site.data.keyword.keymanagementserviceshort}} 集成的上下文视图。](../images/kp-integrations_min.svg)
+![该图显示 {{site.data.keyword.keymanagementserviceshort}} 集成的上下文视图。](../images/kp-integrations.svg)
 
 ### {{site.data.keyword.keymanagementserviceshort}} API 方法
 {: #envelope-encryption-api-methods}
@@ -83,23 +52,13 @@ subcollection: key-protect
 
 下表列出用于添加或除去针对资源的包络加密的 API 方法。
 
-<table>
-  <tr>
-    <th>方法</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=wrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-wrap-keys">打包（加密）数据加密密钥</a></td>
-  </tr>
-  <tr>
-    <td><code>POST /keys/{root_key_ID}?action=unwrap</code></td>
-    <td><a href="/docs/services/key-protect?topic=key-protect-unwrap-keys">解包（解密）数据加密密钥</a></td>
-  </tr>
-  <caption style="caption-side:bottom;">表 2. 描述 {{site.data.keyword.keymanagementserviceshort}} API 方法</caption>
-</table>
+|方法|描述|
+| --- | --- |
+| `POST /keys/{root_key_ID}?action=wrap` |[打包（加密）数据加密密钥](/docs/services/key-protect?topic=key-protect-wrap-keys)|
+| `POST /keys/{root_key_ID}?action=unwrap` |[解包（解密）数据加密密钥](/docs/services/key-protect?topic=key-protect-unwrap-keys)|
+{: caption="表 2. 描述 {{site.data.keyword.keymanagementserviceshort}} API 方法" caption-side="top"}
 
-要了解有关在 {{site.data.keyword.keymanagementserviceshort}} 中以编程方式管理密钥的更多信息，请查看 [{{site.data.keyword.keymanagementserviceshort}} API 参考文档 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/key-protect){: new_window}。
+要了解有关在 {{site.data.keyword.keymanagementserviceshort}} 中以编程方式管理密钥的更多信息，请查看 [{{site.data.keyword.keymanagementserviceshort}} API 参考文档](https://{DomainName}/apidocs/key-protect){: external}。
 {: tip}
 
 ## 集成受支持的服务
@@ -107,7 +66,7 @@ subcollection: key-protect
 
 要添加集成，请使用 {{site.data.keyword.iamlong}} 仪表板在服务之间创建授权。授权将启用服务到服务访问策略，以便可以将云数据服务中的资源与在 {{site.data.keyword.keymanagementserviceshort}} 中管理的[根密钥](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types)相关联。
 
-请确保在相同区域中供应两个服务，然后再创建授权。要了解有关服务授权的更多信息，请参阅[授予服务之间的访问权 ![外部链接图标](../../../icons/launch-glyph.svg "外部链接图标")](/docs/iam?topic=iam-serviceauth){: new_window}。
+请确保在相同区域中供应两个服务，然后再创建授权。要了解有关服务授权的更多信息，请参阅[授予服务之间的访问权](/docs/iam?topic=iam-serviceauth){: external}。
 {: note}
 
 在准备好集成服务时，请使用以下步骤以创建授权：

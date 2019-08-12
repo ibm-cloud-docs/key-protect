@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -27,7 +28,7 @@ Mithilfe des Plug-ins für die Befehlszeilenschnittstelle (CLI) von {{site.data.
 
 Informationen zur Installation der Befehlszeilenschnittstelle finden Sie in [Befehlszeilenschnittstelle einrichten](/docs/services/key-protect?topic=key-protect-set-up-cli). 
 
-Wenn Sie sich an der [{{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} anmelden, werden Sie bei Verfügbarkeit von Aktualisierungen benachrichtigt. Stellen Sie sicher, dass sich die Befehlszeilenschnittstelle stets auf dem neuesten Stand befindet, damit Sie die Befehle und Flags nutzen können, die für das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} verfügbar sind.
+Wenn Sie sich an der [{{site.data.keyword.cloud_notm}}-Befehlszeilenschnittstelle](/docs/cli?topic=cloud-cli-getting-started){: external} anmelden, werden Sie bei Verfügbarkeit von Aktualisierungen benachrichtigt. Stellen Sie sicher, dass sich die Befehlszeilenschnittstelle stets auf dem neuesten Stand befindet, damit Sie die Befehle und Flags nutzen können, die für das Plug-in der Befehlszeilenschnittstelle von {{site.data.keyword.keymanagementserviceshort}} verfügbar sind.
 {: tip}
 
 ## ibmcloud kp commands
@@ -58,7 +59,7 @@ Sie können einen der folgenden Befehle angeben:
     <caption style="caption-side:bottom;">Tabelle 1. Befehle für die Verwaltung von Schlüsseln</caption> 
  </table>
 
- <table summary="Befehle für die Verwaltung von Schlüsselrichtlinien">
+ <table summary="Befehle für die Verwaltung von Schlüsselrichtlinien"> 
     <thead>
         <th colspan="5">Befehle für die Verwaltung von Schlüsselrichtlinien</th>
     </thead>
@@ -87,6 +88,15 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ```
 {:pre}
 
+```sh
+$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+```
+{:screen}
+
 ### Erforderliche Parameter
 {: #create-req-params}
 
@@ -105,7 +115,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
         <dd>Die mit einer Base64-Codierung verschlüsselten Schlüsselinformationen, die im Service gespeichert und verwaltet werden sollen. Geben Sie zum Importieren eines bereits vorhandenen Schlüssels einen 256-Bit-Schlüssel an. Wenn Sie einen neuen Schlüssel generieren möchten, geben Sie den Parameter <code>--key-material</code> nicht an.</dd>
     <dt><code>-s, --standard-key</code></dt>
         <dd>Legen Sie den Parameter nur fest, wenn Sie einen <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">Standardschlüssel</a> erstellen möchten. Wenn Sie einen Rootschlüssel erstellen möchten, geben Sie den Parameter <code>--standard-key</code> nicht an.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -118,6 +128,17 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
+
+SUCCESS
+
+Deleted Key
+584fb0d9-dec2-47b8-bde5-50f05fd66261
+```
+{: screen}
 
 ### Erforderliche Parameter
 {: #delete-req-params}
@@ -139,6 +160,18 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp list -i $KP_INSTANCE_ID
+Retrieving keys...
+
+SUCCESS
+
+Key ID                                 Key Name
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
+92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
+```
+{: screen}
+
 ### Erforderliche Parameter
 {: #list-req-params}
 
@@ -151,7 +184,7 @@ ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
 {: #list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -167,6 +200,17 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 ```
 {: pre}
 
+```sh
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
+
+SUCCESS
+
+Key ID                                 Key Name          Description     Creation Date                   Expiration Date
+3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
+```
+{:screen}
+
 ### Erforderliche Parameter
 {: #get-req-params}
 
@@ -181,7 +225,7 @@ ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -195,6 +239,14 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
                  [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
+
+```sh
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+Rotating root key...
+
+SUCCESS
+```
+{:screen}
 
 ### Erforderliche Parameter
 {: #rotate-req-params}
@@ -212,7 +264,7 @@ ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-k, --key-material</code></dt>
         <dd>Die mit einer Base64-Codierung verschlüsselten Schlüsselinformationen, die für die Rotation eines vorhandenen Rootschlüssels verwendet werden sollen. Geben Sie für die Rotation eines Schlüssels, der ursprünglich in den Service importiert wurde, einen neuen 256-Bit-Schlüssel an. Geben Sie für die Rotation eines Schlüssels, der ursprünglich in {{site.data.keyword.keymanagementserviceshort}} generiert wurde, den Parameter <code>--key-material</code> nicht an.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -247,7 +299,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>Die zusätzlichen Authentifizierungsdaten (AAD), die für den zusätzlichen Schutz eines Schlüssels verwendet werden. Werden die Daten beim Wrapping angegeben, müssen sie auch beim Aufheben des Wrappings angegeben werden.</dd>
     <dt><code>-p, --plaintext</code></dt>
         <dd>Der mit einer Base64-Codierung verschlüsselte Datenverschlüsselungsschlüssel (DEK), der verwaltet und geschützt werden soll. Geben Sie zum Importieren eines bereits vorhandenen Schlüssels einen 256-Bit-Schlüssel an. Geben Sie für die Generierung und das Wrapping eines neuen DEK den Parameter <code>--plaintext</code> nicht an.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -281,7 +333,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>Die zusätzlichen Authentifizierungsdaten (AAD), die für den zusätzlichen Schutz eines Schlüssels verwendet wurden. Es können bis zu 255 Zeichenfolgen, jeweils durch Kommas getrennt, angegeben werden. Wenn die AAD beim Wrapping angegeben wurden, müssen dieselben AAD beim Aufheben des Wrappings angegeben werden.</p><p><b>Wichtig:</b> Der {{site.data.keyword.keymanagementserviceshort}}-Service speichert keine zusätzlichen Authentifizierungsdaten. Wenn AAD angegeben werden, speichern Sie die Daten an einer sicheren Position, um sicherzustellen, dass Sie bei nachfolgenden Anforderungen zum Aufheben des Wrappings auf dieselben AAD zugreifen und diese angeben können.</p></dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -309,7 +361,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-list-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -337,7 +389,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 {: #policy-get-opt-params}
 
 <dl>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 
@@ -371,7 +423,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>-p, --policy</code></dt>
         <dd>Geben Sie das Rotationszeitintervall (in Monaten) für einen Schlüssel an. Der Standardwert ist 1.</dd>
-    <dt><code>--output</code></dt>
+    <dt><code>-o, --output</code></dt>
         <dd>Legen Sie das CLI-Ausgabeformat fest. Standardmäßig werden alle Befehle im Tabellenformat ausgegeben. Zum Ändern des Ausgabeformats in JSON verwenden Sie <code>--output json</code>.</dd>
 </dl>
 

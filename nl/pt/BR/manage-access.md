@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -101,7 +102,7 @@ A tabela a seguir mostra como as funções de identidade e acesso são mapeadas 
   <caption style="caption-side:bottom;">Tabela 1. Descreve como as funções de identidade e acesso são mapeadas para permissões do {{site.data.keyword.keymanagementserviceshort}}</caption>
 </table>
 
-As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou instância de serviço. [As funções do Cloud Foundry ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-cfaccess){: new_window} são separadas e definem o acesso no nível da organização ou do espaço. Para saber mais sobre o {{site.data.keyword.iamshort}}, confira [Funções e permissões do usuário ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-userroles){: new_window}.
+As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou instância de serviço. As [funções do Cloud Foundry](/docs/iam?topic=iam-cfaccess){: external} são separadas e definem o acesso no nível da organização ou do espaço. Para saber mais sobre o {{site.data.keyword.iamshort}}, confira [Funções e permissões do usuário](/docs/iam?topic=iam-userroles){: external}.
 {: note}
 
 ## O que vem a seguir
@@ -109,5 +110,5 @@ As funções de usuário do Cloud IAM fornecem acesso no nível de serviço ou i
 
 Os proprietários e administradores de conta podem convidar usuários e configurar políticas de serviço que correspondem às ações do {{site.data.keyword.keymanagementserviceshort}} que os usuários podem executar.
 
-- Para obter mais informações sobre como designar funções de usuário na UI do {{site.data.keyword.cloud_notm}}, veja [Gerenciando o acesso ao IAM ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/iam?topic=iam-getstarted){: new_window}.
+- Para obter mais informações sobre como designar funções de usuário na IU do {{site.data.keyword.cloud_notm}}, consulte [Gerenciando o acesso ao IAM](/docs/iam?topic=iam-getstarted){: external}.
 

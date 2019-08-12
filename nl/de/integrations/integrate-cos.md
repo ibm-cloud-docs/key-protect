@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,12 +31,12 @@ Mit der Kombination aus {{site.data.keyword.keymanagementservicefull}} und {{sit
 
 {{site.data.keyword.cos_full_notm}} stellt Cloudspeicher für unstrukturierte Daten bereit. Unstrukturierte Daten beziehen sich auf Dateien, Audio- und visuelle Medien, PDFs, komprimierte Datenarchive, Backup-Images, Anwendungsartefakte, Geschäftsdokumente oder andere binäre Objekte.  
 
-Damit die Datenintegrität und Verfügbarkeit gewahrt werden kann, zerlegt {{site.data.keyword.cos_full_notm}} Daten und verteilt sie auf Speicherknoten an mehreren geografischen Standorten. In den einzelnen Speicherknoten befinden sich keine vollständigen Datenkopien. Nur eine Teilmenge von Knoten muss verfügbar sein, damit Sie die Daten im Netz komplett abrufen können. Die providerseitige Verschlüsselung wird bereitgestellt, sodass Ihre ruhenden sowie gerade ausgeführten Daten geschützt sind. Zur Verwaltung des Speichers erstellen Sie Buckets und importieren Sie Objekte mithilfe der {{site.data.keyword.cloud_notm}}-Konsole oder programmgesteuert über die [{{site.data.keyword.cos_full_notm}}-REST-API ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: new_window}.
+Damit die Datenintegrität und Verfügbarkeit gewahrt werden kann, zerlegt {{site.data.keyword.cos_full_notm}} Daten und verteilt sie auf Speicherknoten an mehreren geografischen Standorten. In den einzelnen Speicherknoten befinden sich keine vollständigen Datenkopien. Nur eine Teilmenge von Knoten muss verfügbar sein, damit Sie die Daten im Netz komplett abrufen können. Die providerseitige Verschlüsselung wird bereitgestellt, sodass Ihre ruhenden sowie gerade ausgeführten Daten geschützt sind. Zur Verwaltung des Speichers erstellen Sie Buckets und importieren Sie Objekte mithilfe der {{site.data.keyword.cloud_notm}}-Konsole oder programmgesteuert über die [{{site.data.keyword.cos_full_notm}}-REST-API](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-Weitere Informationen finden Sie in [Informationen zu COS ![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: new_window}.
+Weitere Informationen finden Sie unter [Informationen zu COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## Vorgehensweise bei der Integration
-{: #kp_cos_how}
+{: #kp-cos-how}
 
 {{site.data.keyword.keymanagementserviceshort}} wird in {{site.data.keyword.cos_full_notm}} integriert, um einen uneingeschränkten Zugriff auf die Sicherheit Ihrer Daten zu erreichen.  
 
@@ -49,7 +50,7 @@ In der folgenden Abbildung wird dargestellt, wie {{site.data.keyword.keymanageme
 Weitere Informationen darüber, wie die Envelope-Verschlüsselung in {{site.data.keyword.keymanagementserviceshort}} funktioniert, finden Sie in [Daten mit Envelope-Verschlüsselung schützen](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 
 ## Envelope-Verschlüsselung zu Ihren Speicherbuckets hinzufügen
-{: #kp_cos_envelope}
+{: #kp-cos-envelope}
 
 [Nach der Angabe eines Rootschlüssels in {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) und [der Erteilung des Zugriffs zwischen Ihren Services](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access) können Sie die Envelope-Verschlüsselung für einen angegebenen Speicherbucket über die {{site.data.keyword.cos_full_notm}}-GUI aktivieren.
 
@@ -70,4 +71,4 @@ Sie können mit der {{site.data.keyword.cos_full_notm}}-GUI die Buckets durchsuc
 ## Weitere Schritte
 {: #cos-integration-next-steps}
 
-- Weitere Informationen zur Zuordnung der Speicherbuckets zu {{site.data.keyword.keymanagementserviceshort}}-Schlüsseln finden Sie in [Verschlüsselung verwalten![Symbol für externen Link](../../../icons/launch-glyph.svg "Symbol für externen Link")](/docs/services/cloud-object-storage?topic=cloud-object-storage-manage-encryption){: new_window}. 
+- Weitere Informationen zur Zuordnung Ihrer Speicherbuckets zu {{site.data.keyword.keymanagementserviceshort}}-Schlüsseln finden Sie unter [Verschlüsselung verwalten](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

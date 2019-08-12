@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -22,15 +23,15 @@ subcollection: key-protect
 # 擷取存取記號
 {: #retrieve-access-token}
 
-使用 {{site.data.keyword.iamlong}} (IAM) 存取記號來鑑別您的服務要求，以開始使用 {{site.data.keyword.keymanagementservicelong}} API。
+透過使用 {{site.data.keyword.iamlong}} (IAM) 存取記號來鑑別您的服務要求，以開始使用 {{site.data.keyword.keymanagementservicelong}} API。
 {: shortdesc}
 
 ## 使用 CLI 擷取存取記號
 {: #retrieve-token-cli}
 
-您可以使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} 來快速產生您的個人 Cloud IAM 存取記號。
+您可以使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 以快速產生個人的 Cloud IAM 存取記號。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 來登入 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -61,7 +62,7 @@ subcollection: key-protect
 
 您也可以程式設計方式來擷取存取記號，方法是先為您的應用程式建立一個[服務 ID API 金鑰](/docs/iam?topic=iam-serviceidapikeys)，然後交換 {{site.data.keyword.cloud_notm}} IAM 記號的 API 金鑰。
 
-1. 使用 [{{site.data.keyword.cloud_notm}} CLI ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}，登入 {{site.data.keyword.cloud_notm}}。
+1. 使用 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} 來登入 {{site.data.keyword.cloud_notm}}。
 
     ```sh
     ibmcloud login
@@ -95,20 +96,20 @@ subcollection: key-protect
   ```
   {: pre}
 
-  將 `<service_ID_name>` 取代為您在前一個步驟中指派給服務 ID 的唯一別名。請將 API 金鑰下載至安全位置來進行儲存。 
+  將 `<service_ID_name>` 取代為您在前一個步驟指派給服務 ID 的唯一別名。請將 API 金鑰下載至安全位置來進行儲存。 
 
 6. 呼叫 [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api) 來擷取您的存取記號。
 
     ```cURL
     curl -X POST \
-      "https://iam.bluemix.net/identity/token" \
+      "https://iam.cloud.ibm.com/identity/token" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>"
+      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
     ```
     {: codeblock}
 
-    在要求中，將 `<API_KEY>` 取代為您在前一個步驟中建立的 API 金鑰。下列縮減的範例顯示記號輸出：
+    在要求中，將 `<API_KEY>` 取代為您在前一個步驟中建立的 API 金鑰。下列截斷的範例顯示 `token.json` 檔案的內容：
 
     ```
     {

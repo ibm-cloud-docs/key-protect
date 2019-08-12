@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -72,7 +73,7 @@ Pour créer votre première clé cryptographique, procédez comme suit :
 
 3. Une fois les détails de la clé indiqués, cliquez sur **Create key** pour confirmer l'opération. 
 
-Les clés qui sont créées dans le service sont des clés symétriques de 256 bits prises en charge par l'algorithme AES-GCM. Pour renforcer la sécurité, elles sont générées par des modules de sécurité matériels (ou modules HSM) certifiés FIPS 140-2 niveau 2 résidant dans des centres de données {{site.data.keyword.cloud_notm}} sécurisés. 
+Les clés qui sont créées dans le service sont des clés symétriques de 256 bits prises en charge par l'algorithme AES-CBC-PAD. Pour renforcer la sécurité, elles sont générées par des modules de sécurité matériels (ou modules HSM) certifiés FIPS 140-2 niveau 3 résidant dans des centres de données {{site.data.keyword.cloud_notm}} sécurisés. 
 
 ## Importation de vos propres clés
 {: #import-keys}
@@ -120,4 +121,4 @@ Vous pouvez désormais utiliser vos clés pour coder vos applications et service
 
 - Pour plus d'informations sur la gestion et la protection de vos clés de chiffrement avec une clé racine, voir [Protection des données avec le chiffrement d'enveloppe](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 - Pour plus d'informations sur l'intégration du service {{site.data.keyword.keymanagementserviceshort}} à d'autres solutions de données de cloud, [voir la documentation relative aux intégrations](/docs/services/key-protect?topic=key-protect-integrate-services).
-- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, voir la [documentation de référence de l'API {{site.data.keyword.keymanagementserviceshort}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/key-protect){: new_window}.
+- Pour plus d'informations sur la gestion de vos clés à l'aide d'un programme, [voir la documentation de référence {{site.data.keyword.keymanagementserviceshort}} API](https://cloud.ibm.com/apidocs/key-protect){: external}.

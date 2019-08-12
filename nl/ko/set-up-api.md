@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-07-09"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -11,10 +11,11 @@ subcollection: key-protect
 ---
 
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -51,7 +52,7 @@ curl -X GET \
 ```
 {: codeblock} 
 
-`<access_token>` 및 `<instance_ID>`를 검색된 서비스와 인증용 인증 정보로 바꾸십시오.
+`<access_token>` 및 `<instance_ID>`를 검색된 서비스 및 인증용 인증 정보로 바꾸십시오. 
 
 문제가 발생하는 경우 API 요청을 추적하시겠습니까? cURL 요청의 일부로 `-v` 플래그를 포함하면 응답 헤더에 `correlation-id` 값을 갖게 됩니다. 이 값을 사용하여 디버깅을 위해 요청을 상관시키고 추적할 수 있습니다.
 {: tip} 
@@ -59,4 +60,4 @@ curl -X GET \
 ## 다음에 수행할 작업
 {: #set-up-api-next-steps}
 
-Key Protect에서 암호화 키 관리를 시작할 준비가 되었습니다. 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/key-protect){: new_window}를 확인하십시오.
+Key Protect에서 암호화 키 관리를 시작할 준비가 되었습니다. 프로그래밍 방식의 키 관리에 대해 자세히 알아보려면 [{{site.data.keyword.keymanagementserviceshort}} API 참조 문서를 확인하십시오](https://{DomainName}/apidocs/key-protect){: external}.
