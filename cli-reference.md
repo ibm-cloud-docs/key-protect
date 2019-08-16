@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-16"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -81,7 +81,7 @@ You can specify one of the following commands:
 [Create a root key](/docs/services/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
 
 ```
-ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp create KEY_NAME -i $INSTANCE_ID
                    [-k, --key-material KEY_MATERIAL] 
                    [-s, --standard-key]
                    [--output FORMAT]
@@ -89,7 +89,7 @@ ibmcloud kp create KEY_NAME -i INSTANCE_ID | $INSTANCE_ID
 {:pre}
 
 ```sh
-$ ibmcloud kp create sample-root-key -i $KP_INSTANCE_ID
+$ ibmcloud kp create sample-root-key -i $INSTANCE_ID
 SUCCESS
 
 Key ID                                 Key Name
@@ -103,7 +103,7 @@ Key ID                                 Key Name
 <dl>
     <dt><code>KEY_NAME</code></dt>
         <dd>A unique, human-readable alias to assign to your key.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -125,12 +125,12 @@ Key ID                                 Key Name
 [Delete a key](/docs/services/key-protect?topic=key-protect-delete-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
-ibmcloud kp delete KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp delete KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
 
 ```sh
-$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
+$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $INSTANCE_ID
 Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
 
 SUCCESS
@@ -146,7 +146,7 @@ Deleted Key
 <dl>
    <dt><code>KEY_ID</code></dt>
    <dd>The ID of the key that you want to delete. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -156,12 +156,12 @@ Deleted Key
 List the last 200 keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
-ibmcloud kp list -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp list -i $INSTANCE_ID
 ```
 {: pre}
 
 ```sh
-$ ibmcloud kp list -i $KP_INSTANCE_ID
+$ ibmcloud kp list -i $INSTANCE_ID
 Retrieving keys...
 
 SUCCESS
@@ -176,7 +176,7 @@ Key ID                                 Key Name
 {: #list-req-params}
 
 <dl>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -196,12 +196,12 @@ Retrieve details about a key, such as the key metadata and key material.
 If the key was designated as a root key, the system cannot return the key material for that key.
 
 ```
-ibmcloud kp get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp get KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
 
 ```sh
-$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $INSTANCE_ID
 Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
 
 SUCCESS
@@ -217,7 +217,7 @@ Key ID                                 Key Name          Description     Creatio
 <dl>
    <dt><code>KEY_ID</code></dt>
         <dd>The ID of the key that you want to retrieve. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -235,13 +235,13 @@ Key ID                                 Key Name          Description     Creatio
 [Rotate a root key](/docs/services/key-protect?topic=key-protect-wrap-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
-ibmcloud kp rotate KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
                  [-k, --key-material KEY_MATERIAL] 
 ```
 {: pre}
 
 ```sh
-$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
+$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $INSTANCE_ID
 Rotating root key...
 
 SUCCESS
@@ -254,7 +254,7 @@ SUCCESS
 <dl>
     <dt><code>KEY_ID</code></dt>
         <dd>The ID of the root key that you want to rotate.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -274,7 +274,7 @@ SUCCESS
 [Wrap a data encryption key](/docs/services/key-protect?topic=key-protect-wrap-keys) by using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
 
 ```
-ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
                  [-p, --plaintext DATA_KEY] 
                  [-a, --aad ADDITIONAL_DATA]
 ```
@@ -287,7 +287,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>KEY_ID</code></dt>
         <dd>The ID of the root key that you want to use for wrapping.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -309,7 +309,7 @@ ibmcloud kp wrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 [Unwrap a data encryption key](/docs/services/key-protect?topic=key-protect-unwrap-keys) by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
-ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID 
+ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID 
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
 ```
@@ -323,7 +323,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>The ID of the root key that you used for the initial wrap request.</dd>
     <dt><code>CIPHERTEXT_FROM_WRAP</code></dt>
         <dd>The encrypted data key that was returned during the initial wrap operation.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -343,7 +343,7 @@ ibmcloud kp unwrap KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 List the policies that are associated with the root key that you specify.
 
 ```
-ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp policy list KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
 
@@ -353,7 +353,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
     <dt><code>KEY_ID</code></dt>
         <dd>The ID of the root key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -371,7 +371,7 @@ ibmcloud kp policy list KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 Retrieve details about a key policy, such as the key's automatic rotation interval.
 
 ```
-ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
 
@@ -381,7 +381,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 <dl>
    <dt><code>KEY_ID</code></dt>
         <dd>The ID of the key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
@@ -399,7 +399,7 @@ ibmcloud kp policy get KEY_ID -i INSTANCE_ID | $INSTANCE_ID
 Create or replace the policy that is associated with the root key that you specify.
 
 ```
-ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
+ibmcloud kp policy set KEY_ID -i $INSTANCE_ID
                  --set-type POLICY_TYPE 
                  [--policy INTERVAL]
 ```
@@ -413,7 +413,7 @@ ibmcloud kp policy set KEY_ID -i INSTANCE_ID | $INSTANCE_ID
         <dd>The ID of the key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
    <dt><code>--set-type</code></dt>
         <dd>Specify the type of policy that you want to set. To set a rotation policy, use <code>--set-type rotation</code>.</dd>
-    <dt><code>-i, --instance-ID | $INSTANCE_ID</code></dt>
+    <dt><code>-i, --instance-ID</code></dt>
         <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
 </dl>
 
