@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-16"
+lastupdated: "2019-08-19"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -65,9 +65,9 @@ You can specify one of the following commands:
     </thead>
     <tbody>
         <tr>
-            <td><a href="#kp-policy-list">kp policy list</a></td>
             <td><a href="#kp-policy-get">kp policy get</a></td>
             <td><a href="#kp-policy-set">kp policy set</a></td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>
@@ -171,22 +171,6 @@ Key ID                                 Key Name
 92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
 ```
 {: screen}
-
-### Required parameters
-{: #list-req-params}
-
-<dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #list-opt-params}
-
-<dl>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
 
 ## kp get
 {: #kp-get}
@@ -333,34 +317,6 @@ ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID
 <dl>
     <dt><code>-a, --aad</code></dt>
         <dd><p>The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD on unwrap.</p><p><b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.</p></dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp policy list
-{: #kp-policy-list}
-
-List the policies that are associated with the root key that you specify.
-
-```
-ibmcloud kp policy list KEY_ID -i $INSTANCE_ID
-```
-{: pre}
-
-### Required parameters
-{: #policy-list-req-params}
-
-<dl>
-    <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the root key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #policy-list-opt-params}
-
-<dl>
     <dt><code>-o, --output</code></dt>
         <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
 </dl>
