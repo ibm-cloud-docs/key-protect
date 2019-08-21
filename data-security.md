@@ -23,7 +23,7 @@ subcollection: key-protect
 # Security and compliance
 {: #security-and-compliance}
 
-{{site.data.keyword.keymanagementservicefull}} has data security strategies in place to meet your compliance needs and ensure your data remains secure and protected in the cloud.
+{{site.data.keyword.keymanagementservicefull}} has data security strategies in place to meet your compliance needs and ensure that your data remains secure and protected in the cloud.
 {: shortdesc}
 
 ## Security readiness
@@ -69,9 +69,9 @@ If you use {{site.data.keyword.keymanagementserviceshort}} resources in the Fran
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}
 
-The GDPR seeks to create a harmonized data protection law framework across the EU and aims to give citizens back the control of their personal data, while imposing strict rules on those hosting and processing this data, anywhere in the world.
+The GDPR seeks to create a harmonized data protection law framework across the EU. This regulation aims to give citizens back the control of their personal data, and impose strict rules on any entity that hosts and processes the data.
 
-{{site.data.keyword.IBM_notm}} is committed to providing our clients and {{site.data.keyword.IBM_notm}} Business Partners with innovative data privacy, security, and governance solutions to assist them in their journey to GDPR readiness.
+{{site.data.keyword.IBM_notm}} is committed to providing clients and {{site.data.keyword.IBM_notm}} Business Partners with innovative data privacy, security, and governance solutions to assist them in their journey to GDPR readiness.
 
 To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort}} resources, [enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account. You can learn more about how {{site.data.keyword.keymanagementserviceshort}} processes and protects personal data by reviewing the following addendums.
 

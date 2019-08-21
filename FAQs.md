@@ -30,7 +30,7 @@ You can use the following FAQs to help you with {{site.data.keyword.keymanagemen
 {: #how-does-pricing-work}
 {: faq}
 
-{{site.data.keyword.keymanagementserviceshort}} offers a [graduated tier plan](https://{DomainName}/catalog/services/key-protect) with no-charge pricing for users requiring 20 or fewer keys. You can have 20 free keys per {{site.data.keyword.cloud_notm}} account. If your team requires multiple instances of {{site.data.keyword.keymanagementserviceshort}}, {{site.data.keyword.cloud_notm}} adds your active keys across all instances within the account and then applies pricing. 
+{{site.data.keyword.keymanagementserviceshort}} offers a [graduated tier plan](https://{DomainName}/catalog/services/key-protect) with no-charge pricing for users who require 20 or fewer keys. You can have 20 free keys per {{site.data.keyword.cloud_notm}} account. If your team requires multiple instances of {{site.data.keyword.keymanagementserviceshort}}, {{site.data.keyword.cloud_notm}} adds your active keys across all instances within the account and then applies pricing. 
 
 ## What is an active encryption key?
 {: #what-is-active-encryption-key}
@@ -50,7 +50,7 @@ To find out more about using root keys to protect data encryption keys, check ou
 {: #what-is-root-key}
 {: faq}
 
-Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys used as roots of trust for protecting other keys that are stored in a data service with [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption). With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud. 
+Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys that are used as roots of trust for protecting other keys that are stored in a data service with [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption). With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud. 
 
 ## What is envelope encryption?
 {: #what-is-envelope-encryption}

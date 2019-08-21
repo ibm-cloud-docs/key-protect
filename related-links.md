@@ -23,7 +23,7 @@ subcollection: key-protect
 # Related links
 {: #related-links}
 
-Additional resources to help you learn about managing encryption with {{site.data.keyword.keymanagementservicelong}}.
+More resources to help you learn about managing encryption with {{site.data.keyword.keymanagementservicelong}}.
 
 ## Samples
 {: #samples}

@@ -36,7 +36,7 @@ New as of: 2019-07-31
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the {{site.data.keyword.cloud_notm}} private network by targeting a private endpoint for the service.
 
-To get started, enable [virtual routing and forwarding (VRF) and service endpoints](docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/services/key-protect?topic=key-protect-private-endpoints).
+To get started, enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/services/key-protect?topic=key-protect-private-endpoints).
 
 ## June 2019
 {: #june-2019}
