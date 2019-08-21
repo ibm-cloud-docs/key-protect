@@ -83,6 +83,7 @@ You can now use {{site.data.keyword.keymanagementserviceshort}} to associate a r
 For more information, see [Setting a rotation policy](/docs/services/key-protect?topic=key-protect-set-rotation-policy). To find out more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
+{: #added-transport-keys-beta}
 New as of: 2019-03-20
 
 Enable the secure import of encryption keys to the cloud by creating transport encryption keys for your {{site.data.keyword.keymanagementserviceshort}} service.

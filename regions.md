@@ -78,7 +78,7 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
 | Sydney        | `private.au-syd.kms.cloud.ibm.com`   |
 | Tokyo         | `private.jp-tok.kms.cloud.ibm.com`   |
 {: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
-{: #table-1}
+{: #table-2}
 {: tab-title="Private"}
 {: class="comparison-tab-table"}
 {: row-headers}
