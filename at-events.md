@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -58,8 +58,11 @@ The following table lists the {{site.data.keyword.keymanagementserviceshort}} ac
 | `kms.secrets.head`       | Retrieve the number of keys |
 | `kms.secrets.wrap`       | Wrap a key                  |
 | `kms.secrets.unwrap`     | Unwrap a key                |
+| `kms.secrets.rewrap`     | Rewrap a key                |
 | `kms.policies.read`      | View a policy for a key     |
 | `kms.policies.write`     | Set a policy for a key      |
+| `kms.importtoken.create` | Create an import token      |
+| `kms.importtoken.read`   | Retrieve an import token    |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
 
 ## Viewing events

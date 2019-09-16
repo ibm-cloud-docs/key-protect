@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -42,14 +42,31 @@ With {{site.data.keyword.iamshort}} (IAM), you can manage and define access for 
 
 To simplify access, {{site.data.keyword.keymanagementserviceshort}} aligns with Cloud IAM roles so that each user has a different view of the service, according to the role the user is assigned. If you are a security admin for your service, you can assign Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions you want to grant to members of your team.
 
-The following table shows how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions:
+### Platform management roles
+{: #platform-mgmt-roles}
+
+Use platform management roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
+
+| Action | Role |
+| --- | --- |
+| View {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Operator, Editor, Viewer |
+| Create {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Editor |
+| Delete {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Editor |
+{: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
+
+### Service access roles
+{: #service-access-roles}
+
+Use service access roles to grant permissions at the service level, such as the ability to view, create, or delete {{site.data.keyword.keymanagementserviceshort}} keys. 
+
+The following table shows how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions.
 
 <table>
   <col width="20%">
   <col width="40%">
   <col width="40%">
   <tr>
-    <th>Service access role</th>
+    <th>Role</th>
     <th>Description</th>
     <th>Actions</th>
   </tr>
@@ -77,6 +94,8 @@ The following table shows how identity and access roles map to {{site.data.keywo
           <li>Rotate keys</li>
           <li>Wrap keys</li>
           <li>Unwrap keys</li>
+          <li>Create import tokens</li>
+          <li>Retrieve import tokens</li>
         </ul>
       </p>
     </td>
@@ -95,11 +114,8 @@ The following table shows how identity and access roles map to {{site.data.keywo
       </p>
     </td>
   </tr>
-  <caption style="caption-side:bottom;">Table 1. Describes how identity and access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
+  <caption style="caption-side:bottom;">Table 1. Describes how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
 </table>
-
-Cloud IAM user roles provide access at the service or service instance level. [Cloud Foundry roles](/docs/iam?topic=iam-cfaccess){: external} are separate and define access at the organization or the space level. To learn more about {{site.data.keyword.iamshort}}, check out [User roles and permissions](/docs/iam?topic=iam-userroles){: external}.
-{: note}
 
 ## What's next
 {: #manage-access-next-steps}

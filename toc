@@ -22,6 +22,7 @@ Key Protect
     
     {: .topicgroup}
     Tutorials
+        tutorials/secure-import.md
         [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: new_window}
 
     releases.md
@@ -46,9 +47,9 @@ Key Protect
     
     {: .topicgroup}
     Importing keys
-        create-transport-keys.md
         import-root-keys.md
         import-standard-keys.md
+        create-import-tokens.md
 
     view-keys.md
 
@@ -56,6 +57,7 @@ Key Protect
     Protecting keys
         wrap-keys.md
         unwrap-keys.md
+        rewrap-keys.md
 
     {: .topicgroup}
     Rotating keys

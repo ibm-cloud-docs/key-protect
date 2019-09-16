@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -69,7 +69,7 @@ If you use {{site.data.keyword.keymanagementserviceshort}} resources in the Fran
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}
 
-The GDPR seeks to create a harmonized data protection law framework across the EU. This regulation aims to give citizens back the control of their personal data, and impose strict rules on any entity that hosts and processes the data.
+The GDPR seeks to create a harmonized data protection law framework across the EU. The regulation aims to give citizens back the control of their personal data, and impose strict rules on any entity that hosts and processes that data.
 
 {{site.data.keyword.IBM_notm}} is committed to providing clients and {{site.data.keyword.IBM_notm}} Business Partners with innovative data privacy, security, and governance solutions to assist them in their journey to GDPR readiness.
 

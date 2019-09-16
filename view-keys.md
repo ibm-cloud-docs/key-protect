@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -32,7 +32,7 @@ Audit your key configuration regularly:
 - [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/key-protect?topic=key-protect-at-events).
 - Inspect which users have access to keys and if the level of access is appropriate.
 
-For more information about auditing access to your resources, see [Managing user access with Cloud IAM](/docs/services/key-protect?topic=key-protect-manage-access).
+For more information about auditing access to your resources, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
 
 ## Viewing keys with the GUI
 {: #view-keys-gui}
@@ -69,6 +69,9 @@ If you prefer to inspect the keys in your service by using a graphical interface
       </tr>
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Keys</b> table</caption>
     </table>
+
+    Not seeing the full list of keys that are stored in your service instance? Verify with your administrator that you are assigned the correct role for the applicable service instance or individual key. For more information about roles, see [Roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles).
+    {: tip}
 
 ## Viewing keys with the API
 {: #view-keys-api}
@@ -174,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    By default, `GET api/v2/keys` returns your first 2000 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
+    By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
     {: tip}
 
 ### Retrieving a subset of keys
@@ -229,7 +232,7 @@ For usage notes, check out the following examples for setting your `limit` and `
   </tr>
   <tr>
     <td><code>.../keys</code></td>
-    <td>Lists all of your available resources, up to the first 2000 keys.</td>
+    <td>Lists all of your available resources, up to the first 200 keys.</td>
   </tr>
   <tr>
     <td><code>.../keys?limit=10</code></td>

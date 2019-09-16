@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-16"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -19,7 +19,6 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{:preview: .preview}
 
 # What's new
 {: #releases}
@@ -27,8 +26,28 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
 
+## September 2019
+{: #sept-2019}
+
+### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
+{: #added-import-tokens}
+New as of: 2019-09-16
+
+On 2019 March 20, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of beta period.
+
+The following API methods have changed:
+
+- `POST api/v2/lockers` is now `POST api/v2/import_token`
+- `GET api/v2/lockers` is now `GET api/v2/import_token`
+- `GET api/v2/lockers/{id}` is no longer supported
+
+You can now create [import tokens](/docs/services/key-protect?topic=key-protect-importing-keys#using-import-tokens) to enable added security for keys that you upload to {{site.data.keyword.keymanagementserviceshort}}. 
+
+To find out more about your options for importing keys, check out [Bringing your encryption keys to the cloud](/docs/services/key-protect?topic=key-protect-importing-keys). For a guided tutorial, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
+{: tip} 
+
 ## July 2019
-{: #july-2019}
+{: #jul-2019}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for private endpoints
 {: #added-private-endpoints}
@@ -59,6 +78,7 @@ New as of: 2019-05-22
 {{site.data.keyword.keymanagementserviceshort}} now uses {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 for cryptographic storage and operations. Your {{site.data.keyword.keymanagementserviceshort}} keys are stored in FIPS 140-2 Level 3-compliant, tamper-evident hardware for all regions. 
 
 To learn more about the features and benefits of {{site.data.keyword.cloud_notm}} HSM 7.0, check out the [product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
+
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
 {: #legacy-service-eol}

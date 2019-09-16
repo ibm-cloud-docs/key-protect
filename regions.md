@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-16"
 
 keywords: Key Protect API endpoints, available regions
 

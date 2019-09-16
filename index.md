@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
 
@@ -43,7 +43,7 @@ Choose from two key types:
 ## Creating new keys
 {: #create-keys}
 
-[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](https://{DomainName}/catalog/services/key-protect?taxonomyNavigation=apps), you're ready to designate keys in the service. 
+[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-provision), you're ready to designate keys in the service. 
 
 Complete the following steps to create your first cryptographic key. 
 
@@ -121,4 +121,4 @@ Now you can use your keys to code your apps and services. If you added a root ke
 
 - To find out more about managing and protecting your encryption keys with a root key, check out [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
 - To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, [check out the Integrations doc](/docs/services/key-protect?topic=key-protect-integrate-services).
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://cloud.ibm.com/apidocs/key-protect){: external}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

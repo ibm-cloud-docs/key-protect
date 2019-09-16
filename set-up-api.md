@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-16"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -41,7 +41,7 @@ To gather your credentials:
 
 When you make an API call to the service, structure your API request according to how you initially provisioned your instance of {{site.data.keyword.keymanagementserviceshort}}. 
 
-To build your request, pair a [regional service endpoint](/docs/services/key-protect?topic=key-protect-regions) with the appropriate authentication credentials. For example, if you created a service instance for the `us-south` region, use the following endpoint and API headers to browse keys in your service:
+To build your request, pair a [service endpoint](/docs/services/key-protect?topic=key-protect-regions#service-endpoints) with the appropriate authentication credentials. For example, if you created a service instance for the `us-south` region, use the following endpoint and API headers to browse keys in your service:
 
 ```cURL
 curl -X GET \
