@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-10-24"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -31,7 +31,7 @@ A good practice is to grant access permissions as you invite new users to your a
 - **Enable user access to the resources in your account by assigning Cloud IAM roles.**
     Rather than sharing your admin credentials, create new policies for users who need access to the encryption keys in your account. If you are the admin for your account, you are automatically assigned a _Manager_ policy with access to all resources under the account.
 - **Grant roles and permissions at the smallest scope needed.**
-    For example, if a user needs to access only a high-level view of keys within a specified space, grant the _Reader_ role to the user for that space.
+    For example, if a user needs to access only a high-level view of keys within a {{site.data.keyword.keymanagementserviceshort}} service instance, grant the _Reader_ role to the user for that instance. You can also [assign fine-grained access to a single key](/docs/services/key-protect?topic=key-protect-manage-access-key#grant-access-key-level). 
 - **Regularly audit who can manage access control and delete key resources.**
     Remember that granting a _Manager_ role to a user means that the user can modify service policies for other users, in addition to destroying resources.
 
@@ -42,10 +42,13 @@ With {{site.data.keyword.iamshort}} (IAM), you can manage and define access for 
 
 To simplify access, {{site.data.keyword.keymanagementserviceshort}} aligns with Cloud IAM roles so that each user has a different view of the service, according to the role the user is assigned. If you are a security admin for your service, you can assign Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions you want to grant to members of your team.
 
-### Platform management roles
+This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of {{site.data.keyword.keymanagementserviceshort}}. For complete IAM documentation, see [Managing access in {{site.data.keyword.cloud_notm}}](/docs/iam?topic=iam-cloudaccess).
+{: note}
+
+### Platform access roles
 {: #platform-mgmt-roles}
 
-Use platform management roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
+Use platform access roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
 
 | Action | Role |
 | --- | --- |

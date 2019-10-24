@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-10-24"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -29,11 +29,19 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 ## September 2019
 {: #sept-2019}
 
+### Added: Fine-grained access to {{site.data.keyword.keymanagementserviceshort}} resources
+{: #added-fine-grain-access}
+New as of: 2019-09-27
+
+As an account admin, you can now assign fine-grained access to individual keys within a Key Protect service instance. 
+
+To learn more about granting access, see [Managing access to keys](/docs/services/key-protect?topic=key-protect-manage-access-key).
+
 ### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
 {: #added-import-tokens}
 New as of: 2019-09-16
 
-On 2019 March 20, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of beta period.
+On 20 March 2019, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of beta period.
 
 The following API methods have changed:
 
