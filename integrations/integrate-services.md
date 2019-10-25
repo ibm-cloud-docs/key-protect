@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-10-24"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -31,16 +31,16 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 | Service       | Description                 | Link |
 | ------------- | ------------------------------------ | ---- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/services/Cloudant?topic=cloudant-ibm-cloud-dedicated) | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/services/Cloudant/offerings?topic=cloudant-security#secure-access-control) |
-| [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-about#about-databases-for-elasticsearch) | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/databases-for-elasticsearch?topic=cloud-databases-key-protect) |
-| [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/services/databases-for-etcd?topic=databases-for-etcd-about#about-databases-for-etcd) | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/databases-for-etcd?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/services/databases-for-mongodb?topic=databases-for-mongodb-about) | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/databases-for-mongodb?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/services/databases-for-postgresql?topic=databases-for-postgresql-about#about) | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/messages-for-postgresql?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/services/databases-for-redis?topic=databases-for-redis-about#about-databases-for-redis) | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/messages-for-redis?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/services/messages-for-rabbitmq?topic=messages-for-rabbitmq-about#about-messages-for-rabbitmq)  | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/messages-for-rabbitmq?topic=cloud-databases-key-protect) |
-| [{{site.data.keyword.sqlquery_short}}](/docs/services/sql-query?topic=sql-query-overview#overview) | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. |[View docs](/docs/services/sql-query?topic=sql-query-keyprotect) |
-{: caption="Table 1. Supported data services" caption-side="top"}
+| [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/services/databases-for-elasticsearch) | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/databases-for-elasticsearch?topic=cloud-databases-key-protect) |
+| [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/services/databases-for-etcd) | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/databases-for-etcd?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/services/databases-for-mongodb) | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/databases-for-mongodb?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/services/databases-for-postgresql) | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/messages-for-postgresql?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/services/databases-for-redis) | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/services/messages-for-redis?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/services/messages-for-rabbitmq)  | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/services/messages-for-rabbitmq?topic=cloud-databases-key-protect) |
+| [{{site.data.keyword.sqlquery_short}}](/docs/services/sql-query) | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. |[View docs](/docs/services/sql-query?topic=sql-query-keyprotect) |
+{: caption="Table 1. Supported database services" caption-side="top"}
 {: #table-1}
-{: tab-title="Data"}
+{: tab-title="Databases"}
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
@@ -71,6 +71,16 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: caption="Table 4. Supported containers services" caption-side="top"}
 {: #table-4}
 {: tab-title="Containers"}
+{: tab-group="supported-services"}
+{: class="simple-tab-table"}
+
+
+| Service       | Description                 | Link |
+| ------------- | ------------------------------------ | ---- |
+| [{{site.data.keyword.messagehub_full}}](/docs/services/EventStreams?topic=eventstreams-getting_started)  | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/services/EventStreams?topic=eventstreams-managing_encryption) |
+{: caption="Table 5. Supported Integration services" caption-side="top"}
+{: #table-4}
+{: tab-title="Integration"}
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
