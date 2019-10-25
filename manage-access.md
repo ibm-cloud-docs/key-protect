@@ -31,7 +31,7 @@ A good practice is to grant access permissions as you invite new users to your a
 - **Enable user access to the resources in your account by assigning Cloud IAM roles.**
     Rather than sharing your admin credentials, create new policies for users who need access to the encryption keys in your account. If you are the admin for your account, you are automatically assigned a _Manager_ policy with access to all resources under the account.
 - **Grant roles and permissions at the smallest scope needed.**
-    For example, if a user needs to access only a high-level view of keys within a {{site.data.keyword.keymanagementserviceshort}} service instance, grant the _Reader_ role to the user for that instance. You can also [assign fine-grained access to a single key](/docs/services/key-protect?topic=key-protect-manage-access-key#grant-access-key-level). 
+    For example, if a user needs to access only a high-level view of keys within a {{site.data.keyword.keymanagementserviceshort}} service instance, grant the _Reader_ role to the user for that instance. You can also [assign fine-grained access to a single key](/docs/services/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). 
 - **Regularly audit who can manage access control and delete key resources.**
     Remember that granting a _Manager_ role to a user means that the user can modify service policies for other users, in addition to destroying resources.
 

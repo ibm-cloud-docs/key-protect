@@ -75,7 +75,7 @@ Key Protect
     {: .topicgroup}
     User access permissions
         manage-access.md
-        manage-access-key.md
+        grant-access-keys.md
 
     at-events.md
 

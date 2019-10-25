@@ -35,7 +35,7 @@ New as of: 2019-09-27
 
 As an account admin, you can now assign fine-grained access to individual keys within a Key Protect service instance. 
 
-To learn more about granting access, see [Managing access to keys](/docs/services/key-protect?topic=key-protect-manage-access-key).
+To learn more about granting access, see [Granting access to keys](/docs/services/key-protect?topic=key-protect-grant-access-keys).
 
 ### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
 {: #added-import-tokens}
