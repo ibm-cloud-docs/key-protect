@@ -17,13 +17,13 @@ lastupdated: "2019-10-24"
 {:important: .important}
 {:deprecated: .deprecated}
 
-# Managing access to keys
-{: #manage-access-key}
+# Granting access to keys
+{: #grant-access-keys}
 
 You can enable different levels of access to {{site.data.keyword.keymanagementservicelong}} resources in your {{site.data.keyword.cloud_notm}} account by creating and modifying {{site.data.keyword.cloud_notm}} IAM access policies.
 {: shortdesc}
 
-As an account admin, determine an [access policy type](/docs/iam?topic=iam-userroles#policytypes) for users, service IDs, and access groups based on your internal access control requirements. For example, if you want to grant user access to {{site.data.keyword.keymanagementserviceshort}} at the smallest scope available, you can [assign access to a single key](#granting-access-to-a-specific-key-in-an-instance) in an instance.
+As an account admin, determine an [access policy type](/docs/iam?topic=iam-userroles#policytypes) for users, service IDs, and access groups based on your internal access control requirements. For example, if you want to grant user access to {{site.data.keyword.keymanagementserviceshort}} at the smallest scope available, you can [assign access to a single key](#grant-access-key-level) in an instance.
 
 ## Granting access to all keys in an instance
 {: #grant-access-instance-level}
