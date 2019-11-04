@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-24"
+lastupdated: "2019-11-04"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -25,6 +25,33 @@ subcollection: key-protect
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
+
+## November 2019
+{: #nov-2019}
+
+### Changed: Platform and service access roles
+{: #changed-access-roles}
+New as of: 2019-11-04
+
+{{site.data.keyword.keymanagementserviceshort}} is updating its user access roles and how they correspond to {{site.data.keyword.keymanagementserviceshort}} service actions. Effective 13 November 2019, {{site.data.keyword.keymanagementserviceshort}} will update access roles according to the following table:
+
+| Service action | Current role assignments | New role assignments |
+| --- | --- | --- |
+| Create keys | Administrator, Editor, Writer, Manager | Writer, Manager |
+| Retrieve a key by ID | Administrator, Editor, Writer, Manager | Writer, Manager |
+| Retrieve a list of keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
+| Wrap keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
+| Unwrap keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
+| Rewrap keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
+| Rotate keys | Administrator, Editor, Writer, Manager | Writer, Manager |
+| Set rotation policies | Administrator, Manager | Manager |
+| Retrieve rotation policies | Administrator, Manager | Manager |
+| Delete a key by ID | Administrator, Manager | Manager |
+{: caption="Table 1. Lists upcoming changes to {{site.data.keyword.keymanagementserviceshort}} service access roles" caption-side="top"}
+
+As an account owner or admin, review the existing access policies for all {{site.data.keyword.keymanagementserviceshort}} users in your account to ensure that they are assigned the appropriate levels of access.
+
+To learn more about {{site.data.keyword.keymanagementserviceshort}} roles and permissions, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
 
 ## September 2019
 {: #sept-2019}
