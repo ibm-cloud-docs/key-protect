@@ -69,7 +69,12 @@ Key Protect
 
     {: .navgroup id="reference"}
     [Key Protect API Reference](https://{DomainName}/apidocs/key-protect){: new_window}
-    cli-reference.md
+    
+    {: topicgroup}
+    Key Protect CLI Reference
+        cli-reference.md
+        cli-changelog.md
+    
     regions.md
 
     {: .topicgroup}
