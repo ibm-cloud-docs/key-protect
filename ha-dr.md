@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-11-27"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # High availability and disaster recovery
 {: #ha-dr}
@@ -41,8 +42,6 @@ Your encryption keys are confined to the region that you create them in. {{site.
 {: note}
 
 ## Disaster recovery
-{: #disaster-recovery}
+{: #dr}
 
-{{site.data.keyword.keymanagementserviceshort}} has regional disaster recovery in place with a Recovery Time Objective (RTO) of one hour. The service follows {{site.data.keyword.cloud_notm}} requirements for planning and recovering from disaster events. For more information, see [Disaster recovery](/docs/overview?topic=overview-zero-downtime#disaster-recovery).
-
-
+{{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery). To find out more about the responsibilities that you and IBM share for disaster recovery, see [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery.)
