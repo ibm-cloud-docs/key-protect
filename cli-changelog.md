@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-11-11"
 
 keywords: Key Protect CLI plug-in, CLI changelog
 
@@ -33,4 +33,4 @@ When you log in to the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cl
 
 | Version | Release date | Changes |
 | ---- | --- | --- |
-| `0.3.9` | 07 November 2019 | <ul><li>Update help messages for all `ibmcloud kp` commands and subcommands.</li><li>Fix bug in the JSON output format option (<code>--output json</code>) for all commands.</li></ul> |
+| `0.3.9` | 11 November 2019 | Update help messages for all `ibmcloud kp` commands and subcommands.</br>Fix bug in the JSON output format option (`--output json`) for all commands. |
