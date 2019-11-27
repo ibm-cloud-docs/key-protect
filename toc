@@ -85,7 +85,8 @@ Key Protect
     at-events.md
 
     {: .topicgroup}
-    Data security
+    Standards and compliance
+        shared-responsibilities.md
         ha-dr.md
         data-security.md
 
