@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-11-27"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Security and compliance
 {: #security-and-compliance}
@@ -81,7 +82,7 @@ To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort
 ### HIPAA support
 {: #hipaa-ready}
 
-{{site.data.keyword.keymanagementserviceshort}} meets controls for the US Health Insurance Portability and Accountability Act (HIPAA) to ensure safeguarding of protected health information (PHI). 
+{{site.data.keyword.keymanagementserviceshort}} does not process, store, transmit, or otherwise interface with personal health information (PHI). Therefore, the service can be integrated with any HIPAA offering without impact to its HIPAA readiness. As such, you can use {{site.data.keyword.keymanagementserviceshort}} to generate and manage keys for HIPAA ready applications. Those keys are protected by the {{site.data.keyword.keymanagementserviceshort}} trust anchor, which is backed by a hardware security module (HSM) that is tamper-resistant and FIPS-140-2 level 3 certified.
 
 If you or your company is a covered entity as defined by HIPAA, you can enable the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account. To find out more, see [Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa).
 
@@ -94,3 +95,8 @@ If you or your company is a covered entity as defined by HIPAA, you can enable t
 {: #soc2-type1}
 
 {{site.data.keyword.keymanagementserviceshort}} is SOC 2 Type 1 certified. For information about requesting an {{site.data.keyword.cloud_notm}} SOC 2 report, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+
+### PCI DSS
+{: #pci-dss} 
+
+{{site.data.keyword.keymanagementserviceshort}} meets controls for the Payment Card Industry (PCI) data security standards to protect cardholder data. For information about requesting an attestation of compliance, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external} or contact an IBM representative.
