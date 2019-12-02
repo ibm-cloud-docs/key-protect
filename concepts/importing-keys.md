@@ -86,7 +86,7 @@ The following list describes the import token workflow.
 You can create only one import token per service instance. To learn more about retrieval limits for import tokens, [see the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect#create-an-import-token){: external}.
 {: note} 
 
-To try out the import token feature, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-importing-keys).
+To try out the import token feature, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
 {: tip}
 
 ### API methods
