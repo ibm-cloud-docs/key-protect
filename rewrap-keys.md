@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Rewrapping keys
 {: #rewrap-keys}

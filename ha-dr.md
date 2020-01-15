@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-27"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -45,3 +45,4 @@ Your encryption keys are confined to the region that you create them in. {{site.
 {: #dr}
 
 {{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery). To find out more about the responsibilities that you and IBM share for disaster recovery, see [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
+

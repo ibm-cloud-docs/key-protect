@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: install CLI plug-in, install CLI plugin, update CLI plug-in, update CLI plugin, uninstall CLI plug-in, uninstall CLI plugin, Key Protect CLI plug-in, Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Setting up the CLI
 {: #set-up-cli}

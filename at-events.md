@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-27"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -39,20 +39,24 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 The following table lists the {{site.data.keyword.keymanagementserviceshort}} actions that generate an event:
 
-| Action                   | Description                 |
-| ------------------------ | --------------------------- |
-| `kms.secrets.create`     | Create a key                |
-| `kms.secrets.read`       | Retrieve a key by ID        |
-| `kms.secrets.delete`     | Delete a key by ID          |
-| `kms.secrets.list`       | Retrieve a list of keys     |
-| `kms.secrets.head`       | Retrieve the number of keys |
-| `kms.secrets.wrap`       | Wrap a key                  |
-| `kms.secrets.unwrap`     | Unwrap a key                |
-| `kms.secrets.rewrap`     | Rewrap a key                |
-| `kms.policies.read`      | View a policy for a key     |
-| `kms.policies.write`     | Set a policy for a key      |
-| `kms.importtoken.create` | Create an import token      |
-| `kms.importtoken.read`   | Retrieve an import token    |
+| Action                            | Description                       |
+| --------------------------------- | --------------------------------- |
+| `kms.secrets.create`              | Create a key                      |
+| `kms.secrets.read`                | Retrieve a key                    |
+| `kms.secrets.list`                | List keys                         |
+| `kms.secrets.head`                | Retrieve key total                |
+| `kms.secrets.wrap`                | Wrap a key                        |
+| `kms.secrets.unwrap`              | Unwrap a key                      |
+| `kms.secrets.rewrap`              | Rewrap a key                      |
+| `kms.secrets.setkeyfordeletion`   | Set or prepare a key for deletion |
+| `kms.secrets.unsetkeyfordeletion` | Unset a key for deletion          |
+| `kms.secrets.delete`              | Delete a key                      |
+| `kms.policies.read`               | List key policies                 |
+| `kms.policies.write`              | Set key policies                  |
+| `kms.instancepolicies.read`       | List instance policies            |
+| `kms.instancepolicies.write`      | Set an instance policy            |
+| `kms.importtoken.create`          | Create an import token            |
+| `kms.importtoken.read`            | Retrieve an import token          |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
 
 ## Viewing events

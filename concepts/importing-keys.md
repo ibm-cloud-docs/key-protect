@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:preview: .preview} 
+{:term: .term}
 
 # Bringing your encryption keys to the cloud
 {: #importing-keys}

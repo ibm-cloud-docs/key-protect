@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-07-09"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: delete key, delete key API examples
 
@@ -19,20 +19,21 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
-# Deleting keys
+# Deleting keys using a single authorization
 {: #delete-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its contents, if you are an admin for your {{site.data.keyword.cloud_notm}} space or {{site.data.keyword.keymanagementserviceshort}} service instance.
+You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its contents, if you are a manager for your {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
 
-When you delete a key, you permanently shred its contents and associated data. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
 
 ## Deleting keys with the GUI
 {: #delete-key-gui}
 
-If you prefer to delete your encryption keys by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} GUI.
+By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. If you prefer to delete your encryption keys by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
 [After you create or import your existing keys into the service](/docs/services/key-protect?topic=key-protect-create-root-keys), complete the following steps to delete a key:
 
@@ -48,7 +49,7 @@ After you delete a key, the key transitions to the _Destroyed_ state. Keys in th
 ## Deleting keys with the API
 {: #delete-key-api}
 
-To delete a key and its contents, make a `DELETE` call to the following endpoint.
+By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. You can delete a key and its contents by making a `DELETE` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
@@ -60,7 +61,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys/` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to permanently delete the key and its contents.
+3. Run the following cURL command to delete the key and its contents.
 
     ```cURL
     curl -X DELETE \
@@ -100,7 +101,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
     </table>
 
-    If the _return_preference_ variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. The following JSON object shows an example returned value.
+    If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
     ```
     {
       "metadata": {
@@ -122,7 +123,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "deletionDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "nonactiveStateReason": 2,
           "extractable": true
         }
       ]
@@ -131,3 +131,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     {: screen}
 
     For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+
+
+

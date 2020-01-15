@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: create import token, secure import, key-wrapping key, import token API examples
 
@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:term: .term}
 
 # Creating import tokens
 {: #create-import-tokens}

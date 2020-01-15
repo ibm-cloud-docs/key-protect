@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples 
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Rotating keys on-demand
 {: #rotate-keys}

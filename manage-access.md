@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-10-24"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Managing user access
 {: #manage-access}
@@ -52,10 +53,14 @@ Use platform access roles to grant permissions at the account level, such as the
 
 | Action | Role |
 | --- | --- |
-| View {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Operator, Editor, Viewer |
-| Create {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Editor |
-| Delete {{site.data.keyword.keymanagementserviceshort}} instances | Administrator, Editor |
+| View {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Operator, Editor, Viewer |
+| Create {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Editor |
+| Delete {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Editor |
+| Invite new users and manage access policies. | Administrator |
 {: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
+
+If you're an account owner, you are automatically assigned _Administrator_ platform access to your {{site.data.keyword.keymanagementserviceshort}} service instances so you can further assign roles and customize access policies for others.
+{: note}
 
 ### Service access roles
 {: #service-access-roles}
@@ -79,7 +84,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
     <td>
       <p>
         <ul>
-          <li>View keys</li>
+          <li>List keys</li>
           <li>Wrap keys</li>
           <li>Unwrap keys</li>
         </ul>
@@ -93,10 +98,13 @@ The following table shows how service access roles map to {{site.data.keyword.ke
       <p>
         <ul>
           <li>Create keys</li>
-          <li>View keys</li>
+          <li>List keys</li>
+          <li>Retrieve keys</li>
           <li>Rotate keys</li>
           <li>Wrap keys</li>
           <li>Unwrap keys</li>
+          <li>Set keys for deletion</li>
+          <li>Unset keys for deletion</li>
           <li>Create import tokens</li>
           <li>Retrieve import tokens</li>
         </ul>
@@ -105,13 +113,15 @@ The following table shows how service access roles map to {{site.data.keyword.ke
   </tr>
   <tr>
     <td><p>Manager</p></td>
-    <td><p>A manager can perform all actions that a reader and writer can perform, including the ability to set rotation policies for keys, delete keys, invite new users, and assign access policies for other users.</p></td>
+    <td><p>A manager can perform all actions that a reader and writer can perform, including the ability to delete keys and set dual authorization and rotation policies for keys.</p></td>
     <td>
       <p>
         <ul>
           <li>All actions that a reader or a writer can perform</li>
-          <li>Assign user access policies</li>
-          <li>Set key rotation policies</li>
+          <li>Set instance policies</li>
+          <li>List instance policies</li>
+          <li>Set key policies</li>
+          <li>List key policies</li>
           <li>Delete keys</li>
         </ul>
       </p>

@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Protecting data with envelope encryption
 {: #envelope-encryption}

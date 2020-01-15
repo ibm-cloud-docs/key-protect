@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2019, 2020
+lastupdated: "2020-01-15"
 
 ---
 
@@ -16,6 +16,7 @@ lastupdated: "2019-09-16"
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:term: .term}
 
 
 # Tutorial: Creating and importing encryption keys

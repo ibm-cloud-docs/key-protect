@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-04"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -19,12 +19,25 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # What's new
 {: #releases}
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
+
+## January 2020
+{: #jan-2020}
+
+### Added: Dual authorization policies for {{site.data.keyword.keymanagementserviceshort}} instances and keys
+{: #changed-access-roles}
+New as of: 2012-01-15
+
+You can now enable dual authorization policies to safely delete keys from your {{site.data.keyword.keymanagementserviceshort}} service instance. When you enable dual authorization, you require an action from two users to delete a key. 
+
+- To learn how to enable dual authorization at the instance level, see [Enabling a dual authorization policy for an instance](/docs/key-protect/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies).
+- To learn how to enable dual authorization at the key level, see [Enabling a dual authorization policy for a key](/docs/services/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## November 2019
 {: #nov-2019}

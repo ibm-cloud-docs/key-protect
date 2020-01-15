@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:term: .term}
 
 # Using private endpoints
 {: #private-endpoints}  

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-27"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -91,10 +91,17 @@ If you or your company is a covered entity as defined by HIPAA, you can enable t
 
 {{site.data.keyword.keymanagementserviceshort}} is ISO 27001, 27017, 27018 certified. You can view compliance certifications by visiting [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}. 
 
-### SOC 2 Type 1
-{: #soc2-type1}
+### Service Organization Controls (SOC)
+{: #soc}
 
-{{site.data.keyword.keymanagementserviceshort}} is SOC 2 Type 1 certified. For information about requesting an {{site.data.keyword.cloud_notm}} SOC 2 report, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+{{site.data.keyword.keymanagementserviceshort}} meets Service Organization Control (SOC) compliance for the following types:
+
+- SOC 1 Type 2
+- SOC 2 Type 1
+- SOC 2 Type 2
+- SOC 3
+
+For information about requesting an {{site.data.keyword.cloud_notm}} SOC report, see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
 
 ### PCI DSS
 {: #pci-dss} 

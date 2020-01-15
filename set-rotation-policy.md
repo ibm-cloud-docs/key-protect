@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Setting a rotation policy
 {: #set-rotation-policy}
@@ -59,7 +60,7 @@ When it's time to rotate the key based on the rotation interval that you specify
 ### Viewing a rotation policy
 {: #view-rotation-policy-api}
 
-For a high-level view, you can browse the policies that are associated with a root key by making a `GET` call to the following endpoint.
+For a high-level view, you can browse the rotation policies that are associated with a root key by making a `GET` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies

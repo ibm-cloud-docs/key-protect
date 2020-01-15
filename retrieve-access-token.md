@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Retrieving an access token
 {: #retrieve-access-token}
@@ -29,7 +30,7 @@ Get started with the {{site.data.keyword.keymanagementservicelong}} APIs by auth
 ## Retrieving an access token with the CLI
 {: #retrieve-token-cli}
 
-You can use the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} to quickly generate your personal Cloud IAM access token.
+You can use the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external} to quickly generate your personal Cloud IAM [access token](x2113001){: term}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
 

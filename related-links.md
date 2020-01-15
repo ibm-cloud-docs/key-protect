@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Related links
 {: #related-links}
@@ -35,8 +36,6 @@ More resources to help you learn about managing encryption with {{site.data.keyw
 
 - [Hold the encryption keys to your {{site.data.keyword.cos_full_notm}} data](https://www.ibm.com/w3-techblog/use-cases/2018/06/encryption-keys-cloud-object-storage/){: external}
 - [Faster onboarding to {{site.data.keyword.cloud_notm}} with Bring Your Own Keys (BYOK) capability](https://www.ibm.com/w3-techblog/security/2018/06/byok-key-protect/){: external}
-- [Announcing {{site.data.keyword.keymanagementservicelong_notm}} London Region Release on {{site.data.keyword.cloud_notm}}](https://www.ibm.com/blogs/bluemix/2017/12/announcing-ibm-key-protect-london-region-release-ibm-cloud/){: external}
-- [{{site.data.keyword.keymanagementserviceshort}} Goes From Beta to GA in Dallas](https://www.ibm.com/blogs/bluemix/2016/12/dallas-key-protect-ga/){: external}
 
 ## Service terms
 {: #service-terms}

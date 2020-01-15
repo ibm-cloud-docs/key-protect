@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:term: .term}
 
 # Importing root keys
 {: #import-root-keys}
@@ -35,6 +36,9 @@ Plan ahead for importing keys by [reviewing your options for creating and encryp
 {: #import-root-key-gui}
 
 [After you create an instance of the service](/docs/services/key-protect?topic=key-protect-provision), complete the following steps to add your existing root key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
+
+If you enable [dual authorization settings for your service instance](/docs/services/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
+{: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.

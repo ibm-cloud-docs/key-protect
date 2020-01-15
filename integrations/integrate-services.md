@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-23"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
