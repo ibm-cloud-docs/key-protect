@@ -32,9 +32,9 @@ subcollection: key-protect
 
 {{site.data.keyword.cos_full_notm}} provides cloud storage for unstructured data. Unstructured data refers to files, audio/visual media, PDFs, compressed data archives, backup images, application artifacts, business documents, or any other binary object.  
 
-To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}} slices and disperses data to storage nodes across multiple geographic locations. No complete copy of the data resides in any single storage node, and only a subset of nodes needs to be available so you can fully retrieve the data on the network. Provider-side encryption is provided, so your data is secured at rest and in flight. To manage storage, you create buckets and import objects with the {{site.data.keyword.cloud_notm}} console, or programmatically by using the [{{site.data.keyword.cos_full_notm}} REST API](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
+To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}} slices and disperses data to storage nodes across multiple geographic locations. No complete copy of the data resides in any single storage node, and only a subset of nodes needs to be available so you can fully retrieve the data on the network. Provider-side encryption is provided, so your data is secured at rest and in flight. To manage storage, you create buckets and import objects with the {{site.data.keyword.cloud_notm}} console, or programmatically by using the [{{site.data.keyword.cos_full_notm}} REST API](/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-For more information, see [About COS](/docs/services/cloud-object-storage?topic=cloud-object-storage-about){: external}.
+For more information, see [About COS](/docs/cloud-object-storage?topic=cloud-object-storage-about){: external}.
 
 ## How the integration works
 {: #kp-cos-how}
@@ -48,14 +48,14 @@ To enable the security benefits of _customer-managed encryption_, you can add en
 The following figure shows how {{site.data.keyword.keymanagementserviceshort}} integrates with {{site.data.keyword.cos_full_notm}} to further secure your encryption keys.
 ![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope_min.svg)
 
-To learn more about how envelope encryption works in {{site.data.keyword.keymanagementserviceshort}}, see [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+To learn more about how envelope encryption works in {{site.data.keyword.keymanagementserviceshort}}, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## Adding envelope encryption to your storage buckets
 {: #kp-cos-envelope}
 
-[After you designate a root key in {{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-create-root-keys) and [grant access between your services](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access), you can enable envelope encryption for a specified storage bucket by using the {{site.data.keyword.cos_full_notm}} GUI.
+[After you designate a root key in {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-create-root-keys) and [grant access between your services](/docs/key-protect?topic=key-protect-integrate-services#grant-access), you can enable envelope encryption for a specified storage bucket by using the {{site.data.keyword.cos_full_notm}} GUI.
 
- To enable advanced configuration options for your storage bucket, ensure that an [authorization](/docs/services/key-protect?topic=key-protect-integrate-services#grant-access) exists between your {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementserviceshort}} service instances.
+ To enable advanced configuration options for your storage bucket, ensure that an [authorization](/docs/key-protect?topic=key-protect-integrate-services#grant-access) exists between your {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementserviceshort}} service instances.
 {: tip}
 
 To add envelope encryption to your storage bucket:
@@ -72,4 +72,4 @@ From the {{site.data.keyword.cos_full_notm}} GUI, you can browse the buckets tha
 ## What's next
 {: #cos-integration-next-steps}
 
-- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption](/docs/services/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 
+- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}. 

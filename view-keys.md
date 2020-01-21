@@ -30,17 +30,17 @@ subcollection: key-protect
 Audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the key.
-- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/key-protect?topic=key-protect-at-events).
+- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/key-protect?topic=key-protect-at-events).
 - Inspect which users have access to keys and if the level of access is appropriate.
 
-For more information about auditing access to your resources, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
+For more information about auditing access to your resources, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 
 ## Viewing keys with the GUI
 {: #view-keys-gui}
 
 If you prefer to inspect the keys in your service by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-[After you create or import your existing keys into the service](/docs/services/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/).
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -62,16 +62,16 @@ If you prefer to inspect the keys in your service by using a graphical interface
       </tr>
       <tr>
         <td>State</td>
-        <td>The [key state](/docs/services/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
+        <td>The [key state](/docs/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
       </tr>
       <tr>
         <td>Type</td>
-        <td>The [key type](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service.</td>
+        <td>The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service.</td>
       </tr>
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Keys</b> table</caption>
     </table>
 
-    Not seeing the full list of keys that are stored in your service instance? Verify with your administrator that you are assigned the correct role for the applicable service instance or individual key. For more information about roles, see [Roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles).
+    Not seeing the full list of keys that are stored in your service instance? Verify with your administrator that you are assigned the correct role for the applicable service instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
 ## Viewing keys with the API
@@ -89,7 +89,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Run the following cURL command to view general characteristics about your keys.
 
@@ -111,15 +111,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -180,7 +180,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
 
-    Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to ensure you're assigned the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/services/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
+    Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to ensure you're assigned the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
     {: tip}
 
 ### Retrieving a subset of keys
@@ -265,7 +265,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the ID of the key that you would like to access or manage.
 
@@ -292,15 +292,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. See <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a> for more information.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. See <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a> for more information.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

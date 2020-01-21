@@ -30,7 +30,7 @@ Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on {
 
 To get started, enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. After you enable VRF for your account, you can connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP that is accessible only through the {{site.data.keyword.cloud_notm}} private network. To learn more about private connections on {{site.data.keyword.cloud_notm}}, see [Service endpoints for private connections](/docs/resources?topic=resources-service-endpoints){:external}.
 
-To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private network connection, you must use the {{site.data.keyword.keymanagementserviceshort}} API or the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/services/key-protect?topic=key-protect-cli-reference). This capability is not available from the {{site.data.keyword.keymanagementserviceshort}} GUI.
+To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private network connection, you must use the {{site.data.keyword.keymanagementserviceshort}} API or the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-reference). This capability is not available from the {{site.data.keyword.keymanagementserviceshort}} GUI.
 {: note}
 
 ## Before you begin
@@ -116,14 +116,14 @@ After you configure your VSI to accept {{site.data.keyword.cloud_notm}} private 
     ```
     {: pre}
 
-    Replace `<region>` with the region abbreviation that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For the complete list of endpoints, see [Regions and endpoints](/docs/services/key-protect?topic=key-protect-regions#connectivity-options).
+    Replace `<region>` with the region abbreviation that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For the complete list of endpoints, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions#connectivity-options).
 
 ## Step 3. Create a {{site.data.keyword.keymanagementserviceshort}} resource on the private network
 {: #create-key-private-network}
 
-Test your private network connection by using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/services/key-protect?topic=key-protect-set-up-cli).
+Test your private network connection by using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli).
 
-1. Create a [root key](/docs/services/key-protect?topic=key-protect-create-root-keys) by targeting the private endpoint.
+1. Create a [root key](/docs/key-protect?topic=key-protect-create-root-keys) by targeting the private endpoint.
 
     ```sh
     ibmcloud kp create <key_name> -i <instance_ID>
@@ -146,6 +146,6 @@ Test your private network connection by using the [{{site.data.keyword.keymanage
 
 You're now set to interact with {{site.data.keyword.keymanagementserviceshort}} through a private endpoint.
 
-- To find out more about managing keys with {{site.data.keyword.keymanagementserviceshort}}, [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/services/key-protect?topic=key-protect-cli-reference).
+- To find out more about managing keys with {{site.data.keyword.keymanagementserviceshort}}, [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
 
 

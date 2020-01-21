@@ -28,7 +28,7 @@ subcollection: key-protect
 You can enable the secure import of root key material to the cloud by first creating an import token for your {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
 
-Import tokens are used to encrypt and securely bring root key material into {{site.data.keyword.keymanagementserviceshort}} based on the policies that you specify. To learn more about importing your keys securely to the cloud, see [Bringing your encryption keys to the cloud](/docs/services/key-protect/concepts?topic=key-protect-importing-keys).
+Import tokens are used to encrypt and securely bring root key material into {{site.data.keyword.keymanagementserviceshort}} based on the policies that you specify. To learn more about importing your keys securely to the cloud, see [Bringing your encryption keys to the cloud](/docs/key-protect/concepts?topic=key-protect-importing-keys).
 
 ## Creating an import token with the API
 {: #create-import-token-api}
@@ -40,7 +40,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Set a policy for your import token by calling the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
 
@@ -66,15 +66,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
         </tr>
         <tr>
           <td><varname>region</varname></td>
-          <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+          <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
         </tr>
         <tr>
           <td><varname>IAM_token</varname></td>
-          <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+          <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
         </tr>
         <tr>
           <td><varname>instance_ID</varname></td>
-          <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+          <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
         </tr>
         <tr>
           <td><varname>expiration_time</varname></td>
@@ -112,7 +112,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the import token that is associated with your service instance by calling the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
 
@@ -133,15 +133,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
         </tr>
         <tr>
           <td><varname>region</varname></td>
-          <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+          <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
         </tr>
         <tr>
           <td><varname>IAM_token</varname></td>
-          <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+          <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
         </tr>
         <tr>
           <td><varname>instance_ID</varname></td>
-          <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+          <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
         </tr>
         <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to retrieve an import token with the {{site.data.keyword.keymanagementserviceshort}} API</caption>
       </table>
@@ -160,12 +160,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
     ```
     {: screen}
 
-    The response body also contains the public encryption key that you can use to [encrypt a root key](/docs/services/key-protect?topic=key-protect-importing-keys#using-import-tokens) before you upload the key material to a {{site.data.keyword.keymanagementserviceshort}} service instance.
+    The response body also contains the public encryption key that you can use to [encrypt a root key](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) before you upload the key material to a {{site.data.keyword.keymanagementserviceshort}} service instance.
     
-    In the example, the `payload` value represents the public key that is associated with the import token. This value is base64 encoded. For extra security, {{site.data.keyword.keymanagementserviceshort}} also provides a `nonce` value that is used to verify the originality of a key import request to the service. To learn more about how to use these values, check out [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
+    In the example, the `payload` value represents the public key that is associated with the import token. This value is base64 encoded. For extra security, {{site.data.keyword.keymanagementserviceshort}} also provides a `nonce` value that is used to verify the originality of a key import request to the service. To learn more about how to use these values, check out [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 ## What's next
 {: #create-import-token-next-steps}
 
-- To find out more about using an import token to securely bring encryption keys to {{site.data.keyword.cloud_notm}}, check out [Importing root keys](/docs/services/key-protect?topic=key-protect-import-root-keys).
-- For a guided tutorial on using import tokens in {{site.data.keyword.keymanagementserviceshort}}, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
+- To find out more about using an import token to securely bring encryption keys to {{site.data.keyword.cloud_notm}}, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+- For a guided tutorial on using import tokens in {{site.data.keyword.keymanagementserviceshort}}, see [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).

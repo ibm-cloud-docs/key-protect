@@ -27,7 +27,7 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its contents, if you are a manager for your {{site.data.keyword.keymanagementserviceshort}} service instance.
 {: shortdesc}
 
-When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
 
 ## Deleting keys with the GUI
@@ -35,7 +35,7 @@ When you delete a key, you shred the key contents, and any data that was associa
 
 By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. If you prefer to delete your encryption keys by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-[After you create or import your existing keys into the service](/docs/services/key-protect?topic=key-protect-create-root-keys), complete the following steps to delete a key:
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to delete a key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -55,7 +55,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the ID of the key that you would like to delete.
 
@@ -80,7 +80,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -88,11 +88,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>

@@ -27,9 +27,9 @@ Learn how to create, encrypt, and bring your encryption keys to the cloud by usi
 
 <!--As a security professional for your organization, you're always looking for ways to enhance the security of your at-rest data on the cloud. To comply with strict data governance and regulatory audit requirements, you want to integrate your apps to a key management service that offers fine-grained access control to encryption keys, audit trail capabilities, and flexible options for uploading encryption keys that you generate on-premises.
 
-With {{site.data.keyword.keymanagementserviceshort}}, you can create encryption keys by using your internal key management system, and then upload those keys for use on the cloud. You can choose from [different options for uploading keys](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead) based on your ongoing security needs. As you manage the lifecycle of encryption keys, you control access to resources by using {{site.data.keyword.iamshort}}, and you monitor API activity to the service with {{site.data.keyword.at_short}}.-->
+With {{site.data.keyword.keymanagementserviceshort}}, you can create encryption keys by using your internal key management system, and then upload those keys for use on the cloud. You can choose from [different options for uploading keys](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead) based on your ongoing security needs. As you manage the lifecycle of encryption keys, you control access to resources by using {{site.data.keyword.iamshort}}, and you monitor API activity to the service with {{site.data.keyword.at_short}}.-->
 
-In this tutorial, you use an [import token](/docs/services/key-protect?topic=key-protect-importing-keys#using-import-tokens) to upload an encryption key to {{site.data.keyword.keymanagementserviceshort}}. To learn more about your options for importing keys to {{site.data.keyword.keymanagementserviceshort}}, see [Planning ahead for importing key material](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead). To learn about importing a key without an import token, see [Importing a root key](/docs/services/key-protect?topic=key-protect-import-root-keys)
+In this tutorial, you use an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to upload an encryption key to {{site.data.keyword.keymanagementserviceshort}}. To learn more about your options for importing keys to {{site.data.keyword.keymanagementserviceshort}}, see [Planning ahead for importing key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). To learn about importing a key without an import token, see [Importing a root key](/docs/key-protect?topic=key-protect-import-root-keys)
 {: note}
 
 
@@ -129,7 +129,7 @@ In this step, you use the {{site.data.keyword.cloud_notm}} CLI to gather the aut
     ```
     {: pre}
 
-    {{site.data.keyword.cloud_notm}} access tokens are valid for 1 hour, but you can regenerate them as needed. To generate a new access token, run the `ibmcloud iam oauth-tokens` command. To find out more about retrieving {{site.data.keyword.cloud_notm}} access tokens, see [Retrieving an access token](/docs/services/key-protect?topic=key-protect-retrieve-access-token#retrieve-access-token).
+    {{site.data.keyword.cloud_notm}} access tokens are valid for 1 hour, but you can regenerate them as needed. To generate a new access token, run the `ibmcloud iam oauth-tokens` command. To find out more about retrieving {{site.data.keyword.cloud_notm}} access tokens, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token#retrieve-access-token).
     {: note}
 
 3. Retrieve the identifier that is associated with your Key Protect service instance, and then set the value as an environment variable.
@@ -158,7 +158,7 @@ In this step, you use the {{site.data.keyword.cloud_notm}} CLI to gather the aut
 
 With your service credentials, you can start interacting with the {{site.data.keyword.keymanagementserviceshort}} APIs to create and bring your encryption keys to the service.
 
-In the following step, you create a [import token](/docs/services/key-protect?topic=key-protect-importing-keys#using-import-tokens) for your {{site.data.keyword.keymanagementserviceshort}} service instance. By creating an import token based on a policy that you specify, you enable extra security for your encryption key while it's in flight to the service.
+In the following step, you create a [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) for your {{site.data.keyword.keymanagementserviceshort}} service instance. By creating an import token based on a policy that you specify, you enable extra security for your encryption key while it's in flight to the service.
 
 1. Using your terminal session, change into a new `key-protect-test` directory.
 
@@ -273,7 +273,7 @@ With {{site.data.keyword.keymanagementserviceshort}}, you can enable the securit
 
 In the following step, you create a 256-bit AES symmetric key on your local computer.
 
-This tutorial uses the OpenSSL cryptography toolkit to generate a pseudo-random key, but you might want to [explore different options](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead) for generating stronger keys based on your security needs. For example, you might want to use your organization's internal key management system, backed by an on-premises hardware security module (HSM), to create and export keys.
+This tutorial uses the OpenSSL cryptography toolkit to generate a pseudo-random key, but you might want to [explore different options](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead) for generating stronger keys based on your security needs. For example, you might want to use your organization's internal key management system, backed by an on-premises hardware security module (HSM), to create and export keys.
 {: note}
 
 1. In a terminal window, run the following `openssl` command to create a 256-bit encryption key.
@@ -460,13 +460,13 @@ To import the key:
     ```
     {: screen}
 
-    The `id` value is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API. The `state` value set to 1 indicates that your encryption key is now in the [_Active_ key state](/docs/services/key-protect?topic=key-protect-key-states#key-states). The `crn` value provides the full scoped path to the key that specifies where the resource resides within {{site.data.keyword.cloud_notm}}. Finally, the `extractable` and `imported` values describe this resource as a root key that you imported to the service.
+    The `id` value is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API. The `state` value set to 1 indicates that your encryption key is now in the [_Active_ key state](/docs/key-protect?topic=key-protect-key-states#key-states). The `crn` value provides the full scoped path to the key that specifies where the resource resides within {{site.data.keyword.cloud_notm}}. Finally, the `extractable` and `imported` values describe this resource as a root key that you imported to the service.
 
-4. Optional: Navigate to the [{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-gui) to view and manage your encryption key.
+4. Optional: Navigate to the [{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) to view and manage your encryption key.
 
     ![The image shows the Key Protect dashboard view.](../images/import-keys-demo.png)
 
-    You can browse the general characteristics of your keys from the application details page. Choose from a list of options for managing your key, such as [rotating the key](/docs/services/key-protect?topic=key-protect-rotate-keys#rotate-key-gui) or [deleting the key](/docs/services/key-protect?topic=key-protect-delete-keys#delete-key-gui). 
+    You can browse the general characteristics of your keys from the application details page. Choose from a list of options for managing your key, such as [rotating the key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-key-gui) or [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui). 
 
 ## Step 9. Clean up
 {: #tutorial-import-clean-up}
@@ -509,7 +509,7 @@ To import the key:
     ```
     {: pre}
 
-    If you created more test keys in your service instance, be sure to [remove all encryption keys from your service instance](/docs/services/key-protect?topic=key-protect-delete-keys#delete-keys) before you deprovision the instance.
+    If you created more test keys in your service instance, be sure to [remove all encryption keys from your service instance](/docs/key-protect?topic=key-protect-delete-keys#delete-keys) before you deprovision the instance.
     {: tip}
 
 ## Next steps
@@ -517,6 +517,6 @@ To import the key:
 
 In this tutorial, you learned how to set up the {{site.data.keyword.keymanagementserviceshort}} API, create an encryption key, and securely import an encrypted key into your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-- Learn more about [using your root key to protect data at rest](/docs/services/key-protect?topic=key-protect-envelope-encryption#envelope-encryption).
-- Deploy your root key across [supported cloud services](/docs/services/key-protect?topic=key-protect-integrate-services#integrate-services).
+- Learn more about [using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption#envelope-encryption).
+- Deploy your root key across [supported cloud services](/docs/key-protect?topic=key-protect-integrate-services#integrate-services).
 - Learn more about the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect).

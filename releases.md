@@ -37,7 +37,7 @@ New as of: 2012-01-15
 You can now enable dual authorization policies to safely delete keys from your {{site.data.keyword.keymanagementserviceshort}} service instance. When you enable dual authorization, you require an action from two users to delete a key. 
 
 - To learn how to enable dual authorization at the instance level, see [Enabling a dual authorization policy for an instance](/docs/key-protect/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies).
-- To learn how to enable dual authorization at the key level, see [Enabling a dual authorization policy for a key](/docs/services/key-protect?topic=key-protect-set-dual-auth-key-policy).
+- To learn how to enable dual authorization at the key level, see [Enabling a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## November 2019
 {: #nov-2019}
@@ -64,7 +64,7 @@ New as of: 2019-11-04
 
 As an account owner or admin, review the existing access policies for all {{site.data.keyword.keymanagementserviceshort}} users in your account to ensure that they are assigned the appropriate levels of access.
 
-To learn more about {{site.data.keyword.keymanagementserviceshort}} roles and permissions, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
+To learn more about {{site.data.keyword.keymanagementserviceshort}} roles and permissions, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 
 ## September 2019
 {: #sept-2019}
@@ -75,7 +75,7 @@ New as of: 2019-09-27
 
 As an account admin, you can now assign fine-grained access to individual keys within a Key Protect service instance. 
 
-To learn more about granting access, see [Granting access to keys](/docs/services/key-protect?topic=key-protect-grant-access-keys).
+To learn more about granting access, see [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys).
 
 ### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
 {: #added-import-tokens}
@@ -89,9 +89,9 @@ The following API methods have changed:
 - `GET api/v2/lockers` is now `GET api/v2/import_token`
 - `GET api/v2/lockers/{id}` is no longer supported
 
-You can now create [import tokens](/docs/services/key-protect?topic=key-protect-importing-keys#using-import-tokens) to enable added security for keys that you upload to {{site.data.keyword.keymanagementserviceshort}}. 
+You can now create [import tokens](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to enable added security for keys that you upload to {{site.data.keyword.keymanagementserviceshort}}. 
 
-To find out more about your options for importing keys, check out [Bringing your encryption keys to the cloud](/docs/services/key-protect?topic=key-protect-importing-keys). For a guided tutorial, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
+To find out more about your options for importing keys, check out [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys). For a guided tutorial, see [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 {: tip} 
 
 ## July 2019
@@ -103,7 +103,7 @@ New as of: 2019-07-31
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the {{site.data.keyword.cloud_notm}} private network by targeting a private endpoint for the service.
 
-To get started, enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/services/key-protect?topic=key-protect-private-endpoints).
+To get started, enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 
 ## June 2019
 {: #june-2019}
@@ -114,7 +114,7 @@ New as of: 2019-06-22
 
 You can now monitor API calls to the {{site.data.keyword.keymanagementserviceshort}} service by using {{site.data.keyword.at_full_notm}}. 
 
-To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [Activity Tracker events](/docs/services/key-protect?topic=key-protect-at-events).
+To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
 
 ## May 2019
 {: #may-2019}
@@ -148,7 +148,7 @@ New as of: 2019-03-22
 
 You can now use {{site.data.keyword.keymanagementserviceshort}} to associate a rotation policy for your root keys.
 
-For more information, see [Setting a rotation policy](/docs/services/key-protect?topic=key-protect-set-rotation-policy). To find out more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/services/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
+For more information, see [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy). To find out more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
 {: #added-transport-keys-beta}
@@ -156,7 +156,7 @@ New as of: 2019-03-20
 
 Enable the secure import of encryption keys to the cloud by creating transport encryption keys for your {{site.data.keyword.keymanagementserviceshort}} service.
 
-For more information, see [Bringing your encryption keys to the cloud](/docs/services/key-protect?topic=key-protect-importing-keys).
+For more information, see [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
 Transport keys are currently a beta feature. Beta features can change at any time, and future updates might introduce changes that are incompatible with the latest version.
 {: important}
@@ -209,7 +209,7 @@ New as of: 2018-10-31
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Tokyo region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
+For more information, see [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #added-cli-plugin}
@@ -218,7 +218,7 @@ New as of: 2018-10-02
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-To learn how to install the plug-in, see [Setting up the CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/services/key-protect?topic=key-protect-cli-reference).
+To learn how to install the plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
 
 ## September 2018
 {: #sept-2018}
@@ -230,7 +230,7 @@ New as of: 2018-09-28
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate your root keys on-demand.
 
-For more information, see [Rotating keys](/docs/services/key-protect?topic=key-protect-rotate-keys).
+For more information, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 ### Added: End to end security tutorial for your cloud app
 {: #added-security-tutorial}
@@ -250,7 +250,7 @@ New as of: 2018-09-10
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Washington DC region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
+For more information, see [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## August 2018
 {: #aug-2018}
@@ -275,7 +275,7 @@ New as of: 2018-03-21
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Frankfurt region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
+For more information, see [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## January 2018
 {: #jan-2018}
@@ -287,7 +287,7 @@ New as of: 2018-01-31
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in the Sydney region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
+For more information, see [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## December 2017
 {: #dec-2017}
@@ -299,8 +299,8 @@ New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} now supports Bring Your Own Key (BYOK) and customer-managed encryption.
 
-- Introduced [root keys](/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types), also called Customer Root Keys (CRKs), as primary resources in the service. 
-- Enabled [envelope encryption](/docs/services/key-protect?topic=key-protect-integrate-cos#kp-cos-how) for {{site.data.keyword.cos_full_notm}} buckets.
+- Introduced [root keys](/docs/key-protect?topic=key-protect-envelope-encryption#key-types), also called Customer Root Keys (CRKs), as primary resources in the service. 
+- Enabled [envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how) for {{site.data.keyword.cos_full_notm}} buckets.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
 {: #added-london-region}
@@ -309,7 +309,7 @@ New as of: 2017-12-15
 
 {{site.data.keyword.keymanagementserviceshort}} is now available in the London region. 
 
-For more information, see [Regions and locations](/docs/services/key-protect?topic=key-protect-regions).
+For more information, see [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ### Changed: {{site.data.keyword.iamshort}} roles
 {: #changed-iam-roles}
@@ -322,7 +322,7 @@ New as of: 2017-12-15
 - `Editor` is now `Writer`
 - `Viewer` is now `Reader`
 
-For more information, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
+For more information, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 
 ## September 2017
 {: #sept-2017}
@@ -334,4 +334,4 @@ New as of: 2017-09-19
 
 You can now use {{site.data.keyword.iamshort}} to set and manage access policies for your {{site.data.keyword.keymanagementserviceshort}} resources.
 
-For more information, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
+For more information, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).

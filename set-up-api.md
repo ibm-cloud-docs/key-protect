@@ -34,15 +34,15 @@ To work with the API, you need to generate your service and authentication crede
 
 To gather your credentials:
 
-1. [Generate an {{site.data.keyword.cloud_notm}} IAM access token](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
-2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} service instance](/docs/services/key-protect?topic=key-protect-retrieve-instance-ID).
+1. [Generate an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} service instance](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## Forming your API request
 {: #form-api-request}
 
 When you make an API call to the service, structure your API request according to how you initially provisioned your instance of {{site.data.keyword.keymanagementserviceshort}}. 
 
-To build your request, pair a [service endpoint](/docs/services/key-protect?topic=key-protect-regions#service-endpoints) with the appropriate authentication credentials. For example, if you created a service instance for the `us-south` region, use the following endpoint and API headers to browse keys in your service:
+To build your request, pair a [service endpoint](/docs/key-protect?topic=key-protect-regions#service-endpoints) with the appropriate authentication credentials. For example, if you created a service instance for the `us-south` region, use the following endpoint and API headers to browse keys in your service:
 
 ```cURL
 curl -X GET \

@@ -38,7 +38,7 @@ To learn more about security controls across {{site.data.keyword.cloud_notm}}, s
 ### Data encryption
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://www.ibm.com/cloud/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
+{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://www.ibm.com/cloud/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
 
 Access to the service takes place over HTTPS, and internal {{site.data.keyword.keymanagementserviceshort}} communication uses the Transport Layer Security (TLS) 1.2 protocol to encrypt data in transit.
 

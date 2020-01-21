@@ -30,7 +30,7 @@ You can use {{site.data.keyword.keymanagementservicefull}} to safely delete encr
 
 Deleting a key that has a [dual authorization policy](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies) requires an authorization from two users. With the {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the first authorization by [setting the key for deletion](#set-key-deletion-api). Then, a different user provides a second authorization by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key. 
 
-When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/services/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
 
 ## Deleting a key using dual authorization
@@ -44,7 +44,7 @@ Keep the following steps in mind when you're ready to delete a key with dual aut
 ### Step 1. Authorize deletion for a key
 {: #set-key-deletion-api}
 
-[After you enable dual authorization for an instance or key](/docs/services/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), you can provide the first authorization to delete a key by making a `POST` call to the following endpoint.
+[After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), you can provide the first authorization to delete a key by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
@@ -52,7 +52,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 {: codeblock}
 
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
     To set a key for deletion, you must be assigned a _Manager_ or _Writer_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
@@ -142,7 +142,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -150,11 +150,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>return_preference</varname></td>
@@ -205,7 +205,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
 {: codeblock}
 
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
     To remove an authorization to delete a key, you must be assigned a _Manager_ or _Writer_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}

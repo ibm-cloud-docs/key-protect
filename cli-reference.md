@@ -27,7 +27,7 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
 {:shortdesc}
 
-To install the CLI plug-in, see [Setting up the CLI](/docs/services/key-protect?topic=key-protect-set-up-cli). 
+To install the CLI plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli). 
 
 When you log in to the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}, you're notified when updates are available. Be sure to keep your CLI up-to-date so that you can use the commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
@@ -77,7 +77,7 @@ You can specify one of the following commands.
 ## kp create
 {: #kp-create}
 
-[Create a root key](/docs/services/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
+[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
 
 ```
 ibmcloud kp create KEY_NAME -i $INSTANCE_ID
@@ -111,7 +111,7 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
         <dd><b>Used with import tokens.</b> The initialization vector (IV) that is generated when you encrypt a nonce. The IV value is required to decrypt the encrypted nonce value that you provide when you make a key import request to the service.</p>
         <p>To generate an IV, encrypt the nonce by running <code>ibmcloud kp import-token encrypt-nonce</code>.</dd>
     <dt><code>-s, --standard-key</code></dt>
-        <dd>Set the parameter only if you want to create a <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>. To create a root key, omit the <code>--standard-key</code> parameter.</dd>
+        <dd>Set the parameter only if you want to create a <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>. To create a root key, omit the <code>--standard-key</code> parameter.</dd>
     <dt><code>-o, --output</code></dt>
         <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
 </dl>
@@ -240,7 +240,7 @@ Key ID                                 Key Name          Description     Creatio
 ## kp wrap
 {: #kp-wrap}
 
-[Wrap a data encryption key](/docs/services/key-protect?topic=key-protect-wrap-keys) by using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
+[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) by using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
 
 ```
 ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
@@ -275,7 +275,7 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 ## kp unwrap
 {: #kp-unwrap}
 
-[Unwrap a data encryption key](/docs/services/key-protect?topic=key-protect-unwrap-keys) by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}} service instance.
+[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
 ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID 
@@ -309,7 +309,7 @@ ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID
 ## kp rotate
 {: #kp-rotate}
 
-[Rotate a root key](/docs/services/key-protect?topic=key-protect-wrap-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
+[Rotate a root key](/docs/key-protect?topic=key-protect-wrap-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
 ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
@@ -348,7 +348,7 @@ SUCCESS
 ## kp delete
 {: #kp-delete}
 
-[Delete a key](/docs/services/key-protect?topic=key-protect-delete-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
+[Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
 ibmcloud kp delete KEY_ID -i $INSTANCE_ID
@@ -441,7 +441,7 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 ## kp import-token create
 {: #kp-import-token-create}
 
-[Create an import token](/docs/services/key-protect?topic=key-protect-create-import-tokens) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
+[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
 
 ```
 ibmcloud kp import-token create -i $INSTANCE_ID
@@ -482,7 +482,7 @@ Created                         Expires                         Max Retrievals  
 ## kp import-token get
 {: #kp-import-token-get}
 
-[Retrieve the import token](/docs/services/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api) that is associated with your service instance. 
+[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api) that is associated with your service instance. 
 
 The import token contains a public encryption key and a nonce. Provide the retrieved public key and nonce as arguments for `ibmcloud kp import-token encrypt-nonce` and `ibmcloud kp import-token encrypt-key`.
 

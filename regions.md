@@ -35,7 +35,7 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 ![The image shows the regions where the Key Protect service is available.](images/world-map_min.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
-You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/services/key-protect?topic=key-protect-ha-dr#availability).
+You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
 
 ## Connectivity options
 {: #connectivity-options}
@@ -47,7 +47,7 @@ You can create {{site.data.keyword.keymanagementserviceshort}} resources in one 
         <dd>By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
         </dd>
     <dt>Private endpoints</dt>
-        <dd>For added benefits, you can also enable <a href="/docs/account?topic=account-vrf-service-endpoint" target="_blank" class="external"> virtual routing and forwarding (VRF) and service endpoints</a> for your infrastructure account. When you enable VRF for your account, you can connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP that is accessible only through the {{site.data.keyword.cloud_notm}} private network. To learn more about VRF, see <a href="/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud" target="_blank" class="external">Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}</a>. To learn how to connect to {{site.data.keyword.keymanagementserviceshort}} by using a private endpoint, see <a href="/docs/services/key-protect?topic=key-protect-private-endpoints">Using private endpoints</a>.
+        <dd>For added benefits, you can also enable <a href="/docs/account?topic=account-vrf-service-endpoint" target="_blank" class="external"> virtual routing and forwarding (VRF) and service endpoints</a> for your infrastructure account. When you enable VRF for your account, you can connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP that is accessible only through the {{site.data.keyword.cloud_notm}} private network. To learn more about VRF, see <a href="/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud" target="_blank" class="external">Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}</a>. To learn how to connect to {{site.data.keyword.keymanagementserviceshort}} by using a private endpoint, see <a href="/docs/key-protect?topic=key-protect-private-endpoints">Using private endpoints</a>.
         </dd>
 </dl>
 
@@ -84,4 +84,4 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
 {: class="comparison-tab-table"}
 {: row-headers}
 
-For more information about authenticating with {{site.data.keyword.keymanagementserviceshort}}, see [Accessing the API](/docs/services/key-protect?topic=key-protect-set-up-api).
+For more information about authenticating with {{site.data.keyword.keymanagementserviceshort}}, see [Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).

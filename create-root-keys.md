@@ -27,14 +27,14 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to create root keys by using the {{site.data.keyword.keymanagementserviceshort}} GUI, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
 
-Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption). 
+Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). 
 
 ## Creating root keys with the GUI
 {: #create-root-key-gui}
 
-[After you create an instance of the service](/docs/services/key-protect?topic=key-protect-provision), complete the following steps to create a root key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
+[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-If you enable [dual authorization settings for your service instance](/docs/services/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
+If you enable [dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}){: external}.
@@ -58,7 +58,7 @@ If you enable [dual authorization settings for your service instance](/docs/serv
       </tr>
       <tr>
         <td>Key type</td>
-        <td>The <a href="/docs/services/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select <b>Root key</b>.</td>
+        <td>The <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a> that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select <b>Root key</b>.</td>
       </tr>
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Create a key</b> settings</caption>
     </table>
@@ -77,7 +77,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external} with the following cURL command.
 
@@ -114,15 +114,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -178,5 +178,5 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ## What's next
 {: #create-root-key-next-steps}
 
-- To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/services/key-protect?topic=key-protect-wrap-keys).
+- To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.

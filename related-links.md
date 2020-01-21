@@ -45,6 +45,6 @@ More resources to help you learn about managing encryption with {{site.data.keyw
 ## Related services
 {: #related-services}
 
-- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/services/hs-crypto?topic=hs-crypto-get-started)
+- [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM](https://www.ibm.com/cloud/hardware-security-module){: external}
 

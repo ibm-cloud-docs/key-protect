@@ -29,7 +29,7 @@ You can manage and protect your encryption keys with a root key by using the {{s
 
 When you wrap a data encryption key (DEK) with a root key, {{site.data.keyword.keymanagementserviceshort}} combines the strength of multiple algorithms to protect the privacy and the integrity of your encrypted data.  
 
-To learn how key wrapping helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+To learn how key wrapping helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## Wrapping keys by using the API
 {: #wrap-key-api}
@@ -39,18 +39,18 @@ You can protect a specified data encryption key (DEK) with a root key that you m
 When you supply a root key for wrapping, ensure that the root key is 128, 192, or 256 bits so that the wrap call can succeed. If you create a root key in the service, {{site.data.keyword.keymanagementserviceshort}} generates a 256-bit key from its HSMs, supported by the AES-CBC-PAD algorithm.
 {: note}
 
-[After you designate a root key in the service](/docs/services/key-protect?topic=key-protect-create-root-keys), you can wrap a DEK with advanced encryption by making a `POST` call to the following endpoint.
+[After you designate a root key in the service](/docs/key-protect?topic=key-protect-create-root-keys), you can wrap a DEK with advanced encryption by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service.](/docs/services/key-protect?topic=key-protect-set-up-api)
+1. [Retrieve your service and authentication credentials to work with keys in the service.](/docs/key-protect?topic=key-protect-set-up-api)
 
 2. Copy the key material of the DEK that you want to manage and protect.
 
-    If you have manager or writer privileges for your {{site.data.keyword.keymanagementserviceshort}} service instance, [you can retrieve the key material for a specific key by making a `GET /v2/keys/<key_ID>` request](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-api	).
+    If you have manager or writer privileges for your {{site.data.keyword.keymanagementserviceshort}} service instance, [you can retrieve the key material for a specific key by making a `GET /v2/keys/<key_ID>` request](/docs/key-protect?topic=key-protect-view-keys#view-keys-api	).
 
 3. Copy the ID of the root key that you want to use for wrapping.
 
@@ -80,7 +80,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/services/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -88,11 +88,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/services/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>

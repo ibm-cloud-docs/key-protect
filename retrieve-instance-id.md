@@ -78,7 +78,7 @@ You can also retrieve the instance ID for your service instance by using the [{{
 
 You might want to retrieve the instance ID programmatically to help you build and connect your application. You can call the [{{site.data.keyword.cloud_notm}} Resource Controller API](https://{DomainName}/apidocs/resource-controller), and then pipe the JSON output to `jq` to extract this value.
 
-1. [Retrieve an {{site.data.keyword.cloud_notm}} IAM access token](/docs/services/key-protect?topic=key-protect-retrieve-access-token).
+1. [Retrieve an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
 2. Call the [Resource Controller API](https://{DomainName}/apidocs/resource-controller) to retrieve your instance ID.
 
     ```sh

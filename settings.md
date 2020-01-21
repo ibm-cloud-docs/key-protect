@@ -105,7 +105,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 
     A successful request returns an HTTP `204 No Content` response, which indicates that your service instance is now enabled for dual authorization. Keys that you create or import to the service now require two authorizations before they can be deleted. For more information, see [Deleting keys](/docs/key-protect/key-protect?topic=key-protect-delete-keys).
 
-    This new policy does not affect existing keys in your instance. If you need to enable dual authorization for an existing key, see [Creating a dual authorization policy for a key](/docs/services/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
+    This new policy does not affect existing keys in your instance. If you need to enable dual authorization for an existing key, see [Creating a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
     {: note}
 
 3. Optional: Verify that the dual authorization policy was created by browsing the policies that are available for your {{site.data.keyword.keymanagementserviceshort}} service instance.

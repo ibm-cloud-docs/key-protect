@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-21"
 
 keywords: set deletion policy, dual authorization, policy-based, key deletion
 
@@ -42,7 +42,7 @@ To enable dual authorization settings at the instance level, check out [Managing
 Consider the following items before you enable dual authorization for a key:
 
 - **Determine whether a dual authorization policy is required for the key.** As a security admin, assess the sensitivity of your workload to determine whether a key requires a dual authorization policy based on your requirements. After you enable dual authorization for a key, the policy can no longer be changed to allow a single authorization to delete the key. 
-- **Determine who can authorize deletion of your {{site.data.keyword.keymanagementserviceshort}} resources.** After you create a dual authorization policy for a key, the key will require [an action from two users](/docs/services/key-protect?topic=key-protect-delete-dual-auth-keys) before it can be deleted. Be sure to identify two distinct users with the [appropriate levels of access](/docs/services/key-protect?topic=key-protect-manage-access#service-access-roles) to the instance or key.
+- **Determine who can authorize deletion of your {{site.data.keyword.keymanagementserviceshort}} resources.** After you create a dual authorization policy for a key, the key will require [an action from two users](/docs/key-protect?topic=key-protect-delete-dual-auth-keys) before it can be deleted. Be sure to identify two distinct users with the [appropriate levels of access](/docs/key-protect?topic=key-protect-manage-access#service-access-roles) to the instance or key.
 
 To learn how to delete a key that has a dual authorization policy, see [Deleting keys using dual authorization](/docs/key-protect/key-protect?topic=key-protect-delete-dual-auth-keys).
 
@@ -56,7 +56,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 ```
 {: codeblock}
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
     To work with dual authorization policies, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
@@ -110,7 +110,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
           "id": "...",
           "crn": "...",
           "dualAuthDelete": {
-            "enabled": "true"
+            "enabled": true
           },
           "createdBy": "...",
           "creationDate": "...",
@@ -147,7 +147,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 After you enable a dual authorization policy for a single key, the policy cannot be reverted.  
 {: important}
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/services/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
     To work with dual authorization policies, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
@@ -169,7 +169,7 @@ After you enable a dual authorization policy for a single key, the policy cannot
         {
         "type": "application/vnd.ibm.kms.policy+json",
         "dualAuthDelete": {
-          "enabled": "true"
+          "enabled": true
           }
         }
       ]
@@ -215,7 +215,7 @@ After you enable a dual authorization policy for a single key, the policy cannot
           "id": "...",
           "crn": "...",
           "dualAuthDelete": {
-            "enabled": "true"
+            "enabled": true
           },
           "createdBy": "...",
           "creationDate": "...",

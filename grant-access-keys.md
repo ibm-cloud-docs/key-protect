@@ -31,7 +31,7 @@ As an account admin, determine an [access policy type](/docs/iam?topic=iam-userr
 
 You can grant access to keys within a {{site.data.keyword.keymanagementserviceshort}} service instance by using the {{site.data.keyword.cloud_notm}} console.
 
-Review [roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access) to learn how {{site.data.keyword.cloud_notm}} IAM roles map to {{site.data.keyword.keymanagementserviceshort}} actions.
+Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access) to learn how {{site.data.keyword.cloud_notm}} IAM roles map to {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tip}
 
 To assign access:
@@ -42,7 +42,7 @@ To assign access:
 4. Click **Assign access to resources**.
 5. From the list of services, select **Key Protect**.
 6. From the list of service instances, select a {{site.data.keyword.keymanagementserviceshort}} service instance.
-7. Choose a combination of [platform and service access roles](/docs/services/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
+7. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
 8. Click **Assign**.
 
 ## Granting access to a single key in an instance
@@ -57,8 +57,8 @@ Retrieve the unique identifer that's associated with the key that you want to gr
 
 To get the ID for a specific key, you can:
 
-- [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/services/key-protect?topic=key-protect-view-keys#view-keys-gui) to browse the keys that are stored in your service instance.
-- [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/services/key-protect?topic=key-protect-view-keys#retrieve-keys-api) to retrieve a list of your keys, along with metadata about the keys.
+- [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) to browse the keys that are stored in your service instance.
+- [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api) to retrieve a list of your keys, along with metadata about the keys.
 
 ### Step 2. Create an access policy
 {: #access-key-create-policy}
@@ -74,6 +74,6 @@ Use the retrieved key ID to create a access policy:
 7. Enter identifying information about the key.
    1. For **Resource type**, enter _key_.
    2. For **Resource ID**, enter the ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. 
-8. Choose a combination of [platform and service access roles](/docs/services/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
+8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
 9. Click **Assign**.
 

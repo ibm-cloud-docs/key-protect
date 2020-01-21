@@ -46,4 +46,4 @@ Cryptographic keys, in their lifetime, transition through several states that ar
 
 After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view your key's transition history and configuration. For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with the {{site.data.keyword.cloudaccesstrailfull}}. After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.cloudaccesstrailshort}} log when you create and delete keys in {{site.data.keyword.keymanagementserviceshort}}. 
 
-For more information, see [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: external}.
+For more information, see [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity](/docs/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: external}.

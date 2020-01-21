@@ -85,7 +85,7 @@ You can also retrieve your access token programmatically by first creating a [se
 
 4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy) for the service ID.
 
-    You can assign access permissions for your service ID [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new). To learn how the _Manager_, _Writer_, and _Reader_ access roles map to specific {{site.data.keyword.keymanagementserviceshort}} service actions, see [Roles and permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles).
+    You can assign access permissions for your service ID [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new). To learn how the _Manager_, _Writer_, and _Reader_ access roles map to specific {{site.data.keyword.keymanagementserviceshort}} service actions, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
 5. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys).
@@ -123,7 +123,7 @@ You can also retrieve your access token programmatically by first creating a [se
     ```
     {: screen}
 
-    Use the full `access_token` value, prefixed by the _Bearer_ token type, to programmatically manage keys for your service using the {{site.data.keyword.keymanagementserviceshort}} API. To see an example {{site.data.keyword.keymanagementserviceshort}} API request, check out [Forming your API request](/docs/services/key-protect?topic=key-protect-set-up-api#form-api-request).
+    Use the full `access_token` value, prefixed by the _Bearer_ token type, to programmatically manage keys for your service using the {{site.data.keyword.keymanagementserviceshort}} API. To see an example {{site.data.keyword.keymanagementserviceshort}} API request, check out [Forming your API request](/docs/key-protect?topic=key-protect-set-up-api#form-api-request).
 
     Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, regenerate the access token for your API key on a regular basis by calling the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api).   
     {: note }

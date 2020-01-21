@@ -47,11 +47,11 @@ Keep the following considerations in mind when you're ready to import root key m
   <dt>Choose an option for importing key material into {{site.data.keyword.keymanagementserviceshort}}</dt>
     <dd>Choose from two options for importing root keys based on the level of security that's required for your environment or workload. By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key material while it's in transit by using the Transport Layer Security (TLS) 1.2 protocol. If you're building a proof of concept or trying out the service for the first time, you can import root key material into {{site.data.keyword.keymanagementserviceshort}} by using this default option. If your workload requires a security mechanism beyond TLS, you can also <a href="#using-import-tokens">use an import token</a> to encrypt and import root key material into the service.</dd>
   <dt>Plan ahead for encrypting your key material</dt>
-    <dd>If you choose to encrypt your key material by using an import token, determine a method for running RSA encryption on the key material. You must use the <code>RSAES_OAEP_SHA_256</code> encryption scheme as specified by the <a href="https://tools.ietf.org/html/rfc3447" target="_blank" class="external">PKCS #1 v2.1 standard for RSA encryption</a>. Review the capabilities of your internal key management system or on-premises HSM to determine your options, or check out the <a href="/docs/services/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key">secure import tutorial</a> for examples.</dd>
+    <dd>If you choose to encrypt your key material by using an import token, determine a method for running RSA encryption on the key material. You must use the <code>RSAES_OAEP_SHA_256</code> encryption scheme as specified by the <a href="https://tools.ietf.org/html/rfc3447" target="_blank" class="external">PKCS #1 v2.1 standard for RSA encryption</a>. Review the capabilities of your internal key management system or on-premises HSM to determine your options, or check out the <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key">secure import tutorial</a> for examples.</dd>
   <dt>Plan ahead for encrypting the nonce</dt>
-    <dd>If you choose to encrypt your key material by using an import token, you must also determine a method for running AES-GCM encryption on the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}}. The nonce serves as a session token that checks the originality of a request to protect against malicious attacks and unauthorized calls. Review the capabilities of your internal key management system or on-premises HSM to determine your options, or check out the <a href="/docs/services/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce">secure import tutorial</a> for examples.</dd>
+    <dd>If you choose to encrypt your key material by using an import token, you must also determine a method for running AES-GCM encryption on the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}}. The nonce serves as a session token that checks the originality of a request to protect against malicious attacks and unauthorized calls. Review the capabilities of your internal key management system or on-premises HSM to determine your options, or check out the <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce">secure import tutorial</a> for examples.</dd>
   <dt>Manage the lifecycle of imported key material</dt>
-    <dd>After you import key material into the service, keep in mind that you are responsible for managing the complete lifecycle of your key. By using the {{site.data.keyword.keymanagementserviceshort}} API, you can set an expiration date for the key when you decide to upload it into the service. However, if you want to <a href="/docs/services/key-protect?topic=key-protect-rotate-keys">rotate an imported root key</a>, you must generate and provide new key material to retire and replace the existing key. </dd>
+    <dd>After you import key material into the service, keep in mind that you are responsible for managing the complete lifecycle of your key. By using the {{site.data.keyword.keymanagementserviceshort}} API, you can set an expiration date for the key when you decide to upload it into the service. However, if you want to <a href="/docs/key-protect?topic=key-protect-rotate-keys">rotate an imported root key</a>, you must generate and provide new key material to retire and replace the existing key. </dd>
 </dl>
 
 ## Using import tokens
@@ -64,7 +64,7 @@ Import tokens are a resource type in {{site.data.keyword.keymanagementservicesho
 ### How it works
 {: #how-import-tokens-work}
 
-When you [create an import token](/docs/services/key-protect?topic=key-protect-create-import-tokens) for your service instance, {{site.data.keyword.keymanagementserviceshort}} generates a 4096-bit RSA key-pair from its HSMs. When you [retrieve the import token](/docs/services/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api), the service supplies the public key that you can use for encrypting and uploading a key to {{site.data.keyword.keymanagementserviceshort}}.  
+When you [create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) for your service instance, {{site.data.keyword.keymanagementserviceshort}} generates a 4096-bit RSA key-pair from its HSMs. When you [retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api), the service supplies the public key that you can use for encrypting and uploading a key to {{site.data.keyword.keymanagementserviceshort}}.  
 
 The following list describes the import token workflow.
 
@@ -87,7 +87,7 @@ The following list describes the import token workflow.
 You can create only one import token per service instance. To learn more about retrieval limits for import tokens, [see the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect#create-an-import-token){: external}.
 {: note} 
 
-To try out the import token feature, see [Tutorial: Creating and importing encryption keys](/docs/services/key-protect?topic=key-protect-tutorial-import-keys).
+To try out the import token feature, see [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 {: tip}
 
 ### API methods
@@ -99,13 +99,13 @@ The following table lists the API methods that set up an import token for your s
 
 | Method | Description |
 | --- | --- |
-| `POST api/v2/import_token` | [Create an import token](/docs/services/key-protect?topic=key-protect-create-import-tokens) |
-| `GET api/v2/import_token` | [Retrieve an import token](/docs/services/key-protect?topic=key-protect-create-import-tokens) |
+| `POST api/v2/import_token` | [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) |
+| `GET api/v2/import_token` | [Retrieve an import token](/docs/key-protect?topic=key-protect-create-import-tokens) |
 {: caption="Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
 
 To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
 
 ## What's next
 
-- To learn how to create an import token for your service instance, see [Creating an import token](/docs/services/key-protect?topic=key-protect-create-import-tokens).
-- To find out more about importing keys to the service, see [Importing root keys](/docs/services/key-protect?topic=key-protect-import-root-keys). 
+- To learn how to create an import token for your service instance, see [Creating an import token](/docs/key-protect?topic=key-protect-create-import-tokens).
+- To find out more about importing keys to the service, see [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys). 

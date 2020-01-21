@@ -47,21 +47,21 @@ When you import encryption keys into {{site.data.keyword.keymanagementservicesho
 
 From a pricing standpoint, the best way to use {{site.data.keyword.keymanagementserviceshort}} is to create a limited number of root keys, and then use those root keys to encrypt the data encryption keys that are created by an external app or cloud data service. 
 
-To find out more about using root keys to protect data encryption keys, check out [Protecting data with envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption).
+To find out more about using root keys to protect data encryption keys, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## What is a root key?
 {: #what-is-root-key}
 {: faq}
 {: support}
 
-Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys that are used as roots of trust for protecting other keys that are stored in a data service with [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption). With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud. 
+Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys that are used as roots of trust for protecting other keys that are stored in a data service with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud. 
 
 ## What is envelope encryption?
 {: #what-is-envelope-encryption}
 {: faq}
 {: support}
 
-Envelope encryption is the practice of encrypting data with a _data encryption key_, and then encrypting the data encryption key with a highly secure _key-wrapping key_.  Your data is protected at rest by applying multiple layers of encryption. To learn how to enable envelope encryption for your {{site.data.keyword.cloud_notm}} resources, check out [Integrating services](/docs/services/key-protect?topic=key-protect-integrate-services).
+Envelope encryption is the practice of encrypting data with a _data encryption key_, and then encrypting the data encryption key with a highly secure _key-wrapping key_.  Your data is protected at rest by applying multiple layers of encryption. To learn how to enable envelope encryption for your {{site.data.keyword.cloud_notm}} resources, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
 
 ## How long can a key name be?
 {: #key-names}
@@ -90,7 +90,7 @@ Your encryption keys are confined to the region that you created them in. {{site
 {: faq}
 {: support}
 
-{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys. If you are a security admin for your service, you can assign [Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/services/key-protect?topic=key-protect-manage-access#roles) you want to grant to members of your team.
+{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys. If you are a security admin for your service, you can assign [Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#roles) you want to grant to members of your team.
 
 ## How do I monitor API calls to {{site.data.keyword.keymanagementserviceshort}}?
 {: faq}
@@ -98,7 +98,7 @@ Your encryption keys are confined to the region that you created them in. {{site
 
 You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}} service instance. For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
-To find out more, check out [Activity Tracker events](/docs/services/key-protect?topic=key-protect-at-events).
+To find out more, check out [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
 
 ## What happens when I delete a key?
 {: #key-destruction}
@@ -115,7 +115,7 @@ Before you delete a key, ensure that you no longer require access to any data th
 
 Dual authorization is a two-step process that requires an action from two users to delete a key. By forcing two entities to authorize the deletion of a key, you minimize the chances of inadvertent deletion or malicious actions.
 
-With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual authorization policies](/docs/services/key-protect?topic=key-protect-manage-settings#dual-authorization) at the instance level or for individual keys.
+With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual authorization policies](/docs/key-protect?topic=key-protect-manage-settings#dual-authorization) at the instance level or for individual keys.
 
 ## What happens after I enable a dual authorization policy?
 {: #enable-dual-auth}
@@ -123,18 +123,18 @@ With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual auth
 
 After you enable a dual authorization policy for a service instance, any keys that you add to the instance inherit the policy at the key level. Dual authorization policies for keys cannot be reverted.
 
-If you have existing keys in a service instance, those keys will continue to require only a single authorization to be deleted. If you want to enable those keys for dual authorization, you can use the Key Protect APIs to [set dual authorization policies for those individual keys](/docs/services/key-protect?topic=key-protect-set-dual-auth-key-policy).
+If you have existing keys in a service instance, those keys will continue to require only a single authorization to be deleted. If you want to enable those keys for dual authorization, you can use the Key Protect APIs to [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## Can I disable a dual authorization settings for my service instance?
 {: #disable-dual-auth}
 {: faq}
 
-Yes. If you need to add a key that doesn't require dual authorization to your service instance, you can always [disable dual authorization for the service instance](/docs/services/key-protect?topic=key-protect-manage-settings#disable-dual-auth-instance-policy) so that any new or future keys won't require it.
+Yes. If you need to add a key that doesn't require dual authorization to your service instance, you can always [disable dual authorization for the service instance](/docs/key-protect?topic=key-protect-manage-settings#disable-dual-auth-instance-policy) so that any new or future keys won't require it.
 
 ## What happens when I need to deprovision my service instance?
 {: #deprovision-service}
 {: faq}
 {: support}
 
-If you decide to move on from {{site.data.keyword.keymanagementserviceshort}}, you must delete any remaining keys from your service instance before you can deprovision the service. After you delete your service instance, {{site.data.keyword.keymanagementserviceshort}} uses [envelope encryption](/docs/services/key-protect?topic=key-protect-envelope-encryption) to crypto-shred any data that is associated with the service instance. 
+If you decide to move on from {{site.data.keyword.keymanagementserviceshort}}, you must delete any remaining keys from your service instance before you can deprovision the service. After you delete your service instance, {{site.data.keyword.keymanagementserviceshort}} uses [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) to crypto-shred any data that is associated with the service instance. 
 

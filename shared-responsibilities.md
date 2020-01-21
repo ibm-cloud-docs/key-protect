@@ -38,8 +38,8 @@ You and IBM share responsibilities for the set up and maintenance of your {{site
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-| Availability | Provide high availability capabilities, such as IBM-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/services/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
-| Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.at_full}}. | Use the provided tools to [review instance logs and activities](/docs/services/key-protect?topic=key-protect-at-events). |
+| Availability | Provide high availability capabilities, such as IBM-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
+| Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.at_full}}. | Use the provided tools to [review instance logs and activities](/docs/key-protect?topic=key-protect-at-events). |
 | Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages.  | Set preferences to [receive emails about platform notifications](/docs/overview?topic=overview-ui#email-prefsl), and monitor the [IBM Cloud status page](https://{DomainName}/status?selected=announcement) for general announcements.
 {: caption="Table 1. Responsibilites for incident and operations" caption-side="top"}
 
@@ -62,7 +62,7 @@ You and IBM share responsibilities for controlling access to your {{site.data.ke
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-| Applications| Provide the ability to restrict access to resources.  | Depending on your needs, restrict access to resources and service functionality by using Cloud IAM access policies. For more information, see [Managing user access](/docs/services/key-protect?topic=key-protect-manage-access).
+| Applications| Provide the ability to restrict access to resources.  | Depending on your needs, restrict access to resources and service functionality by using Cloud IAM access policies. For more information, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 {: caption="Table 3. Responsibilites for identity and access management" caption-side="top"}
 
 ## Security and regulation compliance
@@ -72,7 +72,7 @@ IBM is responsible for the security and compliance of {{site.data.keyword.keyman
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-| Applications| Maintain controls that are commensurate to [various industry compliance standards](/docs/services/key-protect?topic=key-protect-security-and-compliance#compliance-ready), such as SOC and ISO.  | Set up and maintain security and regulation compliance for your apps and data. For example, you can enable extra security settings to meet your compliance needs by choosing how and when to [import](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead), [wrap](/docs/services/key-protect?topic=key-protect-wrap-keys), [rotate](/docs/services/key-protect?topic=key-protect-importing-keys#plan-ahead), [rewrap](/docs/services/key-protect?topic=key-protect-rewrap-keys), and [delete](/docs/services/key-protect?topic=key-protect-delete-keys) keys. |
+| Applications| Maintain controls that are commensurate to [various industry compliance standards](/docs/key-protect?topic=key-protect-security-and-compliance#compliance-ready), such as SOC and ISO.  | Set up and maintain security and regulation compliance for your apps and data. For example, you can enable extra security settings to meet your compliance needs by choosing how and when to [import](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead), [wrap](/docs/key-protect?topic=key-protect-wrap-keys), [rotate](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead), [rewrap](/docs/key-protect?topic=key-protect-rewrap-keys), and [delete](/docs/key-protect?topic=key-protect-delete-keys) keys. |
 {: caption="Table 4. Responsibilites for security and regulation compliance" caption-side="top"}
 
 ## Disaster recovery

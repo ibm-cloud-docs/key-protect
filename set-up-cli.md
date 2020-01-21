@@ -26,7 +26,7 @@ subcollection: key-protect
 
 You can use the {{site.data.keyword.keymanagementservicelong_notm}} CLI plug-in to help you create, import, and manage encryption keys.
 
-To find out more about using the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/services/key-protect?topic=key-protect-cli-reference).
+To find out more about using the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
 {: tip}
 
 ## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
