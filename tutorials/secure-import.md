@@ -365,7 +365,7 @@ Next, use the public key that was distributed by {{site.data.keyword.keymanageme
     ```
     {: pre}
 
-    If you run into a parameter settings error when you run the `openssl` command on Mac OSX, you might need to ensure that OpenSSL is properly configured for your environment. If you installed OpenSSL by using Homebrew, run `brew update` and then `brew install openssl` to get the latest version. Then, run `export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile` to symlink the package. Open a new terminal session, and then run `which openssl && openssl version` to verify that the latest version of OpenSSL is available under the `/usr/local/` location. If you continue to encounter errors, be sure to use only the parameters that are listed in this example.
+    If you run into a parameter settings error when you run the `openssl` command on Mac OSX, you might need to ensure that OpenSSL is properly configured for your environment. If you installed OpenSSL by using Homebrew, run `brew update` and then `brew install openssl` to get the latest version. Then, run `export PATH="/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile` to symlink the package. Open a new terminal session, and then run `which openssl && openssl version` to verify that the latest version of OpenSSL is available under the `/usr/local/` location. If you continue to encounter errors, be sure to use only the parameters that are listed in this example.
     {: tip}
 
     Success! Your encrypted key is now saved to a file called `EncryptedKey.bin`. You're all set to upload your encrypted key into {{site.data.keyword.keymanagementserviceshort}}. Continue to the next step.  
@@ -425,7 +425,7 @@ To import the key:
 
     In the request body, you provide the encryption key that you prepared in the previous step. You also supply the encrypted nonce and the IV values that are required to verify the request. Finally, the `extractable` value set to `false` designates your new key as a root key in the service that you can use for envelope encryption.
 
-    Behind the scenes, {{site.data.keyword.keymanagementserviceshort}} receives your encrypted packet over a TLS 1.2 connection. Within a hardware security module, the system uses the private key to decrypt the symmetric key. Finally, the system uses the symmetric key and the IV to decrypt the nonce and verify the request. Your key is now stored in a tamper-resistant, FIPS 140-2 Level 3 validated hardware security module.
+    Behind the scenes, {{site.data.keyword.keymanagementserviceshort}} receives your encrypted packet over a TLS 1.2 connection. Within a hardware security module, the system uses the private key to decrypt the symmetric key. Finally, the system uses the symmetric key and the IV to decrypt the nonce and verify the request.
 
     If the API request fails with an import token expired error, [return to step 3](#tutorial-import-step-3) to create a new import token. Remember that import tokens and their associated public keys expire based on the policy that you specify at creation time. 
     {: tip}
