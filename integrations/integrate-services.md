@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-27"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -29,17 +29,18 @@ subcollection: key-protect
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the following supported services.
 
-| Service       | Description                 | Link |
+| Service       | Description                 | Links |
 | ------------- | ------------------------------------ | ---- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated) | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant/offerings?topic=cloudant-security#secure-access-control) |
 | [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch) | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect) |
 | [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd) | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect)|
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb) | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-mongodb?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql) | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-postgresql?topic=cloud-databases-key-protect)|
-| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis) | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/messages-for-redis?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql) | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-postgresql?topic=cloud-databases-key-protect)|
+| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis) | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect)|
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_mongodb_full}}](/docs/hyper-protect-dbaas-for-mongodb) | {{site.data.keyword.ihsdbaas_mongodb_full}} offers fully managed and highly secure {{site.data.keyword.mongodb}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-key-protect-byok) |
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_postgresql_full}}](/docs/hyper-protect-dbaas-for-postgresql) | {{site.data.keyword.ihsdbaas_postgresql_full}} offers fully managed and highly secure {{site.data.keyword.postgresql}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-key-protect-byok) |
 | [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq)  | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-rabbitmq?topic=cloud-databases-key-protect) |
+| [{{site.data.keyword.Db2_on_Cloud_long_notm}}](/docs/Db2onCloud) | {{site.data.keyword.Db2_on_Cloud_long_notm}} is an SQL database that is provisioned for you in the cloud. You can use {{site.data.keyword.Db2_on_Cloud_short}} just as you would use any database software, but without the time and expense of hardware setup or software installation and maintenance. | [View docs](/docs/Db2onCloud?topic=Db2onCloud-key-protect) |
 | [{{site.data.keyword.sqlquery_short}}](/docs/sql-query) | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. |[View docs](/docs/sql-query?topic=sql-query-keyprotect) |
 {: caption="Table 1. Supported database services" caption-side="top"}
 {: #table-1}
@@ -47,7 +48,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service        | Description             | Link |
+| Service        | Description             | Integration docs |
 | ------------- | ---------------------------- | ---- |
 | [{{site.data.keyword.block_storage_is_short}}](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-getting-started)| You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances (instances) in your VPC. | [View docs](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-encryption) |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started)| You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption-kp)|
@@ -57,7 +58,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service        | Description             | Link |
+| Service        | Description             | Integration docs |
 | ------------- | ---------------------------- | ---- |
 | [{{site.data.keyword.cloud_notm}} image templates](/docs/infrastructure/image-templates?topic=image-templates-about-image-templates) | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/infrastructure/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance)
 | [KMIP for VMware](/docs/vmwaresolutions?topic=vmware-solutions-kmip-overview) | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](https://cloud.ibm.com/docs/vmwaresolutions/services?topic=vmware-solutions-kmip_standalone_considerations)|
@@ -68,7 +69,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service       | Description                 | Link |
+| Service       | Description                 | Integration docs |
 | ------------- | ------------------------------------ | ---- |
 | [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started)  | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters.| [View docs](/docs/containers?topic=containers-encryption#keyprotect) |
 {: caption="Table 4. Supported containers services" caption-side="top"}
@@ -78,7 +79,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: class="simple-tab-table"}
 
 
-| Service       | Description                 | Link |
+| Service       | Description                 | Integration docs |
 | ------------- | ------------------------------------ | ---- |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=eventstreams-getting_started)  | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=eventstreams-managing_encryption) |
 {: caption="Table 5. Supported Integration services" caption-side="top"}
