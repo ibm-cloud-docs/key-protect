@@ -40,7 +40,7 @@ More resources to help you learn about managing encryption with {{site.data.keyw
 ## Service terms
 {: #service-terms}
 
-- [{{site.data.keyword.keymanagementservicelong_notm}} Service Level Agreement](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-02){: external}
+- [{{site.data.keyword.keymanagementservicelong_notm}} Service Level Agreement](https://www.ibm.com/software/sla/sladb.nsf/sla/bm-7603-03){: external}
 
 ## Related services
 {: #related-services}
