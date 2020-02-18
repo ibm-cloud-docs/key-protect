@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-17"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -51,12 +51,12 @@ This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of {{
 
 Use platform access roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
 
-| Action | Role |
-| --- | --- |
-| View {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Operator, Editor, Viewer |
-| Create {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Editor |
-| Delete {{site.data.keyword.keymanagementserviceshort}} instances. | Administrator, Editor |
-| Invite new users and manage access policies. | Administrator |
+| Action | Viewer | Editor | Operator | Admininistrator |
+|-----|-----|-----|-----|----|
+| View {{site.data.keyword.keymanagementserviceshort}} instances | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Create {{site.data.keyword.keymanagementserviceshort}} instances |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Invite new users and manage access policies | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 If you're an account owner, you are automatically assigned _Administrator_ platform access to your {{site.data.keyword.keymanagementserviceshort}} service instances so you can further assign roles and customize access policies for others.
@@ -67,68 +67,53 @@ If you're an account owner, you are automatically assigned _Administrator_ platf
 
 Use service access roles to grant permissions at the service level, such as the ability to view, create, or delete {{site.data.keyword.keymanagementserviceshort}} keys. 
 
+- As a **Reader**, you can browse a high-level view of keys and perform wrap and unwrap actions. Readers cannot access or modify key material.
+- As a **ReaderPlus**, you can browse a high-level view of keys, access key material for standard keys, and perform wrap and unwrap actions. The ReaderPlus role cannot modify key material.
+- As a **Writer**, you can create keys, modify keys, rotate keys, and access key 
+- As a **Manager**, you can perform all actions that a Reader, ReaderPlus and Writer can perform, including the ability to delete keys and set dual authorization and rotation policies for keys.
+
 The following table shows how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions.
 
-<table>
-  <col width="20%">
-  <col width="40%">
-  <col width="40%">
-  <tr>
-    <th>Role</th>
-    <th>Description</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <td><p>Reader</p></td>
-    <td><p>A reader can browse a high-level view of keys and perform wrap and unwrap actions. Readers cannot access or modify key material.</p></td>
-    <td>
-      <p>
-        <ul>
-          <li>List keys</li>
-          <li>Wrap keys</li>
-          <li>Unwrap keys</li>
-        </ul>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td><p>Writer</p></td>
-    <td><p>A writer can create keys, modify keys, rotate keys, and access key material.</p></td>
-    <td>
-      <p>
-        <ul>
-          <li>Create keys</li>
-          <li>List keys</li>
-          <li>Retrieve keys</li>
-          <li>Rotate keys</li>
-          <li>Wrap keys</li>
-          <li>Unwrap keys</li>
-          <li>Set keys for deletion</li>
-          <li>Unset keys for deletion</li>
-          <li>Create import tokens</li>
-          <li>Retrieve import tokens</li>
-        </ul>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td><p>Manager</p></td>
-    <td><p>A manager can perform all actions that a reader and writer can perform, including the ability to delete keys and set dual authorization and rotation policies for keys.</p></td>
-    <td>
-      <p>
-        <ul>
-          <li>All actions that a reader or a writer can perform</li>
-          <li>Set instance policies</li>
-          <li>List instance policies</li>
-          <li>Set key policies</li>
-          <li>List key policies</li>
-          <li>Delete keys</li>
-        </ul>
-      </p>
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">Table 1. Describes how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions</caption>
-</table>
+| Action | Reader | ReaderPlus | Writer | Manager |
+|-----|-----|-----|-----|----|
+| Create keys | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Import keys | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Retrieve keys | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| List keys | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Wrap keys | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Unwrap keys | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Rewrap keys | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Rotate keys | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Authorize deletion for a key | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Clear all authorizations for a key | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: #table-2}
+{: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
+{: tab-title="Keys"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
+
+| Action | Reader | ReaderPlus | Writer | Manager |
+|-----|-----|-----|-----|----|
+| Set key policies | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| List key policies | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Set instance policies | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| List instance policies | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: #table-3}
+{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="top"}
+{: tab-title="Policies"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
+
+| Action | Reader | ReaderPlus | Writer | Manager |
+|-----|-----|-----|-----|----|
+| Create an import token | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Retrieve an import token | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: #table-4}
+{: caption="Table 4. Lists service access roles as they apply to import token resources" caption-side="top"}
+{: tab-title="Import tokens"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
+
 
 ## What's next
 {: #manage-access-next-steps}

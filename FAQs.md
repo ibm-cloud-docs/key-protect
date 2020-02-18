@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-17"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -91,6 +91,15 @@ Your encryption keys are confined to the region that you created them in. {{site
 {: support}
 
 {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys. If you are a security admin for your service, you can assign [Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#roles) you want to grant to members of your team.
+
+## What's the difference between the Reader and ReaderPlus roles?
+{: #reader-readerplus}
+{: faq}
+
+Both the Reader and ReaderPlus roles help you assign read-only access to {{site.data.keyword.keymanagementserviceshort}} resources.
+
+- As a Reader, you can browse a high-level view of keys and perform wrap and unwrap actions. Readers cannot access or modify key material.
+- As a ReaderPlus, you can browse a high-level view of keys, access key material for standard keys, and perform wrap and unwrap actions. The ReaderPlus role cannot modify key material.
 
 ## How do I monitor API calls to {{site.data.keyword.keymanagementserviceshort}}?
 {: faq}
