@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-25"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -28,18 +28,23 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to safely delete encryption keys by using a dual authorization process.
 {: shortdesc}
 
-Deleting a key that has a [dual authorization policy](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies) requires an authorization from two users. With the {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the first authorization by [setting the key for deletion](#set-key-deletion-api). Then, a different user provides a second authorization by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key. 
-
-When you delete a key, you shred the key contents, and any data that was associated with the key is no longer accessible. The action cannot be reversed. [Destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
+When you delete a key, you shred its contents and associated data. Any data that is encrypted by the key becomes inaccessible. [Destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments, but might be useful for temporary environments such as testing or QA.
 {: important}
+
+Keep in mind the following considerations before you delete a key:
+
+- {{site.data.keyword.keymanagementserviceshort}} blocks the deletion of any key that's actively protecting a cloud resource. Before you delete a key, [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
+- You can [force deletion on a key](#delete-key-force) that's protecting a cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key.
 
 ## Deleting a key using dual authorization
 {: #delete-dual-auth-keys-api}
 
-Keep the following steps in mind when you're ready to delete a key with dual authorization:
+Deleting a key that has a [dual authorization policy](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies) requires an authorization from two users. With the {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the first authorization by [setting the key for deletion](#set-key-deletion-api). Then, a different user provides a second authorization by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key. 
+
+Before you delete a key by using dual authorization:
 
 - **Determine who can authorize deletion of your {{site.data.keyword.keymanagementserviceshort}} resources.** To use dual authorization, be sure to identify a user who can set the key for deletion, and another user who can delete the key. Users with a _Writer_ or _Manager_ access policy can set keys for deletion. Users with a _Manager_ access policy can delete keys.
-- **Plan to delete the key within a 7-day grace period.** When the first user authorizes a key for deletion, {{site.data.keyword.keymanagementserviceshort}} sets a 7-day grace period on the key. During this period, the key remains in the [_Active_ state](/docs/key-protect?topic=key-protect-key-states) and all key operations are allowed on the key. To complete the deletion, the second user with a _Manager_ access policy can use the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key.
+- **Plan to delete the key within a 7-day waiting period.** When the first user authorizes a key for deletion, {{site.data.keyword.keymanagementserviceshort}} sets a 7-day waiting period on the key. During this period, the key remains in the [_Active_ state](/docs/key-protect?topic=key-protect-key-states) and all key operations are allowed on the key. To complete the deletion, the second user with a _Manager_ access policy can use the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key.
 
 ### Step 1. Authorize deletion for a key
 {: #set-key-deletion-api}
@@ -107,7 +112,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 
 After you set a key for deletion, a second user with a _Manager_ access policy can safely delete the key by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API.
 
-{{site.data.keyword.keymanagementserviceshort}} sets a 7-day grace period that starts after you provide the first authorization to delete the key. During this 7-day period, the key remains in the [_Active_ state](/docs/key-protect?topic=key-protect-key-states) and all key operations are allowed on the key. If no action is taken by the second user and the 7-day period expires, you must [restart the dual authorization process](#set-key-deletion-api) to delete the key.
+{{site.data.keyword.keymanagementserviceshort}} sets a 7-day waiting period that starts after you provide the first authorization to delete the key. During this 7-day period, the key remains in the [_Active_ state](/docs/key-protect?topic=key-protect-key-states) and all key operations are allowed on the key. If no action is taken by the second user and the 7-day period expires, you must [restart the dual authorization process](#set-key-deletion-api) to delete the key.
 {: note}   
 
 Delete a key and its contents by making a `DELETE` call to the following endpoint.
@@ -197,7 +202,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ### Removing an existing authorization
 {: #unset-key-deletion-api}
 
-If you need to cancel an authorization for a key before the 7-day grace period expires, you can remove the existing authorization by making a `POST` call to the following endpoint.
+If you need to cancel an authorization for a key before the 7-day waiting period expires, you can remove the existing authorization by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeletion

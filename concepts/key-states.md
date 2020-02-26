@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-09-16"
+  years: 2017, 2020
+lastupdated: "2020-02-25"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -44,6 +44,6 @@ Cryptographic keys, in their lifetime, transition through several states that ar
 | Destroyed | Deleted keys are in the _destroyed_ state. Keys in this state are not recoverable. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. |
 {: caption="Table 1. Describes key states and transitions." caption-side="top"}
 
-After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view your key's transition history and configuration. For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with the {{site.data.keyword.cloudaccesstrailfull}}. After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.cloudaccesstrailshort}} log when you create and delete keys in {{site.data.keyword.keymanagementserviceshort}}. 
+After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view your key's transition history and configuration. For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started). After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.at_full_notm}} log when you create and delete keys in {{site.data.keyword.keymanagementserviceshort}}. 
 
-For more information, see [Monitoring {{site.data.keyword.keymanagementserviceshort}} activity](/docs/cloud-activity-tracker?topic=cloud-activity-tracker-kp){: external}.
+For more information, see [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events){: external}.

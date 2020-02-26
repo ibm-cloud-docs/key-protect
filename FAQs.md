@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-02-25"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -92,7 +92,7 @@ Your encryption keys are confined to the region that you created them in. {{site
 
 {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys. If you are a security admin for your service, you can assign [Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#roles) you want to grant to members of your team.
 
-## What's the difference between the Reader and ReaderPlus roles?
+## What are differences between the Reader and ReaderPlus roles?
 {: #reader-readerplus}
 {: faq}
 
@@ -102,12 +102,22 @@ Both the Reader and ReaderPlus roles help you assign read-only access to {{site.
 - As a ReaderPlus, you can browse a high-level view of keys, access key material for standard keys, and perform wrap and unwrap actions. The ReaderPlus role cannot modify key material.
 
 ## How do I monitor API calls to {{site.data.keyword.keymanagementserviceshort}}?
+{: #monitor-api-calls}
 {: faq}
 {: support}
 
 You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}} service instance. For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
 To find out more, check out [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
+
+## How can I check what data is encrypted by which root key?
+{: #check-protected-data}
+{: faq}
+{: support}
+
+When you use a root key to protect at-rest data with envelope encryption, the cloud services that use the key can create a registration between the key and the resource that it protects. Registrations are associations between keys and cloud resources that help you get a full view of which encryption keys protect what data on IBM Cloud.
+
+You can [browse the registrations](/docs/key-protect?topic=key-protect-view-protected-resources) that are available for your keys and cloud resources by using the {{site.data.keyword.keymanagementserviceshort}} APIs.
 
 ## What happens when I delete a key?
 {: #key-destruction}
@@ -118,11 +128,23 @@ When you delete a key, the service marks the key as deleted, and the key transit
 
 Before you delete a key, ensure that you no longer require access to any data that is associated with the key. This action cannot be reversed.
 
+## What happens if I try to delete a key that's actively encrypting data?
+{: #delete-registered-key}
+{: faq}
+{: support}
+
+For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. If you try to delete a key that's registered with a cloud resource, the action won't succeed. 
+
+If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force) by using the {{site.data.keyword.keymanagementserviceshort}} APIs. [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources) and verify with the owner of the resources to ensure you no longer require access to that data.
+
+If you can't delete a key because a retention policy exists on the associated resource, contact the account owner to remove the retention policy on that resource.
+{: note}
+
 ## What is a dual authorization policy?
 {: #dual-auth}
 {: faq}
 
-Dual authorization is a two-step process that requires an action from two users to delete a key. By forcing two entities to authorize the deletion of a key, you minimize the chances of inadvertent deletion or malicious actions.
+Dual authorization is a two-step process that requires an action from two approvers to delete a key. By forcing two entities to authorize the deletion of a key, you minimize the chances of inadvertent deletion or malicious actions.
 
 With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual authorization policies](/docs/key-protect?topic=key-protect-manage-settings#dual-authorization) at the instance level or for individual keys.
 

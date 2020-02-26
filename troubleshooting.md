@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-25"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -33,16 +33,16 @@ subcollection: key-protect
 General problems with using {{site.data.keyword.keymanagementservicefull}} might include providing the correct headers or credentials when you interact with the API. In many cases, you can recover from these problems by following a few easy steps.
 {: shortdesc}
 
-## Unable to create or delete keys
+## Unable to create keys
 {: #unable-to-create-keys}
 {: troubleshoot}
 
-When you access the {{site.data.keyword.keymanagementserviceshort}} user interface, you do not see the options to add or delete keys.
+When you access the {{site.data.keyword.keymanagementserviceshort}} user interface, the option to add a key to the service instance is disabled..
 
 From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of the {{site.data.keyword.keymanagementserviceshort}} service.
 {: tsSymptoms}
 
-You can see a list of keys, but you do not see options to add or delete keys. 
+You can see a list of keys, but you're unable to select the option to add a key. 
 
 You do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tsCauses} 
@@ -73,6 +73,7 @@ You call any {{site.data.keyword.keymanagementserviceshort}} API method. You see
   ]
 }
 ```
+{: screen}
 
 You do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the specified service instance.
 {: tsCauses} 
@@ -97,6 +98,7 @@ You call `GET api/v2/keys` to list the keys that are available in your service i
     }
 }
 ```
+{: screen}
 
 You do not have the correct authorization to view the requested range of keys.
 {: tsCauses}
@@ -124,6 +126,62 @@ Check with an admin to understand the total number of keys that are stored in th
 {: tsResolve}
 
 For example, if you want to list keys 201 - 210 that are available in a service instance, you use `../keys?offset=200&limit=10` to skip the first 200 keys.
+
+## Unable to delete keys
+{: #unable-to-delete-keys}
+{: troubleshoot}
+
+When you use the {{site.data.keyword.keymanagementserviceshort}} user interface or REST API, you're unable to delete a key.
+
+From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of the {{site.data.keyword.keymanagementserviceshort}} service.
+{: tsSymptoms}
+
+You're assigned a _Manager_ access policy for the service instance. You try to delete a key, but the action fails with the following error message.
+
+```
+Conflict: Key could not be deleted. Status: 409, Correlation ID: 160cc463-71d1-4b30-a5f2-d3f7e9f2b75e
+```
+{: screen}
+
+You also try to delete the key by using the {{site.data.keyword.keymanagementserviceshort}} API, but you receive the following error message.
+
+```
+{
+  "metadata": {
+    "collectionType": "application/vnd.ibm.kms.error+json",
+    "collectionTotal": 1
+  },
+  "resources": [
+    {
+      "errorMsg": "Conflict: Key could not be deleted. Please see `reasons` for more details.",
+      "reasons": [
+        {
+          "code": "FORCE_REQ_ERR",
+          "message": "This action requires setting `force` to `true`",
+          "status": 409,
+          "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
+          "target": {
+            "type": "query_param",
+            "name": "force"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+{: screen}
+
+This key is actively protecting one or more cloud resources, such as a Cloud Object Storage bucket or a Cloud Databases deployment.
+{: tsCauses} 
+
+For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. Before you delete a key, [review which resources are encrypted by this key](/docs/key-protect?topic=key-protect-view-protected-resources) and verify with the owner of the resources to ensure you no longer require access to that data.
+{: tsResolve}
+
+To delete the key, you can:
+
+- Use the {{site.data.keyword.keymanagementserviceshort}} API to [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force).
+- First, delete the resources that are associated with the key, and then delete the key.
 
 ## Getting help and support
 {: #getting-help}

@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="key-protect" category="security" audience="service" arm="3663407" href="/docs/services/key-protect?topic=key-protect-getting-started-tutorial" path="services/key-protect"}
+{: .toc subcollection="key-protect" category="security" audience="service" href="/docs/key-protect?topic=key-protect-getting-started-tutorial" path="key-protect"}
 Key Protect
 
     {: .navgroup id="learn"}
@@ -22,6 +22,7 @@ Key Protect
     Integrations
         integrations/integrate-services.md
         integrations/integrate-cos.md
+        integrations/view-protected-resources.md
     
     {: .topicgroup}
     Tutorials

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-02-25"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -39,25 +39,68 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 The following table lists the {{site.data.keyword.keymanagementserviceshort}} actions that generate an event:
 
-| Action                            | Description                       |
-| --------------------------------- | --------------------------------- |
-| `kms.secrets.create`              | Create a key                      |
-| `kms.secrets.read`                | Retrieve a key                    |
-| `kms.secrets.list`                | List keys                         |
-| `kms.secrets.head`                | Retrieve key total                |
-| `kms.secrets.wrap`                | Wrap a key                        |
-| `kms.secrets.unwrap`              | Unwrap a key                      |
-| `kms.secrets.rewrap`              | Rewrap a key                      |
-| `kms.secrets.setkeyfordeletion`   | Set or prepare a key for deletion |
-| `kms.secrets.unsetkeyfordeletion` | Unset a key for deletion          |
-| `kms.secrets.delete`              | Delete a key                      |
-| `kms.policies.read`               | List key policies                 |
-| `kms.policies.write`              | Set key policies                  |
-| `kms.instancepolicies.read`       | List instance policies            |
-| `kms.instancepolicies.write`      | Set an instance policy            |
-| `kms.importtoken.create`          | Create an import token            |
-| `kms.importtoken.read`            | Retrieve an import token          |
+| Action                            | Description                           |
+| --------------------------------- | ------------------------------------- |
+| `kms.secrets.create`              | Create a key                          |
+| `kms.secrets.read`                | Retrieve a key                        |
+| `kms.secrets.list`                | List keys                             |
+| `kms.secrets.head`                | Retrieve key total                    |
+| `kms.secrets.wrap`                | Wrap a key                            |
+| `kms.secrets.unwrap`              | Unwrap a key                          |
+| `kms.secrets.rewrap`              | Rewrap a key                          |
+| `kms.secrets.rotate`              | Rotate a key                          |
+| `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key          |
+| `kms.secrets.unsetkeyfordeletion` | Clear delete authorizations for a key |
+{: #table-1}
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
+{: tab-title="Keys"}
+{: tab-group="AT-events"}
+{: class="comparison-tab-table"}
+
+| Action                       | Description            |
+| ---------------------------- | ---------------------- |
+| `kms.policies.read`          | List key policies      |
+| `kms.policies.write`         | Set key policies       |
+| `kms.instancepolicies.read`  | List instance policies |
+| `kms.instancepolicies.write` | Set an instance policy |
+{: #table-2}
+{: caption="Table 2. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
+{: tab-title="Policies"}
+{: tab-group="AT-events"}
+{: class="comparison-tab-table"}
+
+| Action                   | Description              |
+| ------------------------ | ------------------------ |
+| `kms.importtoken.create` | Create an import token   |
+| `kms.importtoken.read`   | Retrieve an import token |
+{: #table-3}
+{: caption="Table 3. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
+{: tab-title="Import tokens"}
+{: tab-group="AT-events"}
+{: class="comparison-tab-table"}
+
+| Action                                | Description                                              |
+| ------------------------------------- | -------------------------------------------------------- |
+| `kms.registrations.create`[^services-1] | Create a registration between a key and a cloud resource |
+| `kms.registrations.listforkey`        | List registrations for a key                             |
+| `kms.registrations.list`              | List registrations for any key                           |
+| `kms.registrations.merge`[^services-2]  | Update a registration between a key and a cloud resource |
+| `kms.registrations.write`[^services-3]  | Replace registration between a key and a cloud resource  |
+| `kms.registrations.delete`[^services-4] | Delete registration between a key and a cloud resource   |
+{: #table-4}
+{: caption="Table 4. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
+{: tab-title="Registrations"}
+{: tab-group="AT-events"}
+{: class="comparison-tab-table"}
+
+[^services-1]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-2]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-3]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-4]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
 
 ## Viewing events
 {: #at-ui}

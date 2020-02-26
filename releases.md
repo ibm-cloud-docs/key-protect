@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-17"
+lastupdated: "2020-02-25"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -19,6 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 {:term: .term}
 
 # What's new
@@ -29,6 +30,26 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 ## February 2020
 {: #feb-2020}
+
+### Added: View associations between root keys and IBM Cloud resources
+{: #added-registrations}
+New as of: 2020-02-25
+
+You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to examine which root keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs.
+
+For more information, check out [View associations between root keys and {{site.data.keyword.cloud_notm}} resources](/docs/services/key-protect?topic=key-protect-view-protected-resources).
+
+This extra feature is available only if a cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information.
+{: preview}
+
+### Added: Prevent accidental or malicious deletion of keys
+{: #added-prevent-key-deletion}
+New as of: 2020-02-25
+
+{{site.data.keyword.keymanagementserviceshort}} enabled extra security measures to protect against the accidental or malicious deletion of keys.
+
+- {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a root key that's actively protecting a cloud resource. To learn if a key is registered to cloud resource, you can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
+- You can now [force deletion on a key](#delete-key-force) that's protecting a cloud resource. 
 
 ### Added: ReaderPlus service access role
 {: #added-readerplus}
