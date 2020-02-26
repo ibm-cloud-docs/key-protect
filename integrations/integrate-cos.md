@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-25"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 

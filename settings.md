@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-25"
 
 keywords: instance settings, service settings, dual authorization
 

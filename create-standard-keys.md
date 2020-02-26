@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-02-25"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
