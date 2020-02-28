@@ -103,7 +103,7 @@ You call `GET api/v2/keys` to list the keys that are available in your service i
 You do not have the correct authorization to view the requested range of keys.
 {: tsCauses}
 
-Contact an administrator to check your permissions. If the service instance contains keys that you're unable to view, verify that you're assigned the applicable [level of access to keys](/docs/key-protect?topic=key-protect-manage-access-key) in the service instance. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys. 
+Contact an administrator to check your permissions. If the service instance contains keys that you're unable to view, verify that you're assigned the applicable [level of access to keys](/docs/services/key-protect?topic=key-protect-grant-access-keys) in the service instance. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys. 
 {: tsResolve}
 
 For example, if you want to list keys 201 - 210 that are available in a service instance, you use `../keys?offset=200&limit=10` to skip the first 200 keys.
