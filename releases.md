@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-02-28"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -30,6 +30,64 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 ## February 2020
 {: #feb-2020}
+
+### Changed: Activity Tracker event fields
+{: #changed-at-events}
+New as of: 2020-02-28
+
+Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will return updated event fields in [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events) logs. These updates will be available across all supported regions by 15 April 2020.
+
+- **What's changing?** This change impacts the following {{site.data.keyword.at_full_notm}} event fields.
+
+    <table>
+      <tr>
+        <th>Type of change</th>
+        <th>Affected event fields</th>
+      </tr>
+      <tr>
+        <td><p>Removed event fields</p></td>
+        <td>
+          <p>
+            <ul>
+              <li><code>meta</code></li>
+              <li><code>observer.typeURI</code></li>
+              <li><code>requestHeader</code></li>
+              <li><code>requestPath</code></li>
+              <li><code>responseBody</code></li>
+              <li><code>type</code></li>
+              <li><code>typeURI</code></li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><p>Changed event fields</p></td>
+        <td>
+          <p>
+            <ul>
+              <li>The <code>eventTime</code> field will change from format <code>2020-02-03T20:20:37+0000</code> to <code>2020-02-03T20:20:37Z</code>.</li>
+              <li>The <code>target.name</code> field is currently set to <code>Key Protect</code>. This value will change to the name of the resource on which the operation was performed. For example, the name of the encryption key, or the name of your {{site.data.keyword.keymanagementserviceshort}} service instance.</li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><p>New event fields</p></td>
+        <td>
+          <p>
+            <ul>
+              <li><code>requestData</code</li>
+              <li><code>responseData</code></li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <caption style="caption-side:bottom;">Table 1. Describes upcoming Activity Tracker event field changes</caption>
+    </table>
+
+
+- **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.at_full_notm}}. 
+- **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events) audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.  
 
 ### Added: View associations between root keys and IBM Cloud resources
 {: #added-registrations}
