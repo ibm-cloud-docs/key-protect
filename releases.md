@@ -130,7 +130,7 @@ Effective 2020 February 24, {{site.data.keyword.keymanagementserviceshort}} will
 {: #jan-2020}
 
 ### Added: Dual authorization policies for {{site.data.keyword.keymanagementserviceshort}} instances and keys
-{: #changed-access-roles}
+{: #added-dual-authorization}
 New as of: 2020-01-15
 
 You can now enable dual authorization policies to safely delete keys from your {{site.data.keyword.keymanagementserviceshort}} service instance. When you enable dual authorization, you require an action from two users to delete a key. 
