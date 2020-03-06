@@ -115,28 +115,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
     {:screen}
 
     Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key.
-
-
-<!--
-5. Optional. Verify that the key was successfully rewrapped by base64 decoding the `ciphertext` value.
-
-    ```
-    echo <ciphertext> | base64 --decode ; echo
-    ```
-    {: codeblock}
-
-    Replace `<ciphertext>` with the base64 encoded value that was returned in the previous step. The following JSON object shows an example CLI output.
-
-    ```
-    {
-      "ciphertext":"mIzRrwZAA8+WqRckG6gt1ji8HlEEJPSiV+TRBSR4GVr+FlAZlC5KvRriRF0=",
-      "iv":"lbwxXlAW2DS7+5jGz5Y1Kg==",
-      "version":"4.0.0",
-      "handle":"8e309bae-b3ec-4270-9b87-89f8697fe54f"
-    }
-    ```
-    {:screen} 
-
-    QUESTION: How do I know that the wDEK has been rewrapped? Does the version number change, or just the ciphertext value? What do the iv, version, and handle values represent (internal security parameters?)
-
--->
