@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -169,7 +169,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     </table>
 
     If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
-    ```
+     ```json
     {
       "metadata": {
         "collectionType": "application/vnd.ibm.kms.key+json",
@@ -177,20 +177,29 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       },
       "resources": [
         {
-          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "...",
-          "description": "...",
+          "id": "acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
+          "name": "test-root-key",
           "state": 5,
-          "crn": "...",
-          "deleted": true,
+          "extractable": false,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
+          "imported": false,
+          "creationDate": "2020-03-10T20:41:27Z",
+          "createdBy": "IBMid-503CKNRHR7",
           "algorithmType": "AES",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "deletionDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "extractable": true
+          "algorithmMetadata": {
+            "bitLength": "256",
+            "mode": "CBC_PAD"
+          },
+          "algorithmBitSize": 256,
+          "algorithmMode": "CBC_PAD",
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
+          "dualAuthDelete": {
+            "enabled": false
+          },
+          "deleted": true,
+          "deletionDate": "2020-03-16T21:46:53Z",
+          "deletedBy": "IBMid-503CKNRHR7"
         }
       ]
     }

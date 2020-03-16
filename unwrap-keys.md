@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -24,10 +24,11 @@ subcollection: key-protect
 # Unwrapping keys
 {: #unwrap-keys}
 
-You can unwrap a data encryption key (DEK) to access its contents by using the {{site.data.keyword.keymanagementservicefull}} API. Unwrapping a DEK decrypts and checks the integrity of its contents, returning the original key material to your {{site.data.keyword.cloud_notm}} data service.
+You can unwrap a data encryption key to access its contents by using the {{site.data.keyword.keymanagementservicefull}} API. Unwrapping a DEK decrypts and checks the integrity of its contents, returning the original key material to your {{site.data.keyword.cloud_notm}} data service.
 {: shortdesc}
 
 To learn how key wrapping helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+{: tip}
 
 ## Unwrapping keys by using the API
 {: #unwrap-key-api}
@@ -43,7 +44,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 
 2. Copy the ID of the root key that you used to perform the initial wrap request.
 
-    You can retrieve the ID for a key by making a `GET /v2/keys` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} GUI.
+  You can find the ID for a key in your service instance by [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys), or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Copy the `ciphertext` value that was returned during the initial wrap request.
 
@@ -101,14 +102,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
       <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to unwrap keys in {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    The original key material is returned in the response entity-body. The following JSON object shows an example returned value.
+    The original key material is returned in the response entity-body. The response body also contains the ID of the key version that was used to unwrap the supplied ciphertext. The following JSON object shows an example returned value.
 
-    ```
+    ```json
     {
-      "plaintext": "VGhpcyBpcyBhIHNlY3JldCBtZXNzYWdlLg=="
+      "plaintext": "27+GLzeg80elwT+Zxti1VxQpguevDg75OYfs7v4HcyI=",
+      "keyVersion": {
+        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+      }
     }
     ```
     {:screen}
 
-    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key.
+    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. The latest key version (`rewrappedKeyVersion`) that is associated with the new `ciphertext` is also returned. Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key. 
     {: note}

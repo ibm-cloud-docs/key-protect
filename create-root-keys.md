@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -24,15 +24,15 @@ subcollection: key-protect
 # Creating root keys
 {: #create-root-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to create root keys by using the {{site.data.keyword.keymanagementserviceshort}} GUI, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
+You can use {{site.data.keyword.keymanagementservicefull}} to create root keys by using the {{site.data.keyword.cloud_notm}} console, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
 
-Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). 
+Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
-## Creating root keys with the GUI
+## Creating root keys in the console
 {: #create-root-key-gui}
 
-[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
+[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key in the {{site.data.keyword.cloud_notm}} console.
 
 If you enable [dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
@@ -77,9 +77,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external} with the following cURL command.
+2. Create a root key by running the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -161,19 +161,48 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     A successful `POST api/v2/keys` response returns the ID value for your key, along with other metadata. The ID is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API.
 
-3. Optional: Verify that the key was created by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
-
-    ```cURL
-    curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```json
+    {
+      "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+      },
+      "resources": [
+        {
+          "type": "application/vnd.ibm.kms.key+json",
+          "id": "861374b2-53ba-4129-8172-84a41446c9c9",
+          "name": "test-root-key",
+          "description": "A test root key",
+          "state": 1,
+          "extractable": false,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:861374b2-53ba-4129-8172-84a41446c9c9",
+          "imported": false,
+          "creationDate": "2020-03-12T03:37:32Z",
+          "createdBy": "IBMid-503CKNRHR7",
+          "algorithmType": "AES",
+          "algorithmMetadata": {
+            "bitLength": "256",
+            "mode": "CBC_PAD"
+          },
+          "algorithmBitSize": 256,
+          "algorithmMode": "CBC_PAD",
+          "lastUpdateDate": "2020-03-12T03:37:32Z",
+          "keyVersion": {
+            "id": "861374b2-53ba-4129-8172-84a41446c9c9",
+            "creationDate": "2020-03-12T03:37:32Z"
+          },
+          "dualAuthDelete": {
+            "enabled": false
+          },
+          "deleted": false
+        }
+      ]
+    }
     ```
-    {: codeblock}
+    {: screen}
 
-    After you create a root key with the service, the key stays within the bounds of {{site.data.keyword.keymanagementserviceshort}}, and its key material cannot be retrieved.
-    {: note} 
+    For a detailed description of the response parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    {: tip}
 
 ## What's next
 {: #create-root-key-next-steps}

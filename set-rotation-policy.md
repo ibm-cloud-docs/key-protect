@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -35,10 +35,10 @@ You can create a rotation policy only for root keys that are generated in {{site
 Want to learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}? Check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options) for more information.
 {: tip}
 
-## Managing rotation polices in the GUI
+## Managing rotation polices in the console
 {: #manage-policies-gui}
 
-If you prefer to manage policies for your root keys by using a graphical interface, you can use the {{site.data.keyword.keymanagementserviceshort}} GUI.
+If you prefer to manage policies for your root keys by using a graphical interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.

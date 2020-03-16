@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -30,7 +30,9 @@ subcollection: key-protect
 As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
+{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. 
+
+For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
 
 <!-- If you have multiple events that might not be related, you can create different sections to group them. -->
 
@@ -39,18 +41,20 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 The following table lists the {{site.data.keyword.keymanagementserviceshort}} actions that generate an event:
 
-| Action                            | Description                           |
-| --------------------------------- | ------------------------------------- |
-| `kms.secrets.create`              | Create a key                          |
-| `kms.secrets.read`                | Retrieve a key                        |
-| `kms.secrets.list`                | List keys                             |
-| `kms.secrets.head`                | Retrieve key total                    |
-| `kms.secrets.wrap`                | Wrap a key                            |
-| `kms.secrets.unwrap`              | Unwrap a key                          |
-| `kms.secrets.rewrap`              | Rewrap a key                          |
-| `kms.secrets.rotate`              | Rotate a key                          |
-| `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key          |
-| `kms.secrets.unsetkeyfordeletion` | Clear delete authorizations for a key |
+| Action                            | Description                  |
+| --------------------------------- | ---------------------------- |
+| `kms.secrets.create`              | Create a key                 |
+| `kms.secrets.read`                | Retrieve a key               |
+| `kms.secrets.readmetadata`        | Retrieve details about a key |
+| `kms.secrets.head`                | Retrieve key total           |
+| `kms.secrets.list`                | List keys                    |
+| `kms.secrets.wrap`                | Wrap a key                   |
+| `kms.secrets.unwrap`              | Unwrap a key                 |
+| `kms.secrets.rewrap`              | Rewrap a key                 |
+| `kms.secrets.rotate`              | Rotate a key                 |
+| `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key  |
+| `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key    |
+| `kms.secrets.delete`              | Delete a key                 |
 {: #table-1}
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} actions that generate Activity Tracker events" caption-side="top"}
 {: tab-title="Keys"}
@@ -79,11 +83,11 @@ The following table lists the {{site.data.keyword.keymanagementserviceshort}} ac
 {: tab-group="AT-events"}
 {: class="comparison-tab-table"}
 
-| Action                                | Description                                              |
-| ------------------------------------- | -------------------------------------------------------- |
+| Action                                  | Description                                              |
+| --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.create`[^services-1] | Create a registration between a key and a cloud resource |
-| `kms.registrations.listforkey`        | List registrations for a key                             |
-| `kms.registrations.list`              | List registrations for any key                           |
+| `kms.registrations.listforkey`          | List registrations for a key                             |
+| `kms.registrations.list`                | List registrations for any key                           |
 | `kms.registrations.merge`[^services-2]  | Update a registration between a key and a cloud resource |
 | `kms.registrations.write`[^services-3]  | Replace registration between a key and a cloud resource  |
 | `kms.registrations.delete`[^services-4] | Delete registration between a key and a cloud resource   |

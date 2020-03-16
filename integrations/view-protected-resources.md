@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: view protected data
 
@@ -33,10 +33,10 @@ When you use a root key to protect at-rest data with envelope encryption, the cl
 | Benefit | Description |
 | --- | --- |
 | Centralized view of protected resources | As an administrator for your {{site.data.keyword.keymanagementserviceshort}} service instance, you want to quickly understand which cloud resources are protected by a root key. |
-| Security and compliance posterity | As a security admin, you need a way to determine the risk that's involved with [destroying a root key](/docs/key-protect?topic=key-protect-delete-keys). You want to examine which keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. |
+| Security and compliance | As a security admin, you need a way to determine the risk that's involved with [destroying a root key](/docs/key-protect?topic=key-protect-delete-keys). You want to examine which keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. |
 {: caption="Table 1. Describes the benefits of key registration" caption-side="top"}
 
-Key registration is an extra feature that's available only if the cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information.
+Key registration is an extra feature that's available only if the cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information.
 {: note}
 
 This capability is currently available only by using the {{site.data.keyword.keymanagementserviceshort}} API. To find out more, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){:external}.
@@ -49,7 +49,7 @@ You can browse the registrations that are available between your {{site.data.key
 
 For example, when you call `GET api/v2/keys/{id}/registrations`, {{site.data.keyword.keymanagementserviceshort}} returns details about the key registration. The following JSON output represents a registration between a key and a cloud resource.
 
-```
+```json
 {
   "metadata": {
       "collectionType": "application/vnd.ibm.kms.registration+json",
@@ -136,7 +136,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 
     A successful `GET api/v2/keys/<key_ID>/registrations` request returns a collection of registrations that are mapped to the specified key ID.
 
-    ```
+    ```json
     {
       "metadata": {
           "collectionType": "application/vnd.ibm.kms.registration+json",

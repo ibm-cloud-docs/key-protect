@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-28"
+lastupdated: "2020-03-14"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -27,6 +27,25 @@ subcollection: key-protect
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}. 
 {: shortdesc}
+
+## March 2020
+{: #mar-2020}
+
+### Added: View details about a key
+{: #added-key-metadata}
+New as of: 2020-03-14
+
+If you have _Reader_ access permissions, you can now use the {{site.data.keyword.keymanagementserviceshort}} REST API to view only details about a specific standard key without retrieving the key itself.
+
+To find out more, see [Viewing details about a key](/docs/key-protect?topic=key-protect-view-key-details).
+
+### Added: View versions for a root key
+{: #added-key-versions}
+New as of: 2020-03-14
+
+You can now audit the rotation history of a root key by viewing its key versions. After you rotate a root key, the ID of the root key does not change, but {{site.data.keyword.keymanagementserviceshort}} now returns key version information to help you determine which version of the root key is protecting your data.
+
+To find out more, see [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
 
 ## February 2020
 {: #feb-2020}

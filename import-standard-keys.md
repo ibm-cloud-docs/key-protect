@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-14"
 
 keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
 
@@ -24,12 +24,12 @@ subcollection: key-protect
 # Importing standard keys
 {: #import-standard-keys}
 
-You can add your existing encryption keys with the {{site.data.keyword.keymanagementserviceshort}} GUI, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
+You can add your existing encryption keys by using the {{site.data.keyword.cloud_notm}} console, or programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 
-## Importing standard keys with the GUI
+## Importing standard keys in the console
 {: #import-standard-key-gui}
 
-[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to enter your existing standard key with the {{site.data.keyword.keymanagementserviceshort}} GUI.
+[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to import an existing key by using the {{site.data.keyword.cloud_notm}} console.
 
 If you enable [dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}

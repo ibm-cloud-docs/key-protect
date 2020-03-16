@@ -59,7 +59,11 @@ Key Protect
         import-standard-keys.md
         create-import-tokens.md
 
-    view-keys.md
+    {: .topicgroup}
+    Viewing keys
+        view-keys.md
+        view-key-details.md
+        retrieve-key.md
 
     {: .topicgroup}
     Protecting keys
@@ -69,8 +73,9 @@ Key Protect
 
     {: .topicgroup}
     Rotating keys
-        set-rotation-policy.md
         rotate-keys.md
+        set-rotation-policy.md
+        view-key-versions.md
 
     {: .topicgroup}
     Deleting keys
