@@ -34,7 +34,7 @@ subcollection: key-protect
 
 To maintain data integrity and availability, {{site.data.keyword.cos_full_notm}} slices and disperses data to storage nodes across multiple geographic locations. No complete copy of the data resides in any single storage node, and only a subset of nodes needs to be available so you can fully retrieve the data on the network. Provider-side encryption is provided, so your data is secured at rest and in flight. To manage storage, you create buckets and import objects with the {{site.data.keyword.cloud_notm}} console, or programmatically by using the [{{site.data.keyword.cos_full_notm}} REST API](/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-api){: external}.
 
-For more information, see [About COS](/docs/cloud-object-storage?topic=cloud-object-storage-about){: external}.
+For more information, see [About COS](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage#about-cloud-object-storage){: external}.
 
 ## How the integration works
 {: #kp-cos-how}
