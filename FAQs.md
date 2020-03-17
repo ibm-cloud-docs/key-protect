@@ -146,7 +146,7 @@ If you can't delete a key because a retention policy exists on the associated re
 
 Dual authorization is a two-step process that requires an action from two approvers to delete a key. By forcing two entities to authorize the deletion of a key, you minimize the chances of inadvertent deletion or malicious actions.
 
-With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual authorization policies](/docs/key-protect?topic=key-protect-manage-settings#dual-authorization) at the instance level or for individual keys.
+With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual authorization policies](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies) at the instance level or for individual keys.
 
 ## What happens after I enable a dual authorization policy?
 {: #enable-dual-auth}

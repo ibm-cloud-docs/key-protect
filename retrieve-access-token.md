@@ -75,7 +75,7 @@ You can also retrieve your access token programmatically by first creating a [se
 
 2. Select the account, region, and resource group that contain your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-3. Create a [service ID](/docs/iam?topic=iam-serviceids#creating-a-service-id) for your application.
+3. Create a [service ID](/docs/iam?topic=iam-serviceids) for your application.
 
   ```sh
   ibmcloud iam service-id-create SERVICE_ID_NAME

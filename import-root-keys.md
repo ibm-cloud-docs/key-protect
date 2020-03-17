@@ -29,7 +29,7 @@ You can use {{site.data.keyword.keymanagementservicefull}} to secure your existi
 
 Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about importing root keys into {{site.data.keyword.keymanagementserviceshort}}, see [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
-Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#import-tokens) to encrypt your key material before you bring it to the cloud.
+Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
 {: note}
 
 ## Importing root keys in the console

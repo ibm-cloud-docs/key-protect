@@ -33,7 +33,7 @@ Dual authorization is an extra policy that helps to prevent accidental or malici
 After you enable dual authorization at the key level, the policy that is associated with the key can no longer be changed to allow a single authorization to delete the key. 
 {: important}
 
-To enable dual authorization settings at the instance level, check out [Managing service settings](/docs/key-protect?topic=key-protect-manage-settings#dual-authorization).
+To enable dual authorization settings at the instance level, check out [Managing service settings](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies).
 {: tip}
 
 ## Managing dual authorization policies with the API

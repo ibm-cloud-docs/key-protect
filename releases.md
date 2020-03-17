@@ -252,7 +252,7 @@ New as of: 2019-05-15
 
 The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on Cloud Foundry, reached its end of support on 15 May 2019. Cloud Foundry-managed {{site.data.keyword.keymanagementserviceshort}} service instances are no longer supported and updates to the legacy service will no longer be provided. Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}} service instances that are IAM-managed to benefit from the latest features for the service.
 
-If you created your {{site.data.keyword.keymanagementserviceshort}} service instance after 15 December 2017, your service instance is IAM-managed and it is not affected by this change. For additional questions, reach out to Terry Mosbaugh at [mosbaugh@us.ibm.com](mailto:mosbaugh@us.ibm.com).
+If you created your {{site.data.keyword.keymanagementserviceshort}} service instance after 15 December 2017, your service instance is IAM-managed and it is not affected by this change.
 
 Need to remove a {{site.data.keyword.keymanagementserviceshort}} service instance from the **Cloud Foundry Services** section of your {{site.data.keyword.cloud_notm}} resource list? You can reach out to us in the [Support Center](https://{DomainName}/unifiedsupport/cases/add) by submitting a request to remove the entry from your console view.
 {: tip}
