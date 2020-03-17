@@ -83,7 +83,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 | ------------- | ------------------------------------ | ---- |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=eventstreams-getting_started)  | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=eventstreams-managing_encryption) |
 {: caption="Table 5. Supported Integration services" caption-side="top"}
-{: #table-4}
+{: #table-5}
 {: tab-title="Integration"}
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}

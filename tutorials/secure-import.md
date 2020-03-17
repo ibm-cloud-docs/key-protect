@@ -54,7 +54,7 @@ To get started, you need the {{site.data.keyword.cloud_notm}} CLI so that you ca
 2. Download and install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) for your operating system.
 3. Download and install the [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
 
-    You can use `openssl` commands to generate encryption keys on your local computer if you're trying out {{site.data.keyword.keymanagementserviceshort}} for the first time. This tutorial requires OpenSSL version `1.0.2r` or above.
+    You can use `openssl` commands to generate encryption keys on your local computer if you're trying out {{site.data.keyword.keymanagementserviceshort}} for the first time. This tutorial requires OpenSSL version `1.0.2r` or later.
 
     If you're using a Mac, you can download OpenSSL by using [Homebrew](https://brew.sh/){: external}. Run `brew install openssl` if you're installing the package for the first time, or run `brew upgrade openssl` to upgrade your existing package to the latest version.
     {: tip}
