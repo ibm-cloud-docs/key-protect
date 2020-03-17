@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-02-25"
 
 keywords: view protected data
 
@@ -217,7 +217,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?urlEncodedResourceC
       <tr>
         <td><varname>url_encoded_CRN_query</varname></td>
         <td>
-          <p>Filters for resources that are associated with a specified [Cloud Resource Name (CRN)](/docs/overview?topic=overview-crn) by using URL encoded 
+          <p>Filters for resources that are associated with a specified [Cloud Resource Name (CRN)](/docs/resources?topic=resources-crn#crn) by using URL encoded 
         wildcard characters (`*`). The parameter should contain all CRN segments and must be URL encoded.</p>
           <p>To view examples, see [CRN query examples](#crn-query-examples).</p>
         </td>
