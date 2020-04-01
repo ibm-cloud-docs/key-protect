@@ -126,7 +126,7 @@ New as of: 2020-02-25
 {{site.data.keyword.keymanagementserviceshort}} enabled extra security measures to protect against the accidental or malicious deletion of keys.
 
 - {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a root key that's actively protecting a cloud resource. To learn if a key is registered to cloud resource, you can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
-- You can now [force deletion on a key](#delete-key-force) that's protecting a cloud resource. 
+- You can now [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force) that's protecting a cloud resource.
 
 ### Added: ReaderPlus service access role
 {: #added-readerplus}
