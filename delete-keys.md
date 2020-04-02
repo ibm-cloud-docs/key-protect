@@ -160,6 +160,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
 This action won't succeed if the key is protecting a resource that's non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources) for the key. Then, you must contact an account owner to remove the retention policy on each resource that is associated with the key before you can delete the key.
 {: important}
 
+When you delete a key that has registrations associated with it, you shred the key's contents and associated data. Any data that is encrypted by the key becomes inaccessible.
+{: note}
+
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the ID of the key that you want to force delete.
