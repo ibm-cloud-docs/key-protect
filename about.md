@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-31"
 
 keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# About the service
+# Service overview
 {: #about}
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision encrypted keys for apps across {{site.data.keyword.cloud_notm}} services. As you manage the lifecycle of your keys, you can benefit from knowing that your keys are secured by FIPS 140-2 Level 3 certified cloud-based hardware security modules (HSMs) that protect against the theft of information.
@@ -62,28 +62,4 @@ manage the keys for cryptography.</dd>
     <dd>Writers manage the keys for the cryptography that they code into apps.</dd>
 </dl>
 
-![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases_min.svg)
-
-## {{site.data.keyword.keymanagementserviceshort}} architecture
-{: #kp_architecture}
-
-{{site.data.keyword.keymanagementservicelong_notm}} is composed of industry-accepted technologies.
-
-<dl>
-  <dt>{{site.data.keyword.cloud_notm}} server</dt>
-    <dd>Identity, projects, and their tokens from the {{site.data.keyword.cloud_notm}} server let the {{site.data.keyword.keymanagementserviceshort}} service map resources to keys.</dd>
-  <dt>API for {{site.data.keyword.keymanagementserviceshort}}</dt>
-    <dd>The {{site.data.keyword.keymanagementserviceshort}} REST API drives key creation and management. The service provides encrypted multi-tenancy.</dd>
-  <dt>User interface in {{site.data.keyword.cloud_notm}}</dt>
-    <dd>With the {{site.data.keyword.keymanagementserviceshort}} user interface (UI), you can securely work with your keys.</dd>
-  <dt>Hardware security module (HSM)</dt>
-    <dd>Behind the scenes, {{site.data.keyword.cloud_notm}} data centers provide the hardware to protect your keys.</dd>
-  <dt>Database cluster</dt>
-    <dd>You can count on redundant and secure storage of your keys with a clustered database.</dd>
-</dl>
-
-The following diagrams show how {{site.data.keyword.keymanagementserviceshort}} works with the hardware security modules to generate keys compared to how the service stores keys.
-
-![The diagram shows how keys are generated.](images/generated-key_min.svg)
-
-![The diagram shows how existing keys are stored.](images/stored-key_min.svg)
+![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg){: caption="Figure 1. Shows how different access roles interact with keys." caption-side="bottom"}
