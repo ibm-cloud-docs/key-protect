@@ -46,7 +46,7 @@ As you move data into your instance of {{site.data.keyword.cos_full_notm}}, the 
 To enable the security benefits of _customer-managed encryption_, you can add envelope encryption to your DEKs in {{site.data.keyword.cos_full_notm}} by integrating with the {{site.data.keyword.keymanagementserviceshort}} service. With {{site.data.keyword.keymanagementserviceshort}}, you provision highly secure root keys, which serve as a master keys that you control in the service. When you create a bucket in {{site.data.keyword.cos_full_notm}}, you can configure envelope encryption for the bucket at its creation. This added protection wraps (or encrypts) the DEKs associated with the bucket by using a root key that you manage in {{site.data.keyword.keymanagementserviceshort}}. The practice, called _key wrapping_, uses multiple AES algorithms to protect the privacy and the integrity of your DEKs, so only you control access to their associated data.
 
 The following figure shows how {{site.data.keyword.keymanagementserviceshort}} integrates with {{site.data.keyword.cos_full_notm}} to further secure your encryption keys.
-![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope_min.svg)
+![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope.svg){: caption="Figure 1. Contexual view of envelope encryption." caption-side="bottom"}
 
 To learn more about how envelope encryption works in {{site.data.keyword.keymanagementserviceshort}}, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 

@@ -34,7 +34,7 @@ Cryptographic keys, in their lifetime, transition through several states that ar
 
 {{site.data.keyword.keymanagementserviceshort}} provides a graphical user interface and a REST API for tracking keys as they move through several states in their lifecycle. The following diagram shows how a key passes through states between its generation and its destruction.
 
-![The diagram shows the same components as described in the following definition table.](../images/key-states_min.svg)
+![The diagram shows the same components as described in the following definition table.](../images/key-states.svg)
 
 | State | Description |
 | --- | --- |

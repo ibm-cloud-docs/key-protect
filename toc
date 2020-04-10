@@ -6,10 +6,13 @@ Key Protect
 
     {: .navgroup id="learn"}
     index.md
-
-    {: .topicgroup}
+    
     [Why IBM Key Protect?](https://www.ibm.com/cloud/key-protect){: new_window}
-    about.md
+    
+    {: .topicgroup}
+    About the service
+        about.md
+        architecture.md
 
     {: .topicgroup}
     Concepts
