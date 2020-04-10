@@ -156,8 +156,8 @@ You also try to delete the key by using the {{site.data.keyword.keymanagementser
       "errorMsg": "Conflict: Key could not be deleted. Please see `reasons` for more details.",
       "reasons": [
         {
-          "code": "FORCE_REQ_ERR",
-          "message": "This action requires setting `force` to `true`",
+          "code": "PROTECTED_RESOURCE_ERR",
+          "message": "Key is protecting one or more cloud resources",
           "status": 409,
           "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
           "target": {
