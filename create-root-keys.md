@@ -29,6 +29,9 @@ You can use {{site.data.keyword.keymanagementservicefull}} to create root keys b
 
 Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
+Encryption keys that are created in one region can be used to encrypt data stores located in any region within IBM Cloud.
+{: note}
+
 ## Creating root keys in the console
 {: #create-root-key-gui}
 

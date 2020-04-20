@@ -83,7 +83,7 @@ You are responsible for ensuring the security of any information that you store 
 {: faq}
 {: support}
 
-Your encryption keys are confined to the region that you created them in. {{site.data.keyword.keymanagementserviceshort}} does not copy or export encryption keys to other regions.
+Your encryption keys can be used to encrypt data stores located anywhere within IBM Cloud.
 
 ## How do I control who has access to keys?
 {: #access-control}
