@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 Reencrypt your data encryption keys by using the {{site.data.keyword.keymanagementservicelong}} API.
 {: shortdesc}
 
-When you [rotate a root key in {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-key-rotation), new cryptographic key material becomes available for protecting the data encryption keys (DEKs) that are associated with the root key. With the rewrap API, you can reencrypt or rewrap your DEKs without exposing the keys in their plaintext form. 
+When you [rotate a root key in {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-key-rotation), new cryptographic key material becomes available for protecting the data encryption keys (DEKs) that are associated with the root key. With the rewrap API, you can reencrypt or rewrap your DEKs without exposing the keys in their plaintext form.
 
 To learn how envelope encryption helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
@@ -46,7 +46,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
 ```
 {: codeblock}
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 2. Copy the ID of the rotated root key that you used to perform the initial wrap request.
 
     You can retrieve the ID for a key by making a `GET api/v2/keys` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} GUI.
@@ -107,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
 
     The newly wrapped data encryption key, original key version (`keyVersion`) that is associated with the supplied ciphertext and latest key version (`rewrappedKeyVersion`) associated with the new ciphertext is returned in the response entity-body. The following JSON object shows an example returned value.
 
-    ```
+    ```json
     {
       "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiZjIxcjVOVVBoS2JaeEMwZ3k5NU1zR050VUkzWkZuUkNDeGlrUTk2eHBQVXRmcDg5NExpK21zVHJ5RzQ9IiwiaXYiOiJ4dUlIYjFGZ3dLUzRycCtFIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiMTk1Y2YxMTItNTc2Ni00MmViLTgwY2MtN2FmYWRlZDA5NTAzIn0=",
       "keyVersion": {

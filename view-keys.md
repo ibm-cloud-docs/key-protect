@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -79,7 +79,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 You can retrieve the contents of your keys by using the {{site.data.keyword.keymanagementserviceshort}} API.
 
-### Retrieving a list of your keys
+### Retrieving a list of keys
 {: #retrieve-keys-api}
 
 For a high-level view, you can browse keys that are managed in your provisioned instance of {{site.data.keyword.keymanagementserviceshort}} by making a `GET` call to the following endpoint.

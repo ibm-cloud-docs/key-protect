@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-02-25"
+  years: 2017, 2020
+lastupdated: "2020-03-19"
 
 keywords: set deletion policy, dual authorization, policy-based, key deletion
 
@@ -30,10 +30,10 @@ You can use {{site.data.keyword.keymanagementservicefull}} to set dual authoriza
 
 Dual authorization is an extra policy that helps to prevent accidental or malicious deletion of keys in your {{site.data.keyword.keymanagementserviceshort}} service instance. When you enable this policy at the key level, {{site.data.keyword.keymanagementserviceshort}} requires an authorization from two users to delete a key.
 
-After you enable dual authorization at the key level, the policy that is associated with the key can no longer be changed to allow a single authorization to delete the key. 
+After you enable dual authorization at the key level, the policy that is associated with the key can no longer be changed to allow a single authorization to delete the key.
 {: important}
 
-To enable dual authorization settings at the instance level, check out [Managing service settings](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies).
+To enable dual authorization settings at the instance level, check out [Managing service settings](/docs/key-protect?topic=key-protect-manage-dual-auth).
 {: tip}
 
 ## Managing dual authorization policies with the API
@@ -41,10 +41,10 @@ To enable dual authorization settings at the instance level, check out [Managing
 
 Consider the following items before you enable dual authorization for a key:
 
-- **Determine whether a dual authorization policy is required for the key.** As a security admin, assess the sensitivity of your workload to determine whether a key requires a dual authorization policy based on your requirements. After you enable dual authorization for a key, the policy can no longer be changed to allow a single authorization to delete the key. 
+- **Determine whether a dual authorization policy is required for the key.** As a security admin, assess the sensitivity of your workload to determine whether a key requires a dual authorization policy based on your requirements. After you enable dual authorization for a key, the policy can no longer be changed to allow a single authorization to delete the key.
 - **Determine who can authorize deletion of your {{site.data.keyword.keymanagementserviceshort}} resources.** After you create a dual authorization policy for a key, the key will require [an action from two users](/docs/key-protect?topic=key-protect-delete-dual-auth-keys) before it can be deleted. Be sure to identify two distinct users with the [appropriate levels of access](/docs/key-protect?topic=key-protect-manage-access#service-access-roles) to the instance or key.
 
-To learn how to delete a key that has a dual authorization policy, see [Deleting keys using dual authorization](/docs/key-protect/key-protect?topic=key-protect-delete-dual-auth-keys).
+To learn how to delete a key that has a dual authorization policy, see [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
 
 ### Viewing a dual authorization policy for a key
 {: #view-dual-auth-key-policy-api}
@@ -99,7 +99,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 
     A successful request returns dual authorization policy details that are associated with your key. The following JSON object shows an example response for a key that has an existing dual authorization policy.
 
-    ```
+    ```json
     {
       "metadata": {
           "collectionTotal": 1,
@@ -124,7 +124,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 
     For keys that do not have an existing dual authorization policy, the following JSON shows an example response.
 
-    ```
+    ```json
     {
       "metadata": {
         "collectionTotal": 0,
@@ -144,7 +144,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 ```
 {: codeblock}
 
-After you enable a dual authorization policy for a single key, the policy cannot be reverted.  
+After you enable a dual authorization policy for a single key, the policy cannot be reverted.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -165,7 +165,7 @@ After you enable a dual authorization policy for a single key, the policy cannot
         "collectionType": "application/vnd.ibm.kms.policy+json",
         "collectionTotal": 1
       },
-      "resources": [ 
+      "resources": [
         {
         "type": "application/vnd.ibm.kms.policy+json",
         "dualAuthDelete": {
@@ -203,8 +203,8 @@ After you enable a dual authorization policy for a single key, the policy cannot
     </table>
 
     A successful request returns a `200 OK` response with dual authorization policy details for your key. The following JSON object shows an example response.
-    
-    ```
+
+    ```json
     {
       "metadata": {
         "collectionType": "application/vnd.ibm.kms.policy+json",
@@ -227,6 +227,6 @@ After you enable a dual authorization policy for a single key, the policy cannot
     ```
     {: screen}
 
-    The key now requires an authorization from two users before it can be deleted. For more information, see [Deleting keys using dual authorization](/docs/key-protect/key-protect?topic=key-protect-delete-dual-auth-keys).
-    
+    The key now requires an authorization from two users before it can be deleted. For more information, see [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
+
 

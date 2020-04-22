@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-04-20"
 
-keywords: rotate encryption key, encryption key rotation, rotate key API examples 
+keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
 subcollection: key-protect
 
@@ -71,7 +71,7 @@ If you prefer to rotate your root keys by using a graphical interface, you can u
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Rotate key</b> settings</caption>
     </table>
 
-7.  When you are finished, click **Rotate key** to confirm. 
+7.  When you are finished, click **Rotate key** to confirm.
 
 ## Rotating root keys with the API
 {: #rotate-key-api}
@@ -143,7 +143,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to rotate a specified key in {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    A successful rotation request returns an HTTP `204 No Content` response, which indicates that your root key was replaced by new key material. 
+    A successful rotation request returns an HTTP `204 No Content` response, which indicates that your root key was replaced by new key material.
 
 4. Optional: Verify that the key was rotated by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
@@ -155,7 +155,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
     -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
-  
+
     Review the `lastRotateDate` and `keyVersion` values in the response entity-body to inspect the date and time that your key was last rotated.
 
     ```json

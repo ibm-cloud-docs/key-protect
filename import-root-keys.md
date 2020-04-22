@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -37,7 +37,7 @@ Plan ahead for importing keys by [reviewing your options for creating and encryp
 
 [After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to import a key with the {{site.data.keyword.cloud_notm}} console.
 
-If you enable [dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
+If you enable [dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
@@ -79,7 +79,7 @@ If you enable [dual authorization settings for your service instance](/docs/key-
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Import your own key</b> settings</caption>
     </table>
 
-5. When you are finished filling out the key's details, click **Import key** to confirm. 
+5. When you are finished filling out the key's details, click **Import key** to confirm.
 
 ## Importing root keys with the API
 {: #import-root-key-api}
@@ -91,8 +91,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
-   
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
 2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external} with the following cURL command.
 
     ```cURL

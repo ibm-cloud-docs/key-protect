@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -112,7 +112,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `GET api/v2/keys/{id}/policies` response returns policy details that are associated with your key. The following JSON object shows an example response for a root key that has an existing rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,
@@ -210,7 +210,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `PUT api/v2/keys/{id}/policies` response returns policy details that are associated with your key. The following JSON object shows an example response for a root key that has an existing rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,
@@ -306,7 +306,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `PUT api/v2/keys/{id}/policies` response returns updated policy details that are associated with your key. The following JSON object shows an example response for a root key with an updated rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,

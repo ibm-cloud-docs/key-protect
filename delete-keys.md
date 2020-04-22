@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: delete key, delete key API examples
 
@@ -33,7 +33,7 @@ When you delete a key, you shred its contents and associated data. Any data that
 Keep in mind the following considerations before you delete a key:
 
 - {{site.data.keyword.keymanagementserviceshort}} blocks the deletion of any key that's actively protecting a cloud resource. Before you delete a key, [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
-- You can [force deletion on a key](#delete-key-force) that's protecting a cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key.
+- You can [force deletion on a key](#delete-key-force) that's protecting a cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact an account owner to remove the retention policy on each resource that is associated with the key before you can delete the key.
 
 ## Deleting keys in the console
 {: #delete-key-gui}
@@ -210,7 +210,7 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
     </table>
 
     If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
-    ```json
+    ```
     {
       "metadata": {
         "collectionType": "application/vnd.ibm.kms.key+json",
@@ -218,29 +218,20 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
       },
       "resources": [
         {
+          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
-          "name": "test-root-key",
+          "name": "...",
+          "description": "...",
           "state": 5,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
-          "imported": false,
-          "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "IBMid-503CKNRHR7",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "dualAuthDelete": {
-            "enabled": false
-          },
+          "crn": "...",
           "deleted": true,
-          "deletionDate": "2020-03-16T21:46:53Z",
-          "deletedBy": "IBMid-503CKNRHR7"
+          "algorithmType": "AES",
+          "createdBy": "...",
+          "deletedBy": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "deletionDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "extractable": true
         }
       ]
     }

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -55,7 +55,7 @@ Rotation options are available only for root keys.
 ## How key rotation works 
 {: #how-key-rotation-works}
 
-Key rotation works by securely transitioning key material from an _Active_ to a _Deactivated_ key state. To replace the deactivated or retired key version, the new key version moves into the _Active_ state and becomes available for cryptographic operations.
+Key rotation works by securely transitioning key material from an _Active_ to a _Deactivated_ key state. To replace the deactivated or retired key version, the new key version moves into the _Active_ state and becomes available or cryptographic operations.
 
 ### Using {{site.data.keyword.keymanagementserviceshort}} to rotate keys
 {: #use-key-protect-rotate-keys}
@@ -85,11 +85,11 @@ Keep in mind the following considerations as you prepare to use {{site.data.keyw
 Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process.  
 
 The following diagram shows a contextual view of the key rotation functionality.
-![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
+![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg){: caption="Figure 1. Contexual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}} creates a new key version by associating new key material with your root key. 
 
-![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg)
+![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg){: caption="Figure 2. Micro view of a root key stack." caption-side="bottom"}
 
 To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your root keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys). 
 {: tip}

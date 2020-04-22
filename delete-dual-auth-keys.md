@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-03-19"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -39,7 +39,7 @@ Keep in mind the following considerations before you delete a key:
 ## Deleting a key using dual authorization
 {: #delete-dual-auth-keys-api}
 
-Deleting a key that has a [dual authorization policy](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies) requires an authorization from two users. With the {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the first authorization by [setting the key for deletion](#set-key-deletion-api). Then, a different user provides a second authorization by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key. 
+Deleting a key that has a [dual authorization policy](/docs/key-protect?topic=key-protect-manage-dual-auth) requires an authorization from two users. With the {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the first authorization by [setting the key for deletion](#set-key-deletion-api). Then, a different user provides a second authorization by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key.
 
 Before you delete a key by using dual authorization:
 
@@ -49,7 +49,7 @@ Before you delete a key by using dual authorization:
 ### Step 1. Authorize deletion for a key
 {: #set-key-deletion-api}
 
-[After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-settings#manage-dual-auth-instance-policies), you can provide the first authorization to delete a key by making a `POST` call to the following endpoint.
+[After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-dual-auth), you can provide the first authorization to delete a key by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
@@ -105,7 +105,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
     A successful request returns an HTTP `204 No Content` response, which indicates that your key was authorized for deletion. Another user with a _Manager_ access policy can now [delete the key](/docs/key-protect?topic=key-protect-delete-keys) by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API.
 
     If you need to prevent the deletion of a key that's already authorized for deletion, you can remove the existing authorization by calling `POST /api/v2/keys/<key_ID>?action=unsetKeyForDeletion`.
-    {: tip} 
+    {: tip}
 
 ### Step 2. Delete the key
 {: #delete-dual-auth-key-api}
@@ -113,7 +113,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 After you set a key for deletion, a second user with a _Manager_ access policy can safely delete the key by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API.
 
 {{site.data.keyword.keymanagementserviceshort}} sets a 7-day waiting period that starts after you provide the first authorization to delete the key. During this 7-day period, the key remains in the [_Active_ state](/docs/key-protect?topic=key-protect-key-states) and all key operations are allowed on the key. If no action is taken by the second user and the 7-day period expires, you must [restart the dual authorization process](#set-key-deletion-api) to delete the key.
-{: note}   
+{: note}
 
 Delete a key and its contents by making a `DELETE` call to the following endpoint.
 
@@ -169,7 +169,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     </table>
 
     If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
-     ```json
+    ```json
     {
       "metadata": {
         "collectionType": "application/vnd.ibm.kms.key+json",
@@ -264,4 +264,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
       <caption style="caption-side:bottom;">Table 3. Describes the variables that are needed to unset a key for deletion.</caption>
     </table>
 
-    A successful request returns an HTTP `204 No Content` response, which indicates that your key is no longer authorized for deletion. If you need to restart the dual authorization process, you can issue another authorization to [set the key for deletion](#set-key-deletion-api). 
+    A successful request returns an HTTP `204 No Content` response, which indicates that your key is no longer authorized for deletion. If you need to restart the dual authorization process, you can issue another authorization to [set the key for deletion](#set-key-deletion-api).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -19,8 +19,8 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{:tsSymptoms: .tsSymptoms} 
-{:tsCauses: .tsCauses} 
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 {:support: data-reuse='support'}
@@ -42,10 +42,10 @@ When you access the {{site.data.keyword.keymanagementserviceshort}} user interfa
 From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of the {{site.data.keyword.keymanagementserviceshort}} service.
 {: tsSymptoms}
 
-You can see a list of keys, but you're unable to select the option to add a key. 
+You can see a list of keys, but you're unable to select the option to add a key.
 
 You do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions.
-{: tsCauses} 
+{: tsCauses}
 
 Verify with an administrator that you are assigned the correct role in the applicable service instance. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
@@ -60,7 +60,7 @@ You call any {{site.data.keyword.keymanagementserviceshort}} API method. You see
 {: tsSymptoms}
 
 ```
-{ 
+{
   "metadata":
   {
     "collectionType":"application/vnd.ibm.kms.error+json",
@@ -76,7 +76,7 @@ You call any {{site.data.keyword.keymanagementserviceshort}} API method. You see
 {: screen}
 
 You do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the specified service instance.
-{: tsCauses} 
+{: tsCauses}
 
 Verify with an administrator that you are assigned the correct platform and service access roles in the applicable service instance. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
@@ -103,7 +103,7 @@ You call `GET api/v2/keys` to list the keys that are available in your service i
 You do not have the correct authorization to view the requested range of keys.
 {: tsCauses}
 
-Contact an administrator to check your permissions. If the service instance contains keys that you're unable to view, verify that you're assigned the applicable [level of access to keys](/docs/services/key-protect?topic=key-protect-grant-access-keys) in the service instance. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys. 
+Contact an administrator to check your permissions. If the service instance contains keys that you're unable to view, verify that you're assigned the applicable [level of access to keys](/docs/key-protect?topic=key-protect-grant-access-keys) in the service instance. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys.
 {: tsResolve}
 
 For example, if you want to list keys 201 - 210 that are available in a service instance, you use `../keys?offset=200&limit=10` to skip the first 200 keys.
@@ -122,7 +122,7 @@ You can see a list of keys, but you can't find a specific key that's stored in t
 The service instance contains a large number of keys, and the specific keys that you're looking for aren't returned by default when you call `GET api/v2/keys` to list keys.
 {: tsCauses}
 
-Check with an admin to understand the total number of keys that are stored in the instance. By default, `GET api/v2/keys` returns the first 200 keys. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys. 
+Check with an admin to understand the total number of keys that are stored in the instance. By default, `GET api/v2/keys` returns the first 200 keys. If the service instance contains more than 200 keys, you need to use the [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api) to list another subset of keys.
 {: tsResolve}
 
 For example, if you want to list keys 201 - 210 that are available in a service instance, you use `../keys?offset=200&limit=10` to skip the first 200 keys.
@@ -173,7 +173,7 @@ You also try to delete the key by using the {{site.data.keyword.keymanagementser
 {: screen}
 
 This key is actively protecting one or more cloud resources, such as a Cloud Object Storage bucket or a Cloud Databases deployment.
-{: tsCauses} 
+{: tsCauses}
 
 For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. Before you delete a key, [review which resources are encrypted by this key](/docs/key-protect?topic=key-protect-view-protected-resources) and verify with the owner of the resources to ensure you no longer require access to that data.
 {: tsResolve}
