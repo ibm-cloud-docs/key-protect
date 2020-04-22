@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -140,12 +140,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         {
           "id": "04f283eb-5366-4e33-ab4c-aedc4e543784",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "Root-key",
+          "name": "key-name-goes-here",
           "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:04f283eb-5366-4e33-ab4c-aedc4e543784",
-          "createdBy": "IBMid-503CKNRHR7",
-          "creationDate": "2020-03-11T16:30:06Z",
-          "lastUpdateDate": "2020-03-11T16:30:06Z",
+          "crn": "...",
+          "createdBy": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "CBC_PAD"
@@ -159,14 +159,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           }
         },
         {
-          "id": "6efbc310-63a4-46ee-ae73-cb55ac072039",
+          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "Standard-key",
+          "name": "key-name-goes-here",
           "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:6efbc310-63a4-46ee-ae73-cb55ac072039",
-          "createdBy": "IBMid-503CKNRHR7",
-          "creationDate": "2020-03-12T03:50:12Z",
-          "lastUpdateDate": "2020-03-12T03:50:12Z",
+          "crn": "...",
+          "createdBy": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "CBC_PAD"
@@ -192,9 +192,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 ### Retrieving a subset of keys
 {: #retrieve-subset-keys-api}
 
-By specifying the `limit` and `offset` parameters at query time, you can retrieve a subset of your keys, starting with the `offset` value that you specify. 
+By specifying the `limit` and `offset` parameters at query time, you can retrieve a subset of your keys, starting with the `offset` value that you specify.
 
-For example, you might have 3000 total keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you want to retrieve keys 200 - 300 when you make a `GET /keys` request. 
+For example, you might have 3000 total keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you want to retrieve keys 200 - 300 when you make a `GET /keys` request.
 
 You can use the following example request to retrieve a different set of keys.
 
@@ -216,16 +216,16 @@ You can use the following example request to retrieve a different set of keys.
     <tr>
       <td><p><varname>offset</varname></p></td>
       <td>
-        <p>The number of keys to skip.</p> 
-        <p>For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use 
+        <p>The number of keys to skip.</p>
+        <p>For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use
             <code>../keys?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> to page through your available resources.</p>
       </td>
     </tr>
     <tr>
       <td><p><varname>limit</varname></p></td>
       <td>
-        <p>The number of keys to retrieve.</p> 
-        <p>For example, if you have 100 keys in your instance, and you want to list only 10 keys, use 
+        <p>The number of keys to retrieve.</p>
+        <p>For example, if you have 100 keys in your instance, and you want to list only 10 keys, use
             <code>../keys?limit=10</code>. The maximum value for <code>limit</code> is 5000.</p>
       </td>
     </tr>
@@ -260,4 +260,3 @@ For usage notes, check out the following examples for setting your `limit` and `
 
 Offset is the location of a particular key in a data set. The `offset` value is zero-based, which means that the 10th encryption key in a data set is at offset 9.
 {: tip}
-

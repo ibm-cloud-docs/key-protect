@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: get details for a key, get key configuration, get details, view encryption key details, view encryption key, retrieve encryption key details, API examples
 
@@ -98,14 +98,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
       "resources": [
         {
         "type": "application/vnd.ibm.kms.key+json",
-        "id": "6efbc310-63a4-46ee-ae73-cb55ac072039",
+        "id": "...",
         "name": "test-standard-key",
         "state": 1,
         "extractable": true,
-        "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:6efbc310-63a4-46ee-ae73-cb55ac072039",
+        "crn": "...",
         "imported": false,
-        "creationDate": "2020-03-12T03:50:12Z",
-        "createdBy": "IBMid-503CKNRHR7",
+        "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+        "createdBy": "...",
         "algorithmType": "AES",
         "algorithmMetadata": {
             "bitLength": "256",
@@ -113,7 +113,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
         },
         "algorithmBitSize": 256,
         "algorithmMode": "CBC_PAD",
-        "lastUpdateDate": "2020-03-12T03:50:12Z",
+        "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
         "dualAuthDelete": {
             "enabled": false
         },

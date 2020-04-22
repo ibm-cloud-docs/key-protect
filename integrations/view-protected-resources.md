@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-04-22"
 
 keywords: view protected data
 
@@ -28,7 +28,7 @@ subcollection: key-protect
 You can view associations between root keys and other cloud resources, such as Cloud Object Storage buckets or Cloud Databases deployments, by using the {{site.data.keyword.keymanagementservicelong_notm}} API.
 {: shortdesc}
 
-When you use a root key to protect at-rest data with envelope encryption, the cloud services that use the key can create a registration between the key and the resource that it protects. Registrations are associations between keys and cloud resources that help you get a full view of which encryption keys protect what data on {{site.data.keyword.cloud_notm}}. 
+When you use a root key to protect at-rest data with envelope encryption, the cloud services that use the key can create a registration between the key and the resource that it protects. Registrations are associations between keys and cloud resources that help you get a full view of which encryption keys protect what data on {{site.data.keyword.cloud_notm}}.
 
 | Benefit | Description |
 | --- | --- |
@@ -60,14 +60,14 @@ For example, when you call `GET api/v2/keys/{id}/registrations`, {{site.data.key
       "keyId": "string",
       "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/<account-id>:<service-instance>:bucket:<bucket-name>",
       "createdBy": "string",
-      "creationDate": "2010-01-12T05:23:19+0000",
+      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
       "updatedBy": "string",
-      "lastUpdated": "2010-01-12T05:23:19+0000",
+      "lastUpdated": "YYYY-MM-DDTHH:MM:SS.SSZ",
       "description": "string",
       "preventKeyDeletion": true,
       "keyVersion": {
           "id": "string",
-          "creationDate": "2010-01-12T05:23:19+0000"
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
       }
     }
   ]
@@ -217,7 +217,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?urlEncodedResourceC
       <tr>
         <td><varname>url_encoded_CRN_query</varname></td>
         <td>
-          <p>Filters for resources that are associated with a specified [Cloud Resource Name (CRN)](/docs/resources?topic=resources-crn#crn) by using URL encoded 
+          <p>Filters for resources that are associated with a specified [Cloud Resource Name (CRN)](/docs/resources?topic=resources-crn#crn) by using URL encoded
         wildcard characters (`*`). The parameter should contain all CRN segments and must be URL encoded.</p>
           <p>To view examples, see [CRN query examples](#crn-query-examples).</p>
         </td>
@@ -257,15 +257,15 @@ When an integrated service calls the {{site.data.keyword.keymanagementservicesho
   crn:v1:bluemix:public:cloud-object-storage:global:a/e1bb63d6a20dc57c87501ac4c4c99dcb:*:bucket:prod*
   ```
   {: screen}
-  This query returns all Cloud Object Storage bucket registrations within account _e1bb63d6a20dc57c87501ac4c4c99dcb_ that are prefixed by `prod`. 
+  This query returns all Cloud Object Storage bucket registrations within account _e1bb63d6a20dc57c87501ac4c4c99dcb_ that are prefixed by `prod`.
 
   ```
   crn:v1:bluemix:public:databases-for-postgresql:us-south:a/e1bb63d6a20dc57c87501ac4c4c99dcb:76b98bfd-f730-47b8-b163-515187e070a7:*:<string>*
   ```
   {: screen}
-  This query returns all Cloud Databases registrations for deployment ID _76b98bfd-f730-47b8-b163-515187e070a7_ that are prefixed by `<string>`. 
+  This query returns all Cloud Databases registrations for deployment ID _76b98bfd-f730-47b8-b163-515187e070a7_ that are prefixed by `<string>`.
 
-The following tables provides a list of CRN query examples before and after URL encoding. To view the URL encoded values, click the **URL encoded** tab. 
+The following tables provides a list of CRN query examples before and after URL encoding. To view the URL encoded values, click the **URL encoded** tab.
 
 | Value|
 | ---- |
@@ -278,7 +278,7 @@ The following tables provides a list of CRN query examples before and after URL 
 {: class="simple-tab-table"}
 
 | Value |
-| ---- | 
+| ---- |
 |`crn%3Av1%3Abluemix%3Apublic%3Adatabases-for-redis%3Aus-south%3Aa%2F274074dce64e9c423ffc238516c755e1%3A29caf0e7-120f-4da8-9551-3abf57ebcfc7%3A*%3A*` |
 | `crn%3Av1%3Abluemix%3Apublic%3Acloud-object-storage%3Aglobal%3Aa%2Fe1bb63d6a20dc57c87501ac4c4c99dcb%3A*%3Abucket%3Aprod*`  |
 |`crn%3Av1%3Abluemix%3Apublic%3Acloudantnosqldb%3Aus-south%3Aa%2Ff586c28d154d4c65a4a4a34cf75f55d0%3A94255ea3-af1c-41b7-9805-61f775e20702%3A%2A%3Aprod%2A` |

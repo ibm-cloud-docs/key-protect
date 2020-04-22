@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-17"
+lastupdated: "2020-04-22"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -140,20 +140,6 @@ If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect
 If you can't delete a key because a retention policy exists on the associated resource, contact the account owner to remove the retention policy on that resource.
 {: note}
 
-## What happens when I disable a key?
-{: #key-disable}
-{: faq}
-{: support}
-
-When you disable a key, the key transitions to the _Suspended_ state. Keys in this state are no longer available for encrypt or decrypt operations, and any data that's associated with the key becomes inaccessible.
-
-Disabling a key is a reversible action. You can always [enable a disabled key](/docs/key-protect?topic=key-protect-disable-keys#enable-api) and restore access to the data that was previously encrypted with the key.
-
-<!-- Todo:
-If you a backed up key material, you can restore the key. However, this restores only the latest version. Any data that is associated with older versions of the key are not restored.
-
-Restore works if you have the latest version of the key material backed up somewhere outside of Key Protect.-->
-
 ## What is a dual authorization policy?
 {: #dual-auth}
 {: faq}
@@ -183,15 +169,15 @@ Yes. If you need to add a key that doesn't require dual authorization to your se
 
 If you decide to move on from {{site.data.keyword.keymanagementserviceshort}}, you must delete any remaining keys from your service instance before you can deprovision the service. After you delete your service instance, {{site.data.keyword.keymanagementserviceshort}} uses [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) to crypto-shred any data that is associated with the service instance.
 
-## Why does the UI (user interface) show unauthorized access?
+## Why does the user interface show unauthorized access?
 {: user-interface-unauthorized}
 {: faq}
 {: support}
 
 Setting and retrieving the network access policy is only supported through the
-API (application programming interface). Network access policy support will be
-added to the UI (user interface), CLI (command line interface), and SDK
-(software development kit) in the future.
+application programming interface (API). Network access policy support will be
+added to the user interface (UI), command line interface (CLI), and software
+development kit (SDK) in the future.
 
 After the network access policy is set to `private-only` the UI cannot be used
 for any {{site.data.keyword.keymanagementserviceshort}} actions.

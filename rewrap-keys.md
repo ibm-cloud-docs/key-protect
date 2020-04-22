@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -109,17 +109,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
 
     ```json
     {
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiZjIxcjVOVVBoS2JaeEMwZ3k5NU1zR050VUkzWkZuUkNDeGlrUTk2eHBQVXRmcDg5NExpK21zVHJ5RzQ9IiwiaXYiOiJ4dUlIYjFGZ3dLUzRycCtFIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiMTk1Y2YxMTItNTc2Ni00MmViLTgwY2MtN2FmYWRlZDA5NTAzIn0=",
+      "ciphertext": "ciphertext-goes-here",
       "keyVersion": {
-        "id": "5cf6fb02-8612-48c0-b2bb-6d24f98c0396"
+        "id": "..."
       },
       "rewrappedKeyVersion": {
-        "id": "195cf112-5766-42eb-80cc-7afaded09503"
+        "id": "..."
       }
     }
     ```
     {:screen}
 
     Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key.
-
-

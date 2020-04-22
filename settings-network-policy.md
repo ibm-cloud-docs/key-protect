@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-20"
+lastupdated: "2020-04-22"
 
 keywords: instance settings, service settings, network access policies
 
@@ -98,9 +98,9 @@ The network access policy is not enforced when a request for a
 {: #user-interface}
 
 Setting and retrieving the network access policy is only supported through the
-API (application programming interface). Network access policy support will be
-added to the UI (user interface), CLI (command line interface), and SDK
-(software development kit) in the future.
+application programming interface (API). Network access policy support will be
+added to the user interface (UI), command line interface (CLI), and software
+development kit (SDK) in the future.
 
 After the network access policy is set to `private-only` the UI cannot be used
 for any {{site.data.keyword.keymanagementserviceshort}} actions.

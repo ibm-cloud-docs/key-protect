@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -24,7 +24,7 @@ subcollection: key-protect
 # Setting a rotation policy
 {: #set-rotation-policy}
 
-You can set an automatic rotation policy for a root key by using {{site.data.keyword.keymanagementservicefull}}. 
+You can set an automatic rotation policy for a root key by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
 When you set an automatic rotation policy for a root key, you shorten the lifetime of the key at regular intervals, and you limit the amount of information that is protected by that key.
@@ -120,14 +120,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "...",
             "rotation": {
                 "interval_month": 1
             },
-            "createdby": "IBMid-503CKNRHR7",
-            "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-503CKNRHR7",
-            "updatedat": "2019-03-06T16:31:05Z"
+            "createdby": "...",
+            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "updatedby": "...",
+            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }
@@ -218,14 +218,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "...",
             "rotation": {
                 "interval_month": 1
             },
-            "createdby": "IBMid-503CKNRHR7",
-            "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-503CKNRHR7",
-            "updatedat": "2019-03-06T16:31:05Z"
+            "createdby": "...",
+            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "updatedby": "...",
+            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }
@@ -314,14 +314,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "...",
             "rotation": {
                 "interval_month": 2
             },
-            "createdby": "IBMid-503CKNRHR7",
-            "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-820DPWINC2",
-            "updatedat": "2019-03-10T12:24:22Z"
+            "createdby": "...",
+            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "updatedby": "...",
+            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: key versions, get key versions, list key versions
 
@@ -96,12 +96,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
       },
       "resources": [
         {
-          "id": "49198706-733f-481b-a5f0-49e8bf853b3c",
-          "creationDate": "2020-03-05T16:39:25Z"
+          "id": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
         },
         {
-          "id": "9a4ab000-3d86-421c-adad-8be5944a3d9d",
-          "creationDate": "2020-03-02T16:28:38Z"
+          "id": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }

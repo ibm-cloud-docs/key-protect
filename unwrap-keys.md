@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -106,13 +106,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 
     ```json
     {
-      "plaintext": "27+GLzeg80elwT+Zxti1VxQpguevDg75OYfs7v4HcyI=",
+      "plaintext": "plaintext-goes-here",
       "keyVersion": {
-        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+        "id": "..."
       }
     }
     ```
     {:screen}
 
-    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. The latest key version (`rewrappedKeyVersion`) that is associated with the new `ciphertext` is also returned. Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key. 
+    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. The latest key version (`rewrappedKeyVersion`) that is associated with the new `ciphertext` is also returned. Store and use the new `ciphertext` value for future envelope encryption operations so that your data is protected by the latest root key.
     {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: set deletion policy, dual authorization, policy-based, key deletion
 
@@ -113,9 +113,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
             "enabled": true
           },
           "createdBy": "...",
-          "creationDate": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "updatedBy": "...",
-          "lastUpdateDate": "..."
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }
@@ -218,9 +218,9 @@ After you enable a dual authorization policy for a single key, the policy cannot
             "enabled": true
           },
           "createdBy": "...",
-          "creationDate": "...",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "updatedBy": "...",
-          "lastUpdateDate": "..."
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
         }
       ]
     }
@@ -228,5 +228,3 @@ After you enable a dual authorization policy for a single key, the policy cannot
     {: screen}
 
     The key now requires an authorization from two users before it can be deleted. For more information, see [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
-
-

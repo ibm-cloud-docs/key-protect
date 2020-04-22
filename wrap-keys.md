@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -111,9 +111,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiemhZOGNBTFZwUFI2RlNnN2IwUjVXaFlPajE2THk0SkZDRElzeHBuOFNNb0pIUTdqQjliVEJaR2RSaTA9IiwiaXYiOiI0Qkg5SkRFZmFNUTNzR0xpIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiNTNiMTAxZjUtMzhlNC00ODVjLTg5ZmItZjczMmRkYmE1YmYwIn0=",
+      "ciphertext": "ciphertext-goes-here",
       "keyVersion": {
-        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+        "id": "..."
       }
     }
     ```
@@ -123,10 +123,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "plaintext": "27+GLzeg80elwT+Zxti1VxQpguevDg75OYfs7v4HcyI=",
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiemhZOGNBTFZwUFI2RlNnN2IwUjVXaFlPajE2THk0SkZDRElzeHBuOFNNb0pIUTdqQjliVEJaR2RSaTA9IiwiaXYiOiI0Qkg5SkRFZmFNUTNzR0xpIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiNTNiMTAxZjUtMzhlNC00ODVjLTg5ZmItZjczMmRkYmE1YmYwIn0=",
+      "plaintext": "plaintext-goes-here",
+      "ciphertext": "ciphertext-goes-here",
       "keyVersion": {
-        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+        "id": "..."
       }
     }
     ```
@@ -136,4 +136,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     If you want {{site.data.keyword.keymanagementserviceshort}} to generate a new data encryption key (DEK) on your behalf, you can also pass in an empty body on a wrap request. Your generated DEK, containing the base64 encoded key material, is returned in the response entity-body, along with the wrapped DEK.
     {: tip}
-

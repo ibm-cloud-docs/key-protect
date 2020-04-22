@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-22"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -173,15 +173,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "861374b2-53ba-4129-8172-84a41446c9c9",
-          "name": "test-root-key",
-          "description": "A test root key",
+          "id": "...",
+          "name": "...",
+          "description": "A description goes here",
           "state": 1,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:861374b2-53ba-4129-8172-84a41446c9c9",
+          "crn": "...",
           "imported": false,
-          "creationDate": "2020-03-12T03:37:32Z",
-          "createdBy": "IBMid-503CKNRHR7",
+          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
             "bitLength": "256",
@@ -189,10 +189,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-12T03:37:32Z",
+          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
           "keyVersion": {
-            "id": "861374b2-53ba-4129-8172-84a41446c9c9",
-            "creationDate": "2020-03-12T03:37:32Z"
+            "id": "...",
+            "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
           },
           "dualAuthDelete": {
             "enabled": false
