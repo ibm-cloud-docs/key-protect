@@ -114,10 +114,10 @@ You can also retrieve your access token programmatically by first creating a [se
 
     ```json
     {
-      "access_token": "eyJraWQiOiIyM...",
+      "access_token": "b3VyIGZhdGhlc...",
       "expiration": 1512161390,
       "expires_in": 3600,
-      "refresh_token": "...",
+      "refresh_token": "dGhpcyBjb250a...",
       "token_type": "Bearer"
     }
     ```

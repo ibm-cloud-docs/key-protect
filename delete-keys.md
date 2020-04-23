@@ -223,10 +223,10 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
         {
           "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "...",
+          "name": "test-root-key",
           "description": "...",
           "state": 5,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:51eb34cd-93ef-4795-a32d-638632f1f070",
           "deleted": true,
           "algorithmType": "AES",
           "createdBy": "...",
