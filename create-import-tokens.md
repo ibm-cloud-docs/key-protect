@@ -94,8 +94,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
     ```json
     {
-      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-      "expirationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "creationDate": "2019-04-08T16:58:29Z",
+      "expirationDate": "2019-04-08T17:18:29Z",
       "maxAllowedRetrievals": 1,
       "remainingRetrievals": 1
     }
@@ -150,11 +150,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
     ```json
     {
-      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-      "expirationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "creationDate": "2019-04-08T16:58:29Z",
+      "expirationDate": "2019-04-08T17:18:29Z",
       "maxAllowedRetrievals": 1,
       "remainingRetrievals": 0,
-      "payload": "MIICIjANBgkqhkiG...",
+      "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
       "nonce": "8zJE9pKVdXVe/nLb"
     }
     ```

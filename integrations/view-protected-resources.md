@@ -60,14 +60,14 @@ For example, when you call `GET api/v2/keys/{id}/registrations`, {{site.data.key
       "keyId": "string",
       "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/<account-id>:<service-instance>:bucket:<bucket-name>",
       "createdBy": "string",
-      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "creationDate": "2010-01-12T05:23:19+0000",
       "updatedBy": "string",
-      "lastUpdated": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "lastUpdated": "2010-01-12T05:23:19+0000",
       "description": "string",
       "preventKeyDeletion": true,
       "keyVersion": {
           "id": "string",
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
+          "creationDate": "2010-01-12T05:23:19+0000"
       }
     }
   ]

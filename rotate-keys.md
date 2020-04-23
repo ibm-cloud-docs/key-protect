@@ -167,13 +167,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "...",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "test-root-key",
           "state": 1,
           "extractable": false,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "imported": false,
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-12T03:50:12Z",
           "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
@@ -182,11 +182,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastRotateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "2020-03-12T03:50:12Z",
+          "lastRotateDate": "2020-03-12T03:49:01Z",
           "keyVersion": {
-            "id": "...",
-            "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+            "creationDate": "2020-03-12T03:50:12Z",
           },
           "dualAuthDelete": {
             "enabled": false
@@ -330,4 +330,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
     You can also list the versions that are available for the key by using the {{site.data.keyword.keymanagementserviceshort}} API. To learn more, see [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
     {: tip}
-

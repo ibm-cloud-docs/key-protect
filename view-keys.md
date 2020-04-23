@@ -138,14 +138,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       },
       "resources": [
         {
-          "id": "04f283eb-5366-4e33-ab4c-aedc4e543784",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "key-name-goes-here",
+          "name": "Root-key",
           "state": 1,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "createdBy": "...",
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-11T16:30:06Z",
+          "lastUpdateDate": "2020-03-11T16:30:06Z",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "CBC_PAD"
@@ -159,14 +159,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           }
         },
         {
-          "id": "...",
+          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
           "type": "application/vnd.ibm.kms.key+json",
-          "name": "key-name-goes-here",
+          "name": "Standard-key",
           "state": 1,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:51eb34cd-93ef-4795-a32d-638632f1f070",
           "createdBy": "...",
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-12T03:50:12Z",
+          "lastUpdateDate": "2020-03-12T03:50:12Z",
           "algorithmMetadata": {
             "bitLength": "256",
             "mode": "CBC_PAD"

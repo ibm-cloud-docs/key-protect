@@ -120,13 +120,13 @@ This action won't succeed if the key is actively protecting one or more cloud re
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "...",
-          "name": "...",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+          "name": "test-root-key",
           "state": 5,
           "extractable": false,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "imported": false,
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-10T20:41:27Z",
           "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
@@ -135,12 +135,12 @@ This action won't succeed if the key is actively protecting one or more cloud re
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
           "dualAuthDelete": {
             "enabled": false
           },
           "deleted": true,
-          "deletionDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "deletionDate": "2020-03-16T21:46:53Z",
           "deletedBy": "..."
         }
       ]
@@ -221,7 +221,7 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
       },
       "resources": [
         {
-          "id": "...",
+          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
           "type": "application/vnd.ibm.kms.key+json",
           "name": "...",
           "description": "...",
@@ -231,9 +231,9 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
           "algorithmType": "AES",
           "createdBy": "...",
           "deletedBy": "...",
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "deletionDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-10T20:41:27Z",
+          "deletionDate": "2020-03-16T21:46:53Z",
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
           "extractable": true
         }
       ]

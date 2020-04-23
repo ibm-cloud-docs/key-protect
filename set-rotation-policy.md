@@ -120,14 +120,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "...",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
             "rotation": {
                 "interval_month": 1
             },
             "createdby": "...",
-            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "createdat": "2019-03-06T16:31:05Z",
             "updatedby": "...",
-            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "updatedat": "2019-03-06T16:31:05Z"
         }
       ]
     }
@@ -218,14 +218,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "...",
+            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
             "rotation": {
                 "interval_month": 1
             },
             "createdby": "...",
-            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "createdat": "2019-03-06T16:31:05Z",
             "updatedby": "...",
-            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "updatedat": "2019-03-06T16:31:05Z"
         }
       ]
     }
@@ -314,14 +314,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "...",
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
             "rotation": {
                 "interval_month": 2
             },
             "createdby": "...",
-            "createdat": "YYYY-MM-DDTHH:MM:SS.SSZ",
+            "createdat": "2019-03-06T16:31:05Z",
             "updatedby": "...",
-            "updatedat": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "updatedat": "2019-03-10T12:24:22Z"
         }
       ]
     }

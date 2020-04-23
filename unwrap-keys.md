@@ -106,9 +106,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 
     ```json
     {
-      "plaintext": "plaintext-goes-here",
+      "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
       "keyVersion": {
-        "id": "..."
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
       }
     }
     ```

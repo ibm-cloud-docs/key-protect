@@ -111,9 +111,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "ciphertext": "ciphertext-goes-here",
+      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
       "keyVersion": {
-        "id": "..."
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
       }
     }
     ```
@@ -123,10 +123,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "plaintext": "plaintext-goes-here",
-      "ciphertext": "ciphertext-goes-here",
+      "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+      "ciphertext": "eyJjaX ... h0Ijoi ... c1ZCJ9",
       "keyVersion": {
-        "id": "..."
+        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
       }
     }
     ```

@@ -101,13 +101,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "...",
-          "name": "...",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+          "name": "test-standard-key",
           "state": 1,
           "extractable": true,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "imported": false,
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-12T03:50:12Z",
           "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
@@ -116,12 +116,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "2020-03-12T03:50:12Z",
           "dualAuthDelete": {
             "enabled": false
           },
           "deleted": false,
-          "payload": "..."
+          "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv..."
         }
       ]
     }
@@ -139,13 +139,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "...",
-          "name": "...",
+          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+          "name": "test-root-key",
           "state": 1,
           "extractable": false,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:51eb34cd-93ef-4795-a32d-638632f1f070",
           "imported": false,
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-05T16:28:38Z",
           "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
@@ -154,10 +154,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "2020-03-05T16:39:25Z",
           "keyVersion": {
-            "id": "...",
-            "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "id": "6ba8beba-a85b-4b7a-9dbd-97db8e1eea83",
+            "creationDate": "2020-03-05T16:39:25Z"
           },
           "dualAuthDelete": {
             "enabled": false

@@ -109,12 +109,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
 
     ```json
     {
-      "ciphertext": "ciphertext-goes-here",
+      "ciphertext": "eyJjaX ... h0Ijoi ... c1ZCJ9",
       "keyVersion": {
-        "id": "..."
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
       },
       "rewrappedKeyVersion": {
-        "id": "..."
+        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
       }
     }
     ```
