@@ -182,7 +182,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           "name": "test-root-key",
           "state": 5,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
           "creationDate": "2020-03-10T20:41:27Z",
           "createdBy": "...",

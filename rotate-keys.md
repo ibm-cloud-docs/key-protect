@@ -171,7 +171,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           "name": "test-root-key",
           "state": 1,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
           "creationDate": "2020-03-12T03:50:12Z",
           "createdBy": "...",
@@ -185,7 +185,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           "lastUpdateDate": "2020-03-12T03:50:12Z",
           "lastRotateDate": "2020-03-12T03:49:01Z",
           "keyVersion": {
-            "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
             "creationDate": "2020-03-12T03:50:12Z",
           },
           "dualAuthDelete": {

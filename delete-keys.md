@@ -124,7 +124,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
           "name": "test-root-key",
           "state": 5,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
           "creationDate": "2020-03-10T20:41:27Z",
           "createdBy": "...",
@@ -221,12 +221,12 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
       },
       "resources": [
         {
-          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "type": "application/vnd.ibm.kms.key+json",
           "name": "test-root-key",
           "description": "...",
           "state": 5,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:51eb34cd-93ef-4795-a32d-638632f1f070",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "deleted": true,
           "algorithmType": "AES",
           "createdBy": "...",
