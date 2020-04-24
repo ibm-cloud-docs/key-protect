@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -35,7 +35,7 @@ You can use the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli
 1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
-    ibmcloud login 
+    ibmcloud login
     ```
     {: pre}
 
@@ -66,7 +66,7 @@ You can also retrieve your access token programmatically by first creating a [se
 1. Log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
-    ibmcloud login 
+    ibmcloud login
     ```
     {: pre}
 
@@ -97,7 +97,7 @@ You can also retrieve your access token programmatically by first creating a [se
   ```
   {: pre}
 
-  Replace `<service_ID_name>` with the unique alias that you assigned to your service ID in the previous step. Save your API key by downloading it to a secure location. 
+  Replace `<service_ID_name>` with the unique alias that you assigned to your service ID in the previous step. Save your API key by downloading it to a secure location.
 
 6. Call the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api) to retrieve your access token.
 
@@ -112,20 +112,20 @@ You can also retrieve your access token programmatically by first creating a [se
 
     In the request, replace `<API_KEY>` with the API key that you created in the previous step. The following truncated example shows the contents of the `token.json` file:
 
-    ```
+    ```json
     {
-    "access_token": "eyJraWQiOiIyM...",
-    "expiration": 1512161390,
-    "expires_in": 3600,
-    "refresh_token": "...",
-    "token_type": "Bearer"
+      "access_token": "b3VyIGZhdGhlc...",
+      "expiration": 1512161390,
+      "expires_in": 3600,
+      "refresh_token": "dGhpcyBjb250a...",
+      "token_type": "Bearer"
     }
     ```
     {: screen}
 
     Use the full `access_token` value, prefixed by the _Bearer_ token type, to programmatically manage keys for your service using the {{site.data.keyword.keymanagementserviceshort}} API. To see an example {{site.data.keyword.keymanagementserviceshort}} API request, check out [Forming your API request](/docs/key-protect?topic=key-protect-set-up-api#form-api-request).
 
-    Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, regenerate the access token for your API key on a regular basis by calling the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api).   
+    Access tokens are valid for 1 hour, but you can regenerate them as needed. To maintain access to the service, regenerate the access token for your API key on a regular basis by calling the [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api).
     {: note }
 
     <!--You can also pipe the output to `jq`, and then grab only the `access_token` value `| jq .access_token-->

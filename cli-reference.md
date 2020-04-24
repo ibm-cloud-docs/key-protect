@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: Key Protect CLI plug-in, CLI reference
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
 {:shortdesc}
 
-To install the CLI plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli). 
+To install the CLI plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
 
 When you log in to the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}, you're notified when updates are available. Be sure to keep your CLI up-to-date so that you can use the commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
@@ -77,11 +77,11 @@ You can specify one of the following commands.
 ## kp create
 {: #kp-create}
 
-[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
+[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
 
 ```
 ibmcloud kp create KEY_NAME -i $INSTANCE_ID
-                   [-k, --key-material KEY_MATERIAL] 
+                   [-k, --key-material KEY_MATERIAL]
                    [-s, --standard-key]
                    [--output FORMAT]
 ```
@@ -120,7 +120,7 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
 {: #create-examples}
 
 #### Create a key
-{: #create-key-example} 
+{: #create-key-example}
 
 ```sh
 $ ibmcloud kp create my-new-root-key -i $INSTANCE_ID
@@ -244,7 +244,7 @@ Key ID                                 Key Name          Description     Creatio
 
 ```
 ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
-                 [-p, --plaintext DATA_KEY] 
+                 [-p, --plaintext DATA_KEY]
                  [-a, --aad ADDITIONAL_DATA]
 ```
 {: pre}
@@ -278,7 +278,7 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 [Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
-ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID 
+ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID
                    CIPHERTEXT_FROM_WRAP
                    [-a, --aad ADDITIONAL_DATA, ..]
 ```
@@ -313,7 +313,7 @@ ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID
 
 ```
 ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
-                 [-k, --key-material KEY_MATERIAL] 
+                 [-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
 
@@ -383,7 +383,7 @@ Create or replace the policy that is associated with the root key that you speci
 
 ```
 ibmcloud kp policy set KEY_ID -i $INSTANCE_ID
-                 --set-type POLICY_TYPE 
+                 --set-type POLICY_TYPE
                  [--policy INTERVAL]
 ```
 {: pre}
@@ -441,11 +441,11 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 ## kp import-token create
 {: #kp-import-token-create}
 
-[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify. 
+[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
 
 ```
 ibmcloud kp import-token create -i $INSTANCE_ID
-                   [-e, --expiration=TIME_IN_SECONDS] 
+                   [-e, --expiration=TIME_IN_SECONDS]
                    [-m, --max-retrievals=USE_COUNT]
 ```
 {:pre}
@@ -482,7 +482,7 @@ Created                         Expires                         Max Retrievals  
 ## kp import-token get
 {: #kp-import-token-get}
 
-[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api) that is associated with your service instance. 
+[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api) that is associated with your service instance.
 
 The import token contains a public encryption key and a nonce. Provide the retrieved public key and nonce as arguments for `ibmcloud kp import-token encrypt-nonce` and `ibmcloud kp import-token encrypt-key`.
 
@@ -492,12 +492,12 @@ ibmcloud kp import-token get -i $INSTANCE_ID
 {:pre}
 
 ```sh
-$ ibmcloud kp import-token get -i $INSTANCE_ID 
+$ ibmcloud kp import-token get -i $INSTANCE_ID
 SUCCESS
 
 {
 	"nonce": "EE1sUNE4BZCTU3q/",
-	"payload": "LS0tLS1CRUdJTiBQVUJMSUMgS0V..."
+	"payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv"
 }
 ```
 {:screen}

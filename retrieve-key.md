@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-04-22"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key, API examples
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 You can retrieve the key material for a key by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-If you have a _Writer_ or _Manager_ access policy, you can retrieve the contents of a standard key, such as its key material and policy details. 
+If you have a _Writer_ or _Manager_ access policy, you can retrieve the contents of a standard key, such as its key material and policy details.
 
 [Root keys](#x6946961){:term} stay within the bounds of a hardware security module. The key material for a root key cannot be retrieved.
 {: note}
@@ -42,7 +42,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the ID of the key that you would like to access or manage.
 
@@ -101,14 +101,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "6efbc310-63a4-46ee-ae73-cb55ac072039",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "test-standard-key",
           "state": 1,
           "extractable": true,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:6efbc310-63a4-46ee-ae73-cb55ac072039",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
           "creationDate": "2020-03-12T03:50:12Z",
-          "createdBy": "IBMid-503CKNRHR7",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
             "bitLength": "256",
@@ -121,7 +121,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             "enabled": false
           },
           "deleted": false,
-          "payload": "tO7DWNXERuBjgc5UDSBB04F64xEI6c9zGe8l2VfBRyQ="
+          "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv..."
         }
       ]
     }
@@ -139,14 +139,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "9a4ab000-3d86-421c-adad-8be5944a3d9d",
+          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "name": "test-root-key",
           "state": 1,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:9a4ab000-3d86-421c-adad-8be5944a3d9d",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "imported": false,
           "creationDate": "2020-03-05T16:28:38Z",
-          "createdBy": "IBMid-503CKNRHR7",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
             "bitLength": "256",
@@ -156,7 +156,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           "algorithmMode": "CBC_PAD",
           "lastUpdateDate": "2020-03-05T16:39:25Z",
           "keyVersion": {
-            "id": "49198706-733f-481b-a5f0-49e8bf853b3c",
+            "id": "436901cb-f4e4-45f4-bd65-91a7f6d13461",
             "creationDate": "2020-03-05T16:39:25Z"
           },
           "dualAuthDelete": {
