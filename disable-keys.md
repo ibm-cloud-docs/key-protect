@@ -28,8 +28,6 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable an encryption key and temporarily revoke access to the key's associated data on the cloud.
 {: shortdesc}
 
-**This content is currently being developed and reviewed.**
-
 As an admin, you might need to disable an encryption key temporarily if you suspect a possible security exposure, compromise, or breach. When you disable a key, you suspend its encrypt and decrypt operations, and any data that's associated with the key becomes inaccessible. You can restore access to your data by enabling the disabled key.
 
 Disabling a key is an extra feature that's available only for supported cloud services that have enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.keymanagementserviceshort}} key, refer to its service documentation.
