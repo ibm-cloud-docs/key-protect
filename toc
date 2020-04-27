@@ -80,6 +80,8 @@ Key Protect
         set-rotation-policy.md
         view-key-versions.md
 
+    disable-keys.md
+
     {: .topicgroup}
     Deleting keys
         delete-keys.md
