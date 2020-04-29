@@ -1,0 +1,347 @@
+---
+
+copyright:
+  years: 2020
+lastupdated: "2020-04-29"
+
+keywords: restore key, restore a deleted key, re-import a key
+
+subcollection: key-protect
+
+---
+
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{: preview: .preview}
+{:term: .term}
+
+# Restoring keys
+{: #restore-keys}
+
+You can use {{site.data.keyword.keymanagementservicefull}} to restore a previously deleted encryption key and access to its associated data on the cloud.
+{: shortdesc}
+
+**This content is currently being developed and reviewed.**
+
+As an admin, you might need to restore an encryption key that you imported to {{site.data.keyword.keymanagementserviceshort}} so that you can access data that the key previously protected. When you restore a key, you move the key from the _Destroyed_ to the _Active_ key state, and you restore access to any data that was previously encrypted with the key.
+
+You can restore a deleted key within 30 days of its deletion. This capability is available only for root keys that were previously imported to the service.
+{: note}
+
+<!-- Is there a waiting period? E.g., 30 days after deletion -->
+
+## Restoring a deleted key with the API
+{: #restore-api}
+
+Restore a previously imported root key by making a `POST` call to the following endpoint.
+
+```
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+```
+{: codeblock}
+
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
+    To restore a key, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    {: note}
+
+2. Retrieve the ID of the key that you want to restore.
+
+    You can retrieve the ID for a specified key by making a [retrieve key](apidocs/key-protect#retrieve-a-key) request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+
+3. Run the following cURL command to restore the key and regain access to its associated data.
+
+   You cannot restore a key that has an expiration date that is current or in the past.
+   {: important}
+
+   You must wait 30 seconds after deleting a key before you are able to restore it.
+   {: note}
+
+    ```cURL
+    curl -X POST \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' \
+      -d '{
+        "metadata": {
+          "collectionType": "application/vnd.ibm.kms.key+json",
+          "collectionTotal": 1
+        },
+        "resources": [
+          {
+            "payload": "<key_material>"
+         }
+        ]
+    }'
+    ```
+    {: codeblock}
+
+    Replace the variables in the example request according to the following table.
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><varname>region</varname></td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>key_ID</varname></td>
+        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+      </tr>
+      <tr>
+        <td><varname>IAM_token</varname></td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>instance_ID</varname></td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>key_material</varname></td>
+        <td>
+          <p><strong>Required.</strong> The base64 encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service.</p>
+          <p>Ensure that the key material meets the following requirements:</p>
+          <p>
+            <ul>
+              <li>The key must be 128, 192, or 256 bits.</li>
+              <li>The bytes of data, for example 32 bytes for 256 bits, must be encoded by using base64 encoding.</li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
+    </table>
+
+    A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
+
+    You will have access to data associated with the key as soon as the key is restored.
+    {: note}
+
+4. Optional: Verify that the key was restored by retrieving details about the key.
+
+    ```cURL
+    curl -X GET \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
+    -H 'authorization: Bearer <IAM_token>' \
+    -H 'bluemix-instance: <instance_ID>'
+    -H 'accept: application/vnd.ibm.kms.key+json'
+    ```
+    {: codeblock}
+
+    Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an _Active_ key.
+
+    ```json
+    {
+      "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+      },
+      "resources": [
+        {
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+          "type": "application/vnd.ibm.kms.key+json",
+          "name": "...",
+          "description": "...",
+          "tags": [
+            "..."
+          ],
+          "state": 1,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+          "deleted": true,
+          "algorithmType": "AES",
+          "algorithmMetadata": {
+            "bitLength": "128",
+            "mode": "CBC_PAD"
+          },
+          "algorithmBitSize": 128,
+          "algorithmMode": "CBC_PAD",
+          "createdBy": "...",
+          "deletedBy": "...",
+          "creationDate": "2020-03-10T20:41:27Z",
+          "deletionDate": "2020-03-16T21:46:53Z",
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
+          "keyVersion": {
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+            "creationDate": "2020-03-12T03:37:32Z"
+          },
+          "dualAuthDelete": {
+            "enabled": false
+          },
+          "extractable": false,
+          "imported": true
+        }
+      ]
+    }
+    ```
+    {: screen}
+
+### Using an import token to restore a key
+{: #restore-keys-secure-api}
+
+If you initially used an import token to import the root key, you can restore the key by making a `POST` call to the following endpoint.
+
+```
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+```
+{: codeblock}
+
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
+    To restore a key, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    {: note}
+
+2. Retrieve the ID of the key that you want to restore.
+
+    You can retrieve the ID for a specified key by making a `GET /v2/keys` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+
+3. [Create and retrieve an import token](/docs/key-protect?topic=key-protect-create-import-tokens).
+
+4. Use the import token to encrypt the key that you want to restore.
+
+    To learn how to use an import token, check out [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
+
+5. Restore the key and regain access to its associated data by running the following cURL command.
+
+    ```cURL
+    curl -X POST \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' \
+      -d '{
+        "metadata": {
+          "collectionType": "application/vnd.ibm.kms.key+json",
+          "collectionTotal": 1
+        },
+        "resources": [
+          {
+            "payload": "<encrypted_key>",
+            "encryptionAlgorithm": "RSAES_OAEP_SHA_256",
+            "encryptedNonce": "<encrypted_nonce>",
+            "iv": "<iv>"
+          }
+        ]
+    }'
+    ```
+    {: codeblock}
+
+    Replace the variables in the example request according to the following table.
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><varname>region</varname></td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>key_ID</varname></td>
+        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+      </tr>
+      <tr>
+        <td><varname>IAM_token</varname></td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>instance_ID</varname></td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+      </tr>
+      <tr>
+        <td><varname>encrypted_key</varname></td>
+        <td>
+          <p><strong>Required.</strong> The encrypted key material that you want to store and manage in the service. The value must be base64 encoded.</p>
+          <p>Ensure that the key material meets the following requirements:</p>
+          <p>
+            <ul>
+              <li>The key must be 128, 192, or 256 bits.</li>
+              <li>The bytes of data, for example 32 bytes for 256 bits, must be encoded by using base64 encoding.</li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><varname>encrypted_nonce</varname></td>
+        <td>
+          <p><strong>Required.</strong> The AES-GCM encrypted nonce that ensures that the bits you send as part of a request are exactly the same as what we receive. The nonce validates the key that you are restoring. To learn more, see <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce" target="_blank">Tutorial: Creating and importing encryption keys</a></p>
+        </td>
+      </tr>
+       <tr>
+        <td><varname>iv</varname></td>
+        <td>
+          <p><strong>Required.</strong> The initialization vector (IV) that is generated by the AES-GCM algorithm when you encrypt a nonce. This value is used to decode the key for storage in the {{site.data.keyword.keymanagementserviceshort}} system. To learn more, see <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce" target="_blank">Tutorial: Creating and importing encryption keys</a></p>
+        </td>
+      </tr>
+      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
+    </table>
+
+    A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
+
+    You will have access to data associated with the key as soon as the key is restored.
+    {: note}
+
+6. Optional: Verify that the key was restored by retrieving details about the key.
+
+    ```cURL
+    curl -X GET \
+    https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
+    -H 'authorization: Bearer <IAM_token>' \
+    -H 'bluemix-instance: <instance_ID>'
+    -H 'accept: application/vnd.ibm.kms.key+json'
+    ```
+    {: codeblock}
+
+    Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an _Active_ key.
+
+    ```json
+    {
+      "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+      },
+      "resources": [
+        {
+          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+          "type": "application/vnd.ibm.kms.key+json",
+          "name": "...",
+          "description": "...",
+          "tags": [
+            "..."
+          ],
+          "state": 1,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:30372f20-d9f1-40b3-b486-a709e1932c9c",
+          "deleted": true,
+          "algorithmType": "AES",
+          "algorithmMetadata": {
+            "bitLength": "128",
+            "mode": "CBC_PAD"
+          },
+          "algorithmBitSize": 128,
+          "algorithmMode": "CBC_PAD",
+          "createdBy": "...",
+          "deletedBy": "...",
+          "creationDate": "2020-03-10T20:41:27Z",
+          "deletionDate": "2020-03-16T21:46:53Z",
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
+          "keyVersion": {
+            "id": "51eb34cd-93ef-4795-a32d-638632f1f070",
+            "creationDate": "2020-03-12T03:37:32Z"
+          },
+          "dualAuthDelete": {
+            "enabled": false
+          },
+          "extractable": false,
+          "imported": true
+        }
+      ]
+    }
+    ```
+    {: screen}

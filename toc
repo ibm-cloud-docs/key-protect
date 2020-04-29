@@ -85,6 +85,8 @@ Key Protect
         delete-keys.md
         delete-dual-auth-keys.md
         set-dual-auth-policy.md
+
+    restore-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
