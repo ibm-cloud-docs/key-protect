@@ -28,9 +28,9 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable an encryption key and temporarily revoke access to the key's associated data on the cloud.
 {: shortdesc}
 
-As an admin, you might need to disable an encryption key temporarily if you suspect a possible security exposure, compromise, or breach. When you disable a key, you suspend its encrypt and decrypt operations, and any data that's associated with the key becomes inaccessible. You can restore access to your data by enabling the disabled key.
+As an admin, you might need to disable a customer root key (CRK) temporarily if you suspect a possible security exposure, compromise, or breach with your data. When you disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by enabling the disabled key.
 
-Disabling a key is an extra feature that's available only for supported cloud services that have enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.keymanagementserviceshort}} key, refer to its service documentation.
+If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not not accessible after disabling a key. To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.keymanagementserviceshort}} key, refer to its service documentation.
 {: note}
 
 <!-- To do: Add table with services that have integrated this feature.-->
@@ -41,9 +41,9 @@ Disabling a key is an extra feature that's available only for supported cloud se
 ### Disabling a key
 {: #disable-api}
 
-When you disable a key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to cryptographically protect data. This action revokes access to any data that's currently encrypted with the key.
+When you disable a key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to cryptographically protect data. 
 
-After you disable a key, allow up to 4 hours before access to the data is revoked.
+If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is revoked.
 {: note}
 
 You can disable a key that's in the _Active_ key state by making a `POST` call to the following endpoint.
@@ -54,7 +54,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To disable a key, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    To disable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
 2. Retrieve the ID of the key that you want to disable.
@@ -111,6 +111,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 
     Review the `state` field in the response body to verify that the key transitioned to the _Suspended_ key state. The following JSON output shows the metadata details for a disabled key.
 
+    The integer mapping for the _Suspended_ key state is 2. Key States are based on NIST SP 800-57.
+    {: note}
+
     ```json
     {
       "metadata": {
@@ -126,7 +129,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
           "tags": [
                 "..."
             ],
-          "state": 1,
+          "state": 2,
           "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "deleted": true,
           "algorithmType": "AES",
@@ -159,9 +162,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 ### Enabling a disabled key
 {: #enable-api}
 
-When you enable a disabled key, the key transitions from the _Suspended_ to the _Active_ key state. This action restores access to any data that's associated with the key.
+When you enable a key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and decrypt operations.
 
-After you enable a disabled key, allow up to 4 hours before access to the data is restored.
+If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is restored.
 {: note}
 
 You can enable a key that's in the _Suspended_ key state by making a a `POST` call to the following endpoint.
@@ -172,7 +175,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To enable a key, you must be assigned a _Manager_ access policy for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    To enable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
 2. Retrieve the ID of the disabled key that you want to enable.
@@ -232,7 +235,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 
     Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an active key.
 
-    <!-- Todo: Test API to ensure the response added here matches what we're returning in the API. -->
     ```json
     {
       "metadata": {
