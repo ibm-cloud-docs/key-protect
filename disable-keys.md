@@ -235,6 +235,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 
     Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an active key.
 
+    The integer mapping for the _Suspended_ key state is 1. Key States are based on NIST SP 800-57.
+    {: note}
+
     ```json
     {
       "metadata": {
