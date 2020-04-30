@@ -28,9 +28,13 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable an encryption key and temporarily revoke access to the key's associated data on the cloud.
 {: shortdesc}
 
-As an admin, you might need to disable a customer root key (CRK) temporarily if you suspect a possible security exposure, compromise, or breach with your data. When you disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by enabling the disabled key.
+As an admin, you might need to disable a customer root key (CRK) temporarily if you suspect a possible security exposure, compromise, or breach with your data. When you
+ disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
+ enabling the disabled key.
 
-If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not not accessible after disabling a key. To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.keymanagementserviceshort}} key, refer to its service documentation.
+If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not not accessible after disabling a key. To 
+determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
+keymanagementserviceshort}} key, refer to its service documentation.
 {: note}
 
 <!-- To do: Add table with services that have integrated this feature.-->
@@ -41,7 +45,8 @@ If you are using a cloud service that is integrated with {{site.data.keyword.key
 ### Disabling a key
 {: #disable-api}
 
-When you disable a key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to cryptographically protect data. 
+When you disable a key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to cryptographically
+protect data. 
 
 If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is revoked.
 {: note}
@@ -52,14 +57,16 @@ You can disable a key that's in the _Active_ key state by making a `POST` call t
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 ```
 
-1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api#retrieve-credentials).
 
-    To disable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    To disable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
+    keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
 2. Retrieve the ID of the key that you want to disable.
 
-    You can retrieve the ID for a specified key by making a `GET /v2/keys` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.
+    keymanagementserviceshort}} dashboard.
 
 3. Run the following cURL command to disable the key and revoke access to its associated data.
 
@@ -79,7 +86,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {
+          {site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?
+          topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -87,13 +96,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer 
+        value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more 
+        information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to disable keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
+      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to disable keys with the {{site.data.keyword.keymanagementserviceshort}} API.
+      </caption>
     </table>
 
     A successful disable request returns an HTTP `204 No Content` response, which indicates that the key was disabled for encrypt and decrypt operations.
@@ -109,7 +121,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
     ```
     {: codeblock}
 
-    Review the `state` field in the response body to verify that the key transitioned to the _Suspended_ key state. The following JSON output shows the metadata details for a disabled key.
+    Review the `state` field in the response body to verify that the key transitioned to the _Suspended_ key state. The following JSON output shows the metadata details 
+    for a disabled key.
 
     The integer mapping for the _Suspended_ key state is 2. Key States are based on NIST SP 800-57.
     {: note}
@@ -122,16 +135,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
       },
       "resources": [
         {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "type": "application/vnd.ibm.kms.key+json",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "...",
           "description": "...",
-          "tags": [
+            "tags": [
                 "..."
             ],
           "state": 2,
+          "extractable": false,
           "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "deleted": true,
+          "imported": true,
+          "creationDate": "2020-03-10T20:41:27Z",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
                 "bitLength": "128",
@@ -139,10 +155,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
             },
           "algorithmBitSize": 128,
           "algorithmMode": "CBC_PAD",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "deletionDate": "2020-03-16T21:46:53Z",
           "lastUpdateDate": "2020-03-16T20:41:27Z",
           "keyVersion": {
                 "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
@@ -151,8 +163,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
           "dualAuthDelete": {
                 "enabled": false
             },
-          "extractable": false,
-          "imported": true
+          "deleted": false
         }
       ]
     }
@@ -162,12 +173,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 ### Enabling a disabled key
 {: #enable-api}
 
-When you enable a key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and decrypt operations.
+When you enable a key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and 
+decrypt operations.
 
 If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is restored.
 {: note}
 
-You can enable a key that's in the _Suspended_ key state by making a a `POST` call to the following endpoint.
+You can enable a key that's in the _Suspended_ key state by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
@@ -175,12 +187,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To enable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    To enable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
+    keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
 2. Retrieve the ID of the disabled key that you want to enable.
 
-    You can retrieve the ID for a specified key by making a `GET /v2/keys` request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} 
+    dashboard.
 
 3. Run the following cURL command to disable the key and revoke access to its associated data.
 
@@ -203,7 +217,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {
+          {site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?
+          topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
@@ -211,18 +227,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer 
+        value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more 
+        information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to enabled keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
+      <caption style="caption-side:bottom;">Table 2. Describes the variables that are needed to enable keys with the {{site.data.keyword.keymanagementserviceshort}} API.
+      </caption>
     </table>
 
-    A successful disable request returns an HTTP `204 No Content` response, which indicates that the key was reinstated for encrypt and decrypt operations.
+    A successful enable request returns an HTTP `204 No Content` response, which indicates that the key was reinstated for encrypt and decrypt operations.
 
-4. Optional: Verify that the key was disabled by retrieving details about the key.
+4. Optional: Verify that the key was enabled by retrieving details about the key.
 
     ```cURL
     curl -X GET \
@@ -233,9 +252,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
     ```
     {: codeblock}
 
-    Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an active key.
+    Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for 
+    an active key.
 
-    The integer mapping for the _Suspended_ key state is 1. Key States are based on NIST SP 800-57.
+    The integer mapping for the _Active_ key state is 1. Key States are based on NIST SP 800-57.
     {: note}
 
     ```json
@@ -246,16 +266,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
       },
       "resources": [
         {
-          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "type": "application/vnd.ibm.kms.key+json",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "...",
           "description": "...",
-          "tags": [
+            "tags": [
                 "..."
             ],
           "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "deleted": true,
+          "extractable": false,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+          "imported": true,
+          "creationDate": "2020-03-10T20:41:27Z",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
                 "bitLength": "128",
@@ -263,20 +286,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
             },
           "algorithmBitSize": 128,
           "algorithmMode": "CBC_PAD",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "deletionDate": "2020-03-16T21:46:53Z",
           "lastUpdateDate": "2020-03-16T20:41:27Z",
           "keyVersion": {
-                "id": "7438a498-a487-4a05-ae0b-02ed8b1353ab",
+                "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
                 "creationDate": "2020-03-12T03:37:32Z"
             },
           "dualAuthDelete": {
                 "enabled": false
             },
-          "extractable": false,
-          "imported": true
+          "deleted": false
         }
       ]
     }
