@@ -32,7 +32,7 @@ As an admin, you might need to disable a customer root key (CRK) temporarily if 
  disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
  enabling the disabled key.
 
-If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not not accessible after disabling a key. To 
+If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not be accessible after disabling a key. To 
 determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
 keymanagementserviceshort}} key, refer to its service documentation.
 {: note}
@@ -68,7 +68,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
     You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.
     keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to disable the key and revoke access to its associated data.
+3. Run the following cURL command to disable the key and suspend its encrypt and decrypt operations.
 
     ```cURL
     curl -X POST \
@@ -196,7 +196,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
     You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} 
     dashboard.
 
-3. Run the following cURL command to disable the key and revoke access to its associated data.
+3. Run the following cURL command to enable the key and restore its encrypt and decrypt operations.
 
     You must wait 30 seconds after disabling a key before you are able to enable it again.
     {: note}
@@ -223,7 +223,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+        <td><strong>Required.</strong> The unique identifier for the key that you want to enable.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
