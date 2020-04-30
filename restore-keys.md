@@ -25,17 +25,13 @@ subcollection: key-protect
 # Restoring keys
 {: #restore-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to restore a previously deleted encryption key and access to its associated data on the cloud.
+You can use {{site.data.keyword.keymanagementservicefull}} to restore a previously deleted customer root key (CRK) and access its associated data on the cloud.
 {: shortdesc}
 
-**This content is currently being developed and reviewed.**
-
-As an admin, you might need to restore an encryption key that you imported to {{site.data.keyword.keymanagementserviceshort}} so that you can access data that the key previously protected. When you restore a key, you move the key from the _Destroyed_ to the _Active_ key state, and you restore access to any data that was previously encrypted with the key.
+As an admin, you might need to restore a customer root key (CRK) that you imported to {{site.data.keyword.keymanagementserviceshort}} so that you can access data that the key previously protected. When you restore a key, you move the key from the _Destroyed_ to the _Active_ key state, and you restore access to any data that was previously encrypted with the key.
 
 You can restore a deleted key within 30 days of its deletion. This capability is available only for root keys that were previously imported to the service.
 {: note}
-
-<!-- Is there a waiting period? E.g., 30 days after deletion -->
 
 ## Restoring a deleted key with the API
 {: #restore-api}
@@ -54,7 +50,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
 2. Retrieve the ID of the key that you want to restore.
 
-    You can retrieve the ID for a specified key by making a [retrieve key](apidocs/key-protect#retrieve-a-key) request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    You can retrieve the ID for a specified key by making a [request](/apidocs/key-protect#list-keys) request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following cURL command to restore the key and regain access to its associated data.
 
@@ -95,7 +91,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+        <td><strong>Required.</strong> The unique identifier for the key that you want to restore.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -108,7 +104,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
       <tr>
         <td><varname>key_material</varname></td>
         <td>
-          <p><strong>Required.</strong> The base64 encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service.</p>
+          <p><strong>Required.</strong> The base64 encoded key material, such as an existing such as an existing customer root key (CRK), that you want to store and manage in the service.</p>
           <p>Ensure that the key material meets the following requirements:</p>
           <p>
             <ul>
@@ -139,6 +135,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
     Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an _Active_ key.
 
+    The integer mapping for the _Active_ key state is 1. Key States are based on NIST SP 800-57.
+    {: note}
+
     ```json
     {
       "metadata": {
@@ -147,37 +146,35 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
       },
       "resources": [
         {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "type": "application/vnd.ibm.kms.key+json",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "...",
           "description": "...",
-          "tags": [
-            "..."
-          ],
+            "tags": [
+                "..."
+            ],
           "state": 1,
+          "extractable": false,
           "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "deleted": true,
+          "imported": true,
+          "creationDate": "2020-03-10T20:41:27Z",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
-            "bitLength": "128",
-            "mode": "CBC_PAD"
-          },
+                "bitLength": "128",
+                "mode": "CBC_PAD"
+            },
           "algorithmBitSize": 128,
           "algorithmMode": "CBC_PAD",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "deletionDate": "2020-03-16T21:46:53Z",
           "lastUpdateDate": "2020-03-16T20:41:27Z",
           "keyVersion": {
-            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-            "creationDate": "2020-03-12T03:37:32Z"
-          },
+                "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                "creationDate": "2020-03-12T03:37:32Z"
+            },
           "dualAuthDelete": {
-            "enabled": false
-          },
-          "extractable": false,
-          "imported": true
+                "enabled": false
+            },
+          "deleted": false
         }
       ]
     }
@@ -245,7 +242,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+        <td><strong>Required.</strong> The unique identifier for the key that you want to restore.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -280,7 +277,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
           <p><strong>Required.</strong> The initialization vector (IV) that is generated by the AES-GCM algorithm when you encrypt a nonce. This value is used to decode the key for storage in the {{site.data.keyword.keymanagementserviceshort}} system. To learn more, see <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce" target="_blank">Tutorial: Creating and importing encryption keys</a></p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
+      <caption style="caption-side:bottom;">Table 2. Describes the variables that are needed to restore keys via Import Token with the {{site.data.keyword.keymanagementserviceshort}} API.</caption>
     </table>
 
     A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
@@ -301,6 +298,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
     Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for an _Active_ key.
 
+    The integer mapping for the _Active_ key state is 1. Key States are based on NIST SP 800-57.
+    {: note}
     ```json
     {
       "metadata": {
@@ -309,37 +308,35 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
       },
       "resources": [
         {
-          "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
           "type": "application/vnd.ibm.kms.key+json",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "...",
           "description": "...",
-          "tags": [
-            "..."
-          ],
+            "tags": [
+                "..."
+            ],
           "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:436901cb-f4e4-45f4-bd65-91a7f6d13461:key:30372f20-d9f1-40b3-b486-a709e1932c9c",
-          "deleted": true,
+          "extractable": false,
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+          "imported": true,
+          "creationDate": "2020-03-10T20:41:27Z",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
-            "bitLength": "128",
-            "mode": "CBC_PAD"
-          },
+                "bitLength": "128",
+                "mode": "CBC_PAD"
+            },
           "algorithmBitSize": 128,
           "algorithmMode": "CBC_PAD",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "deletionDate": "2020-03-16T21:46:53Z",
           "lastUpdateDate": "2020-03-16T20:41:27Z",
           "keyVersion": {
-            "id": "51eb34cd-93ef-4795-a32d-638632f1f070",
-            "creationDate": "2020-03-12T03:37:32Z"
-          },
+                "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                "creationDate": "2020-03-12T03:37:32Z"
+            },
           "dualAuthDelete": {
-            "enabled": false
-          },
-          "extractable": false,
-          "imported": true
+                "enabled": false
+            },
+          "deleted": false
         }
       ]
     }
