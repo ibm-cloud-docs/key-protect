@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-04-22"
 
 keywords: create import token, secure import, key-wrapping key, import token API examples
 
@@ -154,14 +154,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
       "expirationDate": "2019-04-08T17:18:29Z",
       "maxAllowedRetrievals": 1,
       "remainingRetrievals": 0,
-      "payload": "MIICIjANBgkqhkiG...",
+      "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
       "nonce": "8zJE9pKVdXVe/nLb"
     }
     ```
     {: screen}
 
     The response body also contains the public encryption key that you can use to [encrypt a root key](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) before you upload the key material to a {{site.data.keyword.keymanagementserviceshort}} service instance.
-    
+
     In the example, the `payload` value represents the public key that is associated with the import token. This value is base64 encoded. For extra security, {{site.data.keyword.keymanagementserviceshort}} also provides a `nonce` value that is used to verify the originality of a key import request to the service. To learn more about how to use these values, check out [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 ## What's next

@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-04-20"
 
-keywords: rotate encryption key, encryption key rotation, rotate key API examples 
+keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
 subcollection: key-protect
 
@@ -71,7 +71,7 @@ If you prefer to rotate your root keys by using a graphical interface, you can u
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Rotate key</b> settings</caption>
     </table>
 
-7.  When you are finished, click **Rotate key** to confirm. 
+7.  When you are finished, click **Rotate key** to confirm.
 
 ## Rotating root keys with the API
 {: #rotate-key-api}
@@ -143,7 +143,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to rotate a specified key in {{site.data.keyword.keymanagementserviceshort}}.</caption>
     </table>
 
-    A successful rotation request returns an HTTP `204 No Content` response, which indicates that your root key was replaced by new key material. 
+    A successful rotation request returns an HTTP `204 No Content` response, which indicates that your root key was replaced by new key material.
 
 4. Optional: Verify that the key was rotated by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
@@ -155,7 +155,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
     -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
-  
+
     Review the `lastRotateDate` and `keyVersion` values in the response entity-body to inspect the date and time that your key was last rotated.
 
     ```json
@@ -167,13 +167,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "...",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "test-root-key",
           "state": 1,
           "extractable": false,
-          "crn": "...",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
-          "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "creationDate": "2020-03-12T03:50:12Z",
           "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
@@ -182,11 +182,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           },
           "algorithmBitSize": 256,
           "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
-          "lastRotateDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+          "lastUpdateDate": "2020-03-12T03:50:12Z",
+          "lastRotateDate": "2020-03-12T03:49:01Z",
           "keyVersion": {
-            "id": "...",
-            "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ"
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+            "creationDate": "2020-03-12T03:50:12Z",
           },
           "dualAuthDelete": {
             "enabled": false
@@ -330,4 +330,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
     You can also list the versions that are available for the key by using the {{site.data.keyword.keymanagementserviceshort}} API. To learn more, see [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
     {: tip}
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -49,7 +49,7 @@ When you delete a key, the service marks the key as deleted, and the key transit
 
 Deleting a key in {{site.data.keyword.keymanagementserviceshort}} is a destructive operation. Keep in mind that after you delete a key, the action cannot be reversed, and any data that is associated with the key is immediately lost at the moment the key is deleted. Before you delete a key, review the data that is associated with the key and ensure that you no longer require access to it. Do not delete a key that is actively protecting data in your production environments. 
 
-To help you determine what data is protected by a key, you can view how your {{site.data.keyword.keymanagementserviceshort}} service instance maps to your existing cloud services by running `ibmcloud iam authorization-policies`. To learn more about viewing service authorizations from the console, see [Granting access between services](/docs/iam?topic=iam-serviceauth).
+To help you determine what data is protected by a key, you can use {{site.data.keyword.keymanagementserviceshort}} APIs to [view associations between a key and your cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 {: note}
 
 ## Compliance readiness

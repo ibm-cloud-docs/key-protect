@@ -16,6 +16,7 @@ Key Protect
 
     {: .topicgroup}
     Concepts
+        concepts/basics.md
         concepts/importing-keys.md
         concepts/envelope-encryption.md
         concepts/key-rotation.md
@@ -39,8 +40,9 @@ Key Protect
     {: .navgroup id="howto"}
     {: .topicgroup}
     Setting up the service
-        provision.md  
-        settings.md 
+        provision.md
+        settings-dual-auth.md
+        settings-network-policy.md
 
     {: .topicgroup}
     Accessing the API
@@ -55,7 +57,7 @@ Key Protect
     Creating keys
         create-root-keys.md
         create-standard-keys.md
-    
+
     {: .topicgroup}
     Importing keys
         import-root-keys.md
@@ -85,11 +87,13 @@ Key Protect
         delete-keys.md
         delete-dual-auth-keys.md
         set-dual-auth-policy.md
+
+    restore-keys.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [Key Protect API Reference](https://{DomainName}/apidocs/key-protect){: new_window}
-    
+
     {: .topicgroup}
     Key Protect CLI Reference
         cli-reference.md

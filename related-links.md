@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-19"
 
 keywords: related links, blogs, sample apps, SLA, service level agreement
 
@@ -34,6 +34,7 @@ More resources to help you learn about managing encryption with {{site.data.keyw
 ## Blogs
 {: #blogs}
 
+- [{{site.data.keyword.keymanagementservicelong_notm}} is now available for IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/blog/ibm-key-protect-is-now-available-for-ibm-cloud-kubernetes-service){: external}
 - [Hold the encryption keys to your {{site.data.keyword.cos_full_notm}} data](https://www.ibm.com/w3-techblog/use-cases/2018/06/encryption-keys-cloud-object-storage/){: external}
 - [Faster onboarding to {{site.data.keyword.cloud_notm}} with Bring Your Own Keys (BYOK) capability](https://www.ibm.com/w3-techblog/security/2018/06/byok-key-protect/){: external}
 

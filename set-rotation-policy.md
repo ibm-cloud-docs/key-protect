@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-04-22"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -24,7 +24,7 @@ subcollection: key-protect
 # Setting a rotation policy
 {: #set-rotation-policy}
 
-You can set an automatic rotation policy for a root key by using {{site.data.keyword.keymanagementservicefull}}. 
+You can set an automatic rotation policy for a root key by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
 When you set an automatic rotation policy for a root key, you shorten the lifetime of the key at regular intervals, and you limit the amount of information that is protected by that key.
@@ -112,7 +112,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `GET api/v2/keys/{id}/policies` response returns policy details that are associated with your key. The following JSON object shows an example response for a root key that has an existing rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,
@@ -120,13 +120,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
             "rotation": {
                 "interval_month": 1
             },
-            "createdby": "IBMid-503CKNRHR7",
+            "createdby": "...",
             "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-503CKNRHR7",
+            "updatedby": "...",
             "updatedat": "2019-03-06T16:31:05Z"
         }
       ]
@@ -210,7 +210,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `PUT api/v2/keys/{id}/policies` response returns policy details that are associated with your key. The following JSON object shows an example response for a root key that has an existing rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,
@@ -218,13 +218,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
             "rotation": {
                 "interval_month": 1
             },
-            "createdby": "IBMid-503CKNRHR7",
+            "createdby": "...",
             "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-503CKNRHR7",
+            "updatedby": "...",
             "updatedat": "2019-03-06T16:31:05Z"
         }
       ]
@@ -306,7 +306,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     A successful `PUT api/v2/keys/{id}/policies` response returns updated policy details that are associated with your key. The following JSON object shows an example response for a root key with an updated rotation policy.
 
-    ```
+    ```json
     {
         "metadata": {
             "collectionTotal": 1,
@@ -314,13 +314,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
         },
         "resources": [
         {
-            "id": "a1769941-9805-4593-b6e6-290e42dd1cb5",
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
             "rotation": {
                 "interval_month": 2
             },
-            "createdby": "IBMid-503CKNRHR7",
+            "createdby": "...",
             "createdat": "2019-03-06T16:31:05Z",
-            "updatedby": "IBMid-820DPWINC2",
+            "updatedby": "...",
             "updatedat": "2019-03-10T12:24:22Z"
         }
       ]

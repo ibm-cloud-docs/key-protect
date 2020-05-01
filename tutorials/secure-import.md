@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-04-22"
 
 ---
 
@@ -18,7 +18,6 @@ lastupdated: "2020-02-25"
 {:preview: .preview}
 {:term: .term}
 
-
 # Tutorial: Creating and importing encryption keys
 {: #tutorial-import-keys}
 
@@ -31,7 +30,6 @@ With {{site.data.keyword.keymanagementserviceshort}}, you can create encryption 
 
 In this tutorial, you use an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to upload an encryption key to {{site.data.keyword.keymanagementserviceshort}}. To learn more about your options for importing keys to {{site.data.keyword.keymanagementserviceshort}}, see [Planning ahead for importing key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). To learn about importing a key without an import token, see [Importing a root key](/docs/key-protect?topic=key-protect-import-root-keys)
 {: note}
-
 
 ## Objectives
 {: #tutorial-import-objectives}
@@ -66,19 +64,19 @@ To get started, you need the {{site.data.keyword.cloud_notm}} CLI so that you ca
 ## Step 1. Create a {{site.data.keyword.keymanagementserviceshort}} service instance
 {: #tutorial-import-provision-service}
 
-After you set up an {{site.data.keyword.cloud_notm}} account, complete the following steps to provision a {{site.data.keyword.keymanagementserviceshort}} service instance. 
+After you set up an {{site.data.keyword.cloud_notm}} account, complete the following steps to provision a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 1. In a terminal window, run the following command to log in to {{site.data.keyword.cloud_notm}} with the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
 
     ```sh
-    ibmcloud login 
+    ibmcloud login
     ```
     {: pre}
 
     If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
     {: note}
 
-2. Select the account and resource group where you would like to create a {{site.data.keyword.keymanagementserviceshort}} service instance. 
+2. Select the account and resource group where you would like to create a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
     In this tutorial, you interact with the Washington DC region. If you're logged into a different region, be sure to set Washington DC as your target region by running the following command.
 
@@ -111,14 +109,14 @@ After you set up an {{site.data.keyword.cloud_notm}} account, complete the follo
 
 Now that you've provisioned an instance of {{site.data.keyword.keymanagementserviceshort}}, you're ready to start using the API.
 
-{{site.data.keyword.keymanagementserviceshort}} provides a graphical user interface and a REST API to create, track, and manage encryption keys. The {{site.data.keyword.keymanagementserviceshort}} API requires a valid {{site.data.keyword.cloud_notm}} IAM token and an instance ID to authenticate with the service. 
+{{site.data.keyword.keymanagementserviceshort}} provides a graphical user interface and a REST API to create, track, and manage encryption keys. The {{site.data.keyword.keymanagementserviceshort}} API requires a valid {{site.data.keyword.cloud_notm}} IAM token and an instance ID to authenticate with the service.
 
 In this step, you use the {{site.data.keyword.cloud_notm}} CLI to gather the authentication credentials you need to start interacting with {{site.data.keyword.keymanagementserviceshort}} APIs. To retrieve and prepare your credentials for later steps, you also set the credentials as environment variables in your terminal.
 
 1. In your terminal window, set the {{site.data.keyword.keymanagementserviceshort}} API endpoint as an environment variable.
 
     ```sh
-    export KP_API_URL=https://us-east.kms.cloud.ibm.com 
+    export KP_API_URL=https://us-east.kms.cloud.ibm.com
     ```
     {: pre}
 
@@ -135,7 +133,7 @@ In this step, you use the {{site.data.keyword.cloud_notm}} CLI to gather the aut
 3. Retrieve the identifier that is associated with your Key Protect service instance, and then set the value as an environment variable.
 
     ```sh
-    export INSTANCE_ID=`ibmcloud resource service-instance "import-keys-demo" --output json | jq -r '.[].guid'` 
+    export INSTANCE_ID=`ibmcloud resource service-instance "import-keys-demo" --output json | jq -r '.[].guid'`
     ```
     {: pre}
 
@@ -168,7 +166,7 @@ In the following step, you create a [import token](/docs/key-protect?topic=key-p
     {: pre}
 
     You use this directory to store files for later steps.
-   
+
 2. Create an import token for your {{site.data.keyword.keymanagementserviceshort}} service instance, and then save the response to a JSON file.
 
     ```sh
@@ -198,8 +196,8 @@ In the following step, you create a [import token](/docs/key-protect?topic=key-p
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
+      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "expirationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
       "maxAllowedRetrievals": 1,
       "remainingRetrievals": 1
     }
@@ -209,12 +207,12 @@ In the following step, you create a [import token](/docs/key-protect?topic=key-p
 ## Step 4. Retrieve the import token
 {: #tutorial-import-retrieve-token}
 
-In the previous step, you created an import token and you viewed the metadata that is associated with the token. 
+In the previous step, you created an import token and you viewed the metadata that is associated with the token.
 
 ```json
 {
-  "creationDate": "2019-04-08T16:58:29Z",
-  "expirationDate": "2019-04-08T17:18:29Z",
+  "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+  "expirationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
   "maxAllowedRetrievals": 1,
   "remainingRetrievals": 1
 }
@@ -246,8 +244,8 @@ To retrieve the import token contents:
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
+      "creationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
+      "expirationDate": "YYYY-MM-DDTHH:MM:SS.SSZ",
       "maxAllowedRetrievals": 1,
       "remainingRetrievals": 0,
       "payload": "MIICIjANBgkqhkiG...",
@@ -258,7 +256,7 @@ To retrieve the import token contents:
 
     The `payload` value represents the public key that is associated with the import token. This value is base64 encoded. The `nonce` value is used to verify the originality of a request to the service. You need to encrypt and provide this value when you import your encryption key in a later step.
 
-3. Decode and save the public key to a file called `PublicKey.pem`. 
+3. Decode and save the public key to a file called `PublicKey.pem`.
 
     ```sh
     jq -r '.payload' getImportTokenResponse.json | openssl enc -base64 -A -d -out PublicKey.pem
@@ -266,10 +264,10 @@ To retrieve the import token contents:
     {: pre}
     The public key is now downloaded to your computer in PEM format. Continue to the next step.
 
-## Step 5. Create an encryption key 
+## Step 5. Create an encryption key
 {: #tutorial-import-create-key}
 
-With {{site.data.keyword.keymanagementserviceshort}}, you can enable the security benefits of Bring Your Own Key (BYOK) by creating and uploading your own keys for use on {{site.data.keyword.cloud_notm}}. 
+With {{site.data.keyword.keymanagementserviceshort}}, you can enable the security benefits of Bring Your Own Key (BYOK) by creating and uploading your own keys for use on {{site.data.keyword.cloud_notm}}.
 
 In the following step, you create a 256-bit AES symmetric key on your local computer.
 
@@ -290,7 +288,7 @@ This tutorial uses the OpenSSL cryptography toolkit to generate a pseudo-random 
 
 To verify that the bits we receive are exactly the same as the bits that you send as part of a request, {{site.data.keyword.keymanagementserviceshort}} requires nonce verification when you upload the symmetric key to the service.
 
-In cryptography, a nonce serves as a session token that checks the originality of a request to protect against malicious attacks and unauthorized calls. By using the same nonce that was distributed by {{site.data.keyword.keymanagementserviceshort}}, you help to ensure that your request to upload a key is valid. The nonce value must be encrypted by using the same key that you want to import into the service. 
+In cryptography, a nonce serves as a session token that checks the originality of a request to protect against malicious attacks and unauthorized calls. By using the same nonce that was distributed by {{site.data.keyword.keymanagementserviceshort}}, you help to ensure that your request to upload a key is valid. The nonce value must be encrypted by using the same key that you want to import into the service.
 
 To encrypt the nonce value:
 
@@ -302,16 +300,16 @@ To encrypt the nonce value:
     {: pre}
 
 2. Gather the nonce value that you retrieved in step 4.
-   
+
     ```sh
     NONCE=$(jq -r '.nonce' getImportTokenResponse.json)
     ```
-    {: pre} 
+    {: pre}
 
 3. [Download the sample `kms-encrypt-nonce` binary](https://github.com/IBM-Cloud/kms-samples/tree/master/secure-import){: external} that is compatible with your operating system. Untar the file, and then move the binary to the `key-protect-test` directory.
 
     The binary contains a script that you can use to run AES-GCM encryption on the nonce value by using the key that you generated in step 5. To learn more about the script, [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){:external}.
-    {: note} 
+    {: note}
 4. Mark the file as executable by running the following  `chmod` command.
 
     ```sh
@@ -348,7 +346,7 @@ To encrypt the nonce value:
 ## Step 7. Encrypt the key
 {: #tutorial-import-encrypt-key}
 
-Next, use the public key that was distributed by {{site.data.keyword.keymanagementserviceshort}} to encrypt the symmetric key that you generated using OpenSSL. 
+Next, use the public key that was distributed by {{site.data.keyword.keymanagementserviceshort}} to encrypt the symmetric key that you generated using OpenSSL.
 
 1. Encrypt the generated key by using the the public key that you retrieved in step 4.
 
@@ -368,12 +366,12 @@ Next, use the public key that was distributed by {{site.data.keyword.keymanageme
     If you run into a parameter settings error when you run the `openssl` command on Mac OSX, you might need to ensure that OpenSSL is properly configured for your environment. If you installed OpenSSL by using Homebrew, run `brew update` and then `brew install openssl` to get the latest version. Then, run `export PATH="/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile` to symlink the package. Open a new terminal session, and then run `which openssl && openssl version` to verify that the latest version of OpenSSL is available under the `/usr/local/` location. If you continue to encounter errors, be sure to use only the parameters that are listed in this example.
     {: tip}
 
-    Success! Your encrypted key is now saved to a file called `EncryptedKey.bin`. You're all set to upload your encrypted key into {{site.data.keyword.keymanagementserviceshort}}. Continue to the next step.  
+    Success! Your encrypted key is now saved to a file called `EncryptedKey.bin`. You're all set to upload your encrypted key into {{site.data.keyword.keymanagementserviceshort}}. Continue to the next step.
 
 ## Step 8. Import the key
 {: #tutorial-import-encrypted-key}
 
-You can now import the encrypted key using the {{site.data.keyword.keymanagementserviceshort}} API. 
+You can now import the encrypted key using the {{site.data.keyword.keymanagementserviceshort}} API.
 
 To import the key:
 
@@ -427,7 +425,7 @@ To import the key:
 
     Behind the scenes, {{site.data.keyword.keymanagementserviceshort}} receives your encrypted packet over a TLS 1.2 connection. Within a hardware security module, the system uses the private key to decrypt the symmetric key. Finally, the system uses the symmetric key and the IV to decrypt the nonce and verify the request.
 
-    If the API request fails with an import token expired error, [return to step 3](#tutorial-import-step-3) to create a new import token. Remember that import tokens and their associated public keys expire based on the policy that you specify at creation time. 
+    If the API request fails with an import token expired error, [return to step 3](#tutorial-import-step-3) to create a new import token. Remember that import tokens and their associated public keys expire based on the policy that you specify at creation time.
     {: tip}
 
 3. View details for the encryption key.
@@ -447,11 +445,11 @@ To import the key:
       },
       "resources": [
         {
-          "id": "644cba65-e240-471f-8b84-14115447d2ae",
+          "id": "...",
           "type": "application/vnd.ibm.kms.key+json",
           "name": "encrypted-root-key",
           "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:346d9f67-4bb2-481e-a3e1-3c2c646aa886:key:644cba65-e240-471f-8b84-14115447d2ae",
+          "crn": "...",
           "extractable": false,
           "imported": true
         }
@@ -466,7 +464,7 @@ To import the key:
 
     ![The image shows the Key Protect dashboard view.](../images/import-keys-demo.png)
 
-    You can browse the general characteristics of your keys from the application details page. Choose from a list of options for managing your key, such as [rotating the key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-key-gui) or [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui). 
+    You can browse the general characteristics of your keys from the application details page. Choose from a list of options for managing your key, such as [rotating the key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-key-gui) or [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui).
 
 ## Step 9. Clean up
 {: #tutorial-import-clean-up}
@@ -489,14 +487,14 @@ To import the key:
     {: pre}
 
 3. Remove the all the local files associated with this tutorial.
-   
+
     ```sh
     rm kms-encrypt-nonce *.json *.bin *.pem
     ```
     {: pre}
-    
+
 4. Delete the test directory that you created for this tutorial.
-   
+
     ```sh
     cd .. && rm -r key-protect-test
     ```

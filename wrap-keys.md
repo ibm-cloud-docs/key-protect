@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-04-22"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 You can manage and protect your encryption keys with a root key by using the {{site.data.keyword.keymanagementservicelong}} API.
 {: shortdesc}
 
-When you wrap a [data encryption key](#x4791827){:term} with a [root key](#x6946961){:term}, {{site.data.keyword.keymanagementserviceshort}} combines the strength of multiple algorithms to protect the privacy and the integrity of your encrypted data.  
+When you wrap a [data encryption key](#x4791827){:term} with a [root key](#x6946961){:term}, {{site.data.keyword.keymanagementserviceshort}} combines the strength of multiple algorithms to protect the privacy and the integrity of your encrypted data.
 
 To learn how key wrapping helps you control the security of at-rest data in the cloud, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}
@@ -111,29 +111,28 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiemhZOGNBTFZwUFI2RlNnN2IwUjVXaFlPajE2THk0SkZDRElzeHBuOFNNb0pIUTdqQjliVEJaR2RSaTA9IiwiaXYiOiI0Qkg5SkRFZmFNUTNzR0xpIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiNTNiMTAxZjUtMzhlNC00ODVjLTg5ZmItZjczMmRkYmE1YmYwIn0=",
+      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
       "keyVersion": {
-        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
       }
     }
     ```
     {:screen}
-    
+
     If you omit the `plaintext` attribute when you make the wrap request, the service returns both the generated data encryption key (DEK) and the wrapped DEK in base64 encoded format.
 
     ```json
     {
-      "plaintext": "27+GLzeg80elwT+Zxti1VxQpguevDg75OYfs7v4HcyI=",
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiemhZOGNBTFZwUFI2RlNnN2IwUjVXaFlPajE2THk0SkZDRElzeHBuOFNNb0pIUTdqQjliVEJaR2RSaTA9IiwiaXYiOiI0Qkg5SkRFZmFNUTNzR0xpIiwidmVyc2lvbiI6IjQuMC4wIiwiaGFuZGxlIjoiNTNiMTAxZjUtMzhlNC00ODVjLTg5ZmItZjczMmRkYmE1YmYwIn0=",
+      "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
       "keyVersion": {
-        "id": "53b101f5-38e4-485c-89fb-f732ddba5bf0"
+        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
       }
     }
     ```
     {:screen}
 
     The `plaintext` value represents the unwrapped DEK, and the `ciphertext` value represents the wrapped DEK. The `keyVersion.id` value represents the version of the root key that was used for wrapping.
-    
+
     If you want {{site.data.keyword.keymanagementserviceshort}} to generate a new data encryption key (DEK) on your behalf, you can also pass in an empty body on a wrap request. Your generated DEK, containing the base64 encoded key material, is returned in the response entity-body, along with the wrapped DEK.
     {: tip}
-    

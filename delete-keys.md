@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-14"
+lastupdated: "2020-04-22"
 
 keywords: delete key, delete key API examples
 
@@ -33,7 +33,7 @@ When you delete a key, you shred its contents and associated data. Any data that
 Keep in mind the following considerations before you delete a key:
 
 - {{site.data.keyword.keymanagementserviceshort}} blocks the deletion of any key that's actively protecting a cloud resource. Before you delete a key, [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
-- You can [force deletion on a key](#delete-key-force) that's protecting a cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key.
+- You can [force deletion on a key](#delete-key-force) that's protecting a cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a retention policy. You can verify whether a key is associated with a non-erasable resource by [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact an account owner to remove the retention policy on each resource that is associated with the key before you can delete the key.
 
 ## Deleting keys in the console
 {: #delete-key-gui}
@@ -60,7 +60,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
-This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](#delete-key-force) at query time to delete the key. 
+This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](#delete-key-force) at query time to delete the key.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -110,6 +110,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
     </table>
 
     If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
+
     ```json
     {
       "metadata": {
@@ -119,14 +120,14 @@ This action won't succeed if the key is actively protecting one or more cloud re
       "resources": [
         {
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
+          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
           "name": "test-root-key",
           "state": 5,
           "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
           "imported": false,
           "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "IBMid-503CKNRHR7",
+          "createdBy": "...",
           "algorithmType": "AES",
           "algorithmMetadata": {
             "bitLength": "256",
@@ -140,7 +141,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
           },
           "deleted": true,
           "deletionDate": "2020-03-16T21:46:53Z",
-          "deletedBy": "IBMid-503CKNRHR7"
+          "deletedBy": "..."
         }
       ]
     }
@@ -157,6 +158,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
 ```
+
 When you delete a key that has registrations associated with it, you shred the key's contents and associated data. Any data that is encrypted by the key becomes inaccessible.
 {: note}
 
@@ -210,6 +212,7 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
     </table>
 
     If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body. <!--After you delete a key, it enters the `Deactivated` key state. After 24 hours, if a key is not reinstated, the key transitions to the `Destroyed` state. The key contents are permanently erased and no longer accessible.--> The following JSON object shows an example returned value.
+
     ```json
     {
       "metadata": {
@@ -218,29 +221,20 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
       },
       "resources": [
         {
+          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "type": "application/vnd.ibm.kms.key+json",
-          "id": "acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
           "name": "test-root-key",
+          "description": "...",
           "state": 5,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:8e19aaff-df40-4623-bef2-86cb19a9d8bd:key:acc29d78-c7d4-4b3f-be3a-4cb8d768be6c",
-          "imported": false,
-          "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "IBMid-503CKNRHR7",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "dualAuthDelete": {
-            "enabled": false
-          },
+          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "deleted": true,
+          "algorithmType": "AES",
+          "createdBy": "...",
+          "deletedBy": "...",
+          "creationDate": "2020-03-10T20:41:27Z",
           "deletionDate": "2020-03-16T21:46:53Z",
-          "deletedBy": "IBMid-503CKNRHR7"
+          "lastUpdateDate": "2020-03-16T20:41:27Z",
+          "extractable": true
         }
       ]
     }
@@ -248,4 +242,3 @@ This action won't succeed if the key is protecting a resource that's non-erasabl
     {: screen}
 
     For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
-
