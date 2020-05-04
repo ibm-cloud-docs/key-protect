@@ -22,36 +22,37 @@ subcollection: key-protect
 {: preview: .preview}
 {:term: .term}
 
-# Disabling keys
+# Disabling root keys
 {: #disable-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable a root key key and temporarily revoke access to the key's associated data on the cloud.
+You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable a root key and temporarily revoke access to the key's associated data on the cloud.
 {: shortdesc}
 
 As an admin, you might need to temporarily disable a root key if you suspect a possible security exposure, compromise, or breach with your data. When you
- disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
- enabling the disabled key.
+disable a root key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
+enabling the disabled root key.
 
-If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not be accessible after disabling a key. To 
-determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
-keymanagementserviceshort}} key, refer to its service documentation.
+If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not be accessible after disabling a root key. 
+To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
+keymanagementserviceshort}} root key, refer to its service documentation.
 {: note}
 
 <!-- To do: Add table with services that have integrated this feature.-->
 
-## Disabling and enabling keys with the API
+## Disabling and enabling root keys with the API
 {: #disable-enable-api}
 
-### Disabling a key
+### Disabling a root key
 {: #disable-api}
 
-When you disable a key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to cryptographically
-protect data. 
+When you disable a root key, the root key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to 
+cryptographically protect data. 
 
-If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is revoked.
+If you're using an integrated cloud service that supports revoking access to a disabled root key, allow up to 4 hours before access to the root key's associated data is 
+revoked.
 {: note}
 
-You can disable a key that's in the _Active_ key state by making a `POST` call to the following endpoint.
+You can disable a root key that's in the _Active_ key state by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
@@ -59,16 +60,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api#retrieve-credentials).
 
-    To disable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
+    To disable a root key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
     keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Retrieve the ID of the key that you want to disable.
+2. Retrieve the ID of the root key that you want to disable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.
     keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to disable the key and suspend its encrypt and decrypt operations.
+3. Run the following cURL command to disable the root key and suspend its encrypt and decrypt operations.
 
     ```cURL
     curl -X POST \
@@ -92,7 +93,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to disable.</td>
+        <td><strong>Required.</strong> The unique identifier for the root key that you want to disable.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -104,13 +105,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
         <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more 
         information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to disable keys with the {{site.data.keyword.keymanagementserviceshort}} API.
+      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to disable root keys with the {{site.data.keyword.keymanagementserviceshort}
+      } API.
       </caption>
     </table>
 
-    A successful disable request returns an HTTP `204 No Content` response, which indicates that the key was disabled for encrypt and decrypt operations.
+    A successful disable request returns an HTTP `204 No Content` response, which indicates that the root key was disabled for encrypt and decrypt operations.
 
-4. Optional: Verify that the key was disabled by retrieving details about the key.
+4. Optional: Verify that the root key was disabled by retrieving details about the key.
 
     ```cURL
     curl -X GET \
@@ -122,7 +124,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
     {: codeblock}
 
     Review the `state` field in the response body to verify that the key transitioned to the _Suspended_ key state. The following JSON output shows the metadata details 
-    for a disabled key.
+    for a disabled root key.
 
     The integer mapping for the _Suspended_ key state is 2. Key States are based on NIST SP 800-57.
     {: note}
@@ -170,16 +172,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
     ```
     {: screen}
 
-### Enabling a disabled key
+### Enabling a disabled root key
 {: #enable-api}
 
-When you enable a key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and 
+When you enable a root key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and 
 decrypt operations.
 
-If you're using an integrated cloud service that supports revoking access to a disabled key, allow up to 4 hours before access to the key's associated data is restored.
+If you're using an integrated cloud service that supports revoking access to a disabled root key, allow up to 4 hours before access to the key's associated data is 
+restored.
 {: note}
 
-You can enable a key that's in the _Suspended_ key state by making a `POST` call to the following endpoint.
+You can enable a root key that's in the _Suspended_ key state by making a `POST` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
@@ -187,18 +190,18 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To enable a key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
+    To enable a root key, you must be assigned a _Manager_ service access role for the instance or key. To learn how IAM roles map to {{site.data.keyword.
     keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Retrieve the ID of the disabled key that you want to enable.
+2. Retrieve the ID of the disabled root key that you want to enable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys` [request](/apidocs/key-protect#list-keys), or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} 
     dashboard.
 
-3. Run the following cURL command to enable the key and restore its encrypt and decrypt operations.
+3. Run the following cURL command to enable the root key and restore its encrypt and decrypt operations.
 
-    You must wait 30 seconds after disabling a key before you are able to enable it again.
+    You must wait 30 seconds after disabling a root key before you are able to enable it again.
     {: note}
 
     ```cURL
@@ -223,7 +226,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
       </tr>
       <tr>
         <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to enable.</td>
+        <td><strong>Required.</strong> The unique identifier for the root key that you want to enable.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
@@ -235,13 +238,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
         <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more 
         information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
-      <caption style="caption-side:bottom;">Table 2. Describes the variables that are needed to enable keys with the {{site.data.keyword.keymanagementserviceshort}} API.
+      <caption style="caption-side:bottom;">Table 2. Describes the variables that are needed to enable root keys with the {{site.data.keyword.keymanagementserviceshort}} 
+      API.
       </caption>
     </table>
 
-    A successful enable request returns an HTTP `204 No Content` response, which indicates that the key was reinstated for encrypt and decrypt operations.
+    A successful enable request returns an HTTP `204 No Content` response, which indicates that the root key was reinstated for encrypt and decrypt operations.
 
-4. Optional: Verify that the key was enabled by retrieving details about the key.
+4. Optional: Verify that the root key was enabled by retrieving details about the key.
 
     ```cURL
     curl -X GET \
@@ -252,7 +256,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
     ```
     {: codeblock}
 
-    Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows the metadata details for 
+    Review the `state` field in the response body to verify that the root key transitioned to the _Active_ key state. The following JSON output shows the metadata details for 
     an active key.
 
     The integer mapping for the _Active_ key state is 1. Key States are based on NIST SP 800-57.
