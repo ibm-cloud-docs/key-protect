@@ -25,10 +25,10 @@ subcollection: key-protect
 # Disabling keys
 {: #disable-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable an encryption key and temporarily revoke access to the key's associated data on the cloud.
+You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable a root key key and temporarily revoke access to the key's associated data on the cloud.
 {: shortdesc}
 
-As an admin, you might need to disable a customer root key (CRK) temporarily if you suspect a possible security exposure, compromise, or breach with your data. When you
+As an admin, you might need to temporarily disable a root key if you suspect a possible security exposure, compromise, or breach with your data. When you
  disable a key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
  enabling the disabled key.
 
