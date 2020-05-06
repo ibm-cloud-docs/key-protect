@@ -28,6 +28,25 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## May 2020
+{: #may-2020}
+
+### Added: Use an import token to rotate a key 
+{: #added-secure-rotate}
+New as of: 2020-05-01
+
+If you have _Writer_ or _Manager_ access permissions, you can now use the {{site.data.keyword.keymanagementserviceshort}} REST API to rotate an root key that was initially imported with an import token.
+
+To find out more, see [Using an import token to rotate a key](docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
+
+### Added: Restore a deleted key
+{: #added-restore-key}
+New as of: 2020-05-01
+
+If you have _Manager_ access permissions, you can now use the the {{site.data.keyword.keymanagementserviceshort}} REST API to restore a previously imported root key.
+
+To find out more, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
+
 ## April 2020
 {: #apr-2020}
 
