@@ -32,12 +32,10 @@ As an admin, you might need to temporarily disable a root key if you suspect a p
 disable a root key, you suspend its encrypt and decrypt operations. After confirming that a security risk is no longer active, you can restore access to your data by 
 enabling the disabled root key.
 
-If you are using a cloud service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not be accessible after disabling a root key. 
-To determine whether an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
+If you are using a Cloud Service that is integrated with {{site.data.keyword.keymanagementserviceshort}}, your data might not be accessible after disabling a root key. 
+To determine whether an [integrated Service](/docs/key-protect?topic=key-protect-integrate-services) supports revoking access to data by disabling a {{site.data.keyword.
 keymanagementserviceshort}} root key, refer to its service documentation.
 {: note}
-
-<!-- To do: Add table with services that have integrated this feature.-->
 
 ## Disabling and enabling root keys with the API
 {: #disable-enable-api}
@@ -45,11 +43,11 @@ keymanagementserviceshort}} root key, refer to its service documentation.
 ### Disabling a root key
 {: #disable-api}
 
-When you disable a root key, the root key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to 
+When you disable a root key, the key transitions to the [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states), and it can no longer be used to 
 cryptographically protect data. 
 
-If you're using an integrated cloud service that supports revoking access to a disabled root key, allow up to 4 hours before access to the root key's associated data is 
-revoked.
+If you're using an integrated Cloud Service that supports revoking access to a disabled root key, the service may take up to a maximum of 4 hours before access to the 
+root key's associated data is revoked. After access to the associated data is revoked, a corresponding disable event is displayed in the Activity Tracker web UI.
 {: note}
 
 You can disable a root key that's in the _Active_ key state by making a `POST` call to the following endpoint.
@@ -178,8 +176,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 When you enable a root key that was previously disabled, the key transitions from the _Suspended_ to the _Active_ key state. This action restores the key's encrypt and 
 decrypt operations.
 
-If you're using an integrated cloud service that supports revoking access to a disabled root key, allow up to 4 hours before access to the key's associated data is 
-restored.
+If you're using an integrated Cloud Service that supports revoking access to a disabled root key, the service may take up to a maximum of 4 hours before access to the 
+root key's associated data is restored. After access to the associated data is resored, a corresponding enable event is displayed in the Activity Tracker web UI.
 {: note}
 
 You can enable a root key that's in the _Suspended_ key state by making a `POST` call to the following endpoint.
