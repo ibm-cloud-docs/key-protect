@@ -70,8 +70,7 @@ supports key registration, refer to its service documentation for more informati
 
 This capability is currently available only by using the
 {{site.data.keyword.keymanagementserviceshort}} API. To find out more, check out the
-[{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key)
-{:external}.
+[{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){:external}.
 {: preview}
 
 ## Viewing protected resources
@@ -97,10 +96,10 @@ and a cloud resource.
       "keyId": "string",
       "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/
       <account-id>:<service-instance>:bucket:<bucket-name>",
-      "createdBy": "string",
+      "createdBy": "creator name",
       "creationDate": "2010-01-12T05:23:19+0000",
       "lastUpdated": "2010-01-12T05:23:19+0000",
-      "description": "string",
+      "description": "A description of the registration",
       "preventKeyDeletion": true,
       "keyVersion": {
         "id": "02fd6835-6001-4482-a892-13bd2085f75d",
@@ -140,7 +139,7 @@ The following table describes the properties of a registration.
     </tr>
     <tr>
       <td><code>lastUpdated</code></td>
-      <td>The date the registration was created.</td>
+      <td>The date the registration was updated.</td>
     </tr>
     <tr>
       <td><code>description</code></td>
@@ -269,14 +268,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
       },
       "resources": [
         {
-          "keyId": "string",
+          "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
           "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/
           <account-id>:<service-instance>:bucket:<bucket-name>",
-          "createdBy": "string",
+          "createdBy": "creator name",
           "creationDate": "2010-01-12T05:23:19+0000",
           "updatedBy": "string",
           "lastUpdated": "2010-01-12T05:23:19+0000",
-          "description": "string",
+          "description": "A description of the registration",
           "preventKeyDeletion": true,
           "keyVersion": {
             "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
@@ -284,14 +283,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
           }
         },
         {
-          "keyId": "string",
+          "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/
           <account-id>:<service-instance>:bucket:<other-bucket-name>",
           "createdBy": "string",
           "creationDate": "2010-01-12T05:23:19+0000",
           "updatedBy": "string",
           "lastUpdated": "2010-01-12T05:23:19+0000",
-          "description": "string",
+          "description": "A description of the registration",
           "preventKeyDeletion": true,
           "keyVersion": {
             "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
@@ -316,14 +315,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 ### Filter registrations for a specific root key 
 {: #filter-registrations-specifc-key-api}
 
-You can filter for specific registrations associated with with a root key specifying the `preventKeyDeletion` and 
+You can filter for a set of registrations that are associated with a root key by specifying the `preventKeyDeletion` and 
 `urlEncodedResourceCRNQuery`parameters at query time.
 
-For example, you might have 25 total registrations that are stored in your {{site.data.keyword.
-keymanagementserviceshort}} service instance, but you only want to 
-retrieve registrations that have a retention policy this is associated with a specific Cloud Resource Name (CRN).
+For example, you might have 25 total registrations that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you only want to 
+retrieve registrations that have a retention policy that is associated with a specific Cloud Resource Name (CRN).
 
-You can use the following example request to retrieve a specific set of registrations.
+You can use the following example request to retrieve a filtered set of registrations.
 
 ```cURL
   curl -X GET \
@@ -358,18 +356,19 @@ You can use the following example request to retrieve a specific set of registra
       <td>
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
-        that are associated with a specific Cloud Respurce 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery=<urlCRN> </code>.</p>
+        that are associated with a specific Cloud Resource 
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"> </code>. See [CRN query examples](#crn-query-examples) for more information.
+        </p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 4. Describes the <code>preventKeyDeletion</code> and 
     <code>urlEncodedResourceCRNQuery</code> 
-    variables</caption>.
+    variables.</caption>
   </table>
 
 You can also filter for a subset of registrations by specifying the `limit` and `offset` parameters at query time. 
 
-You can use the following example request to retrieve a different set of registrations.
+You can use the following example request to retrieve a filtered set of registrations.
 
   ```cURL
   curl -X GET \
@@ -406,7 +405,7 @@ You can use the following example request to retrieve a different set of registr
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 5. Describes the <code>limit</code> and <code>offset</code> 
-    variables</caption>
+    variables.</caption>
   </table>
 
 ## Listing registrations for any root key
@@ -491,20 +490,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 6. Describes the variables that are needed to list registrations for any key in your {site.data.
-        keyword.keymanagementserviceshort}} service instance.
+        Table 6. Describes the variables that are needed to list registrations for any key in your {site.data.keyword.keymanagementserviceshort}} service instance.
       </caption>
     </table>
 
 ### Filter registrations for any root key
 {: #filter-registrations-any-key-api}
 
-You can filter for specific registrations associated with any root key managed in your provisioned instance of {
-{site.data.keyword.keymanagementserviceshort}} by 
-specifying the `preventKeyDeletion` and `urlEncodedResourceCRNQuery`parameters at query time.
+You can filter for a set of registrations that are associated with any root key managed in your provisioned instance of {{site.data.keyword.keymanagementserviceshort}} 
+by specifying the `preventKeyDeletion` and `urlEncodedResourceCRNQuery` parameters at query time.
 
-For example, you might have 25 total registrations that are stored in your {{site.data.keyword.
-keymanagementserviceshort}} service instance, but you only want to 
+For example, you might have 25 total registrations that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you only want to 
 retrieve registrations that have a retention policy this is associated with a specific Cloud Resource Name (CRN).
 
 You can use the following example request to retrieve a specific set of registrations.
@@ -543,7 +539,8 @@ You can use the following example request to retrieve a specific set of registra
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Respurce 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery=crnQuery</code>.</p>
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"> </code>. See [CRN query examples](#crn-query-examples) for more information.
+        </p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 7. Describes the <code>preventKeyDeletion</code> and <code>urlEncodedResourceCRNQuery</code> 
@@ -627,13 +624,9 @@ followed by `<string>*` on the last segment of the CRN query.
   This query returns all Cloud Object Storage bucket registrations within
   account _e1bb63d6a20dc57c87501ac4c4c99dcb_ that are prefixed by `prod`.
 
-  ```
-  crn:v1:bluemix:public:databases-for-postgresql:us-south:a/
-  e1bb63d6a20dc57c87501ac4c4c99dcb:76b98bfd-f730-47b8-b163-515187e070a7:*:<string>*
-  ```
-  {: screen}
-  This query returns all Cloud Databases registrations for deployment ID
-  _76b98bfd-f730-47b8-b163-515187e070a7_ that are prefixed by `<string>`.
+
+CRN queries should not contain an asterisk (*) in the first eight segments.
+{: note}
 
 The following tables provides a list of CRN query examples before and after URL
 encoding. To view the URL encoded values, click the **URL encoded** tab.
