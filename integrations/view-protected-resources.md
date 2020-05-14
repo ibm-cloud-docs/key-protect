@@ -347,7 +347,7 @@ You can use the following example request to retrieve a filtered set of registra
         <p>For example, if you have multiple registrations in your instance, and you want to list only registrations 
         where <code>preventKeyDeletion</code> is true, use
             <code>../registrations?preventKeyDeletion=true</code>. You can also pair <code>preventKeyDeletion</code> 
-            with <code>offest</code>,<code>limit</code>,and 
+            with <code>offest</code>, <code>limit</code>, and 
             <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
       </td>
     </tr>
@@ -357,7 +357,7 @@ You can use the following example request to retrieve a filtered set of registra
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Resource 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"> </code>. See [CRN query examples](#crn-query-examples) for more information.
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN" </code>. See [CRN query examples](#crn-query-examples) for more information.
         </p>
       </td>
     </tr>
@@ -529,7 +529,7 @@ You can use the following example request to retrieve a specific set of registra
         <p>For example, if you have multiple registrations in your instance, and you want to list only registrations 
         where <code>preventKeyDeletion</code> is true, use
             <code>../registrations?preventKeyDeletion=true</code>. You can also pair <code>preventKeyDeletion</code> 
-            with <code>offest</code>,<code>limit</code>,and 
+            with <code>offest</code>, <code>limit</code>, and 
             <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
       </td>
     </tr>
@@ -539,7 +539,7 @@ You can use the following example request to retrieve a specific set of registra
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Respurce 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"> </code>. See [CRN query examples](#crn-query-examples) for more information.
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN" </code>. See [CRN query examples](#crn-query-examples) for more information.
         </p>
       </td>
     </tr>
