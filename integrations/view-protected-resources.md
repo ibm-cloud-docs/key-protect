@@ -390,8 +390,7 @@ You can use the following example request to retrieve a filtered set of registra
       <td>
         <p>The number of registrations to skip.</p>
         <p>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, 
-        use
-            <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
+        use <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
             to page through your available resources.</p>
       </td>
     </tr>
@@ -400,8 +399,8 @@ You can use the following example request to retrieve a filtered set of registra
       <td>
         <p>The number of registrations to retrieve.</p>
         <p>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, 
-        use
-            <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000.</p>
+        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000. You can also pair <code>offset</code> with <code>limit</code> to page through your 
+        available resources.</p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 5. Describes the <code>limit</code> and <code>offset</code> 
@@ -572,8 +571,7 @@ You can use the following example request to retrieve a different set of registr
       <td>
         <p>The number of registrations to skip.</p>
         <p>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, 
-        use
-            <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
+        use <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
             to page through your available resources.</p>
       </td>
     </tr>
@@ -582,8 +580,8 @@ You can use the following example request to retrieve a different set of registr
       <td>
         <p>The number of registrations to retrieve.</p>
         <p>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, 
-        use
-            <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000.</p>
+        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000. You can also pair <code>offset</code> with <code>limit</code> 
+        to page through your available resources.</p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 8. Describes the <code>limit</code> and <code>offset</code> 
