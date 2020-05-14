@@ -52,8 +52,7 @@ get a full view of which encryption keys protect what data on {{site.data.keywor
     </tr>
     <tr>
       <td>Security and compliance</td>
-      <td>As a security admin, you need a way to determine the risk that's involved with <a href="/docs/key-protect?topic=key-protect-delete-keys">destroying a root key
-      </a>. 
+      <td>As a security admin, you need a way to determine the risk that's involved with <a href="/docs/key-protect?topic=key-protect-delete-keys">destroying a root key</a>. 
       You want to examine which keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs.</td>
     </tr>
     <caption style="caption-side:bottom;">Table 1. Describes the benefits of key registration.
@@ -93,10 +92,10 @@ and a cloud resource.
   },
   "resources": [
     {
-      "keyId": "string",
+      "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
       "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/
       <account-id>:<service-instance>:bucket:<bucket-name>",
-      "createdBy": "creator name",
+      "createdBy": "initiatorID",
       "creationDate": "2010-01-12T05:23:19+0000",
       "lastUpdated": "2010-01-12T05:23:19+0000",
       "description": "A description of the registration",
@@ -271,7 +270,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
           "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
           "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/
           <account-id>:<service-instance>:bucket:<bucket-name>",
-          "createdBy": "creator name",
+          "createdBy": "initiatorID",
           "creationDate": "2010-01-12T05:23:19+0000",
           "updatedBy": "string",
           "lastUpdated": "2010-01-12T05:23:19+0000",
@@ -316,7 +315,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 {: #filter-registrations-specifc-key-api}
 
 You can filter for a set of registrations that are associated with a root key by specifying the `preventKeyDeletion` and 
-`urlEncodedResourceCRNQuery`parameters at query time.
+`urlEncodedResourceCRNQuery` parameters at query time.
 
 For example, you might have 25 total registrations that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you only want to 
 retrieve registrations that have a retention policy that is associated with a specific Cloud Resource Name (CRN).
@@ -357,8 +356,9 @@ You can use the following example request to retrieve a filtered set of registra
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Resource 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN" </code>. See [CRN query examples](#crn-query-examples) for more information.
-        </p>
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>. See [CRN query examples](#crn-query-examples) for more information.</p>
+        <br><p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
+            <code>preventKeyDeletion</code> to search through your available resources.</p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 4. Describes the <code>preventKeyDeletion</code> and 
@@ -539,12 +539,13 @@ You can use the following example request to retrieve a specific set of registra
         <p>The resource CRN that you want to filter registrations by.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Respurce 
-        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN" </code>. See [CRN query examples](#crn-query-examples) for more information.
-        </p>
+        Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>. See [CRN query examples](#crn-query-examples) for more information.</p>
+        <br><p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
+            <code>preventKeyDeletion</code> to search through your available resources.</p>
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 7. Describes the <code>preventKeyDeletion</code> and <code>urlEncodedResourceCRNQuery</code> 
-    variables</caption>
+    variables.</caption>
   </table>
 
 You can also filter for a subset of registrations by specifying the `limit` and `offset` parameters at query time. 
@@ -586,7 +587,7 @@ You can use the following example request to retrieve a different set of registr
       </td>
     </tr>
     <caption style="caption-side:bottom;">Table 8. Describes the <code>limit</code> and <code>offset</code> 
-    variables</caption>
+    variables.</caption>
   </table>
 
 ## CRN query examples
@@ -636,7 +637,7 @@ encoding. To view the URL encoded values, click the **URL encoded** tab.
 |`crn:v1:bluemix:public:databases-for-redis:us-south:a/274074dce64e9c423ffc238516c755e1:29caf0e7-120f-4da8-9551-3abf57ebcfc7:*:*` |
 |`crn:v1:bluemix:public:cloud-object-storage:global:a/e1bb63d6a20dc57c87501ac4c4c99dcb:*:bucket:prod*` |
 |`crn:v1:bluemix:public:cloudantnosqldb:us-south:a/f586c28d154d4c65a4a4a34cf75f55d0:94255ea3-af1c-41b7-9805-61f775e20702:*:prod*`. |
-{: caption="Table 9. CRN query examples" caption-side="top"}
+{: caption="Table 9. CRN query examples." caption-side="top"}
 {: #table-5}
 {: tab-title="Original"}
 {: class="simple-tab-table"}
@@ -646,7 +647,7 @@ encoding. To view the URL encoded values, click the **URL encoded** tab.
 |`crn%3Av1%3Abluemix%3Apublic%3Adatabases-for-redis%3Aus-south%3Aa%2F274074dce64e9c423ffc238516c755e1%3A29caf0e7-120f-4da8-9551-3abf57ebcfc7%3A*%3A*` |
 | `crn%3Av1%3Abluemix%3Apublic%3Acloud-object-storage%3Aglobal%3Aa%2Fe1bb63d6a20dc57c87501ac4c4c99dcb%3A*%3Abucket%3Aprod*` |
 |`crn%3Av1%3Abluemix%3Apublic%3Acloudantnosqldb%3Aus-south%3Aa%2Ff586c28d154d4c65a4a4a34cf75f55d0%3A94255ea3-af1c-41b7-9805-61f775e20702%3A%2A%3Aprod%2A` |
-{: caption="Table 10. CRN query examples" caption-side="top"}
+{: caption="Table 10. CRN query examples." caption-side="top"}
 {: #table-6}
 {: tab-title="URL encoded"}
 {: class="simple-tab-table"}
