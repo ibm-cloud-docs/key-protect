@@ -95,7 +95,7 @@ and a cloud resource.
       "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
       "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/
       <account-id>:<service-instance>:bucket:<bucket-name>",
-      "createdBy": "initiatorID",
+      "createdBy": "IBMid-25555555",
       "creationDate": "2010-01-12T05:23:19+0000",
       "lastUpdated": "2010-01-12T05:23:19+0000",
       "description": "A description of the registration",
@@ -270,9 +270,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
           "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
           "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/
           <account-id>:<service-instance>:bucket:<bucket-name>",
-          "createdBy": "initiatorID",
+          "createdBy": "IBMid-25555555",
           "creationDate": "2010-01-12T05:23:19+0000",
-          "updatedBy": "string",
+          "updatedBy": "IBMid-25555555",
           "lastUpdated": "2010-01-12T05:23:19+0000",
           "description": "A description of the registration",
           "preventKeyDeletion": true,
@@ -285,9 +285,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
           "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
           "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/
           <account-id>:<service-instance>:bucket:<other-bucket-name>",
-          "createdBy": "string",
+          "createdBy": "IBMid-25555555",
           "creationDate": "2010-01-12T05:23:19+0000",
-          "updatedBy": "string",
+          "updatedBy": "IBMid-25555555",
           "lastUpdated": "2010-01-12T05:23:19+0000",
           "description": "A description of the registration",
           "preventKeyDeletion": true,
