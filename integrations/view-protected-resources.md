@@ -97,6 +97,7 @@ and a cloud resource.
       <account-id>:<service-instance>:bucket:<bucket-name>",
       "createdBy": "IBMid-25555555",
       "creationDate": "2010-01-12T05:23:19+0000",
+      "updatedBy": "IBMid-25555555",
       "lastUpdated": "2010-01-12T05:23:19+0000",
       "description": "A description of the registration",
       "preventKeyDeletion": true,
@@ -345,9 +346,10 @@ You can use the following example request to retrieve a filtered set of registra
         <p>A boolean that filters registrations based on if a registered resource has a retention policy.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to list only registrations 
         where <code>preventKeyDeletion</code> is true, use
-            <code>../registrations?preventKeyDeletion=true</code>. You can also pair <code>preventKeyDeletion</code> 
-            with <code>offest</code>, <code>limit</code>, and 
-            <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
+            <code>../registrations?preventKeyDeletion=true</code>.</p>
+        <p>You can also pair <code>preventKeyDeletion</code> 
+          with <code>offest</code>, <code>limit</code>, and 
+          <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
       </td>
     </tr>
     <tr>
@@ -357,7 +359,7 @@ You can use the following example request to retrieve a filtered set of registra
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Resource 
         Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>. See [CRN query examples](#crn-query-examples) for more information.</p>
-        <br><p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
+        <p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
             <code>preventKeyDeletion</code> to search through your available resources.</p>
       </td>
     </tr>
@@ -390,7 +392,8 @@ You can use the following example request to retrieve a filtered set of registra
       <td>
         <p>The number of registrations to skip.</p>
         <p>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, 
-        use <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
+        use <code>../registrations?offset=25</code>.</p> 
+        <p>You can also pair <code>offset</code> with <code>limit</code> 
             to page through your available resources.</p>
       </td>
     </tr>
@@ -399,7 +402,8 @@ You can use the following example request to retrieve a filtered set of registra
       <td>
         <p>The number of registrations to retrieve.</p>
         <p>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, 
-        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000. You can also pair <code>offset</code> with <code>limit</code> to page through your 
+        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000.</p> 
+        <p>You can also pair <code>offset</code> with <code>limit</code> to page through your 
         available resources.</p>
       </td>
     </tr>
@@ -527,9 +531,10 @@ You can use the following example request to retrieve a specific set of registra
         <p>A boolean that filters registrations based on if a registered resource has a retention policy.</p>
         <p>For example, if you have multiple registrations in your instance, and you want to list only registrations 
         where <code>preventKeyDeletion</code> is true, use
-            <code>../registrations?preventKeyDeletion=true</code>. You can also pair <code>preventKeyDeletion</code> 
-            with <code>offest</code>, <code>limit</code>, and 
-            <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
+            <code>../registrations?preventKeyDeletion=true</code>.</p> 
+        <p>You can also pair <code>preventKeyDeletion</code> 
+          with <code>offest</code>, <code>limit</code>, and 
+          <code>urlEncodedResourceCRNQuery</code> to search through your available resources.</p>
       </td>
     </tr>
     <tr>
@@ -539,7 +544,7 @@ You can use the following example request to retrieve a specific set of registra
         <p>For example, if you have multiple registrations in your instance, and you want to only view registrations 
         that are associated with a specific Cloud Respurce 
         Name (CRN), use <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>. See [CRN query examples](#crn-query-examples) for more information.</p>
-        <br><p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
+        <p>You can also pair <code>urlEncodedResourceCRNQuery</code> with <code>offest</code>, <code>limit</code>, and 
             <code>preventKeyDeletion</code> to search through your available resources.</p>
       </td>
     </tr>
@@ -571,7 +576,8 @@ You can use the following example request to retrieve a different set of registr
       <td>
         <p>The number of registrations to skip.</p>
         <p>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, 
-        use <code>../registrations?offset=25</code>. You can also pair <code>offset</code> with <code>limit</code> 
+        use <code>../registrations?offset=25</code>.</p> 
+        <p>You can also pair <code>offset</code> with <code>limit</code> 
             to page through your available resources.</p>
       </td>
     </tr>
@@ -580,7 +586,8 @@ You can use the following example request to retrieve a different set of registr
       <td>
         <p>The number of registrations to retrieve.</p>
         <p>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, 
-        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000. You can also pair <code>offset</code> with <code>limit</code> 
+        use <code>../registrations?limit=10</code>. The maximum value for <code>limit</code> is 5000.</p>
+        <p>You can also pair <code>offset</code> with <code>limit</code> 
         to page through your available resources.</p>
       </td>
     </tr>
