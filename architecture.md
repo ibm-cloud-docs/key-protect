@@ -16,21 +16,25 @@ keywords: public isolation for Key Protect, compute isolation for Key Protect, K
 {:note: .note}
 {:term: .term}
 
-
 # Architecture and workload isolation
 {: #compute-isolation}
 
-Review the sample architecture and compute isolation characteristics for {{site.data.keyword.keymanagementservicelong}}.
+Review the sample architecture and compute isolation characteristics for
+{{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 ## {{site.data.keyword.keymanagementserviceshort}} architecture
 {: #architecture}
 
-The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}} components work to protect your sensitive data and keys.
+The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}}
+components work to protect your sensitive data and keys.
 
-![The diagram shows how Key Protect components protect sensitive data and keys.](images/kp-architecture.svg){: caption="Figure 1. Key Protect architecture" caption-side="bottom"}
+![The diagram shows how Key Protect components protect sensitive data and keys.](images/kp-architecture.svg)
+{: caption="Figure 1. Key Protect architecture" caption-side="bottom"}
 
-Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) 1.2 protocol to encrypt data in transit.
+Access to the {{site.data.keyword.keymanagementserviceshort}} service takes
+place over HTTPS. All communication uses the Transport Layer Security (TLS) 1.2
+protocol to encrypt data in transit.
 {: note}
 
 | Components | Description |
@@ -44,8 +48,13 @@ Access to the {{site.data.keyword.keymanagementserviceshort}} service takes plac
 ## {{site.data.keyword.keymanagementserviceshort}} workload isolation
 {: #workload-isolation}
 
-{{site.data.keyword.keymanagementserviceshort}} is a multi-tenant, regional service that supports the following workload isolation characteristics: 
+{{site.data.keyword.keymanagementserviceshort}} is a multi-tenant, regional
+service that supports the following workload isolation characteristics:
 
-- {{site.data.keyword.keymanagementserviceshort}} resources are isolated within a secure runtime environment that is shared across an {{site.data.keyword.cloud_notm}} multi-zone region. 
-- Multiple instances of the {{site.data.keyword.keymanagementserviceshort}} service run on shared clusters and a shared container. 
-- To isolate workloads, {{site.data.keyword.keymanagementserviceshort}} processes API requests within a security context that is user-based and unique to each customer.
+- {{site.data.keyword.keymanagementserviceshort}} resources are isolated within
+a secure runtime environment that is shared across an
+{{site.data.keyword.cloud_notm}} multi-zone region.
+- Multiple instances of the {{site.data.keyword.keymanagementserviceshort}}
+service run on shared clusters and a shared container.
+- To isolate workloads, {{site.data.keyword.keymanagementserviceshort}} processes
+API requests within a security context that is user-based and unique to each customer.
