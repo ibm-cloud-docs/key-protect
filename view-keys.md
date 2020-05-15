@@ -24,7 +24,8 @@ subcollection: key-protect
 # Viewing a list of keys
 {: #view-keys}
 
-{{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to keys to ensure the security of your resources.
+{{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to 
+keys to ensure the security of your resources.
 {: shortdesc}
 
 Audit your key configuration regularly:
@@ -58,11 +59,15 @@ If you prefer to inspect the keys in your service by using a graphical interface
       </tr>
       <tr>
         <td>ID</td>
-        <td>A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect).</td>
+        <td>A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the 
+        service with the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect).</td>
       </tr>
       <tr>
         <td>State</td>
-        <td>The [key state](/docs/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and <i>Destroyed</i>.</td>
+        <td>The [key state](/docs/key-protect?topic=key-protect-key-states) based on 
+        [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0). 
+        These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated</i>, and 
+        <i>Destroyed</i>.</td>
       </tr>
       <tr>
         <td>Type</td>
@@ -71,7 +76,8 @@ If you prefer to inspect the keys in your service by using a graphical interface
       <caption style="caption-side:bottom;">Table 1. Describes the <b>Keys</b> table</caption>
     </table>
 
-    Not seeing the full list of keys that are stored in your service instance? Verify with your administrator that you are assigned the correct role for the applicable service instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
+    Not seeing the full list of keys that are stored in your service instance? Verify with your administrator that you are assigned the correct role for the applicable service instance or 
+    individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
 ## Viewing keys with the API
@@ -111,15 +117,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       </tr>
       <tr>
         <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your 
+        {{site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see 
+        <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
       </tr>
       <tr>
         <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. 
+        For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
       </tr>
       <tr>
         <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see 
+        <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
       </tr>
       <tr>
         <td><varname>correlation_ID</varname></td>
@@ -184,9 +194,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {:screen}
 
-    By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
+    By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` 
+    and `offset`, see [Retrieving a subset of keys](#retrieve-subset-keys-api).
 
-    Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to ensure you're assigned the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
+    Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to ensure you're assigned the correct level access to 
+    keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
     {: tip}
 
 ### Retrieving a subset of keys
@@ -194,7 +206,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 By specifying the `limit` and `offset` parameters at query time, you can retrieve a subset of your keys, starting with the `offset` value that you specify.
 
-For example, you might have 3000 total keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you want to retrieve keys 200 - 300 when you make a `GET /keys` request.
+For example, you might have 3000 total keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} service instance, but you want to retrieve keys 200 - 
+300 when you make a `GET /keys` request.
 
 You can use the following example request to retrieve a different set of keys.
 

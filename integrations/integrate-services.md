@@ -24,10 +24,14 @@ subcollection: key-protect
 # Integrating services
 {: #integrate-services}
 
-{{site.data.keyword.keymanagementservicefull}} integrates with a number of {{site.data.keyword.cloud_notm}} services to enable encryption with customer-managed keys for those services. Encryption with customer-managed encryption keys is sometimes called Bring Your Own Key (BYOK).
+{{site.data.keyword.keymanagementservicefull}} integrates with a number of
+{{site.data.keyword.cloud_notm}} services to enable encryption with
+customer-managed keys for those services. Encryption with customer-managed
+encryption keys is sometimes called Bring Your Own Key (BYOK).
 {: shortdesc}
 
-You can integrate {{site.data.keyword.keymanagementserviceshort}} with the following supported services.
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following supported services.
 
 | Service       | Description                 | Links |
 | ------------- | ------------------------------------ | ---- |
@@ -39,7 +43,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 | [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis) | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect)|
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_mongodb_full}}](/docs/hyper-protect-dbaas-for-mongodb) | {{site.data.keyword.ihsdbaas_mongodb_full}} offers fully managed and highly secure {{site.data.keyword.mongodb}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-key-protect-byok) |
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_postgresql_full}}](/docs/hyper-protect-dbaas-for-postgresql) | {{site.data.keyword.ihsdbaas_postgresql_full}} offers fully managed and highly secure {{site.data.keyword.postgresql}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-key-protect-byok) |
-| [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq)  | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-rabbitmq?topic=cloud-databases-key-protect) |
+| [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq) | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-rabbitmq?topic=cloud-databases-key-protect) |
 | [{{site.data.keyword.Db2_on_Cloud_long_notm}}](/docs/Db2onCloud) | {{site.data.keyword.Db2_on_Cloud_long_notm}} is an SQL database that is provisioned for you in the cloud. You can use {{site.data.keyword.Db2_on_Cloud_short}} just as you would use any database software, but without the time and expense of hardware setup or software installation and maintenance. | [View docs](/docs/Db2onCloud?topic=Db2onCloud-key-protect) |
 | [{{site.data.keyword.sqlquery_short}}](/docs/sql-query) | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. |[View docs](/docs/sql-query?topic=sql-query-keyprotect) |
 {: caption="Table 1. Supported database services" caption-side="top"}
@@ -71,13 +75,12 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 
 | Service       | Description                 | Integration docs |
 | ------------- | ------------------------------------ | ---- |
-| [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started)  | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters.| [View docs](/docs/containers?topic=containers-encryption#keyprotect) |
+| [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started) | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters.| [View docs](/docs/containers?topic=containers-encryption#keyprotect) |
 {: caption="Table 4. Supported containers services" caption-side="top"}
 {: #table-4}
 {: tab-title="Containers"}
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
-
 
 | Service       | Description                 | Integration docs |
 | ------------- | ------------------------------------ | ---- |
@@ -88,22 +91,31 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-
-## Understanding your integration 
+## Understanding your integration
 {: #understand-integration}
 
-When you integrate a supported service with {{site.data.keyword.keymanagementserviceshort}}, you enable [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) for that service. This integration allows you to use a root key that you store in {{site.data.keyword.keymanagementserviceshort}} to wrap the data encryption keys that encrypt your data at rest. 
+When you integrate a supported service with
+{{site.data.keyword.keymanagementserviceshort}}, you enable
+[envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
+for that service. This integration allows you to use a root key that you store
+in {{site.data.keyword.keymanagementserviceshort}} to wrap the data encryption
+keys that encrypt your data at rest.
 
-For example, you can create a root key, manage the key in {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect the data that is stored across different cloud services.
+For example, you can create a root key, manage the key in
+{{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect
+the data that is stored across different cloud services.
 
-![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg){: caption="Figure 1. Contexual view of Key Protect integration." caption-side="bottom"}
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg)
+{: caption="Figure 1. Contexual view of Key Protect integration." caption-side="bottom"}
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods
 {: #envelope-encryption-api-methods}
 
-Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the envelope encryption process.  
+Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API
+drives the envelope encryption process.
 
-The following table lists the API methods that add or remove envelope encryption on a resource.
+The following table lists the API methods that add or remove envelope encryption
+on a resource.
 
 | Method | Description |
 | --- | --- |
@@ -111,37 +123,57 @@ The following table lists the API methods that add or remove envelope encryption
 | `POST /keys/{root_key_ID}?action=unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
 {: caption="Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
 
-To find out more about programmatically managing your keys in {{site.data.keyword.keymanagementserviceshort}}, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+To find out more about programmatically managing your keys in
+{{site.data.keyword.keymanagementserviceshort}}, check out the
+[{{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
 {: tip}
 
 ## Integrating a supported service
 {: #grant-access}
 
-To add an integration, create an authorization between services by using the {{site.data.keyword.iamlong}} dashboard. Authorizations enable service to service access policies, so you can associate a resource in your cloud data service with a [root key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you manage in {{site.data.keyword.keymanagementserviceshort}}.
+To add an integration, create an authorization between services by using the
+{{site.data.keyword.iamlong}} dashboard. Authorizations enable service to
+service access policies, so you can associate a resource in your cloud data
+service with a
+[root key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
+that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
-Be sure to provision both services in the same region before you create an authorization. To learn more about service authorizations, see [Granting access between services](/docs/iam?topic=iam-serviceauth){: external}.
+Be sure to provision both services in the same region before you create an
+authorization. To learn more about service authorizations, see
+[Granting access between services](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
-When you're ready to integrate a service, use the following steps to create an authorization:
+When you're ready to integrate a service, use the following steps to create an
+authorization:
 
-1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**. 
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
 3. Select a source and target service for the authorization.
- 
-  For **Source service**, select the cloud data service that you want to integrate with {{site.data.keyword.keymanagementserviceshort}}. For **Target service**, select **{{site.data.keyword.keymanagementservicelong_notm}}**.
 
-5. Enable the **Reader** role.
+    For **Source service**, select the cloud data service that you want to
+    integrate with {{site.data.keyword.keymanagementserviceshort}}
 
-    With _Reader_ permissions, your source service can browse the root keys that are provisioned in the specified instance of {{site.data.keyword.keymanagementserviceshort}}.
+    For **Target service**, select **{{site.data.keyword.keymanagementservicelong_notm}}**.
 
-6. Click **Authorize**.
+4. Enable the **Reader** role.
+
+    With _Reader_ permissions, your source service can browse the root keys that
+    are provisioned in the specified instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+5. Click **Authorize**.
 
 ## What's next
 {: #integration-next-steps}
 
-Add advanced encryption to your cloud resources by creating a root key in {{site.data.keyword.keymanagementserviceshort}}. Add a new resource to a supported cloud data service, and then select the root key that you want to use for advanced encryption.
+Add advanced encryption to your cloud resources by creating a root key in
+{{site.data.keyword.keymanagementserviceshort}}.
 
-- To find out more about creating root keys with the {{site.data.keyword.keymanagementserviceshort}} service, see [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
-- To find out more about bringing your own root keys to the {{site.data.keyword.keymanagementserviceshort}} service, see [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+Add a new resource to a supported cloud data service, and then select the root
+key that you want to use for advanced encryption.
 
-
+- To find out more about creating root keys with the
+{{site.data.keyword.keymanagementserviceshort}} service, see
+ [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
+- To find out more about bringing your own root keys to the
+{{site.data.keyword.keymanagementserviceshort}} service, see
+ [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
