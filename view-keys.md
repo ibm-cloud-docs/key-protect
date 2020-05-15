@@ -345,6 +345,3 @@ For usage notes, check out the following examples for setting your `state` query
   </tr>
   <caption style="caption-side:bottom;">Table 5. Provides usage notes for the stage query parameter.</caption>
 </table>
-
-By default, a `GET /keys` request lists the keys in the active, suspended, and deactivated states.
-{: note}
