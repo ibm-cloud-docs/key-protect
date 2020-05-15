@@ -47,6 +47,14 @@ If you have _Manager_ access permissions, you can now use the the {{site.data.ke
 
 To find out more, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
+### Added: Enable or disable a key
+{: #added-enable-disable-key}
+New as of: 2020-05-01
+
+If you have _Manager_ access permissions, you can now use the the {{site.data.keyword.keymanagementserviceshort}} REST API to suspend or restore a keys encrypt and decrypt operations.
+
+To find out more, see [Disabling keys](/docs/key-protect?topic=key-protect-disable-keys).
+
 ## April 2020
 {: #apr-2020}
 
