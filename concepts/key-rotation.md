@@ -201,7 +201,7 @@ drives the key rotation process.
 
 The following diagram shows a contextual view of the key rotation functionality.
 ![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
-{: caption="Figure 1. Contexual view of key rotation." caption-side="bottom"}
+{: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}}
 creates a new key version by associating new key material with your root key.

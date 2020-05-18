@@ -130,7 +130,7 @@ In this step, you use the {{site.data.keyword.cloud_notm}} CLI to gather the aut
     {{site.data.keyword.cloud_notm}} access tokens are valid for 1 hour, but you can regenerate them as needed. To generate a new access token, run the `ibmcloud iam oauth-tokens` command. To find out more about retrieving {{site.data.keyword.cloud_notm}} access tokens, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token#retrieve-access-token).
     {: note}
 
-3. Retrieve the identifier that is associated with your Key Protect service instance, and then set the value as an environment variable.
+3. Retrieve the identifier that is associated with your {{site.data.keyword.keymanagementserviceshort}} service instance, and then set the value as an environment variable.
 
     ```sh
     export INSTANCE_ID=`ibmcloud resource service-instance "import-keys-demo" --output json | jq -r '.[].guid'`
@@ -462,7 +462,7 @@ To import the key:
 
 4. Optional: Navigate to the [{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) to view and manage your encryption key.
 
-    ![The image shows the Key Protect dashboard view.](../images/import-keys-demo.png)
+    ![The image shows the {{site.data.keyword.keymanagementserviceshort}} dashboard view.](../images/import-keys-demo.png)
 
     You can browse the general characteristics of your keys from the application details page. Choose from a list of options for managing your key, such as [rotating the key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-key-gui) or [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui).
 

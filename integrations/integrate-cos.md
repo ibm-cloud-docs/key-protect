@@ -86,7 +86,7 @@ The following figure shows how {{site.data.keyword.keymanagementserviceshort}}
 integrates with {{site.data.keyword.cos_full_notm}} to further secure your
 encryption keys.
 ![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope.svg)
-{: caption="Figure 1. Contexual view of envelope encryption." caption-side="bottom"}
+{: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
 
 To learn more about how envelope encryption works in
 {{site.data.keyword.keymanagementserviceshort}}, see

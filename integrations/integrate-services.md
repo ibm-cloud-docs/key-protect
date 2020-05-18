@@ -106,7 +106,7 @@ For example, you can create a root key, manage the key in
 the data that is stored across different cloud services.
 
 ![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg)
-{: caption="Figure 1. Contexual view of Key Protect integration." caption-side="bottom"}
+{: caption="Figure 1. Contextual view of {{site.data.keyword.keymanagementserviceshort}} integration." caption-side="bottom"}
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods
 {: #envelope-encryption-api-methods}
