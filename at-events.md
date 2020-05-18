@@ -107,11 +107,7 @@ The following table lists the key actions that generate an event:
 
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
-| `kms.registrations.create`[^services-1] | Create a registration between a key and a cloud resource |
 | `kms.registrations.list`                | List registrations for any key                           |
-| `kms.registrations.merge`[^services-2]  | Update a registration between a key and a cloud resource |
-| `kms.registrations.write`[^services-3]  | Replace registration between a key and a cloud resource  |
-| `kms.registrations.delete`[^services-4] | Delete registration between a key and a cloud resource   |
 | `kms.registrations.default`             | Failed registration event                                |
 {: caption="Table 5. Registration actions" caption-side="top"}
 
@@ -305,38 +301,6 @@ The following fields include extra information:
 
 ### Registration events
 {: #registration-events}
-
-#### Create registration
-{: #create-registration-success}
-
-The following fields include extra information: 
-- The `requestData.preventKeyDeletion` field is set to true if the registration prevents the associated key from being deleted or false if the registration doesn't prevent the associated key from being deleted.
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the key version.
-- The `responseData.keyVersionCreationDate` field includes the date that the version of the key was created.
-
-#### Replace Registration
-{: #replace-registration-success}
-
-The following fields include extra information: 
-- The `requestData.initialValue.preventKeyDeletion` field is set to true if the registration previously prevented the associated key from being deleted or false if the registration didn't previously prevent the associated key from being deleted.
-- The `requestData.keyVersionId` field includes the unqiue idenitifier of the previous key version.
-- The `requestData.newValue.preventKeyDeletion` field is set to true if the registration prevents the associated key from being deleted or false if the registration doesn't prevent the associated key from being deleted.
-- The `requestData.newValue.keyVersionId` field includes the unqiue idenitifier of the current key version.
-
-#### Update Registration
-{: #update-registration-success}
-
-The following fields include extra information: 
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
-- The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
-
-#### Delete Registration
-{: #delete-registration-success}
-
-The following fields include extra information: 
-- The `requestData.preventKeyDeletion` field is set to true if the registration prevents the associated key from being deleted or false if the registration doesn't prevent the associated key from being deleted.
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
-- The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 
 #### List registration
 {: #list-registration-success}
