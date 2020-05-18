@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-05-12"
 
-keywords: Key Protect CLI plug-in, CLI reference
+keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
 subcollection: key-protect
 
@@ -13,573 +13,1823 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
-{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{:term: .term}
 
-# {{site.data.keyword.keymanagementserviceshort}} CLI Reference
+<!-- TODO: release date for network access policy
+  1. Determine when the dual auth policy will be added
+  2. Determine when network access policy will be implemented in the CLI
+
+  3. Hard error when creating a key then listing the policies
+  6. kp key create (add -o option, --output is supported)
+  7. kp key policy-update (add a short option for --set-type)
+  8. Why are there (-k --key) and (-k --key-material) options, pick one
+  9. List of commands without -o
+    import-token create
+    import-token key-encrypt
+    import-token nonce-encrypt
+    import-token show
+    key rotate
+  10. What order are the keys listed when doing a "kp keys"
+  11. Is there a limit on the number of keys listed in "kp keys", the
+      documentation used to say "last 200 keys" (what is the definition of last
+      how are keys sorted)
+  12. Is there a way to see the current region (kp region-set)
+-->
+
+# CLI reference version 0.4.0
 {: #cli-reference}
 
-You can use {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
+You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
+manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
 {:shortdesc}
 
-To install the CLI plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
+To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
+[Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli){: external}.
 
-When you log in to the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}, you're notified when updates are available. Be sure to keep your CLI up-to-date so that you can use the commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
+When you log in to the
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external},
+you're notified when updates are available. Be sure to keep your CLI up-to-date
+so that you can use the commands and flags that are available for the
+{{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+### Previous version
+{: #cli-reference-previous}
+
+Version 0.4.0 does not include documentation for deprecated commands.
+
+[Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
+has documentation for deprecated commands.
+
+All deprecated commands work in version 0.4.0. That is, version 0.4.0 is
+backwards compatible with version 0.3.9. For example, you can issue the
+`kp create` command even though it's deprecated in version 0.4.0.
+
+The intent is to remove support for deprecated commands in the next CLI version,
+which is anticipated the end of September, 2020.
+{: important}
+
+### Examples
+{: #cli-reference-examples}
+
+Many commands have an `Example` section, which shows how to use the command in
+the context of a workflow.
+
+The examples assume you have [openssl](https://www.openssl.org/){: external} and
+[jq](https://stedolan.github.io/jq/){: external} installed.
+
+The examples use the exported service instance instead of the `-i` parameter.
+
+```sh
+# export the service instance id
+$ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
+```
+{:screen}
 
 ## ibmcloud kp commands
 {: #ibmcloud-kp-commands}
 
-You can specify one of the following commands.
-
-| Command                 | Description                  |
-| ----------------------- | ---------------------------- |
-| [kp create](#kp-create) | Create a key                 |
-| [kp list](#kp-list)     | Retrieve a list of keys      |
-| [kp get](#kp-get)       | Retrieve a key               |
-| [kp wrap](#kp-wrap)     | Wrap a data encryption key   |
-| [kp unwrap](#kp-unwrap) | Unwrap a data encryption key |
-| [kp rotate](#kp-rotate) | Rotate a root key            |
-| [kp delete](#kp-delete) | Delete a key                 |
-{: caption="Table 1. Commands for managing encryption keys" caption-side="top"}
-{: #table-1}
-{: tab-title="Keys"}
-{: class="comparison-tab-table"}
-{: row-headers}
-
-| Command                         | Description                         |
-| ------------------------------- | ----------------------------------- |
-| [kp policy set](#kp-policy-set) | Create or replace a key policy      |
-| [kp policy get](#kp-policy-get) | Retrieve details about a key policy |
-{: caption="Table 2. Commands for managing key policies" caption-side="top"}
-{: #table-2}
-{: tab-title="Policies"}
-{: class="comparison-tab-table"}
-{: row-headers}
-
-| Command                                                         | Description                                                                            |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [kp import-token create](#kp-import-token-create)               | Create an import token                                                                 |
-| [kp import-token get](#kp-import-token-get)                     | Retrieve an import token                                                               |
-| [kp import-token encrypt-nonce](#kp-import-token-encrypt-nonce) | Encrypt the nonce that is generated by {{site.data.keyword.keymanagementserviceshort}} |
-| [kp import-token encrypt-key](#kp-import-token-encrypt-key)     | Encrypt the key that you want to import to the service                                 |
-{: caption="Table 3. Commands for managing import tokens" caption-side="top"}
-{: #table-3}
-{: tab-title="Import tokens"}
-{: class="comparison-tab-table"}
-{: row-headers}
-
-## kp create
-{: #kp-create}
-
-[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
-
-```
-ibmcloud kp create KEY_NAME -i $INSTANCE_ID
-                   [-k, --key-material KEY_MATERIAL]
-                   [-s, --standard-key]
-                   [--output FORMAT]
-```
-{:pre}
-
-### Required parameters
-{: #create-req-params}
-
-<dl>
-    <dt><code>KEY_NAME</code></dt>
-        <dd>A unique, human-readable alias to assign to your key.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #create-opt-params}
-
-<dl>
-    <dt><code>-k, --key-material</code></dt>
-        <dd>The base64 encoded key material that you want to store and manage in the service. To import an existing key, provide a 256-bit key. To generate a new key, omit the <code>--key-material</code> parameter.</dd>
-    <dt><code>-n, --encrypted-nonce</code></dt>
-        <dd><p><b>Used with import tokens.</b> The encrypted nonce value that verifies your request to import a key to {{site.data.keyword.keymanagementserviceshort}}. This value must be encrypted by using the key material that you want to import to the service.</p>
-        <p>To retrieve a nonce, use <code>ibmcloud kp import-token get</code>. Then, encrypt the value by running <code>ibmcloud kp import-token encrypt-nonce</code>.</p>
-        </dd>
-    <dt><code>-v, --iv</code></dt>
-        <dd><b>Used with import tokens.</b> The initialization vector (IV) that is generated when you encrypt a nonce. The IV value is required to decrypt the encrypted nonce value that you provide when you make a key import request to the service.</p>
-        <p>To generate an IV, encrypt the nonce by running <code>ibmcloud kp import-token encrypt-nonce</code>.</dd>
-    <dt><code>-s, --standard-key</code></dt>
-        <dd>Set the parameter only if you want to create a <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>. To create a root key, omit the <code>--standard-key</code> parameter.</dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-### Usage examples
-{: #create-examples}
-
-#### Create a key
-{: #create-key-example}
-
-```sh
-$ ibmcloud kp create my-new-root-key -i $INSTANCE_ID
-SUCCESS
-
-Key ID                                 Key Name
-3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-new-root-key
-```
-{:screen}
-
-#### Import a key that you generate on-premises
-{: #import-key-example}
-
-```sh
-$ ibmcloud kp create my-imported-root-key -i $INSTANCE_ID -k $KEY_MATERIAL
-SUCCESS
-
-Key ID                                 Key Name
-3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-imported-root-key
-```
-{:screen}
-
-#### Import a key by using an import token
-{: #import-key-with-import-token-example}
-
-```sh
-$ ibmcloud kp create my-imported-root-key -i $INSTANCE_ID -k $ENCRYPTED_KEY -n $NONCE -iv $IV
-SUCCESS
-
-Key ID                                 Key Name
-3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-encrypted-root-key
-```
-{:screen}
-
-See the [`ibmcloud kp import-token` subcommands](#kp-import-token-create) for information about using an import token to upload a key to {{site.data.keyword.keymanagementserviceshort}}.
-{: tip}
-
-## kp list
-{: #kp-list}
-
-List the last 200 keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance.
-
-```
-ibmcloud kp list -i $INSTANCE_ID
-```
-{: pre}
-
-```sh
-$ ibmcloud kp list -i $KP_INSTANCE_ID
-Retrieving keys...
-
-SUCCESS
-
-Key ID                                 Key Name
-3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key
-92e5fab3-00e8-40e9-8a2d-864de334b043   sample-imported-root-key
-```
-{: screen}
-
-### Required parameters
-{: #list-req-params}
-
-<dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #list-opt-params}
-
-<dl>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp get
-{: #kp-get}
-
-Retrieve details about a key, such as the key metadata and key material.
-
-If the key was designated as a root key, the system cannot return the key material for that key.
-
-```
-ibmcloud kp get KEY_ID -i $INSTANCE_ID
-```
-{: pre}
-
-```sh
-$ ibmcloud kp get 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
-Grabbing info for key id: 3df42bc2-a991-41cb-acc2-3f9eab64a63f...
-
-SUCCESS
-
-Key ID                                 Key Name          Description     Creation Date                   Expiration Date
-3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
-```
-{:screen}
-
-### Required parameters
-{: #get-req-params}
-
-<dl>
-   <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the key that you want to retrieve. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #get-opt-params}
-
-<dl>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp wrap
-{: #kp-wrap}
-
-[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) by using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
-
-```
-ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
-                 [-p, --plaintext DATA_KEY]
-                 [-a, --aad ADDITIONAL_DATA]
-```
-{: pre}
-
-
-### Required parameters
-{: #wrap-req-params}
-
-<dl>
-    <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the root key that you want to use for wrapping.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #wrap-opt-params}
-
-<dl>
-    <dt><code>-a, --aad</code></dt>
-        <dd>The additional authentication data (AAD) that is used to further secure a key. If provided on wrap must be provided on unwrap.</dd>
-    <dt><code>-p, --plaintext</code></dt>
-        <dd>The base64 encoded data encryption key (DEK) that you want to manage and protect. To import an existing key, provide a 256-bit key. To generate and wrap a new DEK, omit the <code>--plaintext</code> parameter.</dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp unwrap
-{: #kp-unwrap}
-
-[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}} service instance.
-
-```
-ibmcloud kp unwrap KEY_ID -i $INSTANCE_ID
-                   CIPHERTEXT_FROM_WRAP
-                   [-a, --aad ADDITIONAL_DATA, ..]
-```
-{: pre}
-
-### Required parameters
-{: #unwrap-req-params}
-
-<dl>
-    <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the root key that you used for the initial wrap request.</dd>
-    <dt><code>CIPHERTEXT_FROM_WRAP</code></dt>
-        <dd>The encrypted data key that was returned during the initial wrap operation.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #unwrap-opt-params}
-
-<dl>
-    <dt><code>-a, --aad</code></dt>
-        <dd><p>The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD on unwrap.</p><p><b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.</p></dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp rotate
-{: #kp-rotate}
-
-[Rotate a root key](/docs/key-protect?topic=key-protect-wrap-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
-
-```
-ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
-                 [-k, --key-material KEY_MATERIAL]
-```
-{: pre}
-
-```sh
-$ ibmcloud kp rotate 3df42bc2-a991-41cb-acc2-3f9eab64a63f -i $KP_INSTANCE_ID
-Rotating root key...
-
-SUCCESS
-```
-{:screen}
-
-### Required parameters
-{: #rotate-req-params}
-
-<dl>
-    <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the root key that you want to rotate.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #rotate-opt-params}
-
-<dl>
-    <dt><code>-k, --key-material</code></dt>
-        <dd>The base64 encoded key material that you want to use for rotating an existing root key. To rotate a key that was initially imported into the service, provide a new 256-bit key. To rotate a key that was initially generated in {{site.data.keyword.keymanagementserviceshort}}, omit the <code>--key-material</code> parameter.</dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp delete
-{: #kp-delete}
-
-[Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
-
-```
-ibmcloud kp delete KEY_ID -i $INSTANCE_ID
-```
-{: pre}
-
-```sh
-$ ibmcloud kp delete 584fb0d9-dec2-47b8-bde5-50f05fd66261 -i $KP_INSTANCE_ID
-Deleting key: 584fb0d9-dec2-47b8-bde5-50f05fd66261, from instance: 98d39ab8-cf44-4517-9583-2ad05c7e9bd5...
-
-SUCCESS
-
-Deleted Key
-584fb0d9-dec2-47b8-bde5-50f05fd66261
-```
-{: screen}
-
-### Required parameters
-{: #delete-req-params}
-
-<dl>
-   <dt><code>KEY_ID</code></dt>
-   <dd>The ID of the key that you want to delete. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-## kp policy set
-{: #kp-policy-set}
-
-Create or replace the policy that is associated with the root key that you specify.
-
-```
-ibmcloud kp policy set KEY_ID -i $INSTANCE_ID
-                 --set-type POLICY_TYPE
-                 [--policy INTERVAL]
-```
-{: pre}
-
-### Required parameters
-{: #policy-set-req-params}
-
-<dl>
-   <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-   <dt><code>--set-type</code></dt>
-        <dd>Specify the type of policy that you want to set. To set a rotation policy, use <code>--set-type rotation</code>.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #policy-set-opt-params}
-
-<dl>
-   <dt><code>-p, --policy</code></dt>
-        <dd>Specify the rotation time interval (in months) for a key. The default value is 1.</dd>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
-
-## kp policy get
-{: #kp-policy-get}
-
-Retrieve details about a key policy, such as the key's automatic rotation interval.
-
-```
-ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
-```
-{: pre}
-
-### Required parameters
-{: #policy-get-req-params}
-
-<dl>
-   <dt><code>KEY_ID</code></dt>
-        <dd>The ID of the key that you want to query. To retrieve a list of your available keys, run the <a href="#kp-list">kp list</a> command.</dd>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #policy-get-opt-params}
-
-<dl>
-    <dt><code>-o, --output</code></dt>
-        <dd>Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use <code>--output json</code>.</dd>
-</dl>
+`ibmcloud kp` supports the following commands.
+
+| Command                         | Sub-command                                     | Description |
+| ------------------------------- | ----------------------------------------------- | ----------- |
+| kp import-token                 | [create](#kp-import-token-create)               | Create an import token |
+|                                 | encrypt-key                                     | **Deprecated**, use `kp import-token key-encrypt` |
+|                                 | encrypt-nonce                                   | **Deprecated**, use `kp import-token nonce-encrypt` |
+|                                 | get                                             | **Deprecated**, use `kp import-token show` |
+|                                 | [key-encrypt](#kp-import-token-key-encrypt)     | Encrypt the key that you want to import to the service |
+|                                 | [nonce-encrypt](#kp-import-token-nonce-encrypt) | Encrypt the nonce that is generated by `kp import-token create` |
+|                                 | [show](#kp-import-token-show)                   | Retrieve an import token |
+| kp key                          | [create](#kp-key-create)                        | Create a key or import your own key |
+|                                 | [delete](#kp-key-delete)                        | Delete a key permanently |
+|                                 | [policies](#kp-key-policies)                    | Retrieve list of policies associated with a key |
+|                                 | [policy-update](#kp-key-policy-update)          | Replace policy associated with a key |
+|                                 | [rotate](#kp-key-rotate)                        | Rotate a root key |
+|                                 | [show](#kp-key-show)                            | Retrieve a key |
+|                                 | [unwrap](#kp-key-unwrap)                        | Unwrap a data encryption key |
+|                                 | [wrap](#kp-key-wrap)                            | Wrap a data encryption key |
+| [kp keys](#kp-keys)             |                                                 | List the keys that are available in your service instance |
+| [kp region-set](#kp-region-set) |                                                 | Target a different regional endpoint |
+{: caption="Table 1. Commands for managing your service instance, import tokens, and keys" caption-side="top"}
+
+## Viewing help
+{: #kp-help}
+
+These commands show `kp` help information.
+
+* `ibmcloud kp -h`
+* `ibmcloud kp import-token -h`
+* `ibmcloud kp key -h`
+* `ibmcloud kp keys -h`
+* `ibmcloud kp region-set -h`
+
+The `kp import-token` and `kp key` commands have sub-commands. These examples
+show help for specific sub-commands, which you can change.
+
+* `ibmcloud kp import-token create -h`
+* `ibmcloud kp key delete -h`
 
 ## kp import-token create
 {: #kp-import-token-create}
 
-[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
+[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens){: external}
+that you can use to encrypt and import a root key to the
+{{site.data.keyword.keymanagementserviceshort}} service instance. By default,
+the import token expires after 10 minutes (600 seconds).
 
 ```
-ibmcloud kp import-token create -i $INSTANCE_ID
-                   [-e, --expiration=TIME_IN_SECONDS]
-                   [-m, --max-retrievals=USE_COUNT]
+ibmcloud kp import-token create
+     -i, --instance-id    INSTANCE_ID
+    [-e, --expiration     EXPIRATION_TIME_SECONDS]
+    [-m, --max-retrievals MAX_RETRIEVALS]
 ```
 {:pre}
 
-```sh
-$ ibmcloud kp import-token create -i $INSTANCE_ID --expiration=300 --max-retrievals=3
-SUCCESS
+### Example
+{: #kp-import-token-create-example}
 
+This example creates a import token.
+
+```sh
+# create an import token that expires in 5 minutes and allows 3 retrievals
+$ ibmcloud kp import-token create --expiration 300 --max-retrievals 3
 Created                         Expires                         Max Retrievals   Remaining Retrievals
-2019-08-05 19:56:11 +0000 UTC   2019-08-05 20:01:11 +0000 UTC   3                3
-```
-{:screen}
+2020-05-04 19:12:07 +0000 UTC   2020-05-04 19:17:07 +0000 UTC   3                3
 
-### Required parameters
-{: #import-token-create-req-params}
-
-<dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-### Optional parameters
-{: #import-token-create-opt-params}
-
-<dl>
-    <dt><code>-e, --expiration</code></dt>
-        <dd><p>Specify an expiration time (in seconds) for an import token. This value determines how long the import token and its associated public key remain valid for operations.</p>
-            <p>The minimum value is <code>300</code> seconds (5 minutes), and the maximum value is <code>86400</code> (24 hours). The default value is <code>600</code> (10 minutes).</p>
-        </dd>
-    <dt><code>-m, --max-retrievals</code></dt>
-        <dd>Set the use count for the import token. This value determines the number of times that the import token can be retrieved within its expiration time before it is no longer accessible. The default value is <code>1</code>.</dd>
-</dl>
-
-## kp import-token get
-{: #kp-import-token-get}
-
-[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api) that is associated with your service instance.
-
-The import token contains a public encryption key and a nonce. Provide the retrieved public key and nonce as arguments for `ibmcloud kp import-token encrypt-nonce` and `ibmcloud kp import-token encrypt-key`.
-
-```
-ibmcloud kp import-token get -i $INSTANCE_ID
-```
-{:pre}
-
-```sh
-$ ibmcloud kp import-token get -i $INSTANCE_ID
-SUCCESS
-
+# show the created token
+$ ibmcloud kp import-token show
 {
-	"nonce": "EE1sUNE4BZCTU3q/",
-	"payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv"
+  "nonce": "8rf2ldP/zWm1Tjrb",
+  "payload":
+    "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
 }
 ```
 {:screen}
 
 ### Required parameters
-{: #import-token-get-req-params}
+{: #kp-import-token-create-req-params}
 
 <dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
-</dl>
-
-## kp import-token encrypt-nonce
-{: #kp-import-token-encrypt-nonce}
-
-Encrypt the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}} with the key material that you want to import to the service. Then, provide the retrieved encrypted nonce and IV values when you run `ibmcloud kp create` to import the key.
-
-```
-ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID
-```
-{:pre}
-
-```sh
-$ ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID -k $KEY_MATERIAL -n $NONCE
-SUCCESS
-
-Encrypted Nonce                            IV
-sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
-```
-{:screen}
-
-### Required parameters
-{: #encrypt-nonce-req-params}
-
-<dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
 </dl>
 
 ### Optional parameters
-{: #encrypt-nonce-opt-params}
+{: #kp-import-token-create-opt-params}
 
 <dl>
-    <dt><code>-k, --key</code></dt>
-        <dd>The base64 encoded key material that you want to store and manage in the service.</dd>
-    <dt><code>-n, --nonce</code></dt>
-        <dd>The nonce that was distributed by {{site.data.keyword.keymanagementserviceshort}}. The value is base64 encoded. To retrieve a nonce, use <code>ibmcloud kp import-token get</code>.</dd>
+  <dt>
+    <code>-e, --expiration</code>
+  </dt>
+  <dd>
+    <p>
+      Specify an expiration time (in seconds) for an import token. This value
+      determines how long the import token and its associated public key remain
+      valid for operations.
+    </p>
+    <p>
+      The minimum value is <code>300</code> seconds (5 minutes), and the
+      maximum value is <code>86400</code> seconds (24 hours). The default value
+      is <code>600</code> seconds (10 minutes).
+    </p>
+  </dd>
+
+  <dt>
+    <code>-m, --max-retrievals</code>
+  </dt>
+  <dd>
+    Set the use count for the import token. This value determines the number of
+    times that the import token can be retrieved within its expiration time
+    before it is no longer accessible. The default value is <code>1</code>.
+  </dd>
 </dl>
 
-## kp import-token encrypt-key
-{: #kp-import-token-encrypt-key}
+## kp import-token key-encrypt
+{: #kp-import-token-key-encrypt}
 
-Encrypt the key material that you want to import to {{site.data.keyword.keymanagementserviceshort}} by using the public key that's associated with your service instance. Then, provide the retrieved encrypted key when you run `ibmcloud kp create` to import the key to the service.
+Encrypt the key material that you want to import to
+{{site.data.keyword.keymanagementserviceshort}} by using the public key that's
+associated with your service instance.
+
+Then, provide the retrieved encrypted key when you run `ibmcloud kp key create`
+to import the key to the service.
 
 ```
-ibmcloud kp import-token encrypt-key -i $INSTANCE_ID
+ibmcloud kp import-token key-encrypt
+    -i, --instance-id INSTANCE_ID
+    -k, --key         KEY_MATERIAL
+    -p, --pubkey      PUBLIC_KEY
 ```
 {:pre}
 
-```sh
-$ ibmcloud kp import-token encrypt-key -i $INSTANCE_ID -k $KEY_MATERIAL -p $PUBLIC_KEY
-SUCCESS
+### Example
+{: #kp-import-token-key-encrypt-example}
 
+This is an example of `kp import-token key-encrypt`.
+
+```sh
+# create an import token that expires in 5 minutes and allows 10 retrievals
+$ ibmcloud kp import-token create -e 300 -m 10
+
+# create a random, base64-encoded, 32-byte key material
+$ KEY_MATERIAL=$(openssl rand -base64 32)
+
+# extract the public key that was created by the "kp import-token create" command
+$ PUBLIC_KEY=$(ibmcloud kp import-token show | jq -r '.["payload"]')
+
+# encrypt the key material
+$ ibmcloud kp import-token key-encrypt -k $KEY_MATERIAL -p $PUBLIC_KEY
 Encrypted Key
-Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
+Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 ```
 {:screen}
 
 ### Required parameters
-{: #encrypt-key-req-params}
+{: #kp-import-token-key-encrypt-required}
 
 <dl>
-    <dt><code>-i, --instance-ID</code></dt>
-        <dd>The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.</dd>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+
+  <dt>
+    <code>-k, --key</code>
+  </dt>
+  <dd>
+    The base64-encoded key material that you want to store and manage in the
+    service.
+  </dd>
+
+  <dt>
+    <code>-p, --pubkey</code>
+  </dt>
+  <dd>
+    The base64-encoded public encryption key that was distributed by
+    {{site.data.keyword.keymanagementserviceshort}}. To create new public key,
+    use <code>ibmcloud kp import-token create</code>. To retrieve a public key,
+    use <code>ibmcloud kp import-token show</code>.
+  </dd>
+</dl>
+
+## kp import-token nonce-encrypt
+{: #kp-import-token-nonce-encrypt}
+
+Encrypt the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}}
+with the key material that you want to import to the service.
+
+Then, provide the retrieved encrypted nonce and IV values when you run
+`ibmcloud kp key create` to import the key.
+
+```
+ibmcloud kp import-token nonce-encrypt
+    -i, --instance-id INSTANCE_ID
+    -k, --key         KEY_MATERIAL
+    -n, --nonce       NONCE
+```
+{:pre}
+
+### Example
+{: #kp-import-token-nonce-encrypt-example}
+
+This is an example of `kp import-token nonce-encrypt`.
+
+```sh
+# create an import token that expires in 5 minutes and allows 10 retrievals
+$ ibmcloud kp import-token create -e 300 -m 10
+
+# create a random, base64-encoded, 32-byte key material
+$ KEY_MATERIAL=$(openssl rand -base64 32)
+
+# extract the nonce that was created by the "kp import-token create" command
+$ NONCE=$(ibmcloud kp import-token show | jq -r '.["nonce"]')
+
+# encrypt the nonce
+$ ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE
+Encrypted Nonce                            IV
+mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
+```
+{:screen}
+
+### Required parameters
+{: #kp-import-token-nonce-encrypt-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+
+  <dt>
+    <code>-k, --key</code>
+  </dt>
+  <dd>
+    The base64-encoded key material that you want to store and manage in the service.
+  </dd>
+
+  <dt>
+    <code>-n, --nonce</code>
+  </dt>
+  <dd>
+    The nonce that is used to verify a request to import a key. The value is
+    base64-encoded. To retrieve a nonce, use <code>ibmcloud kp import-token show</code>.
+  </dd>
+</dl>
+
+## kp import-token show
+{: #kp-import-token-show}
+
+[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api){: external}
+that is associated with your service instance.
+
+The import token contains a public encryption key and a nonce. Provide the
+retrieved public key and nonce as arguments for `ibmcloud kp import-token nonce-encrypt`
+and `ibmcloud kp import-token key-encrypt`.
+
+```
+ibmcloud kp import-token show
+    -i, --instance-id INSTANCE_ID
+```
+{:pre}
+
+### Example
+{: #kp-import-token-show-example}
+
+This is an example of `kp import-token show`.
+
+```sh
+# create an import token that expires in 5 minutes and allows 10 retrievals
+$ ibmcloud kp import-token create -e 300 -m 10
+
+# show the created token
+$ ibmcloud kp import-token show
+{
+  "nonce": "8rf2ldP/zWm1Tjrb",
+  "payload":
+    "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
+}
+
+# extract the nonce that was created by the "kp import-token create" command
+$ ibmcloud kp import-token show | jq -r '.["nonce"]'
+8rf2ldP/zWm1Tjrb
+
+# extract the public key that was created by the "kp import-token create" command
+$ ibmcloud kp import-token show | jq -r '.["payload"]'
+LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
+```
+{:screen}
+
+### Required parameters
+{: #kp-import-token-show-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+## kp key create
+{: #kp-key-create}
+
+[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys){: external}
+in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
+specify or
+[import your own key](/docs/key-protect?topic=key-protect-import-root-keys){: external}.
+
+Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256
+bits.
+{: note}
+
+```
+ibmcloud kp key create KEY_NAME
+     -i, --instance-id     INSTANCE_ID
+    [-k, --key-material    KEY_MATERIAL]
+    [-n, --encrypted-nonce NONCE]
+    [    --output          OUTPUT]
+    [-s, --standard-key]
+    [-v, --iv              IV]
+```
+{:pre}
+
+### Example
+{: #kp-key-create-example}
+
+These are examples of `kp key create`.
+
+#### Example 1
+{: #kp-key-create-example-name}
+
+{{site.data.keyword.keymanagementserviceshort}} creates a root key.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+24203f96-b134-440e-981a-a24f2d432256   my-root-key
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-create-example-base64}
+
+Create a root key from a base64-encoded value.
+
+```sh
+# create a random, base64-encoded, 32-byte key material
+$ KEY_MATERIAL=$(openssl rand -base64 32)
+
+# create a root key from a base64-encoded value
+$ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
+Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+5f9eef2d-53b4-42e8-8b56-c2970255210a   my-base64-root-key
+```
+{:screen}
+
+#### Example 3
+{: #kp-key-create-example-import-token}
+
+Create a root key from an import token.
+
+```sh
+# create an import token that expires in 5 minutes and allows 10 retrievals
+$ ibmcloud kp import-token create -e 300 -m 10
+
+# create a random, base64-encoded, 32-byte key material
+$ KEY_MATERIAL=$(openssl rand -base64 32)
+
+# extract the nonce that was created by the "kp import-token create" command
+$ NONCE=$(ibmcloud kp import-token show | jq -r '.["nonce"]')
+
+# extract the public key that was created by the "kp import-token create" command
+$ PUBLIC_KEY=$(ibmcloud kp import-token show | jq -r '.["payload"]')
+
+# encrypt the key material
+$ ibmcloud kp import-token key-encrypt -k $KEY_MATERIAL -p $PUBLIC_KEY
+Encrypted Key
+qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
+
+# capture the encrypted key material
+ENCRYPTED_KEY=qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
+
+# encrypt the nonce
+$ ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE
+Encrypted Nonce                            IV
+fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==   efQgA8xBeyuBy39D
+
+# capture the encrypted nonce and the initialization vector (iv)
+ENCRYPTED_NONCE=fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==
+IV=efQgA8xBeyuBy39D
+
+# create a root key from an import token, using an encrypted key, nonce, and initialization vector (iv)
+$ ibmcloud kp key create my-imported-root-key -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV
+Creating key: 'my-imported-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+4241a9b3-0ee0-4cfd-b0f3-fd80505fb675   my-imported-root-key
+```
+{:screen}
+
+#### Example 4
+{: #kp-key-create-example-standard}
+
+Create a standard key.
+
+```sh
+# create a standard key
+$ ibmcloud kp key create my-standard-key -s
+Creating key: 'my-standard-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+12d3f3a4-aea5-4832-8339-fa14dbffd935   my-standard-key
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-create-required}
+
+<dl>
+  <dt>
+    <code>KEY_NAME</code>
+  </dt>
+  <dd>
+    A unique, human-readable alias to assign to your key.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
 </dl>
 
 ### Optional parameters
-{: #encrypt-key-opt-params}
+{: #kp-key-create-optional}
 
 <dl>
-    <dt><code>-k, --key</code></dt>
-        <dd>The base64 encoded key material that you want to store and manage in the service.</dd>
-    <dt><code>-p, --pubkey</code></dt>
-        <dd>The base64 encoded public encryption key that was distributed by Key Protect. To retrieve a public key, use <code>ibmcloud kp import-token get</code>.</dd>
+  <dt>
+    <code>-k, --key-material</code>
+  </dt>
+  <dd>
+    <p>
+      If you generated a key then this is the 32-byte (256-bit) base64-encoded
+      key material that you want to store and manage in the service.
+    </p>
+    <p>
+      If you are creating a key using an import token then this is the encrypted
+      key from the <code>kp import-token key-encrypt</code> process.
+    </p>
+    <p>
+      To generate a new key, omit the <code>-k, --key-material</code> parameter.
+    </p>
+  </dd>
+
+  <dt>
+    <code>-n, --encrypted-nonce</code>
+  </dt>
+  <dd>
+    <p>
+      <b>Used with import tokens.</b> The encrypted nonce value that verifies
+      your request to import a key to {{site.data.keyword.keymanagementserviceshort}}.
+      This value must be encrypted by using the key material that you want to
+      import to the service. See <code>ibmcloud kp import-token --help</code>.
+    </p>
+    <p>
+      To retrieve a nonce, use <code>ibmcloud kp import-token show</code>. Then,
+      encrypt the value by running <code>ibmcloud kp import-token nonce-encrypt</code>.
+    </p>
+  </dd>
+
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+
+  <dt>
+    <code>-s, --standard-key</code>
+  </dt>
+  <dd>
+    Set the parameter only if you want to create a
+    <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>.
+    To create a root key, omit the <code>--standard-key</code> parameter.
+  </dd>
+
+  <dt>
+    <code>-v, --iv</code>
+  </dt>
+  <dd>
+    <p>
+      <b>Used with import tokens.</b> The initialization vector (IV) that is
+      generated when you encrypt a nonce. The IV value is required to decrypt
+      the encrypted nonce value that you provide when you make a key import
+      request to the service.
+    </p>
+    <p>
+      To generate an IV, encrypt the nonce by running
+      <code>ibmcloud kp import-token nonce-encrypt</code>.
+    </p>
+  </dd>
+</dl>
+
+## kp key delete
+{: #kp-key delete}
+
+[Delete a key](/docs/key-protect?topic=key-protect-delete-keys){: external} that
+is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
+
+```
+ibmcloud kp delete KEY_ID
+     -i, --instance-id INSTANCE_ID
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-key-delete-example}
+
+These are examples of `kp key delete`.
+
+#### Example 1
+{: #kp-key-delete-example-name}
+
+Rotate a root key created with a name.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+8635b804-9966-4918-a16b-d561fdbf181f   my-root-key
+
+# show key details
+$ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f
+Grabbing info for key id: 8635b804-9966-4918-a16b-d561fdbf181f...
+SUCCESS
+Key ID                                 Key Name      Description   Creation Date                   Expiration Date
+8635b804-9966-4918-a16b-d561fdbf181f   my-root-key                 2020-05-05 19:58:02 +0000 UTC   Key does not expire
+
+# delete the key
+$ ibmcloud kp key delete 8635b804-9966-4918-a16b-d561fdbf181f
+Deleting key: 8635b804-9966-4918-a16b-d561fdbf181f, from instance: 390086ac-76fa-4094-8cf3-c0829bd69526...
+SUCCESS
+Deleted Key
+8635b804-9966-4918-a16b-d561fdbf181f
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-delete-example-json}
+
+Rotate a root key and show the output in JSON format.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key --output json
+{
+  "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
+  "name": "my-root-key",
+  "type": "application/vnd.ibm.kms.key+json",
+  "extractable": false,
+  "state": 1,
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+}
+
+# show key details
+$ ibmcloud kp key show 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
+{
+  "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
+  "name": "my-root-key",
+  "type": "application/vnd.ibm.kms.key+json",
+  "algorithmType": "AES",
+  "createdBy": "string ...<redacted>...",
+  "creationDate": "2020-05-05T20:03:00Z",
+  "lastUpdateDate": "2020-05-05T20:03:00Z",
+  "extractable": false,
+  "state": 1,
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+}
+
+# delete the key
+$ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
+{
+  "Deleted Key": "9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+}
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-delete-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the key that you want to delete. To retrieve a list of your
+    available keys, run the <a href="#kp-keys">kp keys</a> command.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-delete-optional}
+
+<dl>
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp key policies
+{: #kp-key-policies}
+
+Retrieve details about a key policy, such as the key's automatic rotation
+interval.
+
+```
+ibmcloud kp policies KEY_ID
+     -i, --instance-id INSTANCE_ID
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-key-policies-example}
+
+These are examples of the `kp key policies` command.
+
+#### Example 1
+{: #kp-key-policies-example-name}
+
+List the policies for a root key.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+c171790f-0048-4b1b-8b41-e682fa2f3a89   my-root-key
+
+# update the policy and set the key to rotate every 2 months
+$ ibmcloud kp key policy-update c171790f-0048-4b1b-8b41-e682fa2f3a89 -p 2 --set-type rotation
+Setting a rotation interval for key ID: c171790f-0048-4b1b-8b41-e682fa2f3a89...
+SUCCESS
+Key ID          c171790f-0048-4b1b-8b41-e682fa2f3a89
+Created By      string ...<redacted>...
+Creation Date   2020-05-05 20:56:05 UTC
+CRN             crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:9854d53a-9a7b-43e9-94fc-0cd9ffa7053f
+Last Updated    2020-05-05 20:56:05 UTC
+Updated By      string ...<redacted>...
+Interval        2
+
+# list the policies
+$ ibmcloud kp key policies c171790f-0048-4b1b-8b41-e682fa2f3a89
+Retrieving policy details for key ID: c171790f-0048-4b1b-8b41-e682fa2f3a89...
+SUCCESS
+Key ID          c171790f-0048-4b1b-8b41-e682fa2f3a89
+Created By      string ...<redacted>...
+Creation Date   2020-05-05 20:56:05 UTC
+CRN             crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:9854d53a-9a7b-43e9-94fc-0cd9ffa7053f
+Last Updated    2020-05-05 20:56:05 UTC
+Updated By      string ...<redacted>...
+Interval        2
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-policies-example-json}
+
+List the policies for a root key and show the output in JSON format.
+
+```sh
+# create a root key and capture the key id
+$ KEY_ID=$(ibmcloud kp key create my-root-key --output json | jq -r '.["id"]')
+
+$ echo $KEY_ID
+17392670-c89f-45a1-8709-0f78c21275aa
+
+# update the policy and set the key to rotate every 2 months
+$ ibmcloud kp key policy-update $KEY_ID -p 2 --set-type rotation --output json
+{
+  "createdBy": "string ...<redacted>...",
+  "creationDate": "2020-05-05T21:08:31Z",
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:83369e16-78cd-4fe2-b256-ca0a48cf6934",
+  "lastUpdateDate": "2020-05-05T21:08:31Z",
+  "updatedBy": "string ...<redacted>...",
+  "rotation": {
+    "interval_month": 2
+  }
+}
+
+# list the policies
+$ ibmcloud kp key policies $KEY_ID --output json
+{
+  "createdBy": "string ...<redacted>...",
+  "creationDate": "2020-05-05T21:08:31Z",
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:83369e16-78cd-4fe2-b256-ca0a48cf6934",
+  "lastUpdateDate": "2020-05-05T21:08:31Z",
+  "updatedBy": "string ...<redacted>...",
+  "rotation": {
+    "interval_month": 2
+  }
+}
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-policies-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the key that you want to delete. To retrieve a list of your
+    available keys, run the <a href="#kp-keys">kp keys</a> command.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-policies-optional}
+
+<dl>
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp key policy-update
+{: #kp-key-policy-update}
+
+Create or replace a policy that is associated with a specified key.
+
+```
+ibmcloud kp key policy-update KEY_ID
+     -i, --instance-id INSTANCE_ID
+     -p, --policy      ROTATION_INTERVAL
+         --set-type    POLICY_TYPE
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-key-policy-update-example}
+
+This is an example of `kp key policy-update`.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+e9b5fa13-2b7d-4851-9377-5b71ea04868e   my-root-key
+
+# update the policy and set the key to rotate every 2 months
+$ ibmcloud kp key policy-update c171790f-0048-4b1b-8b41-e682fa2f3a89 -p 2 --set-type rotation
+Setting a rotation interval for key ID: e9b5fa13-2b7d-4851-9377-5b71ea04868e...
+SUCCESS
+Key ID          e9b5fa13-2b7d-4851-9377-5b71ea04868e
+Created By      string ...<redacted>...
+Creation Date   2020-05-06 15:22:43 UTC
+CRN             crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:4244bd4a-6cae-4ec0-9594-c37d31757459
+Last Updated    2020-05-06 15:22:43 UTC
+Updated By      string ...<redacted>...
+Interval        2
+
+# list the policies
+$ ibmcloud kp key policies c171790f-0048-4b1b-8b41-e682fa2f3a89
+Retrieving policy details for key ID: e9b5fa13-2b7d-4851-9377-5b71ea04868e...
+SUCCESS
+Key ID          e9b5fa13-2b7d-4851-9377-5b71ea04868e
+Created By      string ...<redacted>...
+Creation Date   2020-05-06 15:22:43 UTC
+CRN             crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:policy:4244bd4a-6cae-4ec0-9594-c37d31757459
+Last Updated    2020-05-06 15:22:43 UTC
+Updated By      string ...<redacted>...
+Interval        2
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-policy-update-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the key that you want to query. To retrieve a list of your
+    available keys, run the <a href="#kp-keys">kp keys</a> command.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+
+  <dt>
+    <code>-p, --policy</code>
+  </dt>
+  <dd>
+    Specify the rotation time interval (in months) for a key. The default value
+    is 1 month.
+  </dd>
+
+  <dt>
+    <code>--set-type</code>
+  </dt>
+  <dd>
+    Specify the type of policy that you want to set. To set a rotation policy,
+    use <code>--set-type rotation</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-policy-update-optional}
+
+<dl>
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp key rotate
+{: #kp-key-rotate}
+
+[Rotate a root key](/docs/key-protect?topic=key-protect-rotate-keys){: external}
+that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
+
+ALL KEYS HAVE NAME SO GIVING IT A NAME IS NOT CORRECT
+
+When you rotate your root key, you replace the key with a new key material.
+
+If {{site.data.keyword.keymanagementserviceshort}} created the key (the key was
+**not** created with the `-k` parameter) then {{site.data.keyword.keymanagementserviceshort}}
+will create a new key. You cannot specify `kp key rotate` with the `-k`
+parameter.
+
+If you created a key and provided the key material (`kp key create key-name -k $KEY_MATERAL`)
+then you must provide a new key material when you rotate the key
+(`kp key rotate $KEY_ID -k $NEW_KEY_MATERIAL`)
+
+You cannot rotate a `standard` key, that is, a key created using the
+`kp create key-name --standard-key` command.
+{: note}
+
+```
+ibmcloud kp key rotate KEY_ID
+     -i, --instance-id  INSTANCE_ID
+    [-k, --key-material KEY_MATERIAL]
+```
+{: pre}
+
+### Example
+{: #kp-key-rotate-example}
+
+These are examples of `kp key rotate`.
+
+#### Example 1
+{: #kp-key-rotate-example-name}
+
+Rotate a root key created with a name.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key
+
+# rotate the key
+$ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+Rotating root key...
+SUCCESS
+
+# show key details
+$ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
+SUCCESS
+Key ID                                 Key Name      Description   Creation Date                   Expiration Date
+1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                 2020-05-06 17:25:22 +0000 UTC   Key does not expire
+
+# create a new key material
+$ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
+
+# Key Protect created the root key, providing a new key material will fail
+$ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad -k $NEW_KEY_MATERIAL
+Rotating root key...
+FAILED
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-rotate-example-base64}
+
+Rotate a base64-encoded or an imported token key.
+
+First, create a root key from a
+[base64 value](#kp-key-create-example-base64)
+or an
+[imported token](#kp-key-create-example-import-token).
+
+```sh
+# create a random, base64-encoded, 32-byte key material
+$ KEY_MATERIAL=$(openssl rand -base64 32)
+
+# create a root key from a base64-encoded value
+$ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
+Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
+
+# create a new key material
+$ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
+
+# rotate the key
+$ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k $NEW_KEY_MATERIAL
+Rotating root key...
+SUCCESS
+
+# the key was created from a key material, NOT providing a new key material will fail
+$ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58
+Rotating root key...
+FAILED
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-rotate-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the root key that you want to rotate.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-rotate-optional}
+
+<dl>
+  <dt>
+    <code>-k, --key-material</code>
+  </dt>
+  <dd>
+    <p>
+      To rotate a key that was initially generated in without a
+      <code>--key-material</code> parameter, that is <code>kp key create my-key</code>,
+      omit the <code>--key-material</code> parameter.
+    </p>
+    <p>
+      If a key was created with the <code>--key-material</code> parameter then
+      specify the new base64-encoded key material that you want to use for
+      rotating an existing root key.
+    </p>
+    <p>
+      To rotate a key that was initially imported into the service, provide a
+      new 32-byte (256-bit) key.
+    </p>
+  </dd>
+</dl>
+
+## kp key show
+{: #kp-key-show}
+
+Retrieve details about a key, such as the key metadata and key material.
+
+If the key was designated as a root key, the system cannot return the key
+material for that key.
+
+```
+ibmcloud kp key show KEY_ID
+     -i, --instance-id INSTANCE_ID
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-key-show-example}
+
+This is an example of `kp key show`.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+8635b804-9966-4918-a16b-d561fdbf181f   my-root-key
+
+# show key details
+$ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f
+Grabbing info for key id: 8635b804-9966-4918-a16b-d561fdbf181f...
+SUCCESS
+Key ID                                 Key Name      Description   Creation Date                   Expiration Date
+8635b804-9966-4918-a16b-d561fdbf181f   my-root-key                 2020-05-05 19:58:02 +0000 UTC   Key does not expire
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-show-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the root key that you want to show.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-show-optional}
+
+<dl>
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp key unwrap
+{: #kp-key-unwrap}
+
+[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys){: external}
+using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}}
+service instance.
+
+```
+ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
+     -i, --instance-id INSTANCE_ID
+    [-a, --aad         ADDITIONAL_DATA]
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Examples
+{: #kp-key-unwrap-example}
+
+These are examples of `kp key unwrap`.
+
+#### Example 1
+{: #kp-key-unwrap-example-new-dek}
+
+Unwrap a ciphertext to reveal the plaintext data encryption key (DEK).
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# create a data encryption key (DEK), wrapped with the root key
+$ ibmcloud kp key wrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+Wrapping key...
+SUCCESS
+Ciphertext
+eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
+
+# capture the ciphertext
+$ CIPHERTEXT=eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
+
+# unwrap the ciphertext to reveal the plaintext data encryption key (DEK)
+$ ibmcloud kp key unwrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea $CIPHERTEXT
+Unwrapping key...
+SUCCESS
+Plaintext                                      Rewrapped Plaintext
+mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-unwrap-example-existing}
+
+Unwrap a ciphertext and provide AAD information.
+
+One use case for supplying additional authentication data (AAD) is to "password
+protect" the ciphertext to make it more difficult to unwrap.
+
+The ciphertext and the AAD is required to unwrap the ciphertext and reveal the
+plaintext data encryption key (DEK).
+
+```sh
+# create a root key
+$ KEY_ID=$(ibmcloud kp key create my-root-key --output json | jq -r '.["id"]')
+
+$ echo $KEY_ID
+5f2cc155-fe16-492c-845c-4d1f0688c7ba
+
+# create a random, base64-encoded, 32-byte data encryption key (DEK)
+$ PLAINTEXT=$(openssl rand -base64 32)
+
+$ echo $PLAINTEXT
+H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
+
+# set the additional authentication data (AAD)
+$ AAD1=My-Secret-Password
+$ AAD2=My-Verification-Phrase
+
+# wrap the plaintext with the root key and AAD
+$ CIPHERTEXT=$(ibmcloud kp key wrap $KEY_ID -a "$AAD1,$AAD2" -p $PLAINTEXT --output json | jq -r '.["Ciphertext"]')
+
+$ echo $CIPHERTEXT
+eyJjaXBoZXJ0ZXh0IjoiL1pQUzRLbUxQ ...<redacted>... ZjA2ODhjN2JiIn0=
+
+# unwrap the ciphertext and reveal the original plaintext DEK
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1,$AAD2
+Unwrapping key...
+SUCCESS
+Plaintext                                      Rewrapped Plaintext
+H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
+
+# this should fail (missing some of the AAD)
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1
+Unwrapping key...
+FAILED
+
+# this should fail (AAD is in a different order)
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD2,$AAD1
+Unwrapping key...
+FAILED
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-unwrap-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the root key that you used for the initial wrap request.
+  </dd>
+
+  <dt>
+    <code>CIPHERTEXT_FROM_WRAP</code></dt>
+  <dd>
+    The encrypted data key that was returned during the initial wrap operation.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-unwrap-optional}
+
+<dl>
+  <dt>
+    <code>-a, --aad</code>
+  </dt>
+  <dd>
+    <p>
+      The additional authentication data (AAD) that was used to further secure a
+      key. You can provide up to 255 strings, each delimited by a comma. If you
+      supplied AAD on wrap, you must specify the same AAD, in the same order, on
+      unwrap.
+    </p>
+    <p>
+      <b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}}
+      service does not save additional authentication data. If you supply AAD,
+      save the data to a secure location to ensure that you can access and
+      provide the same AAD during subsequent unwrap requests.
+    </p>
+  </dd>
+
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp key wrap
+{: #kp-key-wrap}
+
+[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys){: external}
+(DEK) using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}}
+service instance. A DEK is typically used to encrypt "other" pieces of
+information.
+
+When you wrap a DEK with a root key, {{site.data.keyword.keymanagementserviceshort}}
+combines the strength of multiple algorithms to protect the privacy and the
+integrity of your encrypted data.
+
+You cannot wrap a `standard` key, that is, a key created using the `-s`
+parameter (`ibmcloud kp key create my-key-name -s`).
+{: note}
+
+```
+ibmcloud kp key wrap KEY_ID
+     -i, --instance-id INSTANCE_ID
+    [-a, --aad         ADDITIONAL_DATA]
+    [-o, --output      OUTPUT]
+    [-p, --plaintext   DATA_KEY]
+```
+{: pre}
+
+### Best practices
+
+Wrapping a data encryption key (DEK) creates a `ciphertext`. The ciphertext is
+encrypted information that, when unwrapped, reveals the original DEK.
+
+The {{site.data.keyword.keymanagementserviceshort}} service does not store your
+DEK. Save, or persist to storage, the ciphertext to make sure you can retrieve
+the DEK with the `kp key unwrap` command.
+
+It is recommended that you never save, or persist to storage, the plaintext DEK.
+In your application, load the ciphertext from storage, call
+{{site.data.keyword.keymanagementserviceshort}} to get the plaintext DEK, and
+use the DEK to encrypt, or wrap, "other" pieces of information.
+
+Do not save the DEK to persistent storage. Exposing the DEK may allow others to
+decrypt your data.
+
+### Examples
+{: #kp-key-wrap-example}
+
+These are examples of `kp key wrap`.
+
+#### Example 1
+{: #kp-key-wrap-example-new-dek}
+
+Create a new data encryption key (DEK) and wrap it with a root key.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+SUCCESS
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# wrap the root key, creating a DEK, this is the ciphertext
+$ ibmcloud kp key wrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+Wrapping key...
+SUCCESS
+Ciphertext
+eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
+
+# capture the ciphertext
+$ CIPHERTEXT=eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
+
+# unwrap the ciphertext to reveal the plaintext (DEK)
+$ ibmcloud kp key unwrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea $CIPHERTEXT
+Unwrapping key...
+SUCCESS
+Plaintext                                      Rewrapped Plaintext
+mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
+```
+{:screen}
+
+#### Example 2
+{: #kp-key-wrap-example-existing}
+
+Wrap an existing key and provide AAD information.
+
+One use case for supplying additional authentication data (AAD) is to "password
+protect" the ciphertext, which makes it more difficult to unwrap.
+
+The ciphertext and the AAD is required to unwrap the ciphertext and reveal the
+plaintext DEK.
+
+```sh
+# create a root key
+$ KEY_ID=$(ibmcloud kp key create my-root-key --output json | jq -r '.["id"]')
+
+$ echo $KEY_ID
+5f2cc155-fe16-492c-845c-4d1f0688c7ba
+
+# create a random, base64-encoded, 32-byte data encryption key (DEK)
+$ PLAINTEXT=$(openssl rand -base64 32)
+
+$ echo $PLAINTEXT
+H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
+
+# set the additional authentication data (AAD)
+$ AAD1=My-Secret-Password
+$ AAD2=My-Verification-Phrase
+
+# wrap the plaintext DEK with the root key and AAD
+$ CIPHERTEXT=$(ibmcloud kp key wrap $KEY_ID -a "$AAD1,$AAD2" -p $PLAINTEXT --output json | jq -r '.["Ciphertext"]')
+
+$ echo $CIPHERTEXT
+eyJjaXBoZXJ0ZXh0IjoiL1pQUzRLbUxQ ...<redacted>... ZjA2ODhjN2JiIn0=
+
+# unwrap the ciphertext and reveal the original DEK
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1,$AAD2
+Unwrapping key...
+SUCCESS
+Plaintext                                      Rewrapped Plaintext
+H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
+
+# this should fail (missing some of the AAD)
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1
+Unwrapping key...
+FAILED
+
+# this should fail (AAD is in a different order)
+$ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD2,$AAD1
+Unwrapping key...
+FAILED
+```
+{:screen}
+
+### Required parameters
+{: #kp-key-wrap-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the root key that you want to use for wrapping. You cannot wrap a
+    standard key.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-key-wrap-optional}
+
+<dl>
+  <dt>
+    <code>-a, --aad</code>
+  </dt>
+  <dd>
+    <p>
+      The additional authentication data (AAD) that is used to further secure a
+      key. The AAD is an array of strings that checks the integrity of the key
+      contents. Each string can hold up to 255 characters.
+    </p>
+    <p>
+      If you supply AAD during a wrap request, you must specify the same AAD, in
+      the same order, during the subsequent unwrap request.
+    </p>
+  </dd>
+
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+
+  <dt>
+    <code>-p, --plaintext</code>
+  </dt>
+  <dd>
+    <p>
+      The <code>plaintext</code> specifies a base64-encoded data encryption key
+      (DEK) that is wrapped by the root key (the <code>KEY_ID</code> parameter).
+    </p>
+    <p>
+      The base64-encoded data encryption key (DEK) that you want to manage and
+      protect. To import an existing key, provide a 32-byte (256-bit) key.
+    </p>
+    <p>
+    To generate and wrap a new DEK, omit the <code>--plaintext</code> parameter.
+    </p>
+  </dd>
+</dl>
+
+## kp keys
+{: #kp-keys}
+
+List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}}
+service instance.
+
+```
+ibmcloud kp keys
+     -i, --instance-id INSTANCE_ID
+    [-c, --crn         ADDITIONAL_DATA]
+    [-o, --output      OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-keys-example}
+
+These are examples of `kp keys`.
+
+#### Example 1
+{: #kp-keys-example-normal}
+
+List the keys.
+
+```sh
+$ ibmcloud kp keys
+Retrieving keys...
+SUCCESS
+Key ID                                 Key Name
+5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key
+c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key
+```
+{:screen}
+
+#### Example 2
+{: #kp-keys-example-crn}
+
+List the keys and supply the `--crn` parameter.
+
+```sh
+$ ibmcloud kp keys -c
+Retrieving keys...
+SUCCESS
+Key ID                                 Key Name      CRN
+5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5f2cc155-fe16-492c-845c-4d1f0688c7ba
+c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:c36e9f3a-feaf-4033-8603-687784dc7e51
+```
+{:screen}
+
+#### Example 3
+{: #kp-keys-example-json}
+
+List the keys in JSON format.
+
+Using the `--output json` parameter, which implies the `--crn` (cloud resource
+name) parameter.
+
+```sh
+$ ibmcloud kp keys --output json
+[
+  {
+    "id": "5f2cc155-fe16-492c-845c-4d1f0688c7ba",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "string ...<redacted>...",
+    "creationDate": "2020-05-10T18:04:01Z",
+    "lastUpdateDate": "2020-05-10T18:04:01Z",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5f2cc155-fe16-492c-845c-4d1f0688c7ba"
+  },
+  {
+    "id": "c36e9f3a-feaf-4033-8603-687784dc7e51",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "string ...<redacted>...",
+    "creationDate": "2020-05-10T17:56:37Z",
+    "lastUpdateDate": "2020-05-10T17:56:37Z",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:c36e9f3a-feaf-4033-8603-687784dc7e51"
+  }
+]
+```
+{:screen}
+
+#### Example 4
+{: #kp-keys-example-iterate}
+
+List the keys and iterate over them, showing details.
+
+```sh
+$ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+for key in $(echo "${KEYS}"); do
+  ibmcloud kp key show ${key}
+done
+
+Grabbing info for key id: 5f2cc155-fe16-492c-845c-4d1f0688c7ba...
+SUCCESS
+Key ID                                 Key Name      Description   Creation Date                   Expiration Date
+5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key                 2020-05-10 18:04:01 +0000 UTC   Key does not expire
+
+Grabbing info for key id: c36e9f3a-feaf-4033-8603-687784dc7e51...
+SUCCESS
+Key ID                                 Key Name      Description   Creation Date                   Expiration Date
+c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17:56:37 +0000 UTC   Key does not expire
+```
+{:screen}
+
+### Required parameters
+{: #kp-keys-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-keys-optional}
+
+<dl>
+  <dt>
+    <code>-c, --crn</code>
+  </dt>
+  <dd>
+    Include the cloud resource name (CRN) in the output.
+  </dd>
+
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    <p>
+      Set the CLI output format. By default, all commands print in table format.
+      To change the output format to JSON, use <code>--output json</code>.
+    </p>
+    <p>
+      Setting the output to JSON (<code>--output json</code>) includes the cloud
+      resource name (CRN) in the output.
+    </p>
+  </dd>
+</dl>
+
+## kp region-set
+{: #kp-region-set}
+
+Target a different {{site.data.keyword.keymanagementserviceshort}} regional
+endpoint.
+
+```
+ibmcloud kp region-set REGION
+     -i, --instance-id INSTANCE_ID
+    [-u, --unset]
+```
+{: pre}
+
+### Example
+{: #kp-region-set-example}
+
+These are examples of `kp region-set`.
+
+#### Example 1
+{: #kp-region-set-example-select}
+
+If the `REGION` parameter is not specified, you will be prompted to select a
+region.
+
+```sh
+$ ibmcloud kp region-set
+Select a Region:
+1. au-syd
+2. jp-tok
+3. eu-de
+4. eu-gb
+5. us-south
+6. us-east
+Enter a number:
+5
+OK
+```
+{:screen}
+
+#### Example 2
+{: #kp-region-set-example-provide}
+
+Set the region explicitly.
+
+```sh
+$ ibmcloud kp region-set us-south
+OK
+```
+{:screen}
+
+The `REGION` must be a valid regional endpoint.
+
+```sh
+# this should fail (not a valid regional endpoint)
+$ ibmcloud kp region-set not-a-region
+FAILED
+```
+{:screen}
+
+#### Example 3
+{: #kp-region-set-example-unset}
+
+Unset (remove) the regional endpoint.
+
+```sh
+$ ibmcloud kp region-set -u
+OK
+```
+{:screen}
+
+### Required parameters
+{: #kp-region-set-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-region-set-optional}
+
+<dl>
+  <dt>
+    <code>REGION</code>
+  </dt>
+  <dd>
+    Specify a regional endpoint. This parameter is optional and if not
+    specified, you will be prompted to select a regional endpoint from a list.
+  </dd>
+
+  <dt>
+    <code>-u, --unset</code>
+  </dt>
+  <dd>
+    Unset (remove) the regional endpoiont.
+  </dd>
 </dl>

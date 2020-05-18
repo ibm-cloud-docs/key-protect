@@ -23,14 +23,16 @@ subcollection: key-protect
 # Activity Tracker events
 {: #at-events}
 
-As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
+As a security officer, auditor, or manager, you can use the Activity Tracker
+service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
 **This content is currently being developed and reviewed.**
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. 
 
-For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
+For more information, see the
+[getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
 
 
 ## Key events
@@ -118,7 +120,6 @@ The following table lists the key actions that generate an event:
 [^services-3]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
 [^services-4]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
-
 
 ## Viewing events
 {: #at-ui}

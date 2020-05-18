@@ -24,17 +24,25 @@ subcollection: key-protect
 # Monitoring the lifecycle of encryption keys
 {: #key-states}
 
-{{site.data.keyword.keymanagementservicefull}} follows the security guidelines by [NIST SP 800-57 for key states](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
+{{site.data.keyword.keymanagementservicefull}} follows the security guidelines
+by
+[NIST SP 800-57 for key states](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
 {: shortdesc}
 
 ## Key states and transitions
 {: #key-transitions}
 
-Cryptographic keys, in their lifetime, transition through several states that are a function of how long the keys are in existence and whether data is protected. 
+Cryptographic keys, in their lifetime, transition through several states that
+are a function of how long the keys are in existence and whether data is
+protected.
 
-{{site.data.keyword.keymanagementserviceshort}} provides a graphical user interface and a REST API for tracking keys as they move through several states in their lifecycle. The following diagram shows how a key passes through states between its generation and its destruction.
+{{site.data.keyword.keymanagementserviceshort}} provides a graphical user
+interface and a REST API for tracking keys as they move through several states
+in their lifecycle. The following diagram shows how a key passes through states
+between its generation and its destruction.
 
-![The diagram shows the same components as described in the following definition table.](../images/key-states.svg){: caption="Figure 1. Key states and transitions." caption-side="bottom"}
+![The diagram shows the same components as described in the following definition table.](../images/key-states.svg)
+{: caption="Figure 1. Key states and transitions." caption-side="bottom"}
 
 | State          | Description                                                                                                                                                                                                                                                                        |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,9 +56,16 @@ Cryptographic keys, in their lifetime, transition through several states that ar
 ## Key states and service actions
 {: #key-states-service-actions}
 
-Key states affect whether an action that is performed on a key succeeds or fails. For example, if a key is in the _Active_ state, you can't restore the key, because the key wasn't previously deleted.
+Key states affect whether an action that is performed on a key succeeds or
+fails. For example, if a key is in the _Active_ state, you can't restore the
+key, because the key wasn't previously deleted.
 
-The following table shows how {{site.data.keyword.keymanagementserviceshort}} handles service actions based on the state of a key. The column headers represent the key states, and the row headers represent the actions that you can perform on a key. The check mark icon (![Check mark icon](../../icons/checkmark-icon.svg)) indicates that the action on a key is expected to succeed based on the key state.
+The following table shows how {{site.data.keyword.keymanagementserviceshort}}
+handles service actions based on the state of a key. The column headers
+represent the key states, and the row headers represent the actions that you can
+perform on a key. The check mark icon
+(![Check mark icon](../../icons/checkmark-icon.svg))
+indicates that the action on a key is expected to succeed based on the key state.
 
 | Action     | Active | Suspended | Deactivated | Destroyed |
 | ----------- | ---------- | ------ | --------- | ----------- | --------- |
@@ -69,7 +84,13 @@ The following table shows how {{site.data.keyword.keymanagementserviceshort}} ha
 ## Monitoring for lifecycle changes
 {: #monitor-lifecycle-changes}
 
-After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view your key's transition history and configuration. 
+After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}}
+dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to
+view your key's transition history and configuration.
 
-For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started). After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.at_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}. 
-
+For audit purposes, you can also monitor the activity trail for a key by
+integrating {{site.data.keyword.keymanagementserviceshort}} with
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
+After both services are provisioned and running, activity events are generated
+and automatically collected in a {{site.data.keyword.at_full_notm}} log when you
+perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.

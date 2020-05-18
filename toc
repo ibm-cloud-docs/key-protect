@@ -82,6 +82,8 @@ Key Protect
         set-rotation-policy.md
         view-key-versions.md
 
+    disable-keys.md
+
     {: .topicgroup}
     Deleting keys
         delete-keys.md
@@ -97,6 +99,7 @@ Key Protect
     {: .topicgroup}
     Key Protect CLI Reference
         cli-reference.md
+        cli-reference-039.md
         cli-changelog.md
 
     {: .topicgroup}
