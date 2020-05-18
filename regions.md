@@ -33,7 +33,7 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 {{site.data.keyword.keymanagementserviceshort}} is available in the following regions:
 
-![The image shows the regions where the Key Protect service is available.](images/world-map_min.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
+![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map_min.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
 

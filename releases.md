@@ -31,7 +31,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 ## May 2020
 {: #may-2020}
 
-### Added: Use an import token to rotate a key 
+### Added: Use an import token to rotate a key
 {: #added-secure-rotate}
 New as of: 2020-05-01
 
@@ -229,7 +229,7 @@ To learn more about {{site.data.keyword.keymanagementserviceshort}} roles and pe
 {: #added-fine-grain-access}
 New as of: 2019-09-27
 
-As an account admin, you can now assign fine-grained access to individual keys within a Key Protect service instance.
+As an account admin, you can now assign fine-grained access to individual keys within a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 To learn more about granting access, see [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys).
 

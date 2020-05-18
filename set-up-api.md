@@ -61,4 +61,7 @@ Want to track your API requests in case something goes wrong? When you include t
 ## What's next
 {: #set-up-api-next-steps}
 
-You're all set to start managing your encryption keys in Key Protect. To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+You're all set to start managing your encryption keys in
+{{site.data.keyword.keymanagementserviceshort}}. To find out more about
+programmatically managing your keys,
+[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.

@@ -29,8 +29,8 @@ Review the sample architecture and compute isolation characteristics for
 The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}}
 components work to protect your sensitive data and keys.
 
-![The diagram shows how Key Protect components protect sensitive data and keys.](images/kp-architecture.svg)
-{: caption="Figure 1. Key Protect architecture" caption-side="bottom"}
+![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg)
+{: caption="Figure 1. {{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
 
 Access to the {{site.data.keyword.keymanagementserviceshort}} service takes
 place over HTTPS. All communication uses the Transport Layer Security (TLS) 1.2

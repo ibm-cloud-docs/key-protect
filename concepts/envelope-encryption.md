@@ -127,7 +127,7 @@ The following table describes the inputs needed to perform a key wrap operation:
 | Input | Description |
 | --- | --- |
 | Root key ID | The ID value for the root key that you want to use for wrapping. The root key can be imported into the service, or it can originate in {{site.data.keyword.keymanagementserviceshort}} from its HSMs. Root keys that are used for wrapping must be 128, 192, or 256 bits so that a wrap request can succeed. |
-| Plaintext | Optional: The data encryption key (DEK) that you want to use for data encryption. This value must be base64 encoded. To generate a new DEK, you can omit the `plaintext` property. Key Protect generates a random plaintext (32 bytes) that is rooted in an HSM and then wraps that value. |
+| Plaintext | Optional: The data encryption key (DEK) that you want to use for data encryption. This value must be base64 encoded. To generate a new DEK, you can omit the `plaintext` property. {{site.data.keyword.keymanagementserviceshort}} generates a random plaintext (32 bytes) that is rooted in an HSM and then wraps that value. |
 | Additional authentication data (AAD) | Optional: An array of strings that checks the integrity of the key contents. Each string can hold up to 255 characters. If you supply AAD during a wrap request, you must specify the same AAD during the subsequent unwrap request. |
 {: caption="Table 2. Inputs required for key wrapping in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
