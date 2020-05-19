@@ -322,7 +322,7 @@ this key.
 ### Unable to authenticate while make a request
 {: #authenticate-failure}
 
-If the event has a `reason.reasonCode` of 401, you do not have the correct authorization to perform Key Protect actions in the specified service instance. Verify with an 
+If the event has a `reason.reasonCode` of 401, you do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the specified service instance. Verify with an 
 administrator that you are assigned the correct platform and service access roles in the applicable service instance. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access).
 
 ### Unable to view or list keys in a service instance
@@ -332,4 +332,4 @@ If you make a call to `GET api/v2/keys` to list the keys that are available in y
 
 ### Severity is at critical level for an event
 
-The severity for all Activity Tracker events with Key Protect are based on the type of request that was made, then status code. For example, if you make a delete key request with an invalid key, but you are also unathenticated for the service instance that you included in the request, the unathentication will take precedence and the event will be evaluated as a `401` bad request call with a severity of `critical`.
+The severity for all Activity Tracker events with {{site.data.keyword.keymanagementserviceshort}} are based on the type of request that was made, then status code. For example, if you make a delete key request with an invalid key, but you are also unathenticated for the service instance that you included in the request, the unathentication will take precedence and the event will be evaluated as a `401` bad request call with a severity of `critical`.
