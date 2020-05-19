@@ -31,6 +31,19 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 ## May 2020
 {: #may-2020}
 
+### Coming soon: Updates to activity tracker fields
+{: #upcoming-activity-tracker-changes}
+Release Date: 2020-05-29
+
+Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will return updated event fields in [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events) logs. These updates will be available across all supported regions by 29 May 2020.
+
+- Successful unwrap key events will change from severity level `warning` to `normal`.
+- The `rewrapedKeyVersionId` field will change to `rewrappedKeyVersionId`.
+- The `TotalResources` field will change to `totalResources`.
+
+- **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+- **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events) audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.
+
 ### Added: Use an import token to rotate a key 
 {: #added-secure-rotate}
 New as of: 2020-05-01
