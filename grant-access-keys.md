@@ -40,7 +40,7 @@ To assign access:
 2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 3. From the options menu, click **Assign access**.
 4. Click **Assign access to resources**.
-5. From the list of services, select **Key Protect**.
+5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 6. From the list of service instances, select a {{site.data.keyword.keymanagementserviceshort}} service instance.
 7. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
 8. Click **Assign**.
@@ -69,7 +69,7 @@ Use the retrieved key ID to create a access policy:
 2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 3. From the options menu, click **Assign access**.
 4. Click **Assign access to resources**.
-5. From the list of services, select **Key Protect**.
+5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 6. From the list of service instances, select the {{site.data.keyword.keymanagementserviceshort}} service instance that contains the key that you want to grant access to.
 7. Enter identifying information about the key.
    1. For **Resource type**, enter _key_.

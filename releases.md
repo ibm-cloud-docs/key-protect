@@ -242,7 +242,7 @@ To learn more about {{site.data.keyword.keymanagementserviceshort}} roles and pe
 {: #added-fine-grain-access}
 New as of: 2019-09-27
 
-As an account admin, you can now assign fine-grained access to individual keys within a Key Protect service instance.
+As an account admin, you can now assign fine-grained access to individual keys within a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 To learn more about granting access, see [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys).
 

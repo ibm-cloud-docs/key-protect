@@ -24,9 +24,12 @@ subcollection: key-protect
 # Rotating encryption keys
 {: #key-rotation}
 
-Key rotation takes place when you retire a root key's original key material, and you re-key it by generating new, cryptographic key material.
+Key rotation takes place when you retire a root key's original key material, and
+you re-key it by generating new, cryptographic key material.
 
-Rotating keys on a regular basis helps you meet industry standards and cryptographic best practices. The following table describes the main benefits of key rotation:
+Rotating keys on a regular basis helps you meet industry standards and
+cryptographic best practices. The following table describes the main benefits of
+key rotation:
 
 | Benefit | Description |
 | --- | --- |
@@ -40,76 +43,215 @@ Key rotation is treated in the NIST Special Publication 800-57, Recommendation f
 ## Comparing your key rotation options in {{site.data.keyword.keymanagementserviceshort}}
 {: #compare-key-rotation-options}
 
-In {{site.data.keyword.keymanagementserviceshort}}, you can [set a rotation policy for a key](/docs/key-protect?topic=key-protect-set-rotation-policy) or [manually rotate the key](/docs/key-protect?topic=key-protect-rotate-keys).
+In {{site.data.keyword.keymanagementserviceshort}}, you can
+[set a rotation policy for a key](/docs/key-protect?topic=key-protect-set-rotation-policy)
+or
+[manually rotate the key](/docs/key-protect?topic=key-protect-rotate-keys).
 
 Rotation options are available only for root keys.
 {: note}
 
 <dl>
-  <dt>Setting a rotation policy for a key</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} helps you simplify rotation for encryption keys by enabling rotation policies for keys that you generate in the service. After you create a root key, you can manage a rotation policy for the key in the or with the {{site.data.keyword.keymanagementserviceshort}} API. <a href="/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency">Choose an automatic rotation interval between 1 - 12 months for your key</a> based on your on-going security needs. When it's time to rotate the key based on the rotation interval that you specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces the key with new key material.</dd>
-  <dt>Rotating keys manually</dt>
-    <dd>As a security admin, you might want to have more control over the frequency of rotation for your keys. If you don't want to set an automatic rotation policy for a key, you can manually create a new key to replace an existing key, and then update your applications so that they reference the new key. To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}} to rotate the key on-demand. In this scenario, {{site.data.keyword.keymanagementserviceshort}} creates and replaces the key on your behalf with each rotation request. The key retains the same metadata and key ID.</dd>
+  <dt>
+    Setting a rotation policy for a key
+  </dt>
+  <dd>
+    <p>
+      {{site.data.keyword.keymanagementserviceshort}} helps you simplify
+      rotation for encryption keys by enabling rotation policies for keys that
+      you generate in the service. After you create a root key, you can manage
+      a rotation policy for the key in the or with the
+      {{site.data.keyword.keymanagementserviceshort}} API.
+    </p>
+    <p>
+      <a href="/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency">Choose an automatic rotation interval between 1 - 12 months for your key</a>
+      based on your on-going security needs. When it's time to rotate the key
+      based on the rotation interval that you specify,
+      {{site.data.keyword.keymanagementserviceshort}} automatically replaces the
+      key with new key material.
+    </p>
+  </dd>
+
+  <dt>
+    Rotating keys manually
+  </dt>
+  <dd>
+    <p>
+      As a security admin, you might want to have more control over the
+      frequency of rotation for your keys. If you don't want to set an
+      automatic rotation policy for a key, you can manually create a new key to
+      replace an existing key, and then update your applications so that they
+      reference the new key.
+    </p>
+    <p>
+      To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}}
+      to rotate the key on-demand. In this scenario, {{site.data.keyword.keymanagementserviceshort}}
+      creates and replaces the key on your behalf with each rotation request.
+      The key retains the same metadata and key ID.
+    </p>
+  </dd>
 </dl>
 
 ## How key rotation works
 {: #how-key-rotation-works}
 
-Key rotation works by securely transitioning key material from an _Active_ to a _Deactivated_ key state. To replace the deactivated or retired key version, the new key version moves into the _Active_ state and becomes available for cryptographic operations.
+Key rotation works by securely transitioning key material from an _Active_ to a
+_Deactivated_ key state. To replace the deactivated or retired key version, the
+new key version moves into the _Active_ state and becomes available for
+cryptographic operations.
 
 ### Using {{site.data.keyword.keymanagementserviceshort}} to rotate keys
 {: #use-key-protect-rotate-keys}
 
-Keep in mind the following considerations as you prepare to use {{site.data.keyword.keymanagementserviceshort}} for rotating root keys.
+Keep in mind the following considerations as you prepare to use
+{{site.data.keyword.keymanagementserviceshort}} for rotating root keys.
 
 <dl>
-  <dt>Rotating root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}</dt>
-    <dd>You can use {{site.data.keyword.keymanagementserviceshort}} to rotate a root key that was generated in {{site.data.keyword.keymanagementserviceshort}} by setting a rotation policy for the key, or by manually rotating the key. The metadata for the root key, such as its key ID, does not change when you rotate the key.</dd>
-  <dt>Rotating root keys that you bring to the service</dt>
-    <dd>To rotate a root key that you initially imported to the service, you must generate and provide new key material for the key. You can use {{site.data.keyword.keymanagementserviceshort}} to manually rotate imported root keys by supplying new key material as part of the rotation request. The metadata for the root key, such as its key ID, does not change when you rotate the key. Because you must provide new key material to rotate an imported key, automatic rotation policies are not available for root keys that have imported key material.</dd>
-  <dt>Managing retired key versions</dt>
-    <dd>{{site.data.keyword.keymanagementserviceshort}} creates a new version of the key with each rotation request. The service retires the old key versions and retains them until the root key is deleted. The retired key versions can no longer be used to wrap keys, but they remain available for unwrap operations. If {{site.data.keyword.keymanagementserviceshort}} detects that you're using a retired key version to unwrap DEKs, the service provides a newly wrapped DEK that's based on the latest key version.</dd>
- <dt>Monitoring key rotation activity in your account</dt>
-    <dd>After you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} notifies the {{site.data.keyword.cloud_notm}} data services that use the root key to protect your data. This notification triggers actions in those services to rewrap the key’s associated data encryption keys (DEKs) with the latest key version. <!--After {{site.data.keyword.keymanagementserviceshort}} receives confirmation from those services that all associated DEKs are rewrapped, you receive an event in your Activity Tracker web UI to show that the rotation is complete.-->
-    <p class="note"> To enable key rotation options for your {{site.data.keyword.cloud_notm}} data service, the data service must be integrated with {{site.data.keyword.keymanagementserviceshort}}. Refer to the documentation for your {{site.data.keyword.cloud_notm}} data service, or <a href="/docs/key-protect?topic=key-protect-integrate-services">check out our list of integrated services to learn more</a>.</p>
-    <p class="tip"> When you rotate a key in {{site.data.keyword.keymanagementserviceshort}}, you're not charged additional fees. You can continue to unwrap your wrapped data encryption keys (WDEKs) with retired key material at no extra cost. For more information about our pricing options, see the <a href="https://{DomainName}/catalog/services/key-protect" target="_blank">{{site.data.keyword.keymanagementserviceshort}} catalog page</a>.</p>
-    </dd>
+  <dt>
+    Rotating root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}
+  </dt>
+  <dd>
+    <p>
+      You can use {{site.data.keyword.keymanagementserviceshort}} to rotate a
+      root key that was generated in {{site.data.keyword.keymanagementserviceshort}}
+      by setting a rotation policy for the key, or by manually rotating the key.
+    </p>
+    <p>
+      The metadata for the root key, such as its key ID, does not change when
+      you rotate the key.
+    </p>
+  </dd>
+
+  <dt>
+    Rotating root keys that you bring to the service
+  </dt>
+  <dd>
+    <p>
+      To rotate a root key that you initially imported to the service, you must
+      generate and provide new key material for the key. You can use
+      {{site.data.keyword.keymanagementserviceshort}} to manually rotate
+      imported root keys by supplying new key material as part of the rotation
+      request.
+    </p>
+    <p>
+      The metadata for the root key, such as its key ID, does not change when
+      you rotate the key. Because you must provide new key material to rotate an
+      imported key, automatic rotation policies are not available for root keys
+      that have imported key material.
+    </p>
+  </dd>
+
+  <dt>
+    Managing retired key versions
+  </dt>
+  <dd>
+    <p>
+      {{site.data.keyword.keymanagementserviceshort}} creates a new version of
+      the key with each rotation request. The service retires the old key
+      versions and retains them until the root key is deleted. The retired key
+      versions can no longer be used to wrap keys, but they remain available for
+      unwrap operations.
+    </p>
+    <p>
+      If {{site.data.keyword.keymanagementserviceshort}} detects that you're
+      using a retired key version to unwrap DEKs, the service provides a newly
+      wrapped DEK that's based on the latest key version.
+    </p>
+  </dd>
+
+  <dt>
+    Monitoring key rotation activity in your account
+  </dt>
+  <dd>
+    <p>
+      After you rotate a root key, {{site.data.keyword.keymanagementserviceshort}}
+      notifies the {{site.data.keyword.cloud_notm}} data services that use the
+      root key to protect your data. This notification triggers actions in those
+      services to rewrap the key’s associated data encryption keys (DEKs) with
+      the latest key version.
+      <!-- TODO: rewrap and explain AT events
+        After {{site.data.keyword.keymanagementserviceshort}} receives
+        confirmation from those services that all associated DEKs are rewrapped,
+        you receive an event in your Activity Tracker web UI to show that the
+        rotation is complete.
+      -->
+    </p>
+    <p class="note">
+      To enable key rotation options for your {{site.data.keyword.cloud_notm}}
+      data service, the data service must be integrated with
+      {{site.data.keyword.keymanagementserviceshort}}. Refer to the
+      documentation for your {{site.data.keyword.cloud_notm}} data service, or
+      <a href="/docs/key-protect?topic=key-protect-integrate-services">check out our list of integrated services to learn more</a>.
+    </p>
+    <p class="tip">
+      When you rotate a key in {{site.data.keyword.keymanagementserviceshort}},
+      you're not charged additional fees. You can continue to unwrap your
+      wrapped data encryption keys (WDEKs) with retired key material at no extra
+      cost. For more information about our pricing options, see the
+      <a href="https://{DomainName}/catalog/services/key-protect" target="_blank">{{site.data.keyword.keymanagementserviceshort}} catalog page</a>.
+    </p>
+  </dd>
 </dl>
-
-
-{: tip}
 
 ### Understanding the key rotation process
 {: #understand-key-rotation-process}
 
-Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process.
+Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API
+drives the key rotation process.
 
 The following diagram shows a contextual view of the key rotation functionality.
-![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg){: caption="Figure 1. Contexual view of key rotation." caption-side="bottom"}
+![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
+{: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
-With each rotation request, {{site.data.keyword.keymanagementserviceshort}} creates a new key version by associating new key material with your root key.
+With each rotation request, {{site.data.keyword.keymanagementserviceshort}}
+creates a new key version by associating new key material with your root key.
 
-![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg){: caption="Figure 2. Micro view of a root key stack." caption-side="bottom"}
+![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg)
+{: caption="Figure 2. Micro view of a root key stack." caption-side="bottom"}
 
-To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your root keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
+To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to
+rotate your root keys, see
+[Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 {: tip}
 
 ### Rewrapping data after rotating a key
 {: #rewrap-data-after-key-rotation}
 
-After a rotation completes, a new key version becomes available for protecting data encryption keys (DEKs) with [envelope encryption](x9860393){: term}. Retired root key versions moves to the _Deactivated_ state, where they can only be used to unwrap and access older DEKs that aren't yet protected by the latest root key.
+After a rotation completes, a new key version becomes available for protecting
+data encryption keys (DEKs) with
+[envelope encryption](x9860393){: term}.
+Retired root key versions moves to the _Deactivated_ state, where they can only
+be used to unwrap and access older DEKs that aren't yet protected by the latest
+root key.
 
-To secure your envelope encryption workflow, [rewrap your DEKs](/docs/key-protect?topic=key-protect-rewrap-keys) after you rotate a root key so that your at-rest data is protected by the newest root key. Alternatively if {{site.data.keyword.keymanagementserviceshort}} detects that you're using retired key versions to unwrap a DEK, the service automatically reencrypts the DEK and returns a wrapped data encryption key (WDEK) that's based on the latest root key. Store and use the new WDEK for future unwrap operations that the DEKs are protected with the newest key version.
+To secure your envelope encryption workflow,
+[rewrap your DEKs](/docs/key-protect?topic=key-protect-rewrap-keys)
+ after you rotate a root key so that your at-rest data is protected by the
+ newest root key.
 
-To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rewrap data encryption keys, see [Rewrapping keys](/docs/key-protect?topic=key-protect-rewrap-keys).
+Alternatively if {{site.data.keyword.keymanagementserviceshort}} detects that
+you're using retired key versions to unwrap a DEK, the service automatically
+reencrypts the DEK and returns a wrapped data encryption key (WDEK) that's
+based on the latest root key.
+
+Store and use the new WDEK for future unwrap operations that the DEKs are
+protected with the newest key version.
+
+To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to
+rewrap data encryption keys, see
+[Rewrapping keys](/docs/key-protect?topic=key-protect-rewrap-keys).
 {: tip}
 
 ## Frequency of key rotation
 {: #rotation-frequency}
 
-After you generate a root key in {{site.data.keyword.keymanagementserviceshort}}, you decide the frequency of its rotation. You might want to rotate your keys due to personnel turnover, process malfunction, or according to your organization's internal key expiration policy.
+After you generate a root key in {{site.data.keyword.keymanagementserviceshort}},
+you decide the frequency of its rotation. You might want to rotate your keys
+due to personnel turnover, process malfunction, or according to your
+organization's internal key expiration policy.
 
-Rotate your keys regularly, for example every 30 days, to meet cryptographic best practices.
+Rotate your keys regularly, for example every 30 days, to meet cryptographic
+best practices.
 
 | Rotation type | Frequency | Description |
 | --- | --- | --- |
@@ -120,6 +262,11 @@ Rotate your keys regularly, for example every 30 days, to meet cryptographic bes
 ## What's next
 {: #rotation-next-steps}
 
-- To learn how to use {{site.data.keyword.keymanagementserviceshort}} to set an automatic rotation policy for an individual key, see [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
-- To find out more about manually rotating root keys, see [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
-- To find out more about viewing the key versions that are available for a root key, see [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
+- To learn how to use {{site.data.keyword.keymanagementserviceshort}} to set an
+automatic rotation policy for an individual key, see
+[Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
+- To find out more about manually rotating root keys, see
+[Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
+- To find out more about viewing the key versions that are available for a root
+key, see
+[Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
