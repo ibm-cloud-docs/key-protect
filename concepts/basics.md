@@ -56,8 +56,8 @@ code.
 The {{site.data.keyword.keymanagementserviceshort}} service uses the Advanced
 Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) for its key
 operations. AES keys encrypt and decrypt data in 128-bit blocks, using 128-,
-192-, or 256-bit keys. By default, {{site.data.keyword.keymanagementserviceshort}}
-generates 256-bit AES keys.
+192-, or 256-bit keys. By default,
+{{site.data.keyword.keymanagementserviceshort}} generates 256-bit AES keys.
 
 ## What is symmetric key encryption?
 {: #symmetric_encryption}

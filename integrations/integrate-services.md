@@ -33,8 +33,8 @@ encryption keys is sometimes called Bring Your Own Key (BYOK).
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
 following supported services.
 
-| Service       | Description                 | Links |
-| ------------- | ------------------------------------ | ---- |
+| Service | Description | Links |
+| ------- | ----------- | ----- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated) | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant/offerings?topic=cloudant-security#secure-access-control) |
 | [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch) | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect) |
 | [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd) | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect)|
@@ -52,8 +52,8 @@ following supported services.
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service        | Description             | Integration docs |
-| ------------- | ---------------------------- | ---- |
+| Service | Description | Integration docs |
+| ------- | ----------- | ---------------- |
 | [{{site.data.keyword.block_storage_is_short}}](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-getting-started)| You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances (instances) in your VPC. | [View docs](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-encryption) |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started)| You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption-kp)|
 {: caption="Table 2. Supported storage services" caption-side="top"}
@@ -62,10 +62,10 @@ following supported services.
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service        | Description             | Integration docs |
-| ------------- | ---------------------------- | ---- |
+| Service | Description | Integration docs |
+| ------- | ----------- | ---------------- |
 | [{{site.data.keyword.cloud_notm}} image templates](/docs/image-templates?topic=image-templates-getting-started-with-image-templates#getting-started-with-image-templates) | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance#using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance)
-| [KMIP for VMware](/docs/vmwaresolutions?topic=vmware-solutions-kmip-overview) | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](https://cloud.ibm.com/docs/vmwaresolutions/services?topic=vmware-solutions-kmip_standalone_considerations)|
+| [KMIP for VMware](/docs/vmwaresolutions?topic=vmware-solutions-kmip-overview) | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](https://cloud.ibm.com/docs/vmwaresolutions/services?topic=vmware-solutions-kmip_standalone_considerations){: external} |
 | [{{site.data.keyword.vsi_is_short}}](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud) | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-creating-instances-byok) |
 {: caption="Table 3. Supported compute services" caption-side="top"}
 {: #table-3}
@@ -73,8 +73,8 @@ following supported services.
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service       | Description                 | Integration docs |
-| ------------- | ------------------------------------ | ---- |
+| Service | Description | Integration docs |
+| ------- | ----------- | ---------------- |
 | [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started) | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters.| [View docs](/docs/containers?topic=containers-encryption#keyprotect) |
 {: caption="Table 4. Supported containers services" caption-side="top"}
 {: #table-4}
@@ -82,8 +82,8 @@ following supported services.
 {: tab-group="supported-services"}
 {: class="simple-tab-table"}
 
-| Service       | Description                 | Integration docs |
-| ------------- | ------------------------------------ | ---- |
+| Service | Description | Integration docs |
+| ------- | ----------- | ---------------- |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=eventstreams-getting_started)  | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=eventstreams-managing_encryption) |
 {: caption="Table 5. Supported Integration services" caption-side="top"}
 {: #table-5}
@@ -118,7 +118,7 @@ The following table lists the API methods that add or remove envelope encryption
 on a resource.
 
 | Method | Description |
-| --- | --- |
+| ------ | ----------- |
 | `POST /keys/{root_key_ID}?action=wrap` | [Wrap (encrypt) a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) |
 | `POST /keys/{root_key_ID}?action=unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
 {: caption="Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
@@ -146,19 +146,22 @@ authorization. To learn more about service authorizations, see
 When you're ready to integrate a service, use the following steps to create an
 authorization:
 
-1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
+**Authorizations**.
 2. Click **Create**.
 3. Select a source and target service for the authorization.
 
     For **Source service**, select the cloud data service that you want to
     integrate with {{site.data.keyword.keymanagementserviceshort}}
 
-    For **Target service**, select **{{site.data.keyword.keymanagementservicelong_notm}}**.
+    For **Target service**, select
+    **{{site.data.keyword.keymanagementservicelong_notm}}**.
 
 4. Enable the **Reader** role.
 
     With _Reader_ permissions, your source service can browse the root keys that
-    are provisioned in the specified instance of {{site.data.keyword.keymanagementserviceshort}}.
+    are provisioned in the specified instance of
+    {{site.data.keyword.keymanagementserviceshort}}.
 
 5. Click **Authorize**.
 
@@ -173,7 +176,7 @@ key that you want to use for advanced encryption.
 
 - To find out more about creating root keys with the
 {{site.data.keyword.keymanagementserviceshort}} service, see
- [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
+[Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
 - To find out more about bringing your own root keys to the
 {{site.data.keyword.keymanagementserviceshort}} service, see
- [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+[Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).

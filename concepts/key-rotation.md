@@ -37,7 +37,9 @@ key rotation:
 | Incident mitigation | If your organization detects a security issue, you can immediately rotate the key to mitigate or reduce costs that are associated with key compromise. |
 {: caption="Table 1. Describes the benefits of key rotation" caption-side="top"}
 
-Key rotation is treated in the NIST Special Publication 800-57, Recommendation for Key Management. To learn more, see [NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
+Key rotation is treated in the NIST Special Publication 800-57, Recommendation
+for Key Management. To learn more, see
+[NIST SP 800-57 Pt. 1 Rev. 4.](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}
 {: tip}
 
 ## Comparing your key rotation options in {{site.data.keyword.keymanagementserviceshort}}
@@ -64,7 +66,7 @@ Rotation options are available only for root keys.
       {{site.data.keyword.keymanagementserviceshort}} API.
     </p>
     <p>
-      <a href="/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency">Choose an automatic rotation interval between 1 - 12 months for your key</a>
+      [Choose an automatic rotation interval between 1 - 12 months for your key](/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency)
       based on your on-going security needs. When it's time to rotate the key
       based on the rotation interval that you specify,
       {{site.data.keyword.keymanagementserviceshort}} automatically replaces the
@@ -84,10 +86,12 @@ Rotation options are available only for root keys.
       reference the new key.
     </p>
     <p>
-      To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}}
-      to rotate the key on-demand. In this scenario, {{site.data.keyword.keymanagementserviceshort}}
-      creates and replaces the key on your behalf with each rotation request.
-      The key retains the same metadata and key ID.
+      To simplify this process, you can use
+      {{site.data.keyword.keymanagementserviceshort}} to rotate the key
+      on-demand. In this scenario,
+      {{site.data.keyword.keymanagementserviceshort}} creates and replaces the
+      key on your behalf with each rotation request. The key retains the same
+      metadata and key ID.
     </p>
   </dd>
 </dl>
@@ -108,13 +112,15 @@ Keep in mind the following considerations as you prepare to use
 
 <dl>
   <dt>
-    Rotating root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}
+    Rotating root keys that are generated in
+    {{site.data.keyword.keymanagementserviceshort}}
   </dt>
   <dd>
     <p>
       You can use {{site.data.keyword.keymanagementserviceshort}} to rotate a
-      root key that was generated in {{site.data.keyword.keymanagementserviceshort}}
-      by setting a rotation policy for the key, or by manually rotating the key.
+      root key that was generated in
+      {{site.data.keyword.keymanagementserviceshort}} by setting a rotation
+      policy for the key, or by manually rotating the key.
     </p>
     <p>
       The metadata for the root key, such as its key ID, does not change when
@@ -164,31 +170,26 @@ Keep in mind the following considerations as you prepare to use
   </dt>
   <dd>
     <p>
-      After you rotate a root key, {{site.data.keyword.keymanagementserviceshort}}
-      notifies the {{site.data.keyword.cloud_notm}} data services that use the
-      root key to protect your data. This notification triggers actions in those
-      services to rewrap the key’s associated data encryption keys (DEKs) with
-      the latest key version.
-      <!-- TODO: rewrap and explain AT events
-        After {{site.data.keyword.keymanagementserviceshort}} receives
-        confirmation from those services that all associated DEKs are rewrapped,
-        you receive an event in your Activity Tracker web UI to show that the
-        rotation is complete.
-      -->
+      After you rotate a root key,
+      {{site.data.keyword.keymanagementserviceshort}} notifies the
+      {{site.data.keyword.cloud_notm}} data services that use the root key to
+      protect your data. This notification triggers actions in those services to
+      rewrap the key's associated data encryption keys (DEKs) with the latest
+      key version.
     </p>
     <p class="note">
       To enable key rotation options for your {{site.data.keyword.cloud_notm}}
       data service, the data service must be integrated with
       {{site.data.keyword.keymanagementserviceshort}}. Refer to the
       documentation for your {{site.data.keyword.cloud_notm}} data service, or
-      <a href="/docs/key-protect?topic=key-protect-integrate-services">check out our list of integrated services to learn more</a>.
+      [check out our list of integrated services to learn more](/docs/key-protect?topic=key-protect-integrate-services).
     </p>
     <p class="tip">
       When you rotate a key in {{site.data.keyword.keymanagementserviceshort}},
       you're not charged additional fees. You can continue to unwrap your
       wrapped data encryption keys (WDEKs) with retired key material at no extra
       cost. For more information about our pricing options, see the
-      <a href="https://{DomainName}/catalog/services/key-protect" target="_blank">{{site.data.keyword.keymanagementserviceshort}} catalog page</a>.
+      [{{site.data.keyword.keymanagementserviceshort}} catalog page](https://{DomainName}/catalog/services/key-protect){: external}.
     </p>
   </dd>
 </dl>
@@ -245,10 +246,10 @@ rewrap data encryption keys, see
 ## Frequency of key rotation
 {: #rotation-frequency}
 
-After you generate a root key in {{site.data.keyword.keymanagementserviceshort}},
-you decide the frequency of its rotation. You might want to rotate your keys
-due to personnel turnover, process malfunction, or according to your
-organization's internal key expiration policy.
+After you generate a root key in
+{{site.data.keyword.keymanagementserviceshort}}, you decide the frequency of its
+rotation. You might want to rotate your keys due to personnel turnover, process
+malfunction, or according to your organization's internal key expiration policy.
 
 Rotate your keys regularly, for example every 30 days, to meet cryptographic
 best practices.

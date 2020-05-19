@@ -35,7 +35,8 @@ service generates cryptographic key material on your behalf that's rooted in
 cloud-based hardware security modules (HSMs). But depending on your business
 requirements, you might need to generate key material from your internal
 solution, and then extend your on-premises key management infrastructure onto
-the cloud by importing keys into {{site.data.keyword.keymanagementserviceshort}}.
+the cloud by importing keys into
+{{site.data.keyword.keymanagementserviceshort}}.
 
 | Benefit | Description |
 | --- | --- |
@@ -62,16 +63,17 @@ material to the service.
       the cloud.
     </p>
     <p>
-     If you're building a proof of concept, you can also use a cryptography
-     toolkit such as
-     <a href="https://www.openssl.org/" target="_blank" class="external">OpenSSL</a>
-     to generate key material that you can import into
-     {{site.data.keyword.keymanagementserviceshort}} for your testing needs.
+      If you're building a proof of concept, you can also use a cryptography
+      toolkit such as
+      [OpenSSL](https://www.openssl.org/){: external}
+      to generate key material that you can import into
+      {{site.data.keyword.keymanagementserviceshort}} for your testing needs.
     </p>
   </dd>
 
   <dt>
-    Choose an option for importing key material into {{site.data.keyword.keymanagementserviceshort}}
+    Choose an option for importing key material into
+    {{site.data.keyword.keymanagementserviceshort}}
   </dt>
   <dd>
     <p>
@@ -89,8 +91,8 @@ material to the service.
     </p>
     <p>
       If your workload requires a security mechanism beyond TLS, you can also
-      <a href="#using-import-tokens">use an import token</a> to encrypt and
-      import root key material into the service.
+      [use an import token](#using-import-tokens)
+      to encrypt and import root key material into the service.
     </p>
   </dd>
 
@@ -103,12 +105,12 @@ material to the service.
       determine a method for running RSA encryption on the key material. You
       must use the <code>RSAES_OAEP_SHA_256</code> encryption scheme as
       specified by the
-      <a href="https://tools.ietf.org/html/rfc3447" target="_blank" class="external">PKCS #1 v2.1 standard for RSA encryption</a>.
+      [PKCS #1 v2.1 standard for RSA encryption](https://tools.ietf.org/html/rfc3447){: external}.
     </p>
     <p>
       Review the capabilities of your internal key management system or
       on-premises HSM to determine your options, or check out the
-      <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key">secure import tutorial</a>
+      [secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key)
       for examples.
     </p>
   </dd>
@@ -127,7 +129,7 @@ material to the service.
     <p>
       Review the capabilities of your internal key management system or
       on-premises HSM to determine your options, or check out the
-      <a href="/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce">secure import tutorial</a>
+      [secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce)
       for examples.
     </p>
   </dd>
@@ -144,7 +146,7 @@ material to the service.
     </p>
     <p>
       However, if you want to
-      <a href="/docs/key-protect?topic=key-protect-rotate-keys">rotate an imported root key</a>,
+      [rotate an imported root key](/docs/key-protect?topic=key-protect-rotate-keys),
       you must generate and provide new key material to retire and replace the
       existing key.
     </p>
@@ -159,13 +161,13 @@ If you want to encrypt your key material before you import it into
 for your service instance by using the
 {{site.data.keyword.keymanagementserviceshort}} API.
 
-Import tokens are a resource type in {{site.data.keyword.keymanagementserviceshort}}
-that enable the secure import of key material to your service instance. By
-using the contents of an import token to encrypt your key material on-premises,
-you protect root keys while they're in flight to
-{{site.data.keyword.keymanagementserviceshort}} based on the policies that you
-specify. For example, you can set a policy on the import token that limits its
- use based on time and usage count.
+Import tokens are a resource type in
+{{site.data.keyword.keymanagementserviceshort}} that enable the secure import of
+key material to your service instance. By using the contents of an import token
+to encrypt your key material on-premises, you protect root keys while they're in
+flight to {{site.data.keyword.keymanagementserviceshort}} based on the policies
+that you specify. For example, you can set a policy on the import token that
+limits its use based on time and usage count.
 
 ### How it works
 {: #how-import-tokens-work}
@@ -183,20 +185,29 @@ uploading a key to {{site.data.keyword.keymanagementserviceshort}}.
 The following list describes the import token workflow.
 
 1. **You send a request to create an import token.**
-   1. {{site.data.keyword.keymanagementserviceshort}} generates an RSA key-pair from its HSMs.
-   2. The public key becomes available for retrieval based on the policy that you specified at creation time.
+   1. {{site.data.keyword.keymanagementserviceshort}} generates an RSA key-pair
+   from its HSMs.
+   2. The public key becomes available for retrieval based on the policy that
+   you specified at creation time.
    3. The private key becomes non-extractable and never leaves the HSM.
 2. **You send a request to retrieve the import token.**
    1. You receive the import token contents, including:
-      - A public key for the encrypting key material that you want to import into the service.
+      - A public key for the encrypting key material that you want to import
+      into the service.
       - A nonce value that's used to verify the key import request.
 3. **You prepare the key that you want to import to the service.**
-   1. You generate key material by using an on-premises key management mechanism.
-   2. You encrypt the nonce value with the key material by using an AES-GCM encryption method that is compatible with your environment.
-   3. You encrypt the key material with the public key by using an RSA encryption method that is compatible with your environment.
+   1. You generate key material by using an on-premises key management
+   mechanism.
+   2. You encrypt the nonce value with the key material by using an AES-GCM
+   encryption method that is compatible with your environment.
+   3. You encrypt the key material with the public key by using an RSA
+   encryption method that is compatible with your environment.
 4. **You send a request to import the key.**
-   1. You provide the encrypted key material, the encrypted nonce, and the initialization vector (IV) that was generated by the AES-GCM algorithm.
-   2. {{site.data.keyword.keymanagementserviceshort}} verifies your request, decrypts the encrypted packet, and stores the key material as a root key in your service instance.
+   1. You provide the encrypted key material, the encrypted nonce, and the
+   initialization vector (IV) that was generated by the AES-GCM algorithm.
+   2. {{site.data.keyword.keymanagementserviceshort}} verifies your request,
+   decrypts the encrypted packet, and stores the key material as a root key in
+   your service instance.
 
 You can create only one import token per service instance. To learn more about
 retrieval limits for import tokens,

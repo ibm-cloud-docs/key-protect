@@ -48,7 +48,8 @@ accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 ### Understanding network access policies
 {: #understanding-network-access-policies}
 
-Two options control network access to {{site.data.keyword.keymanagementserviceshort}} instances:
+Two options control network access to
+{{site.data.keyword.keymanagementserviceshort}} instances:
 
 * Public and private network access - this is the default
 * Private network access only
@@ -61,10 +62,11 @@ requests from both `public and private` endpoints.
 Public and private network access is the default setting and is used if a policy
 is not set.
 
-For example, multiple teams are testing a solution that uses {{site.data.keyword.keymanagementserviceshort}} instances.
-Development and test teams issue API requests from both outside (public
-endpoints) and inside (private endpoints) the IBM Cloud. You allow public and
-private API requests to ensure each team has access to {{site.data.keyword.keymanagementserviceshort}}
+For example, multiple teams are testing a solution that uses
+{{site.data.keyword.keymanagementserviceshort}} instances. Development and test
+teams issue API requests from both outside (public endpoints) and inside
+(private endpoints) the IBM Cloud. You allow public and private API requests to
+ensure each team has access to {{site.data.keyword.keymanagementserviceshort}}
 instances during this phase of the project.
 
 **Private network access only**
@@ -84,15 +86,17 @@ In the `Regions and endpoints` section there is a section that explains how to
 After the network access policy is set to `private-only` you cannot make any
 {{site.data.keyword.keymanagementserviceshort}} API calls from the public
 network, including the API to change the policy. Make sure the private
-environment is set up before setting the network access policy to `private-only`.
-See [using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
+environment is set up before setting the network access policy to
+`private-only`. See
+[using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 {: note}
 
 #### Deprovision a service instance
 {: deprovision-a-service-instance}
 
 The network access policy is not enforced when a request for a
-{{site.data.keyword.keymanagementserviceshort}} service instance is deprovisioned.
+{{site.data.keyword.keymanagementserviceshort}} service instance is
+deprovisioned.
 
 ### User interface
 {: #user-interface}
@@ -112,10 +116,12 @@ unauthorized error (HTTP status code 401).
 ### Enabling network access to your service instance
 {: #enabling-network-access-to-your-service-instance}
 
-As an admin, enable a network access policy for a {{site.data.keyword.keymanagementserviceshort}}
-service instance by making a `PUT` call to the following endpoint. See these API
-references to [set](https://{DomainName}/apidocs/key-protect#set-instance-policies){: external}
-and [list](https://{DomainName}/apidocs/key-protect#list-instance-policies){: external}
+As an admin, enable a network access policy for a
+{{site.data.keyword.keymanagementserviceshort}} service instance by making a
+`PUT` call to the following endpoint. See these API references to
+[set](https://{DomainName}/apidocs/key-protect#set-instance-policies){: external}
+and
+[list](https://{DomainName}/apidocs/key-protect#list-instance-policies){: external}
 instance policies.
 
 ```
@@ -128,7 +134,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
     To change a network access policy, you must be assigned a _Manager_ access
     policy for your service instance. To learn how IAM (identity and access
     management) roles map to {{site.data.keyword.keymanagementserviceshort}}
-    service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    service actions, check out
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
 2. Enable a network access policy for your service instance by running the
@@ -147,30 +154,27 @@ following cURL command.
           "collectionTotal": 1
         },
         "resources": [
-            {
-                "policy_type": "allowedNetwork",
-                "policy_data": {
-                    "enabled": <enabled>,
-                    "attributes": {
-                        "allowed_network": "<access_type>"
-                    }
-                }
+          {
+            "policy_type": "allowedNetwork",
+            "policy_data": {
+              "enabled": <enabled>,
+              "attributes": {
+                "allowed_network": "<access_type>"
+              }
             }
+          }
         ]
       }'
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>
-        <th>
-          Variable
-        </th>
-        <th>
-          Description
-        </th>
+        <th>Variable</th>
+        <th>Description</th>
       </tr>
 
       <tr>
@@ -178,11 +182,17 @@ following cURL command.
           <varname>region</varname>
         </td>
         <td>
-          <strong>Required.</strong> The region abbreviation, such as
-          <code>us-south</code> or <code>eu-gb</code>, that represents the
-          geographic area where your {{site.data.keyword.keymanagementserviceshort}}
-          service instance resides. For more information, see
-          <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
         </td>
       </tr>
 
@@ -191,18 +201,33 @@ following cURL command.
           <varname>IAM_token</varname>
         </td>
         <td>
-          <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-          access token. Include the full contents of the <code>IAM</code> token,
-          including the Bearer value, in the cURL request. For more information, see
-          <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the cURL request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
         </td>
       </tr>
 
       <tr>
-        <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to
-        your {{site.data.keyword.keymanagementserviceshort}} service instance.
-        For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} service
+            instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
       </tr>
 
       <tr>
@@ -223,7 +248,8 @@ following cURL command.
         <td>
           <strong>Required.</strong> The network access policy to apply to your
           {{site.data.keyword.keymanagementserviceshort}} service instance.
-          Acceptable values are <code>public-and-private</code> or <code>private-only</code>.
+          Acceptable values are <code>public-and-private</code> or
+          <code>private-only</code>.
         </td>
       </tr>
 
@@ -241,7 +267,8 @@ following cURL command.
     instances only. The network access policy does not apply to specific keys.
 
 3. Optional: Verify that the network access policy was created by browsing the
-policies that are available for your {{site.data.keyword.keymanagementserviceshort}} service instance.
+policies that are available for your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
 
     ```cURL
     curl -X GET \

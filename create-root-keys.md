@@ -82,7 +82,8 @@ from two users to delete keys.
           Key type
         </td>
         <td>
-          The <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">type of key</a>
+          The
+          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
           that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.
           From the list of key types, select <b>Root key</b>.
         </td>
@@ -160,7 +161,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           </p>
           <p>
             For more information, see
-            <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
           </p>
         </td>
       </tr>
@@ -177,7 +178,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           </p>
           <p>
             For more information, see
-            <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
           </p>
         </td>
       </tr>
@@ -193,7 +194,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           </p>
           <p>
             For more information, see
-            <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
           </p>
         </td>
       </tr>
