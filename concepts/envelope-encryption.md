@@ -72,9 +72,10 @@ advanced encryption and management of data.
   </dt>
   <dd>
     <p>
-      Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}.
-      They are symmetric key-wrapping keys used as roots of trust for wrapping
-      (encrypting) and unwrapping (decrypting) other keys stored in a data service.
+      Root keys are primary resources in
+      {{site.data.keyword.keymanagementserviceshort}}. They are symmetric
+      key-wrapping keys used as roots of trust for wrapping (encrypting) and
+      unwrapping (decrypting) other keys stored in a data service.
     </p>
     <p>
       With {{site.data.keyword.keymanagementserviceshort}}, you can create,
@@ -89,13 +90,14 @@ advanced encryption and management of data.
     Standard keys
   </dt>
   <dd>
-      Standard keys are a way to persist a secret, such as a password or an
-      encryption key. When you use {{site.data.keyword.keymanagementserviceshort}}
-      to store standard keys, you enable hardware security module (HSM) storage
-      for your secrets, fine-grained access control to your resources with
-      <a href="/docs/key-protect?topic=key-protect-manage-access" target="_blank">{{site.data.keyword.iamshort}} (IAM)</a>,
-      and the ability to audit API calls to the service with
-      <a href="/docs/key-protect?topic=key-protect-at-events" target="_blank">{{site.data.keyword.cloudaccesstrailshort}}</a>.
+    Standard keys are a way to persist a secret, such as a password or an
+    encryption key. When you use
+    {{site.data.keyword.keymanagementserviceshort}} to store standard keys,
+    you enable hardware security module (HSM) storage for your secrets,
+    fine-grained access control to your resources with
+    [{{site.data.keyword.iamshort}} (IAM)](/docs/key-protect?topic=key-protect-manage-access),
+    and the ability to audit API calls to the service with
+    [{{site.data.keyword.cloudaccesstrailshort}}](/docs/key-protect?topic=key-protect-at-events).
   </dd>
 </dl>
 
@@ -103,7 +105,7 @@ After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the
 system returns an ID value that you can use to make API calls to the service.
 You can retrieve the ID value for your keys from the
 {{site.data.keyword.keymanagementserviceshort}} dashboard or by using the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect).
+[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
 
 ## Wrapping keys
 {: #wrapping}
@@ -113,10 +115,11 @@ in the cloud. You can wrap one or more DEKs with advanced encryption by
 designating a root key in {{site.data.keyword.keymanagementserviceshort}} that
 you can fully manage.
 
-After you designate a root key in {{site.data.keyword.keymanagementserviceshort}},
-you can send a key wrap request to the service by using the
-{{site.data.keyword.keymanagementserviceshort}} API. The key wrap operation
-provides both confidentiality and integrity protection for a DEK.
+After you designate a root key in
+{{site.data.keyword.keymanagementserviceshort}}, you can send a key wrap request
+to the service by using the {{site.data.keyword.keymanagementserviceshort}} API.
+The key wrap operation provides both confidentiality and integrity protection
+for a DEK.
 
 The following diagram shows the key wrapping process in action:
 ![The diagram shows key wrapping in action.](../images/wrapping-keys.svg)

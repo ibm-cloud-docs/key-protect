@@ -18,27 +18,6 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-<!-- TODO: release date for network access policy
-  1. Determine when the dual auth policy will be added
-  2. Determine when network access policy will be implemented in the CLI
-
-  3. Hard error when creating a key then listing the policies
-  6. kp key create (add -o option, --output is supported)
-  7. kp key policy-update (add a short option for --set-type)
-  8. Why are there (-k --key) and (-k --key-material) options, pick one
-  9. List of commands without -o
-    import-token create
-    import-token key-encrypt
-    import-token nonce-encrypt
-    import-token show
-    key rotate
-  10. What order are the keys listed when doing a "kp keys"
-  11. Is there a limit on the number of keys listed in "kp keys", the
-      documentation used to say "last 200 keys" (what is the definition of last
-      how are keys sorted)
-  12. Is there a way to see the current region (kp region-set)
--->
-
 # CLI reference version 0.4.0
 {: #cli-reference}
 
@@ -606,7 +585,7 @@ Key ID                                 Key Name
   </dt>
   <dd>
     Set the parameter only if you want to create a
-    <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>.
+    [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types).
     To create a root key, omit the <code>--standard-key</code> parameter.
   </dd>
 
@@ -723,7 +702,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
   </dt>
   <dd>
     The ID of the key that you want to delete. To retrieve a list of your
-    available keys, run the <a href="#kp-keys">kp keys</a> command.
+    available keys, run the [kp keys](#kp-keys) command.
   </dd>
 
   <dt>
@@ -856,7 +835,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
   </dt>
   <dd>
     The ID of the key that you want to delete. To retrieve a list of your
-    available keys, run the <a href="#kp-keys">kp keys</a> command.
+    available keys, run the [kp keys](#kp-keys) command.
   </dd>
 
   <dt>
@@ -945,7 +924,7 @@ Interval        2
   </dt>
   <dd>
     The ID of the key that you want to query. To retrieve a list of your
-    available keys, run the <a href="#kp-keys">kp keys</a> command.
+    available keys, run the [kp keys](#kp-keys) command.
   </dd>
 
   <dt>

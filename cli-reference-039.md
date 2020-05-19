@@ -175,7 +175,7 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
   </dt>
   <dd>
     Set the parameter only if you want to create a
-    <a href="/docs/key-protect?topic=key-protect-envelope-encryption#key-types">standard key</a>.
+    [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types).
     To create a root key, omit the <code>--standard-key</code> parameter.
   </dd>
 
@@ -314,7 +314,7 @@ Key ID                                 Key Name          Description     Creatio
   </dt>
   <dd>
     The ID of the key that you want to retrieve. To retrieve a list of your
-    available keys, run the <a href="#kp-list-039">kp list</a> command.
+    available keys, run the [kp list](#kp-list-039) command.
   </dd>
 
   <dt>
@@ -567,7 +567,7 @@ Deleted Key
   </dt>
   <dd>
     The ID of the key that you want to delete. To retrieve a list of your
-    available keys, run the <a href="#kp-list-039">kp list</a> command.
+    available keys, run the [kp list](#kp-list-039) command.
   </dd>
 
   <dt>
@@ -599,7 +599,7 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
   </dt>
   <dd>
     The ID of the key that you want to query. To retrieve a list of your
-    available keys, run the <a href="#kp-list-039">kp list</a> command.
+    available keys, run the [kp list](#kp-list-039) command.
   </dd>
 
   <dt>
@@ -659,7 +659,7 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
   </dt>
   <dd>
     The ID of the key that you want to query. To retrieve a list of your
-    available keys, run the <a href="#kp-list-039">kp list</a> command.
+    available keys, run the [kp list](#kp-list-039) command.
   </dd>
 
   <dt>
@@ -897,7 +897,8 @@ Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
     <code>-p, --pubkey</code>
   </dt>
   <dd>
-    The base64 encoded public encryption key that was distributed by Key Protect.
-    To retrieve a public key, use <code>ibmcloud kp import-token get</code>.
+    The base64 encoded public encryption key that was distributed by
+    {{site.data.keyword.keymanagementserviceshort}}. To retrieve a public key,
+    use <code>ibmcloud kp import-token get</code>.
   </dd>
 </dl>
