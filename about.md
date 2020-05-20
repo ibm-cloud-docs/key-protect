@@ -44,8 +44,8 @@ You might need to manage keys in the following scenarios:
 | You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures. | With the service, you can control user access to manage keys by [assigning different Identity and Access Management roles](/docs/key-protect?topic=key-protect-manage-access#roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material. |
 | You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption keys, so you can manage and protect other keys that encrypt your data at rest. | With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap (encrypt) your data encryption keys with a highly secure root key](/docs/key-protect?topic=key-protect-envelope-encryption). You can bring your own root keys or create them in the service. |
 
-Looking for a dedicated key management solution that supports customer-controlled,
-cloud-based hardware security modules (HSMs)?
+Looking for a dedicated key management solution that supports
+customer-controlled, cloud-based hardware security modules (HSMs)?
 [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started)
 integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep
 Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization

@@ -76,6 +76,7 @@ material.
         <th>Variable</th>
         <th>Description</th>
       </tr>
+
       <tr>
         <td>
           <varname>region</varname>

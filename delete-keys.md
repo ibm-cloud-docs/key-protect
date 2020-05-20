@@ -65,10 +65,14 @@ complete the following steps to delete a key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
-3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the application details page, use the **Keys** table to browse the keys in your service.
-5. Click the ⋯ icon to open a list of options for the key that you want to delete.
-6. From the options menu, click **Delete key** and confirm the key deletion in the next screen.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in
+your service.
+5. Click the ⋯ icon to open a list of options for the key that you want to
+delete.
+6. From the options menu, click **Delete key** and confirm the key deletion in
+the next screen.
 
 After you delete a key, the key transitions to the _Destroyed_ state. Keys in
 this state are no longer recoverable. Metadata that is associated with the key,
@@ -100,7 +104,8 @@ at query time to delete the key.
 
     You can find the ID for a key in your service instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
-    or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    or by accessing the {{site.data.keyword.keymanagementserviceshort}}
+    dashboard.
 
 3. Run the following cURL command to delete the key and its contents.
 
@@ -113,7 +118,8 @@ at query time to delete the key.
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>
@@ -130,7 +136,8 @@ at query time to delete the key.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance resides.
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
           </p>
           <p>
             For more information, see
@@ -299,7 +306,8 @@ the key.
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>
@@ -316,7 +324,8 @@ the key.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance resides.
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
           <p>
           </p>
             For more information, see
