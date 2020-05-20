@@ -25,18 +25,24 @@ subcollection: key-protect
 # Viewing key versions
 {: #view-key-versions}
 
-View the versions that are associated with a root key by using {{site.data.keyword.keymanagementservicefull}}.
+View the versions that are associated with a root key by using
+{{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} creates a new version of the key. As a security admin, you can audit the rotation history of a root key by viewing its key version history.
+When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}}
+creates a new version of the key. As a security admin, you can audit the
+rotation history of a root key by viewing its key version history.
 
-Key versions are available only for root keys. To learn more about how key rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
+Key versions are available only for root keys. To learn more about how key
+rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out
+[Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Viewing key versions with the API
 {: #view-key-versions-api}
 
-For a high-level view, you can list the versions that are associated with a root key by making a `GET` call to the following endpoint.
+For a high-level view, you can list the versions that are associated with a root
+key by making a `GET` call to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
@@ -47,9 +53,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 
 2. Retrieve the ID of the root key that you want to inspect.
 
-    The ID value is used to access detailed information about the key. You can find the ID for a key in your service instance by [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys), or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    The ID value is used to access detailed information about the key. You can
+    find the ID for a key in your service instance by
+    [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
+    or by accessing the {{site.data.keyword.keymanagementserviceshort}}
+    dashboard.
 
-3. Get a list of versions that are associated with the root key by running the following cURL command.
+3. Get a list of versions that are associated with the root key by running the
+following cURL command.
 
     ```cURL
     curl -X GET \
@@ -60,15 +71,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>
         <th>Variable</th>
         <th>Description</th>
       </tr>
+
       <tr>
-        <td><varname>region</varname></td>
+        <td>
+          <varname>region</varname>
+        </td>
         <td>
           <p>
             <strong>Required.</strong> The region abbreviation, such as
@@ -83,12 +98,20 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
           </p>
         </td>
       </tr>
+
       <tr>
-        <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the key that you want to inspect.</td>
+        <td>
+          <varname>key_ID</varname>
+        </td>
+        <td>
+          <strong>Required.</strong> The unique identifier for the key that you want to inspect.
+        </td>
       </tr>
+
       <tr>
-        <td><varname>IAM_token</varname></td>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
         <td>
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
@@ -101,8 +124,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
           </p>
         </td>
       </tr>
+
       <tr>
-        <td><varname>instance_ID</varname></td>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
         <td>
           <p>
             <strong>Required.</strong> The unique identifier that is assigned to
@@ -115,10 +141,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
           </p>
         </td>
       </tr>
-      <caption style="caption-side:bottom;">Table 1. Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API</caption>
+
+      <caption style="caption-side:bottom;">
+        Table 1. Describes the variables that are needed to list key versions
+        with the {{site.data.keyword.keymanagementserviceshort}} API
+      </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>/versions` response returns the list of versions that are associated with the root key. The following JSON object shows an example returned value.
+    A successful `GET api/v2/keys/<key_ID>/versions` response returns the list
+    of versions that are associated with the root key. The following JSON object
+    shows an example returned value.
 
     ```json
     {
@@ -140,4 +172,5 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
     ```
     {: screen}
 
-    The `resources` object lists each key version, along with its ID and creation date, in reverse chronological order.
+    The `resources` object lists each key version, along with its ID and
+    creation date, in reverse chronological order.

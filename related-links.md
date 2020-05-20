@@ -24,7 +24,8 @@ subcollection: key-protect
 # Related links
 {: #related-links}
 
-More resources to help you learn about managing encryption with {{site.data.keyword.keymanagementservicelong}}.
+More resources to help you learn about managing encryption with
+{{site.data.keyword.keymanagementservicelong}}.
 
 ## Samples
 {: #samples}
@@ -48,4 +49,3 @@ More resources to help you learn about managing encryption with {{site.data.keyw
 
 - [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started)
 - [{{site.data.keyword.cloud_notm}} HSM](https://www.ibm.com/cloud/hardware-security-module){: external}
-

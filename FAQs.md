@@ -26,14 +26,15 @@ subcollection: key-protect
 # FAQs
 {: #faqs}
 
-You can use the following FAQs to help you with {{site.data.keyword.keymanagementservicelong}}.
+You can use the following FAQs to help you with
+{{site.data.keyword.keymanagementservicelong}}.
 
 ## How does pricing work for {{site.data.keyword.keymanagementserviceshort}}?
 {: #how-does-pricing-work}
 {: faq}
 
 {{site.data.keyword.keymanagementserviceshort}} offers a
-[graduated tier plan](https://{DomainName}/catalog/services/key-protect)
+[graduated tier plan](https://{DomainName}/catalog/services/key-protect){: external}
 with no-charge pricing for users who require 20 or fewer keys. You can have 20
 free keys per {{site.data.keyword.cloud_notm}} account. If your team requires
 multiple instances of {{site.data.keyword.keymanagementserviceshort}},
@@ -44,10 +45,11 @@ within the account and then applies pricing.
 {: #what-is-active-encryption-key}
 {: faq}
 
-When you import encryption keys into {{site.data.keyword.keymanagementserviceshort}},
-or when you use {{site.data.keyword.keymanagementserviceshort}} to generate keys
-from its HSMs, those keys become _active_ keys. Pricing is based on all active
-keys within an {{site.data.keyword.cloud_notm}} account.
+When you import encryption keys into
+{{site.data.keyword.keymanagementserviceshort}}, or when you use
+{{site.data.keyword.keymanagementserviceshort}} to generate keys from its HSMs,
+those keys become _active_ keys. Pricing is based on all active keys within an
+{{site.data.keyword.cloud_notm}} account.
 
 ## How should I group and manage my keys?
 {: #how-to-group-keys}
@@ -59,7 +61,8 @@ From a pricing standpoint, the best way to use
 root keys, and then use those root keys to encrypt the data encryption keys that
 are created by an external app or cloud data service.
 
-To find out more about using root keys to protect data encryption keys, check out
+To find out more about using root keys to protect data encryption keys, check
+out
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## What is a root key?
@@ -67,9 +70,10 @@ To find out more about using root keys to protect data encryption keys, check ou
 {: faq}
 {: support}
 
-Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}.
-They are symmetric key-wrapping keys that are used as roots of trust for
-protecting other keys that are stored in a data service with
+Root keys are primary resources in
+{{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping
+keys that are used as roots of trust for protecting other keys that are stored
+in a data service with
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and
@@ -81,11 +85,11 @@ in the cloud.
 {: faq}
 {: support}
 
-Envelope encryption is the practice of encrypting data with a _data encryption key_,
-and then encrypting the data encryption key with a highly secure _key-wrapping key_.
-Your data is protected at rest by applying multiple layers of encryption. To
-learn how to enable envelope encryption for your {{site.data.keyword.cloud_notm}}
-resources, check out
+Envelope encryption is the practice of encrypting data with a
+_data encryption key_, and then encrypting the data encryption key with a highly
+secure _key-wrapping key_. Your data is protected at rest by applying multiple
+layers of encryption. To learn how to enable envelope encryption for your
+{{site.data.keyword.cloud_notm}} resources, check out
 [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
 
 ## How long can a key name be?
@@ -150,14 +154,17 @@ role cannot modify key material.
 {: support}
 
 You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track
-how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}}
-service instance. For example, when you create, import, delete, or read a key in
-{{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.cloudaccesstrailshort}}
-event is generated. These events are automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}}
-service in the same region where the {{site.data.keyword.keymanagementserviceshort}}
-service is provisioned.
+how users and applications interact with your
+{{site.data.keyword.keymanagementserviceshort}} service instance. For example,
+when you create, import, delete, or read a key in
+{{site.data.keyword.keymanagementserviceshort}}, an
+{{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are
+automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}}
+service in the same region where the
+{{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
-To find out more, check out [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
+To find out more, check out
+[Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
 
 ## How can I check what data is encrypted by which root key?
 {: #check-protected-data}
@@ -198,17 +205,33 @@ that is associated with the key. This action cannot be reversed.
 
 For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents
 the deletion of a key that's actively encrypting data in the cloud. If you try
-to delete a key that's registered with a cloud resource, the action won't succeed.
+to delete a key that's registered with a cloud resource, the action won't
+succeed.
 
-If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
+If needed, you can
+[force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
 by using the {{site.data.keyword.keymanagementserviceshort}} APIs.
 [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources)
 and verify with the owner of the resources to ensure you no longer require
 access to that data.
 
 If you can't delete a key because a retention policy exists on the associated
-resource, contact the account owner to remove the retention policy on that resource.
+resource, contact the account owner to remove the retention policy on that
+resource.
 {: note}
+
+## What happens when I disable a key?
+{: #key-disable}
+{: faq}
+{: support}
+
+When you disable a key, the key transitions to the _Suspended_ state. Keys in
+this state are no longer available for encrypt or decrypt operations, and any
+data that's associated with the key becomes inaccessible.
+
+Disabling a key is a reversible action. You can always
+[enable a disabled key](/docs/key-protect?topic=key-protect-disable-keys#enable-api)
+and restore access to the data that was previously encrypted with the key.
 
 ## What is a dual authorization policy?
 {: #dual-auth}
@@ -232,7 +255,8 @@ authorization policies for keys cannot be reverted.
 
 If you have existing keys in a service instance, those keys will continue to
 require only a single authorization to be deleted. If you want to enable those
-keys for dual authorization, you can use the Key Protect APIs to
+keys for dual authorization, you can use the
+{{site.data.keyword.keymanagementserviceshort}} APIs to
 [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## Can I disable a dual authorization settings for my service instance?

@@ -42,10 +42,11 @@ Keep in mind the following considerations before you delete a key:
 that's actively protecting a cloud resource. Before you delete a key,
 [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
 that are associated with the key.
-- You can [force deletion on a key](#delete-key-force) that's protecting a cloud
-resource. However, the action won't succeed if the key's associated resource is
-non-erasable due to a retention policy. You can verify whether a key is
-associated with a non-erasable resource by
+- You can
+[force deletion on a key](#delete-key-force)
+that's protecting a cloud resource. However, the action won't succeed if the
+key's associated resource is non-erasable due to a retention policy. You can
+verify whether a key is associated with a non-erasable resource by
 [checking the registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api)
 for the key.
 
@@ -185,7 +186,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to set a key for deletion.
+        Table 1. Describes the variables that are needed to set a key for
+        deletion.
       </caption>
     </table>
 
@@ -404,7 +406,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
 
     To remove an authorization to delete a key, you must be assigned a _Manager_
     or _Writer_ access policy for the instance or key. To learn how IAM roles
-    map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out
+    map to {{site.data.keyword.keymanagementserviceshort}} service actions,
+    check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
@@ -439,7 +442,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance resides.
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
           </p>
           <p>
             For more information, see
@@ -493,11 +497,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to unset a key for deletion.
+        Table 3. Describes the variables that are needed to unset a key for
+        deletion.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that your key is no longer authorized for deletion. If you need to
-    restart the dual authorization process, you can issue another authorization to
+    restart the dual authorization process, you can issue another authorization
+    to
     [set the key for deletion](#set-key-deletion-api).

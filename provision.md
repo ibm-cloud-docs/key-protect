@@ -63,7 +63,8 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 2. Select the account, region, and resource group where you would like to create
 a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-    You can use the following command to set your target region and resource group.
+    You can use the following command to set your target region and resource
+    group.
 
     ```sh
     ibmcloud target -r <region_name> -g <resource_group_name>
@@ -72,7 +73,8 @@ a {{site.data.keyword.keymanagementserviceshort}} service instance.
 
     The `<resource_group_name>` can be `Default`.
 
-3. Provision an instance of {{site.data.keyword.keymanagementserviceshort}} within that account and resource group.
+3. Provision an instance of {{site.data.keyword.keymanagementserviceshort}}
+within that account and resource group.
 
     ```sh
     ibmcloud resource service-instance-create <instance_name> kms tiered-pricing <region>
