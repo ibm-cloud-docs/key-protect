@@ -75,7 +75,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instancepolicies.read`    | List instance policies                       |
 | `kms.instancepolicies.write`   | Set an instance policy                       |
 | `kms.policies.default`         | Failed policy event                          |
-| `kms.instancepolicies.default` | Unrecognized instance policy action event    |
+| `kms.instancepolicies.default` | Unrecognized policy action event    |
 {: caption="Table 2. Policy actions" caption-side="top"}
 
 ## Import token events
@@ -125,10 +125,10 @@ see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-
 ## Analyzing successful events
 {: #at-events-analyze}
 
-Most service actions have unique `requestData` and `responseData`associated with each type of event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
+Most service actions have unique `requestData` and `responseData`associated with each related event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
 
 ### Common Fields
-There are some common fields that {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event model to help you understand your data.
+There are some common fields that {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event model to provide more insight into your data.
 
   <table>
     <tr>
@@ -153,7 +153,7 @@ There are some common fields that {{site.data.keyword.keymanagementserviceshort}
         <p>the unique identifier of the API request that generated the event.</p>
       </td>
     </tr>
-    <caption style="caption-side:bottom;">Table 6. Describes the common fields in Activity Tracker events regarding {{site.data.keyword.keymanagementserviceshort}}.</caption>
+    <caption style="caption-side:bottom;">Table 6. Describes the common fields in Activity Tracker events for {{site.data.keyword.keymanagementserviceshort}} service actions.</caption>
   </table>
 
 For more information on the event fields in the Cloud Auditing Data Federation (CADF) event model, see [Event Fields](https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
@@ -352,4 +352,4 @@ If you make a call to `GET api/v2/keys` to list the keys that are available in y
 
 ### Severity is at critical level for an event
 
-The severity for all Activity Tracker events with {{site.data.keyword.keymanagementserviceshort}} are based on the type of request that was made, then status code. For example, if you make a delete key request with an invalid key, but you are also unathenticated for the service instance that you included in the request, the unathentication will take precedence and the event will be evaluated as a `401` bad request call with a severity of `critical`.
+The severity for all Activity Tracker events with {{site.data.keyword.keymanagementserviceshort}} are based on the type of request that was made, then the status code of the request. For example, if you make a delete key request with an invalid key, but you are also unauthorized to make requests to the service instance that you provided in the request, the unauthorization will take precedence and the event will be evaluated as a `401` bad request call with a severity of `critical`. 
