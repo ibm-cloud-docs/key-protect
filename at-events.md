@@ -27,80 +27,67 @@ As a security officer, auditor, or manager, you can use the Activity Tracker
 service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-**This content is currently being developed and reviewed.**
 
-{{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. 
-
-For more information, see the
+{{site.data.keyword.at_full_notm}} records service and user initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can 
+use the Activity Tracker service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be 
+alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information 
+regarding the Activity Tracker service, see the
 [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
 
+To see which Key Protect API requests correlate to the actions below, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
 
 ## Key events
 {: #key-actions}
 
 The following table lists the key actions that generate an event:
 
-| Action                            | Description                             |
-| --------------------------------- | --------------------------------------- |
-| `kms.secrets.create`              | Create a key                            |
-| `kms.secrets.read`                | Retrieve a key                          |
-| `kms.secrets.readmetadata`        | Retrieve details about a key            |
-| `kms.secrets.head`                | Retrieve key total                      |
-| `kms.secrets.list`                | List keys                               |
-| `kms.secrets.wrap`                | Wrap a key                              |
-| `kms.secrets.unwrap`              | Unwrap a key                            |
-| `kms.secrets.rewrap`              | Rewrap a key                            |
-| `kms.secrets.rotate`              | Rotate a key                            |
-| `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key            |
-| `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key               |
-| `kms.secrets.restore`             | Restore a key                           |
-| `kms.secrets.listkeyversions`     | List all the versions of a key          |
-| `kms.secrets.enable`              | Enable operations for a key             |
-| `kms.secrets.disable`             | Disable operations for a key            |
-| `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key |
-| `kms.secrets.default`             | Failed key event
+| Action                            | Description                                                  |
+| --------------------------------- | ------------------------------------------------------------ |
+| `kms.secrets.create`              | Create a key                                                 |
+| `kms.secrets.read`                | Retrieve all key information                                 |
+| `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
+| `kms.secrets.head`                | Retrieve key total                                           |
+| `kms.secrets.list`                | List keys                                                    |
+| `kms.secrets.wrap`                | Wrap a key                                                   |
+| `kms.secrets.unwrap`              | Unwrap a key                                                 |
+| `kms.secrets.rewrap`              | Rewrap a key                                                 |
+| `kms.secrets.rotate`              | Rotate a key                                                 |
+| `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key with Dual Authorization policy  |
+| `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key with Dual Authorization policy     |
+| `kms.secrets.restore`             | Restore a key                                                |
+| `kms.secrets.listkeyversions`     | List all the versions of a key                               |
+| `kms.secrets.enable`              | Enable operations for a key                                  |
+| `kms.secrets.disable`             | Disable operations for a key                                 |
+| `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
+| `kms.secrets.default`             | Unrecognized key action event                                |
 {: caption="Table 1. Lifecycle Key Actions" caption-side="top"}
 
 ## Policy events
 {: #policy-actions}
 
-The following table lists the key actions that generate an event:
+The following table lists the policy actions that generate an event:
 
-| Action                         | Description            |
-| ------------------------------ | ---------------------- |
-| `kms.policies.read`            | List key policies      |
-| `kms.policies.write`           | Set key policies       |
-| `kms.instancepolicies.read`    | List instance policies |
-| `kms.instancepolicies.write`   | Set an instance policy |
-| `kms.policies.default`         | Failed policy event    |
-| `kms.instancepolicies.default` | Failed policy event    |
+| Action                         | Description                                  |
+| ------------------------------ | -------------------------------------------- | 
+| `kms.policies.read`            | List key policies                            |
+| `kms.policies.write`           | Set key policies                             |
+| `kms.instancepolicies.read`    | List instance policies                       |
+| `kms.instancepolicies.write`   | Set an instance policy                       |
+| `kms.policies.default`         | Failed policy event                          |
+| `kms.instancepolicies.default` | Unrecognized instance policy action event    |
 {: caption="Table 2. Policy actions" caption-side="top"}
 
 ## Import token events
 {: #import-token-actions}
 
-The following table lists the key actions that generate an event:
+The following table lists the import token actions that generate an event:
 
-| Action                    | Description               |
-| ------------------------- | ------------------------- |
-| `kms.importtoken.create`  | Create an import token    |
-| `kms.importtoken.read`    | Retrieve an import token  |
-| `kms.importtoken.deaults` | Failed import token event |
+| Action                    | Description                            |
+| ------------------------- | -------------------------------------- |
+| `kms.importtoken.create`  | Create an import token                 |
+| `kms.importtoken.read`    | Retrieve an import token               |
+| `kms.importtoken.default` | Unrecognized import token action event |
 {: caption="Table 3. Import token actions" caption-side="top"}
-
-## Key with registration events
-{: #protected-resource-key-actions}
-
-The following table lists the key actions that generate an event:
-
-| Action                    | Description                                     |
-| ------------------------- | ----------------------------------------------- |
-| `kms.secrets.ack-delete`  | Delete a key with registrations                 |
-| `kms.secrets.ack-restore` | Restore a key with registrations                |
-| `kms.secrets.ack-rotate`  | Rotate an import token                          |
-| `kms.secrets.ack-enable`  | Enable operations for a key with registrations  |
-| `kms.secrets.ack-disable` | Disable operations for a key with registrations |
-{: caption="Table 4. Lifecycle actions that involve keys that protect Cloud Resources" caption-side="top"}
 
 ## Registration events
 {: #registration-actions}
@@ -110,16 +97,9 @@ The following table lists the key actions that generate an event:
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
-| `kms.registrations.default`             | Failed registration event                                |
+| `kms.registrations.default`             | Unrecognized registration action event                   |
 {: caption="Table 5. Registration actions" caption-side="top"}
 
-[^services-1]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
-
-[^services-2]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
-
-[^services-3]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
-
-[^services-4]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
 ## Viewing events
 {: #at-ui}
@@ -144,25 +124,49 @@ see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-
 ## Analyzing successful events
 {: #at-events-analyze}
 
-Due to the sensitivity of the information for an encryption key, when an event
-is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}}
-service, the event that is generated does not include detailed information about
-the key.
+Most service actions have unique `requestData` and `responseData`associated with each type of event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
 
-The event includes a correlation ID that you can use to identify the
-key internally in your cloud environment. The correlation ID is a field that is
-returned as part of the `correlationId` field.
+### Common Fields
+There are some common fields that {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event model to help you understand your data.
 
-You can use this
-information to correlate the {{site.data.keyword.keymanagementserviceshort}} key
-with the information of the action that is reported through the
-{{site.data.keyword.cloudaccesstrailshort}} event.
+  <table>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><p><varname>`requestData.requestURI`</varname></p></td>
+      <td>
+        <p>the URI of the API request that was made.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><p><varname>`requestData.instanceID`</varname></p></td>
+      <td>
+        <p>the unique identifier of your {{site.data.keyword.keymanagementserviceshort}} service instance.</p>
+      </td>
+    </tr>
+     <tr>
+      <td><p><varname>`correlationId`</varname></p></td>
+      <td>
+        <p>the unique identifier of the API request that generated the event.</p>
+      </td>
+    </tr>
+    <caption style="caption-side:bottom;">Table 6. Describes the common fields in Activity Tracker events regarding {{site.data.keyword.keymanagementserviceshort}}.</caption>
+  </table>
 
-Requests made through private networks do not show the host address in Activity Tracker events.
-{: note}
+For more information on the event fields in the Cloud Auditing Data Federation (CADF) event model, see [Event Fields](https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
+
+While `initiator.host.address` is a field that is part of the Cloud Auditing Data Federation model, the host address field will not be shown for requests made through private networks.
+{: important}
 
 ### Key action events
 {: #key-action-events}
+
+Due to the sensitivity of the information for an encryption key, when an event
+is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}}
+service, the event that is generated does not include detailed information about
+the key, such as the payload and encrypted nonce.
 
 The `responseData.keyState` field is an integer and corresponds to the Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5 values.
 For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
@@ -174,7 +178,7 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 The following fields include extra information:
 - The `requestData.keyType` field includes the type of key that was created.
 - The `responseData.keyId` field includes the unique identifier associated with the key.
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
+- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 
@@ -188,26 +192,32 @@ The following field includes extra information:
 {: #wrap-unwrap-key-success}
 
 The following field includes extra information:
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
+- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
 
 #### Rewrap key
 {: #create-key-success}
 
 The following field includes extra information:
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
+- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
 - The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version associated with the ciphertext from the response.
 
 #### Restore key
 {: #restore-key-success}
 
 The following field includes extra information:
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version.
+- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertex.
 
-#### List keys or get key total
-{: #list-keys-success}
+#### Get key total
+{: #list-head-success}
 
 The following field includes extra information:
 - The `responseData.totalResources` field includes the total amount of keys within the service instance.
+
+#### List keys
+{: #list-keys-success}
+
+The following field includes extra information:
+- The `responseData.totalResources` field includes the total amount of keys returned in the response.
 
 #### Get key or key metadata
 {: #get-key-success}
@@ -215,19 +225,28 @@ The following field includes extra information:
 The following fields include extra information:
 - The `requestData.keyType` field includes the type of key that was retrieved.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
+- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 
 #### List key versions
 {: #list-key-versions-success}
 
 The following field includes extra information:
-- The `responseData.totalResources` field includes the total amount of key versions associated with the key.
+- The `responseData.totalResources` field includes the total amount of key versions returned in the response.
 
-#### Set or unset key for deletion
-{: #dual-auth-success}
+#### Unset key for deletion
+{: #dual-auth-unset-success}
 
 The following fields include extra information:
-- The `responseData.authID` field includes the initiator ID of the person who set the dual authorization policy.
-- The `responseData.authExpiration` field includes the expiration date for the dual authorization policy.
+- The `responseData.initialValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
+- The `responseData.initialValue.authExpiration` field includes the expiration date for the dual authorization policy.
+
+#### Set key for deletion
+{: #dual-auth-set-success}
+
+The following fields include extra information:
+- The `responseData.newValue.initialValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
+- The `responseData.newValue.initialValue.authExpiration` field includes the expiration date for the dual authorization policy.
 
 ### Policy events
 {: #policy-at-events}
@@ -268,9 +287,9 @@ The following fields include extra information:
 {: #rotate-key-registrations-success}
 
 The following fields include extra information: 
-- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version.
+- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to wrap the input ciphertext.
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the date that the latest key version was created.
-- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version.
+- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to wrap the input ciphertext.
 - The `responseData.eventAckData.oldKeyVersionCreationDate` field includes the date that the previous key version was created.
 
 #### Restore Key
