@@ -24,10 +24,11 @@ subcollection: key-protect
 # Integrating with {{site.data.keyword.cos_full_notm}}
 {: #integrate-cos}
 
-{{site.data.keyword.keymanagementservicefull}} and {{site.data.keyword.cos_full}}
-work together to help you own the security of your at-rest data. Learn how to
-add advanced encryption to your {{site.data.keyword.cos_full}} resources by
-using the {{site.data.keyword.keymanagementservicelong_notm}} service.
+{{site.data.keyword.keymanagementservicefull}} and
+{{site.data.keyword.cos_full}} work together to help you own the security of
+your at-rest data. Learn how to add advanced encryption to your
+{{site.data.keyword.cos_full}} resources by using the
+{{site.data.keyword.keymanagementservicelong_notm}} service.
 {: shortdesc}
 
 ## About {{site.data.keyword.cos_full_notm}}
@@ -65,7 +66,8 @@ service automatically encrypts your objects with data encryption keys (DEKs).
 Within {{site.data.keyword.cos_full_notm}}, DEKs are stored in the service
 securely, near the resources that they encrypt. When you need to access a
 bucket, the service checks your user permissions and decrypts the objects within
-the bucket for you. This encryption model is called _provider-managed encryption_.
+the bucket for you. This encryption model is called
+_provider-managed encryption_.
 
 To enable the security benefits of _customer-managed encryption_, you can add
 envelope encryption to your DEKs in {{site.data.keyword.cos_full_notm}} by
@@ -109,15 +111,20 @@ exists between your {{site.data.keyword.cos_full_notm}} and
 
 To add envelope encryption to your storage bucket:
 
-1. From your {{site.data.keyword.cos_full_notm}} dashboard, click **Create bucket**.
+1. From your {{site.data.keyword.cos_full_notm}} dashboard, click
+**Create bucket**.
 2. Specify the bucket's details.
-3. In the **Advanced Configuration** section, select **Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
-4. From the list of {{site.data.keyword.keymanagementserviceshort}} service instances, select the instance that contains the root key that you want to use for key wrapping.
+3. In the **Advanced Configuration** section, select
+**Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
+4. From the list of {{site.data.keyword.keymanagementserviceshort}} service
+instances, select the instance that contains the root key that you want to use
+for key wrapping.
 5. For **Key Name**, select the alias of the root key.
 6. Click **Create** to confirm the bucket creation.
 
 From the {{site.data.keyword.cos_full_notm}} GUI, you can browse the buckets
-that are protected by a {{site.data.keyword.keymanagementserviceshort}} root key.
+that are protected by a {{site.data.keyword.keymanagementserviceshort}} root
+key.
 
 ## What's next
 {: #cos-integration-next-steps}

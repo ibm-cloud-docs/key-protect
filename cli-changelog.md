@@ -55,7 +55,7 @@ plug-in.
     <varname>Documentation</varname>
   </dt>
   <dd>
-    <a href="/docs/key-protect?topic=key-protect-cli-reference">CLI reference for 0.4.0</a>
+    [CLI reference for 0.4.0](/docs/key-protect?topic=key-protect-cli-reference)
   </dd>
 </dl>
 
@@ -118,7 +118,7 @@ which is anticipated the end of September, 2020.
     <varname>Documentation</varname>
   </dt>
   <dd>
-    <a href="/docs/key-protect?topic=key-protect-cli-reference-039">CLI reference for 0.3.9</a>
+    [CLI reference for 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
   </dd>
 </dl>
 

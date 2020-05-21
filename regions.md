@@ -25,36 +25,72 @@ subcollection: key-protect
 # Regions and endpoints
 {: #regions}
 
-Review region and connectivity options for interacting with {{site.data.keyword.keymanagementservicelong}}.
+Review region and connectivity options for interacting with
+{{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 ## Available regions
 {: #available-regions}
 
-{{site.data.keyword.keymanagementserviceshort}} is available in the following regions:
+{{site.data.keyword.keymanagementserviceshort}} is available in the following
+regions:
 
-![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map_min.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
+![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map_min.svg)
+{: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
-You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
+You can create {{site.data.keyword.keymanagementserviceshort}} resources in one
+of the supported {{site.data.keyword.cloud_notm}} regions, which represent the
+geographic area where your {{site.data.keyword.keymanagementserviceshort}}
+requests are handled and processed. To learn more, see
+[Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
 
 ## Connectivity options
 {: #connectivity-options}
 
-{{site.data.keyword.keymanagementserviceshort}} offers two connectivity options for interacting with its service APIs.
+{{site.data.keyword.keymanagementserviceshort}} offers two connectivity options
+for interacting with its service APIs.
 
 <dl>
-    <dt>Public endpoints</dt>
-        <dd>By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
-        </dd>
-    <dt>Private endpoints</dt>
-        <dd>For added benefits, you can also enable <a href="/docs/account?topic=account-vrf-service-endpoint" target="_blank" class="external"> virtual routing and forwarding (VRF) and service endpoints</a> for your infrastructure account. When you enable VRF for your account, you can connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP that is accessible only through the {{site.data.keyword.cloud_notm}} private network. To learn more about VRF, see <a href="/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud" target="_blank" class="external">Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}</a>. To learn how to connect to {{site.data.keyword.keymanagementserviceshort}} by using a private endpoint, see <a href="/docs/key-protect?topic=key-protect-private-endpoints">Using private endpoints</a>.
-        </dd>
+  <dt>
+    Public endpoints
+  </dt>
+  <dd>
+    By default, you can connect to resources in your account over the
+    {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in
+    transit by using the Transport Security Layer (TLS) 1.2 protocol.
+  </dd>
+
+  <dt>
+    Private endpoints
+  </dt>
+  <dd>
+    <p>
+      For added benefits, you can also enable
+      [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external}
+      for your infrastructure account. When you enable VRF for your account, you
+      can connect to {{site.data.keyword.keymanagementserviceshort}} by using a
+      private IP that is accessible only through the
+      {{site.data.keyword.cloud_notm}} private network.
+    </p>
+    <p>
+      To learn more about VRF, see
+      [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
+    </p>
+    <p>
+      To learn how to connect to {{site.data.keyword.keymanagementserviceshort}}
+      by using a private endpoint, see
+      [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
+    </p>
+  </dd>
 </dl>
 
 ## Service endpoints
 {: #service-endpoints}
 
-If you are managing your {{site.data.keyword.keymanagementserviceshort}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect). 
+If you are managing your {{site.data.keyword.keymanagementserviceshort}}
+resources programmatically, see the following table to determine the API
+endpoints to use when you connect to the
+[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
 
 | Region        | Public endpoints             |
 | ------------- | ---------------------------- |
@@ -84,4 +120,6 @@ If you are managing your {{site.data.keyword.keymanagementserviceshort}} resourc
 {: class="comparison-tab-table"}
 {: row-headers}
 
-For more information about authenticating with {{site.data.keyword.keymanagementserviceshort}}, see [Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).
+For more information about authenticating with
+{{site.data.keyword.keymanagementserviceshort}}, see
+[Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).

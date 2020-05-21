@@ -36,7 +36,8 @@ protected in the cloud.
 adhering to {{site.data.keyword.IBM_notm}} best practices for systems,
 networking, and secure engineering.
 
-To learn more about security controls across {{site.data.keyword.cloud_notm}}, see
+To learn more about security controls across {{site.data.keyword.cloud_notm}},
+see
 [How do I know that my data is safe?](/docs/overview?topic=overview-security#security).
 {: tip}
 
@@ -48,7 +49,8 @@ To learn more about security controls across {{site.data.keyword.cloud_notm}}, s
 to generate provider-managed key material and perform
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
 operations. HSMs are tamper-resistant hardware devices that store and use
-cryptographic key material without exposing keys outside of a cryptographic boundary.
+cryptographic key material without exposing keys outside of a cryptographic
+boundary.
 
 Access to the service takes place over HTTPS, and internal
 {{site.data.keyword.keymanagementserviceshort}} communication uses the Transport
@@ -132,11 +134,12 @@ data by reviewing the following addendums.
 {{site.data.keyword.keymanagementserviceshort}} does not process, store,
 transmit, or otherwise interface with personal health information (PHI).
 Therefore, the service can be integrated with any HIPAA offering without impact
-to its HIPAA readiness. As such, you can use {{site.data.keyword.keymanagementserviceshort}}
-to generate and manage keys for HIPAA ready applications. Those keys are
-protected by the {{site.data.keyword.keymanagementserviceshort}} trust anchor,
-which is backed by a hardware security module (HSM) that is tamper-resistant and
-FIPS-140-2 level 3 certified.
+to its HIPAA readiness. As such, you can use
+{{site.data.keyword.keymanagementserviceshort}} to generate and manage keys for
+HIPAA ready applications. Those keys are protected by the
+{{site.data.keyword.keymanagementserviceshort}} trust anchor, which is backed by
+a hardware security module (HSM) that is tamper-resistant and FIPS-140-2 level 3
+certified.
 
 If you or your company is a covered entity as defined by HIPAA, you can enable
 the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account.
@@ -162,7 +165,8 @@ Control (SOC) compliance for the following types:
 - SOC 3
 
 For information about requesting an {{site.data.keyword.cloud_notm}} SOC report,
-see [Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+see
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
 
 ### PCI DSS
 {: #pci-dss}

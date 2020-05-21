@@ -24,18 +24,22 @@ subcollection: key-protect
 # Retrieving a key
 {: #retrieve-key}
 
-You can retrieve the key material for a key by using {{site.data.keyword.keymanagementservicefull}}.
+You can retrieve the key material for a key by using
+{{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-If you have a _Writer_ or _Manager_ access policy, you can retrieve the contents of a standard key, such as its key material and policy details.
+If you have a _Writer_ or _Manager_ access policy, you can retrieve the contents
+of a standard key, such as its key material and policy details.
 
-[Root keys](#x6946961){:term} stay within the bounds of a hardware security module. The key material for a root key cannot be retrieved.
+[Root keys](#x6946961){:term} stay within the bounds of a hardware security
+module. The key material for a root key cannot be retrieved.
 {: note}
 
 ## Retrieving a key with the API
 {: #get-key-api}
 
-To view detailed information about a specific key, you can make a `GET` call to the following endpoint.
+To view detailed information about a specific key, you can make a `GET` call to
+the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
@@ -46,9 +50,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
 2. Retrieve the ID of the key that you would like to access or manage.
 
-    The ID value is used to access detailed information about the key, such as the key material itself. You can retrieve the ID for a specified key by making a `GET /v2/keys` request, or by accessing the {{site.data.keyword.keymanagementserviceshort}} GUI.
+    The ID value is used to access detailed information about the key, such as
+    the key material itself. You can retrieve the ID for a specified key by
+    making a `GET /v2/keys` request, or by accessing the
+    {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-3. Run the following cURL command to get details about your key and the key material.
+3. Run the following cURL command to get details about your key and the key
+material.
 
     ```cURL
     curl -X GET \
@@ -60,37 +68,97 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>
         <th>Variable</th>
         <th>Description</th>
       </tr>
+
       <tr>
-        <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides. See <a href="/docs/key-protect?topic=key-protect-regions#service-endpoints">Regional service endpoints</a> for more information.</td>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
       </tr>
+
       <tr>
-        <td><varname>IAM_token</varname></td>
-        <td><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-access-token">Retrieving an access token</a>.</td>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the cURL request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
+        </td>
       </tr>
+
       <tr>
-        <td><varname>instance_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see <a href="/docs/key-protect?topic=key-protect-retrieve-instance-ID">Retrieving an instance ID</a>.</td>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} service
+            instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
       </tr>
+
       <tr>
-        <td><varname>correlation_ID</varname></td>
-        <td>The unique identifier that is used to track and correlate transactions.</td>
+        <td>
+          <varname>correlation_ID</varname>
+        </td>
+        <td>
+          The unique identifier that is used to track and correlate
+          transactions.
+        </td>
       </tr>
+
       <tr>
-        <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The identifier for the key that you retrieved in [step 1](#retrieve-keys-api).</td>
+        <td>
+          <varname>key_ID</varname>
+        </td>
+        <td>
+          <strong>Required.</strong> The identifier for the key that you
+          retrieved in [step 1](#retrieve-keys-api).
+        </td>
       </tr>
-      <caption style="caption-side:bottom;">Table 4. Describes the variables that are needed to view a specified key with the {{site.data.keyword.keymanagementserviceshort}} API</caption>
+
+      <caption style="caption-side:bottom;">
+        Table 4. Describes the variables that are needed to view a specified key
+        with the {{site.data.keyword.keymanagementserviceshort}} API
+      </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>` response returns details about your key and the key material. The following JSON object shows an example returned value for a standard key.
+    A successful `GET api/v2/keys/<key_ID>` response returns details about your
+    key and the key material. The following JSON object shows an example
+    returned value for a standard key.
 
     ```json
     {
@@ -169,7 +237,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     ```
     {:screen}
 
-    The `payload` or key material for a root key stays within the bounds of a hardware security module and cannot be retrieved.
+    The `payload` or key material for a root key stays within the bounds of a
+    hardware security module and cannot be retrieved.
     {: note}
 
-    For a detailed description of the response parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    For a detailed description of the response parameters, see the
+    {{site.data.keyword.keymanagementserviceshort}}
+    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.

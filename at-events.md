@@ -24,7 +24,8 @@ subcollection: key-protect
 {: #at-events}
 
 As a security officer, auditor, or manager, you can use the Activity Tracker
-service to track how users and applications interact with {{site.data.keyword.keymanagementservicefull}}.
+service to track how users and applications interact with
+{{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
 
