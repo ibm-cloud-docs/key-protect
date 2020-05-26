@@ -60,7 +60,7 @@ The following table lists the key actions that generate an event:
 | `kms.secrets.enable`              | Enable operations for a key                                  |
 | `kms.secrets.disable`             | Disable operations for a key                                 |
 | `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
-| `kms.secrets.default`             | Unrecognized key action event                                |
+| `kms.secrets.default`             | Invalid key action event                                     |
 {: caption="Table 1. Lifecycle Key Actions" caption-side="top"}
 
 ## Policy events
@@ -75,7 +75,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instancepolicies.read`    | List instance policies                       |
 | `kms.instancepolicies.write`   | Set an instance policy                       |
 | `kms.policies.default`         | Failed policy event                          |
-| `kms.instancepolicies.default` | Unrecognized policy action event    |
+| `kms.instancepolicies.default` | Invalid policy action event                  |
 {: caption="Table 2. Policy actions" caption-side="top"}
 
 ## Import token events
@@ -87,7 +87,7 @@ The following table lists the import token actions that generate an event:
 | ------------------------- | -------------------------------------- |
 | `kms.importtoken.create`  | Create an import token                 |
 | `kms.importtoken.read`    | Retrieve an import token               |
-| `kms.importtoken.default` | Unrecognized import token action event |
+| `kms.importtoken.default` | Invalid import token action event      |
 {: caption="Table 3. Import token actions" caption-side="top"}
 
 ## Registration events
@@ -98,7 +98,7 @@ The following table lists the key actions that generate an event:
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
-| `kms.registrations.default`             | Unrecognized registration action event                   |
+| `kms.registrations.default`             | Invalid registration action event                        |
 {: caption="Table 5. Registration actions" caption-side="top"}
 
 
