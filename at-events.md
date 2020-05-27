@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-18"
+lastupdated: "2020-05-27"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -45,6 +45,7 @@ The following table lists the key actions that generate an event:
 | Action                            | Description                                                  |
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
+| `kms.secrets.delete`              | Create a key                                                 |
 | `kms.secrets.read`                | Retrieve all key information                                 |
 | `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
 | `kms.secrets.head`                | Retrieve key total                                           |
@@ -60,7 +61,7 @@ The following table lists the key actions that generate an event:
 | `kms.secrets.enable`              | Enable operations for a key                                  |
 | `kms.secrets.disable`             | Disable operations for a key                                 |
 | `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
-| `kms.secrets.default`             | Invalid key action event                                     |
+| `kms.secrets.default`             | Invalid key request event                                    |
 {: caption="Table 1. Lifecycle Key Actions" caption-side="top"}
 
 ## Policy events
@@ -75,7 +76,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instancepolicies.read`    | List instance policies                       |
 | `kms.instancepolicies.write`   | Set an instance policy                       |
 | `kms.policies.default`         | Failed policy event                          |
-| `kms.instancepolicies.default` | Invalid policy action event                  |
+| `kms.instancepolicies.default` | Invalid policy request event                 |
 {: caption="Table 2. Policy actions" caption-side="top"}
 
 ## Import token events
@@ -87,7 +88,7 @@ The following table lists the import token actions that generate an event:
 | ------------------------- | -------------------------------------- |
 | `kms.importtoken.create`  | Create an import token                 |
 | `kms.importtoken.read`    | Retrieve an import token               |
-| `kms.importtoken.default` | Invalid import token action event      |
+| `kms.importtoken.default` | Invalid import token request event     |
 {: caption="Table 3. Import token actions" caption-side="top"}
 
 ## Registration events
@@ -98,7 +99,7 @@ The following table lists the key actions that generate an event:
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
-| `kms.registrations.default`             | Invalid registration action event                        |
+| `kms.registrations.default`             | Invalid registration request event                       |
 {: caption="Table 5. Registration actions" caption-side="top"}
 
 
@@ -125,7 +126,7 @@ see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-
 ## Analyzing successful events
 {: #at-events-analyze}
 
-Most service actions have unique `requestData` and `responseData`associated with each related event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
+Most successful requests have unique `requestData` and `responseData`associated with each related event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
 
 ### Common Fields
 There are some common fields that {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event model to provide more insight into your data.
@@ -153,12 +154,14 @@ There are some common fields that {{site.data.keyword.keymanagementserviceshort}
         <p>the unique identifier of the API request that generated the event.</p>
       </td>
     </tr>
-    <caption style="caption-side:bottom;">Table 6. Describes the common fields in Activity Tracker events for {{site.data.keyword.keymanagementserviceshort}} service actions.</caption>
+    <caption style="caption-side:bottom;">Table 6. Describes the common fields in Activity Tracker events for {{site.data.keyword.keymanagementserviceshort}} service 
+    actions.</caption>
   </table>
 
 For more information on the event fields in the Cloud Auditing Data Federation (CADF) event model, see [Event Fields](https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
 
-While `initiator.host.address` is a field that is part of the Cloud Auditing Data Federation model, the host address field will not be shown for requests made through private networks.
+While `initiator.host.address` is a field that is part of the Cloud Auditing Data Federation model, the host address field will not be shown for requests made through 
+private networks.
 {: important}
 
 ### Key action events
@@ -177,6 +180,7 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 {: #create-key-success}
 
 The following fields include extra information:
+
 - The `requestData.keyType` field includes the type of key that was created.
 - The `responseData.keyId` field includes the unique identifier associated with the key.
 - The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
@@ -187,18 +191,21 @@ The following fields include extra information:
 {: #delete-key-success}
 
 The following field includes extra information:
+
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 
 #### Wrap or unwrap key
 {: #wrap-unwrap-key-success}
 
 The following field includes extra information:
+
 - The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
 
 #### Rewrap key
 {: #create-key-success}
 
 The following field includes extra information:
+
 - The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
 - The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version associated with the ciphertext from the response.
 
@@ -206,24 +213,28 @@ The following field includes extra information:
 {: #restore-key-success}
 
 The following field includes extra information:
+
 - The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertex.
 
 #### Get key total
 {: #list-head-success}
 
 The following field includes extra information:
+
 - The `responseData.totalResources` field includes the total amount of keys within the service instance.
 
 #### List keys
 {: #list-keys-success}
 
 The following field includes extra information:
+
 - The `responseData.totalResources` field includes the total amount of keys returned in the response.
 
 #### Get key or key metadata
 {: #get-key-success}
 
 The following fields include extra information:
+
 - The `requestData.keyType` field includes the type of key that was retrieved.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 - The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
@@ -233,12 +244,14 @@ The following fields include extra information:
 {: #list-key-versions-success}
 
 The following field includes extra information:
+
 - The `responseData.totalResources` field includes the total amount of key versions returned in the response.
 
 #### Unset key for deletion
 {: #dual-auth-unset-success}
 
 The following fields include extra information:
+
 - The `responseData.initialValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
 - The `responseData.initialValue.authExpiration` field includes the expiration date for the dual authorization policy.
 
@@ -246,8 +259,9 @@ The following fields include extra information:
 {: #dual-auth-set-success}
 
 The following fields include extra information:
-- The `responseData.newValue.initialValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
-- The `responseData.newValue.initialValue.authExpiration` field includes the expiration date for the dual authorization policy.
+
+- The `responseData.newValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
+- The `responseData.newValue.authExpiration` field includes the expiration date for the dual authorization policy.
 
 ### Policy events
 {: #policy-at-events}
@@ -256,10 +270,13 @@ The following fields include extra information:
 {: #set-policy-success}
 
 The following fields include extra information:
+
 - The `requestData.initialValue.policyAllowedNetworkEnabled` field includes if your allowed network policy was previously enabled or disabled.
-- The `requestData.initialValue.policyAllowedNetworkAttribute` field includes if your allowed network policy was previously only for public networks or both public and private networks.
+- The `requestData.initialValue.policyAllowedNetworkAttribute` field includes if your allowed network policy was previously only for public networks or both public 
+and private networks.
 - The `requestData.newValue.policyAllowedNetworkEnabled` field includes if your allowed network policy is currently enabled or disabled.
-- The `requestData.newValue.policyAllowedNetworkAttribute` field includes if your allowed netowrk policy is currently only for public networks or both public and private networks.
+- The `requestData.newValue.policyAllowedNetworkAttribute` field includes if your allowed netowrk policy is currently only for public networks or both public and 
+private networks.
 - The `requestData.initalValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy was previously enabled or disabled.
 - The `requestData.newValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy is currently enabled or disabled.
 
@@ -270,15 +287,20 @@ The following fields include extra information:
 {: #create-import-token-success}
 
 The following fields include extra information: 
+
 - The `responseData.expirationDate` field includes the expiration date of the import token.
-- The `responseData.maxAllowedRetrievals` field includes the maximum amount of times the import token can be retrieved within its expiration time before it is no longer accessible.
+- The `responseData.maxAllowedRetrievals` field includes the maximum amount of times the import token can be retrieved within its expiration time before it is no 
+longer accessible.
 
 #### Retrieve import token
 {: #retrieve-import-token-success}
 
 The following fields include extra information: 
-- The `responseData.maxAllowedRetrievals` field includes the maximum amount of times the import token can be retrieved within its expiration time before it is no longer accessible
-- The `responseData.remainingRetrievals` field includes the number of times the import token can be retrieved within its expiration time before it is no longer accessible.
+
+- The `responseData.maxAllowedRetrievals` field includes the maximum amount of times the import token can be retrieved within its expiration time before it is no 
+longer accessible.
+- The `responseData.remainingRetrievals` field includes the number of times the import token can be retrieved within its expiration time before it is no longer 
+accessible.
 
 
 ### Key with registrations events
@@ -288,6 +310,7 @@ The following fields include extra information:
 {: #rotate-key-registrations-success}
 
 The following fields include extra information: 
+
 - The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to wrap the input ciphertext.
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the date that the latest key version was created.
 - The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to wrap the input ciphertext.
@@ -297,6 +320,7 @@ The following fields include extra information:
 {: #restore-key-registrations-success}
 
 The following fields include extra information: 
+
 - The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
 - The `responseData.eventAckData.keyState` field includes the integer that correlates to the state of the key associated with the event.
@@ -306,6 +330,7 @@ The following fields include extra information:
 {: #enable-key-registrations-success}
 
 The following fields include extra information: 
+
 - The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
 - The `responseData.eventAckData.keyState` field includes the integer that correlates to the state of the key associated with the event.
@@ -315,6 +340,7 @@ The following fields include extra information:
 {: #disable-key-registration-success}
 
 The following fields include extra information: 
+
 - The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
 - The `responseData.eventAckData.keyState` field includes the integer that correlates to the state of the key associated with the event.
@@ -327,6 +353,7 @@ The following fields include extra information:
 {: #list-registration-success}
 
 The following field includes extra information:
+
 - The `responseData.totalResources` field includes the total amount of key versions associated with the key.
 
 ## Analyzing failed events
@@ -335,21 +362,100 @@ The following field includes extra information:
 ### Unable to delete a key
 {: #delete-key-failure}
 
-If the delete key event has a `reason.reasonCode`of 409, the key could not be deleted because it is protecting one or more cloud resources that have a retention policy. Make a GET request to `/keys/{id}/registrations` to learn which resources this key is associated with. A registration with `"preventKeyDeletion": true` indicates 
-that the associated resource has a retention policy. To enable deletion, contact an account owner to remove the retention policy on each resource that is associated with 
-this key.
+If the delete key event has a `reason.reasonCode`of 409, the key could not be deleted because it is protecting one or more cloud resources that have a retention 
+policy. Make a GET request to `/keys/{id}/registrations` to learn which resources this key is associated with. A registration with `"preventKeyDeletion": true` 
+indicates 
+that the associated resource has a retention policy. To enable deletion, contact an account owner to remove the retention policy on each resource that is associated 
+with this key.
 
 ### Unable to authenticate while make a request
 {: #authenticate-failure}
 
-If the event has a `reason.reasonCode` of 401, you do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the specified service instance. Verify with an 
+If the event has a `reason.reasonCode` of 401, you do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the 
+specified service instance. Verify with an 
 administrator that you are assigned the correct platform and service access roles in the applicable service instance. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access).
 
 ### Unable to view or list keys in a service instance
 {: #list-keys-failure}
 
-If you make a call to `GET api/v2/keys` to list the keys that are available in your service instance and `responseData.totalResources` is 0, you may not have the correct authorization to view the requested range of keys. Contact an administrator to check your permissions. If the service instance contains keys that you're unable to view, verify that you're assigned the applicable [level of access](/docs/key-protect?topic=key-protect-grant-access-keys) to keys in the service instance. If the service instance contains more than 200 keys, you need to use the offset and limit parameters to list another subset of keys.
+If you make a call to `GET api/v2/keys` to list the keys that are available in your service instance and `responseData.totalResources` is 0, you may not have the 
+correct authorization to view the requested range of keys. Contact an administrator to check your permissions. If the service instance contains keys that you're 
+unable to view, verify that you're assigned the applicable [level of access](/docs/key-protect?topic=key-protect-grant-access-keys) to keys in the service instance. 
+If the service instance contains more than 200 keys, you need to use the offset and limit parameters to list another subset of keys.
 
-### Severity is at critical level for an event
+## Event Severity
+{: event-severity}
 
-The severity for all Activity Tracker events with {{site.data.keyword.keymanagementserviceshort}} are based on the type of request that was made, then the status code of the request. For example, if you make a delete key request with an invalid key, but you are also unauthorized to make requests to the service instance that you provided in the request, the unauthorization will take precedence and the event will be evaluated as a `401` bad request call with a severity of `critical`. 
+The severity for all Activity Tracker events with
+{{site.data.keyword.keymanagementserviceshort}} are based on the type of request
+that was made, then status code. For example, if you make a create key request
+with an invalid key, but you are also unauthenticated for the service instance
+that you included in the request, the unauthentication will take precedence and
+the event will be evaluated as a `401` bad request call with a severity of
+`critical`.
+
+The following table lists the actions associated with each severity level: 
+
+<table>
+    <tr>
+      <th>Severity</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td><p><varname>Critical</varname></p></td>
+      <td>
+        <p><code>kms.secrets.delete</code></p>
+        <p><code>kms.registrations.delete</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td><p><varname>Warning</varname></p></td>
+      <td>
+        <p><code>kms.secrets.rotate</code>, code>kms.secrets.restore</code></p>
+        <p><code>kms.secrets.enable</code>, <code>kms.secrets.disable</code></p>
+        <p><code>kms.secrets.setkeyfordeletion</code>, <code>kms.secrets.unsetkeyfordeletion</code></p>
+        <p><code>kms.policies.write</code>, <code>kms.instancepolicies.write</code></p>
+      </td>
+    </tr>
+     <tr>
+      <td><p><varname>Normal</varname></p></td>
+      <td>
+        <p><code>kms.secrets.create</code>, <code>kms.secrets.read</code></p>
+        <p><code>kms.secrets.readmetadata</code>, <code>kms.secrets.head</code></p>
+        <p><code>kms.secrets.list</code>, <code>kms.secrets.wrap</code></p>
+        <p><code>kms.secrets.unwrap</code>, <code>kms.secrets.rewrap</code></p>
+        <p><code>kms.secrets.listkeyversions</code>, <code>kms.secrets.eventack</code></p>
+        <p><code>kms.policies.read</code>, <code>kms.instancepolicies.read</code></p>
+        <p><code>kms.importtoken.create</code>, <code>kms.importtoken.read</code></p>
+        <p><code>kms.registrations.list</code></p>
+      </td>
+    </tr>
+    <caption style="caption-side:bottom;">Table 7. Describes the severity level for 
+    {{site.data.keyword.keymanagementserviceshort}} service actions.</caption>
+  </table>
+
+The following table lists the status codes associated with each severity level: 
+
+<table>
+    <tr>
+      <th>Severity</th>
+      <th>Status Code</th>
+    </tr>
+    <tr>
+      <td><p><varname>Critical</varname></p></td>
+      <td>
+        <p><code>503</code>, <code>507</code></p>
+        <p><code>401</code>, <code>403</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td><p><varname>Warning</varname></p></td>
+      <td>
+        <p><code>502</code>, <code>502</code>, <code>504</code></p>
+        <p><code>505</code>, <code>400</code>, <code>409</code></p>
+        <p><code>424</code></p>
+      </td>
+    </tr>
+    <caption style="caption-side:bottom;">Table 8. Describes the severity level for 
+    {{site.data.keyword.keymanagementserviceshort}} response status codes.</caption>
+  </table>
