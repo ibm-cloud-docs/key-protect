@@ -45,7 +45,7 @@ The following table lists the key actions that generate an event:
 | Action                            | Description                                                  |
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
-| `kms.secrets.delete`              | Create a key                                                 |
+| `kms.secrets.delete`              | Delete a key                                                 |
 | `kms.secrets.read`                | Retrieve all key information                                 |
 | `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
 | `kms.secrets.head`                | Retrieve key total                                           |
@@ -74,8 +74,8 @@ The following table lists the policy actions that generate an event:
 | `kms.policies.read`            | List key policies                            |
 | `kms.policies.write`           | Set key policies                             |
 | `kms.instancepolicies.read`    | List instance policies                       |
-| `kms.instancepolicies.write`   | Set an instance policy                       |
-| `kms.policies.default`         | Failed policy event                          |
+| `kms.instancepolicies.write`   | Set instance policies                        |
+| `kms.policies.default`         | Invalid policy request event                 |
 | `kms.instancepolicies.default` | Invalid policy request event                 |
 {: caption="Table 2. Policy actions" caption-side="top"}
 
@@ -94,13 +94,13 @@ The following table lists the import token actions that generate an event:
 ## Registration events
 {: #registration-actions}
 
-The following table lists the key actions that generate an event:
+The following table lists the registration actions that generate an event:
 
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
 | `kms.registrations.default`             | Invalid registration request event                       |
-{: caption="Table 5. Registration actions" caption-side="top"}
+{: caption="Table 4. Registration actions" caption-side="top"}
 
 
 ## Viewing events
@@ -128,7 +128,11 @@ see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-
 
 Most successful requests have unique `requestData` and `responseData`associated with each related event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
 
+Fields are not guranteed to appear unless the request is successful.
+{: note}
+
 ### Common Fields
+{: #at-common fields}
 There are some common fields that {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event model to provide more insight into your data.
 
   <table>
@@ -183,7 +187,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was created.
 - The `responseData.keyId` field includes the unique identifier associated with the key.
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 
@@ -199,22 +203,28 @@ The following field includes extra information:
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
 
 #### Rewrap key
 {: #create-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
-- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version associated with the ciphertext from the response.
+- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used used to wrap the input ciphertext.
+- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version used to rewrap the input ciphertext.
 
 #### Restore key
 {: #restore-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertex.
+- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
+
+#### Rotate key
+{: #rotate-key-success}
+
+Rotate key doesn't have any additional fields outside of those from the [Common Fields](#at-common-fields) section
+{: note}
 
 #### Get key total
 {: #list-head-success}
@@ -237,7 +247,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was retrieved.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
-- The `responseData.keyVersionId` field includes the unqiue idenitifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 
 #### List key versions
@@ -247,21 +257,23 @@ The following field includes extra information:
 
 - The `responseData.totalResources` field includes the total amount of key versions returned in the response.
 
-#### Unset key for deletion
-{: #dual-auth-unset-success}
-
-The following fields include extra information:
-
-- The `responseData.initialValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
-- The `responseData.initialValue.authExpiration` field includes the expiration date for the dual authorization policy.
-
-#### Set key for deletion
+#### Set or Unset key for deletion
 {: #dual-auth-set-success}
 
 The following fields include extra information:
 
-- The `responseData.newValue.authID` field includes the initiator ID of the person who set the dual authorization policy.
-- The `responseData.newValue.authExpiration` field includes the expiration date for the dual authorization policy.
+- The `responseData.initialValue.authID` field includes the initiator ID of the person who set the dual 
+authorization policy.
+- The `responseData.initialValue.authExpiration` field includes the expiration date for the dual 
+authorization policy.
+- The `responseData.newValue.authID` field includes the initiator ID of the person who set the dual 
+authorization policy.
+- The `responseData.newValue.authExpiration` field includes the expiration date for the dual authorization 
+policy.
+
+`initialValue` is the initiatorID of the person who last set the dual authorization policy and `newValue is he 
+new initiatorID of the person who set the dual authorization policy.
+{: note}
 
 ### Policy events
 {: #policy-at-events}
@@ -275,7 +287,7 @@ The following fields include extra information:
 - The `requestData.initialValue.policyAllowedNetworkAttribute` field includes if your allowed network policy was previously only for public networks or both public 
 and private networks.
 - The `requestData.newValue.policyAllowedNetworkEnabled` field includes if your allowed network policy is currently enabled or disabled.
-- The `requestData.newValue.policyAllowedNetworkAttribute` field includes if your allowed netowrk policy is currently only for public networks or both public and 
+- The `requestData.newValue.policyAllowedNetworkAttribute` field includes if your allowed network policy is currently only for public networks or both public and 
 private networks.
 - The `requestData.initalValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy was previously enabled or disabled.
 - The `requestData.newValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy is currently enabled or disabled.
@@ -311,6 +323,8 @@ accessible.
 
 The following fields include extra information: 
 
+- The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
+- The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
 - The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to wrap the input ciphertext.
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the date that the latest key version was created.
 - The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to wrap the input ciphertext.
@@ -349,39 +363,57 @@ The following fields include extra information:
 ### Registration events
 {: #registration-events}
 
-#### List registration
+#### List registrations
 {: #list-registration-success}
 
 The following field includes extra information:
 
-- The `responseData.totalResources` field includes the total amount of key versions associated with the key.
-
+- The `responseData.totalResources` field includes the total amount of registrations returned in the response.
 ## Analyzing failed events
 {: #at-events-analyze-failed}
 
 ### Unable to delete a key
 {: #delete-key-failure}
 
-If the delete key event has a `reason.reasonCode`of 409, the key could not be deleted because it is protecting one or more cloud resources that have a retention 
+If the delete key event has a `reason.reasonCode`of 409, the key could not be deleted because it is possibly protecting one or more cloud resources that have a retention 
 policy. Make a GET request to `/keys/{id}/registrations` to learn which resources this key is associated with. A registration with `"preventKeyDeletion": true` 
-indicates 
-that the associated resource has a retention policy. To enable deletion, contact an account owner to remove the retention policy on each resource that is associated 
-with this key.
+indicates that the associated resource has a retention policy. To enable deletion, contact an account owner to remove the retention policy on each resource 
+that is associated with this key.
+
+A key may also not be deleted but to a dual auth deletion policy. Make a GET request to `/api/v2/keys/{id}/policies` to see if there is a 
+dual authorization policy associated with your key or make a GET request to `/api/v2/instance/policies` to see if there is a dual 
+authorization associated with your service instance. If there is a policy set, contact the other authorized user to delete the key or 
+disable the dual authorization policy.
+
+
 
 ### Unable to authenticate while make a request
 {: #authenticate-failure}
 
-If the event has a `reason.reasonCode` of 401, you do not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the 
-specified service instance. Verify with an 
-administrator that you are assigned the correct platform and service access roles in the applicable service instance. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access).
+If the event has a `reason.reasonCode` of 401, you may not have the correct authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions in the specified service instance. Verify with an 
+administrator that you are assigned the correct platform and service access roles in the applicable service instance. For more 
+information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access).
+
+Check that you are using a valid token that is associated with an account authorized to perform the service action.
+{: note}
 
 ### Unable to view or list keys in a service instance
 {: #list-keys-failure}
 
-If you make a call to `GET api/v2/keys` to list the keys that are available in your service instance and `responseData.totalResources` is 0, you may not have the 
-correct authorization to view the requested range of keys. Contact an administrator to check your permissions. If the service instance contains keys that you're 
-unable to view, verify that you're assigned the applicable [level of access](/docs/key-protect?topic=key-protect-grant-access-keys) to keys in the service instance. 
-If the service instance contains more than 200 keys, you need to use the offset and limit parameters to list another subset of keys.
+If you make a call to `GET api/v2/keys` to list the keys that are available in
+your service instance and `responseData.totalResources` is 0, you may need to query for keys in the deleted state
+or adjust the `offset` and `limit` parameters in your request.
+
+### Lifecycle action on a key with registrations did not complete
+{: #protected-resource-key-failure}
+
+The `responseData.reasonForFailure` and `responseData.resourceCRN` fields contain information on why the action wasn't able to be completed. 
+
+If the event has a `reason.reasonCode` of 409, the action could not be completed due to the adopter key state comflicting with the key state that 
+{{site.data.keyword.keymanagementserviceshort}} has. 
+
+If the event has a `reason.reasonCode` of 408, the action could not be completed because 
+{site.data.keyword.keymanagementserviceshort}} was not notified that all appropriate actions were taken within 4 hours of the action request.
 
 ## Event Severity
 {: event-severity}
