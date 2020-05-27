@@ -411,7 +411,7 @@ The following table lists the actions associated with each severity level:
     <tr>
       <td><p><varname>Warning</varname></p></td>
       <td>
-        <p><code>kms.secrets.rotate</code>, code>kms.secrets.restore</code></p>
+        <p><code>kms.secrets.rotate</code>, <code>kms.secrets.restore</code></p>
         <p><code>kms.secrets.enable</code>, <code>kms.secrets.disable</code></p>
         <p><code>kms.secrets.setkeyfordeletion</code>, <code>kms.secrets.unsetkeyfordeletion</code></p>
         <p><code>kms.policies.write</code>, <code>kms.instancepolicies.write</code></p>
