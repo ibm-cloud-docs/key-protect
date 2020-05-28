@@ -271,7 +271,7 @@ authorization policy.
 - The `responseData.newValue.authExpiration` field includes the expiration date for the dual authorization 
 policy.
 
-`initialValue` is the initiatorID of the person who last set the dual authorization policy and `newValue is he 
+`initialValue` is the initiatorID of the person who last set the dual authorization policy and `newValue is the 
 new initiatorID of the person who set the dual authorization policy.
 {: note}
 
