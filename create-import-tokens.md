@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-27"
 
 keywords: create import token, secure import, key-wrapping key, import token API examples
 
@@ -150,7 +150,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
         <td>
           The number of times that an import token can be retrieved within its
           expiration time before it is no longer accessible. The default value
-          is 1.
+          is 1. The maximum value is 500.
         </td>
       </tr>
 
@@ -161,9 +161,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
     </table>
 
     A successful `POST api/v2/import_token` request creates an import token for
-    your service instance. The response body contains the metadata that is
+    your {{site.data.keyword.keymanagementserviceshort}} service instance. The response body contains the metadata that is
     associated with your import token, such as its creation date and policy
     details. The following snippet shows example output.
+
+    You can only have 1 import token associated with your {{site.data.keyword.keymanagementserviceshort}} instance at any given time. Any subsequent create import token requests will override the previous import token.
+    {: note}
 
     ```json
     {
@@ -272,7 +275,12 @@ calling the
     A successful `GET api/v2/import_token` request retrieves the import token
     for your service instance. The response body contains the metadata that is
     associated with your import token, such as its creation date and policy
-    details. The following snippet shows example output with truncated values.
+    details. 
+    
+    The retrieved import token can be reused to import one or more keys up until the date that the import token expires.
+    {: note}
+    
+    The following snippet shows example output with truncated values.
 
     ```json
     {
