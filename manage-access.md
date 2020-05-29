@@ -71,11 +71,11 @@ Use platform access roles to grant permissions at the account level, such as the
 ability to create or delete instances in your {{site.data.keyword.cloud_notm}}
 account.
 
-| Action | Viewer | Editor | Operator | Admininistrator |
-|-----|-----|-----|-----|----|
+| Action | Viewer | Editor | Operator | Administrator |
+| ------ | ------ | ------ | -------- | ------------- |
 | View {{site.data.keyword.keymanagementserviceshort}} instances | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Create {{site.data.keyword.keymanagementserviceshort}} instances |  | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) |  | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Invite new users and manage access policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
@@ -106,7 +106,7 @@ The following table shows how service access roles map to
 {{site.data.keyword.keymanagementserviceshort}} permissions.
 
 | Action | Reader | ReaderPlus | Writer | Manager |
-|-----|-----|-----|-----|----|
+| ------ | ------ | ---------- | ------ | ------- |
 | Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
@@ -129,7 +129,7 @@ The following table shows how service access roles map to
 {: class="comparison-tab-table"}
 
 | Action | Reader | ReaderPlus | Writer | Manager |
-|-----|-----|-----|-----|----|
+| ------ | ------ | ---------- | ------ | ------- |
 | Set key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | List key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
@@ -141,7 +141,7 @@ The following table shows how service access roles map to
 {: class="comparison-tab-table"}
 
 | Action | Reader | ReaderPlus | Writer | Manager |
-|-----|-----|-----|-----|----|
+| ------ | ------ | ---------- | ------ | ------- |
 | Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: #table-4}
@@ -151,7 +151,7 @@ The following table shows how service access roles map to
 {: class="comparison-tab-table"}
 
 | Action | Reader | ReaderPlus | Writer | Manager |
-|-----|-----|-----|-----|----|
+| ------ | ------ | ---------- | ------ | ------- |
 | Create a registration[^services-1] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | List registrations for a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | List registrations for any key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |

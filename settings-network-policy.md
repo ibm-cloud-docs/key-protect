@@ -54,7 +54,8 @@ Two options control network access to
 * Public and private network access - this is the default
 * Private network access only
 
-**Public and private network access**
+#### Public and private network access
+{: #public-and-private}
 
 The {{site.data.keyword.keymanagementserviceshort}} instance accepts API
 requests from both `public and private` endpoints.
@@ -69,7 +70,8 @@ teams issue API requests from both outside (public endpoints) and inside
 ensure each team has access to {{site.data.keyword.keymanagementserviceshort}}
 instances during this phase of the project.
 
-**Private network access only**
+#### Private network access only
+{: #private-only}
 
 The {{site.data.keyword.keymanagementserviceshort}} instance accepts API
 requests from only `private` endpoints.
