@@ -400,7 +400,7 @@ Check that you are using a valid token that is associated with an account author
 
 If you make a call to `GET api/v2/keys` to list the keys that are available in
 your service instance and `responseData.totalResources` is 0, you may need to query for keys in 
-the deleted state using the state parameter or adjust the `offset` and `limit` parameters in 
+the deleted state using the `state` parameter or adjust the `offset` and `limit` parameters in 
 your request.
 
 ### Lifecycle action on a key with registrations did not complete
