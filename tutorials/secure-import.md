@@ -66,7 +66,7 @@ installed locally on your computer.
 1. Create an
 [{{site.data.keyword.cloud_notm}} account](https://{DomainName}){: external}.
 2. Download and install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started)
 for your operating system.
 3. Download and install the
 [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
@@ -98,7 +98,7 @@ service instance.
 
 1. In a terminal window, run the following command to log in to
 {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login

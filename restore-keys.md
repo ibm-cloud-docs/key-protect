@@ -61,7 +61,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 2. Retrieve the ID of the key that you want to restore.
 
     You can retrieve the ID for a specified key by making a
-    [ list keys request](/apidocs/key-protect#list-keys)
+    [list keys request](/apidocs/key-protect#list-keys)
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
