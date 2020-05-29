@@ -128,7 +128,7 @@ see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-
 
 Most successful requests have unique `requestData` and `responseData`associated with each related event. The following sections describe the data of each {{site.data.keyword.keymanagementserviceshort}} service action event.
 
-Fields are not guranteed to appear unless the request is successful.
+Fields are not guaranteed to appear unless the request is successful.
 {: note}
 
 ### Common Fields
@@ -187,7 +187,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was created.
 - The `responseData.keyId` field includes the unique identifier associated with the key.
-- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 
@@ -203,22 +203,22 @@ The following field includes extra information:
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
 
 #### Rewrap key
 {: #create-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used used to wrap the input ciphertext.
-- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version used to rewrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
+- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version used to input ciphertext on wrap requests.
 
 #### Restore key
 {: #restore-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
 
 #### Rotate key
 {: #rotate-key-success}
@@ -247,7 +247,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was retrieved.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
-- The `responseData.keyVersionId` field includes the unqiue identifier of the current key version used to wrap the input ciphertext.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 
 #### List key versions
@@ -289,7 +289,7 @@ and private networks.
 - The `requestData.newValue.policyAllowedNetworkEnabled` field includes if your allowed network policy is currently enabled or disabled.
 - The `requestData.newValue.policyAllowedNetworkAttribute` field includes if your allowed network policy is currently only for public networks or both public and 
 private networks.
-- The `requestData.initalValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy was previously enabled or disabled.
+- The `requestData.initialValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy was previously enabled or disabled.
 - The `requestData.newValue.policyDualAuthDeleteEnabled` field includes if your dual auth delete policy is currently enabled or disabled.
 
 ### Import token events
@@ -325,9 +325,9 @@ The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
-- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to wrap the input ciphertext.
+- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to input ciphertext on wrap requests.
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the date that the latest key version was created.
-- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to wrap the input ciphertext.
+- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to input ciphertext on wrap requests.
 - The `responseData.eventAckData.oldKeyVersionCreationDate` field includes the date that the previous key version was created.
 
 #### Restore Key
@@ -380,11 +380,9 @@ policy. Make a GET request to `/keys/{id}/registrations` to learn which resource
 indicates that the associated resource has a retention policy. To enable deletion, contact an account owner to remove the retention policy on each resource 
 that is associated with this key.
 
-A key may also not be deleted but to a dual auth deletion policy. Make a GET request to `/api/v2/keys/{id}/policies` to see if there is a 
+A delete key event could also receive a `reason.reasonCode` of 409 due to a dual auth deletion policy on the key. Make a GET request to `/api/v2/keys/{id}/policies` to see if there is a 
 dual authorization policy associated with your key or make a GET request to `/api/v2/instance/policies` to see if there is a dual 
-authorization associated with your service instance. If there is a policy set, contact the other authorized user to delete the key or 
-disable the dual authorization policy.
-
+authorization associated with your service instance. If there is a policy set, contact the other authorized user to delete the key.
 
 
 ### Unable to authenticate while make a request
@@ -401,19 +399,22 @@ Check that you are using a valid token that is associated with an account author
 {: #list-keys-failure}
 
 If you make a call to `GET api/v2/keys` to list the keys that are available in
-your service instance and `responseData.totalResources` is 0, you may need to query for keys in the deleted state
-or adjust the `offset` and `limit` parameters in your request.
+your service instance and `responseData.totalResources` is 0, you may need to query for keys in 
+the deleted state using the state parameter or adjust the `offset` and `limit` parameters in 
+your request.
 
 ### Lifecycle action on a key with registrations did not complete
 {: #protected-resource-key-failure}
 
-The `responseData.reasonForFailure` and `responseData.resourceCRN` fields contain information on why the action wasn't able to be completed. 
+The `responseData.reasonForFailure` and `responseData.resourceCRN` fields contain information on why the action wasn't able to 
+be completed. 
 
-If the event has a `reason.reasonCode` of 409, the action could not be completed due to the adopter key state comflicting with the key state that 
-{{site.data.keyword.keymanagementserviceshort}} has. 
+If the event has a `reason.reasonCode` of 409, the action could not be completed due to the adopting service's key state 
+conflicting with the key state that {{site.data.keyword.keymanagementserviceshort}} has. 
 
 If the event has a `reason.reasonCode` of 408, the action could not be completed because 
-{site.data.keyword.keymanagementserviceshort}} was not notified that all appropriate actions were taken within 4 hours of the action request.
+{site.data.keyword.keymanagementserviceshort}} was not notified that all appropriate actions were taken within 4 hours of the 
+action request.
 
 ## Event Severity
 {: event-severity}
