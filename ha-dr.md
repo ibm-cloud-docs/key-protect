@@ -63,6 +63,41 @@ Your encryption keys are confined to the region that you create them in.
 encryption keys to other regions.
 {: note}
 
+## Exponential Backoff
+{: #exponential-backoff}
+
+Apps or services that communicate over networks are subject to cloud services periodically being intermittently unavailable for more 
+than a few seconds for any reason. You want to design your applications to retry connections when errors are caused by a temporary loss 
+in connectivity to {{site.data.keyword.keymanagementserviceshort}}. Exponential backoff is a technique that retries requests 
+exponentially, with increasing delays between each request. Using exponential backoff logic for your retry mechanism is beneficial 
+because it helps to reduce the workload of the service, which aids in the service's recovery.
+
+### Example Algorithm
+{: #example-backoff-algorithm}
+
+There are many approaches to implementing retries with exponential backoff logic. Your approach will depend on your specific use case 
+and the network conditions surrounding your application. The following is an example implementation of incremental retry delay.
+
+```
+const maxRetries = 3
+attempt := 1
+delay := time.Second * 1
+var ok bool
+for !ok && attempt <= maxRetries {
+    ok = makeRequest()
+    if !ok {
+        time.Sleep(delay)
+        delay = delay * 2
+        attempt += 1
+    }
+}
+```
+{: codeblock}
+
+Once the maximum amount of retries has been reached, open an IBM support ticket with details regarding your request. For more 
+information about opening an IBM support ticket, see [Contacting support](/docs/get-support?topic=get-support-getting-customer-support).
+{:note}
+
 ## Disaster recovery
 {: #dr}
 
