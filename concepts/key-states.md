@@ -44,8 +44,8 @@ between its generation and its destruction.
 ![The diagram shows the same components as described in the following definition table.](../images/key-states.svg)
 {: caption="Figure 1. Key states and transitions." caption-side="bottom"}
 
-| State | Description |
-| ----- | ----------- |
+| State       | Description |
+| ----------- | ----------- |
 | Pre-active  | Keys are initially created in the _Pre-activation_ state. A pre-active key cannot be used to cryptographically protect data. |
 | Active      | Keys move immediately into the _Active_ state on the activation date. This transition marks the beginning of a key's cryptoperiod. Keys with no activation date become active immediately and remain active until they expire or are destroyed. |
 | Suspended   | A key moves into the _Suspended_ state when it is [disabled for encrypt and decrypt operations](/docs/key-protect?topic=key-protect-disable-keys). In this state, the key is unable to cryptographically protect data and can only be moved to the _Active_ or _Destroyed_ states. |
@@ -68,18 +68,95 @@ perform on a key. The check mark icon
 indicates that the action on a key is expected to succeed based on the key
 state.
 
-| Action      | Active | Suspended | Deactivated | Destroyed |
-| ----------- | ------ | --------- | ----------- | ----------- | --------- |
-| Get key     | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List keys   | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Rotate key  | ![Check mark icon](../../icons/checkmark-icon.svg) | | | |
-| Wrap key    | ![Check mark icon](../../icons/checkmark-icon.svg) | | | |
-| Unwrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Rewrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Disable key | ![Check mark icon](../../icons/checkmark-icon.svg) | | | |
-| Enable key  | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
-| Delete key  | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Restore key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+<table>
+  <tr>
+    <th>Action</th>
+    <th>Active</th>
+    <th>Suspended</th>
+    <th>Deactivated</th>
+    <th>Destroyed</th>
+  </tr>
+
+  <tr>
+    <td>Get key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+  </tr>
+
+  <tr>
+    <td>List keys</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Rotate key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Wrap key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Unwrap key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Rewrap key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Disable key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Enable key</td>
+    <td></td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Delete key</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Restore key</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+  </tr>
+</table>
 {: caption="Table 2. Describes how key states affect service actions." caption-side="top"}
 
 ## Monitoring for lifecycle changes
@@ -92,7 +169,7 @@ transition history and configuration.
 
 For audit purposes, you can also monitor the activity trail for a key by
 integrating {{site.data.keyword.keymanagementserviceshort}} with
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started).
 After both services are provisioned and running, activity events are generated
 and automatically collected in a {{site.data.keyword.at_full_notm}} log when you
 perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.

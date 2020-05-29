@@ -38,7 +38,7 @@ Release Date: 2020-05-29
 
 Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
 logs. These updates will be available across all supported regions by 29 May
 2020.
 
@@ -52,7 +52,7 @@ These changes are required to remove deprecated event fields and support
 upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 - **How will the changes impact my environment?**
 This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
 audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
 actions. The change does not impact
 {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
@@ -68,7 +68,7 @@ If you have _Writer_ or _Manager_ access permissions, you can now use the
 that was initially imported with an import token.
 
 To find out more, see
-[Using an import token to rotate a key](docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
+[Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
 
 ### Added: Restore a deleted key
 {: #added-restore-key}
@@ -142,7 +142,7 @@ New as of: 2020-02-28
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
 logs. These updates will be available across all supported regions by 15 April
 2020.
 
@@ -217,7 +217,7 @@ These changes are required to remove deprecated event fields and support
 upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 - **How will the changes impact my environment?**
 This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
 audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
 actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}}
 operations. As a security or compliance admin, ensure that the removed and
@@ -494,7 +494,8 @@ is based on Cloud Foundry. This legacy
 {{site.data.keyword.keymanagementserviceshort}} service will be decommissioned
 on 15 May 2019.
 
-**What this means to you**
+#### What this means to you
+{: #feb-2019-what-this-means}
 
 If you have active production keys in an older
 {{site.data.keyword.keymanagementserviceshort}} service instance, ensure that

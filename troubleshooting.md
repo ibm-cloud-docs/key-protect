@@ -59,16 +59,15 @@ When you call the {{site.data.keyword.keymanagementserviceshort}} API, the syste
 You call any {{site.data.keyword.keymanagementserviceshort}} API method. You see an error response similar to the following JSON object:
 {: tsSymptoms}
 
-```
+```json
 {
-  "metadata":
-  {
-    "collectionType":"application/vnd.ibm.kms.error+json",
-    "collectionTotal":1
+  "metadata": {
+    "collectionType": "application/vnd.ibm.kms.error+json",
+    "collectionTotal": 1
   },
-  "resources":[
+  "resources": [
     {
-      "errorMsg":"Unauthorized: The user does not have access to the specified resource"
+      "errorMsg": "Unauthorized: The user does not have access to the specified resource"
     }
   ]
 }

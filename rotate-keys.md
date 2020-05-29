@@ -100,7 +100,7 @@ rotate.
       </caption>
     </table>
 
-7.  When you are finished, click **Rotate key** to confirm.
+7. When you are finished, click **Rotate key** to confirm.
 
 ## Rotating root keys with the API
 {: #rotate-key-api}
@@ -294,7 +294,7 @@ instance.
           "lastRotateDate": "2020-03-12T03:49:01Z",
           "keyVersion": {
             "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-            "creationDate": "2020-03-12T03:50:12Z",
+            "creationDate": "2020-03-12T03:50:12Z"
           },
           "dualAuthDelete": {
             "enabled": false

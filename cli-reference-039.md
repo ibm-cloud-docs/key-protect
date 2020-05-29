@@ -44,7 +44,7 @@ To install the CLI plug-in, see
 [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
 
 When you log in to the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external},
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external},
 you're notified when updates are available. Be sure to keep your CLI up-to-date
 so that you can use the commands and flags that are available for the
 {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
@@ -55,8 +55,8 @@ so that you can use the commands and flags that are available for the
 
 You can specify one of the following commands.
 
-| Command                 | Description                  |
-| ----------------------- | ---------------------------- |
+| Command                     | Description                  |
+| --------------------------- | ---------------------------- |
 | [kp create](#kp-create-039) | Create a key                 |
 | [kp list](#kp-list-039)     | Retrieve a list of keys      |
 | [kp get](#kp-get-039)       | Retrieve a key               |
@@ -70,8 +70,8 @@ You can specify one of the following commands.
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Command                         | Description                         |
-| ------------------------------- | ----------------------------------- |
+| Command                             | Description                             |
+| ----------------------------------- | --------------------------------------- |
 | [kp policy set](#kp-policy-set-039) | Create or replace a key policy      |
 | [kp policy get](#kp-policy-get-039) | Retrieve details about a key policy |
 {: caption="Table 2. Commands for managing key policies" caption-side="top"}

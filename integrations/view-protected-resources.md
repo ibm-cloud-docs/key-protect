@@ -89,7 +89,40 @@ out the
 [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){:external}.
 {: preview}
 
-## Viewing protected resources
+
+## Viewing protected resources in the console
+{: #view-protected-resources-console}
+
+You can browse the registrations that are available between your
+{{site.data.keyword.keymanagementserviceshort}} keys and cloud resources by
+using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
+
+### Viewing protected resources in your instance
+{: #view-protected-resources-console-instance}
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, select the `Associated Resources` tab on the left side menu.
+5. On the Associated resources page, use the **Associated Resources** table to browse the registrations in
+your service.
+5. Click the `^` icon under the `Details` column to view a list of details for a specific registration.
+7. Click `Filter` button to filter for resources by key ID, Cloud Resource Name (CRN), and retention policy.
+
+### Viewing protected resources associated with your key
+{: #view-protected-resources-console-key}
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in
+your service.
+5. Click the ⋯ icon to open a list of options for the key.
+6. From the options menu, click **Key associated resources** to view the key's associated registrations.
+
+## Viewing protected resources with the API
 {: #view-protected-resources-api}
 
 You can browse the registrations that are available between your
@@ -219,7 +252,7 @@ The following table describes the properties of a registration.
   </caption>
 </table>
 
-## Listing registrations for a specific root key
+### Listing registrations for a specific root key
 {: #view-protected-resources-key-id}
 
 You can retrieve the registration details that are associated with a specific
@@ -380,7 +413,7 @@ following cURL command.
     at query time.
     {: note}
 
-### Filter registrations for a specific root key
+#### Filter registrations for a specific root key
 {: #filter-registrations-specifc-key-api}
 
 You can filter for a set of registrations that are associated with a root key
@@ -540,7 +573,7 @@ following table.
   </caption>
 </table>
 
-## Listing registrations for any root key
+### Listing registrations for any root key
 {: #view-protected-resources-any-key}
 
 You can also retrieve a list of registrations that are associated with any cloud
@@ -632,7 +665,7 @@ following cURL command.
       </caption>
     </table>
 
-### Filter registrations for any root key
+#### Filter registrations for any root key
 {: #filter-registrations-any-key-api}
 
 You can filter for a set of registrations that are associated with any root key
@@ -794,7 +827,7 @@ following table.
   </caption>
 </table>
 
-## CRN query examples
+### CRN query examples
 {: #crn-query-examples}
 
 Use URL encoded CRN queries to filter registrations by service instance,

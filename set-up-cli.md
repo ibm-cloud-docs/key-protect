@@ -37,12 +37,12 @@ CLI plug-in, check out the
 
 Before you can set up the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in, install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
 To install the CLIs:
 
 1. Install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     After you install the CLI, you can run `ibmcloud` commands to interact with
     your cloud services.
@@ -83,7 +83,7 @@ You might want to update CLI periodically to use new features.
 To update the CLI:
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -114,7 +114,7 @@ To update the CLI:
 {: #uninstall-cli}
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login

@@ -105,15 +105,32 @@ encrypt and decrypt operations.
       </tr>
 
       <tr>
-        <td><varname>region</varname></td>
-        <td><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {
-          {site.data.keyword.keymanagementserviceshort}} service instance resides. For more information, see <a href="/docs/key-protect?
-          topic=key-protect-regions#service-endpoints">Regional service endpoints</a>.</td>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} service instance
+            resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
       </tr>
 
       <tr>
-        <td><varname>key_ID</varname></td>
-        <td><strong>Required.</strong> The unique identifier for the root key that you want to disable.</td>
+        <td>
+          <varname>key_ID</varname>
+        </td>
+        <td>
+          <strong>Required.</strong> The unique identifier for the root key that
+          you want to disable.
+        </td>
       </tr>
 
       <tr>
@@ -324,7 +341,7 @@ and decrypt operations.
           </p>
           <p>
             For more information, see
-          [ Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
           </p>
         </td>
       </tr>

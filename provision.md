@@ -48,7 +48,7 @@ You can also provision an instance of {{site.data.keyword.keymanagementservicesh
 by using the {{site.data.keyword.cloud_notm}} CLI.
 
 1. Log in to {{site.data.keyword.cloud_notm}} through the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started){: external}.
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
