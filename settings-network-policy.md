@@ -274,7 +274,7 @@ policies that are available for your
 
     ```cURL
     curl -X GET \
-    https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork \
+      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.policy+json'
