@@ -89,7 +89,7 @@ encrypt and decrypt operations.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
     ```
@@ -285,7 +285,7 @@ and decrypt operations.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
     ```

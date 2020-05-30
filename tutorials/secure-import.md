@@ -171,7 +171,7 @@ variables in your terminal.
 variable.
 
     ```sh
-    export KP_API_URL=https://us-east.kms.cloud.ibm.com
+    export KP_API_URL=https://<region>.kms.cloud.ibm.com
     ```
     {: pre}
 
@@ -254,7 +254,7 @@ the response to a JSON file.
         "maxAllowedRetrievals": 1
       }' > createImportTokenResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
     In the request body, you can specify a policy on the import token that
     limits its use based on time and usage count. In this example, you set the
@@ -316,7 +316,7 @@ the response to a JSON file.
       -H 'Authorization: $ACCESS_TOKEN' \
       -H 'Bluemix-Instance: $INSTANCE_ID' > getImportTokenResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
 2. Optional: Inspect the contents of the import token.
 
@@ -560,7 +560,7 @@ following cURL command.
         ]
       }' > createRootKeyResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
     In the request body, you provide the encryption key that you prepared in the
     previous step. You also supply the encrypted nonce and the IV values that
@@ -654,7 +654,7 @@ previous step.
       -H 'Authorization: $ACCESS_TOKEN' \
       -H 'Bluemix-Instance: $INSTANCE_ID' | jq .
     ```
-    {: pre}
+    {: codeblock}
 
 3. Remove the all the local files associated with this tutorial.
 

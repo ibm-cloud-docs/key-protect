@@ -78,7 +78,7 @@ associated data.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -d '{
@@ -309,7 +309,7 @@ following cURL command.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -d '{

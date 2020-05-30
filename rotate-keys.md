@@ -352,7 +352,7 @@ command.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -d '{

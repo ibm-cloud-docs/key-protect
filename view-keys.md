@@ -315,7 +315,7 @@ You can use the following example request to retrieve a different set of keys.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>'
@@ -445,7 +445,7 @@ You can use the following example request to retrieve a different set of keys.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>'
