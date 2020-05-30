@@ -38,7 +38,7 @@ networking, and secure engineering.
 
 To learn more about security controls across {{site.data.keyword.cloud_notm}},
 see
-[How do I know that my data is safe?](/docs/overview?topic=overview-security#security).
+[How do I know that my data is safe?](/docs/overview?topic=overview-security#security){: external}.
 {: tip}
 
 ### Data encryption
@@ -103,9 +103,9 @@ If you use {{site.data.keyword.keymanagementserviceshort}} resources in the
 Frankfurt, Germany region to process personal data for European citizens, you
 can enable the EU Supported setting for your {{site.data.keyword.cloud_notm}}
 account. To find out more, see
-[Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported)
+[Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
 and
-[Requesting support for resources in the European Union](/docs/get-support?topic=get-support-getting-customer-support#eusupported).
+[Requesting support for resources in the European Union](/docs/get-support?topic=get-support-getting-customer-support#eusupported){: external}.
 
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}
@@ -120,7 +120,7 @@ security, and governance solutions to assist them in their journey to GDPR
 readiness.
 
 To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort}} resources,
-[enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported)
+[enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
 for your {{site.data.keyword.cloud_notm}} account. You can learn more about how
 {{site.data.keyword.keymanagementserviceshort}} processes and protects personal
 data by reviewing the following addendums.
@@ -144,7 +144,7 @@ certified.
 If you or your company is a covered entity as defined by HIPAA, you can enable
 the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account.
 To find out more, see
-[Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa).
+[Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa){: external}.
 
 ### ISO 27001, 27017, 27018
 {: #iso}

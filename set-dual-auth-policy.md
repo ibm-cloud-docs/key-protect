@@ -200,7 +200,7 @@ following cURL command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     For keys that do not have an existing dual authorization policy, the
     following JSON shows an example response.
@@ -213,7 +213,7 @@ following cURL command.
       }
     }
     ```
-    {:screen}
+    {: screen}
 
 ### Creating a dual authorization policy for a key
 {: #create-dual-auth-key-policy-api}

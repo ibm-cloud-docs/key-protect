@@ -212,7 +212,7 @@ cURL command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     The `interval_month` value indicates the key rotation frequency in months.
 
@@ -379,7 +379,7 @@ command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
 ### Updating a rotation policy
 {: #update-rotation-policy-api}
@@ -544,7 +544,7 @@ command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     The `interval_month` and `updatedat` values are updated in the policy
     details for the key. If a different user updates a policy for a key that you
