@@ -26,7 +26,7 @@ manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
 {:shortdesc}
 
 To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
-[Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli){: external}.
+[Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
 
 When you log in to the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external},
@@ -66,7 +66,7 @@ The examples use the exported service instance instead of the `-i` parameter.
 # export the service instance id
 $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 ```
-{:screen}
+{: screen}
 
 ## ibmcloud kp commands
 {: #ibmcloud-kp-commands}
@@ -114,7 +114,7 @@ show help for specific sub-commands, which you can change.
 ## kp import-token create
 {: #kp-import-token-create}
 
-[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens){: external}
+[Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens)
 that you can use to encrypt and import a root key to the
 {{site.data.keyword.keymanagementserviceshort}} service instance. By default,
 the import token expires after 10 minutes (600 seconds).
@@ -125,7 +125,7 @@ ibmcloud kp import-token create
     [-e, --expiration     EXPIRATION_TIME_SECONDS]
     [-m, --max-retrievals MAX_RETRIEVALS]
 ```
-{:pre}
+{: pre}
 
 ### Example
 {: #kp-import-token-create-example}
@@ -146,7 +146,7 @@ $ ibmcloud kp import-token show
     "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
 }
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-import-token-create-req-params}
@@ -209,7 +209,7 @@ ibmcloud kp import-token key-encrypt
     -k, --key         KEY_MATERIAL
     -p, --pubkey      PUBLIC_KEY
 ```
-{:pre}
+{: pre}
 
 ### Example
 {: #kp-import-token-key-encrypt-example}
@@ -231,7 +231,7 @@ $ ibmcloud kp import-token key-encrypt -k $KEY_MATERIAL -p $PUBLIC_KEY
 Encrypted Key
 Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-import-token-key-encrypt-required}
@@ -281,7 +281,7 @@ ibmcloud kp import-token nonce-encrypt
     -k, --key         KEY_MATERIAL
     -n, --nonce       NONCE
 ```
-{:pre}
+{: pre}
 
 ### Example
 {: #kp-import-token-nonce-encrypt-example}
@@ -303,7 +303,7 @@ $ ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE
 Encrypted Nonce                            IV
 mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-import-token-nonce-encrypt-required}
@@ -338,7 +338,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 ## kp import-token show
 {: #kp-import-token-show}
 
-[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api){: external}
+[Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
 that is associated with your service instance.
 
 The import token contains a public encryption key and a nonce. Provide the
@@ -349,7 +349,7 @@ and `ibmcloud kp import-token key-encrypt`.
 ibmcloud kp import-token show
     -i, --instance-id INSTANCE_ID
 ```
-{:pre}
+{: pre}
 
 ### Example
 {: #kp-import-token-show-example}
@@ -376,7 +376,7 @@ $ ibmcloud kp import-token show | jq -r '.["nonce"]'
 $ ibmcloud kp import-token show | jq -r '.["payload"]'
 LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-import-token-show-required}
@@ -396,10 +396,10 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 ## kp key create
 {: #kp-key-create}
 
-[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys){: external}
+[Create a root key](/docs/key-protect?topic=key-protect-create-root-keys)
 in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
 specify or
-[import your own key](/docs/key-protect?topic=key-protect-import-root-keys){: external}.
+[import your own key](/docs/key-protect?topic=key-protect-import-root-keys)
 
 Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256
 bits.
@@ -414,7 +414,7 @@ ibmcloud kp key create KEY_NAME
     [-s, --standard-key]
     [-v, --iv              IV]
 ```
-{:pre}
+{: pre}
 
 ### Example
 {: #kp-key-create-example}
@@ -434,7 +434,7 @@ SUCCESS
 Key ID                                 Key Name
 24203f96-b134-440e-981a-a24f2d432256   my-root-key
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-create-example-base64}
@@ -452,7 +452,7 @@ SUCCESS
 Key ID                                 Key Name
 5f9eef2d-53b4-42e8-8b56-c2970255210a   my-base64-root-key
 ```
-{:screen}
+{: screen}
 
 #### Example 3
 {: #kp-key-create-example-import-token}
@@ -496,7 +496,7 @@ SUCCESS
 Key ID                                 Key Name
 4241a9b3-0ee0-4cfd-b0f3-fd80505fb675   my-imported-root-key
 ```
-{:screen}
+{: screen}
 
 #### Example 4
 {: #kp-key-create-example-standard}
@@ -511,7 +511,7 @@ SUCCESS
 Key ID                                 Key Name
 12d3f3a4-aea5-4832-8339-fa14dbffd935   my-standard-key
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-create-required}
@@ -609,7 +609,7 @@ Key ID                                 Key Name
 ## kp key delete
 {: #kp-key delete}
 
-[Delete a key](/docs/key-protect?topic=key-protect-delete-keys){: external} that
+[Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that
 is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
@@ -651,7 +651,7 @@ SUCCESS
 Deleted Key
 8635b804-9966-4918-a16b-d561fdbf181f
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-delete-example-json}
@@ -691,7 +691,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
   "Deleted Key": "9cca88c9-019e-4f0a-9e76-8e657c6b9720"
 }
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-delete-required}
@@ -784,7 +784,7 @@ Last Updated    2020-05-05 20:56:05 UTC
 Updated By      string ...<redacted>...
 Interval        2
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-policies-example-json}
@@ -824,7 +824,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
   }
 }
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-policies-required}
@@ -913,7 +913,7 @@ Last Updated    2020-05-06 15:22:43 UTC
 Updated By      string ...<redacted>...
 Interval        2
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-policy-update-required}
@@ -970,7 +970,7 @@ Interval        2
 ## kp key rotate
 {: #kp-key-rotate}
 
-[Rotate a root key](/docs/key-protect?topic=key-protect-rotate-keys){: external}
+[Rotate a root key](/docs/key-protect?topic=key-protect-rotate-keys)
 that is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ALL KEYS HAVE NAME SO GIVING IT A NAME IS NOT CORRECT
@@ -1035,7 +1035,7 @@ $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad -k $NEW_KEY_MATERI
 Rotating root key...
 FAILED
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-rotate-example-base64}
@@ -1071,7 +1071,7 @@ $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58
 Rotating root key...
 FAILED
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-rotate-required}
@@ -1155,7 +1155,7 @@ SUCCESS
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 8635b804-9966-4918-a16b-d561fdbf181f   my-root-key                 2020-05-05 19:58:02 +0000 UTC   Key does not expire
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-show-required}
@@ -1195,7 +1195,7 @@ Key ID                                 Key Name      Description   Creation Date
 ## kp key unwrap
 {: #kp-key-unwrap}
 
-[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys){: external}
+[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
 using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}}
 service instance.
 
@@ -1242,7 +1242,7 @@ SUCCESS
 Plaintext                                      Rewrapped Plaintext
 mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-unwrap-example-existing}
@@ -1295,7 +1295,7 @@ $ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD2,$AAD1
 Unwrapping key...
 FAILED
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-unwrap-required}
@@ -1359,7 +1359,7 @@ FAILED
 ## kp key wrap
 {: #kp-key-wrap}
 
-[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys){: external}
+[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys)
 (DEK) using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}}
 service instance. A DEK is typically used to encrypt "other" pieces of
 information.
@@ -1433,7 +1433,7 @@ SUCCESS
 Plaintext                                      Rewrapped Plaintext
 mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-key-wrap-example-existing}
@@ -1486,7 +1486,7 @@ $ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD2,$AAD1
 Unwrapping key...
 FAILED
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-key-wrap-required}
@@ -1588,7 +1588,7 @@ Key ID                                 Key Name
 5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-keys-example-crn}
@@ -1603,7 +1603,7 @@ Key ID                                 Key Name      CRN
 5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5f2cc155-fe16-492c-845c-4d1f0688c7ba
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:c36e9f3a-feaf-4033-8603-687784dc7e51
 ```
-{:screen}
+{: screen}
 
 #### Example 3
 {: #kp-keys-example-json}
@@ -1642,7 +1642,7 @@ $ ibmcloud kp keys --output json
   }
 ]
 ```
-{:screen}
+{: screen}
 
 #### Example 4
 {: #kp-keys-example-iterate}
@@ -1665,7 +1665,7 @@ SUCCESS
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17:56:37 +0000 UTC   Key does not expire
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-keys-required}
@@ -1745,7 +1745,7 @@ Enter a number:
 5
 OK
 ```
-{:screen}
+{: screen}
 
 #### Example 2
 {: #kp-region-set-example-provide}
@@ -1756,7 +1756,7 @@ Set the region explicitly.
 $ ibmcloud kp region-set us-south
 OK
 ```
-{:screen}
+{: screen}
 
 The `REGION` must be a valid regional endpoint.
 
@@ -1765,7 +1765,7 @@ The `REGION` must be a valid regional endpoint.
 $ ibmcloud kp region-set not-a-region
 FAILED
 ```
-{:screen}
+{: screen}
 
 #### Example 3
 {: #kp-region-set-example-unset}
@@ -1776,7 +1776,7 @@ Unset (remove) the regional endpoint.
 $ ibmcloud kp region-set -u
 OK
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #kp-region-set-required}

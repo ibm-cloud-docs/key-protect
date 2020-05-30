@@ -287,7 +287,7 @@ command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     By default, `GET api/v2/keys` returns your first 200 keys, but you can
     adjust this limit by using the `limit` parameter at query time. To learn

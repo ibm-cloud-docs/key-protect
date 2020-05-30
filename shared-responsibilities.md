@@ -9,11 +9,11 @@ keywords: shared responsibilities, disaster recovery, incident management
 subcollection: key-protect
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
 {:codeblock: .codeblock}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -30,14 +30,14 @@ have when you use {{site.data.keyword.keymanagementservicefull}}.
 For a high-level view of the service types in {{site.data.keyword.cloud_notm}}
 and the breakdown of responsibilities between the customer and
 {{site.data.keyword.IBM_notm}} for each type, see
-[Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities).
+[Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities){: external}.
 {:shortdesc}
 
 Review the following sections for the specific responsibilities for you and for
 {{site.data.keyword.IBM_notm}} when you use
 {{site.data.keyword.keymanagementservicelong_notm}}. For the overall terms of
 use, see
-[{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms).
+[{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms){: external}.
 
 ## Incident and operations management
 {: #incident-and-ops}
@@ -53,7 +53,7 @@ data.
 | ---- | ----------------------------------------------- | --------------------- |
 | Availability | Provide high availability capabilities, such as IBM-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
 | Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.at_full}}. | Use the provided tools to [review instance logs and activities](/docs/key-protect?topic=key-protect-at-events). |
-| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/overview?topic=overview-ui#email-prefsl), and monitor the [IBM Cloud status page](https://{DomainName}/status?selected=announcement){: external} for general announcements. |
+| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/overview?topic=overview-ui#email-prefsl){: external}, and monitor the [IBM Cloud status page](https://{DomainName}/status?selected=announcement){: external} for general announcements. |
 {: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 
 ## Change management

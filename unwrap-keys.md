@@ -201,7 +201,7 @@ request.
       }
     }
     ```
-    {:screen}
+    {: screen}
 
     If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
     the root key that is used to unwrap and access your data, the service also

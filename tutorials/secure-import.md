@@ -66,7 +66,7 @@ installed locally on your computer.
 1. Create an
 [{{site.data.keyword.cloud_notm}} account](https://{DomainName}){: external}.
 2. Download and install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started)
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
 for your operating system.
 3. Download and install the
 [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
@@ -422,7 +422,7 @@ binary to the `key-protect-test` directory.
     The binary contains a script that you can use to run AES-GCM encryption on
     the nonce value by using the key that you generated in step 5. To learn more
     about the script,
-    [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){:external}.
+    [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){: external}.
     {: note}
 
 4. Mark the file as executable by running the following `chmod` command.

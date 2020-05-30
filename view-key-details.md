@@ -192,7 +192,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     Need to retrieve the `payload` value for a standard key? To learn more, see
     [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key).

@@ -440,7 +440,7 @@ following cURL command.
           </p>
           <p>
             To learn more, see
-            [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce){: external}.
+            [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce).
           </p>
         </td>
       </tr>
@@ -458,7 +458,7 @@ following cURL command.
           </p>
           <p>
             To learn more, see
-            [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce){: external}.
+            [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce).
           </p>
         </td>
       </tr>

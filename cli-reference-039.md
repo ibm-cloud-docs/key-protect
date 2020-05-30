@@ -104,7 +104,7 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
                            [-s, --standard-key]
                            [--output FORMAT]
 ```
-{:pre}
+{: pre}
 
 ### Required parameters
 {: #create-req-params}
@@ -201,7 +201,7 @@ SUCCESS
 Key ID                                 Key Name
 3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-new-root-key
 ```
-{:screen}
+{: screen}
 
 #### Import a key that you generate on-premises
 {: #import-key-example}
@@ -213,7 +213,7 @@ SUCCESS
 Key ID                                 Key Name
 3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-imported-root-key
 ```
-{:screen}
+{: screen}
 
 #### Import a key by using an import token
 {: #import-key-with-import-token-example}
@@ -225,7 +225,7 @@ SUCCESS
 Key ID                                 Key Name
 3df42bc2-a991-41cb-acc2-3f9eab64a63f   my-encrypted-root-key
 ```
-{:screen}
+{: screen}
 
 See the [`ibmcloud kp import-token` subcommands](#kp-import-token-create-039) for
 information about using an import token to upload a key to
@@ -303,7 +303,7 @@ SUCCESS
 Key ID                                 Key Name          Description     Creation Date                   Expiration Date
 3df42bc2-a991-41cb-acc2-3f9eab64a63f   sample-root-key   A sample key.   2019-04-02 16:42:47 +0000 UTC   Key does not expire
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #get-req-params}
@@ -490,7 +490,7 @@ Rotating root key...
 
 SUCCESS
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #rotate-req-params}
@@ -695,7 +695,7 @@ ibmcloud kp import-token create -i $INSTANCE_ID
                                [-e, --expiration=TIME_IN_SECONDS]
                                [-m, --max-retrievals=USE_COUNT]
 ```
-{:pre}
+{: pre}
 
 ```sh
 $ ibmcloud kp import-token create -i $INSTANCE_ID --expiration=300 --max-retrievals=3
@@ -704,7 +704,7 @@ SUCCESS
 Created                         Expires                         Max Retrievals   Remaining Retrievals
 2019-08-05 19:56:11 +0000 UTC   2019-08-05 20:01:11 +0000 UTC   3                3
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #import-token-create-req-params}
@@ -762,7 +762,7 @@ and `ibmcloud kp import-token encrypt-key`.
 ```
 ibmcloud kp import-token get -i $INSTANCE_ID
 ```
-{:pre}
+{: pre}
 
 ```sh
 $ ibmcloud kp import-token get -i $INSTANCE_ID
@@ -773,7 +773,7 @@ SUCCESS
   "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv"
 }
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #import-token-get-req-params}
@@ -799,7 +799,7 @@ import the key.
 ```
 ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID
 ```
-{:pre}
+{: pre}
 
 ```sh
 $ ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID
@@ -810,7 +810,7 @@ SUCCESS
 Encrypted Nonce                            IV
 sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #encrypt-nonce-req-params}
@@ -856,7 +856,7 @@ the key to the service.
 ```
 ibmcloud kp import-token encrypt-key -i $INSTANCE_ID
 ```
-{:pre}
+{: pre}
 
 ```sh
 $ ibmcloud kp import-token encrypt-key -i $INSTANCE_ID
@@ -867,7 +867,7 @@ SUCCESS
 Encrypted Key
 Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
 ```
-{:screen}
+{: screen}
 
 ### Required parameters
 {: #encrypt-key-req-params}

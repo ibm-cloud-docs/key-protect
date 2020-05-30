@@ -36,7 +36,7 @@ for your infrastructure account. After you enable VRF for your account, you can
 connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP
 that is accessible only through the {{site.data.keyword.cloud_notm}} private
 network. To learn more about private connections on {{site.data.keyword.cloud_notm}}, see
-[Service endpoints for private connections](/docs/resources?topic=resources-service-endpoints){:external}.
+[Service endpoints for private connections](/docs/resources?topic=resources-service-endpoints){: external}.
 
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
 network connection, you must use the {{site.data.keyword.keymanagementserviceshort}}

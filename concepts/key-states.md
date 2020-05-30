@@ -169,7 +169,7 @@ transition history and configuration.
 
 For audit purposes, you can also monitor the activity trail for a key by
 integrating {{site.data.keyword.keymanagementserviceshort}} with
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started).
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started){: external}.
 After both services are provisioned and running, activity events are generated
 and automatically collected in a {{site.data.keyword.at_full_notm}} log when you
 perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.

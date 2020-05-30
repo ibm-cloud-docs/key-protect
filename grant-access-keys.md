@@ -27,7 +27,7 @@ modifying {{site.data.keyword.cloud_notm}} IAM access policies.
 {: shortdesc}
 
 As an account admin, determine an
-[access policy type](/docs/iam?topic=iam-userroles#policytypes)
+[access policy type](/docs/iam?topic=iam-userroles#policytypes){: external}
 for users, service IDs, and
 [access groups](#x2160811){: term}
 based on your internal access control requirements. For example, if you want to
