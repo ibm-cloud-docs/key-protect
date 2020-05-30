@@ -259,7 +259,7 @@ at query time to delete the key.
 
     For a detailed description of the available parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.
 
 ### Using the `force` query parameter
 {: #delete-key-force}
@@ -438,4 +438,4 @@ the key.
 
     For a detailed description of the available parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.

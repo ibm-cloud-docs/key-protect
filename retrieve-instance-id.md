@@ -93,14 +93,16 @@ instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 You might want to retrieve the instance ID programmatically to help you build
 and connect your application. You can call the
-[{{site.data.keyword.cloud_notm}} Resource Controller API](https://{DomainName}/apidocs/resource-controller){: external},
+[{{site.data.keyword.cloud_notm}} Resource Controller API](/apidocs/resource-controller){: external},
 and then pipe the JSON output to `jq` to extract this value.
 
 1. [Retrieve an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
 
-2. Call the [Resource Controller API](https://{DomainName}/apidocs/resource-controller){: external} to retrieve your instance ID.
+2. Call the
+[Resource Controller API](/apidocs/resource-controller){: external}
+to retrieve your instance ID.
 
-    ```sh
+    ```cURL
     curl -X GET \
       https://resource-controller.cloud.ibm.com/v2/resource_instances \
       -H 'Authorization: Bearer <access_token>' | jq -r '.resources[] | select(.name | contains("<instance_name>")) | .guid'

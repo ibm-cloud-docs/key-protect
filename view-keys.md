@@ -80,7 +80,7 @@ page:
           A unique key ID that was assigned to your key by the
           {{site.data.keyword.keymanagementserviceshort}} service. You can use
           the ID value to make calls to the service with the
-          [{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+          [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
         </td>
       </tr>
 
@@ -189,8 +189,8 @@ command.
         <td>
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code> token,
-            including the Bearer value, in the cURL request.
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the cURL request.
           </p>
           <p>
             For more information, see
@@ -318,7 +318,7 @@ curl -X GET \
   https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 
@@ -448,7 +448,7 @@ curl -X GET \
   https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers> \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 

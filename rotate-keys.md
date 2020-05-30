@@ -131,7 +131,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key_action+json' \
       -d '{
-        'payload: <key_material>'
+        "payload": "<key_material>"
       }'
     ```
     {: codeblock}
@@ -563,7 +563,7 @@ key.
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+      -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
     ```
     {: codeblock}

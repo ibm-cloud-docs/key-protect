@@ -61,7 +61,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 2. Retrieve the ID of the key that you want to restore.
 
     You can retrieve the ID for a specified key by making a
-    [list keys request](/apidocs/key-protect#list-keys)
+    [list keys request](/apidocs/key-protect#list-keys){: external}
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
@@ -216,7 +216,7 @@ key.
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+      -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
     ```
     {: codeblock}
@@ -486,7 +486,7 @@ key.
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+      -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
     ```
     {: codeblock}

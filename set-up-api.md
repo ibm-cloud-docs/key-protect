@@ -77,4 +77,4 @@ debugging purposes.
 You're all set to start managing your encryption keys in
 {{site.data.keyword.keymanagementserviceshort}}. To find out more about
 programmatically managing your keys,
-[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

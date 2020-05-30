@@ -125,15 +125,15 @@ service ID.
     secure location.
 
 6. Call the
-[IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api){: external}
+[IAM Identity Services API](/apidocs/iam-identity-token-api){: external}
 to retrieve your access token.
 
     ```cURL
     curl -X POST \
-      "https://iam.cloud.ibm.com/identity/token" \
-      -H "Content-Type: application/x-www-form-urlencoded" \
-      -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
+      https://iam.cloud.ibm.com/identity/token \
+      -H 'Content-Type: application/x-www-form-urlencoded' \
+      -H 'Accept: application/json' \
+      -d 'grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>' > token.json
     ```
     {: codeblock}
 
@@ -161,5 +161,5 @@ to retrieve your access token.
     Access tokens are valid for 1 hour, but you can regenerate them as needed.
     To maintain access to the service, regenerate the access token for your API
     key on a regular basis by calling the
-    [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api){: external}.
+    [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}.
     {: note }

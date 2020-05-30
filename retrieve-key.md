@@ -243,4 +243,4 @@ material.
 
     For a detailed description of the response parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.

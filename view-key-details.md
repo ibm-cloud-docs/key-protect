@@ -200,4 +200,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 
     For a detailed description of the response parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.

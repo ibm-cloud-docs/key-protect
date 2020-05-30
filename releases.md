@@ -315,7 +315,7 @@ service actions. Effective 13 November 2019,
 according to the following table:
 
 | Service action | Current role assignments | New role assignments |
-| --- | --- | --- |
+| -------------- | ------------------------ | -------------------- |
 | Create keys | Administrator, Editor, Writer, Manager | Writer, Manager |
 | Retrieve a key by ID | Administrator, Editor, Writer, Manager | Writer, Manager |
 | Retrieve a list of keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
@@ -423,7 +423,6 @@ regions.
 To learn more about the features and benefits of
 {{site.data.keyword.cloud_notm}} HSM 7.0, check out the
 [product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
-
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
 {: #legacy-service-eol}
@@ -621,7 +620,7 @@ New as of: 2018-08-28
 The {{site.data.keyword.keymanagementserviceshort}} API Reference has moved!
 
 You can now access the API documentation at
-https://{DomainName}/apidocs/key-protect.
+[/apidocs/key-protect](/apidocs/key-protect){: external}.
 
 ## March 2018
 {: #mar-2018}
