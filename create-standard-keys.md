@@ -107,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Call the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
 with the following cURL command.
 
     ```cURL
@@ -314,4 +314,4 @@ instance.
 {: #create-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys,
-[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

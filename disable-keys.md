@@ -80,7 +80,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 2. Retrieve the ID of the root key that you want to disable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys`
-    [request](/apidocs/key-protect#list-keys),
+    [request](/apidocs/key-protect#list-keys){: external},
     or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
@@ -184,7 +184,7 @@ the key.
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+      -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
     ```
     {: codeblock}
@@ -272,7 +272,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
 2. Retrieve the ID of the disabled root key that you want to enable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys`
-    [request](/apidocs/key-protect#list-keys),
+    [request](/apidocs/key-protect#list-keys){: external},
     or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
@@ -380,7 +380,7 @@ the key.
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+      -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
     ```
     {: codeblock}

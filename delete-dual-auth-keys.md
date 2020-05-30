@@ -90,7 +90,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 ```
 {: codeblock}
 
-
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
     To set a key for deletion, you must be assigned a _Manager_ or _Writer_
@@ -387,7 +386,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     For a detailed description of the available parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.
 
 ### Removing an existing authorization
 {: #unset-key-deletion-api}
@@ -400,7 +399,6 @@ the following endpoint.
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeletion
 ```
 {: codeblock}
-
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
@@ -425,7 +423,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the following
+    table.
 
     <table>
       <tr>

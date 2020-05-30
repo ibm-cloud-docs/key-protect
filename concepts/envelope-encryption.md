@@ -32,7 +32,7 @@ key (DEK) and then encrypting the DEK with a root key that you can fully manage.
 advanced encryption and offers several benefits:
 
 | Benefit | Description |
-| --- | --- |
+| ------- | ----------- |
 | Customer-managed encryption keys | With the service, you can provision root keys to protect the security of your encrypted data in the cloud. Root keys serve as master key-wrapping keys, which help you manage and safeguard the data encryption keys (DEKs) provisioned in {{site.data.keyword.cloud_notm}} data services. You decide whether to import your existing root keys, or have {{site.data.keyword.keymanagementserviceshort}} generate them on your behalf. |
 | Confidentiality and integrity protection | {{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) to protect keys. When you create keys in the service, {{site.data.keyword.keymanagementserviceshort}} generates them within the trust boundary of {{site.data.keyword.cloud_notm}} hardware security modules (HSMs), so only you have access to your encryption keys. |
 | Cryptographic shredding of data | If your organization detects a security issue, or your app no longer needs a set of data, you can choose to shred the data permanently from the cloud. When you delete a root key that protects other DEKS, you ensure that the keys' associated data can no longer be accessed or decrypted. |
@@ -105,7 +105,7 @@ After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the
 system returns an ID value that you can use to make API calls to the service.
 You can retrieve the ID value for your keys from the
 {{site.data.keyword.keymanagementserviceshort}} dashboard or by using the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
 ## Wrapping keys
 {: #wrapping}
@@ -128,7 +128,7 @@ The following diagram shows the key wrapping process in action:
 The following table describes the inputs needed to perform a key wrap operation:
 
 | Input | Description |
-| --- | --- |
+| ----- | ----------- |
 | Root key ID | The ID value for the root key that you want to use for wrapping. The root key can be imported into the service, or it can originate in {{site.data.keyword.keymanagementserviceshort}} from its HSMs. Root keys that are used for wrapping must be 128, 192, or 256 bits so that a wrap request can succeed. |
 | Plaintext | Optional: The data encryption key (DEK) that you want to use for data encryption. This value must be base64 encoded. To generate a new DEK, you can omit the `plaintext` property. {{site.data.keyword.keymanagementserviceshort}} generates a random plaintext (32 bytes) that is rooted in an HSM and then wraps that value. |
 | Additional authentication data (AAD) | Optional: An array of strings that checks the integrity of the key contents. Each string can hold up to 255 characters. If you supply AAD during a wrap request, you must specify the same AAD during the subsequent unwrap request. |

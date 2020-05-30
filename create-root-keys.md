@@ -75,7 +75,8 @@ window.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or location.
+            personally identifiable information (PII), such as your name or
+            location.
           </p>
         </td>
       </tr>
@@ -338,7 +339,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     For a detailed description of the response parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.
     {: tip}
 
 ## What's next
@@ -347,4 +348,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 - To find out more about protecting keys with envelope encryption, check out
 [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 - To find out more about programmatically managing your keys,
-[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

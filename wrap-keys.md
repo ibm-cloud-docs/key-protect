@@ -74,9 +74,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       -H 'content-type: application/vnd.ibm.kms.key_action+json' \
       -H 'correlation-id: <correlation_ID>' \
       -d '{
-      "plaintext": "<data_key>",
-      "aad": ["<additional_data>", "<additional_data>"]
-    }'
+        "plaintext": "<data_key>",
+        "aad": [
+          "<additional_data>",
+          "<additional_data>"
+        ]
+      }'
     ```
     {: codeblock}
 
