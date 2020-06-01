@@ -28,8 +28,8 @@ You can manage and protect your encryption keys with a root key by using the
 {{site.data.keyword.keymanagementservicelong}} API.
 {: shortdesc}
 
-When you wrap a [data encryption key](#x4791827){:term} with a
-[root key](#x6946961){:term}, {{site.data.keyword.keymanagementserviceshort}}
+When you wrap a [data encryption key](#x4791827){: term} with a
+[root key](#x6946961){: term}, {{site.data.keyword.keymanagementserviceshort}}
 combines the strength of multiple algorithms to protect the privacy and the
 integrity of your encrypted data.
 
@@ -74,9 +74,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       -H 'content-type: application/vnd.ibm.kms.key_action+json' \
       -H 'correlation-id: <correlation_ID>' \
       -d '{
-      "plaintext": "<data_key>",
-      "aad": ["<additional_data>", "<additional_data>"]
-    }'
+        "plaintext": "<data_key>",
+        "aad": [
+          "<additional_data>",
+          "<additional_data>"
+        ]
+      }'
     ```
     {: codeblock}
 
@@ -210,7 +213,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       }
     }
     ```
-    {:screen}
+    {: screen}
 
     If you omit the `plaintext` attribute when you make the wrap request, the
     service returns both the generated data encryption key (DEK) and the wrapped
@@ -225,7 +228,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
       }
     }
     ```
-    {:screen}
+    {: screen}
 
     The `plaintext` value represents the unwrapped DEK, and the `ciphertext`
     value represents the wrapped DEK. The `keyVersion.id` value represents the

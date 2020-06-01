@@ -66,7 +66,7 @@ installed locally on your computer.
 1. Create an
 [{{site.data.keyword.cloud_notm}} account](https://{DomainName}){: external}.
 2. Download and install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started)
+[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
 for your operating system.
 3. Download and install the
 [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
@@ -171,7 +171,7 @@ variables in your terminal.
 variable.
 
     ```sh
-    export KP_API_URL=https://us-east.kms.cloud.ibm.com
+    export KP_API_URL=https://<region>.kms.cloud.ibm.com
     ```
     {: pre}
 
@@ -242,19 +242,19 @@ security for your encryption key while it's in flight to the service.
 {{site.data.keyword.keymanagementserviceshort}} service instance, and then save
 the response to a JSON file.
 
-    ```sh
+    ```cURL
     curl -X POST \
       $KP_API_URL/api/v2/import_token \
-      -H "Accept: application/vnd.ibm.collection+json" \
-      -H "Authorization: $ACCESS_TOKEN" \
-      -H "Content-Type: application/json" \
-      -H "Bluemix-Instance: $INSTANCE_ID" \
+      -H 'Accept: application/vnd.ibm.collection+json' \
+      -H 'Authorization: $ACCESS_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -H 'Bluemix-Instance: $INSTANCE_ID' \
       -d '{
         "expiration": 1200,
         "maxAllowedRetrievals": 1
       }' > createImportTokenResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
     In the request body, you can specify a policy on the import token that
     limits its use based on time and usage count. In this example, you set the
@@ -309,14 +309,14 @@ To retrieve the import token contents:
 1. Retrieve the import token that you generated the previous step, and then save
 the response to a JSON file.
 
-    ```sh
+    ```cURL
     curl -X GET \
       $KP_API_URL/api/v2/import_token \
-      -H "Accept: application/vnd.ibm.collection+json" \
-      -H "Authorization: $ACCESS_TOKEN" \
-      -H "Bluemix-Instance: $INSTANCE_ID" > getImportTokenResponse.json
+      -H 'Accept: application/vnd.ibm.collection+json' \
+      -H 'Authorization: $ACCESS_TOKEN' \
+      -H 'Bluemix-Instance: $INSTANCE_ID' > getImportTokenResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
 2. Optional: Inspect the contents of the import token.
 
@@ -422,7 +422,7 @@ binary to the `key-protect-test` directory.
     The binary contains a script that you can use to run AES-GCM encryption on
     the nonce value by using the key that you generated in step 5. To learn more
     about the script,
-    [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){:external}.
+    [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){: external}.
     {: note}
 
 4. Mark the file as executable by running the following `chmod` command.
@@ -535,13 +535,13 @@ To import the key:
 {{site.data.keyword.keymanagementserviceshort}} service instance by running the
 following cURL command.
 
-    ```sh
+    ```cURL
     curl -X POST \
       $KP_API_URL/api/v2/keys \
-      -H "Accept: application/vnd.ibm.collection+json" \
-      -H "Authorization: $ACCESS_TOKEN" \
-      -H "Content-Type: application/json" \
-      -H "Bluemix-Instance: $INSTANCE_ID" \
+      -H 'Accept: application/vnd.ibm.collection+json' \
+      -H 'Authorization: $ACCESS_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -H 'Bluemix-Instance: $INSTANCE_ID' \
       -d '{
         "metadata": {
           "collectionType": "application/vnd.ibm.kms.key+json",
@@ -560,7 +560,7 @@ following cURL command.
         ]
       }' > createRootKeyResponse.json
     ```
-    {: pre}
+    {: codeblock}
 
     In the request body, you provide the encryption key that you prepared in the
     previous step. You also supply the encrypted nonce and the IV values that
@@ -647,14 +647,14 @@ previous step.
 2. Remove the encryption key from your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-    ```sh
+    ```cURL
     curl -X DELETE \
       $KP_API_URL/api/v2/keys/$ROOT_KEY_ID \
-      -H "Accept: application/vnd.ibm.collection+json" \
-      -H "Authorization: $ACCESS_TOKEN" \
-      -H "Bluemix-Instance: $INSTANCE_ID" | jq .
+      -H 'Accept: application/vnd.ibm.collection+json' \
+      -H 'Authorization: $ACCESS_TOKEN' \
+      -H 'Bluemix-Instance: $INSTANCE_ID' | jq .
     ```
-    {: pre}
+    {: codeblock}
 
 3. Remove the all the local files associated with this tutorial.
 
@@ -696,4 +696,4 @@ and securely import an encrypted key into your
 - Deploy your root key across
 [supported cloud services](/docs/key-protect?topic=key-protect-integrate-services#integrate-services).
 - Learn more about the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.

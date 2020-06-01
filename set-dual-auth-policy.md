@@ -89,7 +89,7 @@ following cURL command.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.policy+json'
@@ -200,7 +200,7 @@ following cURL command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     For keys that do not have an existing dual authorization policy, the
     following JSON shows an example response.
@@ -213,7 +213,7 @@ following cURL command.
       }
     }
     ```
-    {:screen}
+    {: screen}
 
 ### Creating a dual authorization policy for a key
 {: #create-dual-auth-key-policy-api}
@@ -243,7 +243,7 @@ command.
 
     ```cURL
     curl -X PUT \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.policy+json' \

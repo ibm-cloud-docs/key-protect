@@ -60,10 +60,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
     ```cURL
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata \
-        -H 'accept: application/vnd.ibm.kms.key+json' \
-        -H 'authorization: Bearer <IAM_token>' \
-        -H 'bluemix-instance: <instance_ID>' \
-        -H 'correlation-id: <correlation_ID>'
+      -H 'accept: application/vnd.ibm.kms.key+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' \
+      -H 'correlation-id: <correlation_ID>'
     ```
     {: codeblock}
 
@@ -192,7 +192,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     Need to retrieve the `payload` value for a standard key? To learn more, see
     [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key).
@@ -200,4 +200,4 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 
     For a detailed description of the response parameters, see the
     {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](https://{DomainName}/apidocs/key-protect){: external}.
+    [REST API reference doc](/apidocs/key-protect){: external}.

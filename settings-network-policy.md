@@ -121,9 +121,9 @@ unauthorized error (HTTP status code 401).
 As an admin, enable a network access policy for a
 {{site.data.keyword.keymanagementserviceshort}} service instance by making a
 `PUT` call to the following endpoint. See these API references to
-[set](https://{DomainName}/apidocs/key-protect#set-instance-policies){: external}
+[set](/apidocs/key-protect#set-instance-policies){: external}
 and
-[list](https://{DomainName}/apidocs/key-protect#list-instance-policies){: external}
+[list](/apidocs/key-protect#list-instance-policies){: external}
 instance policies.
 
 ```
@@ -274,7 +274,7 @@ policies that are available for your
 
     ```cURL
     curl -X GET \
-    https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork \
+      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.policy+json'
@@ -286,5 +286,5 @@ policies that are available for your
 
 These are API references to set and list instance policies.
 
-* [Set instance policies](https://{DomainName}/apidocs/key-protect#set-instance-policies){: external}
-* [List instance policies](https://{DomainName}/apidocs/key-protect#list-instance-policies){: external}
+* [Set instance policies](/apidocs/key-protect#set-instance-policies){: external}
+* [List instance policies](/apidocs/key-protect#list-instance-policies){: external}

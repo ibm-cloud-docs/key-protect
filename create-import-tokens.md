@@ -50,7 +50,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Set a policy for your import token by calling the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
     ```cURL
     curl -X POST \
@@ -59,8 +59,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/json' \
       -d '{
-        "expiration": <expiration_time>,  \
-        "maxAllowedRetrievals": <use_count>  \
+        "expiration": <expiration_time>,
+        "maxAllowedRetrievals": <use_count>
       }'
     ```
     {: codeblock}
@@ -161,11 +161,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
     </table>
 
     A successful `POST api/v2/import_token` request creates an import token for
-    your {{site.data.keyword.keymanagementserviceshort}} service instance. The response body contains the metadata that is
-    associated with your import token, such as its creation date and policy
-    details. The following snippet shows example output.
+    your {{site.data.keyword.keymanagementserviceshort}} service instance. The
+    response body contains the metadata that is associated with your import
+    token, such as its creation date and policy details. The following snippet
+    shows example output.
 
-    You can only have 1 import token associated with your {{site.data.keyword.keymanagementserviceshort}} instance at any given time. Any subsequent create import token requests will override the previous import token.
+    You can only have 1 import token associated with your
+    {{site.data.keyword.keymanagementserviceshort}} instance at any given time.
+    Any subsequent create import token requests will override the previous
+    import token.
     {: note}
 
     ```json
@@ -194,13 +198,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
 2. Retrieve the import token that is associated with your service instance by
 calling the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
     ```cURL
     curl -X GET \
       https://<region>.kms.cloud.ibm.com/api/v2/import_token \
       -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
+      -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
 
@@ -275,11 +279,12 @@ calling the
     A successful `GET api/v2/import_token` request retrieves the import token
     for your service instance. The response body contains the metadata that is
     associated with your import token, such as its creation date and policy
-    details. 
-    
-    The retrieved import token can be reused to import one or more keys up until the date that the import token expires.
+    details.
+
+    The retrieved import token can be reused to import one or more keys up until
+    the date that the import token expires.
     {: note}
-    
+
     The following snippet shows example output with truncated values.
 
     ```json

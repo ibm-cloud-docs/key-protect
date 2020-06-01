@@ -71,7 +71,7 @@ instance of {{site.data.keyword.keymanagementserviceshort}}.
 {: #retrieve-token-api}
 
 You can also retrieve your access token programmatically by first creating a
-[service ID API key](/docs/iam?topic=iam-serviceidapikeys)
+[service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}
 for your application, and then exchanging your API key for an
 {{site.data.keyword.cloud_notm}} IAM token.
 
@@ -92,7 +92,7 @@ for your application, and then exchanging your API key for an
 2. Select the account, region, and resource group that contain your provisioned
 instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-3. Create a [service ID](/docs/iam?topic=iam-serviceids) for your application.
+3. Create a [service ID](/docs/iam?topic=iam-serviceids){: external} for your application.
 
     ```sh
     ibmcloud iam service-id-create SERVICE_ID_NAME
@@ -100,18 +100,18 @@ instance of {{site.data.keyword.keymanagementserviceshort}}.
     ```
     {: pre}
 
-4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy) for the
+4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy){: external} for the
 service ID.
 
     You can assign access permissions for your service ID
-    [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new).
+    [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new){: external}.
     To learn how the _Manager_, _Writer_, and _Reader_ access roles map to
     specific {{site.data.keyword.keymanagementserviceshort}} service actions,
     see
     [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
-5. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys).
+5. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}.
 
     ```sh
     ibmcloud iam service-api-key-create API_KEY_NAME SERVICE_ID_NAME
@@ -125,15 +125,15 @@ service ID.
     secure location.
 
 6. Call the
-[IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api){: external}
+[IAM Identity Services API](/apidocs/iam-identity-token-api){: external}
 to retrieve your access token.
 
     ```cURL
     curl -X POST \
-      "https://iam.cloud.ibm.com/identity/token" \
-      -H "Content-Type: application/x-www-form-urlencoded" \
-      -H "Accept: application/json" \
-      -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>" > token.json
+      https://iam.cloud.ibm.com/identity/token \
+      -H 'Content-Type: application/x-www-form-urlencoded' \
+      -H 'Accept: application/json' \
+      -d 'grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>' > token.json
     ```
     {: codeblock}
 
@@ -161,5 +161,5 @@ to retrieve your access token.
     Access tokens are valid for 1 hour, but you can regenerate them as needed.
     To maintain access to the service, regenerate the access token for your API
     key on a regular basis by calling the
-    [IAM Identity Services API](https://{DomainName}/apidocs/iam-identity-token-api){: external}.
+    [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}.
     {: note }

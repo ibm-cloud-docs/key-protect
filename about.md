@@ -46,7 +46,7 @@ You might need to manage keys in the following scenarios:
 
 Looking for a dedicated key management solution that supports
 customer-controlled, cloud-based hardware security modules (HSMs)?
-[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started)
+[{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}
 integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep
 Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization
 has more control and authority over its data. Check out the

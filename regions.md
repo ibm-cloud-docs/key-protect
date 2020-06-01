@@ -90,7 +90,7 @@ for interacting with its service APIs.
 If you are managing your {{site.data.keyword.keymanagementserviceshort}}
 resources programmatically, see the following table to determine the API
 endpoints to use when you connect to the
-[{{site.data.keyword.keymanagementserviceshort}} API](https://{DomainName}/apidocs/key-protect){: external}.
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
 | Region        | Public endpoints             |
 | ------------- | ---------------------------- |

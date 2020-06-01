@@ -38,7 +38,7 @@ Release Date: 2020-05-29
 
 Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
 logs. These updates will be available across all supported regions by 29 May
 2020.
 
@@ -52,7 +52,7 @@ These changes are required to remove deprecated event fields and support
 upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 - **How will the changes impact my environment?**
 This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
 audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
 actions. The change does not impact
 {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
@@ -142,7 +142,7 @@ New as of: 2020-02-28
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
 logs. These updates will be available across all supported regions by 15 April
 2020.
 
@@ -217,7 +217,7 @@ These changes are required to remove deprecated event fields and support
 upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 - **How will the changes impact my environment?**
 This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events)
+[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
 audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
 actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}}
 operations. As a security or compliance admin, ensure that the removed and
@@ -315,7 +315,7 @@ service actions. Effective 13 November 2019,
 according to the following table:
 
 | Service action | Current role assignments | New role assignments |
-| --- | --- | --- |
+| -------------- | ------------------------ | -------------------- |
 | Create keys | Administrator, Editor, Writer, Manager | Writer, Manager |
 | Retrieve a key by ID | Administrator, Editor, Writer, Manager | Writer, Manager |
 | Retrieve a list of keys | Administrator, Editor, Writer, Manager, Viewer, Reader | Reader, Writer, Manager |
@@ -423,7 +423,6 @@ regions.
 To learn more about the features and benefits of
 {{site.data.keyword.cloud_notm}} HSM 7.0, check out the
 [product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
-
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
 {: #legacy-service-eol}
@@ -594,7 +593,7 @@ own encryption keys?
 
 You can now practice adding end to end security for your cloud application by
 following
-[the new tutorial](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security).
+[the new tutorial](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}.
 
 For more information, see
 [check out the sample app in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
@@ -621,7 +620,7 @@ New as of: 2018-08-28
 The {{site.data.keyword.keymanagementserviceshort}} API Reference has moved!
 
 You can now access the API documentation at
-https://{DomainName}/apidocs/key-protect.
+[/apidocs/key-protect](/apidocs/key-protect){: external}.
 
 ## March 2018
 {: #mar-2018}
