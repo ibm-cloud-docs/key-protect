@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-06-01"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -39,6 +39,10 @@ To learn how key wrapping helps you control the security of at-rest data in the 
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
+
+Root keys that contain the same key material can unwrap the same data encryption key (WDEK).
+{: note}
+
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
