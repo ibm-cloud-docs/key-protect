@@ -187,7 +187,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was created.
 - The `responseData.keyId` field includes the unique identifier associated with the key.
-- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to wrap input ciphertext on wrap requests.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
 
@@ -203,22 +203,22 @@ The following field includes extra information:
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to wrap input ciphertext on wrap requests.
 
 #### Rewrap key
 {: #create-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
-- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version used to input ciphertext on wrap requests.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to wrap input ciphertext on wrap requests.
+- The `responseData.rewrappedKeyVersionId` field includes the unique identifier of the new key version used to wrap input ciphertext on wrap requests.
 
 #### Restore key
 {: #restore-key-success}
 
 The following field includes extra information:
 
-- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to wrap input ciphertext on wrap requests.
 
 #### Rotate key
 {: #rotate-key-success}
@@ -247,7 +247,7 @@ The following fields include extra information:
 
 - The `requestData.keyType` field includes the type of key that was retrieved.
 - The `responseData.keyState` field includes the integer that correlates to the state of the key.
-- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to input ciphertext on wrap requests.
+- The `responseData.keyVersionId` field includes the unique identifier of the current key version used to wrap input ciphertext on wrap requests.
 - The `responseData.keyVersionCreationDate` field includes the date that the current version of the key was created.
 
 #### List key versions
@@ -271,7 +271,7 @@ authorization policy.
 - The `responseData.newValue.authExpiration` field includes the expiration date for the dual authorization 
 policy.
 
-`initialValue` is the initiatorID of the person who last set the dual authorization policy and `newValue is the 
+`initialValue` is the initiatorID of the person who last set the dual authorization policy and `newValue` is the 
 new initiatorID of the person who set the dual authorization policy.
 {: note}
 
@@ -325,9 +325,9 @@ The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier that is associated with the event.
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle action that is associated with the event.
-- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to input ciphertext on wrap requests.
+- The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version used to wrap input ciphertext on wrap requests.
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the date that the latest key version was created.
-- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to input ciphertext on wrap requests.
+- The `responseData.eventAckData.oldKeyVersionId` field includes the unique identifier of the previous key version used to wrap input ciphertext on wrap requests.
 - The `responseData.eventAckData.oldKeyVersionCreationDate` field includes the date that the previous key version was created.
 
 #### Restore Key
@@ -381,8 +381,7 @@ indicates that the associated resource has a retention policy. To enable deletio
 that is associated with this key.
 
 A delete key event could also receive a `reason.reasonCode` of 409 due to a dual auth deletion policy on the key. Make a GET request to `/api/v2/keys/{id}/policies` to see if there is a 
-dual authorization policy associated with your key or make a GET request to `/api/v2/instance/policies` to see if there is a dual 
-authorization associated with your service instance. If there is a policy set, contact the other authorized user to delete the key.
+dual authorization policy associated with your key. If there is a policy set, contact the other authorized user to delete the key.
 
 
 ### Unable to authenticate while make a request
