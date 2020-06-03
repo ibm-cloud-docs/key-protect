@@ -63,6 +63,38 @@ Your encryption keys are confined to the region that you create them in.
 encryption keys to other regions.
 {: note}
 
+## Application-level High-Availability
+{: #application-level-high-availability}
+
+Applications that communicate over networks are subject to transient faults. You should design your application to interact with Key Protect by using modern 
+resiliency techniques, such as Exponential backoff. [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){:external} is a technique that retries 
+requests exponentially, with increasing delays between each request.
+
+### Example Algorithm
+{: #example-backoff-algorithm}
+
+There are many approaches to implementing retries with exponential backoff logic. Your approach will depend on your specific use case and the network conditions 
+surrounding your application. The following is an example implementation of incremental retry delay.
+
+```
+const maxRetries = 3
+attempt := 1
+delay := time.Second * 1
+var ok bool
+for !ok && attempt <= maxRetries {
+    ok = makeRequest()
+    if !ok {
+        time.Sleep(delay)
+        delay = delay * 2
+        attempt += 1
+    }
+}
+```
+{: codeblock}
+
+Once the maximum amount of retries has been reached and you have confirmed that the errors your application is experiencing are due to {{site.data.keyword.keymanagementserviceshort}}, open a [support ticket](https://github.ibm.com/kms/customer-issues) with details regarding your request.
+{:note}
+
 ## Disaster recovery
 {: #dr}
 
