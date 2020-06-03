@@ -38,7 +38,7 @@ so that you can use the commands and flags that are available for the
 ### Previous version
 {: #cli-reference-previous}
 
-Version 0.4.0 does not include documentation for deprecated commands.
+Version 0.4.0 documentation does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -54,11 +54,14 @@ which is anticipated the end of September, 2020.
 ### Examples
 {: #cli-reference-examples}
 
-Many commands have an `Example` section, which shows how to use the command in
+All commands have an `Example` section, which shows how to use the command in
 the context of a workflow.
 
-The examples assume you have [openssl](https://www.openssl.org/){: external} and
-[jq](https://stedolan.github.io/jq/){: external} installed.
+The examples assume you have
+[openssl](https://www.openssl.org/){: external}
+and
+[jq](https://stedolan.github.io/jq/){: external}
+installed.
 
 The examples use the exported service instance instead of the `-i` parameter.
 
@@ -269,8 +272,9 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 ## kp import-token nonce-encrypt
 {: #kp-import-token-nonce-encrypt}
 
-Encrypt the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}}
-with the key material that you want to import to the service.
+Encrypt the nonce that is distributed by
+{{site.data.keyword.keymanagementserviceshort}} with the key material that you
+want to import to the service.
 
 Then, provide the retrieved encrypted nonce and IV values when you run
 `ibmcloud kp key create` to import the key.
@@ -323,7 +327,8 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
     <code>-k, --key</code>
   </dt>
   <dd>
-    The base64-encoded key material that you want to store and manage in the service.
+    The base64-encoded key material that you want to store and manage in the
+    service.
   </dd>
 
   <dt>
@@ -331,7 +336,8 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
   </dt>
   <dd>
     The nonce that is used to verify a request to import a key. The value is
-    base64-encoded. To retrieve a nonce, use <code>ibmcloud kp import-token show</code>.
+    base64-encoded. To retrieve a nonce, use
+    <code>ibmcloud kp import-token show</code>.
   </dd>
 </dl>
 
@@ -342,8 +348,9 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 that is associated with your service instance.
 
 The import token contains a public encryption key and a nonce. Provide the
-retrieved public key and nonce as arguments for `ibmcloud kp import-token nonce-encrypt`
-and `ibmcloud kp import-token key-encrypt`.
+retrieved public key and nonce as arguments for
+`ibmcloud kp import-token nonce-encrypt` and
+`ibmcloud kp import-token key-encrypt`.
 
 ```
 ibmcloud kp import-token show
@@ -562,13 +569,15 @@ Key ID                                 Key Name
   <dd>
     <p>
       <b>Used with import tokens.</b> The encrypted nonce value that verifies
-      your request to import a key to {{site.data.keyword.keymanagementserviceshort}}.
-      This value must be encrypted by using the key material that you want to
-      import to the service. See <code>ibmcloud kp import-token --help</code>.
+      your request to import a key to
+      {{site.data.keyword.keymanagementserviceshort}}. This value must be
+      encrypted by using the key material that you want to import to the
+      service. See <code>ibmcloud kp import-token --help</code>.
     </p>
     <p>
       To retrieve a nonce, use <code>ibmcloud kp import-token show</code>. Then,
-      encrypt the value by running <code>ibmcloud kp import-token nonce-encrypt</code>.
+      encrypt the value by running
+      <code>ibmcloud kp import-token nonce-encrypt</code>.
     </p>
   </dd>
 
@@ -978,13 +987,14 @@ ALL KEYS HAVE NAME SO GIVING IT A NAME IS NOT CORRECT
 When you rotate your root key, you replace the key with a new key material.
 
 If {{site.data.keyword.keymanagementserviceshort}} created the key (the key was
-**not** created with the `-k` parameter) then {{site.data.keyword.keymanagementserviceshort}}
-will create a new key. You cannot specify `kp key rotate` with the `-k`
+**not** created with the `-k` parameter) then
+{{site.data.keyword.keymanagementserviceshort}} will create a new key. You
+cannot specify `kp key rotate` with the `-k`
 parameter.
 
-If you created a key and provided the key material (`kp key create key-name -k $KEY_MATERAL`)
-then you must provide a new key material when you rotate the key
-(`kp key rotate $KEY_ID -k $NEW_KEY_MATERIAL`)
+If you created a key and provided the key material
+(`kp key create key-name -k $KEY_MATERAL`) then you must provide a new key
+material when you rotate the key (`kp key rotate $KEY_ID -k $NEW_KEY_MATERIAL`)
 
 You cannot rotate a `standard` key, that is, a key created using the
 `kp create key-name --standard-key` command.
@@ -1105,8 +1115,9 @@ FAILED
   <dd>
     <p>
       To rotate a key that was initially generated in without a
-      <code>--key-material</code> parameter, that is <code>kp key create my-key</code>,
-      omit the <code>--key-material</code> parameter.
+      <code>--key-material</code> parameter, that is
+      <code>kp key create my-key</code>, omit the <code>--key-material</code>
+      parameter.
     </p>
     <p>
       If a key was created with the <code>--key-material</code> parameter then
@@ -1195,9 +1206,9 @@ Key ID                                 Key Name      Description   Creation Date
 ## kp key unwrap
 {: #kp-key-unwrap}
 
-[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
-using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys){: external}
+using a root key that is stored in your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
@@ -1359,14 +1370,15 @@ FAILED
 ## kp key wrap
 {: #kp-key-wrap}
 
-[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys)
-(DEK) using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}}
-service instance. A DEK is typically used to encrypt "other" pieces of
-information.
+[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys){: external}
+(DEK) using a root key that is stored in the
+{{site.data.keyword.keymanagementserviceshort}} service instance. A DEK is
+typically used to encrypt "other" pieces of information.
 
-When you wrap a DEK with a root key, {{site.data.keyword.keymanagementserviceshort}}
-combines the strength of multiple algorithms to protect the privacy and the
-integrity of your encrypted data.
+When you wrap a DEK with a root key,
+{{site.data.keyword.keymanagementserviceshort}} combines the strength of
+multiple algorithms to protect the privacy and the integrity of your encrypted
+data.
 
 You cannot wrap a `standard` key, that is, a key created using the `-s`
 parameter (`ibmcloud kp key create my-key-name -s`).
@@ -1559,8 +1571,8 @@ FAILED
 ## kp keys
 {: #kp-keys}
 
-List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+List the keys that are available in your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
 ibmcloud kp keys
