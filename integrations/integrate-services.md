@@ -30,66 +30,81 @@ customer-managed keys for those services. Encryption with customer-managed
 encryption keys is sometimes called Bring Your Own Key (BYOK).
 {: shortdesc}
 
+## Database Service Integrations
+{: #database-integrations}
+
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following supported services.
+following database services.
 
 | Service | Description | Links |
 | ------- | ----------- | ----- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=Cloudant-ibm-cloud-dedicated){: external} | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant?topic=Cloudant-securing-your-data-in-cloudant){: external} |
-| [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch){: external} | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect){: external} |
-| [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect){: external} |
+| [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch){: external} | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect){: external} |
+| [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-mongodb?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql){: external} | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-postgresql?topic=cloud-databases-key-protect){: external} |
-| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis){: external} | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services.| [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect){: external} |
-| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_mongodb_full}}](/docs/hyper-protect-dbaas-for-mongodb){: external} | {{site.data.keyword.ihsdbaas_mongodb_full}} offers fully managed and highly secure {{site.data.keyword.mongodb}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-key-protect-byok){: external} |
-| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_postgresql_full}}](/docs/hyper-protect-dbaas-for-postgresql){: external} | {{site.data.keyword.ihsdbaas_postgresql_full}} offers fully managed and highly secure {{site.data.keyword.postgresql}} databases with a high level of data confidentiality for your sensitive data. |[View docs](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-key-protect-byok){: external} |
+| [{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis){: external} | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect){: external} |
+| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_mongodb_full}}](/docs/hyper-protect-dbaas-for-mongodb){: external} | {{site.data.keyword.ihsdbaas_mongodb_full}} offers fully managed and highly secure {{site.data.keyword.mongodb}} databases with a high level of data confidentiality for your sensitive data. | [View docs](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-key-protect-byok){: external} |
+| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_postgresql_full}}](/docs/hyper-protect-dbaas-for-postgresql){: external} | {{site.data.keyword.ihsdbaas_postgresql_full}} offers fully managed and highly secure {{site.data.keyword.postgresql}} databases with a high level of data confidentiality for your sensitive data. | [View docs](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-key-protect-byok){: external} |
 | [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq){: external} | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-rabbitmq?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.Db2_on_Cloud_long_notm}}](/docs/Db2onCloud){: external} | {{site.data.keyword.Db2_on_Cloud_long_notm}} is an SQL database that is provisioned for you in the cloud. You can use {{site.data.keyword.Db2_on_Cloud_short}} just as you would use any database software, but without the time and expense of hardware setup or software installation and maintenance. | [View docs](/docs/Db2onCloud?topic=Db2onCloud-key-protect){: external} |
-| [{{site.data.keyword.sqlquery_short}}](/docs/sql-query){: external} | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. |[View docs](/docs/sql-query?topic=sql-query-keyprotect){: external} |
-{: caption="Table 1. Supported database services" caption-side="top"}
-{: #table-1}
-{: tab-title="Databases"}
-{: tab-group="supported-services"}
-{: class="simple-tab-table"}
+| [{{site.data.keyword.sqlquery_short}}](/docs/sql-query){: external} | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. | [View docs](/docs/sql-query?topic=sql-query-keyprotect)){: external} |
+{: caption="Table 1. Supported database services." caption-side="bottom"}
+
+## Storage Service Integrations
+{: #storage-integrations}
+
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following storage services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.block_storage_is_short}}](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-getting-started-gen1){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances (instances) in your VPC. | [View docs](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-encryption){: external} |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} | You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption-kp){: external} |
-{: caption="Table 2. Supported storage services" caption-side="top"}
-{: #table-2}
-{: tab-title="Storage"}
-{: tab-group="supported-services"}
-{: class="simple-tab-table"}
+{: caption="Table 2. Supported storage services." caption-side="bottom"}
+
+## Compute Service Integrations
+{: #compute-integrations}
+
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following database services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.cloud_notm}} image templates](/docs/image-templates?topic=image-templates-getting-started-with-image-templates#getting-started-with-image-templates){: external} | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance#using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance){: external}
+| [{{site.data.keyword.cloud_notm}} image templates](/docs/image-templates?topic=image-templates-getting-started-with-image-templates#getting-started-with-image-templates){: external} | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance#using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance){: external} |
 | [KMIP for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} |
 | [{{site.data.keyword.vsi_is_short}}](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud){: external} | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-creating-instances-byok){: external} |
-{: caption="Table 3. Supported compute services" caption-side="top"}
-{: #table-3}
-{: tab-title="Compute"}
-{: tab-group="supported-services"}
-{: class="simple-tab-table"}
+| [{{site.data.keyword.cncshort}}](/docs/compare-comply?topic=compare-comply-getting-started){: external} | You can use {{site.data.keyword.cncshort}} to automate,analyze, and convert business documents. | [View docs](/docs/compare-comply?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.discoveryshort}}](/docs/discovery?topic=discovery-getting-started){: external} | You can use {{site.data.keyword.discoveryshort}} to build cognitive, cloud-based exploration applications that analyze and provide new insights within your data. | [View docs](/docs/discovery?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.languagetranslationshort}}](/docs/language-translator?topic=language-translator-gettingstarted){: external} | You can use {{site.data.keyword.languagetranslationshort}} to identify the language in text and convert it into other languages. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.speechtotextshort}}](/docs/speech-to-text?topic=speech-to-text-gettingStarted){: external} | You can use {{site.data.keyword.speechtotextshort}} to create customizable speech recognition for optimal text transcription in your application. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.texttospeechshort}}](/docs/text-to-speech?topic=text-to-speech-gettingStarted){: external} | You can use {{site.data.keyword.texttospeechshort}}'s speech-synthesis capabilities to convert written text into natural-sounding speech. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.toneanalyzershort}}](/docs/tone-analyzer?topic=tone-analyzer-gettingStarted){: external} | You can use {{site.data.keyword.toneanalyzershort}} to detect emotional and language tones in your written texts. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.knowledgestudioshort}}](/docs/tone-analyzer?topic=tone-analyzer-gettingStarted){: external} | You can use {{site.data.keyword.knowledgestudioshort}} to understand the linguistic nuances, meaning, and relationships specific to your industry. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.aios_short}}](/docs/ai-openscale?topic=ai-openscale-getting-started){: external} | You can use {{site.data.keyword.aios_short}} to automate and maintain the AI lifecycle in your business applications. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+{: caption="Table 3. Supported compute services." caption-side="bottom"}
+
+## Container Service Integrations
+{: #container-integrations}
+
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following container services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started){: external} | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters.| [View docs](/docs/containers?topic=containers-encryption#keyprotect){: external} |
-{: caption="Table 4. Supported containers services" caption-side="top"}
-{: #table-4}
-{: tab-title="Containers"}
-{: tab-group="supported-services"}
-{: class="simple-tab-table"}
+| [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started){: external} | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters. | [View docs](/docs/containers?topic=containers-encryption#keyprotect){: external} |
+{: caption="Table 4. Supported container services." caption-side="bottom"}
+
+## Integration Service Integrations
+{: #integration-integrations}
+
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following database services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting_started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
-{: caption="Table 5. Supported Integration services" caption-side="top"}
-{: #table-5}
-{: tab-title="Integration"}
-{: tab-group="supported-services"}
-{: class="simple-tab-table"}
+| [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting_started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
+{: caption="Table 5. Supported integration services." caption-side="bottom"}
 
 ## Understanding your integration
 {: #understand-integration}
@@ -121,7 +136,7 @@ on a resource.
 | ------ | ----------- |
 | `POST /keys/{root_key_ID}?action=wrap` | [Wrap (encrypt) a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) |
 | `POST /keys/{root_key_ID}?action=unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
-{: caption="Table 2. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
+{: caption="Table 6. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods." caption-side="bottom"}
 
 To find out more about programmatically managing your keys in
 {{site.data.keyword.keymanagementserviceshort}}, check out the
