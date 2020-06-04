@@ -270,7 +270,7 @@ following cURL command.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
     ```
@@ -430,7 +430,7 @@ registrations.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
@@ -591,7 +591,7 @@ following cURL command.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
     ```

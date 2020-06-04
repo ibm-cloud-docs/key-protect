@@ -150,7 +150,7 @@ with the following cURL command.
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \
@@ -346,7 +346,7 @@ instance.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
       -H 'accept: application/vnd.ibm.collection+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'

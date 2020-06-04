@@ -92,7 +92,7 @@ cURL command.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'correlation-id: <correlation_ID>' \
@@ -234,7 +234,7 @@ command.
 
     ```cURL
     curl -X PUT \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'correlation-id: <correlation_ID>' \
@@ -399,7 +399,7 @@ command.
 
     ```cURL
     curl -X PUT \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'correlation-id: <correlation_ID>' \

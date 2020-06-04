@@ -111,7 +111,7 @@ at query time to delete the key.
 
     ```cURL
     curl -X DELETE \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'prefer: <return_preference>'

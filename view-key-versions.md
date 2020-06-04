@@ -64,7 +64,7 @@ following cURL command.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/versions \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/versions' \
       -H 'accept: application/vnd.ibm.kms.key.version+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'

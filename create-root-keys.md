@@ -123,7 +123,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.key+json' \

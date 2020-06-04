@@ -130,7 +130,7 @@ to retrieve your access token.
 
     ```cURL
     curl -X POST \
-      https://iam.cloud.ibm.com/identity/token \
+      'https://iam.cloud.ibm.com/identity/token' \
       -H 'Content-Type: application/x-www-form-urlencoded' \
       -H 'Accept: application/json' \
       -d 'grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>' > token.json

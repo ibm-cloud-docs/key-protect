@@ -55,7 +55,7 @@ headers to browse keys in your service:
 
 ```cURL
 curl -X GET \
-  https://us-south.kms.cloud.ibm.com/api/v2/keys \
+  'https://us-south.kms.cloud.ibm.com/api/v2/keys' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <access_token>' \
   -H 'bluemix-instance: <instance_ID>'

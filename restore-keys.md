@@ -214,7 +214,7 @@ key.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'
@@ -484,7 +484,7 @@ key.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json'

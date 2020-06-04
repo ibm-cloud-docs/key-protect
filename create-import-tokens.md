@@ -54,7 +54,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
     ```cURL
     curl -X POST \
-      https://<region>.kms.cloud.ibm.com/api/v2/import_token \
+      'https://<region>.kms.cloud.ibm.com/api/v2/import_token' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/json' \
@@ -202,7 +202,7 @@ calling the
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/import_token \
+      'https://<region>.kms.cloud.ibm.com/api/v2/import_token' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>'
     ```

@@ -60,7 +60,7 @@ material.
 
     ```cURL
     curl -X GET \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
+      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>' \
       -H 'accept: application/vnd.ibm.kms.key+json' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
