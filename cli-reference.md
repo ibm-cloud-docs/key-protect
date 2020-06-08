@@ -616,13 +616,13 @@ Key ID                                 Key Name
 </dl>
 
 ## kp key delete
-{: #kp-key delete}
+{: #kp-key-delete}
 
 [Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that
 is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```
-ibmcloud kp delete KEY_ID
+ibmcloud kp key delete KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
 ```
@@ -1206,7 +1206,7 @@ Key ID                                 Key Name      Description   Creation Date
 ## kp key unwrap
 {: #kp-key-unwrap}
 
-[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys){: external}
+[Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
 using a root key that is stored in your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
@@ -1370,7 +1370,7 @@ FAILED
 ## kp key wrap
 {: #kp-key-wrap}
 
-[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys){: external}
+[Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys)
 (DEK) using a root key that is stored in the
 {{site.data.keyword.keymanagementserviceshort}} service instance. A DEK is
 typically used to encrypt "other" pieces of information.
