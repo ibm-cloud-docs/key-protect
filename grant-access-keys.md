@@ -90,7 +90,7 @@ Use the retrieved key ID to create a access policy:
 5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 6. From the list of service instances, select the {{site.data.keyword.keymanagementserviceshort}} service instance that contains the key that you want to grant access to.
 7. Enter identifying information about the key.
-   1. For **Resource type**, enter _key_.
+   1. For **Resource type**, enter the word "key".
    2. For **Resource ID**, enter the ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service.
 8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
 9. Click **Assign**.
