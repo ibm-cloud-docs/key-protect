@@ -864,7 +864,8 @@ of the CRN query.
   This query returns all Cloud Object Storage bucket registrations within
   account _e1bb63d6a20dc57c87501ac4c4c99dcb_ that are prefixed by `prod`.
 
-CRN queries should not contain an asterisk (*) in the first eight segments.
+When [listing registrations that are associated with any root key](/apidocs/key-protect#list-registrations-for-any-key), your CRN query should not contain an asterisk 
+(*) in the first eight segments.
 {: note}
 
 The following tables provides a list of CRN query examples before and after URL
