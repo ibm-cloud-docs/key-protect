@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-15"
 
 ---
 
@@ -53,11 +53,15 @@ To assign access:
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 3. From the options menu, click **Assign access**.
-4. Click **Assign access to resources**.
-5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
-6. From the list of service instances, select a {{site.data.keyword.keymanagementserviceshort}} service instance.
-7. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
-8. Click **Assign**.
+4. Click **Assign users additional access**.
+5. Click the **IAM services** button.
+6. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
+7. From the list of service instances, select a {{site.data.keyword.keymanagementserviceshort}} service instance that you want to grant access to.
+8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
+9. Click **Add**.
+10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**.
+
+![The image shows an example of how to grant user access to an instance.](images/fine-grain-instance-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
 
 ## Granting access to a single key in an instance
 {: #grant-access-key-level}
@@ -86,11 +90,16 @@ Use the retrieved key ID to create a access policy:
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 3. From the options menu, click **Assign access**.
-4. Click **Assign access to resources**.
+4. Click **Assign users additional access**.
 5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
-6. From the list of service instances, select the {{site.data.keyword.keymanagementserviceshort}} service instance that contains the key that you want to grant access to.
+6. From the list of service instances, select the {{site.data.keyword.keymanagementserviceshort}} service instance that contains the key that you want 
+to grant access to.
 7. Enter identifying information about the key.
    1. For **Resource type**, enter the word "key".
    2. For **Resource ID**, enter the ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service.
 8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
-9. Click **Assign**.
+9. Click **Add**.
+10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**.
+
+
+![The image shows an example of how to grant user access to a key.](images/fine-grain-key-policy.png){: caption="Figure 2. Shows how to grant user access to a key." caption-side="bottom"}
