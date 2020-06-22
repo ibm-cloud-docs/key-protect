@@ -7,7 +7,7 @@ Key Protect
     {: .navgroup id="learn"}
     index.md
     
-    [Why IBM Key Protect?](https://www.ibm.com/cloud/key-protect){: new_window}
+    [Why IBM Key Protect?](https://www.ibm.com/cloud/key-protect){: external}
     
     {: .topicgroup}
     About the service
@@ -27,7 +27,7 @@ Key Protect
         integrations/integrate-services.md
         integrations/integrate-cos.md
         integrations/view-protected-resources.md
-    
+
     {: .topicgroup}
     Tutorials
         tutorials/secure-import.md
@@ -99,6 +99,7 @@ Key Protect
     {: .topicgroup}
     Key Protect CLI Reference
         cli-reference.md
+        cli-reference-040.md
         cli-reference-039.md
         cli-changelog.md
 
