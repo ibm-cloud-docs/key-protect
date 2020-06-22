@@ -31,7 +31,7 @@ For a high-level view of the service types in {{site.data.keyword.cloud_notm}}
 and the breakdown of responsibilities between the customer and
 {{site.data.keyword.IBM_notm}} for each type, see
 [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities){: external}.
-{:shortdesc}
+{: shortdesc}
 
 Review the following sections for the specific responsibilities for you and for
 {{site.data.keyword.IBM_notm}} when you use

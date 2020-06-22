@@ -226,7 +226,7 @@ cURL command.
       }
     }
     ```
-    {:screen}
+    {: screen}
 
     Store and use the new `ciphertext` value for future envelope encryption
     operations so that your data is protected by the latest root key.

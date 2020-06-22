@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-05-29"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -95,13 +95,15 @@ for !ok && attempt <= maxRetries {
 Once the maximum amount of retries has been reached and you have confirmed that the errors your application is experiencing are due to {{site.data.keyword.keymanagementserviceshort}}, open a [support ticket](https://github.ibm.com/kms/customer-issues) with details regarding your request.
 {:note}
 
+
 ## Disaster recovery
 {: #dr}
 
 {{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}}
 requirements for
-[planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery).
+[planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery){: external}.
 
 To find out more about the responsibilities that you and IBM share for disaster
 recovery, see
 [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
+
