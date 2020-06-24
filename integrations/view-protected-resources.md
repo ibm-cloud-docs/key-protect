@@ -86,9 +86,8 @@ information.
 This capability is currently available only by using the
 {{site.data.keyword.keymanagementserviceshort}} API. To find out more, check
 out the
-[{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){:external}.
+[{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){: external}.
 {: preview}
-
 
 ## Viewing protected resources in the console
 {: #view-protected-resources-console}
@@ -104,11 +103,14 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
 provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the application details page, select the `Associated Resources` tab on the left side menu.
-5. On the Associated resources page, use the **Associated Resources** table to browse the registrations in
-your service.
-5. Click the `^` icon under the `Details` column to view a list of details for a specific registration.
-7. Click `Filter` button to filter for resources by key ID, Cloud Resource Name (CRN), and retention policy.
+4. On the application details page, select the `Associated Resources` tab on the
+left side menu.
+5. On the Associated resources page, use the **Associated Resources** table to
+browse the registrations in your service.
+5. Click the `^` icon under the `Details` column to view a list of details for a
+specific registration.
+7. Click `Filter` button to filter for resources by key ID, Cloud Resource Name
+(CRN), and retention policy.
 
 ### Viewing protected resources associated with your key
 {: #view-protected-resources-console-key}
@@ -120,7 +122,8 @@ provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
 your service.
 5. Click the ⋯ icon to open a list of options for the key.
-6. From the options menu, click **Key associated resources** to view the key's associated registrations.
+6. From the options menu, click **Key associated resources** to view the key's
+associated registrations.
 
 ## Viewing protected resources with the API
 {: #view-protected-resources-api}
@@ -401,7 +404,7 @@ following cURL command.
       ]
     }
     ```
-    {:screen}
+    {: screen}
 
     The `resourceCrn` value represents the unique identifier of the cloud
     resource that is encrypted by `keyId`. The metadata that is associated with
@@ -433,7 +436,7 @@ curl -X GET \
   'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 
@@ -511,10 +514,10 @@ registrations.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?offset=<offset>&limit=<limit> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?offset=<offset>&limit=<limit>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 
@@ -684,10 +687,10 @@ registrations.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 
@@ -765,10 +768,10 @@ registrations.
 
 ```cURL
 curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?offset=<offset>&limit=<limit> \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?offset=<offset>&limit=<limit>' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
+  -H 'bluemix-instance: <instance_ID>'
 ```
 {: codeblock}
 
@@ -833,7 +836,7 @@ following table.
 Use URL encoded CRN queries to filter registrations by service instance,
 resource type, or resource name. To learn more about CRN segments and format,
 see
-[Cloud Resource Names](/docs/resources?topic=resources-crn).
+[Cloud Resource Names](/docs/resources?topic=resources-crn){: external}.
 
 Cloud Services that use {{site.data.keyword.keymanagementserviceshort}}
 to associate keys with resources on your behalf can only view or query for CRNs
@@ -871,8 +874,8 @@ When [listing registrations that are associated with any root key](/apidocs/key-
 The following tables provides a list of CRN query examples before and after URL
 encoding. To view the URL encoded values, click the **URL encoded** tab.
 
-| Value|
-| ---- |
+| Value |
+| ----- |
 |`crn:v1:bluemix:public:databases-for-redis:us-south:a/274074dce64e9c423ffc238516c755e1:29caf0e7-120f-4da8-9551-3abf57ebcfc7:*:*` |
 |`crn:v1:bluemix:public:cloud-object-storage:global:a/e1bb63d6a20dc57c87501ac4c4c99dcb:*:bucket:prod*` |
 |`crn:v1:bluemix:public:cloudantnosqldb:us-south:a/f586c28d154d4c65a4a4a34cf75f55d0:94255ea3-af1c-41b7-9805-61f775e20702:*:prod*`. |
@@ -882,7 +885,7 @@ encoding. To view the URL encoded values, click the **URL encoded** tab.
 {: class="simple-tab-table"}
 
 | Value |
-| ---- |
+| ----- |
 |`crn%3Av1%3Abluemix%3Apublic%3Adatabases-for-redis%3Aus-south%3Aa%2F274074dce64e9c423ffc238516c755e1%3A29caf0e7-120f-4da8-9551-3abf57ebcfc7%3A*%3A*` |
 | `crn%3Av1%3Abluemix%3Apublic%3Acloud-object-storage%3Aglobal%3Aa%2Fe1bb63d6a20dc57c87501ac4c4c99dcb%3A*%3Abucket%3Aprod*` |
 |`crn%3Av1%3Abluemix%3Apublic%3Acloudantnosqldb%3Aus-south%3Aa%2Ff586c28d154d4c65a4a4a34cf75f55d0%3A94255ea3-af1c-41b7-9805-61f775e20702%3A%2A%3Aprod%2A` |

@@ -188,7 +188,7 @@ To delete the key, you can:
 If you have problems or questions when you are using {{site.data.keyword.keymanagementserviceshort}}, you can check {{site.data.keyword.cloud_notm}}, or get help by searching for information or by asking questions through a forum. You can also open a support ticket.
 {: shortdesc}
 
-You can check whether {{site.data.keyword.cloud_notm}} is available by going to the [status page](https://{DomainName}/status?tags=platform,runtimes,services){: external}.
+You can check whether {{site.data.keyword.cloud_notm}} is available by going to the [status page](/status?tags=platform,runtimes,services){: external}.
 
 You can review the forums to see whether other users ran into the same problem. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
 
