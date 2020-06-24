@@ -106,6 +106,8 @@ window.
           <p>
             The base64 encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service.
+            For more information, check out [Base64 encoding your key material](#how-to-encode-key-material).
+
           </p>
           <p>
             Ensure that the key material meets the following requirements:
@@ -286,6 +288,7 @@ with the following cURL command.
           <p>
             The base64 encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service.
+            For more information, check out [Base64 encoding your key material](#how-to-encode-key-material).
           </p>
           <p>
             Ensure that the key material meets the following requirements:
@@ -352,6 +355,99 @@ instance.
       -H 'bluemix-instance: <instance_ID>'
     ```
     {: codeblock}
+
+## Base64 encoding your key material
+{: #how-to-encode-key-material}
+
+When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service. 
+
+### Using OpenSSL to encrypt existing key material 
+{: #open-ssl-encoding}
+
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){:external}.
+2. Base64 encode your key material string by running the following command: 
+
+    ```
+    $ openssl base64 -in <infile> -out <outfile>
+    ```
+    {: codeblock}
+
+    Replace the variables in the example request according to the following
+    table.
+
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <varname>infile</varname>
+        </td>
+        <td>
+          <p>
+            The name of the file where your key material string resides.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>outfile</varname>
+        </td>
+        <td>
+          <p>
+            The name of the file where your base64 encoded key material will be be outputted once the command has ran.
+          </p>
+          <p> 
+            Ensure that the key is 128, 192, or 256 bits in length.
+          </p>
+        </td>
+      </tr>
+
+      <caption style="caption-side:bottom;">
+        Table 3. Describes the variables that are needed to base64 encode your key material.
+      </caption>
+    </table>
+
+  If you want to output the base64 material in the command line directly rather than a file, run the command `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
+  {: note}
+
+### Using OpenSSL to create and encode new key material 
+{: #open-ssl-encoding-new-key-material}
+
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){:external}.
+2. Base64 encode your key material string by running the following command: 
+    ```
+    $ openssl rand <bit_length> -base64
+    ```
+    {: codeblock}
+
+    Replace the variable in the example request according to the following
+    table.
+
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <varname>bit_length</varname>
+        </td>
+        <td>
+          <p>
+            The length of the key, measured in bits.
+          </p>
+          <p>
+            Acceptable bit lengths: 128, 192, 256
+          </p>
+        </td>
+      </tr>
+      
+      <caption style="caption-side:bottom;">
+        Table 4. Describes the variable that is needed to create and encode new key material.
+      </caption>
+    </table>
 
 ## What's next
 {: #import-root-key-next-steps}

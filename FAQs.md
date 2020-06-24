@@ -34,7 +34,7 @@ You can use the following FAQs to help you with
 {: faq}
 
 {{site.data.keyword.keymanagementserviceshort}} offers a
-[graduated tier plan](https://{DomainName}/catalog/services/key-protect){: external}
+[graduated tier plan](/catalog/services/key-protect){: external}
 with no-charge pricing for users who require 20 or fewer keys. You can have 20
 free keys per {{site.data.keyword.cloud_notm}} account. If your team requires
 multiple instances of {{site.data.keyword.keymanagementserviceshort}},

@@ -50,7 +50,7 @@ customer-controlled, cloud-based hardware security modules (HSMs)?
 integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep
 Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization
 has more control and authority over its data. Check out the
-[{{site.data.keyword.hscrypto}} offering details page](https://{DomainName}/catalog/services/hyper-protect-crypto-services){: external}
+[{{site.data.keyword.hscrypto}} offering details page](/catalog/services/hyper-protect-crypto-services){: external}
 to learn more.
 {: tip}
 

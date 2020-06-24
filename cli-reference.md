@@ -92,6 +92,19 @@ The `kp import-token` command prepares a root key for secure import.
 | [show](#kp-import-token-show)                   |               | Retrieve an import token |
 {: caption="Table 1. Sub-commands for managing import tokens" caption-side="top"}
 
+### kp instance command
+{: #kp-instance-command}
+
+The `kp instance` command manages policies for a
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
+| Sub-command                                                         | Status v0.5.0 | Description |
+| ------------------------------------------------------------------- | ------------- | ----------- |
+| [policies](#kp-instance-policies)                                   | New           | List policies associated with an instance |
+| policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance "allowed network" policy |
+| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   | New           | Update the instance "dual auth delete" policy |
+{: caption="Table 2. Sub-commands for managing keys" caption-side="top"}
+
 ### kp key command
 {: #kp-key-command}
 
@@ -99,6 +112,7 @@ The `kp key` command manages individual keys.
 
 | Sub-command                                                  | Status v0.5.0 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
+| [cancel-delete](#kp-key-cancel-delete)                       | New           | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
 | [delete](#kp-key-delete)                                     |               | Delete a key permanently |
 | [disable](#kp-key-disable)                                   | New           | Disable a key |
@@ -108,10 +122,11 @@ The `kp key` command manages individual keys.
 | policy-update [rotation](#kp-key-policy-update-rotation)     | Update        | Update the "rotation" policy |
 | [restore](#kp-key-restore)                                   | New           | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
+| [schedule-delete](#kp-key-schedule-delete)                   | New           | Authorize a key, with a dual-auth-delete policy, to be deleted |
 | [show](#kp-key-show)                                         | Update        | Retrieve a key |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
-{: caption="Table 2. Sub-commands for managing keys" caption-side="top"}
+{: caption="Table 3. Sub-commands for managing keys" caption-side="top"}
 
 ### Other kp commands
 {: #kp-other-commands}
@@ -124,7 +139,7 @@ These are other commands for managing
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your service instance |
 | [kp registrations](#kp-registrations) | New           | List associations between root keys and other cloud resources |
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
-{: caption="Table 3. Commands for managing other resources" caption-side="top"}
+{: caption="Table 4. Commands for managing other resources" caption-side="top"}
 
 ## Viewing help
 {: #kp-help}
@@ -252,7 +267,7 @@ ibmcloud kp import-token key-encrypt
 ### Example
 {: #kp-import-token-key-encrypt-example}
 
-This example encrypts a `key material` using the public key created by
+This example encrypts a `kp key material` using the public key created by
 `kp import-token create`.
 
 ```sh
@@ -357,7 +372,7 @@ ibmcloud kp import-token nonce-encrypt
 ### Example
 {: #kp-import-token-nonce-encrypt-example}
 
-This example encrypts the `nonce` using the `key material`.
+This example encrypts the `nonce` using the `kp key material`.
 
 A nonce is an arbitrary number that can be used just once in a cryptographic
 communication.
@@ -501,6 +516,488 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
     {{site.data.keyword.keymanagementserviceshort}} service instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
+  </dd>
+</dl>
+
+## kp instance policies
+{: #kp-instance-policies}
+
+Retrieve details about instance policies, such as allowed networks
+(public-and-private or private-only) and dual authorization delete (deleting a
+key requires an authorization from two users).
+
+```
+ibmcloud kp instance policies
+     -i, --instance-id     INSTANCE_ID
+    [-a, --allowed-network]
+    [-d, --dual-auth-delete]
+    [-o, --output          OUTPUT]
+```
+{: pre}
+
+### Example
+{: #kp-instance-policies-example}
+
+Description
+
+```sh
+# update the instance policy and set the allowed network to public-and-private
+$ ibmcloud kp instance policy-update allowed-network --enable --network-type public-and-private
+
+Updating instance policy...
+SUCCESS
+
+# list the instance policies
+$ ibmcloud kp instance policies
+
+Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
+SUCCESS
+Created By        user id ...<redacted>...
+Creation Date     2020-06-22T16:17:52Z
+Last Updated      2020-06-22T16:17:52Z
+Updated By        user id ...<redacted>...
+Policy Type       allowedNetwork
+Enabled           true
+Network Allowed   public-and-private
+
+# disable the instance allowed-network policy
+$ ibmcloud kp instance policy-update allowed-network --disable
+
+Updating instance policy...
+SUCCESS
+
+# list the instance policies - the policy exists and it's disabled
+$ ibmcloud kp instance policies
+
+Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
+SUCCESS
+Created By        user id ...<redacted>...
+Creation Date     2020-06-22T16:17:52Z
+Last Updated      2020-06-22T16:20:08Z
+Updated By        user id ...<redacted>...
+Policy Type       allowedNetwork
+Enabled           false
+Network Allowed   public-and-private
+
+# list the instance policies and show the output as JSON
+$ ibmcloud kp instance policies --output json
+
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T16:17:52Z",
+    "lastUpdated": "2020-06-22T16:20:08Z",
+    "updatedBy": "user id ...<redacted>...",
+    "policy_type": "allowedNetwork",
+    "policy_data": {
+      "enabled": false,
+      "attributes": {
+        "allowed_network": "public-and-private"
+      }
+    }
+  }
+]
+```
+{: screen}
+
+### Required parameters
+{: #kp-instance-policies-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-instance-policies-optional}
+
+<dl>
+  <dt>
+    <code>-a, --allowed-network</code>
+  </dt>
+  <dd>
+    Show the "allowed network" policy.
+  </dd>
+
+  <dt>
+    <code>-d, --dual-auth-delete</code>
+  </dt>
+  <dd>
+    Show the "dual authorization delete" policy.
+  </dd>
+
+  <dt>
+    <code>-o, --output</code>
+  </dt>
+  <dd>
+    Set the CLI output format. By default, all commands print in table format.
+    To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+</dl>
+
+## kp instance policy-update allowed-network
+{: #kp-instance-policy-update-allowed}
+
+Update the policy for an instance and set the allowed network to
+`public-and-private` or `private-only`.
+
+The `allowed-network` policy blocks an instance from getting requests from
+public or private networks.
+
+For existing instances the network access policy is enforced after it is set.
+
+For more information, see
+[managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies).
+
+```
+ibmcloud kp instance policy-update allowed-network
+     -i, --instance-id     INSTANCE_ID
+    [-d, --disable]
+    [-e, --enable]
+    [-t, --network-type    NETWORK_TYPE]
+```
+{: pre}
+
+### Example
+{: #kp-instance-policy-update-allowed-example}
+
+This example sets the "allowed network" policy to "public-and-private".
+
+```sh
+# update the instance policy and set the allowed network to public-and-private
+$ ibmcloud kp instance policy-update allowed-network --enable --network-type public-and-private
+
+Updating instance policy...
+SUCCESS
+
+# list the instance policies
+$ ibmcloud kp instance policies
+
+Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
+SUCCESS
+Created By        user id ...<redacted>...
+Creation Date     2020-06-22T16:17:52Z
+Last Updated      2020-06-22T18:17:32Z
+Updated By        user id ...<redacted>...
+Policy Type       allowedNetwork
+Enabled           true
+Network Allowed   public-and-private
+```
+{: screen}
+
+### Required parameters
+{: #kp-instance-policy-update-allowed-required}
+
+<dl>
+  <dt>
+    <code>-d, --disable</code>
+    <br>
+    or
+    <br>
+    <code>-e, --enable</code>
+  </dt>
+  <dd>
+    Disable or enable the network access policy. One option is required.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+
+  <dt>
+    <code>-t, --network-type</code>
+  </dt>
+  <dd>
+    Specify the type of network access allowed. Options are
+    <code>public-and-private</code> or <code>private-only</code>.
+  </dd>
+</dl>
+
+## kp instance policy-update dual-auth-delete
+{: #kp-instance-policy-update-dual}
+
+Use the `dual-auth-delete` policy to safely delete encryption keys. When you
+delete a key, you shred its contents and associated data. Any data that is
+encrypted by the key becomes inaccessible.
+
+Deleting a key that has a dual authorization policy requires an authorization
+from two users.
+
+For more information, see
+[deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys)
+and
+[setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
+
+### Notes
+
+Dual authorization delete for an instance is different than dual authorization
+delete for keys.
+
+Once you enable `dual-auth-delete` for a key you cannot disable it or remove it.
+You must wait 7 days for the policy to expire.
+
+Dual authorization delete for an instance can be enabled or disabled anytime.
+
+If a key has a `dual-auth-delete` policy, changing the instance policy does not
+change any existing key policies.
+
+When you change the instance policy, new keys are enforced with the instance
+policy.
+
+```
+ibmcloud kp instance policy-update dual-auth-delete
+     -i, --instance-id     INSTANCE_ID
+    [-d, --disable]
+    [-e, --enable]
+
+```
+{: pre}
+
+### Examples
+{: #kp-instance-policy-update-dual-examples}
+
+These are examples of `kp instance policy-update dual-auth-delete`.
+
+#### Example 1
+{: #kp-instance-policy-update-dual-example-1}
+
+This example enables the dual authorization delete policy.
+
+```sh
+# enable the instance dual authorization policy
+$ ibmcloud kp instance policy-update dual-auth-delete --enable
+
+Updating instance policy...
+SUCCESS
+
+# list the instance policies
+$ ibmcloud kp instance policies --output json
+
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T18:45:14Z",
+    "lastUpdated": "2020-06-22T18:45:14Z",
+    "updatedBy": "user id ...<redacted>...",
+    "policy_type": "dualAuthDelete",
+    "policy_data": {
+      "enabled": true
+    }
+  }
+]
+
+# disable the instance dual authorization policy
+$ ibmcloud kp instance policy-update dual-auth-delete --disable
+
+Updating instance policy...
+SUCCESS
+
+# list the instance policies
+$ ibmcloud kp instance policies --output json
+
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T18:45:14Z",
+    "lastUpdated": "2020-06-22T18:51:33Z",
+    "updatedBy": "user id ...<redacted>...",
+    "policy_type": "dualAuthDelete",
+    "policy_data": {
+      "enabled": false
+    }
+  }
+]
+```
+{: screen}
+
+#### Example 2
+{: #kp-instance-policy-update-dual-example-2}
+
+This example enables the dual authorization delete policy and creates a new key
+to show how a new key inherits the instance policy.
+
+Disabling the dual authorization policy for an instance does not change the
+policy for existing keys. The instance policy applies to new keys created after
+the policy is updated.
+
+```sh
+# enable the instance dual authorization policy
+$ ibmcloud kp instance policy-update dual-auth-delete --enable
+
+Updating instance policy...
+SUCCESS
+
+# create a new key
+$ ibmcloud kp key create my-protected-key
+
+Creating key: 'my-protected-key', in instance: 'a192d603-0b8d-452f-aac3-f9e1f95e7411'...
+SUCCESS
+Key ID                                 Key Name
+6a8a129b-0cd4-4667-ba57-b355a125a7ca   my-protected-key
+
+# list the policies for the key - dual-auth-delete is
+# enabled because the key inherits the instance policy
+$ ibmcloud kp key policies 6a8a129b-0cd4-4667-ba57-b355a125a7ca --output json
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T19:13:00Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:2427dbde-6cff-41eb-8b5a-ff26b038cafc",
+    "lastUpdateDate": "2020-06-22T19:13:00Z",
+    "updatedBy": "user id ...<redacted>...",
+    "dualAuthDelete": {
+      "enabled": true
+    }
+  }
+]
+
+# attempt to delete the key - this fails
+$ ibmcloud kp key delete 6a8a129b-0cd4-4667-ba57-b355a125a7ca
+
+Deleting key: 6a8a129b-0cd4-4667-ba57-b355a125a7ca, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
+FAILED
+kp.Error:
+  correlation_id='8ad33eb2-7bbf-4b7a-a02e-221959920342',
+  msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
+  reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
+    FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+
+# disable the instance dual authorization policy
+$ ibmcloud kp instance policy-update dual-auth-delete --disable
+
+Updating instance policy...
+SUCCESS
+
+# attempt to delete the key - this fails because the key policy
+# does not change when the instance policy is updated
+$ ibmcloud kp key delete 6a8a129b-0cd4-4667-ba57-b355a125a7ca
+
+Deleting key: 6a8a129b-0cd4-4667-ba57-b355a125a7ca, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
+FAILED
+kp.Error:
+  correlation_id='cbc0d18b-a816-45ab-af6a-b8e18dc3e628',
+  msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
+  reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
+  FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+```
+{: screen}
+
+### Required parameters
+{: #kp-instance-policy-update-dual-required}
+
+<dl>
+  <dt>
+    <code>-d, --disable</code>
+    <br>
+    or
+    <br>
+    <code>-e, --enable</code>
+  </dt>
+  <dd>
+    Disable or enable the dual authorization policy. One option is required.
+  </dd>
+
+  <dt>
+    <code>-i, --instance-ID</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+## kp key cancel-delete
+{: #kp-key-cancel-delete}
+
+A key with a `dual-auth-delete` policy requires authorization from two
+administrative users to delete the key.
+
+This command (`kp key cancel-delete`) cancels, or removes, a prior
+authorization.
+
+The
+[kp key schedule-delete](#kp-key-schedule-delete)
+command is the "authorization" to delete the key.
+
+Follow this process to delete a key with a `dual-auth-delete` policy.
+
+1. Create a key and enable the `dual-auth-delete` policy
+2. User 1 schedules (authorizes) a key deletion with the
+   `kp key schedule-delete` command
+3. User 2 schedules (authorizes) a key deletion
+4. The key is deleted after the second `schedule-delete` is performed, which is
+   supported in the user interface, API, and CLI
+5. If a second authorization does not occur within 7 days, the key returns to
+   its default status
+
+There are two ways to enable the `dual-auth-delete` policy:
+
+* Set the policy for a single key using `kp key policy-update dual-auth-delete`
+* Set the policy for the instance using
+  `kp instance policy-update dual-auth-delete`; all keys created after the
+  instance policy is enabled inherit the instance policy setting
+
+```
+ibmcloud kp key cancel-delete KEY_ID
+    -i, --instance-id INSTANCE_ID
+```
+{: pre}
+
+### Example
+{: #kp-key-cancel-delete-example}
+
+This is an example of canceling a previously scheduled key delete.
+
+```sh
+# this key has a dual-auth-delete policy
+$ ibmcloud kp key policies $KEY_ID --output json
+
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T19:13:00Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:2427dbde-6cff-41eb-8b5a-ff26b038cafc",
+    "lastUpdateDate": "2020-06-22T21:29:10Z",
+    "updatedBy": "user id ...<redacted>...",
+    "dualAuthDelete": {
+      "enabled": true
+    }
+  }
+]
+
+# cancel a previously scheduled key delete
+$ ibmcloud kp key cancel-delete $KEY_ID
+
+Cancelling key for deletion...
+SUCCESS
+```
+{: screen}
+
+### Required parameters
+{: #kp-key-cancel-delete-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the key that you want to delete. To retrieve a list of your
+    available keys, run the [kp keys](#kp-keys) command.
   </dd>
 </dl>
 
@@ -1475,7 +1972,7 @@ $ ibmcloud kp key show $KEY_ID --output json
   "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:d887bfe8-5166-4dad-af32-7e3055ca1873"
 }
 
-# enable the dual authorization poloicy
+# enable the dual authorization policy
 $ ibmcloud kp key policy-update dual-auth-delete $KEY_ID --enable --output json
 
 {
@@ -1706,17 +2203,17 @@ the _Active_ (value is 1) key state, and you restore access to any data that was
 previously encrypted with the key.
 
 You can restore a deleted key within 30 days of its deletion. This capability is
-available only for root keys that were created with a `key material`.
+available only for root keys that were created with a `kp key material`.
 {: note}
 
-You can only restore root keys that were created with a `key material`, using
+You can only restore root keys that were created with a `kp key material`, using
 `kp key create` with the `-k, --key-material` option. You _cannot_ restore a
 root key if the `-k` option was **not** specified.
 {: important}
 
 If you want to restore a deleted root key then you **must** save the
-`key material` that was used to create the root key. You _cannot_ restore a
-deleted key without provided the original `key material`.
+`kp key material` that was used to create the root key. You _cannot_ restore a
+deleted key without provided the original `kp key material`.
 {: important}
 
 ```
@@ -2280,6 +2777,83 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
   </dd>
 </dl>
 
+## kp key schedule-delete
+{: #kp-key-schedule-delete}
+
+A key with a `dual-auth-delete` policy requires authorization from two
+administrative users to delete the key.
+
+Follow this process to delete a key with a `dual-auth-delete` policy.
+
+1. Create a key and enable the `dual-auth-delete` policy
+2. User 1 schedules (authorizes) a key deletion with the
+   `kp key schedule-delete` command
+3. User 2 schedules (authorizes) a key deletion
+4. The key is deleted after the second `schedule-delete` is performed, which is
+   supported in the user interface, API, and CLI
+5. If a second authorization does not occur within 7 days, the key returns to
+   its default status
+
+There are two ways to enable the `dual-auth-delete` policy:
+
+* Set the policy for a single key using `kp key policy-update dual-auth-delete`
+* Set the policy for the instance using
+  `kp instance policy-update dual-auth-delete`; all keys created after the
+  instance policy is enabled inherit the instance policy setting
+
+The
+[kp key cancel-delete](#kp-key-cancel-delete)
+command cancels, or removes, a prior authorization.
+
+```
+ibmcloud kp key schedule-delete KEY_ID
+    -i, --instance-id INSTANCE_ID
+```
+{: pre}
+
+### Example
+{: #kp-key-schedule-delete-example}
+
+This is an example of scheduleing a key to be deleted.
+
+```sh
+# schedule this key to be deleted
+$ ibmcloud kp key schedule-delete $KEY_ID
+
+Scheduling key for deletion...
+SUCCESS
+
+# this key has a dual-auth-delete policy
+$ ibmcloud kp key policies $KEY_ID --output json
+
+[
+  {
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-22T19:13:00Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:2427dbde-6cff-41eb-8b5a-ff26b038cafc",
+    "lastUpdateDate": "2020-06-22T21:36:16Z",
+    "updatedBy": "user id ...<redacted>...",
+    "dualAuthDelete": {
+      "enabled": true
+    }
+  }
+]
+```
+{: screen}
+
+### Required parameters
+{: #kp-key-schedule-delete-required}
+
+<dl>
+  <dt>
+    <code>KEY_ID</code>
+  </dt>
+  <dd>
+    The ID of the key that you want to delete. To retrieve a list of your
+    available keys, run the [kp keys](#kp-keys) command.
+  </dd>
+</dl>
+
 ## kp key show
 {: #kp-key-show}
 
@@ -2827,11 +3401,17 @@ FAILED
 List the keys that are available in your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
+Keys are listed in `key id` order; see
+[example 5](#kp-keys-example-5).
+{: note}
+
 ```
 ibmcloud kp keys
-     -i, --instance-id INSTANCE_ID
-    [-c, --crn         ADDITIONAL_DATA]
-    [-o, --output      OUTPUT]
+     -i, --instance-id     INSTANCE_ID
+    [-c, --crn]
+    [-n, --number-of-keys  NUMBER_OF_KEYS]
+    [-o, --output          OUTPUT]
+    [-s, --starting-offset STARTING_OFFSET
 ```
 {: pre}
 
@@ -2843,7 +3423,7 @@ These are examples of `kp keys`.
 #### Example 1
 {: #kp-keys-example-1}
 
-List the keys.
+List all keys.
 
 ```sh
 # list all keys
@@ -2860,7 +3440,8 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key
 #### Example 2
 {: #kp-keys-example-2}
 
-List the keys and supply the `--crn` parameter.
+List all keys and show the cloud resource name (CRN) using the `--crn`
+parameter.
 
 ```sh
 # list all keys and show the cloud resource name (CRN)
@@ -2877,10 +3458,10 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key   crn:v1:bluemix:public:kms:u
 #### Example 3
 {: #kp-keys-example-3}
 
-List the keys in JSON format.
+List all keys in JSON format.
 
-Using the `--output json` parameter, which implies the `--crn` (cloud resource
-name) parameter.
+The `--output json` parameter implies the `--crn` (cloud resource name)
+parameter.
 
 ```sh
 # list all keys
@@ -2918,12 +3499,12 @@ $ ibmcloud kp keys --output json
 #### Example 4
 {: #kp-keys-example-4}
 
-List the keys and iterate over them, showing details.
+List all keys and iterate over them, showing details.
 
 ```sh
 # list all keys and convert to a list
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
-for key in $(echo "${KEYS}"); do
+$ for key in $(echo "${KEYS}"); do
   ibmcloud kp key show ${key}
 done
 
@@ -2936,6 +3517,129 @@ Grabbing info for key id: c36e9f3a-feaf-4033-8603-687784dc7e51...
 SUCCESS
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17:56:37 +0000 UTC   Key does not expire
+```
+{: screen}
+
+#### Example 5
+{: #kp-keys-example-5}
+
+Create 20 keys and show them in groups of 5 using the `kp keys -n -s` options.
+
+```sh
+# create 20 test keys
+$ for I in {1..20}; do
+  KEY_ID=$(ibmcloud kp key create my-test-key-$I --output json | jq -r '.["id"]')
+  KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
+  echo $KEY_ID $KEY_NAME
+done
+
+b70f62a1-4d52-4526-91a9-ce47bf14c2a5 my-test-key-1
+215f592c-3e42-47b6-867c-3cc1cce8a8fd my-test-key-2
+df530c55-39c0-44e8-b7db-397593f70d90 my-test-key-3
+768c9ceb-368b-46f7-9b1d-be211e036fe1 my-test-key-4
+f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
+b8794334-eea6-4c0d-8fe1-8086300b13f7 my-test-key-6
+87679194-52d0-42af-81e1-bffd64f87315 my-test-key-7
+cc7faf46-43cf-43b2-be98-7d1815371639 my-test-key-8
+e9b08526-3227-406c-b83f-c28844bd952b my-test-key-9
+3ee0d859-2968-4444-8e4d-3d28614f055c my-test-key-10
+bc459a2f-56cb-445e-b4ee-9d1866b57560 my-test-key-11
+62090ba8-7363-408e-9edc-aa9fb69c09be my-test-key-12
+3b4b0511-00df-48e6-ad65-fad35bb6ce17 my-test-key-13
+16276369-ba81-4eb5-be92-f13512147ad4 my-test-key-14
+3d683d56-d340-40cb-b8b6-605dcfded01f my-test-key-15
+10954149-0217-472d-8137-42fc330dbd03 my-test-key-16
+54dd2745-7718-487f-85e6-a67e758dd945 my-test-key-17
+3a5a3b52-6942-463d-9f7a-5b216bbf5123 my-test-key-18
+90138be5-1dd1-4eea-b7c1-73cc8609e7f7 my-test-key-19
+cf0a3d8b-4856-4aa5-be6a-88cca465eab0 my-test-key-20
+
+# this is the above list sorted in KEY_ID order
+# this is the order we expect when listing keys
+
+10954149-0217-472d-8137-42fc330dbd03 my-test-key-16
+16276369-ba81-4eb5-be92-f13512147ad4 my-test-key-14
+215f592c-3e42-47b6-867c-3cc1cce8a8fd my-test-key-2
+3a5a3b52-6942-463d-9f7a-5b216bbf5123 my-test-key-18
+3b4b0511-00df-48e6-ad65-fad35bb6ce17 my-test-key-13
+
+3d683d56-d340-40cb-b8b6-605dcfded01f my-test-key-15
+3ee0d859-2968-4444-8e4d-3d28614f055c my-test-key-10
+54dd2745-7718-487f-85e6-a67e758dd945 my-test-key-17
+62090ba8-7363-408e-9edc-aa9fb69c09be my-test-key-12
+768c9ceb-368b-46f7-9b1d-be211e036fe1 my-test-key-4
+
+87679194-52d0-42af-81e1-bffd64f87315 my-test-key-7
+90138be5-1dd1-4eea-b7c1-73cc8609e7f7 my-test-key-19
+b70f62a1-4d52-4526-91a9-ce47bf14c2a5 my-test-key-1
+b8794334-eea6-4c0d-8fe1-8086300b13f7 my-test-key-6
+bc459a2f-56cb-445e-b4ee-9d1866b57560 my-test-key-11
+
+cc7faf46-43cf-43b2-be98-7d1815371639 my-test-key-8
+cf0a3d8b-4856-4aa5-be6a-88cca465eab0 my-test-key-20
+df530c55-39c0-44e8-b7db-397593f70d90 my-test-key-3
+e9b08526-3227-406c-b83f-c28844bd952b my-test-key-9
+f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
+
+# define a function for listing keys
+$ list_keys () {
+  N=$1
+  S=$2
+  KEYS=$(ibmcloud kp keys --number-of-keys $N --starting-offset $S --output json | jq -r '.[] | .id')
+  for KEY_ID in $(echo "${KEYS}"); do
+    KEY_ID=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["id"]')
+    KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
+    echo $KEY_ID $KEY_NAME
+  done
+}
+
+# list the first group of keys
+$ list_keys 5 0
+
+10954149-0217-472d-8137-42fc330dbd03 my-test-key-16
+16276369-ba81-4eb5-be92-f13512147ad4 my-test-key-14
+215f592c-3e42-47b6-867c-3cc1cce8a8fd my-test-key-2
+3a5a3b52-6942-463d-9f7a-5b216bbf5123 my-test-key-18
+3b4b0511-00df-48e6-ad65-fad35bb6ce17 my-test-key-13
+
+# list the second group of keys
+$ list_keys 5 5
+
+3d683d56-d340-40cb-b8b6-605dcfded01f my-test-key-15
+3ee0d859-2968-4444-8e4d-3d28614f055c my-test-key-10
+54dd2745-7718-487f-85e6-a67e758dd945 my-test-key-17
+62090ba8-7363-408e-9edc-aa9fb69c09be my-test-key-12
+768c9ceb-368b-46f7-9b1d-be211e036fe1 my-test-key-4
+
+# list the third group of keys
+$ list_keys 5 10
+
+87679194-52d0-42af-81e1-bffd64f87315 my-test-key-7
+90138be5-1dd1-4eea-b7c1-73cc8609e7f7 my-test-key-19
+b70f62a1-4d52-4526-91a9-ce47bf14c2a5 my-test-key-1
+b8794334-eea6-4c0d-8fe1-8086300b13f7 my-test-key-6
+bc459a2f-56cb-445e-b4ee-9d1866b57560 my-test-key-11
+
+# list the last group of keys
+$ list_keys 5 15
+
+cc7faf46-43cf-43b2-be98-7d1815371639 my-test-key-8
+cf0a3d8b-4856-4aa5-be6a-88cca465eab0 my-test-key-20
+df530c55-39c0-44e8-b7db-397593f70d90 my-test-key-3
+e9b08526-3227-406c-b83f-c28844bd952b my-test-key-9
+f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
+
+# delete the test keys
+$ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+$ for KEY_ID in $(echo "${KEYS}"); do
+  KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
+  if [[ $KEY_NAME == *"my-test-key-"* ]]; then
+    echo "Deleting... $KEY_NAME $KEY_ID"
+    ibmcloud kp key delete $KEY_ID
+  fi
+done
+
+(output not shown)
 ```
 {: screen}
 
@@ -2966,6 +3670,14 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17
   </dd>
 
   <dt>
+    <code>-n, --number-of-keys</code>
+  </dt>
+  <dd>
+    Restricts the number of keys retrieved. The default is 200 if no value is
+    provided.
+  </dd>
+
+  <dt>
     <code>-o, --output</code>
   </dt>
   <dd>
@@ -2977,6 +3689,14 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17
       Setting the output to JSON (<code>--output json</code>) includes the cloud
       resource name (CRN) in the output.
     </p>
+  </dd>
+
+  <dt>
+    <code>-s, --starting-offset</code>
+  </dt>
+  <dd>
+    Retrieves keys starting at the offset specified. The offset is zero-based,
+    meaning offset 0 (zero) is the first key.
   </dd>
 </dl>
 
