@@ -31,8 +31,8 @@ Key Protect
     {: .topicgroup}
     Tutorials
         tutorials/secure-import.md
-        [Tutorial: Apply end to end security to a cloud application](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}
-        [Tutorial: Enhance security of your deployed application](/docs/tutorials?topic=solution-tutorials-extended-app-security){: external}
+        [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}
+        [Tutorial: Enhance security of your deployed application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security){: external}
 
     releases.md
     {: .navgroup-end}
@@ -94,7 +94,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Key Protect API Reference](/apidocs/key-protect){: external}
+    [Key Protect API Reference](https://{DomainName}/apidocs/key-protect){: external}
 
     {: .topicgroup}
     Key Protect CLI Reference
