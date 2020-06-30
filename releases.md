@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-06-19"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -29,11 +29,28 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## June 2020
+{: #june-2020}
+
+### Updated: CLI plug-in Version 0.5.0 is now available
+
+New as of: 2020-06-19
+
+The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in is used to
+manage keys in your instance.
+
+To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
+[setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
+
+For a detailed explanation of changes in version 0.5.0, see the
+[CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+
 ## May 2020
 {: #may-2020}
 
 ### Coming soon: Updates to activity tracker fields
 {: #upcoming-activity-tracker-changes}
+
 Release Date: 2020-05-29
 
 Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will
@@ -61,6 +78,7 @@ your audit operations.
 
 ### Added: Use an import token to rotate a key
 {: #added-secure-rotate}
+
 New as of: 2020-05-01
 
 If you have _Writer_ or _Manager_ access permissions, you can now use the
@@ -72,6 +90,7 @@ To find out more, see
 
 ### Added: Restore a deleted key
 {: #added-restore-key}
+
 New as of: 2020-05-01
 
 If you have _Manager_ access permissions, you can now use the the
@@ -83,6 +102,7 @@ To find out more, see
 
 ### Added: Enable or disable a key
 {: #added-enable-disable-key}
+
 New as of: 2020-05-01
 
 If you have _Manager_ access permissions, you can now use the the
@@ -97,6 +117,7 @@ To find out more, see
 
 ### Added: Manage network access policies
 {: #added-network-access-policies}
+
 New as of: 2020-04-16
 
 You can set a network access policy to allow API requests to a
@@ -111,6 +132,7 @@ To find out more, see
 
 ### Added: View details about a key
 {: #added-key-metadata}
+
 New as of: 2020-03-14
 
 If you have _Reader_ access permissions, you can now use the
@@ -122,6 +144,7 @@ To find out more, see
 
 ### Added: View versions for a root key
 {: #added-key-versions}
+
 New as of: 2020-03-14
 
 You can now audit the rotation history of a root key by viewing its key
@@ -138,6 +161,7 @@ To find out more, see
 
 ### Changed: Activity Tracker event fields
 {: #changed-at-events}
+
 New as of: 2020-02-28
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will
@@ -225,6 +249,7 @@ changed event fields do not affect your audit operations.
 
 ### Added: View associations between root keys and IBM Cloud resources
 {: #added-registrations}
+
 New as of: 2020-02-25
 
 You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to
@@ -244,6 +269,7 @@ information.
 
 ### Added: Prevent accidental or malicious deletion of keys
 {: #added-prevent-key-deletion}
+
 New as of: 2020-02-25
 
 {{site.data.keyword.keymanagementserviceshort}} enabled extra security measures
@@ -260,6 +286,7 @@ that's protecting a cloud resource.
 
 ### Added: ReaderPlus service access role
 {: #added-readerplus}
+
 New as of: 2020-02-17
 
 Need to grant read-only access to keys? You can now choose between the _Reader_
@@ -270,6 +297,7 @@ To learn more about service access roles, see
 
 ### Changed: Extra response fields in existing APIs
 {: #changed-extra-response-fields}
+
 New as of: 2020-02-17
 
 Effective 2020 February 24, {{site.data.keyword.keymanagementserviceshort}} will
@@ -290,6 +318,7 @@ additional fields do not affect their operations.
 
 ### Added: Dual authorization policies for {{site.data.keyword.keymanagementserviceshort}} instances and keys
 {: #added-dual-authorization}
+
 New as of: 2020-01-15
 
 You can now enable dual authorization policies to safely delete keys from your
@@ -306,6 +335,7 @@ enable dual authorization, you require an action from two users to delete a key.
 
 ### Changed: Platform and service access roles
 {: #changed-access-roles}
+
 New as of: 2019-11-04
 
 {{site.data.keyword.keymanagementserviceshort}} is updating its user access
@@ -341,6 +371,7 @@ permissions, see
 
 ### Added: Fine-grained access to {{site.data.keyword.keymanagementserviceshort}} resources
 {: #added-fine-grain-access}
+
 New as of: 2019-09-27
 
 As an account admin, you can now assign fine-grained access to individual keys
@@ -351,6 +382,7 @@ To learn more about granting access, see
 
 ### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
 {: #added-import-tokens}
+
 New as of: 2019-09-16
 
 On 20 March 2019,
@@ -381,6 +413,7 @@ For a guided tutorial, see
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for private endpoints
 {: #added-private-endpoints}
+
 New as of: 2019-07-31
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the
@@ -397,6 +430,7 @@ for your infrastructure account. For more information, see
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for {{site.data.keyword.at_full_notm}}
 {: #added-at-logdna-support}
+
 New as of: 2019-06-22
 
 You can now monitor API calls to the
@@ -412,6 +446,7 @@ activity, see
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} upgrades HSMs to FIPS 140-2 Level 3
 {: #upgraded-hsms}
+
 New as of: 2019-05-22
 
 {{site.data.keyword.keymanagementserviceshort}} now uses
@@ -426,6 +461,7 @@ To learn more about the features and benefits of
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
 {: #legacy-service-eol}
+
 New as of: 2019-05-15
 
 The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on
@@ -443,7 +479,7 @@ not affected by this change.
 Need to remove a {{site.data.keyword.keymanagementserviceshort}} service
 instance from the **Cloud Foundry Services** section of your
 {{site.data.keyword.cloud_notm}} resource list? You can reach out to us in the
-[Support Center](https://{DomainName}/unifiedsupport/cases/add){: external}
+[Support Center](/unifiedsupport/cases/add){: external}
 by submitting a request to remove the entry from your console view.
 {: tip}
 
@@ -452,6 +488,7 @@ by submitting a request to remove the entry from your console view.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for policy-based key rotation
 {: #added-support-policy-key-rotation}
+
 New as of: 2019-03-22
 
 You can now use {{site.data.keyword.keymanagementserviceshort}} to associate a
@@ -465,6 +502,7 @@ To find out more about your key rotation options in
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
 {: #added-transport-keys-beta}
+
 New as of: 2019-03-20
 
 Enable the secure import of encryption keys to the cloud by creating transport

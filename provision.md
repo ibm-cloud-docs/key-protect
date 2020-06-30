@@ -57,7 +57,7 @@ be equated with compute resources. A
 To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from
 the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
-1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}){: external}.
+1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
 2. Click **Catalog** to view the list of services that are available on
 {{site.data.keyword.cloud_notm}}.
 3. From the All Categories navigation pane, click the **Security and Identity**

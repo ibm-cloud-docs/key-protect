@@ -10,11 +10,12 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
 {:important: .important}
+{:pre: .pre}
+{:screen: .screen}
+{:shortdesc: .shortdesc}
+{:tip: .tip}
 
 # CLI reference version 0.3.9
 {: #cli-reference-039}
@@ -38,7 +39,7 @@ key-protect   0.3.9
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
 manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
-{:shortdesc}
+{: shortdesc}
 
 To install the CLI plug-in, see
 [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
@@ -51,7 +52,7 @@ so that you can use the commands and flags that are available for the
 {: tip}
 
 ## ibmcloud kp commands
-{: #ibmcloud-kp-commands}
+{: #ibmcloud-kp-commands-039}
 
 You can specify one of the following commands.
 
