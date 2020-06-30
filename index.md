@@ -84,7 +84,7 @@ Complete the following steps to create your first cryptographic key.
         </td>
         <td>
           <p>
-            A unique, human-readable alias for easy identification of your key.
+            A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -141,7 +141,7 @@ Complete the following steps to add an existing key.
         </td>
         <td>
           <p>
-            A unique, human-readable alias for easy identification of your key.
+            A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
