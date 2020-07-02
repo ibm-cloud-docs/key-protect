@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-07-01"
 
 keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -90,10 +90,10 @@ advanced encryption and management of data.
     Standard keys
   </dt>
   <dd>
-    Standard keys are a way to persist a secret, such as a password or an
+    Standard keys are a way to persist data, such as a password or an
     encryption key. When you use
     {{site.data.keyword.keymanagementserviceshort}} to store standard keys,
-    you enable hardware security module (HSM) storage for your secrets,
+    you enable hardware security module (HSM) storage for your data,
     fine-grained access control to your resources with
     [{{site.data.keyword.iamshort}} (IAM)](/docs/key-protect?topic=key-protect-manage-access),
     and the ability to audit API calls to the service with
@@ -101,9 +101,9 @@ advanced encryption and management of data.
   </dd>
 </dl>
 
-After you create keys in {{site.data.keyword.keymanagementserviceshort}}, the
-system returns an ID value that you can use to make API calls to the service.
-You can retrieve the ID value for your keys from the
+After you create a key in {{site.data.keyword.keymanagementserviceshort}}, the
+system returns a key ID that is used to uniquely identify the key resource. You can use this ID value to make API calls to the service.
+You can retrieve the key ID for your key from the
 {{site.data.keyword.keymanagementserviceshort}} dashboard or by using the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
@@ -117,7 +117,7 @@ you can fully manage.
 
 After you designate a root key in
 {{site.data.keyword.keymanagementserviceshort}}, you can send a key wrap request
-to the service by using the {{site.data.keyword.keymanagementserviceshort}} API.
+to the service by using the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
 The key wrap operation provides both confidentiality and integrity protection
 for a DEK.
 
@@ -151,7 +151,7 @@ Unwrapping a data encryption key (DEK) decrypts and authenticates the contents
 within the key, returning the original key material to your data service.
 
 If your business application needs to access the contents of your wrapped DEKs,
-you can use the {{site.data.keyword.keymanagementserviceshort}} API to send an
+you can use the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external} to send an
 unwrap request to the service. To unwrap a DEK, you specify the ID value of the
 root key and the `ciphertext` value returned during the initial wrap request. To
 complete the unwrap request, you must also supply the additional authenticated
@@ -165,3 +165,9 @@ After you send the unwrap request, the system reverses the key wrapping process
 by using the same AES algorithms. A successful unwrap operation returns the
 base64 encoded `plaintext` value to your {{site.data.keyword.cloud_notm}} data
 at rest service.
+
+
+## Integrating with {{site.data.keyword.cloud_notm}} Services
+{: #envelope-encryption-integration}
+
+{{site.data.keyword.keymanagementservicefull}} integrates with a number of {{site.data.keyword.cloud_notm}} services to enable encryption with customer-managed keys for those services.  Associating a resource in your cloud data service with a root key in {{site.data.keyword.keymanagementserviceshort}} allows your data to be protected at-rest while having management control of the root key. For more information on the services that offer integration with {{site.data.keyword.keymanagementserviceshort}}, see [Integrating Services](/docs/key-protect?topic=key-protect-integrate-services).
