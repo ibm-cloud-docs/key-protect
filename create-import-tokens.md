@@ -33,7 +33,7 @@ creating an import token for your
 Import tokens are used to encrypt and securely bring root key material into
 {{site.data.keyword.keymanagementserviceshort}} based on the policies that you
 specify. To learn more about importing your keys securely to the cloud, see
-[Bringing your encryption keys to the cloud](/docs/key-protect/concepts?topic=key-protect-importing-keys).
+[Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
 ## Creating an import token with the API
 {: #create-import-token-api}

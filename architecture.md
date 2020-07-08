@@ -6,6 +6,8 @@ lastupdated: "2020-04-03"
 
 keywords: public isolation for Key Protect, compute isolation for Key Protect, Key Protect architecture, workload isolation in Key Protect
 
+subcollection: key-protect
+
 ---
 
 {:external: target="_blank" .external}

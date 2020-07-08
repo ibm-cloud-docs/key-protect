@@ -146,7 +146,7 @@ material.
         </td>
         <td>
           <strong>Required.</strong> The identifier for the key that you
-          retrieved in [step 1](#retrieve-keys-api).
+          retrieved in [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
         </td>
       </tr>
 

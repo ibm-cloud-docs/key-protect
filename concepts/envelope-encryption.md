@@ -166,7 +166,6 @@ by using the same AES algorithms. A successful unwrap operation returns the
 base64 encoded `plaintext` value to your {{site.data.keyword.cloud_notm}} data
 at rest service.
 
-
 ## Integrating with {{site.data.keyword.cloud_notm}} Services
 {: #envelope-encryption-integration}
 
