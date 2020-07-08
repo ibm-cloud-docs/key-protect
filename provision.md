@@ -44,9 +44,9 @@ department and one for manufacturing. Two instances provides isolation so keys
 in one business unit are not accessible from other business units.
 
 The term `instance` is sometimes used to describe compute resources, such as
-[virtual servers](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial)
+[virtual servers](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial){: external}
 or
-[virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
+[virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers){: external}.
 An instance, in {{site.data.keyword.keymanagementserviceshort}} should **not**
 be equated with compute resources. A
 {{site.data.keyword.keymanagementserviceshort}} instance is a namespace.

@@ -19,7 +19,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{: preview: .preview}
+{:preview: .preview}
 {:term: .term}
 
 # Viewing key versions

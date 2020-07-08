@@ -57,7 +57,7 @@ Before you target a private endpoint for {{site.data.keyword.keymanagementservic
     and connections to and from your account's resources are routed separately
     on the {{site.data.keyword.cloud_notm}} network. To learn more about VRF
     technology, see
-    [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
+    [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
 
     Enabling VRF permanently alters networking for your account. Be sure that
     you understand the impact to your account and resources. After you enable

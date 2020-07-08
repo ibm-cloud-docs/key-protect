@@ -94,7 +94,7 @@ environment is set up before setting the network access policy to
 {: note}
 
 #### Deprovision a service instance
-{: deprovision-a-service-instance}
+{: #deprovision-a-service-instance}
 
 The network access policy is not enforced when a request for a
 {{site.data.keyword.keymanagementserviceshort}} service instance is

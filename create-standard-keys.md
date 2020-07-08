@@ -63,7 +63,8 @@ window.
         </td>
         <td>
           <p>
-            A unique, human-readable alias for easy identification of your key.
+            A human-readable alias for easy identification of your key. Length
+            must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -79,7 +80,7 @@ window.
         </td>
         <td>
           The
-          [type of key](/docs/key-protect/concepts?topic=key-protect-envelope-encryption#key-types)
+          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
           that you would like to manage in
           {{site.data.keyword.keymanagementserviceshort}}. From the list of key
           types, select <b>Standard key</b>.

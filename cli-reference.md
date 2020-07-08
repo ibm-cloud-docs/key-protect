@@ -36,6 +36,7 @@ so that you can use the commands and flags that are available for the
 {: tip}
 
 ## Notes
+{: #cli-reference-notes}
 
 ### Previous version
 {: #cli-reference-previous}
@@ -345,7 +346,7 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
     </p>
     <p>
       For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
+      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
     </p>
   </dd>
 </dl>
@@ -452,7 +453,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
     </p>
     <p>
       For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
+      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
     </p>
   </dd>
 </dl>
@@ -658,10 +659,10 @@ For more information, see
 
 ```
 ibmcloud kp instance policy-update allowed-network
-     -i, --instance-id     INSTANCE_ID
-    [-d, --disable]
-    [-e, --enable]
-    [-t, --network-type    NETWORK_TYPE]
+    -i, --instance-id  INSTANCE_ID
+    -d, --disable OR
+    -e, --enable
+    -t, --network-type NETWORK_TYPE
 ```
 {: pre}
 
@@ -742,6 +743,7 @@ and
 [setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ### Notes
+{: #kp-instance-policy-update-dual-notes}
 
 Dual authorization delete for an instance is different than dual authorization
 delete for keys.
@@ -759,9 +761,9 @@ policy.
 
 ```
 ibmcloud kp instance policy-update dual-auth-delete
-     -i, --instance-id     INSTANCE_ID
-    [-d, --disable]
-    [-e, --enable]
+    -i, --instance-id INSTANCE_ID
+    -d, --disable OR
+    -e, --enable
 
 ```
 {: pre}
@@ -1799,7 +1801,7 @@ Retrieve details about a key policy, such as the key's automatic rotation
 interval.
 
 ```
-ibmcloud kp policies KEY_ID
+ibmcloud kp key policies KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
 ```
@@ -1924,11 +1926,11 @@ Deleting a key that has a
 requires an authorization from two users. With the
 {{site.data.keyword.keymanagementserviceshort}} API, you can provide the
 first authorization by
-[setting the key for deletion](#set-key-deletion-api).
+[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#set-key-deletion-api).
 Then, a different user provides a second authorization by using the
-[GUI](/)
+[GUI](https://{DomainName}/){: external}
 or
-[API](/apidocs/key-protect)
+[API](/apidocs/key-protect){: external}
 to delete the key.
 
 ```
@@ -2078,13 +2080,13 @@ You can only create a rotation policy for root keys that are generated in
 {{site.data.keyword.keymanagementserviceshort}}. If you imported the root key
 initially, you must provide a new base64-encoded key material to rotate the key.
 For more information, see
-[Rotating root keys on-demand](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys).
+[Rotating root keys on-demand](/docs/key-protect?topic=key-protect-rotate-keys).
 {: note}
 
 ```
 ibmcloud kp key policy-update rotation KEY_ID
      -i, --instance-id      INSTANCE_ID
-    [-i, --monthly-interval MONTHS]
+    [-m, --monthly-interval MONTHS]
     [-o, --output           OUTPUT]
 ```
 {: pre}
@@ -3179,6 +3181,7 @@ ibmcloud kp key wrap KEY_ID
 {: pre}
 
 ### Best practices
+{: #best-practices}
 
 Wrapping a data encryption key (DEK) creates a `ciphertext`. The ciphertext is
 encrypted information that, when unwrapped, reveals the original DEK.

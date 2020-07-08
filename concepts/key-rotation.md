@@ -62,7 +62,7 @@ Rotation options are available only for root keys.
       {{site.data.keyword.keymanagementserviceshort}} helps you simplify
       rotation for encryption keys by enabling rotation policies for keys that
       you generate in the service. After you create a root key, you can manage
-      a rotation policy for the key in the or with the
+      a rotation policy for the key in the user interface (UI) or with the
       {{site.data.keyword.keymanagementserviceshort}} API.
     </p>
     <p>
@@ -189,7 +189,7 @@ Keep in mind the following considerations as you prepare to use
       you're not charged additional fees. You can continue to unwrap your
       wrapped data encryption keys (WDEKs) with retired key material at no extra
       cost. For more information about our pricing options, see the
-      [{{site.data.keyword.keymanagementserviceshort}} catalog page](https://{DomainName}/catalog/services/key-protect){: external}.
+      [{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
     </p>
   </dd>
 </dl>
@@ -220,7 +220,7 @@ rotate your root keys, see
 
 After a rotation completes, a new key version becomes available for protecting
 data encryption keys (DEKs) with
-[envelope encryption](x9860393){: term}.
+[envelope encryption](#x9860393){: term}.
 Retired root key versions moves to the _Deactivated_ state, where they can only
 be used to unwrap and access older DEKs that aren't yet protected by the latest
 root key.

@@ -74,7 +74,7 @@ for interacting with its service APIs.
     </p>
     <p>
       To learn more about VRF, see
-      [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/resources?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
+      [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
     </p>
     <p>
       To learn how to connect to {{site.data.keyword.keymanagementserviceshort}}

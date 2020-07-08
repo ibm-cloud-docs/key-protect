@@ -238,6 +238,7 @@ To find out more about programmatically managing your keys in
 [{{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
 
 ## What's next
+{: #importing-keys-whats-next}
 
 - To learn how to create an import token for your service instance, see
 [Creating an import token](/docs/key-protect?topic=key-protect-create-import-tokens).

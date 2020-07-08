@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-02-25"
 
+keywords: Key Protect tutorial, secure import
+
+subcollection: key-protect
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -187,7 +191,7 @@ value as an environment variable.
     can regenerate them as needed. To generate a new access token, run the
     `ibmcloud iam oauth-tokens` command. To find out more about retrieving
     {{site.data.keyword.cloud_notm}} access tokens, see
-    [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token#retrieve-access-token).
+    [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
     {: note}
 
 3. Retrieve the identifier that is associated with your
@@ -245,10 +249,10 @@ the response to a JSON file.
     ```cURL
     curl -X POST \
       $KP_API_URL/api/v2/import_token \
-      -H 'Accept: application/vnd.ibm.collection+json' \
-      -H 'Authorization: $ACCESS_TOKEN' \
-      -H 'Content-Type: application/json' \
-      -H 'Bluemix-Instance: $INSTANCE_ID' \
+      -H 'accept: application/vnd.ibm.collection+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'content-type: application/json' \
+      -H 'bluemix-instance: <instance_ID>' \
       -d '{
         "expiration": 1200,
         "maxAllowedRetrievals": 1
@@ -312,9 +316,9 @@ the response to a JSON file.
     ```cURL
     curl -X GET \
       $KP_API_URL/api/v2/import_token \
-      -H 'Accept: application/vnd.ibm.collection+json' \
-      -H 'Authorization: $ACCESS_TOKEN' \
-      -H 'Bluemix-Instance: $INSTANCE_ID' > getImportTokenResponse.json
+      -H 'accept: application/vnd.ibm.collection+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' > getImportTokenResponse.json
     ```
     {: codeblock}
 
@@ -538,10 +542,10 @@ following cURL command.
     ```cURL
     curl -X POST \
       $KP_API_URL/api/v2/keys \
-      -H 'Accept: application/vnd.ibm.collection+json' \
-      -H 'Authorization: $ACCESS_TOKEN' \
-      -H 'Content-Type: application/json' \
-      -H 'Bluemix-Instance: $INSTANCE_ID' \
+      -H 'accept: application/vnd.ibm.collection+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'content-type: application/json' \
+      -H 'bluemix-instance: <instance_ID>' \
       -d '{
         "metadata": {
           "collectionType": "application/vnd.ibm.kms.key+json",
@@ -575,7 +579,7 @@ following cURL command.
     and verify the request.
 
     If the API request fails with an import token expired error,
-    [return to step 3](#tutorial-import-step-3)
+    [return to step 3](#tutorial-import-create-token)
     to create a new import token. Remember that import tokens and their
     associated public keys expire based on the policy that you specify at
     creation time.
@@ -615,7 +619,7 @@ following cURL command.
     used for subsequent calls to the
     {{site.data.keyword.keymanagementserviceshort}} API. The `state` value set
     to 1 indicates that your encryption key is now in the
-    [_Active_ key state](/docs/key-protect?topic=key-protect-key-states#key-states).
+    [_Active_ key state](/docs/key-protect?topic=key-protect-key-states).
     The `crn` value provides the full scoped path to the key that specifies
     where the resource resides within {{site.data.keyword.cloud_notm}}. Finally,
     the `extractable` and `imported` values describe this resource as a root key
@@ -650,9 +654,9 @@ previous step.
     ```cURL
     curl -X DELETE \
       $KP_API_URL/api/v2/keys/$ROOT_KEY_ID \
-      -H 'Accept: application/vnd.ibm.collection+json' \
-      -H 'Authorization: $ACCESS_TOKEN' \
-      -H 'Bluemix-Instance: $INSTANCE_ID' | jq .
+      -H 'accept: application/vnd.ibm.collection+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' | jq .
     ```
     {: codeblock}
 
@@ -679,7 +683,7 @@ instance.
     {: pre}
 
     If you created more test keys in your service instance, be sure to
-    [remove all encryption keys from your service instance](/docs/key-protect?topic=key-protect-delete-keys#delete-keys)
+    [remove all encryption keys from your service instance](/docs/key-protect?topic=key-protect-delete-keys)
     before you deprovision the instance.
     {: tip}
 
@@ -692,8 +696,8 @@ and securely import an encrypted key into your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 - Learn more about
-[using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption#envelope-encryption).
+[using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption).
 - Deploy your root key across
-[supported cloud services](/docs/key-protect?topic=key-protect-integrate-services#integrate-services).
+[supported cloud services](/docs/key-protect?topic=key-protect-integrate-services).
 - Learn more about the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.

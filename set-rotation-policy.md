@@ -36,7 +36,7 @@ You can create a rotation policy only for root keys that are generated in
 {{site.data.keyword.keymanagementserviceshort}}. If you imported the root key
 initially, you must provide new base64 encoded key material to rotate the key.
 For more information, see
-[Rotating root keys on-demand](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys).
+[Rotating root keys on-demand](/docs/key-protect?topic=key-protect-rotate-keys).
 {: note}
 
 Want to learn more about your key rotation options in

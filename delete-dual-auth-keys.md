@@ -43,7 +43,7 @@ that's actively protecting a cloud resource. Before you delete a key,
 [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
 that are associated with the key.
 - You can
-[force deletion on a key](#delete-key-force)
+[force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
 that's protecting a cloud resource. However, the action won't succeed if the
 key's associated resource is non-erasable due to a retention policy. You can
 verify whether a key is associated with a non-erasable resource by
@@ -78,7 +78,7 @@ and all key operations are allowed on the key. To complete the deletion, the
 second user with a _Manager_ access policy can use the
 {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key.
 
-### Step 1. Authorize deletion for a key
+### Authorize deletion for a key with the API
 {: #set-key-deletion-api}
 
 [After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-dual-auth),
