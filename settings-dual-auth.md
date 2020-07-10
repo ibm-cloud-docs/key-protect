@@ -60,8 +60,25 @@ created under a dual authorization policy will continue to require actions from
 two users before the keys can be deleted. After a key inherits a dual
 authorization policy, the policy cannot be reverted.
 
-### Enabling dual authorization for your service instance
-{: #enable-dual-auth-instance-policy}
+### Enabling dual authorization for your service instance with the console
+{: #enable-dual-auth-instance-policy-ui}
+
+If you prefer to disable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
+
+After creating a service instance, complete the following steps to create a dual authorization policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the **Manage instance policies** page, click the **Add policy** button.
+5. Choose **Dual authorization deletion** and hit the switch to enable the policy.
+6. Click the **Add policy** button.
+7. Confirm the policy was created in the updated **Policies** table.
+
+
+### Enabling dual authorization for your service instance with the API
+{: #enable-dual-auth-instance-policy-api}
 
 As an instance manager, enable a dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} service instance by making a
@@ -200,8 +217,26 @@ the policies that are available for your
     ```
     {: codeblock}
 
-### Disabling dual authorization for your service instance
-{: #disable-dual-auth-instance-policy}
+### Disabling dual authorization for your service instance with the console
+{: #disable-dual-auth-instance-policy-ui}
+
+If you prefer to disable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
+
+After creating a service instance, complete the following steps to create a dual authorization policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the **Manage instance policies** page, use the **Policies** table to browse the policies in
+your service instance.
+5. Click the ⋯ icon to open a list of options for the policy that you want to
+disable.
+6. From the options menu, click **Disable policy** and confirm the policy was disabled in
+the updated **Policies** table.
+
+### Disabling dual authorization for your service instance with the API
+{: #disable-dual-auth-instance-policy-api}
 
 As an instance manager, disable an existing dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} service instance by making a
