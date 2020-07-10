@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-07-10"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -38,6 +38,25 @@ was previously encrypted with the key.
 You can restore a deleted key within 30 days of its deletion. This capability is
 available only for root keys that were previously imported to the service.
 {: note}
+
+## Restoring a deleted key with the console
+{: #restore-ui}
+
+If you prefer to restore your root key by using a graphical interface, you can use the IBM Cloud console.
+
+[After you import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [delete](/docs/key-protect?topic=key-protect-delete-keys) a root key,
+complete the following steps to restore the key:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in
+your service instance.
+5. Click the **Restore Key** button to open a tab and enter the key ID and original key material that was associated with the deleted key.
+6. Click **Restore Key** button.
+7. Confirm the key was restored in the updated **Keys** table.
+
 
 ## Restoring a deleted key with the API
 {: #restore-api}
