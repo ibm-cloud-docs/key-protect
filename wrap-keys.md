@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-07-10"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -171,8 +171,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
         </td>
         <td>
           The key material of the DEK that you want to manage and protect. The
-          <code>plaintext</code> value must be base64 encoded. To generate a new
-          DEK, omit the <code>plaintext</code> attribute. The service generates
+          <code>plaintext</code> value must be base64 encoded. For more information on encoding your key material, see 
+          [Encoding your key material](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material).
+          
+          To generate a new DEK, omit the <code>plaintext</code> attribute. The service generates
           a random plaintext (32 bytes), wraps that value, and then returns both
           the generated and wrapped values in the response.
         </td>
