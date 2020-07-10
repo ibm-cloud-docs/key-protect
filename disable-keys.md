@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-29"
+lastupdated: "2020-07-10"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -45,11 +45,8 @@ supports revoking access to data by disabling a
 documentation.
 {: note}
 
-## Disabling and enabling root keys with the API
-{: #disable-enable-api}
-
-### Disabling a root key
-{: #disable-api}
+## Disabling or enabling a root key
+{: #disable-enable-root-key}
 
 When you disable a root key, the key transitions to the
 [_Suspended_ state](/docs/key-protect?topic=key-protect-key-states),
@@ -61,6 +58,64 @@ to the root key's associated data is revoked. After access to the associated
 data is revoked, a corresponding disable event is displayed in the Activity
 Tracker web UI.
 {: note}
+
+When you enable a root key that was previously disabled, the key transitions
+from the _Suspended_ to the _Active_ key state. This action restores the key's
+encrypt and decrypt operations.
+
+If you're using an integrated Cloud Service that supports revoking access to a
+disabled root key, the service may take up to a maximum of 4 hours before access
+to the root key's associated data is restored. After access to the associated
+data is restored, a corresponding enable event is displayed in the Activity
+Tracker web UI.
+{: note}
+
+
+
+## Disabling and enabling root keys in the console
+{: #disable-enable-ui}
+
+If you prefer to enable or disable your root keys by using a graphical interface, you can use the IBM Cloud console.
+
+### Disabling a root key
+{: #disable-ui}
+
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
+complete the following steps to disable a key:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in
+your service instance.
+5. Click the ⋯ icon to open a list of options for the key that you want to
+disable.
+6. From the options menu, click **Disable key** and confirm the key was disabled in
+the updated **Keys** table.
+
+### Enabling a root key
+{: #enable-ui}
+
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](#disable-ui) a root key,
+complete the following steps to enable the key:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the application details page, use the **Keys** table to browse the keys in
+your service.
+5. Click the ⋯ icon to open a list of options for the key that you want to
+enable.
+6. From the options menu, click **Enable key** and confirm the key was enabled in
+the updated **Keys** table.
+
+## Disabling and enabling root keys with the API
+{: #disable-enable-api}
+
+### Disabling a root key
+{: #disable-api}
 
 You can disable a root key that's in the _Active_ key state by making a `POST`
 call to the following endpoint.
@@ -242,17 +297,6 @@ the key.
 
 ### Enabling a disabled root key
 {: #enable-api}
-
-When you enable a root key that was previously disabled, the key transitions
-from the _Suspended_ to the _Active_ key state. This action restores the key's
-encrypt and decrypt operations.
-
-If you're using an integrated Cloud Service that supports revoking access to a
-disabled root key, the service may take up to a maximum of 4 hours before access
-to the root key's associated data is restored. After access to the associated
-data is restored, a corresponding enable event is displayed in the Activity
-Tracker web UI.
-{: note}
 
 You can enable a root key that's in the _Suspended_ key state by making a `POST`
 call to the following endpoint.
