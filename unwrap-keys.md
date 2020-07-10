@@ -196,10 +196,7 @@ request.
     unwrap the supplied ciphertext. 
 
     The plaintext that is returned is base64 encoded. For more information on how to decode your key material, see 
-    [Decoding your key material](#how-to-decode-key-material).
-    {: important}
-    
-    The following JSON object shows an example returned value.
+    [Decoding your key material](#how-to-decode-key-material). The following JSON object shows an example returned value.
 
     ```json
     {
@@ -209,15 +206,10 @@ request.
       }
     }
     ```
-    {: screen}
 
-
-    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
-    the root key that is used to unwrap and access your data, the service also
-    returns a newly wrapped data encryption key (`ciphertext`) in the unwrap
-    response body. The latest key version (`rewrappedKeyVersion`) that is
-    associated with the new `ciphertext` is also returned. Store and use the new
-    `ciphertext` value for future envelope encryption operations so that your
+    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also
+    returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. The latest key version (`rewrappedKeyVersion`) that is
+    associated with the new `ciphertext` is also returned. Store and use the new `ciphertext` value for future envelope encryption operations so that your
     data is protected by the latest root key.
     
 
