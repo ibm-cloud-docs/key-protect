@@ -1394,6 +1394,7 @@ ibmcloud kp key wrap KEY_ID
 {: pre}
 
 ### Best practices
+{: #best-practices-040}
 
 Wrapping a data encryption key (DEK) creates a `ciphertext`. The ciphertext is
 encrypted information that, when unwrapped, reveals the original DEK.

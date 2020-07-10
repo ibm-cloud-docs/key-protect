@@ -40,7 +40,7 @@ service.
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one
 of the supported
-[{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions#regions),
+[{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions),
 which represent the geographic area where your
 {{site.data.keyword.keymanagementserviceshort}} requests are handled and
 processed. Each {{site.data.keyword.cloud_notm}} region contains
@@ -66,14 +66,14 @@ encryption keys to other regions.
 ## Application-level High-Availability
 {: #application-level-high-availability}
 
-Applications that communicate over networks are subject to transient faults. You should design your application to interact with Key Protect by using modern 
-resiliency techniques, such as Exponential backoff. [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){:external} is a technique that retries 
+Applications that communicate over networks are subject to transient faults. You should design your application to interact with Key Protect by using modern
+resiliency techniques, such as Exponential backoff. [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){: external} is a technique that retries
 requests exponentially, with increasing delays between each request.
 
 ### Example Algorithm
 {: #example-backoff-algorithm}
 
-There are many approaches to implementing retries with exponential backoff logic. Your approach will depend on your specific use case and the network conditions 
+There are many approaches to implementing retries with exponential backoff logic. Your approach will depend on your specific use case and the network conditions
 surrounding your application. The following is an example implementation of incremental retry delay.
 
 ```
@@ -92,9 +92,12 @@ for !ok && attempt <= maxRetries {
 ```
 {: codeblock}
 
-Once the maximum amount of retries has been reached and you have confirmed that the errors your application is experiencing are due to {{site.data.keyword.keymanagementserviceshort}}, open a [support ticket](https://github.ibm.com/kms/customer-issues) with details regarding your request.
-{:note}
-
+Once the maximum amount of retries has been reached and you have confirmed that
+the errors your application is experiencing are due to
+{{site.data.keyword.keymanagementserviceshort}}, open a
+[support ticket](https://github.ibm.com/kms/customer-issues){: external}
+with details regarding your request.
+{: note}
 
 ## Disaster recovery
 {: #dr}

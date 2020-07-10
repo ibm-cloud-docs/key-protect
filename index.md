@@ -84,11 +84,13 @@ Complete the following steps to create your first cryptographic key.
         </td>
         <td>
           <p>
-            A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters.
+            A human-readable alias for easy identification of your key. Length
+            must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or location.
+            personally identifiable information (PII), such as your name or
+            location.
           </p>
         </td>
       </tr>
@@ -141,7 +143,8 @@ Complete the following steps to add an existing key.
         </td>
         <td>
           <p>
-            A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters.
+            A human-readable alias for easy identification of your key. Length
+            must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -182,6 +185,14 @@ Complete the following steps to add an existing key.
 
 From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can
 inspect the general characteristics of your new keys.
+
+You can programmatically enable an extra layer of protection to Bring Your Own
+Key (BYOK) by encrypting your key material before you import a key into Key
+Protect.
+
+For more information about securely importing your keys, see
+[Creating import tokens](/docs/key-protect?topic=key-protect-create-import-tokens).
+{: note}
 
 ## What's next
 {: #get-started-next-steps}

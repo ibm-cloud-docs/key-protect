@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-07-07"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -75,7 +75,8 @@ window.
         <td>Name</td>
         <td>
           <p>
-            A unique, human-readable alias for easy identification of your key.
+            A human-readable alias for easy identification of your key. Length
+            must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -106,7 +107,7 @@ window.
           <p>
             The base64 encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service.
-            For more information, check out [Base64 encoding your key material](#how-to-encode-key-material).
+            For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).
 
           </p>
           <p>
@@ -288,7 +289,7 @@ with the following cURL command.
           <p>
             The base64 encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service.
-            For more information, check out [Base64 encoding your key material](#how-to-encode-key-material).
+            For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).
           </p>
           <p>
             Ensure that the key material meets the following requirements:
@@ -357,15 +358,15 @@ instance.
     {: codeblock}
 
 ## Base64 encoding your key material
-{: #how-to-encode-key-material}
+{: #how-to-encode-root-key-material}
 
-When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service. 
+When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service.
 
-### Using OpenSSL to encrypt existing key material 
-{: #open-ssl-encoding}
+### Using OpenSSL to encrypt existing key material
+{: #open-ssl-encoding-root}
 
-1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){:external}.
-2. Base64 encode your key material string by running the following command: 
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+2. Base64 encode your key material string by running the following command:
 
     ```
     $ openssl base64 -in <infile> -out <outfile>
@@ -398,7 +399,7 @@ When importing an existing root key, it is required to include the encrypted key
           <p>
             The name of the file where your base64 encoded key material will be be outputted once the command has ran.
           </p>
-          <p> 
+          <p>
             Ensure that the key is 128, 192, or 256 bits in length.
           </p>
         </td>
@@ -409,14 +410,16 @@ When importing an existing root key, it is required to include the encrypted key
       </caption>
     </table>
 
-  If you want to output the base64 material in the command line directly rather than a file, run the command `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
+  If you want to output the base64 material in the command line directly rather
+  than a file, run the command `openssl enc -base64 <<< '<key_material_string>'`,
+  where key_material_string is the key material input for your imported key.
   {: note}
 
-### Using OpenSSL to create and encode new key material 
-{: #open-ssl-encoding-new-key-material}
+### Using OpenSSL to create and encode new key material
+{: #open-ssl-encoding-root-new-key-material}
 
-1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){:external}.
-2. Base64 encode your key material string by running the following command: 
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+2. Base64 encode your key material string by running the following command:
     ```
     $ openssl rand <bit_length> -base64
     ```
@@ -443,7 +446,7 @@ When importing an existing root key, it is required to include the encrypted key
           </p>
         </td>
       </tr>
-      
+
       <caption style="caption-side:bottom;">
         Table 4. Describes the variable that is needed to create and encode new key material.
       </caption>

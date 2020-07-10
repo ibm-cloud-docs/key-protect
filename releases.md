@@ -33,6 +33,7 @@ Stay up-to-date with the new features that are available for
 {: #june-2020}
 
 ### Updated: CLI plug-in Version 0.5.0 is now available
+{: #june-2020-cli-plugin-050-available}
 
 New as of: 2020-06-19
 
@@ -631,7 +632,7 @@ own encryption keys?
 
 You can now practice adding end to end security for your cloud application by
 following
-[the new tutorial](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}.
+[the new tutorial](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security){: external}.
 
 For more information, see
 [check out the sample app in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.

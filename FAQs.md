@@ -281,7 +281,7 @@ deprovision the service. After you delete your service instance,
 to crypto-shred any data that is associated with the service instance.
 
 ## Why does the user interface show unauthorized access?
-{: user-interface-unauthorized}
+{: #user-interface-unauthorized}
 {: faq}
 {: support}
 

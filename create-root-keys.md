@@ -50,7 +50,7 @@ keep in mind that any keys that you add to the service require an authorization
 from two users to delete keys.
 {: note}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](/https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
 provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
@@ -71,7 +71,8 @@ window.
         </td>
         <td>
           <p>
-            A unique, human-readable alias for easy identification of your key.
+            A human-readable alias for easy identification of your key. Length
+            must be within 2 - 90 characters.
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain

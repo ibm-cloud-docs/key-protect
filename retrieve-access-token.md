@@ -34,7 +34,7 @@ authenticating your requests to the service with an
 
 You can use the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
-to quickly generate your personal Cloud IAM [access token](x2113001){: term}.
+to quickly generate your personal Cloud IAM [access token](#x2113001){: term}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
@@ -131,8 +131,8 @@ to retrieve your access token.
     ```cURL
     curl -X POST \
       'https://iam.cloud.ibm.com/identity/token' \
-      -H 'Content-Type: application/x-www-form-urlencoded' \
-      -H 'Accept: application/json' \
+      -H 'content-type: application/x-www-form-urlencoded' \
+      -H 'accept: application/json' \
       -d 'grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=<API_KEY>' > token.json
     ```
     {: codeblock}
