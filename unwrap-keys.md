@@ -199,7 +199,6 @@ request.
     [Decoding your key material](#how-to-decode-key-material).
     {: important}
     
-
     The following JSON object shows an example returned value.
 
     ```json
