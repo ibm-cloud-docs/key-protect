@@ -94,29 +94,39 @@ environment is set up before setting the network access policy to
 {: note}
 
 #### Deprovision a service instance
-{: deprovision-a-service-instance}
+{: #deprovision-a-service-instance}
 
 The network access policy is not enforced when a request for a
 {{site.data.keyword.keymanagementserviceshort}} service instance is
 deprovisioned.
 
-### User interface
-{: #user-interface}
+### Enabling network access to your service instance with the console
+{: #enabling-network-access-to-your-service-instance-ui}
 
-Setting and retrieving the network access policy is only supported through the
-application programming interface (API). Network access policy support will be
-added to the user interface (UI), command line interface (CLI), and software
-development kit (SDK) in the future.
+If you prefer to enable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
 
 After the network access policy is set to `private-only` the UI cannot be used
 for any {{site.data.keyword.keymanagementserviceshort}} actions.
+{: important}
 
 Keys in a `private-only` instance will not be shown in the UI and any
 {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an
 unauthorized error (HTTP status code 401).
 
-### Enabling network access to your service instance
-{: #enabling-network-access-to-your-service-instance}
+After creating a service instance, complete the following steps to create a network access policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the **Manage instance policies** page, click the **Add policy** button.
+5. Choose **Network** and select the network that you would like traffic to come through.
+6. Click the **Add policy** button.
+7. Confirm the policy was created in the updated **Policies** table.
+
+
+### Enabling network access to your service instance with the API
+{: #enabling-network-access-to-your-service-instance-api}
 
 As an admin, enable a network access policy for a
 {{site.data.keyword.keymanagementserviceshort}} service instance by making a
@@ -280,6 +290,24 @@ policies that are available for your
       -H 'accept: application/vnd.ibm.kms.policy+json'
     ```
     {: codeblock}
+
+### Disabling network access to your service instance with the console
+{: #disabling-network-access-to-your-service-instance-ui}
+
+If you prefer to disable a network access policy on your instance by using a graphical interface, you can use the IBM Cloud console.
+
+After creating a network access policy, complete the following steps to disable a network access policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the **Manage instance policies** page, use the **Policies** table to browse the policies in
+your service instance.
+5. Click the ⋯ icon to open a list of options for the policy that you want to
+disable.
+6. From the options menu, click **Disable policy** and confirm the policy was disabled in
+the updated **Policies** table.
 
 ## What's next
 {: #managing-network-access-policies-next-steps}
