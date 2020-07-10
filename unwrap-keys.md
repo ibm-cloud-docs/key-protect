@@ -218,7 +218,7 @@ request.
 
 When you unwrap a data encryption key, the key material is returned in base64 encoding. You will need to decode the key before encrypting it.
 
-### Using OpenSSL to dencrypt key material
+### Using OpenSSL to decode key material
 {: #open-ssl-encoding-root}
 
 1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
