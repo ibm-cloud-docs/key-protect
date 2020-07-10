@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-01"
+lastupdated: "2020-07-10"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -193,8 +193,14 @@ request.
 
     The original key material is returned in the response entity-body. The
     response body also contains the ID of the key version that was used to
-    unwrap the supplied ciphertext. The following JSON object shows an example
-    returned value.
+    unwrap the supplied ciphertext. 
+
+    The plaintext that is returned is base64 encoded. For more information on how to decode your key material, see 
+    [Decoding your key material](#how-to-decode-key-material).
+    {: important}
+    
+
+    The following JSON object shows an example returned value.
 
     ```json
     {
@@ -206,6 +212,7 @@ request.
     ```
     {: screen}
 
+
     If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
     the root key that is used to unwrap and access your data, the service also
     returns a newly wrapped data encryption key (`ciphertext`) in the unwrap
@@ -213,4 +220,59 @@ request.
     associated with the new `ciphertext` is also returned. Store and use the new
     `ciphertext` value for future envelope encryption operations so that your
     data is protected by the latest root key.
-    {: note}
+    
+
+## Decoding your key material
+{: #how-to-decode-key-material}
+
+When you unwrap a data encryption key, the key material is returned in base64 encoding. You will need to decode the key before encrypting it.
+
+### Using OpenSSL to dencrypt key material
+{: #open-ssl-encoding-root}
+
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+2. Base64 encode your key material string by running the following command:
+
+    ```
+    $ openssl base64 -d -in <infile> -out <outfile>
+    ```
+    {: codeblock}
+
+    Replace the variables in the example request according to the following
+    table.
+
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <varname>infile</varname>
+        </td>
+        <td>
+          <p>
+            The name of the file where your base64 encoded key material string resides.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>outfile</varname>
+        </td>
+        <td>
+          <p>
+            The name of the file where your decoded key material will be be outputted once the command has ran.
+          </p>
+        </td>
+      </tr>
+
+      <caption style="caption-side:bottom;">
+        Table 3. Describes the variables that are needed to decode your key material.
+      </caption>
+    </table>
+
+  If you want to output the decoded material in the command line directly rather
+  than a file, run the command `openssl enc -base64 -d <<< '<key_material_string>'`,
+  where key_material_string is the returned plaintext from your unwrap request.
+  {: note}
