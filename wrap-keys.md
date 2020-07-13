@@ -176,7 +176,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
           
           To generate a new DEK, omit the <code>plaintext</code> attribute. The service generates
           a random plaintext (32 bytes), wraps that value, and then returns both
-          the generated and wrapped values in the response.
+          the generated and wrapped values in the response. The generated and wrapped values are base64 encoded and you will need to decode them in order to decrypt the keys.
         </td>
       </tr>
 
@@ -233,7 +233,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     {: screen}
 
     The `plaintext` value represents the unwrapped DEK, and the `ciphertext`
-    value represents the wrapped DEK. The `keyVersion.id` value represents the
+    value represents the wrapped DEK and are both base64 encoded. The `keyVersion.id` value represents the
     version of the root key that was used for wrapping.
 
     If you want {{site.data.keyword.keymanagementserviceshort}} to generate a
