@@ -265,7 +265,7 @@ keys for dual authorization, you can use the
 
 Yes. If you need to add a key that doesn't require dual authorization to your
 service instance, you can always
-[disable dual authorization for the service instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy)
+[disable dual authorization for the service instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy-ui)
 so that any new or future keys won't require it.
 
 ## What happens when I need to deprovision my service instance?

@@ -363,7 +363,7 @@ instance.
 When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service.
 
 ### Using OpenSSL to encrypt existing key material
-{: #open-ssl-encoding-root}
+{: #open-ssl-encoding-root-import}
 
 1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 2. Base64 encode your key material string by running the following command:

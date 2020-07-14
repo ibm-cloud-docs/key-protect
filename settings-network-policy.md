@@ -124,7 +124,6 @@ provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 6. Click the **Add policy** button.
 7. Confirm the policy was created in the updated **Policies** table.
 
-
 ### Enabling network access to your service instance with the API
 {: #enabling-network-access-to-your-service-instance-api}
 

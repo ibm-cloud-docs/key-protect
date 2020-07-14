@@ -170,13 +170,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
           <varname>data_key</varname>
         </td>
         <td>
-          The key material of the DEK that you want to manage and protect. The
-          <code>plaintext</code> value must be base64 encoded. For more information on encoding your key material, see 
-          [Encoding your key material](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material).
-          
-          To generate a new DEK, omit the <code>plaintext</code> attribute. The service generates
-          a random plaintext (32 bytes), wraps that value, and then returns both
-          the generated and wrapped values in the response. The generated and wrapped values are base64 encoded and you will need to decode them in order to decrypt the keys.
+          <p>
+            The key material of the DEK that you want to manage and protect. The
+            <code>plaintext</code> value must be base64 encoded.
+          </p>
+          <p>
+            For more information on encoding your key material, see
+            [Encoding your key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material).
+          </p>
+          <p>
+            To generate a new DEK, omit the <code>plaintext</code> attribute.
+            The service generates a random plaintext (32 bytes), wraps that
+            value, and then returns both the generated and wrapped values in the
+            response. The generated and wrapped values are base64 encoded and
+            you will need to decode them in order to decrypt the keys.
+          </p>
         </td>
       </tr>
 
@@ -233,8 +241,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
     {: screen}
 
     The `plaintext` value represents the unwrapped DEK, and the `ciphertext`
-    value represents the wrapped DEK and are both base64 encoded. The `keyVersion.id` value represents the
-    version of the root key that was used for wrapping.
+    value represents the wrapped DEK and are both base64 encoded. The
+    `keyVersion.id` value represents the version of the root key that was used
+    for wrapping.
 
     If you want {{site.data.keyword.keymanagementserviceshort}} to generate a
     new data encryption key (DEK) on your behalf, you can also pass in an empty
