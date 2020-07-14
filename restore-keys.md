@@ -57,7 +57,6 @@ your service instance.
 6. Click **Restore Key** button.
 7. Confirm the key was restored in the updated **Keys** table.
 
-
 ## Restoring a deleted key with the API
 {: #restore-api}
 

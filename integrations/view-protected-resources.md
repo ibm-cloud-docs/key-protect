@@ -663,7 +663,7 @@ following cURL command.
 
       <caption style="caption-side:bottom;">
         Table 6. Describes the variables that are needed to list registrations
-        for any key in your {site.data.keyword.keymanagementserviceshort}}
+        for any key in your {{site.data.keyword.keymanagementserviceshort}}
         service instance.
       </caption>
     </table>

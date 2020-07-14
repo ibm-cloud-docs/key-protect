@@ -47,7 +47,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
 ```
 {: codeblock}
 
-Root keys that contain the same key material can unwrap the same data encryption key (WDEK).
+Root keys that contain the same key material can unwrap the same data encryption
+key (WDEK).
 {: note}
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -193,10 +194,12 @@ request.
 
     The original key material is returned in the response entity-body. The
     response body also contains the ID of the key version that was used to
-    unwrap the supplied ciphertext. 
+    unwrap the supplied ciphertext.
 
-    The plaintext that is returned is base64 encoded. For more information on how to decode your key material, see 
-    [Decoding your key material](#how-to-decode-key-material). The following JSON object shows an example returned value.
+    The plaintext that is returned is base64 encoded. For more information on
+    how to decode your key material, see
+    [Decoding your key material](#how-to-decode-key-material).
+    The following JSON object shows an example returned value.
 
     ```json
     {
@@ -207,19 +210,22 @@ request.
     }
     ```
 
-    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated the root key that is used to unwrap and access your data, the service also
-    returns a newly wrapped data encryption key (`ciphertext`) in the unwrap response body. The latest key version (`rewrappedKeyVersion`) that is
-    associated with the new `ciphertext` is also returned. Store and use the new `ciphertext` value for future envelope encryption operations so that your
+    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
+    the root key that is used to unwrap and access your data, the service also
+    returns a newly wrapped data encryption key (`ciphertext`) in the unwrap
+    response body. The latest key version (`rewrappedKeyVersion`) that is
+    associated with the new `ciphertext` is also returned. Store and use the new
+    `ciphertext` value for future envelope encryption operations so that your
     data is protected by the latest root key.
-    
 
 ## Decoding your key material
 {: #how-to-decode-key-material}
 
-When you unwrap a data encryption key, the key material is returned in base64 encoding. You will need to decode the key before encrypting it.
+When you unwrap a data encryption key, the key material is returned in base64
+encoding. You will need to decode the key before encrypting it.
 
 ### Using OpenSSL to decode key material
-{: #open-ssl-encoding-root}
+{: #open-ssl-encoding-root-unwrap}
 
 1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 2. Base64 encode your key material string by running the following command:
@@ -243,7 +249,8 @@ When you unwrap a data encryption key, the key material is returned in base64 en
         </td>
         <td>
           <p>
-            The name of the file where your base64 encoded key material string resides.
+            The name of the file where your base64 encoded key material string
+            resides.
           </p>
         </td>
       </tr>
@@ -253,17 +260,20 @@ When you unwrap a data encryption key, the key material is returned in base64 en
         </td>
         <td>
           <p>
-            The name of the file where your decoded key material will be be outputted once the command has ran.
+            The name of the file where your decoded key material will be be
+            outputted once the command has ran.
           </p>
         </td>
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to decode your key material.
+        Table 3. Describes the variables that are needed to decode your key
+        material.
       </caption>
     </table>
 
   If you want to output the decoded material in the command line directly rather
-  than a file, run the command `openssl enc -base64 -d <<< '<key_material_string>'`,
-  where key_material_string is the returned plaintext from your unwrap request.
+  than a file, run the command
+  `openssl enc -base64 -d <<< '<key_material_string>'`, where
+  key_material_string is the returned plaintext from your unwrap request.
   {: note}

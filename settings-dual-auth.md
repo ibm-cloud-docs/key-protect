@@ -53,7 +53,7 @@ existing keys are not affected by the policy change and will still require a
 single authorization for deletion.
 - **You can always disable a dual authorization policy for your service instance.**
 If you want to
-[disable an existing dual authorization policy](#disable-dual-auth-instance-policy)
+[disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
 to allow for single authorization, keep in mind that the change is applicable
 only for future keys that you add to the instance. Any existing keys that were
 created under a dual authorization policy will continue to require actions from
@@ -75,7 +75,6 @@ provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 5. Choose **Dual authorization deletion** and hit the switch to enable the policy.
 6. Click the **Add policy** button.
 7. Confirm the policy was created in the updated **Policies** table.
-
 
 ### Enabling dual authorization for your service instance with the API
 {: #enable-dual-auth-instance-policy-api}

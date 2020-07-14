@@ -411,9 +411,9 @@ be completed.
 If the event has a `reason.reasonCode` of 409, the action could not be completed due to the adopting service's key state 
 conflicting with the key state that {{site.data.keyword.keymanagementserviceshort}} has. 
 
-If the event has a `reason.reasonCode` of 408, the action could not be completed because 
-{site.data.keyword.keymanagementserviceshort}} was not notified that all appropriate actions were taken within 4 hours of the 
-action request.
+If the event has a `reason.reasonCode` of 408, the action could not be completed because
+{{site.data.keyword.keymanagementserviceshort}} was not notified that all appropriate actions were taken within 4 hours of the action
+request.
 
 ## Event Severity
 {: event-severity}

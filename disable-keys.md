@@ -70,8 +70,6 @@ data is restored, a corresponding enable event is displayed in the Activity
 Tracker web UI.
 {: note}
 
-
-
 ## Disabling and enabling root keys in the console
 {: #disable-enable-ui}
 
