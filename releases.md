@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-07-21"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -29,6 +29,23 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## July 2020
+{: july-2020}
+
+### Update: CLI plug-in Version 0.5.1 is now available
+{: #july-2020-cli-plugin-051-available}
+
+New as of: 2020-07-21
+
+The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in is used to
+manage keys in your instance.
+
+To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
+[setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
+
+For a detailed explanation of changes in version 0.5.1, see the
+[CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+
 ## June 2020
 {: #june-2020}
 
@@ -53,7 +70,7 @@ key from your {{site.data.keyword.keymanagementserviceshort}} service instance. 
 - Set an instance level network policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to public or private networks.
 For more information, see [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
 
-### Updated: CLI plug-in Version 0.5.0 is now available
+### Update: CLI plug-in Version 0.5.0 is now available
 {: #june-2020-cli-plugin-050-available}
 
 New as of: 2020-06-19
