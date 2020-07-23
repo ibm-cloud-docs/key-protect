@@ -63,6 +63,15 @@ Your encryption keys are confined to the region that you create them in.
 encryption keys to other regions.
 {: note}
 
+If you import a root key into {{site.data.keyword.keymanagementserviceshort}}, you are encouraged to maintain a secure backup of the key material so that you 
+can restore the root key if it is accidentally deleted. You can securely backup your root keys by creating a duplicate key with the same key material for every 
+imported root key within your instance. Each duplicate key should be created in a {{site.data.keyword.keymanagementserviceshort}} region that is different from 
+the original key. Note that every time a root key is rotated, new key material is added to the key, which creates a new version of the key. Also, in case of accidental deletion of one of those 
+root keys, the software using that root key should be capable of switching to the backup root key.
+
+Two root keys that have the same key material can unwrap any data encryption keys (DEKs) created by either of root key.
+{: note}
+
 ## Application-level High-Availability
 {: #application-level-high-availability}
 
