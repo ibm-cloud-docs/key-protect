@@ -526,6 +526,10 @@ When you retrieve the private endpoint port associated with your ip whitelist po
 example, if the private endpoint port associated with your ip whitelist policy is 8888, the endpoint that you will make a request through to list the keys in your 
 instance is `https://private.us-south.kms.cloud.ibm.com:8888/api/v2/keys`. 
 
+When making a request through a private network, the ip whitelist policy will only consider the private network's gateway address, and not the ip address of the 
+requester. Therefore, it is important that you add the ipv4 address associated with the private network gateway to your service instance's ip whitelist policy.
+{: note}
+
 You can use the following example request to retrieve a list of keys for your service instance via a private endpoint.
 
 ```cURL
