@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing a ip whitelist policy
+# Managing an ip whitelist policy
 {: #manage-ip-whitelisting}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
@@ -36,14 +36,14 @@ instances is an extra policy that you can use to restrict access to your {{site.
 endpoints. When you enable this policy at the instance level, {{site.data.keyword.keymanagementserviceshort}} only permits access to the resources in your {{site.data.keyword.keymanagementserviceshort}} instance from trusted ip 
 addresses.
 
-Setting and retrieving an ip white policy is only supported through the
-application programming interface (API). IP Whitelist policy support will be
+Setting and retrieving an ip whitelist policy is only supported through the
+application programming interface (API). Ip whitelist policy support will be
 added to the user interface (UI), command line interface (CLI), and software
 development kit (SDK) in the future. To find out more about
 accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 [Setting up the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-{{site.data.keyword.keymanagementserviceshort}} currently supports the IP whitelist feature on an account basis. If you need to enable an ip whitelist policy for your service instance, [open](/docs/get-support?topic=get-support-getting-customer-support) a support ticket to request access to this feature.
+{{site.data.keyword.keymanagementserviceshort}} currently supports the Ip whitelist feature on an account basis. If you need to enable an ip whitelist policy for your service instance, [open](/docs/get-support?topic=get-support-getting-customer-support) a support ticket to request access to this feature.
 {: important}
 
 Before you enable ip whitelisting for your service instance, keep in mind the
@@ -63,7 +63,7 @@ If your integrated service instance has an active ip whitelist policy, you will 
 about how ip whitelist policies affect service instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services, see [Using ip whitelist policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services](#ip-whitelist-s2s).
 - **When you enable ip whitelisting for your service instance, the resources in your instance will not be displayed in the UI.**
 After enabling an ip whitelist policy, you will only be able to view and access the keys and associated resources in your instance through the API, CLI, and SDK. 
-Before making a request, make sure that you are assigned the correct access policy for your service instance and use the correct endpoints and port(for private 
+Before making a request, make sure that you are assigned the correct access policy for your service instance and use the correct endpoints and port (for private 
 endpoints). 
 - **If both a network policy and an ip whitelist policy are enabled at the same time, only traffic aligning with both policies will be allowed.**
 When assigning an ip whitelist policy to a service instance that has an existing allowed network policy, the ip addresses that are listed on the policy must access 
@@ -197,9 +197,10 @@ following cURL command.
         </td>
         <td>
           <strong>Required.</strong> A list of ip subnets that are allowed to send traffic to your
-          {{site.data.keyword.keymanagementserviceshort}} service instance. There must be at least one value entered. Each subnet must be specified with CIDR notation. 
+          {{site.data.keyword.keymanagementserviceshort}} service instance. There must be at least one value entered. Each subnet must be specified with CIDR 
+          notation. 
           Currently, only IPv4 notation is accepted. Acceptable list format is `["X.X.X.X/N", "X.X.X.X/N"]`. The maximum amount of subnets that can added to an ip 
-          whitelist policy is 10,000.
+          whitelist policy is 1,000.
 
           This attribute should not be provided when disabling a policy.
         </td>
@@ -368,13 +369,13 @@ When you create an ip whitelist policy, you can access your instance via public 
 associated with the policy. If you send a request to your instance through an unauthorized ip address, you will receive a `HTTP 401` error stating that you are unauthorized 
 to make a request to the service instance.
 
-Currently, only Ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL requests 
-to ensure that the requests are resolved to ipv4.
+Currently, only ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL 
+requests to ensure that the requests are resolved to ipv4.
 
 The following example shows how to utilize the `--ipv4` flag in a `GET` keys request to a public endpoint.
 
 ```cURL
-curl -X --ipv4 GET \
+curl --ipv4 -X GET \
   'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
   -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
@@ -382,6 +383,9 @@ curl -X --ipv4 GET \
   -H 'correlation-id: <correlation_ID>'
 ```
 {: codeblock}
+
+When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid running into issues with the cURL request.
+{: important}
 
 ## Accessing an instance via private endpoint
 {: #access-ip-whitelist-private-endpoint}
@@ -393,8 +397,8 @@ hostname in your request to your instance via a Key Protect private service endp
 The private endpoint port should only be used when accessing your instance via a private service endpoint.
 {: note}
 
-Currently, only Ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL requests 
-to ensure that the requests are resolved to ipv4.
+Currently, only ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL 
+requests to ensure that the requests are resolved to ipv4.
 
 The following example shows how to utilize the `--ipv4` flag in a `GET` policies request via a private endpoint.
 
@@ -406,6 +410,9 @@ curl -k -L --ipv4 -X GET \
   -H 'correlation-id: <correlation_ID>'
 ```
 {: codeblock}
+
+When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid running into issues with the cURL request.
+{: important}
 
 ### Retrieving the private port for a ip whitelist policy enabled service instance
 {: #retrieve-ip-whitelist-port}
