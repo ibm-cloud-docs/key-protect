@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-07-29"
 
 keywords: instance settings, service settings, ip whitelisting, ip whitelist
 
@@ -21,22 +21,22 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing ip whitelisting
+# Managing a ip whitelist policy
 {: #manage-ip-whitelisting}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
 instance, you can manage ip whitelist policies by using the service API.
 {: shortdesc}
 
-## Managing ip whitelisting settings
+## Managing ip whitelist settings
 {: #manage-ip-whitelisting-instance-policy}
 
 Ip whitelisting for {{site.data.keyword.keymanagementserviceshort}} service
-instances is an extra policy that you can use to restrict access to your {{site.data.keyword.keymanagementserviceshort}} service instance through public and private endpoints. When you enable this 
-policy at the instance level, {{site.data.keyword.keymanagementserviceshort}} only permits access to the resources in your {{site.data.keyword.keymanagementserviceshort}} instance from trusted ip 
+instances is an extra policy that you can use to restrict access to your {{site.data.keyword.keymanagementserviceshort}} service instance through public and private 
+endpoints. When you enable this policy at the instance level, {{site.data.keyword.keymanagementserviceshort}} only permits access to the resources in your {{site.data.keyword.keymanagementserviceshort}} instance from trusted ip 
 addresses.
 
-Setting and retrieving a ip white policy is only supported through the
+Setting and retrieving an ip white policy is only supported through the
 application programming interface (API). IP Whitelist policy support will be
 added to the user interface (UI), command line interface (CLI), and software
 development kit (SDK) in the future. To find out more about
@@ -49,16 +49,31 @@ accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 Before you enable ip whitelisting for your service instance, keep in mind the
 following considerations:
 
-- **When you enable ip whitelisting for your service instance, the resources in your instance will not be displayed in the UI .**
-After enabling an ip whitelist policy, you will only be able to view and access the keys and associated resources in your instance through the API. 
+- **Ip whitelist policies only supports ipv4 notation.** 
+{{site.data.keyword.keymanagementserviceshort}} currently only supports ipv4 notation at this time. If your service has both an ipv4 and an ipv6 address, you will 
+need to resolve all requests to the ipv4 address.
+- **If you are using a private endpoint, your private environment should be set up prior to enabling a ip whitelist policy for your service instance.**
+Before you create an instance policy for your service instance, ensure that you have [configured](/docs/key-protect?topic=key-protect-private-endpoints#configure-private-network) the private network on your server so that you will be able to assign the correct ip addresses to the 
+policy.
+- **You will need to need to use a private port to access your service instance via private network.**
+Once you create an ip whitelist policy, your instance will be assigned a private endpoint port. You will need to [retrieve](#retrieve-ip-whitelist-port) the port 
+and [specify](#send-private-ip-whitelist-traffic) the port number during each request via a private endpoint.
+- **There is limited ip whitelist support for service instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services.**
+If your integrated service instance has an active ip whitelist policy, you will not be able to view the resources in your instance. To find out more information 
+about how ip whitelist policies affect service instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services, see [Using ip whitelist policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services](#ip-whitelist-s2s).
+- **When you enable ip whitelisting for your service instance, the resources in your instance will not be displayed in the UI.**
+After enabling an ip whitelist policy, you will only be able to view and access the keys and associated resources in your instance through the API, CLI, and SDK. 
+Before making a request, make sure that you are assigned the correct access policy for your service instance and use the correct endpoints and port(for private 
+endpoints). 
 - **If both a network policy and an ip whitelist policy are enabled at the same time, only traffic aligning with both policies will be allowed.**
 When assigning an ip whitelist policy to a service instance that has an existing allowed network policy, the ip addresses that are listed on the policy must access 
 the instance from the network specified in the allowed network policy.
 
-### Enabling ip whitelisting for your service instance
+### Enabling and updating an ip whitelist policy for your service instance
 {: #enable-ip-whitelisting-instance-policy}
 
-As a security admin, enable an ip whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} service instance by making a `PUT` call to the following endpoint.
+As a security admin, you can enable or update an ip whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} service instance by making a `PUT` call 
+to the following endpoint.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
@@ -74,7 +89,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Enable an ip whitelist policy for your service instance by running the
+2. Enable or update an ip whitelist policy for your service instance by running the
 following cURL command.
 
     ```cURL
@@ -349,9 +364,24 @@ the policies that are available for your
 ## Accessing an instance via public endpoint
 {: #access-ip-whitelist-public-endpoint}
 
-When you create an ip whitelist policy, you can access your instance via public endpoint as long as the ip address is on the list of approved ip addresses associated 
-with the policy. If you send a request to your instance through an unauthorized ip address, you will receive a `HTTP 401` error stating that you are unauthorized to 
-make a request to the service instance.
+When you create an ip whitelist policy, you can access your instance via public endpoint as long as the requesting ip address is on the list of approved ip addresses 
+associated with the policy. If you send a request to your instance through an unauthorized ip address, you will receive a `HTTP 401` error stating that you are unauthorized 
+to make a request to the service instance.
+
+Currently, only Ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL requests 
+to ensure that the requests are resolved to ipv4.
+
+The following example shows how to utilize the `--ipv4` flag in a `GET` keys request to a public endpoint.
+
+```cURL
+curl -X --ipv4 GET \
+  'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
+  -H 'accept: application/vnd.ibm.collection+json' \
+  -H 'authorization: Bearer <IAM_token>' \
+  -H 'bluemix-instance: <instance_ID>' \
+  -H 'correlation-id: <correlation_ID>'
+```
+{: codeblock}
 
 ## Accessing an instance via private endpoint
 {: #access-ip-whitelist-private-endpoint}
@@ -363,11 +393,25 @@ hostname in your request to your instance via a Key Protect private service endp
 The private endpoint port should only be used when accessing your instance via a private service endpoint.
 {: note}
 
-### Retrieving the private port for the your ip whitelist policy
+Currently, only Ipv4 notation is accepted. If you have both an ipv4 and an ipv6 address, it is recommended that you include the `--ipv4` flag in all of your cURL requests 
+to ensure that the requests are resolved to ipv4.
+
+The following example shows how to utilize the `--ipv4` flag in a `GET` policies request via a private endpoint.
+
+```cURL
+curl -k -L --ipv4 -X GET \
+  'https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies' \
+  -H 'Authorization: Bearer <token>' \
+  -H 'bluemix-instance: <instance_ID>' \
+  -H 'correlation-id: <correlation_ID>'
+```
+{: codeblock}
+
+### Retrieving the private port for a ip whitelist policy enabled service instance
 {: #retrieve-ip-whitelist-port}
 
 You can retrieve the private endpoint port associated with your service instance's active whitelist policy 
-by making a `GET` call to the following endpoint. Note that calls to this api bypasses ip whitelist enforcement.
+by making a `GET` call to the following endpoint. Note that calls to this api bypass ip whitelist enforcement.
 
 ```
 https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port
@@ -567,10 +611,13 @@ following table.
 ## Using ip whitelist policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services
 {: #ip-whitelist-s2s}
 
-{{site.data.keyword.keymanagementserviceshort}} currently has limited ip whitelist policy support for integrated services. If you would like to create an ip whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} service instance that is integrated with another service, keep in mind the
+{{site.data.keyword.keymanagementserviceshort}} currently has limited ip whitelist policy support for integrated services. If you would like to create an ip 
+whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} service instance that is integrated with another service, keep in mind the
 following considerations before creating an ip whitelist policy:
 
-- {{site.data.keyword.keymanagementserviceshort}} does not currently have ip whitelist policy support for instances integrated with {site.data.keyword.containerlong_notm}}.
-- If your service instance has an ip whitelist policy, you will not be able to integrate {{site.data.keyword.keymanagementserviceshort}} with another service via the UI. You will need to integrate your service via the API.
-- The {{site.data.keyword.databases-for}} UI will not display any {{site.data.keyword.keymanagementserviceshort}} related information when your {{site.data.keyword.keymanagementserviceshort}} service instance has an enabled ip whitelist policy.
-- Service to service calls will bypass ip whitelist enforcement if the service instance has an enabled ip whitelist policy.
+- {{site.data.keyword.keymanagementserviceshort}} does not currently have ip whitelist policy support for instances integrated with {{site.data.keyword.containerlong_notm}}.
+- If your service instance has an enabled ip whitelist policy, you will not be able to integrate {{site.data.keyword.keymanagementserviceshort}} with another 
+service via the UI. You will need to integrate your service via the API.
+- The UI will not display any {{site.data.keyword.keymanagementserviceshort}} related information when your {{site.data.keyword.
+keymanagementserviceshort}} service instance is integrated with another {{site.data.keyword.Bluemix_notm}} service and has an enabled ip whitelist policy.
+- Service to service calls will bypass ip whitelist enforcement.
