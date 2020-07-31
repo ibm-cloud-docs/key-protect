@@ -25,7 +25,7 @@ subcollection: key-protect
 {: #manage-ip-whitelisting}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
-instance, you can manage ip whitelist policies by using the service API.
+instance, you can manage ip whitelist policies by using the {{site.data.keyword.keymanagementservicelong}} service API.
 {: shortdesc}
 
 ## Managing ip whitelist settings
