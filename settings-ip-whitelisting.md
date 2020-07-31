@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-07-31"
 
 keywords: instance settings, service settings, ip whitelisting, ip whitelist
 
