@@ -625,7 +625,7 @@ following table.
 </table>
 
 ## Using an allowed ip policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services
-{: #ip-whitelist-s2s}
+{: #ip-allowlist-s2s}
 
 {{site.data.keyword.keymanagementserviceshort}} currently has limited allowed ip policy support for integrated services. If you would like to create an ip 
 whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} instance that is integrated with another service, keep in mind the
