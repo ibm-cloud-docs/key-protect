@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-03"
+lastupdated: "2020-08-04"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -30,7 +30,7 @@ instance, you can manage allowed ip policies by using the {{site.data.keyword.ke
 {: shortdesc}
 
 ## Managing allowed ip settings
-{: #manage-ip-allowlist-instance-policy}
+{: #manage-allowed-ip-instance-policy}
 
 Allowed ip for {{site.data.keyword.keymanagementserviceshort}}
 instances is a type of network policy that you can use to restrict access to your {{site.data.keyword.keymanagementserviceshort}} instance through public and private 
@@ -70,8 +70,8 @@ endpoints).
 When assigning an allowed ip policy to a {{site.data.keyword.keymanagementserviceshort}} instance that has an existing allowed network policy, the ip addresses that are listed on the policy must access 
 the instance from the network specified in the allowed network policy.
 
-### Enabling and updating an allow ip policy for your {{site.data.keyword.keymanagementserviceshort}} instance
-{: #enable-ip-allowlist-instance-policy}
+### Enabling and updating an allowed ip policy for your {{site.data.keyword.keymanagementserviceshort}} instance
+{: #enable-allowed-ip-instance-policy}
 
 As a security admin, you can enable or update an allowed ip policy for a {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call 
 to the following endpoint.
@@ -234,9 +234,9 @@ the policies that are available for your
     {: codeblock}
 
 ### Disabling an allowed ip policy for your service instance
-{: #disable-ip-allowlist-instance-policy}
+{: #disable-allowed-ip-instance-policy}
 
-As an instance manager, disable an existing allowed ip policy for a
+As a manager of a {{site.data.keyword.keymanagementserviceshort} instance, disable an existing allowed ip policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
@@ -367,7 +367,7 @@ the policies that are available for your
     {: codeblock}
 
 ## Accessing an instance via public endpoint
-{: #access-ip-allowlist-public-endpoint}
+{: #access-allowed-ip-public-endpoint}
 
 When you create an allowed ip policy, you can access your instance via public endpoint as long as the requesting ip address is on the list of approved ip addresses 
 associated with the policy. If you send a request to your instance through an unauthorized ip address, you will receive a `HTTP 401` error stating that you are unauthorized 
@@ -392,7 +392,7 @@ When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid
 {: important}
 
 ## Accessing an instance via private endpoint
-{: #access-ip-allowlist-private-endpoint}
+{: #access-allowed-ip-private-endpoint}
 
 When you create an allowed ip policy, {{site.data.keyword.keymanagementserviceshort}} assigns a private 
 endpoint port to your policy. Once you retrieve the port, the port value must be appended to the private service 
@@ -419,7 +419,7 @@ When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid
 {: important}
 
 ### Retrieving the private port for an allowed ip policy enabled {{site.data.keyword.keymanagementserviceshort}} instance
-{: #retrieve-ip-allowlist-port}
+{: #retrieve-allowed-ip-port}
 
 You can retrieve the private endpoint port associated with your {{site.data.keyword.keymanagementserviceshort}} instance's active allowed ip policy 
 by making a `GET` call to the following endpoint. **Note** that calls to this api bypass allowed ip policy enforcement.
@@ -524,7 +524,7 @@ following cURL command.
     enabled allowed ip policy, no information will be returned.
 
 ### Sending traffic to your {{site.data.keyword.keymanagementserviceshort}} instance through a private endpoint port
-{: #send-private-ip-allowlist-traffic}
+{: #send-private-allowed-ip-traffic}
 
 When you retrieve the private endpoint port associated with your allowed ip policy, you should append it to the host name of the private service endpoint. For 
 example, if the private endpoint port associated with your allowed ip policy is 8888, the endpoint that you will make a request through to list the keys in your 
@@ -624,7 +624,7 @@ following table.
 </table>
 
 ## Using an allowed ip policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services
-{: #ip-allowlist-s2s}
+{: #allowed-ip-s2s}
 
 {{site.data.keyword.keymanagementserviceshort}} currently has limited allowed ip policy support for integrated services. If you would like to create an allowed ip policy for a {{site.data.keyword.keymanagementserviceshort}} instance that is integrated with another service, keep in mind the
 following considerations before creating an allowed ip policy:
