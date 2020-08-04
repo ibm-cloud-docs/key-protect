@@ -9,6 +9,7 @@ keywords: instance settings, service settings, allowed ip, ip allowlist
 subcollection: key-protect
 
 ---
+<!-- DRAFT ONLY, Do NOT push to publish -->
 
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -56,8 +57,8 @@ need to resolve all requests to the ipv4 address.
 Before you create an instance policy for your {{site.data.keyword.keymanagementserviceshort}} instance, ensure that you have [configured](/docs/key-protect?topic=key-protect-private-endpoints#configure-private-network) the private network on 
 your server so that you will be able to assign the correct ip addresses to the policy.
 - **You will need to need to use a private port to access your {{site.data.keyword.keymanagementserviceshort}} instance via private network.**
-Once you create an allowed ip policy, your instance will be assigned a private endpoint port. You will need to [retrieve](#retrieve-ip-whitelist-port) the port 
-and [specify](#send-private-ip-whitelist-traffic) the port number during each request via a private endpoint.
+Once you create an allowed ip policy, your instance will be assigned a private endpoint port. You will need to [retrieve](#retrieve-ip-allowlist-port) the port 
+and [specify](#send-private-ip-allowlist-traffic) the port number during each request via a private endpoint.
 - **There is limited allowed ip policy support for {{site.data.keyword.keymanagementserviceshort}} instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services.**
 Service to service calls will bypass allowed ip policy enforcement. To find out more information 
 about how allowed ip policies affect {{site.data.keyword.keymanagementserviceshort}} instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services, see [Using an allowed ip policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services](#ip-allowlist-s2s).
@@ -191,8 +192,7 @@ following cURL command.
         </td>
         <td>
           <strong>Required.</strong> Set to <code>true</code> to enable an
-          allowed ip policy. Set to <code>false</code> to disable the ip
-          whitelist policy.
+          allowed ip policy. Set to <code>false</code> to disable the allowed ip policy.
         </td>
       </tr>
 
@@ -204,16 +204,15 @@ following cURL command.
           <strong>Required.</strong> A list of ip subnets that are allowed to send traffic to your
           {{site.data.keyword.keymanagementserviceshort}} instance. There must be at least one value entered. Each subnet must be specified with CIDR 
           notation. 
-          Currently, only IPv4 notation is accepted. Acceptable list format is `["X.X.X.X/N", "X.X.X.X/N"]`. The maximum amount of subnets that can added to an ip 
-          whitelist policy is 1,000.
+          Currently, only IPv4 notation is accepted. Acceptable list format is `["X.X.X.X/N", "X.X.X.X/N"]`. The maximum amount of subnets that can added to an allowed ip policy is 1,000.
 
           This attribute should not be provided when disabling a policy.
         </td>
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable ip
-        whitelisting at the instance level.
+        Table 1. Describes the variables that are needed to enable an allowed ip
+        policy at the instance level.
       </caption>
     </table>
 
@@ -345,8 +344,8 @@ running the following cURL command.
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to disable ip
-        whitelisting at the instance level.
+        Table 2. Describes the variables that are needed to disable an allowed
+        ip policy at the instance level.
       </caption>
     </table>
 
@@ -422,7 +421,7 @@ When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid
 ### Retrieving the private port for an allowed ip policy enabled {{site.data.keyword.keymanagementserviceshort}} instance
 {: #retrieve-ip-allowlist-port}
 
-You can retrieve the private endpoint port associated with your {{site.data.keyword.keymanagementserviceshort}} instance's active whitelist policy 
+You can retrieve the private endpoint port associated with your {{site.data.keyword.keymanagementserviceshort}} instance's active allowed ip policy 
 by making a `GET` call to the following endpoint. **Note** that calls to this api bypass allowed ip policy enforcement.
 
 ```
@@ -525,7 +524,7 @@ following cURL command.
     enabled allowed ip policy, no information will be returned.
 
 ### Sending traffic to your {{site.data.keyword.keymanagementserviceshort}} instance through a private endpoint port
-{: #send-private-ip-whitelist-traffic}
+{: #send-private-ip-allowlist-traffic}
 
 When you retrieve the private endpoint port associated with your allowed ip policy, you should append it to the host name of the private service endpoint. For 
 example, if the private endpoint port associated with your allowed ip policy is 8888, the endpoint that you will make a request through to list the keys in your 
@@ -627,8 +626,7 @@ following table.
 ## Using an allowed ip policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services
 {: #ip-allowlist-s2s}
 
-{{site.data.keyword.keymanagementserviceshort}} currently has limited allowed ip policy support for integrated services. If you would like to create an ip 
-whitelist policy for a {{site.data.keyword.keymanagementserviceshort}} instance that is integrated with another service, keep in mind the
+{{site.data.keyword.keymanagementserviceshort}} currently has limited allowed ip policy support for integrated services. If you would like to create an allowed ip policy for a {{site.data.keyword.keymanagementserviceshort}} instance that is integrated with another service, keep in mind the
 following considerations before creating an allowed ip policy:
 
 - {{site.data.keyword.keymanagementserviceshort}} does not currently have allowed ip policy support for instances integrated with {{site.data.keyword.containerlong_notm}}.
