@@ -35,6 +35,8 @@ the key previously protected. When you restore a key, you move the key from the
 _Destroyed_ to the _Active_ key state, and you restore access to any data that
 was previously encrypted with the key.
 
+At this time, you are only able to restore root keys. Support is not available for restoring standard keys. 
+
 You can restore a deleted key within 30 days of its deletion. This capability is
 available only for root keys that were previously imported to the service.
 {: note}
