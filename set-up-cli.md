@@ -64,7 +64,7 @@ To install the CLIs:
 {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 
     ```sh
-    ibmcloud plugin install key-protect -r 'IBM Cloud'
+    ibmcloud plugin install key-protect -r "IBM Cloud"
     ```
     {: pre}
 
@@ -99,7 +99,7 @@ To update the CLI:
 2. Install the update from the plug-in repository.
 
     ```sh
-    ibmcloud plugin update key-protect -r 'IBM Cloud'
+    ibmcloud plugin update key-protect -r "IBM Cloud"
     ```
     {: pre}
 
