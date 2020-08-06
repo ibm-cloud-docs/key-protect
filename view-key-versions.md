@@ -60,7 +60,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
     dashboard.
 
 3. Get a list of versions that are associated with the root key by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X GET \
@@ -104,7 +104,8 @@ following cURL command.
           <varname>key_ID</varname>
         </td>
         <td>
-          <strong>Required.</strong> The unique identifier for the key that you want to inspect.
+          <strong>Required.</strong> The unique identifier for the key that you
+          want to inspect.
         </td>
       </tr>
 

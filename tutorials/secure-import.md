@@ -26,8 +26,26 @@ subcollection: key-protect
 {: #tutorial-import-keys}
 
 Learn how to create, encrypt, and bring your encryption keys to the cloud by
-using {{site.data.keyword.keymanagementservicelong}}.
+using {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
+
+As a security professional for your organization, you're always looking for ways
+to enhance the security of your at-rest data on the cloud.
+
+To comply with strict data governance and regulatory audit requirements, you
+want to integrate your apps with a key management service that offers
+fine-grained access control to encryption keys, audit trail capabilities, and
+flexible options for uploading encryption keys that you generate on-premises.
+
+With {{site.data.keyword.keymanagementserviceshort}}, you can create encryption
+keys by using your internal key management system, and then upload those keys
+for use on the cloud.
+
+You can choose from
+[different options for uploading keys](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead)
+based on your ongoing security needs. As you manage the lifecycle of encryption
+keys, you control access to resources by using {{site.data.keyword.iamshort}},
+and you monitor API activity to the service with {{site.data.keyword.at_short}}.
 
 In this tutorial, you use an
 [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)
@@ -35,6 +53,7 @@ to upload an encryption key to {{site.data.keyword.keymanagementserviceshort}}.
 To learn more about your options for importing keys to
 {{site.data.keyword.keymanagementserviceshort}}, see
 [Planning ahead for importing key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead).
+
 To learn about importing a key without an import token, see
 [Importing a root key](/docs/key-protect?topic=key-protect-import-root-keys)
 {: note}
@@ -43,18 +62,21 @@ To learn about importing a key without an import token, see
 {: #tutorial-import-objectives}
 
 This tutorial walks you through creating and securely importing encryption keys
-into the {{site.data.keyword.keymanagementservicelong_notm}} service. It's
+into the {{site.data.keyword.keymanagementserviceshort}} service. It's
 intended for users who are new to
 {{site.data.keyword.keymanagementserviceshort}}, but who might have some
 familiarity with key management systems. The following steps should take about
 20 minutes to complete.
 
 - Setting up the {{site.data.keyword.keymanagementserviceshort}} API
+
 - Preparing your {{site.data.keyword.keymanagementserviceshort}} service
-instance to begin importing keys
+  instance to begin importing keys
+
 - Creating and encrypting keys using the OpenSSL cryptography toolkit
+
 - Importing an encrypted key to your
-{{site.data.keyword.keymanagementserviceshort}} service instance
+  {{site.data.keyword.keymanagementserviceshort}} service instance
 
 This tutorial won't incur any charges to your {{site.data.keyword.cloud_notm}}
 account.
@@ -68,12 +90,14 @@ can interact with services that you provision on
 installed locally on your computer.
 
 1. Create an
-[{{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+   [{{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+
 2. Download and install the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
-for your operating system.
+   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
+   for your operating system.
+
 3. Download and install the
-[OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
+   [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
 
     You can use `openssl` commands to generate encryption keys on your local
     computer if you're trying out
@@ -101,8 +125,8 @@ following steps to provision a {{site.data.keyword.keymanagementserviceshort}}
 service instance.
 
 1. In a terminal window, run the following command to log in to
-{{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
+   {{site.data.keyword.cloud_notm}} with the
+   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -116,7 +140,7 @@ service instance.
     {: note}
 
 2. Select the account and resource group where you would like to create a
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+   {{site.data.keyword.keymanagementserviceshort}} service instance.
 
     In this tutorial, you interact with the Washington DC region. If you're
     logged into a different region, be sure to set Washington DC as your target
@@ -128,7 +152,7 @@ service instance.
     {: pre}
 
 3. Provision an instance of {{site.data.keyword.keymanagementserviceshort}}
-within that account and resource group.
+   within that account and resource group.
 
     ```sh
     ibmcloud resource service-instance-create "import-keys-demo" kms tiered-pricing us-east
@@ -140,7 +164,7 @@ within that account and resource group.
     {: note}
 
 4. Optional: Verify that the service instance was created successfully by
-listing your available service instances.
+   listing your available service instances.
 
     ```sh
     ibmcloud resource service-instances
@@ -171,8 +195,8 @@ your credentials for later steps, you also set the credentials as environment
 variables in your terminal.
 
 1. In your terminal window, set the
-{{site.data.keyword.keymanagementserviceshort}} API endpoint as an environment
-variable.
+   {{site.data.keyword.keymanagementserviceshort}} API endpoint as an
+   environment variable.
 
     ```sh
     export KP_API_URL=https://<region>.kms.cloud.ibm.com
@@ -180,7 +204,7 @@ variable.
     {: pre}
 
 2. Generate an {{site.data.keyword.cloud_notm}} access token, and then set the
-value as an environment variable.
+   value as an environment variable.
 
     ```sh
     export ACCESS_TOKEN=`ibmcloud iam oauth-tokens | grep IAM | cut -d \: -f 2 | sed 's/^ *//'`
@@ -195,8 +219,8 @@ value as an environment variable.
     {: note}
 
 3. Retrieve the identifier that is associated with your
-{{site.data.keyword.keymanagementserviceshort}} service instance, and then set
-the value as an environment variable.
+   {{site.data.keyword.keymanagementserviceshort}} service instance, and then
+   set the value as an environment variable.
 
     ```sh
     export INSTANCE_ID=`ibmcloud resource service-instance "import-keys-demo" --output json | jq -r '.[].guid'`
@@ -204,7 +228,7 @@ the value as an environment variable.
     {: pre}
 
 4. Optional: Verify that the environment variables are set correctly by printing
-them to your terminal screen.
+   them to your terminal screen.
 
     ```sh
     $ echo $KP_API_URL
@@ -243,8 +267,8 @@ security for your encryption key while it's in flight to the service.
     You use this directory to store files for later steps.
 
 2. Create an import token for your
-{{site.data.keyword.keymanagementserviceshort}} service instance, and then save
-the response to a JSON file.
+   {{site.data.keyword.keymanagementserviceshort}} service instance, and then
+   save the response to a JSON file.
 
     ```cURL
     curl -X POST \
@@ -311,7 +335,7 @@ later step, and the nonce to verify your secure import request to the
 To retrieve the import token contents:
 
 1. Retrieve the import token that you generated the previous step, and then save
-the response to a JSON file.
+   the response to a JSON file.
 
     ```cURL
     curl -X GET \
@@ -378,7 +402,7 @@ an on-premises hardware security module (HSM), to create and export keys.
 {: note}
 
 1. In a terminal window, run the following `openssl` command to create a 256-bit
-encryption key.
+   encryption key.
 
     ```sh
     openssl rand 32 > PlainTextKey.bin
@@ -405,7 +429,7 @@ same key that you want to import into the service.
 To encrypt the nonce value:
 
 1. Encode the key that you generated in the previous step, and set the encoded
-value as an environment variable.
+   value as an environment variable.
 
     ```sh
     KEY_MATERIAL=$(openssl enc -base64 -A -in PlainTextKey.bin)
@@ -420,8 +444,8 @@ value as an environment variable.
     {: pre}
 
 3. [Download the sample `kms-encrypt-nonce` binary](https://github.com/IBM-Cloud/kms-samples/tree/master/secure-import){: external}
-that is compatible with your operating system. Untar the file, and then move the
-binary to the `key-protect-test` directory.
+   that is compatible with your operating system. Untar the file, and then move
+   the binary to the `key-protect-test` directory.
 
     The binary contains a script that you can use to run AES-GCM encryption on
     the nonce value by using the key that you generated in step 5. To learn more
@@ -437,8 +461,8 @@ binary to the `key-protect-test` directory.
     {: pre}
 
 5. Run the script to encrypt the nonce value with the encryption key that you
-generated in step 5. Then, save the response to a file called
-`EncryptedValues.json`.
+   generated in step 5. Then, save the response to a file called
+   `EncryptedValues.json`.
 
     ```sh
     ./kms-encrypt-nonce -key $KEY_MATERIAL -nonce $NONCE > EncryptedValues.json
@@ -478,7 +502,7 @@ Next, use the public key that was distributed by
 that you generated using OpenSSL.
 
 1. Encrypt the generated key by using the the public key that you retrieved in
-step 4.
+   step 4.
 
     ```sh
     openssl pkeyutl \
@@ -497,8 +521,9 @@ step 4.
     command on Mac OSX, you might need to ensure that OpenSSL is properly
     configured for your environment. If you installed OpenSSL by using Homebrew,
     run `brew update` and then `brew install openssl` to get the latest version.
-    Then, run `export PATH="/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile`
-    to symlink the package. Open a new terminal session, and then run
+    Then, run
+    `export PATH="/usr/local/opt/openssl/bin:$PATH" >> ~/.bash_profile` to
+    symlink the package. Open a new terminal session, and then run
     `which openssl && openssl version` to verify that the latest version of
     OpenSSL is available under the `/usr/local/` location. If you continue to
     encounter errors, be sure to use only the parameters that are listed in this
@@ -518,7 +543,7 @@ You can now import the encrypted key using the
 To import the key:
 
 1. Gather the encrypted key, the encrypted nonce, and the initialization vector
-(IV) values.
+   (IV) values.
 
     ```sh
     ENCRYPTED_KEY=$(openssl enc -base64 -A -in EncryptedKey.bin)
@@ -536,8 +561,8 @@ To import the key:
     {: pre}
 
 2. Store the encrypted key in your
-{{site.data.keyword.keymanagementserviceshort}} service instance by running the
-following cURL command.
+   {{site.data.keyword.keymanagementserviceshort}} service instance by running
+   the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -626,8 +651,8 @@ following cURL command.
     that you imported to the service.
 
 4. Optional: Navigate to the
-[{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
-to view and manage your encryption key.
+   [{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
+   to view and manage your encryption key.
 
     ![The image shows the {{site.data.keyword.keymanagementserviceshort}} dashboard view.](../images/import-keys-demo.png)
 
@@ -641,7 +666,7 @@ to view and manage your encryption key.
 {: #tutorial-import-clean-up}
 
 1. Gather the identifier for the encryption key that you imported in the
-previous step.
+   previous step.
 
     ```sh
     ROOT_KEY_ID=$(jq -r '.resources[].id' createRootKeyResponse.json)
@@ -649,7 +674,7 @@ previous step.
     {: pre}
 
 2. Remove the encryption key from your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+   {{site.data.keyword.keymanagementserviceshort}} service instance.
 
     ```cURL
     curl -X DELETE \
@@ -675,7 +700,7 @@ previous step.
     {: pre}
 
 5. Optional: Remove your {{site.data.keyword.keymanagementserviceshort}} service
-instance.
+   instance.
 
     ```sh
     ibmcloud resource service-instance-delete import-keys-demo
@@ -696,8 +721,10 @@ and securely import an encrypted key into your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 - Learn more about
-[using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption).
+  [using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption).
+
 - Deploy your root key across
-[supported cloud services](/docs/key-protect?topic=key-protect-integrate-services).
+  [supported cloud services](/docs/key-protect?topic=key-protect-integrate-services).
+
 - Learn more about the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
+  [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.

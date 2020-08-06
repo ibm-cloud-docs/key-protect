@@ -147,16 +147,16 @@ These are other commands for managing
 
 These are examples of `kp` help information.
 
-* `ibmcloud kp -h`
-* `ibmcloud kp import-token -h`
-* `ibmcloud kp key -h`
-* `ibmcloud kp keys -h`
+- `ibmcloud kp -h`
+- `ibmcloud kp import-token -h`
+- `ibmcloud kp key -h`
+- `ibmcloud kp keys -h`
 
 The `kp import-token` and `kp key` commands have sub-commands. These examples
 show help for some sub-commands.
 
-* `ibmcloud kp import-token create -h`
-* `ibmcloud kp key delete -h`
+- `ibmcloud kp import-token create -h`
+- `ibmcloud kp key delete -h`
 
 ## kp import-token create
 {: #kp-import-token-create}
@@ -949,8 +949,8 @@ Follow this process to delete a key with a `dual-auth-delete` policy.
 
 There are two ways to enable the `dual-auth-delete` policy:
 
-* Set the policy for a single key using `kp key policy-update dual-auth-delete`
-* Set the policy for the instance using
+- Set the policy for a single key using `kp key policy-update dual-auth-delete`
+- Set the policy for the instance using
   `kp instance policy-update dual-auth-delete`; all keys created after the
   instance policy is enabled inherit the instance policy setting
 
@@ -2300,7 +2300,7 @@ This is a two-step process.
 
 1. create a root key using an import token and then delete the key
 2. create an import token, which is required to restore the key, and restore the
-key
+   key
 
 Creating a root key using an import token has a time limit (the
 `-e, --expiration` option). When you restore a key you need an import token.
@@ -2652,12 +2652,14 @@ FAILED
 {: #kp-key-rotate-example-3}
 
 This examples shows how to...
+
 1. Create a root key
 2. Create a data encryption key (DEK), this is the `plaintext`
 3. Wrap the DEK with the root key, this creates a `ciphertext`
 4. Rotate the root key
 5. Unwrap the ciphertext to reveal the original DEK (plaintext) and a new
-ciphertext (the new ciphertext is the plaintext wrapped with the new rotated root key)
+   ciphertext (the new ciphertext is the plaintext wrapped with the new rotated
+   root key)
 6. Unwrap the new ciphertext to reveal the original DEK (plaintext)
 
 ```sh
@@ -2798,8 +2800,8 @@ Follow this process to delete a key with a `dual-auth-delete` policy.
 
 There are two ways to enable the `dual-auth-delete` policy:
 
-* Set the policy for a single key using `kp key policy-update dual-auth-delete`
-* Set the policy for the instance using
+- Set the policy for a single key using `kp key policy-update dual-auth-delete`
+- Set the policy for the instance using
   `kp instance policy-update dual-auth-delete`; all keys created after the
   instance policy is enabled inherit the instance policy setting
 
@@ -3209,8 +3211,8 @@ These are examples of `kp key wrap`.
 #### Example 1
 {: #kp-key-wrap-example-1}
 
-{{site.data.keyword.keymanagementserviceshort}} creates a new base64-encoded data encryption key (DEK) and wraps it with
-the root key.
+{{site.data.keyword.keymanagementserviceshort}} creates a new base64-encoded
+data encryption key (DEK) and wraps it with the root key.
 
 ```sh
 # create a root key
@@ -4023,8 +4025,8 @@ This example shows what happens when one of the following occurs between COS and
 {{site.data.keyword.keymanagementserviceshort}} (KP) - COS is not able to access
 the {{site.data.keyword.keymanagementserviceshort}} root key.
 
-* Delete the KP root key
-* Remove the CMS/KP authorization policy
+- Delete the KP root key
+- Remove the CMS/KP authorization policy
 
 This example does not show command output except when relevant.
 

@@ -97,7 +97,8 @@ You can specify one of the following commands.
 {: #kp-create-039}
 
 [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the
-{{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
+{{site.data.keyword.keymanagementserviceshort}} service instance that you
+specify.
 
 ```
 ibmcloud kp create KEY_NAME -i $INSTANCE_ID
@@ -146,13 +147,15 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
   <dd>
     <p>
       <b>Used with import tokens.</b> The encrypted nonce value that verifies
-      your request to import a key to {{site.data.keyword.keymanagementserviceshort}}.
-      This value must be encrypted by using the key material that you want to
-      import to the service.
+      your request to import a key to
+      {{site.data.keyword.keymanagementserviceshort}}. This value must be
+      encrypted by using the key material that you want to import to the
+      service.
     </p>
     <p>
       To retrieve a nonce, use <code>ibmcloud kp import-token get</code>. Then,
-      encrypt the value by running <code>ibmcloud kp import-token encrypt-nonce</code>.
+      encrypt the value by running
+      <code>ibmcloud kp import-token encrypt-nonce</code>.
     </p>
   </dd>
 
@@ -167,7 +170,8 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
       request to the service.
     </p>
     <p>
-      To generate an IV, encrypt the nonce by running <code>ibmcloud kp import-token encrypt-nonce</code>.
+      To generate an IV, encrypt the nonce by running
+      <code>ibmcloud kp import-token encrypt-nonce</code>.
     </p>
   </dd>
 
@@ -228,8 +232,9 @@ Key ID                                 Key Name
 ```
 {: screen}
 
-See the [`ibmcloud kp import-token` subcommands](#kp-import-token-create-039) for
-information about using an import token to upload a key to
+See the
+[`ibmcloud kp import-token` subcommands](#kp-import-token-create-039)
+for information about using an import token to upload a key to
 {{site.data.keyword.keymanagementserviceshort}}.
 {: tip}
 
@@ -315,7 +320,9 @@ Key ID                                 Key Name          Description     Creatio
   </dt>
   <dd>
     The ID of the key that you want to retrieve. To retrieve a list of your
-    available keys, run the [kp list](#kp-list-039) command.
+    available keys, run the
+    [kp list](#kp-list-039)
+    command.
   </dd>
 
   <dt>
@@ -344,8 +351,9 @@ Key ID                                 Key Name          Description     Creatio
 {: #kp-wrap-039}
 
 [Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) by
-using a root key that is stored in the {{site.data.keyword.keymanagementserviceshort}}
-service instance that you specify.
+using a root key that is stored in the
+{{site.data.keyword.keymanagementserviceshort}} service instance that you
+specify.
 
 ```
 ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
@@ -408,8 +416,8 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 {: #kp-unwrap-039}
 
 [Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
-by using a root key that is stored in your {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+by using a root key that is stored in your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```
 ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
@@ -568,7 +576,9 @@ Deleted Key
   </dt>
   <dd>
     The ID of the key that you want to delete. To retrieve a list of your
-    available keys, run the [kp list](#kp-list-039) command.
+    available keys, run the
+    [kp list](#kp-list-039)
+    command.
   </dd>
 
   <dt>
@@ -583,7 +593,8 @@ Deleted Key
 ## kp policy set
 {: #kp-policy-set-039}
 
-Create or replace the policy that is associated with the root key that you specify.
+Create or replace the policy that is associated with the root key that you
+specify.
 
 ```
 ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
@@ -600,7 +611,9 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
   </dt>
   <dd>
     The ID of the key that you want to query. To retrieve a list of your
-    available keys, run the [kp list](#kp-list-039) command.
+    available keys, run the
+    [kp list](#kp-list-039)
+    command.
   </dd>
 
   <dt>
@@ -644,7 +657,8 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
 ## kp policy get
 {: #kp-policy-get-039}
 
-Retrieve details about a key policy, such as the key's automatic rotation interval.
+Retrieve details about a key policy, such as the key's automatic rotation
+interval.
 
 ```
 ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
@@ -660,7 +674,9 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
   </dt>
   <dd>
     The ID of the key that you want to query. To retrieve a list of your
-    available keys, run the [kp list](#kp-list-039) command.
+    available keys, run the
+    [kp list](#kp-list-039)
+    command.
   </dd>
 
   <dt>
@@ -689,7 +705,8 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 {: #kp-import-token-create-039}
 
 [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens)
-in the {{site.data.keyword.keymanagementserviceshort}} service instance that you specify.
+in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
+specify.
 
 ```
 ibmcloud kp import-token create -i $INSTANCE_ID
@@ -757,8 +774,9 @@ Created                         Expires                         Max Retrievals  
 that is associated with your service instance.
 
 The import token contains a public encryption key and a nonce. Provide the
-retrieved public key and nonce as arguments for `ibmcloud kp import-token encrypt-nonce`
-and `ibmcloud kp import-token encrypt-key`.
+retrieved public key and nonce as arguments for
+`ibmcloud kp import-token encrypt-nonce` and
+`ibmcloud kp import-token encrypt-key`.
 
 ```
 ibmcloud kp import-token get -i $INSTANCE_ID
@@ -792,10 +810,10 @@ SUCCESS
 ## kp import-token encrypt-nonce
 {: #kp-import-token-encrypt-nonce-039}
 
-Encrypt the nonce that is distributed by {{site.data.keyword.keymanagementserviceshort}}
-with the key material that you want to import to the service. Then, provide the
-retrieved encrypted nonce and IV values when you run `ibmcloud kp create` to
-import the key.
+Encrypt the nonce that is distributed by
+{{site.data.keyword.keymanagementserviceshort}} with the key material that you
+want to import to the service. Then, provide the retrieved encrypted nonce and
+IV values when you run `ibmcloud kp create` to import the key.
 
 ```
 ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID
@@ -834,25 +852,27 @@ sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
     <code>-k, --key</code>
   </dt>
   <dd>
-    The base64 encoded key material that you want to store and manage in the service.
+    The base64 encoded key material that you want to store and manage in the
+    service.
   </dd>
 
   <dt>
     <code>-n, --nonce</code>
   </dt>
   <dd>
-    The nonce that was distributed by {{site.data.keyword.keymanagementserviceshort}}.
-    The value is base64 encoded. To retrieve a nonce, use <code>ibmcloud kp import-token get</code>.
+    The nonce that was distributed by
+    {{site.data.keyword.keymanagementserviceshort}}. The value is base64
+    encoded. To retrieve a nonce, use <code>ibmcloud kp import-token get</code>.
   </dd>
 </dl>
 
 ## kp import-token encrypt-key
 {: #kp-import-token-encrypt-key-039}
 
-Encrypt the key material that you want to import to {{site.data.keyword.keymanagementserviceshort}}
-by using the public key that's associated with your service instance. Then,
-provide the retrieved encrypted key when you run `ibmcloud kp create` to import
-the key to the service.
+Encrypt the key material that you want to import to
+{{site.data.keyword.keymanagementserviceshort}} by using the public key that's
+associated with your service instance. Then, provide the retrieved encrypted
+key when you run `ibmcloud kp create` to import the key to the service.
 
 ```
 ibmcloud kp import-token encrypt-key -i $INSTANCE_ID
@@ -891,7 +911,8 @@ Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
     <code>-k, --key</code>
   </dt>
   <dd>
-    The base64 encoded key material that you want to store and manage in the service.
+    The base64 encoded key material that you want to store and manage in the
+    service.
   </dd>
 
   <dt>

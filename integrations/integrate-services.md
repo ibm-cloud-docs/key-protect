@@ -30,11 +30,11 @@ customer-managed keys for those services. Encryption with customer-managed
 encryption keys is sometimes called Bring Your Own Key (BYOK).
 {: shortdesc}
 
-## Database Service Integrations
+## Database service integrations
 {: #database-integrations}
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following database services.
+following **database** services.
 
 | Service | Description | Links |
 | ------- | ----------- | ----- |
@@ -51,11 +51,11 @@ following database services.
 | [{{site.data.keyword.sqlquery_short}}](/docs/sql-query){: external} | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. | [View docs](/docs/sql-query?topic=sql-query-keyprotect){: external} |
 {: caption="Table 1. Supported database services." caption-side="bottom"}
 
-## Storage Service Integrations
+## Storage service integrations
 {: #storage-integrations}
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following storage services.
+following **storage** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
@@ -63,11 +63,11 @@ following storage services.
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} | You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption-kp){: external} |
 {: caption="Table 2. Supported storage services." caption-side="bottom"}
 
-## Compute Service Integrations
+## Compute service integrations
 {: #compute-integrations}
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following database services.
+following **compute** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
@@ -84,22 +84,22 @@ following database services.
 | [{{site.data.keyword.aios_short}}](/docs/ai-openscale?topic=ai-openscale-getting-started){: external} | You can use {{site.data.keyword.aios_short}} to automate and maintain the AI lifecycle in your business applications. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
 {: caption="Table 3. Supported compute services." caption-side="bottom"}
 
-## Container Service Integrations
+## Container service integrations
 {: #container-integrations}
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following container services.
+following **container** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started){: external} | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters. | [View docs](/docs/containers?topic=containers-encryption#keyprotect){: external} |
 {: caption="Table 4. Supported container services." caption-side="bottom"}
 
-## Integration Service Integrations
+## Integration service integrations
 {: #integration-integrations}
 
 You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following database services.
+following **integration** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
@@ -162,8 +162,10 @@ When you're ready to integrate a service, use the following steps to create an
 authorization:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-**Authorizations**.
+   **Authorizations**.
+
 2. Click **Create**.
+
 3. Select a source and target service for the authorization.
 
     For **Source service**, select the cloud data service that you want to
@@ -190,8 +192,9 @@ Add a new resource to a supported cloud data service, and then select the root
 key that you want to use for advanced encryption.
 
 - To find out more about creating root keys with the
-{{site.data.keyword.keymanagementserviceshort}} service, see
-[Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
+  {{site.data.keyword.keymanagementserviceshort}} service, see
+  [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
+
 - To find out more about bringing your own root keys to the
-{{site.data.keyword.keymanagementserviceshort}} service, see
-[Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+  {{site.data.keyword.keymanagementserviceshort}} service, see
+  [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).

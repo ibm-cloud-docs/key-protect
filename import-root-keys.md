@@ -59,9 +59,9 @@ from two users to delete keys.
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. To import a key, click **Add key** and select the **Import your own key**
-window.
+   window.
 
     Specify the key's details:
 
@@ -106,9 +106,9 @@ window.
         <td>
           <p>
             The base64 encoded key material, such as an existing key-wrapping
-            key, that you want to store and manage in the service.
-            For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).
-
+            key, that you want to store and manage in the service. For more
+            information, check out
+            [Base64 encoding your key material](#how-to-encode-root-key-material).
           </p>
           <p>
             Ensure that the key material meets the following requirements:
@@ -133,7 +133,7 @@ window.
     </table>
 
 5. When you are finished filling out the key's details, click **Import key** to
-confirm.
+   confirm.
 
 ## Importing root keys with the API
 {: #import-root-key-api}
@@ -148,8 +148,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
-with the following cURL command.
+2. Call the
+   [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
+   with the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -243,7 +244,8 @@ with the following cURL command.
           <varname>correlation_ID</varname>
         </td>
         <td>
-          The unique identifier that is used to track and correlate transactions.
+          The unique identifier that is used to track and correlate
+          transactions.
         </td>
       </tr>
 
@@ -288,8 +290,9 @@ with the following cURL command.
         <td>
           <p>
             The base64 encoded key material, such as an existing key-wrapping
-            key, that you want to store and manage in the service.
-            For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).
+            key, that you want to store and manage in the service. For more
+            information, check out
+            [Base64 encoding your key material](#how-to-encode-root-key-material).
           </p>
           <p>
             Ensure that the key material meets the following requirements:
@@ -345,8 +348,8 @@ with the following cURL command.
     {{site.data.keyword.keymanagementserviceshort}} API.
 
 3. Optional: Verify that the key was added by running the following call to
-browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service
-instance.
+   browse the keys in your {{site.data.keyword.keymanagementserviceshort}}
+   service instance.
 
     ```cURL
     curl -X GET \
@@ -360,12 +363,15 @@ instance.
 ## Base64 encoding your key material
 {: #how-to-encode-root-key-material}
 
-When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service.
+When importing an existing root key, it is required to include the encrypted key
+material that you want to store and manage in the service.
 
 ### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-root-import}
 
-1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+1. Download and install
+   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+
 2. Base64 encode your key material string by running the following command:
 
     ```
@@ -397,7 +403,8 @@ When importing an existing root key, it is required to include the encrypted key
         </td>
         <td>
           <p>
-            The name of the file where your base64 encoded key material will be be outputted once the command has ran.
+            The name of the file where your base64 encoded key material will be
+            outputted once the command has ran.
           </p>
           <p>
             Ensure that the key is 128, 192, or 256 bits in length.
@@ -406,19 +413,23 @@ When importing an existing root key, it is required to include the encrypted key
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to base64 encode your key material.
+        Table 3. Describes the variables that are needed to base64 encode your
+        key material.
       </caption>
     </table>
 
   If you want to output the base64 material in the command line directly rather
-  than a file, run the command `openssl enc -base64 <<< '<key_material_string>'`,
-  where key_material_string is the key material input for your imported key.
+  than a file, run the command
+  `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string
+  is the key material input for your imported key.
   {: note}
 
 ### Using OpenSSL to create and encode new key material
 {: #open-ssl-encoding-root-new-key-material}
 
-1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+1. Download and install
+   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+
 2. Base64 encode your key material string by running the following command:
     ```
     $ openssl rand <bit_length> -base64
@@ -448,7 +459,8 @@ When importing an existing root key, it is required to include the encrypted key
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 4. Describes the variable that is needed to create and encode new key material.
+        Table 4. Describes the variable that is needed to create and encode new
+        key material.
       </caption>
     </table>
 
@@ -456,6 +468,7 @@ When importing an existing root key, it is required to include the encrypted key
 {: #import-root-key-next-steps}
 
 - To find out more about protecting keys with envelope encryption, check out
-[Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
+  [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
+
 - To find out more about programmatically managing your keys,
-[check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+  [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

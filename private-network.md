@@ -35,12 +35,13 @@ To get started, enable
 for your infrastructure account. After you enable VRF for your account, you can
 connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP
 that is accessible only through the {{site.data.keyword.cloud_notm}} private
-network. To learn more about private connections on {{site.data.keyword.cloud_notm}}, see
+network. To learn more about private connections on
+{{site.data.keyword.cloud_notm}}, see
 [Service endpoints for private connections](/docs/resources?topic=resources-service-endpoints){: external}.
 
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
-network connection, you must use the {{site.data.keyword.keymanagementserviceshort}}
-API or the
+network connection, you must use the
+{{site.data.keyword.keymanagementserviceshort}} API or the
 [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-reference).
 This capability is not available from the
 {{site.data.keyword.keymanagementserviceshort}} GUI.
@@ -49,9 +50,12 @@ This capability is not available from the
 ## Before you begin
 {: #private-network-prereqs}
 
-Before you target a private endpoint for {{site.data.keyword.keymanagementserviceshort}}:
+Before you target a private endpoint for
+{{site.data.keyword.keymanagementserviceshort}}:
 
-1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is enabled for [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf){: external}.
+1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
+   enabled for
+   [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf){: external}.
 
     When you enable VRF, a separate routing table is created for your account,
     and connections to and from your account's resources are routed separately
@@ -65,8 +69,8 @@ Before you target a private endpoint for {{site.data.keyword.keymanagementservic
     {: important}
 
 2. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
-enabled for
-[service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
+   enabled for
+   [service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
 
     After you enable VRF and service endpoints for your account, all existing
     and future {{site.data.keyword.keymanagementserviceshort}} resources and
@@ -81,7 +85,7 @@ Prepare your VSI or test machine by configuring your routing table for the
 {{site.data.keyword.cloud_notm}} private network.
 
 1. To route traffic to the {{site.data.keyword.cloud_notm}} private network,
-run the following command on your VSI:
+   run the following command on your VSI:
 
     ```sh
     route add -net 166.9.0.0/16 gw <gateway> dev <gateway_interface>
@@ -92,7 +96,7 @@ run the following command on your VSI:
     (for example, `eth10`) with the appropriate values.
 
 2. Optional: Verify that the route was added successfully by displaying your new
-routing table.
+   routing table.
 
     ```sh
     route -n
@@ -148,8 +152,8 @@ network traffic, you can target the private endpoint for
     to learn how to set up your account for connecting to a private network.
     {: tip}
 
-3. Set an environment variable to target a {{site.data.keyword.keymanagementserviceshort}}
-private endpoint.
+3. Set an environment variable to target a
+   {{site.data.keyword.keymanagementserviceshort}} private endpoint.
 
     ```sh
     export KP_PRIVATE_ADDR=https://private.<region>.kms.cloud.ibm.com
@@ -168,7 +172,7 @@ Test your private network connection by using the
 [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli).
 
 1. Create a [root key](/docs/key-protect?topic=key-protect-create-root-keys) by
-targeting the private endpoint.
+   targeting the private endpoint.
 
     ```sh
     ibmcloud kp create <key_name> -i <instance_ID>
@@ -177,12 +181,12 @@ targeting the private endpoint.
 
     Replace `<key_name>` with a human-readable alias for easy identification of
     your key. Replace `<instance_ID>` with the {{site.data.keyword.cloud_notm}}
-    instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}}
-    service instance.
+    instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 2. Optional: Verify that the key was created successfully by listing the keys
-that are available in your {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+   that are available in your {{site.data.keyword.keymanagementserviceshort}}
+   service instance.
 
     ```sh
     ibmcloud kp list -i <instance_ID>
@@ -199,5 +203,6 @@ service instance.
 You're now set to interact with {{site.data.keyword.keymanagementserviceshort}}
 through a private endpoint.
 
-- To find out more about managing keys with {{site.data.keyword.keymanagementserviceshort}},
-[check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
+- To find out more about managing keys with
+  {{site.data.keyword.keymanagementserviceshort}},
+  [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).

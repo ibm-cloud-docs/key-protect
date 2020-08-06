@@ -218,6 +218,10 @@ at query time to delete the key.
     If the `return_preference` variable is set to `return=representation`, the
     details of the `DELETE` request are returned in the response entity-body.
 
+    After you delete a key, it transitions to the `Deactivated` key state. After
+    24 hours, if a key is not reinstated, the key transitions to the `Destroyed`
+    state. The key contents are permanently erased and no longer accessible.
+
     The following JSON object shows an example returned value.
 
     ```json
@@ -405,6 +409,10 @@ the key.
 
     If the `return_preference` variable is set to `return=representation`, the
     details of the `DELETE` request are returned in the response entity-body.
+
+    After you delete a key, it transitions to the `Deactivated` key state. After
+    24 hours, if a key is not reinstated, the key transitions to the `Destroyed`
+    state. The key contents are permanently erased and no longer accessible.
 
     The following JSON object shows an example returned value.
 

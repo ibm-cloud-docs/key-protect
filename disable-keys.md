@@ -73,7 +73,8 @@ Tracker web UI.
 ## Disabling and enabling root keys in the console
 {: #disable-enable-ui}
 
-If you prefer to enable or disable your root keys by using a graphical interface, you can use the IBM Cloud console.
+If you prefer to enable or disable your root keys by using a graphical
+interface, you can use the IBM Cloud console.
 
 ### Disabling a root key
 {: #disable-ui}
@@ -84,13 +85,13 @@ complete the following steps to disable a key:
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your service instance.
+   your service instance.
 5. Click the ⋯ icon to open a list of options for the key that you want to
-disable.
-6. From the options menu, click **Disable key** and confirm the key was disabled in
-the updated **Keys** table.
+   disable.
+6. From the options menu, click **Disable key** and confirm the key was disabled
+   in the updated **Keys** table.
 
 ### Enabling a root key
 {: #enable-ui}
@@ -101,13 +102,13 @@ complete the following steps to enable the key:
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your service.
+   your service.
 5. Click the ⋯ icon to open a list of options for the key that you want to
-enable.
-6. From the options menu, click **Enable key** and confirm the key was enabled in
-the updated **Keys** table.
+   enable.
+6. From the options menu, click **Enable key** and confirm the key was enabled
+   in the updated **Keys** table.
 
 ## Disabling and enabling root keys with the API
 {: #disable-enable-api}
