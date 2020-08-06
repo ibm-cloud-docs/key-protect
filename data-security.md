@@ -119,7 +119,8 @@ data, and impose strict rules on any entity that hosts and processes that data.
 security, and governance solutions to assist them in their journey to GDPR
 readiness.
 
-To ensure GDPR compliance for your {{site.data.keyword.keymanagementserviceshort}} resources,
+To ensure GDPR compliance for your
+{{site.data.keyword.keymanagementserviceshort}} resources,
 [enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
 for your {{site.data.keyword.cloud_notm}} account. You can learn more about how
 {{site.data.keyword.keymanagementserviceshort}} processes and protects personal

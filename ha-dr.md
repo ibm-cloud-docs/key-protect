@@ -29,7 +29,8 @@ service with automatic features that help keep your applications secure and
 operational.
 {: shortdesc}
 
-Use this page to learn more about {{site.data.keyword.keymanagementserviceshort}}'s
+Use this page to learn more about
+{{site.data.keyword.keymanagementserviceshort}}
 availability and disaster recovery strategies.
 
 ## Locations, tenancy, and availability
@@ -47,11 +48,11 @@ processed. Each {{site.data.keyword.cloud_notm}} region contains
 [multiple availability zones](https://www.ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/){: external}
 to meet local access, low latency, and security requirements for the region.
 
-As you plan your encryption at rest strategy with {{site.data.keyword.cloud_notm}},
-keep in mind that provisioning {{site.data.keyword.keymanagementserviceshort}}
-in a region that is nearest to you is more likely to result in faster, more
-reliable connections when you interact with the {{site.data.keyword.keymanagementserviceshort}}
-APIs.
+As you plan your encryption at rest strategy with
+{{site.data.keyword.cloud_notm}}, keep in mind that provisioning
+{{site.data.keyword.keymanagementserviceshort}} in a region that is nearest to
+you is more likely to result in faster, more reliable connections when you
+interact with the {{site.data.keyword.keymanagementserviceshort}} APIs.
 
 Choose a specific region if the users, apps, or services that depend on a
 {{site.data.keyword.keymanagementserviceshort}} resource are geographically
@@ -63,29 +64,43 @@ Your encryption keys are confined to the region that you create them in.
 encryption keys to other regions.
 {: note}
 
-If you import a root key into {{site.data.keyword.keymanagementserviceshort}}, you are encouraged to maintain a secure backup of the key material so that you 
-can restore the root key if it is accidentally deleted. You can securely backup your root keys by creating a duplicate key with the same key material for every 
-imported root key within your instance. Each duplicate key should be created in a {{site.data.keyword.keymanagementserviceshort}} region that is different from 
-the original key. Note that every time a root key is rotated, new key material is added to the key, which creates a new version of the key. Also, in case of accidental deletion of one of those 
-root keys, the software using that root key should be capable of switching to the backup root key.
+If you import a root key into {{site.data.keyword.keymanagementserviceshort}},
+you are encouraged to maintain a secure backup of the key material so that you
+can restore the root key if it is accidentally deleted.
 
-Two root keys that have the same key material can unwrap any data encryption keys (DEKs) created by either of root key.
+You can securely backup your root keys by creating a duplicate key with the same
+key material for every imported root key within your instance. Each duplicate
+key should be created in a {{site.data.keyword.keymanagementserviceshort}}
+region that is different from the original key.
+
+Note that every time a root key is rotated, new key material is added to the
+key, which creates a new version of the key. Also, in case of accidental
+deletion of one of those root keys, the software using that root key should be
+capable of switching to the backup root key.
+
+Two root keys that have the same key material can unwrap any data encryption
+keys (DEKs) created by either of root key.
 {: note}
 
 ## Application-level High-Availability
 {: #application-level-high-availability}
 
-Applications that communicate over networks are subject to transient faults. You should design your application to interact with Key Protect by using modern
-resiliency techniques, such as Exponential backoff. [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){: external} is a technique that retries
-requests exponentially, with increasing delays between each request.
+Applications that communicate over networks are subject to transient faults. You
+should design your application to interact with Key Protect by using modern
+resiliency techniques, such as Exponential backoff.
+[Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){: external}
+is a technique that retries requests exponentially, with increasing delays
+between each request.
 
 ### Example Algorithm
 {: #example-backoff-algorithm}
 
-There are many approaches to implementing retries with exponential backoff logic. Your approach will depend on your specific use case and the network conditions
-surrounding your application. The following is an example implementation of incremental retry delay.
+There are many approaches to implementing retries with exponential backoff
+logic. Your approach will depend on your specific use case and the network
+conditions surrounding your application. The following is an example
+implementation of incremental retry delay.
 
-```
+```go
 const maxRetries = 3
 attempt := 1
 delay := time.Second * 1
@@ -111,11 +126,10 @@ with details regarding your request.
 ## Disaster recovery
 {: #dr}
 
-{{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}}
-requirements for
+{{site.data.keyword.keymanagementserviceshort}} follows
+{{site.data.keyword.cloud_notm}} requirements for
 [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery){: external}.
 
 To find out more about the responsibilities that you and IBM share for disaster
 recovery, see
 [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
-

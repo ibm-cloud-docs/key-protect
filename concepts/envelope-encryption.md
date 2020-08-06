@@ -102,9 +102,10 @@ advanced encryption and management of data.
 </dl>
 
 After you create a key in {{site.data.keyword.keymanagementserviceshort}}, the
-system returns a key ID that is used to uniquely identify the key resource. You can use this ID value to make API calls to the service.
-You can retrieve the key ID for your key from the
-{{site.data.keyword.keymanagementserviceshort}} dashboard or by using the
+system returns a key ID that is used to uniquely identify the key resource. You
+can use this ID value to make API calls to the service. You can retrieve the key
+ID for your key from the {{site.data.keyword.keymanagementserviceshort}}
+dashboard or by using the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
 ## Wrapping keys
@@ -117,7 +118,8 @@ you can fully manage.
 
 After you designate a root key in
 {{site.data.keyword.keymanagementserviceshort}}, you can send a key wrap request
-to the service by using the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
+to the service by using the
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
 The key wrap operation provides both confidentiality and integrity protection
 for a DEK.
 
@@ -151,11 +153,12 @@ Unwrapping a data encryption key (DEK) decrypts and authenticates the contents
 within the key, returning the original key material to your data service.
 
 If your business application needs to access the contents of your wrapped DEKs,
-you can use the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external} to send an
-unwrap request to the service. To unwrap a DEK, you specify the ID value of the
-root key and the `ciphertext` value returned during the initial wrap request. To
-complete the unwrap request, you must also supply the additional authenticated
-data (AAD) to check the integrity of the key contents.
+you can use the
+[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}
+to send an unwrap request to the service. To unwrap a DEK, you specify the ID
+value of the root key and the `ciphertext` value returned during the initial
+wrap request. To complete the unwrap request, you must also supply the
+additional authenticated data (AAD) to check the integrity of the key contents.
 
 The following diagram shows key unwrapping in action.
 ![The diagram shows how unwrapping data works.](../images/unwrapping-keys.svg)
@@ -169,4 +172,14 @@ at rest service.
 ## Integrating with {{site.data.keyword.cloud_notm}} Services
 {: #envelope-encryption-integration}
 
-{{site.data.keyword.keymanagementservicefull}} integrates with a number of {{site.data.keyword.cloud_notm}} services to enable encryption with customer-managed keys for those services.  Associating a resource in your cloud data service with a root key in {{site.data.keyword.keymanagementserviceshort}} allows your data to be protected at-rest while having management control of the root key. For more information on the services that offer integration with {{site.data.keyword.keymanagementserviceshort}}, see [Integrating Services](/docs/key-protect?topic=key-protect-integrate-services).
+{{site.data.keyword.keymanagementservicefull}} integrates with a number of
+{{site.data.keyword.cloud_notm}} services to enable encryption with
+customer-managed keys for those services.
+
+Associating a resource in your cloud data service with a root key in
+{{site.data.keyword.keymanagementserviceshort}} allows your data to be protected
+at-rest while having management control of the root key.
+
+For more information on the services that offer integration with
+{{site.data.keyword.keymanagementserviceshort}}, see
+[Integrating Services](/docs/key-protect?topic=key-protect-integrate-services).

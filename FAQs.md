@@ -233,6 +233,13 @@ Disabling a key is a reversible action. You can always
 [enable a disabled key](/docs/key-protect?topic=key-protect-disable-keys#enable-api)
 and restore access to the data that was previously encrypted with the key.
 
+If you have backed up the key material, you can restore the key. However, this
+restores only the latest version. Any data that is associated with older
+versions of the key are not restored.
+
+Restore works if you have the latest version of the key material backed up
+somewhere outside of {{site.data.keyword.keymanagementserviceshort}}.
+
 ## What is a dual authorization policy?
 {: #dual-auth}
 {: faq}

@@ -37,7 +37,7 @@ You can use the
 to quickly generate your personal Cloud IAM [access token](#x2113001){: term}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
+   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -51,7 +51,7 @@ to quickly generate your personal Cloud IAM [access token](#x2113001){: term}.
     {: note}
 
 2. Select the account, region, and resource group that contain your provisioned
-instance of {{site.data.keyword.keymanagementserviceshort}}.
+   instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Run the following command to retrieve your Cloud IAM access token.
 
@@ -76,7 +76,7 @@ for your application, and then exchanging your API key for an
 {{site.data.keyword.cloud_notm}} IAM token.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
+   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -90,9 +90,10 @@ for your application, and then exchanging your API key for an
     {: note}
 
 2. Select the account, region, and resource group that contain your provisioned
-instance of {{site.data.keyword.keymanagementserviceshort}}.
+   instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-3. Create a [service ID](/docs/iam?topic=iam-serviceids){: external} for your application.
+3. Create a
+   [service ID](/docs/iam?topic=iam-serviceids){: external} for your application.
 
     ```sh
     ibmcloud iam service-id-create SERVICE_ID_NAME
@@ -100,8 +101,8 @@ instance of {{site.data.keyword.keymanagementserviceshort}}.
     ```
     {: pre}
 
-4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy){: external} for the
-service ID.
+4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy){: external}
+   for the service ID.
 
     You can assign access permissions for your service ID
     [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new){: external}.
@@ -111,7 +112,8 @@ service ID.
     [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
-5. Create a [service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}.
+5. Create a
+   [service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}.
 
     ```sh
     ibmcloud iam service-api-key-create API_KEY_NAME SERVICE_ID_NAME
@@ -125,8 +127,8 @@ service ID.
     secure location.
 
 6. Call the
-[IAM Identity Services API](/apidocs/iam-identity-token-api){: external}
-to retrieve your access token.
+   [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}
+   to retrieve your access token.
 
     ```cURL
     curl -X POST \
@@ -163,3 +165,34 @@ to retrieve your access token.
     key on a regular basis by calling the
     [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}.
     {: note }
+
+    **Example using the command line interface (CLI)**
+
+    ```sh
+    # login
+    $ ibmcloud login --sso
+
+    # set the region (-r) and resource group (-g)
+    $ ibmcloud target -r us-south -g Default
+
+    # set the ACCESS_TOKEN environment variable (with Bearer)
+    $ export ACCESS_TOKEN=`ibmcloud iam oauth-tokens | grep IAM | cut -d \: -f 2 | sed 's/^ *//'`
+
+    # show the access token
+    $ echo $ACCESS_TOKEN
+
+    Bearer eyJraWQiOiIyMDIwMDcyNDE4MzEiLCJh ...<redacted>... o4qlcKjl9sVqLa8Q
+
+    # set the ACCESS_TOKEN environment variable (without Bearer)
+    $ export ACCESS_TOKEN=`ibmcloud iam oauth-tokens | grep IAM | cut -d ' ' -f 5 | sed 's/^ *//'`
+
+    eyJraWQiOiIyMDIwMDcyNDE4MzEiLCJh ...<redacted>... o4qlcKjl9sVqLa8Q
+    ```
+    {: screen}
+
+    - Use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
+      tokens to make authenticated requests to IBM Watson services without
+      embedding service credentials in every call.
+
+    - IAM authentication uses access tokens for authentication, which you
+      acquire by sending a request with an API key.
