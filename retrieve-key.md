@@ -56,7 +56,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     {{site.data.keyword.keymanagementserviceshort}} GUI.
 
 3. Run the following cURL command to get details about your key and the key
-material.
+   material.
 
     ```cURL
     curl -X GET \
@@ -146,7 +146,8 @@ material.
         </td>
         <td>
           <strong>Required.</strong> The identifier for the key that you
-          retrieved in [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
+          retrieved in
+          [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
         </td>
       </tr>
 

@@ -53,14 +53,15 @@ key (WDEK).
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Copy the ID of the root key that you used to perform the initial wrap request.
+2. Copy the ID of the root key that you used to perform the initial wrap
+   request.
 
   You can find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
   [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
   or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Copy the `ciphertext` value that was returned during the initial wrap
-request.
+   request.
 
 4. Run the following cURL command to decrypt and authenticate the key material.
 
@@ -227,7 +228,9 @@ encoding. You will need to decode the key before encrypting it.
 ### Using OpenSSL to decode key material
 {: #open-ssl-encoding-root-unwrap}
 
-1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+1. Download and install
+   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+
 2. Base64 encode your key material string by running the following command:
 
     ```

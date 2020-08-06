@@ -51,16 +51,17 @@ To enable dual authorization settings at the instance level, check out
 Consider the following items before you enable dual authorization for a key:
 
 - **Determine whether a dual authorization policy is required for the key.**
-As a security admin, assess the sensitivity of your workload to determine
-whether a key requires a dual authorization policy based on your requirements.
-After you enable dual authorization for a key, the policy can no longer be
-changed to allow a single authorization to delete the key.
+  As a security admin, assess the sensitivity of your workload to determine
+  whether a key requires a dual authorization policy based on your requirements.
+  After you enable dual authorization for a key, the policy can no longer be
+  changed to allow a single authorization to delete the key.
+
 - **Determine who can authorize deletion of your {{site.data.keyword.keymanagementserviceshort}} resources.**
-After you create a dual authorization policy for a key, the key will require
-[an action from two users](/docs/key-protect?topic=key-protect-delete-dual-auth-keys)
-before it can be deleted. Be sure to identify two distinct users with the
-[appropriate levels of access](/docs/key-protect?topic=key-protect-manage-access#service-access-roles)
-to the instance or key.
+  After you create a dual authorization policy for a key, the key will require
+  [an action from two users](/docs/key-protect?topic=key-protect-delete-dual-auth-keys)
+  before it can be deleted. Be sure to identify two distinct users with the
+  [appropriate levels of access](/docs/key-protect?topic=key-protect-manage-access#service-access-roles)
+  to the instance or key.
 
 To learn how to delete a key that has a dual authorization policy, see
 [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
@@ -85,7 +86,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
     {: note}
 
 2. Retrieve the dual authorization policy for a specified key by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X GET \
@@ -239,7 +240,7 @@ be reverted.
     {: note}
 
 2. Enable dual authorization for a specified key by running the following cURL
-command.
+   command.
 
     ```cURL
     curl -X PUT \

@@ -37,7 +37,7 @@ Review the following sections for the specific responsibilities for you and for
 {{site.data.keyword.IBM_notm}} when you use
 {{site.data.keyword.keymanagementservicelong_notm}}. For the overall terms of
 use, see
-[{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms){: external}.
+[{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms){: external}.
 
 ## Incident and operations management
 {: #incident-and-ops}

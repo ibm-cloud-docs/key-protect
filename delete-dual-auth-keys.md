@@ -42,6 +42,7 @@ Keep in mind the following considerations before you delete a key:
 that's actively protecting a cloud resource. Before you delete a key,
 [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
 that are associated with the key.
+
 - You can
 [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
 that's protecting a cloud resource. However, the action won't succeed if the
@@ -344,6 +345,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     If the `return_preference` variable is set to `return=representation`, the
     details of the `DELETE` request are returned in the response entity-body.
+
+    After you delete a key, it transitions to the `Deactivated` key state. After
+    24 hours, if a key is not reinstated, the key transitions to the `Destroyed`
+    state. The key contents are permanently erased and no longer accessible.
 
     The following JSON object shows an example returned value.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-05"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -44,7 +44,8 @@ available only for root keys that were previously imported to the service.
 ## Restoring a deleted key with the console
 {: #restore-ui}
 
-If you prefer to restore your root key by using a graphical interface, you can use the IBM Cloud console.
+If you prefer to restore your root key by using a graphical interface, you can
+use the IBM Cloud console.
 
 [After you import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [delete](/docs/key-protect?topic=key-protect-delete-keys) a root key,
 complete the following steps to restore the key:
@@ -52,10 +53,11 @@ complete the following steps to restore the key:
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your {{site.data.keyword.keymanagementserviceshort}} instance.
-5. Click the **Restore Key** button to open a tab and enter the key ID and original key material that was associated with the deleted key.
+   your {{site.data.keyword.keymanagementserviceshort}} instance.
+5. Click the **Restore Key** button to open a tab and enter the key ID and
+   original key material that was associated with the deleted key.
 6. Click **Restore Key** button.
 7. Confirm the key was restored in the updated **Keys** table.
 
@@ -86,7 +88,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following cURL command to restore the key and regain access to its
-associated data.
+   associated data.
 
    You cannot restore a key that has an expiration date that is current or in
    the past.
@@ -230,7 +232,7 @@ associated data.
     {: note}
 
 4. Optional: Verify that the key was restored by retrieving details about the
-key.
+   key.
 
     ```cURL
     curl -X GET \
@@ -325,7 +327,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 5. Restore the key and regain access to its associated data by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X POST \
@@ -500,7 +502,7 @@ following cURL command.
     {: note}
 
 6. Optional: Verify that the key was restored by retrieving details about the
-key.
+   key.
 
     ```cURL
     curl -X GET \

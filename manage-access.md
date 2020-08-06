@@ -33,18 +33,19 @@ A good practice is to grant access permissions as you invite new users to your
 account or service. For example, consider the following guidelines:
 
 - **Enable user access to the resources in your account by assigning Cloud IAM roles.**
-Rather than sharing your admin credentials, create new policies for users who
-need access to the encryption keys in your account. If you are the admin for
-your account, you are automatically assigned a _Manager_ policy with access to
-all resources under the account.
+  Rather than sharing your admin credentials, create new policies for users who
+  need access to the encryption keys in your account. If you are the admin for
+  your account, you are automatically assigned a _Manager_ policy with access
+  to all resources under the account.
+
 - **Grant roles and permissions at the smallest scope needed.**
-For example, if a user needs to access only a high-level view of keys within a
-{{site.data.keyword.keymanagementserviceshort}} instance, grant the
-_Reader_ role to the user for that instance. You can also
-[assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).
+  For example, if a user needs to access only a high-level view of keys within a
+  {{site.data.keyword.keymanagementserviceshort}} instance, grant the
+  _Reader_ role to the user for that instance. You can also
+  [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).
 - **Regularly audit who can manage access control and delete key resources.**
-Remember that granting a _Manager_ role to a user means that the user can modify
-service policies for other users, in addition to destroying resources.
+  Remember that granting a _Manager_ role to a user means that the user can
+  modify service policies for other users, in addition to destroying resources.
 
 ## Roles and permissions
 {: #roles}
@@ -60,8 +61,9 @@ you can assign Cloud IAM roles that correspond to the specific
 members of your team.
 
 This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of
-{{site.data.keyword.keymanagementserviceshort}}. For complete IAM documentation, see
-[Managing access in {{site.data.keyword.cloud_notm}}](/docs/iam?topic=iam-cloudaccess){: external}.
+{{site.data.keyword.keymanagementserviceshort}}. For complete IAM documentation,
+see
+[Managing access in {{site.data.keyword.cloud_notm}}](/docs/iam?topic=overview-cloudaccess){: external}.
 {: note}
 
 ### Platform access roles
@@ -89,18 +91,21 @@ others.
 {: #service-access-roles}
 
 Use service access roles to grant permissions at the service level, such as the
-ability to view, create, or delete {{site.data.keyword.keymanagementserviceshort}}
-keys.
+ability to view, create, or delete
+{{site.data.keyword.keymanagementserviceshort}} keys.
 
 - As a **Reader**, you can browse a high-level view of keys and perform wrap and
-unwrap actions. Readers cannot access or modify key material.
+  unwrap actions. Readers cannot access or modify key material.
+
 - As a **ReaderPlus**, you can browse a high-level view of keys, access key
-material for standard keys, and perform wrap and unwrap actions. The ReaderPlus
-role cannot modify key material.
+  material for standard keys, and perform wrap and unwrap actions. The
+  ReaderPlus role cannot modify key material.
+
 - As a **Writer**, you can create keys, modify keys, rotate keys, and access key
+
 - As a **Manager**, you can perform all actions that a Reader, ReaderPlus and
-Writer can perform, including the ability to delete keys and set dual
-authorization and rotation policies for keys.
+  Writer can perform, including the ability to delete keys and set dual
+  authorization and rotation policies for keys.
 
 The following table shows how service access roles map to
 {{site.data.keyword.keymanagementserviceshort}} permissions.
@@ -164,13 +169,25 @@ The following table shows how service access roles map to
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
-[^services-1]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+[^services-1]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
-[^services-2]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+[^services-2]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
-[^services-3]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+[^services-3]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
-[^services-4]: This action is performed on your behalf by an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) that has enabled support for key registration. [Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+[^services-4]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
 
 ## What's next
 {: #manage-access-next-steps}
@@ -180,5 +197,5 @@ correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the
 users can perform.
 
 - For more information about assigning user roles in the
-{{site.data.keyword.cloud_notm}} UI, see
-[Managing IAM access](/docs/iam?topic=iam-getstarted){: external}.
+  {{site.data.keyword.cloud_notm}} UI, see
+  [Managing IAM access](/docs/iam?topic=iam-getstarted){: external}.

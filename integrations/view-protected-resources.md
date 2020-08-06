@@ -102,15 +102,15 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, select the `Associated Resources` tab on the
-left side menu.
+   left side menu.
 5. On the Associated resources page, use the **Associated Resources** table to
-browse the registrations in your service.
-5. Click the `^` icon under the `Details` column to view a list of details for a
-specific registration.
+   browse the registrations in your service.
+6. Click the `^` icon under the `Details` column to view a list of details for a
+   specific registration.
 7. Click `Filter` button to filter for resources by key ID, Cloud Resource Name
-(CRN), and retention policy.
+   (CRN), and retention policy.
 
 ### Viewing protected resources associated with your key
 {: #view-protected-resources-console-key}
@@ -118,12 +118,12 @@ specific registration.
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your service.
+   your service.
 5. Click the ⋯ icon to open a list of options for the key.
 6. From the options menu, click **Key associated resources** to view the key's
-associated registrations.
+   associated registrations.
 
 ## Viewing protected resources with the API
 {: #view-protected-resources-api}
@@ -269,7 +269,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View the registrations that are associated with a root key by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X GET \
@@ -590,7 +590,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View the registrations that match a CRN query that you specify by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X GET \
@@ -844,7 +844,7 @@ that match the first 8 segments of their service CRN.
 {: note}
 
 - To search for the existence of a registration up to a specific CRN segment,
-use a colon followed by an asterisk (`*`).
+  use a colon followed by an asterisk (`*`).
 
     ```
     crn:v1:bluemix:public:databases-for-redis:us-south:a/
@@ -857,18 +857,19 @@ use a colon followed by an asterisk (`*`).
     _29caf0e7-120f-4da8-9551-3abf57ebcfc7_.
 
 - To search for existence of a registration up to a specific CRN segment that's
-prefixed by `<string>`, use a colon followed by `<string>*` on the last segment
-of the CRN query.
+  prefixed by `<string>`, use a colon followed by `<string>*` on the last
+  segment of the CRN query.
 
   ```
   crn:v1:bluemix:public:cloud-object-storage:global:a/e1bb63d6a20dc57c87501ac4c4c99dcb:*:bucket:prod*
   ```
   {: screen}
+
   This query returns all Cloud Object Storage bucket registrations within
   account _e1bb63d6a20dc57c87501ac4c4c99dcb_ that are prefixed by `prod`.
 
-When [listing registrations that are associated with any root key](/apidocs/key-protect#list-registrations-for-any-key){: external}, your CRN query should not contain an asterisk
-(*) in the first eight segments.
+When
+[listing registrations that are associated with any root key](/apidocs/key-protect#list-registrations-for-any-key){: external}, your CRN query should not contain an asterisk (*) in the first eight segments.
 {: note}
 
 The following tables provides a list of CRN query examples before and after URL

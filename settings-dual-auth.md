@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-07"
+lastupdated: "2020-07-10"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -46,33 +46,37 @@ accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 Before you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **When you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, the policy is applicable only for new keys.**
-By enabling dual authorization at the instance level, any new keys that you add
-to the instance will automatically inherit a dual authorization policy. Your
-existing keys are not affected by the policy change and will still require a
-single authorization for deletion.
+- **When you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, the policy is applicable only for 
+  new keys.**
+  By enabling dual authorization at the instance level, any new keys that you add
+  to the instance will automatically inherit a dual authorization policy. Your
+  existing keys are not affected by the policy change and will still require a
+  single authorization for deletion.
 - **You can always disable a dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
-If you want to
-[disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
-to allow for single authorization, keep in mind that the change is applicable
-only for future keys that you add to the instance. Any existing keys that were
-created under a dual authorization policy will continue to require actions from
-two users before the keys can be deleted. After a key inherits a dual
-authorization policy, the policy cannot be reverted.
+  If you want to
+  [disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
+  to allow for single authorization, keep in mind that the change is applicable
+  only for future keys that you add to the instance. Any existing keys that were
+  created under a dual authorization policy will continue to require actions from
+  two users before the keys can be deleted. After a key inherits a dual
+  authorization policy, the policy cannot be reverted.
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enable-dual-auth-instance-policy-ui}
 
-If you prefer to disable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
+If you prefer to disable a dual authorization policy on your instance by using a
+graphical interface, you can use the IBM Cloud console.
 
-After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a dual authorization policy:
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a dual
+authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the **Manage instance policies** page, click the **Add policy** button.
-5. Choose **Dual authorization deletion** and hit the switch to enable the policy.
+5. Choose **Dual authorization deletion** and hit the switch to enable the
+   policy.
 6. Click the **Add policy** button.
 7. Confirm the policy was created in the updated **Policies** table.
 
@@ -98,7 +102,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {: note}
 
 2. Enable a dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance by running the
-following cURL command.
+   following cURL command.
 
     ```cURL
     curl -X PUT \
@@ -204,8 +208,8 @@ following cURL command.
     {: note}
 
 3. Optional: Verify that the dual authorization policy was created by browsing
-the policies that are available for your
-{{site.data.keyword.keymanagementserviceshort}} instance.
+   the policies that are available for your
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```cURL
     curl -X GET \
@@ -219,20 +223,22 @@ the policies that are available for your
 ### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #disable-dual-auth-instance-policy-ui}
 
-If you prefer to disable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
+If you prefer to disable a dual authorization policy on your instance by using a
+graphical interface, you can use the IBM Cloud console.
 
-After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a dual authorization policy:
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a dual
+authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the **Manage instance policies** page, use the **Policies** table to browse the policies in
-your {{site.data.keyword.keymanagementserviceshort}} instance.
+   your {{site.data.keyword.keymanagementserviceshort}} instance.
 5. Click the ⋯ icon to open a list of options for the policy that you want to
-disable.
-6. From the options menu, click **Disable policy** and confirm the policy was disabled in
-the updated **Policies** table.
+   disable.
+6. From the options menu, click **Disable policy** and confirm the policy was
+   disabled in the updated **Policies** table.
 
 ### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #disable-dual-auth-instance-policy-api}
@@ -256,7 +262,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {: note}
 
 2. Disable an existing dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance by
-running the following cURL command.
+   running the following cURL command.
 
     ```cURL
     curl -X PUT \
@@ -357,8 +363,8 @@ running the following cURL command.
     [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
 3. Optional: Verify that the dual authorization policy was updated by browsing
-the policies that are available for your
-{{site.data.keyword.keymanagementserviceshort}} instance.
+   the policies that are available for your
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```cURL
     curl -X GET \
