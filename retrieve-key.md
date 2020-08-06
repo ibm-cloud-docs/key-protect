@@ -86,7 +86,7 @@ material.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

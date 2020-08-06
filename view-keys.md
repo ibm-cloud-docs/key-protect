@@ -65,9 +65,9 @@ page:
     | Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
     {: caption="Table 1. Describes the <b>Keys</b> table." caption-side="bottom"}
 
-    Not seeing the full list of keys that are stored in your service instance?
+    Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance?
     Verify with your administrator that you are assigned the correct role for
-    the applicable service instance or individual key. For more information
+    the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information
     about roles, see
     [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
@@ -110,14 +110,14 @@ command.
 
     | Variable | Description |
     | -------- | ----------- |
-    | <varname>region</varname> | <p><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service instance resides.</p><p>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).</p> |
+    | <varname>region</varname> | <p><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service resides.</p><p>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).</p> |
     | <varname>IAM_token</varname> | <p><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request.</p><p>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).</p> |
-    | <varname>instance_ID</varname> | <p><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.</p><p>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).</p> |
+    | <varname>instance_ID</varname> | <p><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} instance.</p><p>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).</p> |
     | <varname>correlation_ID</varname> | The unique identifier that is used to track and correlate transactions. |
     {: caption="Table 2. Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="bottom"}
 
     A successful `GET api/v2/keys` request returns a collection of keys that are
-    available in your {{site.data.keyword.keymanagementserviceshort}} service
+    available in your {{site.data.keyword.keymanagementserviceshort}} 
     instance.
 
     ```json
@@ -193,7 +193,7 @@ retrieve a subset of your keys, starting with the `offset` value that you
 specify.
 
 For example, you might have 3000 total keys that are stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance, but you want
+{{site.data.keyword.keymanagementserviceshort}} instance, but you want
 to retrieve keys 200 - 300 when you make a `GET /keys` request.
 
 You can use the following example request to retrieve a different set of keys.
@@ -315,7 +315,7 @@ zero-based, which means that the 10th encryption key in a data set is at offset
 By specifying the `state` parameter at query time, you can retrieve keys that
 are in the states that you specify.
 
-For example, you might have keys in your service instance that are in the
+For example, you might have keys in your {{site.data.keyword.keymanagementserviceshort}} instance that are in the
 active, suspended, and destroyed states, but you only want to retrieve keys in
 the active state
 when you make a `GET /keys` request.
@@ -357,7 +357,7 @@ Replace the `state` variable in your request according to the following table.
       </p>
       <p>
         For example, if you want to only list keys in the active state in your
-        service instance, use <code>../keys?state=1</code>. You can also pair
+        {{site.data.keyword.keymanagementserviceshort}} instance, use <code>../keys?state=1</code>. You can also pair
         <code>state</code> with<code>offset</code> with <code>limit</code> to
         page through your available resources.
       </p>

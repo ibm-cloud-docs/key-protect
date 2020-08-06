@@ -31,7 +31,7 @@ authorization policies for individual encryption keys.
 
 Dual authorization is an extra policy that helps to prevent accidental or
 malicious deletion of keys in your
-{{site.data.keyword.keymanagementserviceshort}} service instance. When you
+{{site.data.keyword.keymanagementserviceshort}} instance. When you
 enable this policy at the key level,
 {{site.data.keyword.keymanagementserviceshort}} requires an authorization from
 two users to delete a key.
@@ -124,7 +124,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -292,7 +292,7 @@ command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance resides.
+            {{site.data.keyword.keymanagementserviceshort}} instance resides.
           </p>
           <p>
             For more information, see

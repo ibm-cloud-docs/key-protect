@@ -50,7 +50,7 @@ get a full view of which encryption keys protect what data on
     </td>
     <td>
       As an administrator for your
-      {{site.data.keyword.keymanagementserviceshort}} service instance, you
+      {{site.data.keyword.keymanagementserviceshort}} instance, you
       want to quickly understand which cloud resources are protected by a root
       key.
     </td>
@@ -297,7 +297,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -424,7 +424,7 @@ by specifying the `preventKeyDeletion` and `urlEncodedResourceCRNQuery`
 parameters at query time.
 
 For example, you might have 25 total registrations that are stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance, but you only
+{{site.data.keyword.keymanagementserviceshort}} instance, but you only
 want to retrieve registrations that have a retention policy that is associated
 with a specific Cloud Resource Name (CRN).
 
@@ -618,7 +618,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -664,7 +664,7 @@ following cURL command.
       <caption style="caption-side:bottom;">
         Table 6. Describes the variables that are needed to list registrations
         for any key in your {{site.data.keyword.keymanagementserviceshort}}
-        service instance.
+        instance.
       </caption>
     </table>
 
@@ -678,7 +678,7 @@ by specifying the `preventKeyDeletion` and `urlEncodedResourceCRNQuery`
 parameters at query time.
 
 For example, you might have 25 total registrations that are stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance, but you only
+{{site.data.keyword.keymanagementserviceshort}} instance, but you only
 want to retrieve registrations that have a retention policy this is associated
 with a specific Cloud Resource Name (CRN).
 
@@ -833,7 +833,7 @@ following table.
 ### CRN query examples
 {: #crn-query-examples}
 
-Use URL encoded CRN queries to filter registrations by service instance,
+Use URL encoded CRN queries to filter registrations by {{site.data.keyword.keymanagementserviceshort}} instance,
 resource type, or resource name. To learn more about CRN segments and format,
 see
 [Cloud Resource Names](/docs/resources?topic=resources-crn){: external}.

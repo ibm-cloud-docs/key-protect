@@ -106,7 +106,7 @@ you can enable envelope encryption for a specified storage bucket by using the
 To enable advanced configuration options for your storage bucket, ensure that an
 [authorization](/docs/key-protect?topic=key-protect-integrate-services#grant-access)
 exists between your {{site.data.keyword.cos_full_notm}} and
-{{site.data.keyword.keymanagementserviceshort}} service instances.
+{{site.data.keyword.keymanagementserviceshort}} instances.
 {: tip}
 
 To add envelope encryption to your storage bucket:

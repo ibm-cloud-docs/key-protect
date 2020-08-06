@@ -54,7 +54,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 2. Retrieve the ID of the root key that you want to inspect.
 
     The ID value is used to access detailed information about the key. You can
-    find the ID for a key in your service instance by
+    find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
@@ -89,7 +89,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

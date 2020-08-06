@@ -44,7 +44,7 @@ in an instance.
 {: #grant-access-instance-level}
 
 You can grant access to keys within a {{site.data.keyword.keymanagementserviceshort}}
-service instance by using the {{site.data.keyword.cloud_notm}} console.
+instance by using the {{site.data.keyword.cloud_notm}} console.
 
 Review
 [roles and permissions](/docs/key-protect?topic=key-protect-manage-access)
@@ -60,7 +60,7 @@ To assign access:
 4. Click **Assign users additional access**.
 5. Click the **IAM services** button.
 6. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
-7. From the list of service instances, select a {{site.data.keyword.keymanagementserviceshort}} service instance that you want to grant access to.
+7. From the list of {{site.data.keyword.keymanagementserviceshort}} instances, select a {{site.data.keyword.keymanagementserviceshort}}  instance that you want to grant access to.
 8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles) to assign access for the user.
 9. Click **Add**.
 10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**.
@@ -71,7 +71,7 @@ To assign access:
 {: #grant-access-key-level}
 
 You can also assign access to a single key in a
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ### Step 1. Retrieve the key ID
 {: #access-key-retrieve-ID}
@@ -82,7 +82,7 @@ grant someone access to.
 To get the ID for a specific key, you can:
 
 - [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
-to browse the keys that are stored in your service instance.
+to browse the keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance.
 - [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api)
 to retrieve a list of your keys, along with metadata about the keys.
 
@@ -96,8 +96,8 @@ Use the retrieved key ID to create a access policy:
 3. From the options menu, click **Assign access**.
 4. Click **Assign users additional access**.
 5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
-6. From the list of service instances, select the {{site.data.keyword.keymanagementserviceshort}} service instance that contains the key that you want
-to grant access to.
+6. From the list of {{site.data.keyword.keymanagementserviceshort}} instances, select the {{site.data.keyword.keymanagementserviceshort}} 
+instance that contains the key that you want to grant access to.
 7. Enter identifying information about the key.
    1. For **Resource type**, enter the word "key".
    2. For **Resource ID**, enter the ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service.

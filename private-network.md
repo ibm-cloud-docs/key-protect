@@ -70,7 +70,7 @@ enabled for
 
     After you enable VRF and service endpoints for your account, all existing
     and future {{site.data.keyword.keymanagementserviceshort}} resources and
-    service instances become available from both the public and private
+    instances become available from both the public and private
     endpoints.
     {: note}
 
@@ -158,7 +158,7 @@ private endpoint.
 
     Replace `<region>` with the region abbreviation that represents the
     geographic area where your {{site.data.keyword.keymanagementserviceshort}}
-    service instance resides. For the complete list of endpoints, see
+    instance resides. For the complete list of endpoints, see
     [Regions and endpoints](/docs/key-protect?topic=key-protect-regions#connectivity-options).
 
 ## Step 3. Create a {{site.data.keyword.keymanagementserviceshort}} resource on the private network
@@ -178,11 +178,11 @@ targeting the private endpoint.
     Replace `<key_name>` with a human-readable alias for easy identification of
     your key. Replace `<instance_ID>` with the {{site.data.keyword.cloud_notm}}
     instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}}
-    service instance.
+    instance.
 
 2. Optional: Verify that the key was created successfully by listing the keys
 that are available in your {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+instance.
 
     ```sh
     ibmcloud kp list -i <instance_ID>
@@ -191,7 +191,7 @@ service instance.
 
     Replace `<instance_ID>` with the {{site.data.keyword.cloud_notm}} instance
     ID that identifies your {{site.data.keyword.keymanagementserviceshort}}
-    service instance.
+    instance.
 
 ## Next steps
 {: #private-network-next-steps}

@@ -65,7 +65,7 @@ imported root key that was deleted.
   For more information, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 - Set an instance level dual authorization policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to require two users to safely delete a
-key from your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
+key from your {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
 
 - Set an instance level network policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to public or private networks.
 For more information, see [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
@@ -252,7 +252,7 @@ fields.
             <code>Key Protect</code>. This value will change to the name of
             the resource on which the operation was performed. For example,
             the name of the encryption key, or the name of your
-            {{site.data.keyword.keymanagementserviceshort}} service instance.
+            {{site.data.keyword.keymanagementserviceshort}} instance.
           </li>
         </ul>
       </td>
@@ -361,7 +361,7 @@ additional fields do not affect their operations.
 New as of: 2020-01-15
 
 You can now enable dual authorization policies to safely delete keys from your
-{{site.data.keyword.keymanagementserviceshort}} service instance. When you
+{{site.data.keyword.keymanagementserviceshort}} instance. When you
 enable dual authorization, you require an action from two users to delete a key.
 
 - To learn how to enable dual authorization at the instance level, see
@@ -414,7 +414,7 @@ permissions, see
 New as of: 2019-09-27
 
 As an account admin, you can now assign fine-grained access to individual keys
-within a {{site.data.keyword.keymanagementserviceshort}} service instance.
+within a {{site.data.keyword.keymanagementserviceshort}} instance.
 
 To learn more about granting access, see
 [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys).
@@ -498,21 +498,21 @@ To learn more about the features and benefits of
 {{site.data.keyword.cloud_notm}} HSM 7.0, check out the
 [product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
 
-### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} service instances
+### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} instances
 {: #legacy-service-eol}
 
 New as of: 2019-05-15
 
 The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on
 Cloud Foundry, reached its end of support on 15 May 2019. Cloud Foundry-managed
-{{site.data.keyword.keymanagementserviceshort}} service instances are no longer
+{{site.data.keyword.keymanagementserviceshort}} instances are no longer
 supported and updates to the legacy service will no longer be provided.
 Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}}
-service instances that are IAM-managed to benefit from the latest features for
+instances that are IAM-managed to benefit from the latest features for
 the service.
 
-If you created your {{site.data.keyword.keymanagementserviceshort}} service
-instance after 15 December 2017, your service instance is IAM-managed and it is
+If you created your {{site.data.keyword.keymanagementserviceshort}} 
+instance after 15 December 2017, your instance is IAM-managed and it is
 not affected by this change.
 
 Need to remove a {{site.data.keyword.keymanagementserviceshort}} service
@@ -559,12 +559,12 @@ latest version.
 ## February 2019
 {: #feb-2019}
 
-### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} service instances
+### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} instances
 {: #changed-legacy-service-instances}
 
 New as of: 2019-02-13
 
-{{site.data.keyword.keymanagementserviceshort}} service instances that were
+{{site.data.keyword.keymanagementserviceshort}} instances that were
 provisioned before 15 December 2017 are running on a legacy infrastructure that
 is based on Cloud Foundry. This legacy
 {{site.data.keyword.keymanagementserviceshort}} service will be decommissioned
@@ -574,13 +574,13 @@ on 15 May 2019.
 {: #feb-2019-what-this-means}
 
 If you have active production keys in an older
-{{site.data.keyword.keymanagementserviceshort}} service instance, ensure that
-you migrate the keys to a new service instance by 15 May 2019 to avoid losing
+{{site.data.keyword.keymanagementserviceshort}} instance, ensure that
+you migrate the keys to a new {{site.data.keyword.keymanagementserviceshort}} instance by 15 May 2019 to avoid losing
 access to your encrypted data. You can check to see whether you're using a
 legacy instance by navigating to your resource list from the
 [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
-If your {{site.data.keyword.keymanagementserviceshort}} service instance is
+If your {{site.data.keyword.keymanagementserviceshort}} instance is
 listed in the **Cloud Foundry Services** section of the
 {{site.data.keyword.cloud_notm}} resource list, or if you're using the
 `https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for
@@ -589,7 +589,7 @@ the service, you're using a legacy instance of the
 endpoint will no longer be accessible, and you won't be able to target the
 service for operations.
 
-Need help with migrating your encryption keys into a new service instance? For
+Need help with migrating your encryption keys into a new {{site.data.keyword.keymanagementserviceshort}} instance? For
 detailed steps, check out the
 [migration client in GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}.
 {: tip}

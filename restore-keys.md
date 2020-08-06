@@ -54,7 +54,7 @@ complete the following steps to restore the key:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
 provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your service instance.
+your {{site.data.keyword.keymanagementserviceshort}} instance.
 5. Click the **Restore Key** button to open a tab and enter the key ID and original key material that was associated with the deleted key.
 6. Click **Restore Key** button.
 7. Confirm the key was restored in the updated **Keys** table.
@@ -133,7 +133,7 @@ associated data.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -367,7 +367,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

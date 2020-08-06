@@ -25,7 +25,7 @@ subcollection: key-protect
 {: #retrieve-instance-ID}
 
 You can target an individual {{site.data.keyword.keymanagementservicelong}}
-service instance for operations by including its unique identifier, or instance
+instance for operations by including its unique identifier, or instance
 ID, in API requests to the service.
 {: shortdesc}
 
@@ -33,23 +33,23 @@ ID, in API requests to the service.
 {: #view-instance-ID}
 
 You can view the instance ID that is associated with your
-{{site.data.keyword.keymanagementserviceshort}} service instance by navigating
+{{site.data.keyword.keymanagementserviceshort}} instance by navigating
 to your {{site.data.keyword.cloud_notm}} resource list.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse
 a list of your cloud services.
 3. Click the table row that describes your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 4. From the service details view, copy the **GUID** value.
 
     This **GUID** value represents the instance ID that uniquely identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ## Retrieving an instance ID with the CLI
 {: #retrieve-instance-ID-cli}
 
-You can also retrieve the instance ID for your service instance by using the
+You can also retrieve the instance ID for your {{site.data.keyword.keymanagementserviceshort}} instance by using the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
@@ -70,7 +70,7 @@ You can also retrieve the instance ID for your service instance by using the
 instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Retrieve the Cloud Resource Name (CRN) that uniquely identifies your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     ibmcloud resource service-instance <instance_name> --id
@@ -78,7 +78,7 @@ instance of {{site.data.keyword.keymanagementserviceshort}}.
     {: pre}
 
     Replace `<instance_name>` with the unique alias that you assigned to your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. The
+    {{site.data.keyword.keymanagementserviceshort}} instance. The
     following truncated example shows the CLI output.
 
     ```
@@ -110,7 +110,7 @@ to retrieve your instance ID.
     {: codeblock}
 
     Replace `<instance_name>` with the unique alias that you assigned to your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. The
+    {{site.data.keyword.keymanagementserviceshort}} instance. The
     following output shows an example instance ID:
 
     ```

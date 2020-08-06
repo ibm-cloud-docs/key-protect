@@ -233,7 +233,7 @@ the policies that are available for your
     ```
     {: codeblock}
 
-### Disabling an allowed ip policy for your service instance
+### Disabling an allowed ip policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-allowed-ip-instance-policy}
 
 As a manager of a {{site.data.keyword.keymanagementserviceshort} instance, disable an existing allowed ip policy for your

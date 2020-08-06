@@ -50,7 +50,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 2. Retrieve the ID of the key that you would like to inspect.
 
     The ID value is used to access detailed information about the key. You can
-    find the ID for a key in your service instance by
+    find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
@@ -85,7 +85,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

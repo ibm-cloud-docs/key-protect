@@ -43,7 +43,7 @@ use, see
 {: #incident-and-ops}
 
 You and IBM share responsibilities for the set up and maintenance of your
-{{site.data.keyword.keymanagementservicelong_notm}} service instance for your
+{{site.data.keyword.keymanagementservicelong_notm}} instance for your
 application workloads.
 
 You are responsible for incident and operations management of your application

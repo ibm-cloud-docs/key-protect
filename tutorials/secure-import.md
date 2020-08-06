@@ -54,7 +54,7 @@ familiarity with key management systems. The following steps should take about
 instance to begin importing keys
 - Creating and encrypting keys using the OpenSSL cryptography toolkit
 - Importing an encrypted key to your
-{{site.data.keyword.keymanagementserviceshort}} service instance
+{{site.data.keyword.keymanagementserviceshort}} instance
 
 This tutorial won't incur any charges to your {{site.data.keyword.cloud_notm}}
 account.
@@ -93,12 +93,12 @@ for your operating system.
     use specific data that's returned when you call the
     {{site.data.keyword.keymanagementserviceshort}} API.
 
-## Step 1. Create a {{site.data.keyword.keymanagementserviceshort}} service instance
+## Step 1. Create a {{site.data.keyword.keymanagementserviceshort}} instance
 {: #tutorial-import-provision-service}
 
 After you set up an {{site.data.keyword.cloud_notm}} account, complete the
 following steps to provision a {{site.data.keyword.keymanagementserviceshort}}
-service instance.
+instance.
 
 1. In a terminal window, run the following command to log in to
 {{site.data.keyword.cloud_notm}} with the
@@ -116,7 +116,7 @@ service instance.
     {: note}
 
 2. Select the account and resource group where you would like to create a
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
     In this tutorial, you interact with the Washington DC region. If you're
     logged into a different region, be sure to set Washington DC as your target
@@ -139,8 +139,8 @@ within that account and resource group.
     {{site.data.keyword.cloud_notm}} account.
     {: note}
 
-4. Optional: Verify that the service instance was created successfully by
-listing your available service instances.
+4. Optional: Verify that the {{site.data.keyword.keymanagementserviceshort}} instance was created successfully by
+listing your available {{site.data.keyword.keymanagementserviceshort}} instances.
 
     ```sh
     ibmcloud resource service-instances
@@ -148,7 +148,7 @@ listing your available service instances.
     {: pre}
 
     Success! You're now set with the
-    {{site.data.keyword.keymanagementserviceshort}} service instance where you
+    {{site.data.keyword.keymanagementserviceshort}} instance where you
     can store and manage your encryption keys. Continue to the next step.
 
 ## Step 2. Set up the {{site.data.keyword.keymanagementserviceshort}} API
@@ -195,7 +195,7 @@ value as an environment variable.
     {: note}
 
 3. Retrieve the identifier that is associated with your
-{{site.data.keyword.keymanagementserviceshort}} service instance, and then set
+{{site.data.keyword.keymanagementserviceshort}} instance, and then set
 the value as an environment variable.
 
     ```sh
@@ -229,7 +229,7 @@ encryption keys to the service.
 
 In the following step, you create a
 [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)
-for your {{site.data.keyword.keymanagementserviceshort}} service instance. By
+for your {{site.data.keyword.keymanagementserviceshort}} instance. By
 creating an import token based on a policy that you specify, you enable extra
 security for your encryption key while it's in flight to the service.
 
@@ -243,7 +243,7 @@ security for your encryption key while it's in flight to the service.
     You use this directory to store files for later steps.
 
 2. Create an import token for your
-{{site.data.keyword.keymanagementserviceshort}} service instance, and then save
+{{site.data.keyword.keymanagementserviceshort}} instance, and then save
 the response to a JSON file.
 
     ```cURL
@@ -536,7 +536,7 @@ To import the key:
     {: pre}
 
 2. Store the encrypted key in your
-{{site.data.keyword.keymanagementserviceshort}} service instance by running the
+{{site.data.keyword.keymanagementserviceshort}} instance by running the
 following cURL command.
 
     ```cURL
@@ -649,7 +649,7 @@ previous step.
     {: pre}
 
 2. Remove the encryption key from your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```cURL
     curl -X DELETE \
@@ -682,8 +682,8 @@ instance.
     ```
     {: pre}
 
-    If you created more test keys in your service instance, be sure to
-    [remove all encryption keys from your service instance](/docs/key-protect?topic=key-protect-delete-keys)
+    If you created more test keys in your {{site.data.keyword.keymanagementserviceshort}} instance, be sure to
+    [remove all encryption keys from your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-delete-keys)
     before you deprovision the instance.
     {: tip}
 
@@ -693,7 +693,7 @@ instance.
 In this tutorial, you learned how to set up the
 {{site.data.keyword.keymanagementserviceshort}} API, create an encryption key,
 and securely import an encrypted key into your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 - Learn more about
 [using your root key to protect data at rest](/docs/key-protect?topic=key-protect-envelope-encryption).

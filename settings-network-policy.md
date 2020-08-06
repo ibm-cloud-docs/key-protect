@@ -32,7 +32,7 @@ instance, you manage network access policies by using the service API.
 {: #managing-network-access-policy-settings}
 
 A network access policy for {{site.data.keyword.keymanagementserviceshort}}
-service instances is an extra policy that customers can use to block a
+instances is an extra policy that customers can use to block a
 {{site.data.keyword.keymanagementserviceshort}} instance from getting API
 requests from public or private networks.
 
@@ -93,14 +93,14 @@ environment is set up before setting the network access policy to
 [using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 {: note}
 
-#### Deprovision a service instance
+#### Deprovision a {{site.data.keyword.keymanagementserviceshort}} instance
 {: #deprovision-a-service-instance}
 
 The network access policy is not enforced when a request for a
-{{site.data.keyword.keymanagementserviceshort}} service instance is
+{{site.data.keyword.keymanagementserviceshort}} instance is
 deprovisioned.
 
-### Enabling network access to your service instance with the console
+### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enabling-network-access-to-your-service-instance-ui}
 
 If you prefer to enable a dual authorization policy on your instance by using a graphical interface, you can use the IBM Cloud console.
@@ -113,7 +113,7 @@ Keys in a `private-only` instance will not be shown in the UI and any
 {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an
 unauthorized error (HTTP status code 401).
 
-After creating a service instance, complete the following steps to create a network access policy:
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a network access policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -124,11 +124,11 @@ provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 6. Click the **Add policy** button.
 7. Confirm the policy was created in the updated **Policies** table.
 
-### Enabling network access to your service instance with the API
+### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enabling-network-access-to-your-service-instance-api}
 
 As an admin, enable a network access policy for a
-{{site.data.keyword.keymanagementserviceshort}} service instance by making a
+{{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint. See these API references to
 [set](/apidocs/key-protect#set-instance-policies){: external}
 and
@@ -143,13 +143,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
     To change a network access policy, you must be assigned a _Manager_ access
-    policy for your service instance. To learn how IAM (identity and access
+    policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM (identity and access
     management) roles map to {{site.data.keyword.keymanagementserviceshort}}
     service actions, check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Enable a network access policy for your service instance by running the
+2. Enable a network access policy for your {{site.data.keyword.keymanagementserviceshort}} instance by running the
 following cURL command.
 
     ```cURL
@@ -197,7 +197,7 @@ following cURL command.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -258,7 +258,7 @@ following cURL command.
         </td>
         <td>
           <strong>Required.</strong> The network access policy to apply to your
-          {{site.data.keyword.keymanagementserviceshort}} service instance.
+          {{site.data.keyword.keymanagementserviceshort}} instance.
           Acceptable values are <code>public-and-private</code> or
           <code>private-only</code>.
         </td>
@@ -271,7 +271,7 @@ following cURL command.
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
-    indicates that your service instance now enforces a network access policy.
+    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance now enforces a network access policy.
     API requests to the service are restricted to the policy you set.
 
     This policy applies to {{site.data.keyword.keymanagementserviceshort}}
@@ -279,7 +279,7 @@ following cURL command.
 
 3. Optional: Verify that the network access policy was created by browsing the
 policies that are available for your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```cURL
     curl -X GET \
@@ -290,7 +290,7 @@ policies that are available for your
     ```
     {: codeblock}
 
-### Disabling network access to your service instance with the console
+### Disabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #disabling-network-access-to-your-service-instance-ui}
 
 If you prefer to disable a network access policy on your instance by using a graphical interface, you can use the IBM Cloud console.
@@ -302,7 +302,7 @@ After creating a network access policy, complete the following steps to disable 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
 provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the **Manage instance policies** page, use the **Policies** table to browse the policies in
-your service instance.
+your {{site.data.keyword.keymanagementserviceshort}} instance.
 5. Click the ⋯ icon to open a list of options for the policy that you want to
 disable.
 6. From the options menu, click **Disable policy** and confirm the policy was disabled in

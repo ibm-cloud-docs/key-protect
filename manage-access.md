@@ -39,7 +39,7 @@ your account, you are automatically assigned a _Manager_ policy with access to
 all resources under the account.
 - **Grant roles and permissions at the smallest scope needed.**
 For example, if a user needs to access only a high-level view of keys within a
-{{site.data.keyword.keymanagementserviceshort}} service instance, grant the
+{{site.data.keyword.keymanagementserviceshort}} instance, grant the
 _Reader_ role to the user for that instance. You can also
 [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).
 - **Regularly audit who can manage access control and delete key resources.**
