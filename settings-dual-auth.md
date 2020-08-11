@@ -46,19 +46,19 @@ accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 Before you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **When you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, the policy is applicable only for 
-  new keys.**
-  By enabling dual authorization at the instance level, any new keys that you add
-  to the instance will automatically inherit a dual authorization policy. Your
-  existing keys are not affected by the policy change and will still require a
-  single authorization for deletion.
+- **When you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, the policy is applicable only for new keys.**
+  By enabling dual authorization at the instance level, any new keys that you
+  add to the instance will automatically inherit a dual authorization policy.
+  Your existing keys are not affected by the policy change and will still
+  require a single authorization for deletion.
+
 - **You can always disable a dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
   If you want to
   [disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
   to allow for single authorization, keep in mind that the change is applicable
   only for future keys that you add to the instance. Any existing keys that were
-  created under a dual authorization policy will continue to require actions from
-  two users before the keys can be deleted. After a key inherits a dual
+  created under a dual authorization policy will continue to require actions
+  from two users before the keys can be deleted. After a key inherits a dual
   authorization policy, the policy cannot be reverted.
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
@@ -146,7 +146,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
+            {{site.data.keyword.keymanagementserviceshort}} {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -209,7 +209,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 
 3. Optional: Verify that the dual authorization policy was created by browsing
    the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+   {{site.data.keyword.keymanagementserviceshort}} {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```cURL
     curl -X GET \
@@ -233,8 +233,8 @@ authorization policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the **Manage instance policies** page, use the **Policies** table to browse the policies in
-   your {{site.data.keyword.keymanagementserviceshort}} instance.
+4. On the **Manage instance policies** page, use the **Policies** table to
+   browse the policies in your {{site.data.keyword.keymanagementserviceshort}} instance.
 5. Click the ⋯ icon to open a list of options for the policy that you want to
    disable.
 6. From the options menu, click **Disable policy** and confirm the policy was

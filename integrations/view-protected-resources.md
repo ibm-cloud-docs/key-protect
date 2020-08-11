@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-07"
+lastupdated: "2020-08-11"
 
 keywords: view protected data
 
@@ -836,7 +836,7 @@ following table.
 Use URL encoded CRN queries to filter registrations by {{site.data.keyword.keymanagementserviceshort}} instance,
 resource type, or resource name. To learn more about CRN segments and format,
 see
-[Cloud Resource Names](/docs/resources?topic=resources-crn){: external}.
+[Cloud Resource Names](/docs/account?topic=account-crn){: external}.
 
 Cloud Services that use {{site.data.keyword.keymanagementserviceshort}}
 to associate keys with resources on your behalf can only view or query for CRNs

@@ -97,7 +97,7 @@ You can specify one of the following commands.
 {: #kp-create-039}
 
 [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys) in the
-{{site.data.keyword.keymanagementserviceshort}} service instance that you
+{{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
 ```
@@ -124,7 +124,7 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -242,7 +242,7 @@ for information about using an import token to upload a key to
 {: #kp-list-039}
 
 List the last 200 keys that are available in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```
 ibmcloud kp list -i $INSTANCE_ID
@@ -270,7 +270,7 @@ Key ID                                 Key Name
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -330,7 +330,7 @@ Key ID                                 Key Name          Description     Creatio
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -352,7 +352,7 @@ Key ID                                 Key Name          Description     Creatio
 
 [Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) by
 using a root key that is stored in the
-{{site.data.keyword.keymanagementserviceshort}} service instance that you
+{{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
 ```
@@ -378,7 +378,7 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -417,7 +417,7 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 
 [Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
 by using a root key that is stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```
 ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
@@ -447,7 +447,7 @@ ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -517,7 +517,7 @@ SUCCESS
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} service instance.
+      {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -586,7 +586,7 @@ Deleted Key
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -629,7 +629,7 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -684,7 +684,7 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -705,7 +705,7 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 {: #kp-import-token-create-039}
 
 [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens)
-in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
+in the {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
 ```
@@ -733,7 +733,7 @@ Created                         Expires                         Max Retrievals  
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -771,7 +771,7 @@ Created                         Expires                         Max Retrievals  
 {: #kp-import-token-get-039}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your service instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
@@ -803,7 +803,7 @@ SUCCESS
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -840,7 +840,7 @@ sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 
@@ -871,7 +871,7 @@ sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
 
 Encrypt the key material that you want to import to
 {{site.data.keyword.keymanagementserviceshort}} by using the public key that's
-associated with your service instance. Then, provide the retrieved encrypted
+associated with your {{site.data.keyword.keymanagementserviceshort}} instance. Then, provide the retrieved encrypted
 key when you run `ibmcloud kp create` to import the key to the service.
 
 ```
@@ -899,7 +899,7 @@ Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
   </dd>
 </dl>
 

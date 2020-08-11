@@ -76,7 +76,7 @@ familiarity with key management systems. The following steps should take about
 - Creating and encrypting keys using the OpenSSL cryptography toolkit
 
 - Importing an encrypted key to your
-{{site.data.keyword.keymanagementserviceshort}} instance
+  {{site.data.keyword.keymanagementserviceshort}} instance
 
 This tutorial won't incur any charges to your {{site.data.keyword.cloud_notm}}
 account.
@@ -219,8 +219,8 @@ variables in your terminal.
     {: note}
 
 3. Retrieve the identifier that is associated with your
-   {{site.data.keyword.keymanagementserviceshort}} instance, and then set
-   the value as an environment variable.
+   {{site.data.keyword.keymanagementserviceshort}} instance, and then
+   set the value as an environment variable.
 
     ```sh
     export INSTANCE_ID=`ibmcloud resource service-instance "import-keys-demo" --output json | jq -r '.[].guid'`
@@ -267,8 +267,8 @@ security for your encryption key while it's in flight to the service.
     You use this directory to store files for later steps.
 
 2. Create an import token for your
-   {{site.data.keyword.keymanagementserviceshort}} instance, and then save
-   the response to a JSON file.
+   {{site.data.keyword.keymanagementserviceshort}} instance, and then
+   save the response to a JSON file.
 
     ```cURL
     curl -X POST \
@@ -561,8 +561,8 @@ To import the key:
     {: pre}
 
 2. Store the encrypted key in your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   {{site.data.keyword.keymanagementserviceshort}} instance by running
+   the following cURL command.
 
     ```cURL
     curl -X POST \
@@ -708,7 +708,7 @@ To import the key:
     {: pre}
 
     If you created more test keys in your {{site.data.keyword.keymanagementserviceshort}} instance, be sure to
-    [remove all encryption keys from your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-delete-keys)
+    [remove all encryption keys from your instance](/docs/key-protect?topic=key-protect-delete-keys)
     before you deprovision the instance.
     {: tip}
 

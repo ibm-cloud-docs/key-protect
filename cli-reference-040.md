@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-08-11"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
@@ -63,10 +63,10 @@ and
 [jq](https://stedolan.github.io/jq/){: external}
 installed.
 
-The examples use the exported service instance instead of the `-i` parameter.
+The examples use the exported {{site.data.keyword.keymanagementserviceshort}} instance instead of the `-i` parameter.
 
 ```sh
-# export the service instance id
+# export the {{site.data.keyword.keymanagementserviceshort}} instance id
 $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 ```
 {: screen}
@@ -93,9 +93,9 @@ $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 |                                     | [show](#kp-key-show-040)                            | Retrieve a key |
 |                                     | [unwrap](#kp-key-unwrap-040)                        | Unwrap a data encryption key |
 |                                     | [wrap](#kp-key-wrap-040)                            | Wrap a data encryption key |
-| [kp keys](#kp-keys-040)             |                                                     | List the keys that are available in your service instance |
+| [kp keys](#kp-keys-040)             |                                                     | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp region-set](#kp-region-set-040) |                                                     | Target a different regional endpoint |
-{: caption="Table 1. Commands for managing your service instance, import tokens, and keys" caption-side="top"}
+{: caption="Table 1. Commands for managing your {{site.data.keyword.keymanagementserviceshort}} instance, import tokens, and keys" caption-side="top"}
 
 ## Viewing help
 {: #kp-help-040}
@@ -119,7 +119,7 @@ show help for specific sub-commands, which you can change.
 
 [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens)
 that you can use to encrypt and import a root key to the
-{{site.data.keyword.keymanagementserviceshort}} service instance. By default,
+{{site.data.keyword.keymanagementserviceshort}} instance. By default,
 the import token expires after 10 minutes (600 seconds).
 
 ```
@@ -160,7 +160,7 @@ $ ibmcloud kp import-token show
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -201,7 +201,7 @@ $ ibmcloud kp import-token show
 
 Encrypt the key material that you want to import to
 {{site.data.keyword.keymanagementserviceshort}} by using the public key that's
-associated with your service instance.
+associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 Then, provide the retrieved encrypted key when you run `ibmcloud kp key create`
 to import the key to the service.
@@ -245,7 +245,7 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -318,7 +318,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -345,7 +345,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 {: #kp-import-token-show-040}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your service instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
@@ -394,7 +394,7 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -404,7 +404,7 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 {: #kp-key-create-040}
 
 [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys)
-in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
+in the {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify or
 [import your own key](/docs/key-protect?topic=key-protect-import-root-keys)
 
@@ -536,7 +536,7 @@ Key ID                                 Key Name
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -719,7 +719,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -852,7 +852,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -941,7 +941,7 @@ Interval        2
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1099,7 +1099,7 @@ FAILED
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1184,7 +1184,7 @@ Key ID                                 Key Name      Description   Creation Date
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1208,7 +1208,7 @@ Key ID                                 Key Name      Description   Creation Date
 
 [Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
 using a root key that is stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
@@ -1330,7 +1330,7 @@ FAILED
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1372,7 +1372,7 @@ FAILED
 
 [Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys)
 (DEK) using a root key that is stored in the
-{{site.data.keyword.keymanagementserviceshort}} service instance. A DEK is
+{{site.data.keyword.keymanagementserviceshort}} instance. A DEK is
 typically used to encrypt "other" pieces of information.
 
 When you wrap a DEK with a root key,
@@ -1518,7 +1518,7 @@ FAILED
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1573,7 +1573,7 @@ FAILED
 {: #kp-keys-040}
 
 List the keys that are available in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```
 ibmcloud kp keys
@@ -1689,7 +1689,7 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1800,7 +1800,7 @@ OK
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>

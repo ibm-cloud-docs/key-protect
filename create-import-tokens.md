@@ -27,7 +27,7 @@ subcollection: key-protect
 
 You can enable the secure import of root key material to the cloud by first
 creating an import token for your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 {: shortdesc}
 
 Import tokens are used to encrypt and securely bring root key material into
@@ -39,7 +39,7 @@ specify. To learn more about importing your keys securely to the cloud, see
 {: #create-import-token-api}
 
 Create an import token that's associated with your
-{{site.data.keyword.keymanagementserviceshort}} service instance by making a
+{{site.data.keyword.keymanagementserviceshort}} instance by making a
 `POST` call to the following endpoint.
 
 ```
@@ -83,7 +83,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -161,7 +161,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
     </table>
 
     A successful `POST api/v2/import_token` request creates an import token for
-    your {{site.data.keyword.keymanagementserviceshort}} service instance. The
+    your {{site.data.keyword.keymanagementserviceshort}} instance. The
     response body contains the metadata that is associated with your import
     token, such as its creation date and policy details. The following snippet
     shows example output.
@@ -186,7 +186,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 {: #retrieve-import-token-api}
 
 Retrieve the import token that's associated with your
-{{site.data.keyword.keymanagementserviceshort}} service instance by making a
+{{site.data.keyword.keymanagementserviceshort}} instance by making a
 `GET` call to the following endpoint.
 
 ```
@@ -196,7 +196,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Retrieve the import token that is associated with your service instance by
+2. Retrieve the import token that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance by
 calling the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
@@ -226,7 +226,7 @@ calling the
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -277,7 +277,7 @@ calling the
     </table>
 
     A successful `GET api/v2/import_token` request retrieves the import token
-    for your service instance. The response body contains the metadata that is
+    for your {{site.data.keyword.keymanagementserviceshort}} instance. The response body contains the metadata that is
     associated with your import token, such as its creation date and policy
     details.
 
@@ -303,7 +303,7 @@ calling the
     to
     [encrypt a root key](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)
     before you upload the key material to a
-    {{site.data.keyword.keymanagementserviceshort}} service instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     In the example, the `payload` value represents the public key that is
     associated with the import token. This value is base64 encoded. For extra

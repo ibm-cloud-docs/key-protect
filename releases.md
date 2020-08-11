@@ -67,9 +67,10 @@ following features:
   imported root key that was deleted. For more information, see
   [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
-- Set an instance level dual authorization policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to require two users 
-  to safely delete a
-  key from your {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see 
+- Set an instance level dual authorization policy: You can now use the
+  {{site.data.keyword.keymanagementserviceshort}} UI to require two users to
+  safely delete a key from your {{site.data.keyword.keymanagementserviceshort}}
+  instance. For more information, see
   [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
 
 - Set an instance level network policy: You can now use the
@@ -515,11 +516,10 @@ The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on
 Cloud Foundry, reached its end of support on 15 May 2019. Cloud Foundry-managed
 {{site.data.keyword.keymanagementserviceshort}} instances are no longer
 supported and updates to the legacy service will no longer be provided.
-Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}}
-instances that are IAM-managed to benefit from the latest features for
+Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}} instances that are IAM-managed to benefit from the latest features for
 the service.
 
-If you created your {{site.data.keyword.keymanagementserviceshort}} 
+If you created your {{site.data.keyword.keymanagementserviceshort}}
 instance after 15 December 2017, your instance is IAM-managed and it is
 not affected by this change.
 
@@ -583,7 +583,7 @@ on 15 May 2019.
 
 If you have active production keys in an older
 {{site.data.keyword.keymanagementserviceshort}} instance, ensure that
-you migrate the keys to a new {{site.data.keyword.keymanagementserviceshort}} instance by 15 May 2019 to avoid losing
+you migrate the keys to a new instance by 15 May 2019 to avoid losing
 access to your encrypted data. You can check to see whether you're using a
 legacy instance by navigating to your resource list from the
 [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.

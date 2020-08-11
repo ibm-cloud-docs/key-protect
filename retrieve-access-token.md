@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-11"
 
 keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
 
@@ -71,7 +71,7 @@ to quickly generate your personal Cloud IAM [access token](#x2113001){: term}.
 {: #retrieve-token-api}
 
 You can also retrieve your access token programmatically by first creating a
-[service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}
+[service ID API key](/docs/account?topic=account-serviceidapikeys){: external}
 for your application, and then exchanging your API key for an
 {{site.data.keyword.cloud_notm}} IAM token.
 
@@ -93,7 +93,7 @@ for your application, and then exchanging your API key for an
    instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Create a
-   [service ID](/docs/iam?topic=iam-serviceids){: external} for your application.
+   [service ID](/docs/account?topic=account-serviceids){: external} for your application.
 
     ```sh
     ibmcloud iam service-id-create SERVICE_ID_NAME
@@ -101,11 +101,11 @@ for your application, and then exchanging your API key for an
     ```
     {: pre}
 
-4. [Assign an access policy](/docs/iam?topic=iam-serviceidpolicy){: external}
+4. [Managing access to resources](/docs/account?topic=account-assign-access-resources){: external}
    for the service ID.
 
     You can assign access permissions for your service ID
-    [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-serviceidpolicy#access_new){: external}.
+    [by using the {{site.data.keyword.cloud_notm}} console](/docs/account?topic=account-assign-access-resources#assign_new_access){: external}.
     To learn how the _Manager_, _Writer_, and _Reader_ access roles map to
     specific {{site.data.keyword.keymanagementserviceshort}} service actions,
     see

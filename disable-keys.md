@@ -87,7 +87,7 @@ complete the following steps to disable a key:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-   your service instance.
+   your {{site.data.keyword.keymanagementserviceshort}} instance.
 5. Click the ⋯ icon to open a list of options for the key that you want to
    disable.
 6. From the options menu, click **Disable key** and confirm the key was disabled
@@ -167,7 +167,7 @@ encrypt and decrypt operations.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -352,7 +352,7 @@ and decrypt operations.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

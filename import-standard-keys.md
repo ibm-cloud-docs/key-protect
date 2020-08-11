@@ -35,7 +35,8 @@ You can add your existing encryption keys by using the
 complete the following steps to import an existing key by using the
 {{site.data.keyword.cloud_notm}} console.
 
-If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
+If you enable
+[dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
 keep in mind that any keys that you add to the service require an authorization
 from two users to delete keys.
 {: note}

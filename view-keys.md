@@ -110,14 +110,14 @@ command.
 
     | Variable | Description |
     | -------- | ----------- |
-    | <varname>region</varname> | <p><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} service resides.</p><p>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).</p> |
+    | <varname>region</varname> | <p><strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.</p><p>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).</p> |
     | <varname>IAM_token</varname> | <p><strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request.</p><p>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).</p> |
     | <varname>instance_ID</varname> | <p><strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} instance.</p><p>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).</p> |
     | <varname>correlation_ID</varname> | The unique identifier that is used to track and correlate transactions. |
     {: caption="Table 2. Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="bottom"}
 
     A successful `GET api/v2/keys` request returns a collection of keys that are
-    available in your {{site.data.keyword.keymanagementserviceshort}} 
+    available in your {{site.data.keyword.keymanagementserviceshort}} service
     instance.
 
     ```json

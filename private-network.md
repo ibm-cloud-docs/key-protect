@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-11"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -37,7 +37,7 @@ connect to {{site.data.keyword.keymanagementserviceshort}} by using a private IP
 that is accessible only through the {{site.data.keyword.cloud_notm}} private
 network. To learn more about private connections on
 {{site.data.keyword.cloud_notm}}, see
-[Service endpoints for private connections](/docs/resources?topic=resources-service-endpoints){: external}.
+[Service endpoints for private connections](/docs/account?topic=account-service-endpoints-overview){: external}.
 
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
 network connection, you must use the
@@ -181,8 +181,8 @@ Test your private network connection by using the
 
     Replace `<key_name>` with a human-readable alias for easy identification of
     your key. Replace `<instance_ID>` with the {{site.data.keyword.cloud_notm}}
-    instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}}
-    instance.
+    instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
 2. Optional: Verify that the key was created successfully by listing the keys
    that are available in your {{site.data.keyword.keymanagementserviceshort}}
