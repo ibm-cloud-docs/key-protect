@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-11"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -105,7 +105,7 @@ can enable the EU Supported setting for your {{site.data.keyword.cloud_notm}}
 account. To find out more, see
 [Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
 and
-[Requesting support for resources in the European Union](/docs/get-support?topic=get-support-getting-customer-support#eusupported){: external}.
+[Requesting support for resources in the European Union](/docs/get-support?topic=get-support-using-avatar#eusupported){: external}.
 
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}

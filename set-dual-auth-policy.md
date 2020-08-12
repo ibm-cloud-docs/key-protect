@@ -293,7 +293,8 @@ be reverted.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance resides.
+            {{site.data.keyword.keymanagementserviceshort}} instance
+            resides.
           </p>
           <p>
             For more information, see

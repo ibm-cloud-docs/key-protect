@@ -349,7 +349,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 3. Optional: Verify that the key was added by running the following call to
    browse the keys in your {{site.data.keyword.keymanagementserviceshort}}
-   service instance.
+   instance.
 
     ```cURL
     curl -X GET \

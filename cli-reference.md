@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-11"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.0
 
@@ -66,11 +66,11 @@ and
 [jq](https://stedolan.github.io/jq/){: external}
 installed.
 
-The examples use the exported service instance environment variable instead of
+The examples use the exported {{site.data.keyword.keymanagementserviceshort}} instance environment variable instead of
 the `-i` parameter.
 
 ```sh
-# export the Key Protect service instance id
+# export the Key Protect instance id
 $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 ```
 {: screen}
@@ -97,7 +97,7 @@ The `kp import-token` command prepares a root key for secure import.
 {: #kp-instance-command}
 
 The `kp instance` command manages policies for a
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 | Sub-command                                                         | Status v0.5.0 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
@@ -137,7 +137,7 @@ These are other commands for managing
 
 | Command                               | Status v0.5.0 | Description |
 | ------------------------------------- | ------------- | ----------- |
-| [kp keys](#kp-keys)                   |               | List the keys that are available in your service instance |
+| [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp registrations](#kp-registrations) | New           | List associations between root keys and other cloud resources |
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
 {: caption="Table 4. Commands for managing other resources" caption-side="top"}
@@ -163,7 +163,7 @@ show help for some sub-commands.
 
 [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens)
 that you can use to encrypt and import a root key to the
-{{site.data.keyword.keymanagementserviceshort}} service instance. By default,
+{{site.data.keyword.keymanagementserviceshort}} instance. By default,
 the import token expires after 10 minutes (600 seconds).
 
 ```
@@ -210,7 +210,7 @@ $ ibmcloud kp import-token show
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -251,7 +251,7 @@ $ ibmcloud kp import-token show
 
 Encrypt the key material that you import into
 {{site.data.keyword.keymanagementserviceshort}} by using the public key that's
-associated with your service instance.
+associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 Then, provide the retrieved encrypted key when you run `ibmcloud kp key create`
 to import the key to the service.
@@ -298,7 +298,7 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -405,7 +405,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -462,7 +462,7 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 {: #kp-import-token-show}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your service instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
@@ -514,7 +514,7 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -610,7 +610,7 @@ $ ibmcloud kp instance policies --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -713,7 +713,7 @@ Network Allowed   public-and-private
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -917,7 +917,7 @@ kp.Error:
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1007,7 +1007,7 @@ SUCCESS
 {: #kp-key-create}
 
 [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys)
-in the {{site.data.keyword.keymanagementserviceshort}} service instance that you
+in the {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify or
 [import your own key](/docs/key-protect?topic=key-protect-import-root-keys)
 
@@ -1165,7 +1165,7 @@ Key ID                                 Key Name
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1344,7 +1344,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
 Delete a root key that is registered with another cloud resource.
 
 ```sh
-# create a Cloud Object Storage (COS) service instance
+# create a Cloud Object Storage (COS) instance
 # "lite" is the pricing plan and "global" is the region
 $ COS_NAME=my-cos-1
 
@@ -1353,7 +1353,7 @@ $ ibmcloud resource service-instance-create $COS_NAME cloud-object-storage lite 
 # capture the COS instance id (GUID)
 $ COS_INSTANCE_ID=9d4353d8-6b85-4689-90dd-1ccfb4a275ab
 
-# create a Key Management Service (KMS) service instance
+# create a Key Management Service (KMS) instance
 # "tiered-pricing" is the pricing plan and "us-south" is the region
 $ KMS_NAME=my-kms-1
 
@@ -1461,7 +1461,7 @@ No service instance found.
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1654,7 +1654,7 @@ kp.Error:
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1788,7 +1788,7 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -1894,7 +1894,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -2050,7 +2050,7 @@ kp.Error:
     </p>
     <p>
       You **cannot** delete the {{site.data.keyword.keymanagementserviceshort}}
-      service instance as long as their active keys. A key with a dual
+      instance as long as their active keys. A key with a dual
       authorization policy is an active key.
     </p>
   </dd>
@@ -2474,7 +2474,7 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -2749,7 +2749,7 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -2964,7 +2964,7 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -2988,7 +2988,7 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 
 [Unwrap a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys)
 using a root key that is stored in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
@@ -3119,7 +3119,7 @@ FAILED
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -3161,7 +3161,7 @@ FAILED
 
 [Wrap a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys)
 (DEK) using a root key that is stored in the
-{{site.data.keyword.keymanagementserviceshort}} service instance. A DEK is
+{{site.data.keyword.keymanagementserviceshort}} instance. A DEK is
 typically used to encrypt "other" pieces of information.
 
 When you wrap a DEK with a root key,
@@ -3349,7 +3349,7 @@ FAILED
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -3404,7 +3404,7 @@ FAILED
 {: #kp-keys}
 
 List the keys that are available in your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 Keys are listed in `key id` order; see
 [example 5](#kp-keys-example-5).
@@ -3657,7 +3657,7 @@ done
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -3745,7 +3745,7 @@ this format:
 `crn:version:cname:ctype:service-name:location:scope:service-instance:resource-type:resource`
 
 See
-[Cloud Resource Names](/docs/resources?topic=resources-crn){: external}
+[Cloud Resource Names](/docs/account?topic=account-crn){: external}
 for an in-depth explanation of CRN fields.
 
 #### Example 1
@@ -3782,13 +3782,13 @@ $ ibmcloud kp registrations --output json
 
 This example shows the full lifecycle of two cloud resources (Cloud Object
 Storage and {{site.data.keyword.keymanagementserviceshort}} - from creating
-service instances and creating a policy between them to deleting the instances.
+{{site.data.keyword.keymanagementserviceshort}} instances and creating a policy between them to deleting the instances.
 
 A summary of the steps is:
 
 | Step | Where      | Description |
 | ---- | ---------- | ----------- |
-| 1    | CLI        | Create cloud object storage (COS) and {{site.data.keyword.keymanagementserviceshort}} (KP) service instances |
+| 1    | CLI        | Create cloud object storage (COS) and {{site.data.keyword.keymanagementserviceshort}} (KP) instances |
 | 2    | CLI        | Create a policy for COS to access KP encryption keys |
 | 3    | CLI        | Create a KP root key that COS uses to encrypt data |
 | 4    | Console UI | Create a COS bucket and specify KP encryption; this is done in the console user interface (UI) because there is no API or CLI support at this time |
@@ -3796,7 +3796,7 @@ A summary of the steps is:
 | 6    | CLI        | Upload and download an object to verify COS and KP works together |
 | 7    | CLI        | Delete the COS bucket and the KP root key |
 | 8    | CLI        | Delete the authorization policy between COS and KP |
-| 9    | CLI        | Delete the COS and KP service instances |
+| 9    | CLI        | Delete the COS and KP instances |
 
 These commands show COS and {{site.data.keyword.keymanagementserviceshort}}
 service plans. The `ibmcloud resource service-instance-create` command requires
@@ -3809,7 +3809,7 @@ $ ibmcloud catalog service kms
 ```
 
 ```sh
-# create a Cloud Object Storage (COS) service instance
+# create a Cloud Object Storage (COS) instance
 # "lite" is the pricing plan and "global" is the region
 $ COS_NAME=my-cos-1
 
@@ -4128,7 +4128,7 @@ No service instance found.
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>
@@ -4252,7 +4252,7 @@ OK
   </dt>
   <dd>
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} service instance. You can
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
     <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
     <code>-i</code>.
   </dd>

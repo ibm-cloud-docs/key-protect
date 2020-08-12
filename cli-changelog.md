@@ -177,7 +177,7 @@ Major changes were made to the `ibmcloud kp` command structure.
 
 - `kp key` : perform operations on keys
 
-- `kp keys` : list the keys that are available in your service instance
+- `kp keys` : list the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance
 
 - `kp region-set` : target a different
 {{site.data.keyword.keymanagementserviceshort}} regional endpoint
