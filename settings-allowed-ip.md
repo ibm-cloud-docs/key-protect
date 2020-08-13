@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-04"
+lastupdated: "2020-08-13"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -498,12 +498,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port
    running the following cURL command.
 
     ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
+    curl -X GET 'https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port' \ 
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.ip_whitelist_port+json' \
+      -H 'content-type: application/vnd.ibm.kms.ip_whitelist_port+json'
     ```
     {: codeblock}
 
