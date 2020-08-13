@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-11"
 
 keywords: user permissions, manage access, IAM roles
 
@@ -43,6 +43,7 @@ account or service. For example, consider the following guidelines:
   {{site.data.keyword.keymanagementserviceshort}} instance, grant the
   _Reader_ role to the user for that instance. You can also
   [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).
+
 - **Regularly audit who can manage access control and delete key resources.**
   Remember that granting a _Manager_ role to a user means that the user can
   modify service policies for other users, in addition to destroying resources.
@@ -63,7 +64,7 @@ members of your team.
 This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of
 {{site.data.keyword.keymanagementserviceshort}}. For complete IAM documentation,
 see
-[Managing access in {{site.data.keyword.cloud_notm}}](/docs/iam?topic=overview-cloudaccess){: external}.
+[Managing access in {{site.data.keyword.cloud_notm}}](/docs/account?topic=overview-cloudaccess){: external}.
 {: note}
 
 ### Platform access roles
@@ -198,4 +199,4 @@ users can perform.
 
 - For more information about assigning user roles in the
   {{site.data.keyword.cloud_notm}} UI, see
-  [Managing IAM access](/docs/iam?topic=iam-getstarted){: external}.
+  [Managing IAM access](/docs/account?topic=account-account-getting-started){: external}.

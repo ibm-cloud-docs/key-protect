@@ -26,7 +26,7 @@ subcollection: key-protect
 
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an
 encryption key and its contents, if you are a manager for your
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 {: shortdesc}
 
 When you delete a key, you shred its contents and associated data. Any data that
@@ -102,7 +102,7 @@ at query time to delete the key.
 
 2. Retrieve the ID of the key that you want to delete.
 
-    You can find the ID for a key in your service instance by
+    You can find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
@@ -136,7 +136,7 @@ at query time to delete the key.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>
@@ -328,7 +328,7 @@ the key.
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           <p>
           </p>

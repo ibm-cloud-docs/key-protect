@@ -162,7 +162,7 @@ Space:
 {: #provision-select-region}
 
 Select the region and resource group where you would like to create a
-{{site.data.keyword.keymanagementserviceshort}} service instance.
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 The `<resource_group_name>` can be `Default` (case-sensitive).
 

@@ -155,7 +155,7 @@ role cannot modify key material.
 
 You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track
 how users and applications interact with your
-{{site.data.keyword.keymanagementserviceshort}} service instance. For example,
+{{site.data.keyword.keymanagementserviceshort}} instance. For example,
 when you create, import, delete, or read a key in
 {{site.data.keyword.keymanagementserviceshort}}, an
 {{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are
@@ -256,36 +256,36 @@ at the instance level or for individual keys.
 {: #enable-dual-auth}
 {: faq}
 
-After you enable a dual authorization policy for a service instance, any keys
+After you enable a dual authorization policy for a {{site.data.keyword.keymanagementserviceshort}} instance, any keys
 that you add to the instance inherit the policy at the key level. Dual
 authorization policies for keys cannot be reverted.
 
-If you have existing keys in a service instance, those keys will continue to
+If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}} instance, those keys will continue to
 require only a single authorization to be deleted. If you want to enable those
 keys for dual authorization, you can use the
 {{site.data.keyword.keymanagementserviceshort}} APIs to
 [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
-## Can I disable a dual authorization settings for my service instance?
+## Can I disable a dual authorization settings for my {{site.data.keyword.keymanagementserviceshort}} instance?
 {: #disable-dual-auth}
 {: faq}
 
 Yes. If you need to add a key that doesn't require dual authorization to your
-service instance, you can always
-[disable dual authorization for the service instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy-ui)
+{{site.data.keyword.keymanagementserviceshort}} instance, you can always
+[disable dual authorization for the {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy-ui)
 so that any new or future keys won't require it.
 
-## What happens when I need to deprovision my service instance?
+## What happens when I need to deprovision my {{site.data.keyword.keymanagementserviceshort}} instance?
 {: #deprovision-service}
 {: faq}
 {: support}
 
 If you decide to move on from {{site.data.keyword.keymanagementserviceshort}},
-you must delete any remaining keys from your service instance before you can
-deprovision the service. After you delete your service instance,
+you must delete any remaining keys from your {{site.data.keyword.keymanagementserviceshort}} instance before you can
+deprovision the service. After you delete your {{site.data.keyword.keymanagementserviceshort}} instance,
 {{site.data.keyword.keymanagementserviceshort}} uses
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
-to crypto-shred any data that is associated with the service instance.
+to crypto-shred any data that is associated with the {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ## Why does the user interface show unauthorized access?
 {: #user-interface-unauthorized}

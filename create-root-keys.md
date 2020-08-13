@@ -45,7 +45,7 @@ complete the following steps to create a root key in the
 {{site.data.keyword.cloud_notm}} console.
 
 If you enable
-[dual authorization settings for your service instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
+[dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
 keep in mind that any keys that you add to the service require an authorization
 from two users to delete keys.
 {: note}
@@ -165,7 +165,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             <strong>Required.</strong> The region abbreviation, such as
             <code>us-south</code> or <code>eu-gb</code>, that represents the
             geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} service instance
+            {{site.data.keyword.keymanagementserviceshort}} instance
             resides.
           </p>
           <p>

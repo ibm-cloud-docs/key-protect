@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-08-11"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -155,7 +155,7 @@ that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
 Be sure to provision both services in the same region before you create an
 authorization. To learn more about service authorizations, see
-[Granting access between services](/docs/iam?topic=iam-serviceauth){: external}.
+[Granting access between services](/docs/account?topic=account-serviceauth){: external}.
 {: note}
 
 When you're ready to integrate a service, use the following steps to create an

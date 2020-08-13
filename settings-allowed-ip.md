@@ -26,11 +26,11 @@ subcollection: key-protect
 {: #manage-ip-allowlist}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
-instance, you can manage allowed ip policies by using the
+instance, you can manage allowed IP policies by using the
 {{site.data.keyword.keymanagementservicelong}} service API.
 {: shortdesc}
 
-## Managing allowed ip settings
+## Managing allowed IP settings
 {: #manage-allowed-ip-instance-policy}
 
 Allowed IP for {{site.data.keyword.keymanagementserviceshort}}
@@ -51,20 +51,22 @@ accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 {{site.data.keyword.keymanagementserviceshort}} currently supports the allowed
 IP policy feature on an account basis. If you need to enable an allowed IP
 policy for your {{site.data.keyword.keymanagementserviceshort}} instance,
-[open](/docs/get-support?topic=get-support-getting-customer-support){: external}
-a support ticket to request access to this feature.
+[get support](/docs/get-support?topic=get-support-using-avatar){: external}
+or
+[create a case](/unifiedsupport/cases/form){: external}
+to request access to this feature.
 {: important}
 
 Before you enable and allowed IP policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **Allowed IP policies only support ipv4 notation.**
+- **Allowed IP policies only support IPv4 notation.**
   {{site.data.keyword.keymanagementserviceshort}} currently only supports IPv4
   notation at this time. If your service has both an IPv4 and an IPv6 address,
   you will need to resolve all requests to the IPv4 address.
 
-- **If you are using a private endpoint, your private environment should be set up prior to enabling an allowed ip policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
+- **If you are using a private endpoint, your private environment should be set up prior to enabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
   Before you create an instance policy for your
   {{site.data.keyword.keymanagementserviceshort}} instance, ensure that you have
   [configured](/docs/key-protect?topic=key-protect-private-endpoints#configure-private-network)
@@ -114,7 +116,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
 {: codeblock}
 
 If you are updating your {{site.data.keyword.keymanagementserviceshort}}
-instance's allowed IP policy, you will need to provide all of the ip addresses
+instance's allowed IP policy, you will need to provide all of the IP addresses
 that are already allowed under the policy, as the new request will override the
 existing policy.
 {: important}
@@ -272,7 +274,7 @@ existing policy.
     ```
     {: codeblock}
 
-### Disabling an allowed ip policy for your {{site.data.keyword.keymanagementserviceshort}} instance
+### Disabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-allowed-ip-instance-policy}
 
 As a manager of a {{site.data.keyword.keymanagementserviceshort}} instance,
