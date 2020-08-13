@@ -500,7 +500,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port
    running the following cURL command.
 
     ```cURL
-    curl -X GET 'https://<region>.kms.cloud.ibm.com/api/v2/ip_whitelist_port' \ 
+    curl -X GET 'https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port' \
       -H 'authorization: Bearer <IAM_token>' \
       -H 'bluemix-instance: <instance_ID>' \
       -H 'content-type: application/vnd.ibm.kms.ip_whitelist_port+json'
