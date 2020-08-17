@@ -153,6 +153,7 @@ existing policy.
               "enabled": <true|false>,
               "attributes": {
                 "allowed_ip": [<ip_address_list>]
+              }
             }
           }
         ]
@@ -429,10 +430,9 @@ request to a public endpoint.
 ```cURL
 curl --ipv4 -X GET \
   'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-  -H 'accept: application/vnd.ibm.collection+json' \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>' \
-  -H 'correlation-id: <correlation_ID>'
+  -H 'accept: application/vnd.ibm.collection+json' 
 ```
 {: codeblock}
 
