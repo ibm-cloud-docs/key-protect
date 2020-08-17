@@ -53,9 +53,9 @@ complete the following steps to view your keys.
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. Browse the general characteristics of your keys from the application details
-page:
+   page:
 
     | Column | Description |
     | ------ | ----------- |
@@ -65,10 +65,11 @@ page:
     | Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
     {: caption="Table 1. Describes the <b>Keys</b> table." caption-side="bottom"}
 
-    Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance?
-    Verify with your administrator that you are assigned the correct role for
-    the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information
-    about roles, see
+    Not seeing the full list of keys that are stored in your
+    {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your
+    administrator that you are assigned the correct role for the applicable
+    {{site.data.keyword.keymanagementserviceshort}} instance or individual key.
+    For more information about roles, see
     [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
 
@@ -315,10 +316,10 @@ zero-based, which means that the 10th encryption key in a data set is at offset
 By specifying the `state` parameter at query time, you can retrieve keys that
 are in the states that you specify.
 
-For example, you might have keys in your {{site.data.keyword.keymanagementserviceshort}} instance that are in the
-active, suspended, and destroyed states, but you only want to retrieve keys in
-the active state
-when you make a `GET /keys` request.
+For example, you might have keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance that are in the active,
+suspended, and destroyed states, but you only want to retrieve keys in the
+active state when you make a `GET /keys` request.
 
 The state query parameter takes in a list of integers from 0 to 5 delimited by
 commas with no whitespace or trailing commas. Valid states are based on NIST SP
@@ -357,7 +358,8 @@ Replace the `state` variable in your request according to the following table.
       </p>
       <p>
         For example, if you want to only list keys in the active state in your
-        {{site.data.keyword.keymanagementserviceshort}} instance, use <code>../keys?state=1</code>. You can also pair
+        {{site.data.keyword.keymanagementserviceshort}} instance, use
+        <code>../keys?state=1</code>. You can also pair
         <code>state</code> with<code>offset</code> with <code>limit</code> to
         page through your available resources.
       </p>

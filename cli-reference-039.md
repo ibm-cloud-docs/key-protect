@@ -771,7 +771,8 @@ Created                         Expires                         Max Retrievals  
 {: #kp-import-token-get-039}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}}
+instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
@@ -871,8 +872,9 @@ sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
 
 Encrypt the key material that you want to import to
 {{site.data.keyword.keymanagementserviceshort}} by using the public key that's
-associated with your {{site.data.keyword.keymanagementserviceshort}} instance. Then, provide the retrieved encrypted
-key when you run `ibmcloud kp create` to import the key to the service.
+associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
+Then, provide the retrieved encrypted key when you run `ibmcloud kp create` to
+import the key to the service.
 
 ```
 ibmcloud kp import-token encrypt-key -i $INSTANCE_ID

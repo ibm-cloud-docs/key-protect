@@ -102,7 +102,8 @@ at query time to delete the key.
 
 2. Retrieve the ID of the key that you want to delete.
 
-    You can find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
+    You can find the ID for a key in your
+    {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.

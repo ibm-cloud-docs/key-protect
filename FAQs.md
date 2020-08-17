@@ -256,14 +256,15 @@ at the instance level or for individual keys.
 {: #enable-dual-auth}
 {: faq}
 
-After you enable a dual authorization policy for a {{site.data.keyword.keymanagementserviceshort}} instance, any keys
-that you add to the instance inherit the policy at the key level. Dual
-authorization policies for keys cannot be reverted.
+After you enable a dual authorization policy for a
+{{site.data.keyword.keymanagementserviceshort}} instance, any keys that you add
+to the instance inherit the policy at the key level. Dual authorization policies
+for keys cannot be reverted.
 
-If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}} instance, those keys will continue to
-require only a single authorization to be deleted. If you want to enable those
-keys for dual authorization, you can use the
-{{site.data.keyword.keymanagementserviceshort}} APIs to
+If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}}
+instance, those keys will continue to require only a single authorization to be
+deleted. If you want to enable those keys for dual authorization, you can use
+the {{site.data.keyword.keymanagementserviceshort}} APIs to
 [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## Can I disable a dual authorization settings for my {{site.data.keyword.keymanagementserviceshort}} instance?
@@ -281,11 +282,14 @@ so that any new or future keys won't require it.
 {: support}
 
 If you decide to move on from {{site.data.keyword.keymanagementserviceshort}},
-you must delete any remaining keys from your {{site.data.keyword.keymanagementserviceshort}} instance before you can
-deprovision the service. After you delete your {{site.data.keyword.keymanagementserviceshort}} instance,
+you must delete any remaining keys from your
+{{site.data.keyword.keymanagementserviceshort}} instance before you can
+deprovision the service. After you delete your
+{{site.data.keyword.keymanagementserviceshort}} instance,
 {{site.data.keyword.keymanagementserviceshort}} uses
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
-to crypto-shred any data that is associated with the {{site.data.keyword.keymanagementserviceshort}} instance.
+to crypto-shred any data that is associated with the
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 ## Why does the user interface show unauthorized access?
 {: #user-interface-unauthorized}

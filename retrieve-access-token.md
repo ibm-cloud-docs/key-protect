@@ -113,7 +113,7 @@ for your application, and then exchanging your API key for an
     {: tip}
 
 5. Create a
-   [service ID API key](/docs/iam?topic=iam-serviceidapikeys){: external}.
+   [service ID API key](/docs/account?topic=account-serviceidapikeys){: external}.
 
     ```sh
     ibmcloud iam service-api-key-create API_KEY_NAME SERVICE_ID_NAME

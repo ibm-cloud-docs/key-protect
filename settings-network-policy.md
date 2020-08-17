@@ -114,8 +114,8 @@ Keys in a `private-only` instance will not be shown in the UI and any
 {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an
 unauthorized error (HTTP status code 401).
 
-After creating a {{site.data.keyword.keymanagementserviceshort}} instance, complete the following steps to create a
-network access policy:
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
+complete the following steps to create a network access policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
@@ -146,13 +146,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
     To change a network access policy, you must be assigned a _Manager_ access
-    policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM (identity and access
-    management) roles map to {{site.data.keyword.keymanagementserviceshort}}
-    service actions, check out
+    policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To
+    learn how IAM (identity and access management) roles map to
+    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Enable a network access policy for your {{site.data.keyword.keymanagementserviceshort}} instance by running the
+2. Enable a network access policy for your
+   {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
     ```cURL
@@ -274,8 +275,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance now enforces a network access policy.
-    API requests to the service are restricted to the policy you set.
+    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+    now enforces a network access policy. API requests to the service are
+    restricted to the policy you set.
 
     This policy applies to {{site.data.keyword.keymanagementserviceshort}}
     instances only. The network access policy does not apply to specific keys.
@@ -307,7 +309,8 @@ a network access policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the **Manage instance policies** page, use the **Policies** table to
-   browse the policies in your {{site.data.keyword.keymanagementserviceshort}} instance.
+   browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
+   instance.
 5. Click the ⋯ icon to open a list of options for the policy that you want to
    disable.
 6. From the options menu, click **Disable policy** and confirm the policy was

@@ -163,8 +163,9 @@ instance.
     {{site.data.keyword.cloud_notm}} account.
     {: note}
 
-4. Optional: Verify that the {{site.data.keyword.keymanagementserviceshort}} instance was created successfully by
-   listing your available {{site.data.keyword.keymanagementserviceshort}} instances.
+4. Optional: Verify that the {{site.data.keyword.keymanagementserviceshort}}
+   instance was created successfully by listing your available
+   {{site.data.keyword.keymanagementserviceshort}} instances.
 
     ```sh
     ibmcloud resource service-instances
@@ -707,7 +708,8 @@ To import the key:
     ```
     {: pre}
 
-    If you created more test keys in your {{site.data.keyword.keymanagementserviceshort}} instance, be sure to
+    If you created more test keys in your
+    {{site.data.keyword.keymanagementserviceshort}} instance, be sure to
     [remove all encryption keys from your instance](/docs/key-protect?topic=key-protect-delete-keys)
     before you deprovision the instance.
     {: tip}
