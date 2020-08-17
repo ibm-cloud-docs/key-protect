@@ -196,9 +196,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Retrieve the import token that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance by
-calling the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
+2. Retrieve the import token that is associated with your
+   {{site.data.keyword.keymanagementserviceshort}} instance by calling the
+   [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
     ```cURL
     curl -X GET \
@@ -277,8 +277,9 @@ calling the
     </table>
 
     A successful `GET api/v2/import_token` request retrieves the import token
-    for your {{site.data.keyword.keymanagementserviceshort}} instance. The response body contains the metadata that is
-    associated with your import token, such as its creation date and policy
+    for your {{site.data.keyword.keymanagementserviceshort}} instance. The
+    response body contains the metadata that is associated with your import
+    token, such as its creation date and policy
     details.
 
     The retrieved import token can be reused to import one or more keys up until

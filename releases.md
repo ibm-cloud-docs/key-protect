@@ -516,8 +516,9 @@ The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on
 Cloud Foundry, reached its end of support on 15 May 2019. Cloud Foundry-managed
 {{site.data.keyword.keymanagementserviceshort}} instances are no longer
 supported and updates to the legacy service will no longer be provided.
-Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}} instances that are IAM-managed to benefit from the latest features for
-the service.
+Customers are encouraged to use {{site.data.keyword.keymanagementserviceshort}}
+instances that are IAM-managed to benefit from the latest features for the
+service.
 
 If you created your {{site.data.keyword.keymanagementserviceshort}}
 instance after 15 December 2017, your instance is IAM-managed and it is
@@ -597,8 +598,9 @@ the service, you're using a legacy instance of the
 endpoint will no longer be accessible, and you won't be able to target the
 service for operations.
 
-Need help with migrating your encryption keys into a new {{site.data.keyword.keymanagementserviceshort}} instance? For
-detailed steps, check out the
+Need help with migrating your encryption keys into a new
+{{site.data.keyword.keymanagementserviceshort}} instance? For detailed steps,
+check out the
 [migration client in GitHub](https://github.com/IBM-Cloud/kms-migration-client){: external}.
 {: tip}
 

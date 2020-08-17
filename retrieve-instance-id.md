@@ -38,9 +38,9 @@ to your {{site.data.keyword.cloud_notm}} resource list.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse
-a list of your cloud services.
+   a list of your cloud services.
 3. Click the table row that describes your
-{{site.data.keyword.keymanagementserviceshort}} instance.
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 4. From the service details view, copy the **GUID** value.
 
     This **GUID** value represents the instance ID that uniquely identifies your
@@ -49,11 +49,12 @@ a list of your cloud services.
 ## Retrieving an instance ID with the CLI
 {: #retrieve-instance-ID-cli}
 
-You can also retrieve the instance ID for your {{site.data.keyword.keymanagementserviceshort}} instance by using the
+You can also retrieve the instance ID for your
+{{site.data.keyword.keymanagementserviceshort}} instance by using the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
+   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -67,10 +68,10 @@ You can also retrieve the instance ID for your {{site.data.keyword.keymanagement
     {: note}
 
 2. Select the account, region, and resource group that contain your provisioned
-instance of {{site.data.keyword.keymanagementserviceshort}}.
+   instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Retrieve the Cloud Resource Name (CRN) that uniquely identifies your
-{{site.data.keyword.keymanagementserviceshort}} instance.
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     ibmcloud resource service-instance <instance_name> --id
@@ -99,8 +100,8 @@ and then pipe the JSON output to `jq` to extract this value.
 1. [Retrieve an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
 
 2. Call the
-[Resource Controller API](/apidocs/resource-controller){: external}
-to retrieve your instance ID.
+   [Resource Controller API](/apidocs/resource-controller){: external}
+   to retrieve your instance ID.
 
     ```cURL
     curl -X GET \

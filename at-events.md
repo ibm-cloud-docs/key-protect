@@ -107,7 +107,6 @@ The following table lists the registration actions that generate an event:
 | `kms.registrations.default`             | Invalid registration request event                       |
 {: caption="Table 4. Registration actions" caption-side="top"}
 
-
 ## Viewing events
 {: #at-ui}
 
@@ -119,8 +118,9 @@ same location.
 {{site.data.keyword.at_full_notm}} can have only one instance per location. To
 view events, you must access the web UI of the
 {{site.data.keyword.at_full_notm}} service in the same location where your
-{{site.data.keyword.keymanagementserviceshort}} instance is available. For more information, see
-[Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA#gs_step4){: external}.
+{{site.data.keyword.keymanagementserviceshort}} instance is available. For more
+information, see
+[Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started#gs_step4){: external}.
 
 | Deployment Region | Activity Tracker Region |
 | ----------------- | ----------------------- |
@@ -389,9 +389,6 @@ The following fields include extra information:
   import token can be retrieved within its expiration time before it is no
   longer accessible.
 
-### Registration events
-{: #registration-events}
-
 ### Key with registrations events
 {: #key-registration-events}
 
@@ -507,9 +504,10 @@ user to schedule the key for deletion.
 
 If the event has a `reason.reasonCode` of 401, you do not have the correct
 authorization to perform {{site.data.keyword.keymanagementserviceshort}} actions
-in the specified {{site.data.keyword.keymanagementserviceshort}} instance. Verify with an administrator that you are
-assigned the correct platform and service access roles in the applicable service
-instance. For more information about roles, see
+in the specified {{site.data.keyword.keymanagementserviceshort}} instance.
+Verify with an administrator that you are assigned the correct platform and
+service access roles in the applicable service instance. For more information
+about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access).
 
 Check that you are using a valid token that is associated with an account
@@ -520,9 +518,10 @@ authorized to perform the service action.
 {: #list-keys-failure}
 
 If you make a call to `GET api/v2/keys` to list the keys that are available in
-your {{site.data.keyword.keymanagementserviceshort}} instance and `responseData.totalResources` is 0, you may need to
-query for keys in the deleted state using the `state` parameter or adjust the
-`offset` and `limit` parameters in your request.
+your {{site.data.keyword.keymanagementserviceshort}} instance and
+`responseData.totalResources` is 0, you may need to query for keys in the
+deleted state using the `state` parameter or adjust the `offset` and `limit`
+parameters in your request.
 
 ### Lifecycle action on a key with registrations did not complete
 {: #protected-resource-key-failure}
@@ -544,10 +543,10 @@ all appropriate actions were taken within 4 hours of the action request.
 The severity for all Activity Tracker events with
 {{site.data.keyword.keymanagementserviceshort}} are based on the type of request
 that was made, then status code. For example, if you make a create key request
-with an invalid key, but you are also unauthenticated for the {{site.data.keyword.keymanagementserviceshort}} instance
-that you included in the request, the unauthentication will take precedence and
-the event will be evaluated as a `401` bad request call with a severity of
-`critical`.
+with an invalid key, but you are also unauthenticated for the
+{{site.data.keyword.keymanagementserviceshort}} instance that you included in
+the request, the unauthentication will take precedence and the event will be
+evaluated as a `401` bad request call with a severity of `critical`.
 
 The following table lists the actions associated with each severity level:
 

@@ -41,7 +41,8 @@ steps.
 {: troubleshoot}
 
 When you access the {{site.data.keyword.keymanagementserviceshort}} user
-interface, the option to add a key to the {{site.data.keyword.keymanagementserviceshort}} instance is disabled..
+interface, the option to add a key to the
+{{site.data.keyword.keymanagementserviceshort}} instance is disabled.
 
 From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of
 the {{site.data.keyword.keymanagementserviceshort}} service.
@@ -54,7 +55,8 @@ You do not have the correct authorization to perform
 {: tsCauses}
 
 Verify with an administrator that you are assigned the correct role in the
-applicable {{site.data.keyword.keymanagementserviceshort}} instance. For more information about roles, see
+applicable {{site.data.keyword.keymanagementserviceshort}} instance. For more
+information about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
 
@@ -91,7 +93,8 @@ instance.
 {: tsCauses}
 
 Verify with an administrator that you are assigned the correct platform and
-service access roles in the applicable {{site.data.keyword.keymanagementserviceshort}} instance. For more information
+service access roles in the applicable
+{{site.data.keyword.keymanagementserviceshort}} instance. For more information
 about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
 {: tsResolve}
@@ -102,7 +105,8 @@ about roles, see
 
 When you try to list keys by using the
 {{site.data.keyword.keymanagementserviceshort}} API, you're unable to view any
-keys in a {{site.data.keyword.keymanagementserviceshort}} instance that you have access to.
+keys in a {{site.data.keyword.keymanagementserviceshort}} instance that you have
+access to.
 
 You call `GET api/v2/keys` to list the keys that are available in your service
 instance. The system returns a response similar to the following JSON object:
@@ -121,12 +125,12 @@ instance. The system returns a response similar to the following JSON object:
 You do not have the correct authorization to view the requested range of keys.
 {: tsCauses}
 
-Contact an administrator to check your permissions. If the {{site.data.keyword.keymanagementserviceshort}} instance
-contains keys that you're unable to view, verify that you're assigned the
-applicable
+Contact an administrator to check your permissions. If the
+{{site.data.keyword.keymanagementserviceshort}} instance contains keys that
+you're unable to view, verify that you're assigned the applicable
 [level of access to keys](/docs/key-protect?topic=key-protect-grant-access-keys)
-in the {{site.data.keyword.keymanagementserviceshort}} instance. If the instance contains more than 200 keys,
-you need to use the
+in the {{site.data.keyword.keymanagementserviceshort}} instance. If the instance
+contains more than 200 keys, you need to use the
 [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api)
 to list another subset of keys.
 {: tsResolve}
@@ -150,16 +154,18 @@ the instance. You verify with your administrator that you're assigned the
 applicable
 [level of access to the keys](/docs/key-protect?topic=key-protect-grant-access-keys)
 that you're unable to view. You also verify with your admin that the key belongs
-to the {{site.data.keyword.keymanagementserviceshort}} instance that you're targeting.
+to the {{site.data.keyword.keymanagementserviceshort}} instance that you're
+targeting.
 
-The {{site.data.keyword.keymanagementserviceshort}} instance contains a large number of keys, and the specific keys that
-you're looking for aren't returned by default when you call `GET api/v2/keys` to
-list keys.
+The {{site.data.keyword.keymanagementserviceshort}} instance contains a large
+number of keys, and the specific keys that you're looking for aren't returned by
+default when you call `GET api/v2/keys` to list keys.
 {: tsCauses}
 
 Check with an admin to understand the total number of keys that are stored in
 the instance. By default, `GET api/v2/keys` returns the first 200 keys. If the
-{{site.data.keyword.keymanagementserviceshort}} instance contains more than 200 keys, you need to use the
+{{site.data.keyword.keymanagementserviceshort}} instance contains more than 200
+keys, you need to use the
 [`offset` and `limit` parameters](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api)
 to list another subset of keys.
 {: tsResolve}
@@ -178,8 +184,9 @@ From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of
 the {{site.data.keyword.keymanagementserviceshort}} service.
 {: tsSymptoms}
 
-You're assigned a _Manager_ access policy for the {{site.data.keyword.keymanagementserviceshort}} instance. You try to
-delete a key, but the action fails with the following error message.
+You're assigned a _Manager_ access policy for the
+{{site.data.keyword.keymanagementserviceshort}} instance. You try to delete a
+key, but the action fails with the following error message.
 
 ```
 Conflict: Key could not be deleted. Status: 409, Correlation ID: 160cc463-71d1-4b30-a5f2-d3f7e9f2b75e

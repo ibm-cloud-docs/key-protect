@@ -63,7 +63,8 @@ and
 [jq](https://stedolan.github.io/jq/){: external}
 installed.
 
-The examples use the exported {{site.data.keyword.keymanagementserviceshort}} instance instead of the `-i` parameter.
+The examples use the exported {{site.data.keyword.keymanagementserviceshort}}
+instance instead of the `-i` parameter.
 
 ```sh
 # export the {{site.data.keyword.keymanagementserviceshort}} instance id
@@ -345,7 +346,8 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 {: #kp-import-token-show-040}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}}
+instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
