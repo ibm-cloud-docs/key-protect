@@ -66,8 +66,8 @@ and
 [jq](https://stedolan.github.io/jq/){: external}
 installed.
 
-The examples use the exported {{site.data.keyword.keymanagementserviceshort}} instance environment variable instead of
-the `-i` parameter.
+The examples use the exported {{site.data.keyword.keymanagementserviceshort}}
+instance environment variable instead of the `-i` parameter.
 
 ```sh
 # export the Key Protect instance id
@@ -462,7 +462,8 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 {: #kp-import-token-show}
 
 [Retrieve the import token](/docs/key-protect?topic=key-protect-create-import-tokens#retrieve-import-token-api)
-that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
+that is associated with your {{site.data.keyword.keymanagementserviceshort}}
+instance.
 
 The import token contains a public encryption key and a nonce. Provide the
 retrieved public key and nonce as arguments for
@@ -1146,6 +1147,83 @@ Creating key: 'my-standard-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69
 SUCCESS
 Key ID                                 Key Name
 12d3f3a4-aea5-4832-8339-fa14dbffd935   my-standard-key
+```
+{: screen}
+
+#### Example 6
+{: #kp-key-create-example-6}
+
+Create a standard key, which is used as a vault for credentials.
+
+Any base64-encoded string can be imported as a standard key. This example shows
+how to store credentials, not just encryption keys, in
+{{site.data.keyword.keymanagementserviceshort}}.
+
+```sh
+# create a file with your credentials
+$ cat credentials.json
+
+{
+  "host": "localhost",
+  "database": "dev-backup",
+  "username": "my-username",
+  "password": "my-password"
+}
+
+# encode the credentials (or any string) to a base64 string
+$ ENCODED=$(base64 -i credentials.json)
+
+$ echo $ENCODED
+ewoJImhvc3QiOiAibG9jYWxob3N0IiwK...<redacted>...cGFzc3dvcmQiCn0K
+
+# create a new key that contains the base64-encoded credentials
+$ ibmcloud kp key create credentials-key -i $KP_INSTANCE_ID --key-material $ENCODED --standard-key --output json
+
+# OR... CAPTURE THE KEY_ID
+$ KEY_ID=$(ibmcloud kp key create credentials-key -i $KP_INSTANCE_ID --key-material $ENCODED --standard-key --output json | jq -r '.["id"]')
+
+{
+  "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
+  "name": "credentials-key",
+  "type": "application/vnd.ibm.kms.key+json",
+  "extractable": true,
+  "state": 1,
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
+  "deleted": false
+}
+
+# retrieve the base64-encoded payload
+$ ibmcloud kp key show $KEY_ID --output json
+
+# OR... CAPTURE THE PAYLOAD
+$ PAYLOAD=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["payload"]')
+{
+  "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
+  "name": "credentials-key",
+  "type": "application/vnd.ibm.kms.key+json",
+  "algorithmType": "AES",
+  "createdBy": "user id ...<redacted>...",
+  "creationDate": "2020-08-18T16:13:08Z",
+  "lastUpdateDate": "2020-08-18T16:13:08Z",
+  "extractable": true,
+  "payload": "ewoJImhvc3QiOiAibG9jYWxob3N0IiwKCSJkYXRhYmFzZSI6ICJkZXYtYmFja3VwIiwKCSJ1c2VybmFtZSI6ICJteS11c2VybmFtZSIsCgkicGFzc3dvcmQiOiAibXktcGFzc3dvcmQiCn0=",
+  "state": 1,
+  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
+  "deleted": false,
+  "dualAuthDelete": {
+    "enabled": false
+  }
+}
+
+# decode the payload to get the original string (credentials)
+$ echo $PAYLOAD | base64 -d
+
+{
+  "host": "localhost",
+  "database": "dev-backup",
+  "username": "my-username",
+  "password": "my-password"
+}
 ```
 {: screen}
 
@@ -2015,7 +2093,6 @@ kp.Error:
     Please see "reasons" for more details.',
   reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
     FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
-
 ```
 {: screen}
 
@@ -2210,7 +2287,7 @@ available only for root keys that were created with a `kp key material`.
 
 You can only restore root keys that were created with a `kp key material`, using
 `kp key create` with the `-k, --key-material` option. You _cannot_ restore a
-root key if the `-k` option was **not** specified.
+root key if the `--key-material` option was **not** specified.
 {: important}
 
 If you want to restore a deleted root key then you **must** save the
@@ -3782,7 +3859,8 @@ $ ibmcloud kp registrations --output json
 
 This example shows the full lifecycle of two cloud resources (Cloud Object
 Storage and {{site.data.keyword.keymanagementserviceshort}} - from creating
-{{site.data.keyword.keymanagementserviceshort}} instances and creating a policy between them to deleting the instances.
+{{site.data.keyword.keymanagementserviceshort}} instances and creating a policy
+between them to deleting the instances.
 
 A summary of the steps is:
 

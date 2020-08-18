@@ -833,9 +833,9 @@ following table.
 ### CRN query examples
 {: #crn-query-examples}
 
-Use URL encoded CRN queries to filter registrations by {{site.data.keyword.keymanagementserviceshort}} instance,
-resource type, or resource name. To learn more about CRN segments and format,
-see
+Use URL encoded CRN queries to filter registrations by
+{{site.data.keyword.keymanagementserviceshort}} instance, resource type, or
+resource name. To learn more about CRN segments and format, see
 [Cloud Resource Names](/docs/account?topic=account-crn){: external}.
 
 Cloud Services that use {{site.data.keyword.keymanagementserviceshort}}

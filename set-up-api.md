@@ -50,8 +50,9 @@ to how you initially provisioned your instance of
 To build your request, pair a
 [service endpoint](/docs/key-protect?topic=key-protect-regions#service-endpoints)
 with the appropriate authentication credentials. For example, if you created a
-{{site.data.keyword.keymanagementserviceshort}} instance for the `us-south` region, use the following endpoint and API
-headers to browse keys in your service:
+{{site.data.keyword.keymanagementserviceshort}} instance for the `us-south`
+region, use the following endpoint and API headers to browse keys in your
+service:
 
 ```cURL
 curl -X GET \

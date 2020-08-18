@@ -64,7 +64,7 @@ members of your team.
 This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of
 {{site.data.keyword.keymanagementserviceshort}}. For complete IAM documentation,
 see
-[Managing access in {{site.data.keyword.cloud_notm}}](/docs/account?topic=overview-cloudaccess){: external}.
+[Managing access in {{site.data.keyword.cloud_notm}}](/docs/account?topic=account-cloudaccess){: external}.
 {: note}
 
 ### Platform access roles

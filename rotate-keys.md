@@ -53,11 +53,11 @@ complete the following steps to rotate the key:
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 4. On the application details page, use the **Keys** table to browse the keys in
-your service.
+   your service.
 5. Click the ⋯ icon to open a list of options for the key that you want to
-rotate.
+   rotate.
 6. From the options menu, click **Rotate key**.
 
     If you initially provided the key material for the key, specify the
@@ -116,7 +116,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
 2. Copy the ID of the root key that you want to rotate.
 
-    You can find the ID for a key in your {{site.data.keyword.keymanagementserviceshort}} instance by
+    You can find the ID for a key in your
+    {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
@@ -251,8 +252,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
     which indicates that your root key was replaced by new key material.
 
 4. Optional: Verify that the key was rotated by running the following call to
-browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service
-instance.
+   browse the keys in your {{site.data.keyword.keymanagementserviceshort}}
+   service instance.
 
     ```cURL
     curl -X GET \
@@ -342,13 +343,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 3. [Create and retrieve an import token](/docs/key-protect?topic=key-protect-create-import-tokens).
 
 4. Use the import token to encrypt the key material that you want to use to
-rotate the existing key.
+   rotate the existing key.
 
     To learn how to use an import token, check out
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 5. Replace the existing key with new key material by running the following cURL
-command.
+   command.
 
     ```cURL
     curl -X POST \
@@ -557,7 +558,7 @@ command.
     which indicates that your root key was replaced by new key material.
 
 6. Optional: Verify that the key was rotated by retrieving details about the
-key.
+   key.
 
     ```cURL
     curl -X GET \
