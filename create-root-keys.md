@@ -258,7 +258,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         </td>
         <td>
           The date and time that the key expires in the system, in RFC 3339
-          format. If the <code>expirationDate</code> attribute is omitted, the
+          format. The key will transition to the deactivated state within one hour 
+          past the key's expiration date.
+          
+          If the <code>expirationDate</code> attribute is omitted, the
           key does not expire.
         </td>
       </tr>
@@ -292,6 +295,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     of the
     [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
     {: important}
+
+    If the `expirationDate` is provided in your create key request, the key will transition to the deactivated state within one hour past the key's expiration date.
+    {: note}
 
     A successful `POST api/v2/keys` response returns the ID value for your key,
     along with other metadata. The ID is a unique identifier that is assigned to
