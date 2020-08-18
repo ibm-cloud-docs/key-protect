@@ -1202,7 +1202,7 @@ $ PAYLOAD=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["payload"]')
   "name": "credentials-key",
   "type": "application/vnd.ibm.kms.key+json",
   "algorithmType": "AES",
-  "createdBy": "IBMid-50AEDNYUB1",
+  "createdBy": "user id ...<redacted>...",
   "creationDate": "2020-08-18T16:13:08Z",
   "lastUpdateDate": "2020-08-18T16:13:08Z",
   "extractable": true,
