@@ -76,10 +76,10 @@ account.
 
 | Action | Viewer | Editor | Operator | Administrator |
 | ------ | ------ | ------ | -------- | ------------- |
-| View {{site.data.keyword.keymanagementserviceshort}} instances | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Create {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Invite new users and manage access policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| View {{site.data.keyword.keymanagementserviceshort}} instances | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Create {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../icons/checkmark-icon.svg) | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../icons/checkmark-icon.svg) | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Invite new users and manage access policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 If you're an account owner, you are automatically assigned _Administrator_
@@ -113,21 +113,21 @@ The following table shows how service access roles map to
 
 | Action | Reader | ReaderPlus | Writer | Manager |
 | ------ | ------ | ---------- | ------ | ------- |
-| Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve key metadata | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List keys | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Wrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Unwrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Rewrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Rotate a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Disable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Enable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Schedule deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Cancel deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Import a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Retrieve a key | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Retrieve key metadata | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List keys | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Wrap a key | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Unwrap a key | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Rewrap a key | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Rotate a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Disable a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Enable a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Schedule deletion for a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Cancel deletion for a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Delete a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Restore a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-2}
 {: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
 {: tab-title="Keys"}
@@ -136,10 +136,10 @@ The following table shows how service access roles map to
 
 | Action | Reader | ReaderPlus | Writer | Manager |
 | ------ | ------ | ---------- | ------ | ------- |
-| Set key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Set key policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List key policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Set instance policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List instance policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-3}
 {: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="top"}
 {: tab-title="Policies"}
@@ -148,8 +148,8 @@ The following table shows how service access roles map to
 
 | Action | Reader | ReaderPlus | Writer | Manager |
 | ------ | ------ | ---------- | ------ | ------- |
-| Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create an import token | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Retrieve an import token | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-4}
 {: caption="Table 4. Lists service access roles as they apply to import token resources" caption-side="top"}
 {: tab-title="Import tokens"}
@@ -158,12 +158,12 @@ The following table shows how service access roles map to
 
 | Action | Reader | ReaderPlus | Writer | Manager |
 | ------ | ------ | ---------- | ------ | ------- |
-| Create a registration[^services-1] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List registrations for a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List registrations for any key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Update a registration[^services-2] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Replace a registration[^services-3] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Delete a registration[^services-4] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create a registration[^services-1] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List registrations for a key | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List registrations for any key | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Update a registration[^services-2] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Replace a registration[^services-3] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Delete a registration[^services-4] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-5}
 {: caption="Table 5. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
 {: tab-title="Registrations"}
