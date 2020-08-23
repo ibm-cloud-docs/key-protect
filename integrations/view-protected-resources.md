@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-22"
 
 keywords: view protected data
 
@@ -139,26 +139,26 @@ and a cloud resource.
 
 ```json
 {
-  "metadata": {
-    "collectionType": "application/vnd.ibm.kms.registration+json",
-    "collectionTotal": 1
-  },
-  "resources": [
-    {
-      "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
-      "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/<account-id>:<service-instance>:bucket:<bucket-name>",
-      "createdBy": "IBMid-25555555",
-      "creationDate": "2010-01-12T05:23:19+0000",
-      "updatedBy": "IBMid-25555555",
-      "lastUpdated": "2010-01-12T05:23:19+0000",
-      "description": "A description of the registration",
-      "preventKeyDeletion": true,
-      "keyVersion": {
-        "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-        "creationDate": "2010-01-12T05:23:19+0000"
-      }
-    }
-  ]
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.registration+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "resourceCrn": "crn:v1:bluemix:public:<service-name>:<region>:a/<account-id>:<service-instance>:bucket:<bucket-name>",
+            "createdBy": "IBMid-25555555",
+            "creationDate": "2010-01-12T05:23:19+0000",
+            "updatedBy": "IBMid-25555555",
+            "lastUpdated": "2010-01-12T05:23:19+0000",
+            "description": "A description of the registration",
+            "preventKeyDeletion": true,
+            "keyVersion": {
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "creationDate": "2010-01-12T05:23:19+0000"
+            }
+        }
+    ]
 }
 ```
 {: screen}
@@ -271,11 +271,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 2. View the registrations that are associated with a root key by running the
    following cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -368,40 +368,40 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.registration+json",
-        "collectionTotal": 2
-      },
-      "resources": [
-        {
-          "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-          "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<bucket-name>",
-          "createdBy": "IBMid-25555555",
-          "creationDate": "2010-01-12T05:23:19+0000",
-          "updatedBy": "IBMid-25555555",
-          "lastUpdated": "2010-01-12T05:23:19+0000",
-          "description": "A description of the registration",
-          "preventKeyDeletion": true,
-          "keyVersion": {
-            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-            "creationDate": "2010-01-12T05:23:19+0000"
-          }
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.registration+json",
+            "collectionTotal": 2
         },
-        {
-          "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<other-bucket-name>",
-          "createdBy": "IBMid-25555555",
-          "creationDate": "2010-01-12T05:23:19+0000",
-          "updatedBy": "IBMid-25555555",
-          "lastUpdated": "2010-01-12T05:23:19+0000",
-          "description": "A description of the registration",
-          "preventKeyDeletion": true,
-          "keyVersion": {
-            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-            "creationDate": "2010-01-12T05:23:19+0000"
-          }
-        }
-      ]
+        "resources": [
+            {
+                "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+                "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<bucket-name>",
+                "createdBy": "IBMid-25555555",
+                "creationDate": "2010-01-12T05:23:19+0000",
+                "updatedBy": "IBMid-25555555",
+                "lastUpdated": "2010-01-12T05:23:19+0000",
+                "description": "A description of the registration",
+                "preventKeyDeletion": true,
+                "keyVersion": {
+                    "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+                    "creationDate": "2010-01-12T05:23:19+0000"
+                }
+            },
+            {
+                "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<other-bucket-name>",
+                "createdBy": "IBMid-25555555",
+                "creationDate": "2010-01-12T05:23:19+0000",
+                "updatedBy": "IBMid-25555555",
+                "lastUpdated": "2010-01-12T05:23:19+0000",
+                "description": "A description of the registration",
+                "preventKeyDeletion": true,
+                "keyVersion": {
+                    "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                    "creationDate": "2010-01-12T05:23:19+0000"
+                }
+            }
+        ]
     }
     ```
     {: screen}
@@ -431,12 +431,12 @@ with a specific Cloud Resource Name (CRN).
 You can use the following example request to retrieve a filtered set of
 registrations.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
@@ -512,12 +512,12 @@ You can also filter for a subset of registrations by specifying the `limit` and
 You can use the following example request to retrieve a filtered set of
 registrations.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?offset=<offset>&limit=<limit>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?offset=<offset>&limit=<limit>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
@@ -592,11 +592,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
 2. View the registrations that match a CRN query that you specify by running the
    following cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -685,12 +685,12 @@ with a specific Cloud Resource Name (CRN).
 You can use the following example request to retrieve a specific set of
 registrations.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
@@ -766,12 +766,12 @@ You can also filter for a subset of registrations by specifying the `limit` and
 You can use the following example request to retrieve a different set of
 registrations.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?offset=<offset>&limit=<limit>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations?offset=<offset>&limit=<limit>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 

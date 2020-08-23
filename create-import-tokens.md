@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-08-22"
 
 keywords: create import token, secure import, key-wrapping key, import token API examples
 
@@ -52,16 +52,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 2. Set a policy for your import token by calling the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/import_token' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/json' \
-      -d '{
-        "expiration": <expiration_time>,
-        "maxAllowedRetrievals": <use_count>
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/import_token" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/json" \
+        -d '{
+                "expiration": <expiration_time>,
+                "maxAllowedRetrievals": <use_count>
+            }'
     ```
     {: codeblock}
 
@@ -174,10 +174,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
-      "maxAllowedRetrievals": 1,
-      "remainingRetrievals": 1
+        "creationDate": "2019-04-08T16:58:29Z",
+        "expirationDate": "2019-04-08T17:18:29Z",
+        "maxAllowedRetrievals": 1,
+        "remainingRetrievals": 1
     }
     ```
     {: screen}
@@ -200,11 +200,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
    {{site.data.keyword.keymanagementserviceshort}} instance by calling the
    [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/import_token' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/import_token" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -290,12 +290,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
-      "maxAllowedRetrievals": 1,
-      "remainingRetrievals": 0,
-      "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
-      "nonce": "8zJE9pKVdXVe/nLb"
+        "creationDate": "2019-04-08T16:58:29Z",
+        "expirationDate": "2019-04-08T17:18:29Z",
+        "maxAllowedRetrievals": 1,
+        "remainingRetrievals": 0,
+        "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+        "nonce": "8zJE9pKVdXVe/nLb"
     }
     ```
     {: screen}

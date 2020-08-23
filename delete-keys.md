@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: delete key, delete key API examples
 
@@ -110,12 +110,12 @@ at query time to delete the key.
 
 3. Run the following cURL command to delete the key and its contents.
 
-    ```cURL
-    curl -X DELETE \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'prefer: <return_preference>'
+    ```sh
+    $ curl -X DELETE \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "prefer: <return_preference>"
     ```
     {: codeblock}
 
@@ -228,36 +228,36 @@ at query time to delete the key.
     ```json
     {
       "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
+          "collectionType": "application/vnd.ibm.kms.key+json",
+          "collectionTotal": 1
       },
       "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "test-root-key",
-          "state": 5,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": false,
-          "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": true,
-          "deletionDate": "2020-03-16T21:46:53Z",
-          "deletedBy": "..."
-        }
-      ]
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "test-root-key",
+                "state": 5,
+                "extractable": false,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": false,
+                "creationDate": "2020-03-10T20:41:27Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 256,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-16T20:41:27Z",
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": true,
+                "deletionDate": "2020-03-16T21:46:53Z",
+                "deletedBy": "..."
+            }
+        ]
     }
     ```
     {: screen}
@@ -302,12 +302,12 @@ the key.
 
 3. Run the following cURL command to force delete the key and its contents.
 
-    ```cURL
-    curl -X DELETE \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'prefer: <return_preference>'
+    ```sh
+    $ curl -X DELETE \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "prefer: <return_preference>"
     ```
     {: codeblock}
 
@@ -419,28 +419,28 @@ the key.
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "type": "application/vnd.ibm.kms.key+json",
-          "name": "test-root-key",
-          "description": "...",
-          "state": 5,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "deleted": true,
-          "algorithmType": "AES",
-          "createdBy": "...",
-          "deletedBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "deletionDate": "2020-03-16T21:46:53Z",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "extractable": true
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "type": "application/vnd.ibm.kms.key+json",
+                "name": "test-root-key",
+                "description": "...",
+                "state": 5,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "deleted": true,
+                "algorithmType": "AES",
+                "createdBy": "...",
+                "deletedBy": "...",
+                "creationDate": "2020-03-10T20:41:27Z",
+                "deletionDate": "2020-03-16T21:46:53Z",
+                "lastUpdateDate": "2020-03-16T20:41:27Z",
+                "extractable": true
+            }
+        ]
     }
     ```
     {: screen}

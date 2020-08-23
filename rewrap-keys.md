@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -72,21 +72,21 @@ request.
 4. Rewrap the key with the latest root key material by running the following
 cURL command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap' \
-      -H 'accept: application/vnd.ibm.kms.key_action+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key_action+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -d '{
-        "ciphertext": "<encrypted_data_key>",
-        "aad": [
-          "<additional_data>",
-          "<additional_data>"
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap" \
+        -H "accept: application/vnd.ibm.kms.key_action+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key_action+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "ciphertext": "<encrypted_data_key>",
+                "aad": [
+                    "<additional_data>",
+                    "<additional_data>"
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -217,13 +217,13 @@ cURL command.
 
     ```json
     {
-      "ciphertext": "eyJjaX ... h0Ijoi ... c1ZCJ9",
-      "keyVersion": {
-        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
-      },
-      "rewrappedKeyVersion": {
-        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
-      }
+        "ciphertext": "eyJjaX ... h0Ijoi ... c1ZCJ9",
+        "keyVersion": {
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d"
+        },
+        "rewrappedKeyVersion": {
+            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
+        }
     }
     ```
     {: screen}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-22"
 
 keywords: instance settings, service settings, network access policies
 
@@ -156,30 +156,30 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "policy_type": "allowedNetwork",
-            "policy_data": {
-              "enabled": <enabled>,
-              "attributes": {
-                "allowed_network": "<access_type>"
-              }
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "policy_type": "allowedNetwork",
+                        "policy_data": {
+                            "enabled": <enabled>,
+                            "attributes": {
+                                "allowed_network": "<access_type>"
+                            }
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -286,12 +286,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
    policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 

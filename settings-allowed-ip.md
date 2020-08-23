@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-13"
+lastupdated: "2020-08-22"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -136,30 +136,30 @@ existing policy.
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "policy_type": "ipWhitelist",
-            "policy_data": {
-              "enabled": <true|false>,
-              "attributes": {
-                "allowed_ip": [<ip_address_list>]
-              }
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "policy_type": "ipWhitelist",
+                        "policy_data": {
+                            "enabled": <true|false>,
+                            "attributes": {
+                                "allowed_ip": [<ip_address_list>]
+                            }
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -268,12 +268,12 @@ existing policy.
    policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl --ipv4 -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl --ipv4 -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -303,27 +303,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-          "metadata": {
-            "collectionType": "application/vnd.ibm.kms.policy+json",
-            "collectionTotal": 1
-          },
-          "resources": [
-            {
-              "policy_type": "ipWhitelist",
-              "policy_data": {
-                "enabled": false
-              }
-            }
-          ]
-        }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "policy_type": "ipWhitelist",
+                        "policy_data": {
+                            "enabled": false
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -403,12 +403,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
    the policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl --ipv4 -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl --ipv4 -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -430,12 +430,12 @@ cURL requests to ensure that the requests are resolved to IPv4.
 The following example shows how to utilize the `--ipv4` flag in a `GET` keys
 request to a public endpoint.
 
-```cURL
-curl --ipv4 -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
-  -H 'accept: application/vnd.ibm.collection+json'
+```sh
+$ curl --ipv4 -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
@@ -467,13 +467,13 @@ policy to ensure that the requests are resolved to IPv4.
 The following example shows how to utilize the `--ipv4` flag in a `GET` policies
 request via a private endpoint.
 
-```cURL
-curl -k -L --ipv4 -X GET \
-  'https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies' \
-  -H 'Authorization: Bearer <token>' \
-  -H 'bluemix-instance: <instance_ID>' \
-  -H 'accept: application/vnd.ibm.kms.policy+json' \
-  -H 'correlation-id: <correlation_ID>'
+```sh
+$ curl -k -L --ipv4 -X GET \
+    "https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <token>" \
+    -H "bluemix-instance: <instance_ID>" \
+    -H "correlation-id: <correlation_ID>"
 ```
 {: codeblock}
 
@@ -507,11 +507,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port
 2. Retrieve the private endpoint port assigned to your allowed IP policy by
    running the following cURL command.
 
-    ```cURL
-    curl -X GET 'https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.ip_whitelist_port+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.ip_whitelist_port+json"
     ```
     {: codeblock}
 
@@ -611,12 +612,12 @@ with the private network gateway to your
 You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a private endpoint.
 
-```cURL
-curl --ipv4 -X GET \
-  'https://private.<region>.kms.cloud.ibm.com:<private_endpoint_port>/api/v2/keys' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>' \
-  -H 'accept: application/vnd.ibm.kms.key+json'
+```sh
+$ curl --ipv4 -X GET \
+    "https://private.<region>.kms.cloud.ibm.com:<private_endpoint_port>/api/v2/keys" \
+    -H "accept: application/vnd.ibm.kms.key+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 

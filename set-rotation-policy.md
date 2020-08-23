@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -90,13 +90,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 2. Retrieve the rotation policy for a specified key by running the following
 cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -H "correlation-id: <correlation_ID>"
     ```
     {: codeblock}
 
@@ -194,22 +194,22 @@ cURL command.
 
     ```json
     {
-      "metadata": {
-        "collectionTotal": 1,
-        "collectionType": "application/vnd.ibm.kms.policy+json"
-      },
-      "resources": [
-        {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "rotation": {
-            "interval_month": 1
-          },
-          "createdby": "...",
-          "createdat": "2019-03-06T16:31:05Z",
-          "updatedby": "...",
-          "updatedat": "2019-03-06T16:31:05Z"
-        }
-      ]
+        "metadata": {
+            "collectionTotal": 1,
+            "collectionType": "application/vnd.ibm.kms.policy+json"
+        },
+        "resources": [
+            {
+              "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+              "rotation": {
+                  "interval_month": 1
+              },
+              "createdby": "...",
+              "createdat": "2019-03-06T16:31:05Z",
+              "updatedby": "...",
+              "updatedat": "2019-03-06T16:31:05Z"
+            }
+        ]
     }
     ```
     {: screen}
@@ -232,27 +232,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 2. Create a rotation policy for a specified key by running the following cURL
 command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.policy+json",
-            "rotation": {
-              "interval_month": <rotation_interval>
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.policy+json",
+                        "rotation": {
+                            "interval_month": <rotation_interval>
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -361,22 +361,22 @@ command.
 
     ```json
     {
-      "metadata": {
-        "collectionTotal": 1,
-        "collectionType": "application/vnd.ibm.kms.policy+json"
-      },
-      "resources": [
-        {
-          "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-          "rotation": {
-            "interval_month": 1
-          },
-          "createdby": "...",
-          "createdat": "2019-03-06T16:31:05Z",
-          "updatedby": "...",
-          "updatedat": "2019-03-06T16:31:05Z"
-        }
-      ]
+        "metadata": {
+            "collectionTotal": 1,
+            "collectionType": "application/vnd.ibm.kms.policy+json"
+        },
+        "resources": [
+            {
+              "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+              "rotation": {
+                  "interval_month": 1
+              },
+              "createdby": "...",
+              "createdat": "2019-03-06T16:31:05Z",
+              "updatedby": "...",
+              "updatedat": "2019-03-06T16:31:05Z"
+            }
+        ]
     }
     ```
     {: screen}
@@ -397,27 +397,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 2. Replace the rotation policy for a specified key by running the following cURL
 command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.policy+json",
-            "rotation": {
-              "interval_month": <new_rotation_interval>
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.policy+json",
+                        "rotation": {
+                            "interval_month": <new_rotation_interval>
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -526,22 +526,22 @@ command.
 
     ```json
     {
-      "metadata": {
-        "collectionTotal": 1,
-        "collectionType": "application/vnd.ibm.kms.policy+json"
-      },
-      "resources": [
-        {
-          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "rotation": {
-            "interval_month": 2
-          },
-          "createdby": "...",
-          "createdat": "2019-03-06T16:31:05Z",
-          "updatedby": "...",
-          "updatedat": "2019-03-10T12:24:22Z"
-        }
-      ]
+        "metadata": {
+            "collectionTotal": 1,
+            "collectionType": "application/vnd.ibm.kms.policy+json"
+        },
+        "resources": [
+            {
+              "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+              "rotation": {
+                  "interval_month": 2
+              },
+              "createdby": "...",
+              "createdat": "2019-03-06T16:31:05Z",
+              "updatedby": "...",
+              "updatedat": "2019-03-10T12:24:22Z"
+            }
+        ]
     }
     ```
     {: screen}

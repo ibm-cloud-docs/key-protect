@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-20"
+lastupdated: "2020-08-22"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -124,16 +124,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
 3. Replace the key with new key material by running the following cURL command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate' \
-      -H 'accept: application/vnd.ibm.kms.key_action+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key_action+json' \
-      -d '{
-        "payload": "<key_material>"
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        -H "accept: application/vnd.ibm.kms.key_action+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key_action+json" \
+        -d '{
+                "payload": "<key_material>"
+            }'
     ```
     {: codeblock}
 
@@ -255,12 +255,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
    browse the keys in your {{site.data.keyword.keymanagementserviceshort}}
    service instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata' \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -269,40 +269,40 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "test-root-key",
-          "state": 1,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": false,
-          "creationDate": "2020-03-12T03:50:12Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-12T03:50:12Z",
-          "lastRotateDate": "2020-03-12T03:49:01Z",
-          "keyVersion": {
-            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-            "creationDate": "2020-03-12T03:50:12Z"
-          },
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": false
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "test-root-key",
+                "state": 1,
+                "extractable": false,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": false,
+                "creationDate": "2020-03-12T03:50:12Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 256,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-12T03:50:12Z",
+                "lastRotateDate": "2020-03-12T03:49:01Z",
+                "keyVersion": {
+                    "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                    "creationDate": "2020-03-12T03:50:12Z"
+                },
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": false
+            }
+        ]
     }
     ```
     {: screen}
@@ -351,21 +351,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 5. Replace the existing key with new key material by running the following cURL
    command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -d '{
-        "type": "application/vnd.ibm.kms.key+json",
-        "name": "<key_alias>",
-        "description": "<key_description>",
-        "extractable": <key_type>,
-        "payload": "<encrypted_key>",
-        "encryptionAlgorithm": "RSAES_OAEP_SHA_256",
-        "encryptedNonce": "<encrypted_nonce>",
-        "iv": "<iv>"
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -d '{
+                "type": "application/vnd.ibm.kms.key+json",
+                "name": "<key_alias>",
+                "description": "<key_description>",
+                "extractable": <key_type>,
+                "payload": "<encrypted_key>",
+                "encryptionAlgorithm": "RSAES_OAEP_SHA_256",
+                "encryptedNonce": "<encrypted_nonce>",
+                "iv": "<iv>"
+            }'
     ```
     {: codeblock}
 
@@ -560,12 +560,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 6. Optional: Verify that the key was rotated by retrieving details about the
    key.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.key+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+        -H "accept: application/vnd.ibm.kms.key+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 

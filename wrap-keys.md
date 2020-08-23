@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-22"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -65,21 +65,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 4. Run the following cURL command to protect the key with a wrap operation.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap' \
-      -H 'accept: application/vnd.ibm.kms.key_action+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key_action+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -d '{
-        "plaintext": "<data_key>",
-        "aad": [
-          "<additional_data>",
-          "<additional_data>"
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap" \
+        -H "accept: application/vnd.ibm.kms.key_action+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key_action+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "plaintext": "<data_key>",
+                "aad": [
+                    "<additional_data>",
+                    "<additional_data>"
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -217,10 +217,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
-      "keyVersion": {
-        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
-      }
+        "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
+        "keyVersion": {
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d"
+        }
     }
     ```
     {: screen}
@@ -231,11 +231,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```json
     {
-      "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
-      "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
-      "keyVersion": {
-        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
-      }
+        "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+        "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
+        "keyVersion": {
+            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
+        }
     }
     ```
     {: screen}

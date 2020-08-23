@@ -74,15 +74,15 @@ an error response similar to the following JSON object:
 
 ```json
 {
-  "metadata": {
-    "collectionType": "application/vnd.ibm.kms.error+json",
-    "collectionTotal": 1
-  },
-  "resources": [
-    {
-      "errorMsg": "Unauthorized: The user does not have access to the specified resource"
-    }
-  ]
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Unauthorized: The user does not have access to the specified resource"
+        }
+    ]
 }
 ```
 {: screen}
@@ -114,10 +114,10 @@ instance. The system returns a response similar to the following JSON object:
 
 ```json
 {
-  "metadata": {
-    "collectionType": "application/vnd.ibm.kms.key+json",
-    "collectionTotal": 0
-  }
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 0
+    }
 }
 ```
 {: screen}
@@ -199,27 +199,27 @@ following error message.
 
 ```json
 {
-  "metadata": {
-    "collectionType": "application/vnd.ibm.kms.error+json",
-    "collectionTotal": 1
-  },
-  "resources": [
-    {
-      "errorMsg": "Conflict: Key could not be deleted. Please see `reasons` for more details.",
-      "reasons": [
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
         {
-          "code": "PROTECTED_RESOURCE_ERR",
-          "message": "Key is protecting one or more cloud resources",
-          "status": 409,
-          "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
-          "target": {
-            "type": "query_param",
-            "name": "force"
-          }
+            "errorMsg": "Conflict: Key could not be deleted. Please see `reasons` for more details.",
+            "reasons": [
+                {
+                    "code": "PROTECTED_RESOURCE_ERR",
+                    "message": "Key is protecting one or more cloud resources",
+                    "status": 409,
+                    "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
+                    "target": {
+                        "type": "query_param",
+                        "name": "force"
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 ```
 {: screen}

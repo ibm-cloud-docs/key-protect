@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-08-22"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.3.9
 
@@ -29,7 +29,8 @@ This document is specific to the `key-protect` plugin, version `0.3.9`.
 Verify the installed plug-in version.
 
 ```sh
-$ ibmcloud plugin list
+ibmcloud plugin list
+
 Listing installed plug-ins...
 
 Plugin Name   Version   Status
@@ -100,7 +101,7 @@ You can specify one of the following commands.
 {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
-```
+```sh
 ibmcloud kp create KEY_NAME -i $INSTANCE_ID
                            [-k, --key-material KEY_MATERIAL]
                            [-s, --standard-key]
@@ -244,7 +245,7 @@ for information about using an import token to upload a key to
 List the last 200 keys that are available in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-```
+```sh
 ibmcloud kp list -i $INSTANCE_ID
 ```
 {: pre}
@@ -295,7 +296,7 @@ Retrieve details about a key, such as the key metadata and key material.
 If the key was designated as a root key, the system cannot return the key
 material for that key.
 
-```
+```sh
 ibmcloud kp get KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
@@ -355,7 +356,7 @@ using a root key that is stored in the
 {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
-```
+```sh
 ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
                        [-a, --aad ADDITIONAL_DATA]
                        [-p, --plaintext DATA_KEY]
@@ -419,7 +420,7 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 by using a root key that is stored in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-```
+```sh
 ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
                           [-a, --aad ADDITIONAL_DATA, ..]
 ```
@@ -487,7 +488,7 @@ ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
 [Rotate a root key](/docs/key-protect?topic=key-protect-wrap-keys) that is
 stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
-```
+```sh
 ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
                          [-k, --key-material KEY_MATERIAL]
 ```
@@ -551,7 +552,7 @@ SUCCESS
 [Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that is stored
 in your {{site.data.keyword.keymanagementserviceshort}} service.
 
-```
+```sh
 ibmcloud kp delete KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
@@ -596,7 +597,7 @@ Deleted Key
 Create or replace the policy that is associated with the root key that you
 specify.
 
-```
+```sh
 ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
                              [-p --policy INTERVAL]
 ```
@@ -660,7 +661,7 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
 Retrieve details about a key policy, such as the key's automatic rotation
 interval.
 
-```
+```sh
 ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 ```
 {: pre}
@@ -708,7 +709,7 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 in the {{site.data.keyword.keymanagementserviceshort}} instance that you
 specify.
 
-```
+```sh
 ibmcloud kp import-token create -i $INSTANCE_ID
                                [-e, --expiration=TIME_IN_SECONDS]
                                [-m, --max-retrievals=USE_COUNT]
@@ -779,7 +780,7 @@ retrieved public key and nonce as arguments for
 `ibmcloud kp import-token encrypt-nonce` and
 `ibmcloud kp import-token encrypt-key`.
 
-```
+```sh
 ibmcloud kp import-token get -i $INSTANCE_ID
 ```
 {: pre}
@@ -816,7 +817,7 @@ Encrypt the nonce that is distributed by
 want to import to the service. Then, provide the retrieved encrypted nonce and
 IV values when you run `ibmcloud kp create` to import the key.
 
-```
+```sh
 ibmcloud kp import-token encrypt-nonce -i $INSTANCE_ID
 ```
 {: pre}
@@ -876,7 +877,7 @@ associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 Then, provide the retrieved encrypted key when you run `ibmcloud kp create` to
 import the key to the service.
 
-```
+```sh
 ibmcloud kp import-token encrypt-key -i $INSTANCE_ID
 ```
 {: pre}

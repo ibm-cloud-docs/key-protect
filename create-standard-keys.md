@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-22"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -111,29 +111,29 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
 with the following cURL command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -H 'prefer: <return_preference>' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.key+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.key+json",
-            "name": "<key_alias>",
-            "description": "<key_description>",
-            "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
-            "extractable": <key_type>
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -H "prefer: <return_preference>" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.key+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.key+json",
+                        "name": "<key_alias>",
+                        "description": "<key_description>",
+                        "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
+                        "extractable": <key_type>
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -302,12 +302,12 @@ with the following cURL command.
 get the keys in your {{site.data.keyword.keymanagementserviceshort}} service
 instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<regon>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<regon>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 

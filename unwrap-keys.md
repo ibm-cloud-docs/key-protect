@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-22"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -66,21 +66,21 @@ key (WDEK).
 
 4. Run the following cURL command to decrypt and authenticate the key material.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap' \
-      -H 'accept: application/vnd.ibm.kms.key_action+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key_action+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -d '{
-        "ciphertext": "<encrypted_data_key>",
-        "aad": [
-          "<additional_data>",
-          "<additional_data>"
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap" \
+        -H "accept: application/vnd.ibm.kms.key_action+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key_action+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "ciphertext": "<encrypted_data_key>",
+                "aad": [
+                    "<additional_data>",
+                    "<additional_data>"
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -205,10 +205,10 @@ key (WDEK).
 
     ```json
     {
-      "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
-      "keyVersion": {
-        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
-      }
+        "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+        "keyVersion": {
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d"
+        }
     }
     ```
 
@@ -234,10 +234,10 @@ encoding. You will need to decode the key before encrypting it.
 
 2. Base64 encode your key material string by running the following command:
 
+    ```sh
+    openssl base64 -d -in <infile> -out <outfile>
     ```
-    $ openssl base64 -d -in <infile> -out <outfile>
-    ```
-    {: codeblock}
+    {: pre}
 
     Replace the variables in the example request according to the following
     table.

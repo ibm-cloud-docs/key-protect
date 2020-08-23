@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-08-22"
 
 keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
 
@@ -132,30 +132,30 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
    [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
    with the following cURL command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -H 'prefer: <return_preference>' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.key+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.key+json",
-            "name": "<key_alias>",
-            "description": "<key_description>",
-            "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
-            "payload": "<key_material>",
-            "extractable": <key_type>
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -H "prefer: <return_preference>" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.key+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.key+json",
+                        "name": "<key_alias>",
+                        "description": "<key_description>",
+                        "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
+                        "payload": "<key_material>",
+                        "extractable": <key_type>
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -348,12 +348,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
    the keys in your {{site.data.keyword.keymanagementserviceshort}} service
    instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -371,10 +371,10 @@ key material that you want to store and manage in the service.
 
 2. Base64 encode your key material string by running the following command:
 
+    ```sh
+    openssl base64 -in <infile> -out <outfile>
     ```
-    $ openssl base64 -in <infile> -out <outfile>
-    ```
-    {: codeblock}
+    {: pre}
 
     Replace the variables in the example request according to the following
     table.
@@ -428,10 +428,11 @@ key material that you want to store and manage in the service.
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Base64 encode your key material string by running the following command:
+
+    ```sh
+    openssl rand <bit_length> -base64
     ```
-    $ openssl rand <bit_length> -base64
-    ```
-    {: codeblock}
+    {: pre}
 
     Replace the variable in the example request according to the following
     table.

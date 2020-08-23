@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-22"
 
 keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
 
@@ -54,12 +54,12 @@ with the appropriate authentication credentials. For example, if you created a
 region, use the following endpoint and API headers to browse keys in your
 service:
 
-```cURL
-curl -X GET \
-  'https://us-south.kms.cloud.ibm.com/api/v2/keys' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
