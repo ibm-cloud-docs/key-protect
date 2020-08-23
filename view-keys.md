@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-15"
+lastupdated: "2020-08-22"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -96,13 +96,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 2. View general characteristics about your keys by running the following cURL
 command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "correlation-id: <correlation_ID>"
     ```
     {: codeblock}
 
@@ -123,54 +123,54 @@ command.
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 2
-      },
-      "resources": [
-        {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "type": "application/vnd.ibm.kms.key+json",
-          "name": "Root-key",
-          "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "createdBy": "...",
-          "creationDate": "2020-03-11T16:30:06Z",
-          "lastUpdateDate": "2020-03-11T16:30:06Z",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "extractable": false,
-          "imported": true,
-          "algorithmMode": "CBC_PAD",
-          "algorithmBitSize": 256,
-          "dualAuthDelete": {
-            "enabled": false
-          }
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 2
         },
-        {
-          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "type": "application/vnd.ibm.kms.key+json",
-          "name": "Standard-key",
-          "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "createdBy": "...",
-          "creationDate": "2020-03-12T03:50:12Z",
-          "lastUpdateDate": "2020-03-12T03:50:12Z",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "extractable": true,
-          "imported": false,
-          "algorithmMode": "CBC_PAD",
-          "algorithmBitSize": 256,
-          "dualAuthDelete": {
-            "enabled": false
-          }
-        }
-      ]
+        "resources": [
+            {
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "type": "application/vnd.ibm.kms.key+json",
+                "name": "Root-key",
+                "state": 1,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "createdBy": "...",
+                "creationDate": "2020-03-11T16:30:06Z",
+                "lastUpdateDate": "2020-03-11T16:30:06Z",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "extractable": false,
+                "imported": true,
+                "algorithmMode": "CBC_PAD",
+                "algorithmBitSize": 256,
+                "dualAuthDelete": {
+                    "enabled": false
+                }
+            },
+            {
+                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "type": "application/vnd.ibm.kms.key+json",
+                "name": "Standard-key",
+                "state": 1,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "createdBy": "...",
+                "creationDate": "2020-03-12T03:50:12Z",
+                "lastUpdateDate": "2020-03-12T03:50:12Z",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "extractable": true,
+                "imported": false,
+                "algorithmMode": "CBC_PAD",
+                "algorithmBitSize": 256,
+                "dualAuthDelete": {
+                    "enabled": false
+                }
+            }
+        ]
     }
     ```
     {: screen}
@@ -199,12 +199,12 @@ to retrieve keys 200 - 300 when you make a `GET /keys` request.
 
 You can use the following example request to retrieve a different set of keys.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?offset=<offset>&limit=<limit>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
@@ -329,12 +329,12 @@ commas with no whitespace or trailing commas. Valid states are based on NIST SP
 
 You can use the following example request to retrieve a different set of keys.
 
-```cURL
-curl -X GET \
-  'https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>' \
-  -H 'accept: application/vnd.ibm.collection+json' \
-  -H 'authorization: Bearer <IAM_token>' \
-  -H 'bluemix-instance: <instance_ID>'
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 

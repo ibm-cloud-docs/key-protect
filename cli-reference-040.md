@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-22"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
@@ -123,7 +123,7 @@ that you can use to encrypt and import a root key to the
 {{site.data.keyword.keymanagementserviceshort}} instance. By default,
 the import token expires after 10 minutes (600 seconds).
 
-```
+```sh
 ibmcloud kp import-token create
      -i, --instance-id    INSTANCE_ID
     [-e, --expiration     EXPIRATION_TIME_SECONDS]
@@ -207,7 +207,7 @@ associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 Then, provide the retrieved encrypted key when you run `ibmcloud kp key create`
 to import the key to the service.
 
-```
+```sh
 ibmcloud kp import-token key-encrypt
     -i, --instance-id INSTANCE_ID
     -k, --key         KEY_MATERIAL
@@ -280,7 +280,7 @@ want to import to the service.
 Then, provide the retrieved encrypted nonce and IV values when you run
 `ibmcloud kp key create` to import the key.
 
-```
+```sh
 ibmcloud kp import-token nonce-encrypt
     -i, --instance-id INSTANCE_ID
     -k, --key         KEY_MATERIAL
@@ -354,7 +354,7 @@ retrieved public key and nonce as arguments for
 `ibmcloud kp import-token nonce-encrypt` and
 `ibmcloud kp import-token key-encrypt`.
 
-```
+```sh
 ibmcloud kp import-token show
     -i, --instance-id INSTANCE_ID
 ```
@@ -414,7 +414,7 @@ Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256
 bits.
 {: note}
 
-```
+```sh
 ibmcloud kp key create KEY_NAME
      -i, --instance-id     INSTANCE_ID
     [-k, --key-material    KEY_MATERIAL]
@@ -623,7 +623,7 @@ Key ID                                 Key Name
 [Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that
 is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
-```
+```sh
 ibmcloud kp key delete KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
@@ -746,7 +746,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
 Retrieve details about a key policy, such as the key's automatic rotation
 interval.
 
-```
+```sh
 ibmcloud kp policies KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
@@ -878,7 +878,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 Create or replace a policy that is associated with a specified key.
 
-```
+```sh
 ibmcloud kp key policy-update KEY_ID
      -i, --instance-id INSTANCE_ID
      -p, --policy      ROTATION_INTERVAL
@@ -1002,7 +1002,7 @@ You cannot rotate a `standard` key, that is, a key created using the
 `kp create key-name --standard-key` command.
 {: note}
 
-```
+```sh
 ibmcloud kp key rotate KEY_ID
      -i, --instance-id  INSTANCE_ID
     [-k, --key-material KEY_MATERIAL]
@@ -1141,7 +1141,7 @@ Retrieve details about a key, such as the key metadata and key material.
 If the key was designated as a root key, the system cannot return the key
 material for that key.
 
-```
+```sh
 ibmcloud kp key show KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
@@ -1212,7 +1212,7 @@ Key ID                                 Key Name      Description   Creation Date
 using a root key that is stored in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-```
+```sh
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
      -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
@@ -1386,7 +1386,7 @@ You cannot wrap a `standard` key, that is, a key created using the `-s`
 parameter (`ibmcloud kp key create my-key-name -s`).
 {: note}
 
-```
+```sh
 ibmcloud kp key wrap KEY_ID
      -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
@@ -1577,7 +1577,7 @@ FAILED
 List the keys that are available in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-```
+```sh
 ibmcloud kp keys
      -i, --instance-id INSTANCE_ID
     [-c, --crn         ADDITIONAL_DATA]
@@ -1729,7 +1729,7 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17
 Target a different {{site.data.keyword.keymanagementserviceshort}} regional
 endpoint.
 
-```
+```sh
 ibmcloud kp region-set REGION
      -i, --instance-id INSTANCE_ID
     [-u, --unset]

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: set deletion policy, dual authorization, policy-based, key deletion
 
@@ -88,12 +88,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 2. Retrieve the dual authorization policy for a specified key by running the
    following cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -182,23 +182,23 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 
     ```json
     {
-      "metadata": {
-        "collectionTotal": 1,
-        "collectionType": "application/vnd.ibm.kms.policy+json"
-      },
-      "resources": [
-        {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "dualAuthDelete": {
-            "enabled": true
-          },
-          "createdBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "updatedBy": "...",
-          "lastUpdateDate": "2020-03-16T20:41:27Z"
-        }
-      ]
+        "metadata": {
+            "collectionTotal": 1,
+            "collectionType": "application/vnd.ibm.kms.policy+json"
+        },
+        "resources": [
+            {
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "dualAuthDelete": {
+                    "enabled": true
+                },
+                "createdBy": "...",
+                "creationDate": "2020-03-10T20:41:27Z",
+                "updatedBy": "...",
+                "lastUpdateDate": "2020-03-16T20:41:27Z"
+            }
+        ]
     }
     ```
     {: screen}
@@ -208,10 +208,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 
     ```json
     {
-      "metadata": {
-        "collectionTotal": 0,
-        "collectionType": "application/vnd.ibm.kms.policy+json"
-      }
+        "metadata": {
+            "collectionTotal": 0,
+            "collectionType": "application/vnd.ibm.kms.policy+json"
+        }
     }
     ```
     {: screen}
@@ -242,26 +242,26 @@ be reverted.
 2. Enable dual authorization for a specified key by running the following cURL
    command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.policy+json",
-            "dualAuthDelete": {
-              "enabled": true
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.policy+json",
+                        "dualAuthDelete": {
+                            "enabled": true
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -350,23 +350,23 @@ be reverted.
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.policy+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-          "dualAuthDelete": {
-            "enabled": true
-          },
-          "createdBy": "...",
-          "creationDate": "2020-03-10T20:41:27Z",
-          "updatedBy": "...",
-          "lastUpdateDate": "2020-03-16T20:41:27Z"
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.policy+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "dualAuthDelete": {
+                    "enabled": true
+                },
+                "createdBy": "...",
+                "creationDate": "2020-03-10T20:41:27Z",
+                "updatedBy": "...",
+                "lastUpdateDate": "2020-03-16T20:41:27Z"
+            }
+        ]
     }
     ```
     {: screen}

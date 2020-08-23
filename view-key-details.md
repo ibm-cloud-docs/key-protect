@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: get details for a key, get key configuration, get details, view encryption key details, view encryption key, retrieve encryption key details, API examples
 
@@ -58,13 +58,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 
 3. Get details about the key by running the following cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata' \
-      -H 'accept: application/vnd.ibm.kms.key+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'correlation-id: <correlation_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata" \
+        -H "accept: application/vnd.ibm.kms.key+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "correlation-id: <correlation_ID>"
     ```
     {: codeblock}
 
@@ -162,35 +162,35 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "test-standard-key",
-          "state": 1,
-          "extractable": true,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": false,
-          "creationDate": "2020-03-12T03:50:12Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-12T03:50:12Z",
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": false
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "test-standard-key",
+                "state": 1,
+                "extractable": true,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": false,
+                "creationDate": "2020-03-12T03:50:12Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 256,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-12T03:50:12Z",
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": false
+            }
+        ]
     }
     ```
     {: screen}

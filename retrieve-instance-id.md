@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-08-22"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -103,10 +103,10 @@ and then pipe the JSON output to `jq` to extract this value.
    [Resource Controller API](/apidocs/resource-controller){: external}
    to retrieve your instance ID.
 
-    ```cURL
-    curl -X GET \
-      'https://resource-controller.cloud.ibm.com/v2/resource_instances' \
-      -H 'authorization: Bearer <IAM_token>' | jq -r '.resources[] | select(.name | contains("<instance_name>")) | .guid'
+    ```sh
+    $ curl -X GET \
+        "https://resource-controller.cloud.ibm.com/v2/resource_instances" \
+        -H "authorization: Bearer <IAM_token>" | jq -r '.resources[] | select(.name | contains("<instance_name>")) | .guid'
     ```
     {: codeblock}
 

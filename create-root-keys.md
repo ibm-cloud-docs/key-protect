@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -122,28 +122,28 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 2. Create a root key by running the following cURL command.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key+json' \
-      -H 'correlation-id: <correlation_ID>' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.key+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.key+json",
-            "name": "<key_alias>",
-            "description": "<key_description>",
-            "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
-            "extractable": <key_type>
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.key+json" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.key+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.key+json",
+                         "name": "<key_alias>",
+                         "description": "<key_description>",
+                         "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
+                         "extractable": <key_type>
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -258,9 +258,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         </td>
         <td>
           The date and time that the key expires in the system, in RFC 3339
-          format. The key will transition to the deactivated state within one hour 
-          past the key's expiration date.
-          
+          format. The key will transition to the deactivated state within one
+          hour past the key's expiration date.
+
           If the <code>expirationDate</code> attribute is omitted, the
           key does not expire.
         </td>
@@ -296,7 +296,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
     {: important}
 
-    If the `expirationDate` is provided in your create key request, the key will transition to the deactivated state within one hour past the key's expiration date.
+    If the `expirationDate` is provided in your create key request, the key will
+    transition to the deactivated state within one hour past the key's
+    expiration date.
     {: note}
 
     A successful `POST api/v2/keys` response returns the ID value for your key,
@@ -306,40 +308,40 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "test-root-key",
-          "description": "A test root key",
-          "state": 1,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": false,
-          "creationDate": "2020-03-12T03:37:32Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "256",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 256,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-12T03:37:32Z",
-          "keyVersion": {
-            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-            "creationDate": "2020-03-12T03:37:32Z"
-          },
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": false
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "test-root-key",
+                "description": "A test root key",
+                "state": 1,
+                "extractable": false,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": false,
+                "creationDate": "2020-03-12T03:37:32Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "256",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 256,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-12T03:37:32Z",
+                "keyVersion": {
+                    "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                    "creationDate": "2020-03-12T03:37:32Z"
+                },
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": false
+            }
+        ]
     }
     ```
     {: screen}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-08-22"
 
 keywords: Key Protect tutorial, secure import
 
@@ -271,17 +271,17 @@ security for your encryption key while it's in flight to the service.
    {{site.data.keyword.keymanagementserviceshort}} instance, and then
    save the response to a JSON file.
 
-    ```cURL
-    curl -X POST \
-      $KP_API_URL/api/v2/import_token \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'content-type: application/json' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -d '{
-        "expiration": 1200,
-        "maxAllowedRetrievals": 1
-      }' > createImportTokenResponse.json
+    ```sh
+    $ curl -X POST \
+        "$KP_API_URL/api/v2/import_token" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/json" \
+        -d '{
+                "expiration": 1200,
+                "maxAllowedRetrievals": 1
+            }' > createImportTokenResponse.json
     ```
     {: codeblock}
 
@@ -304,10 +304,10 @@ security for your encryption key while it's in flight to the service.
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
-      "maxAllowedRetrievals": 1,
-      "remainingRetrievals": 1
+        "creationDate": "2019-04-08T16:58:29Z",
+        "expirationDate": "2019-04-08T17:18:29Z",
+        "maxAllowedRetrievals": 1,
+        "remainingRetrievals": 1
     }
     ```
     {: screen}
@@ -320,10 +320,10 @@ that is associated with the token.
 
 ```json
 {
-  "creationDate": "2019-04-08T16:58:29Z",
-  "expirationDate": "2019-04-08T17:18:29Z",
-  "maxAllowedRetrievals": 1,
-  "remainingRetrievals": 1
+    "creationDate": "2019-04-08T16:58:29Z",
+    "expirationDate": "2019-04-08T17:18:29Z",
+    "maxAllowedRetrievals": 1,
+    "remainingRetrievals": 1
 }
 ```
 {: screen}
@@ -338,12 +338,12 @@ To retrieve the import token contents:
 1. Retrieve the import token that you generated the previous step, and then save
    the response to a JSON file.
 
-    ```cURL
-    curl -X GET \
-      $KP_API_URL/api/v2/import_token \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' > getImportTokenResponse.json
+    ```sh
+    $ curl -X GET \
+        "$KP_API_URL/api/v2/import_token" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" > getImportTokenResponse.json
     ```
     {: codeblock}
 
@@ -359,12 +359,12 @@ To retrieve the import token contents:
 
     ```json
     {
-      "creationDate": "2019-04-08T16:58:29Z",
-      "expirationDate": "2019-04-08T17:18:29Z",
-      "maxAllowedRetrievals": 1,
-      "remainingRetrievals": 0,
-      "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv...",
-      "nonce": "8zJE9pKVdXVe/nLb"
+        "creationDate": "2019-04-08T16:58:29Z",
+        "expirationDate": "2019-04-08T17:18:29Z",
+        "maxAllowedRetrievals": 1,
+        "remainingRetrievals": 0,
+        "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv...",
+        "nonce": "8zJE9pKVdXVe/nLb"
     }
     ```
     {: screen}
@@ -482,8 +482,8 @@ To encrypt the nonce value:
 
     ```json
     {
-      "encryptedNonce": "DVy/Dbk37X8gSVwRA5U6vrHdWQy8T2ej+riIVw==",
-      "iv": "puQrzDX7gU1TcTTx"
+        "encryptedNonce": "DVy/Dbk37X8gSVwRA5U6vrHdWQy8T2ej+riIVw==",
+        "iv": "puQrzDX7gU1TcTTx"
     }
     ```
     {: screen}
@@ -565,30 +565,30 @@ To import the key:
    {{site.data.keyword.keymanagementserviceshort}} instance by running
    the following cURL command.
 
-    ```cURL
-    curl -X POST \
-      $KP_API_URL/api/v2/keys \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'content-type: application/json' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.key+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "name": "encrypted-root-key",
-            "type": "application/vnd.ibm.kms.key+json",
-            "payload": "'"$ENCRYPTED_KEY"'",
-            "extractable": false,
-            "encryptionAlgorithm": "RSAES_OAEP_SHA_256",
-            "encryptedNonce": "'"$ENCRYPTED_NONCE"'",
-            "iv": "'"$IV"'"
-          }
-        ]
-      }' > createRootKeyResponse.json
+    ```sh
+    $ curl -X POST \
+        "$KP_API_URL/api/v2/keys" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.key+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "name": "encrypted-root-key",
+                        "type": "application/vnd.ibm.kms.key+json",
+                        "payload": "'"$ENCRYPTED_KEY"'",
+                        "extractable": false,
+                        "encryptionAlgorithm": "RSAES_OAEP_SHA_256",
+                        "encryptedNonce": "'"$ENCRYPTED_NONCE"'",
+                        "iv": "'"$IV"'"
+                    }
+                ]
+            }' > createRootKeyResponse.json
     ```
     {: codeblock}
 
@@ -622,21 +622,21 @@ To import the key:
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "type": "application/vnd.ibm.kms.key+json",
-          "name": "encrypted-root-key",
-          "state": 1,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "extractable": false,
-          "imported": true
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "type": "application/vnd.ibm.kms.key+json",
+                "name": "encrypted-root-key",
+                "state": 1,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "extractable": false,
+                "imported": true
+            }
+        ]
     }
     ```
     {: screen}
@@ -677,12 +677,12 @@ To import the key:
 2. Remove the encryption key from your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl -X DELETE \
-      $KP_API_URL/api/v2/keys/$ROOT_KEY_ID \
-      -H 'accept: application/vnd.ibm.collection+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' | jq .
+    ```sh
+    $ curl -X DELETE \
+        "$KP_API_URL/api/v2/keys/$ROOT_KEY_ID" \
+        -H "accept: application/vnd.ibm.collection+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" | jq .
     ```
     {: codeblock}
 

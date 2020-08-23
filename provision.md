@@ -167,7 +167,7 @@ Select the region and resource group where you would like to create a
 The `<resource_group_name>` can be `Default` (case-sensitive).
 
 ```sh
-$ ibmcloud target -r <region_name> -g <resource_group_name>
+ibmcloud target -r <region_name> -g <resource_group_name>
 ```
 {: pre}
 
@@ -213,7 +213,7 @@ for learn more about public and private access.
 `ea557753-a15b-4570-a9a3-1efefbd2d382`.
 
 ```sh
-$ ibmcloud resource service-instance-create <instance_name> kms tiered-pricing <region>
+ibmcloud resource service-instance-create <instance_name> kms tiered-pricing <region>
 ```
 {: pre}
 

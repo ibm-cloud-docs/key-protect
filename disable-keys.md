@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-22"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -141,11 +141,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
 3. Run the following cURL command to disable the root key and suspend its
 encrypt and decrypt operations.
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -234,12 +234,12 @@ encrypt and decrypt operations.
 4. Optional: Verify that the root key was disabled by retrieving details about
 the key.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.key+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "accept: application/vnd.ibm.kms.key+json"
     ```
     {: codeblock}
 
@@ -253,43 +253,43 @@ the key.
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "...",
-          "description": "...",
-          "tags": [
-            "..."
-          ],
-          "state": 2,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": true,
-          "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "128",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 128,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "keyVersion": {
-            "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
-            "creationDate": "2020-03-12T03:37:32Z"
-          },
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": false
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "...",
+                "description": "...",
+                "tags": [
+                    "..."
+                ],
+                "state": 2,
+                "extractable": false,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": true,
+                "creationDate": "2020-03-10T20:41:27Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "128",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 128,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-16T20:41:27Z",
+                "keyVersion": {
+                    "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                    "creationDate": "2020-03-12T03:37:32Z"
+                },
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": false
+            }
+        ]
     }
     ```
     {: screen}
@@ -326,11 +326,11 @@ and decrypt operations.
     enable it again.
     {: note}
 
-    ```cURL
-    curl -X POST \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X POST \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -419,12 +419,12 @@ and decrypt operations.
 4. Optional: Verify that the root key was enabled by retrieving details about
 the key.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.key+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+        -H "accept: application/vnd.ibm.kms.key+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -439,43 +439,43 @@ the key.
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key+json",
-        "collectionTotal": 1
-      },
-      "resources": [
-        {
-          "type": "application/vnd.ibm.kms.key+json",
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "name": "...",
-          "description": "...",
-          "tags": [
-            "..."
-          ],
-          "state": 1,
-          "extractable": false,
-          "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-          "imported": true,
-          "creationDate": "2020-03-10T20:41:27Z",
-          "createdBy": "...",
-          "algorithmType": "AES",
-          "algorithmMetadata": {
-            "bitLength": "128",
-            "mode": "CBC_PAD"
-          },
-          "algorithmBitSize": 128,
-          "algorithmMode": "CBC_PAD",
-          "lastUpdateDate": "2020-03-16T20:41:27Z",
-          "keyVersion": {
-            "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
-            "creationDate": "2020-03-12T03:37:32Z"
-          },
-          "dualAuthDelete": {
-            "enabled": false
-          },
-          "deleted": false
-        }
-      ]
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key+json",
+            "collectionTotal": 1
+        },
+        "resources": [
+            {
+                "type": "application/vnd.ibm.kms.key+json",
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "name": "...",
+                "description": "...",
+                "tags": [
+                    "..."
+                ],
+                "state": 1,
+                "extractable": false,
+                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+                "imported": true,
+                "creationDate": "2020-03-10T20:41:27Z",
+                "createdBy": "...",
+                "algorithmType": "AES",
+                "algorithmMetadata": {
+                    "bitLength": "128",
+                    "mode": "CBC_PAD"
+                },
+                "algorithmBitSize": 128,
+                "algorithmMode": "CBC_PAD",
+                "lastUpdateDate": "2020-03-16T20:41:27Z",
+                "keyVersion": {
+                    "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                    "creationDate": "2020-03-12T03:37:32Z"
+                },
+                "dualAuthDelete": {
+                    "enabled": false
+                },
+                "deleted": false
+            }
+        ]
     }
     ```
     {: screen}

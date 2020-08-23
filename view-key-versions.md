@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-08-22"
 
 keywords: key versions, get key versions, list key versions
 
@@ -63,12 +63,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 3. Get a list of versions that are associated with the root key by running the
    following cURL command.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/versions' \
-      -H 'accept: application/vnd.ibm.kms.key.version+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/versions" \
+        -H "accept: application/vnd.ibm.kms.key.version+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -156,20 +156,20 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 
     ```json
     {
-      "metadata": {
-        "collectionType": "application/vnd.ibm.kms.key.version+json",
-        "collectionTotal": 2
-      },
-      "resources": [
-        {
-          "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-          "creationDate": "2020-03-05T16:39:25Z"
+        "metadata": {
+            "collectionType": "application/vnd.ibm.kms.key.version+json",
+            "collectionTotal": 2
         },
-        {
-          "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-          "creationDate": "2020-03-02T16:28:38Z"
-        }
-      ]
+        "resources": [
+            {
+                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+                "creationDate": "2020-03-05T16:39:25Z"
+            },
+            {
+                "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+                "creationDate": "2020-03-02T16:28:38Z"
+            }
+        ]
     }
     ```
     {: screen}

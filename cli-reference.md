@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-22"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.0
 
@@ -166,7 +166,7 @@ that you can use to encrypt and import a root key to the
 {{site.data.keyword.keymanagementserviceshort}} instance. By default,
 the import token expires after 10 minutes (600 seconds).
 
-```
+```sh
 ibmcloud kp import-token create
      -i, --instance-id    INSTANCE_ID
     [-e, --expiration     EXPIRATION_TIME_SECONDS]
@@ -256,7 +256,7 @@ associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
 Then, provide the retrieved encrypted key when you run `ibmcloud kp key create`
 to import the key to the service.
 
-```
+```sh
 ibmcloud kp import-token key-encrypt
      -i, --instance-id INSTANCE_ID
      -k, --key         KEY_MATERIAL
@@ -361,7 +361,7 @@ import into to the service.
 Then, provide the retrieved encrypted nonce and IV values when you run
 `ibmcloud kp key create` to import the key.
 
-```
+```sh
 ibmcloud kp import-token nonce-encrypt
      -i, --instance-id INSTANCE_ID
      -k, --key         KEY_MATERIAL
@@ -470,7 +470,7 @@ retrieved public key and nonce as arguments for
 `ibmcloud kp import-token nonce-encrypt` and
 `ibmcloud kp import-token key-encrypt`.
 
-```
+```sh
 ibmcloud kp import-token show
     -i, --instance-id INSTANCE_ID
 ```
@@ -528,7 +528,7 @@ Retrieve details about instance policies, such as allowed networks
 (public-and-private or private-only) and dual authorization delete (deleting a
 key requires an authorization from two users).
 
-```
+```sh
 ibmcloud kp instance policies
      -i, --instance-id     INSTANCE_ID
     [-a, --allowed-network]
@@ -658,7 +658,7 @@ For existing instances the network access policy is enforced after it is set.
 For more information, see
 [managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies).
 
-```
+```sh
 ibmcloud kp instance policy-update allowed-network
     -i, --instance-id  INSTANCE_ID
     -d, --disable OR
@@ -760,7 +760,7 @@ change any existing key policies.
 When you change the instance policy, new keys are enforced with the instance
 policy.
 
-```
+```sh
 ibmcloud kp instance policy-update dual-auth-delete
     -i, --instance-id INSTANCE_ID
     -d, --disable OR
@@ -955,7 +955,7 @@ There are two ways to enable the `dual-auth-delete` policy:
   `kp instance policy-update dual-auth-delete`; all keys created after the
   instance policy is enabled inherit the instance policy setting
 
-```
+```sh
 ibmcloud kp key cancel-delete KEY_ID
     -i, --instance-id INSTANCE_ID
 ```
@@ -1016,7 +1016,7 @@ Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256
 bits.
 {: note}
 
-```
+```sh
 ibmcloud kp key create KEY_NAME
      -i, --instance-id     INSTANCE_ID
     [-k, --key-material    KEY_MATERIAL]
@@ -1328,7 +1328,7 @@ $ echo $PAYLOAD | base64 -d
 [Delete a key](/docs/key-protect?topic=key-protect-delete-keys) that
 is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
-```
+```sh
 ibmcloud kp key delete KEY_ID
      -i, --instance-id INSTANCE_ID
     [-f, --force]
@@ -1597,7 +1597,7 @@ for the instance or key. To learn how IAM roles map to
 {{site.data.keyword.keymanagementserviceshort}} service actions, check out
 [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
 
-```
+```sh
 ibmcloud kp key disable KEY_ID
     -i, --instance-id INSTANCE_ID
 ```
@@ -1751,7 +1751,7 @@ to the root key's associated data is restored. After access to the associated
 data is restored, a corresponding enable event is displayed in the Activity
 Tracker web UI.
 
-```
+```sh
 ibmcloud kp key enable KEY_ID
     -i, --instance-id INSTANCE_ID
 ```
@@ -1878,7 +1878,7 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 Retrieve details about a key policy, such as the key's automatic rotation
 interval.
 
-```
+```sh
 ibmcloud kp key policies KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
@@ -2011,7 +2011,7 @@ or
 [API](/apidocs/key-protect){: external}
 to delete the key.
 
-```
+```sh
 ibmcloud kp key policy-update dual-auth-delete KEY_ID
      -i, --instance-id INSTANCE_ID
      -e, --enable
@@ -2160,7 +2160,7 @@ For more information, see
 [Rotating root keys on-demand](/docs/key-protect?topic=key-protect-rotate-keys).
 {: note}
 
-```
+```sh
 ibmcloud kp key policy-update rotation KEY_ID
      -i, --instance-id      INSTANCE_ID
     [-m, --monthly-interval MONTHS]
@@ -2295,7 +2295,7 @@ If you want to restore a deleted root key then you **must** save the
 deleted key without provided the original `kp key material`.
 {: important}
 
-```
+```sh
 ibmcloud kp key restore KEY_ID
      -i, --instance-id     INSTANCE_ID
      -k, --key-material    KEY_MATERIAL
@@ -2635,7 +2635,7 @@ You cannot rotate a `standard` key, that is, a key created using the
 `kp create key-name --standard-key` command.
 {: note}
 
-```
+```sh
 ibmcloud kp key rotate KEY_ID
      -i, --instance-id  INSTANCE_ID
     [-k, --key-material KEY_MATERIAL]
@@ -2841,7 +2841,7 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
   </dt>
   <dd>
     <p>
-      To rotate a key that was initially generated in without a
+      To rotate a key that was initially generated without a
       <code>--key-material</code> parameter, that is
       <code>kp key create my-key</code>, omit the <code>--key-material</code>
       parameter.
@@ -2886,7 +2886,7 @@ The
 [kp key cancel-delete](#kp-key-cancel-delete)
 command cancels, or removes, a prior authorization.
 
-```
+```sh
 ibmcloud kp key schedule-delete KEY_ID
     -i, --instance-id INSTANCE_ID
 ```
@@ -2943,7 +2943,7 @@ Retrieve details about a key, such as the key metadata and key material.
 If the key was designated as a root key, the system cannot return the key
 material for that key.
 
-```
+```sh
 ibmcloud kp key show KEY_ID
      -i, --instance-id INSTANCE_ID
     [-o, --output      OUTPUT]
@@ -3067,7 +3067,7 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 using a root key that is stored in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-```
+```sh
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
      -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
@@ -3250,7 +3250,7 @@ You cannot wrap a `standard` key, that is, a key created using the `-s`
 parameter (`ibmcloud kp key create my-key-name -s`).
 {: note}
 
-```
+```sh
 ibmcloud kp key wrap KEY_ID
      -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
@@ -3487,7 +3487,7 @@ Keys are listed in `key id` order; see
 [example 5](#kp-keys-example-5).
 {: note}
 
-```
+```sh
 ibmcloud kp keys
      -i, --instance-id     INSTANCE_ID
     [-c, --crn]
@@ -3800,7 +3800,7 @@ recover those resources. This known as "crypto shredding" and there is no
 recovery from this action.
 {: note}
 
-```
+```sh
 ibmcloud kp registrations
      -i, --instance-id INSTANCE_ID
     [-c, --crn-query   CRN_PATTERN]
@@ -4251,7 +4251,7 @@ No service instance found.
 Target a different {{site.data.keyword.keymanagementserviceshort}} regional
 endpoint.
 
-```
+```sh
 ibmcloud kp region-set REGION
      -i, --instance-id INSTANCE_ID
     [-u, --unset]

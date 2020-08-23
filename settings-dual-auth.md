@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-22"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -107,27 +107,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "policy_type": "dualAuthDelete",
-            "policy_data": {
-              "enabled": true
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "policy_type": "dualAuthDelete",
+                        "policy_data": {
+                            "enabled": true
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -214,12 +214,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
    the policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
 
@@ -270,27 +270,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
-    ```cURL
-    curl -X PUT \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete' \
-      -H 'accept: application/vnd.ibm.kms.policy+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.policy+json' \
-      -d '{
-        "metadata": {
-          "collectionType": "application/vnd.ibm.kms.policy+json",
-          "collectionTotal": 1
-        },
-        "resources": [
-          {
-            "type": "application/vnd.ibm.kms.policy+json",
-            "dualAuthDelete": {
-              "enabled": false
-            }
-          }
-        ]
-      }'
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.policy+json",
+                        "dualAuthDelete": {
+                            "enabled": false
+                        }
+                    }
+                ]
+            }'
     ```
     {: codeblock}
 
@@ -372,11 +372,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
    the policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    ```cURL
-    curl -X GET \
-      'https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'accept: application/vnd.ibm.kms.policy+json'
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
