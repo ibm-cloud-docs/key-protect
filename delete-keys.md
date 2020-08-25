@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-08-25"
 
 keywords: delete key, delete key API examples
 
@@ -430,6 +430,7 @@ the key.
                 "name": "test-root-key",
                 "description": "...",
                 "state": 5,
+                "expirationDate": "2020-03-15T20:41:27Z",
                 "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
                 "deleted": true,
                 "algorithmType": "AES",
