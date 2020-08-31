@@ -35,7 +35,7 @@ so that you can use the commands and flags that are available for the
 {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
-### Previous version
+## Previous version
 {: #cli-reference-previous-040}
 
 Version 0.4.0 documentation does not include deprecated commands.

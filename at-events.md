@@ -187,7 +187,7 @@ model to provide more insight into your data.
 
 For more information on the event fields in the Cloud Auditing Data Federation
 (CADF) event model, see
-[Event Fields](https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
+[Event Fields](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
 
 While `initiator.host.address` is a field that is part of the Cloud Auditing
 Data Federation model, the host address field will not be shown for requests

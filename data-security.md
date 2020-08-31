@@ -45,7 +45,7 @@ see
 {: #data-encryption}
 
 {{site.data.keyword.keymanagementserviceshort}} uses
-[{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://www.ibm.com/cloud/hardware-security-module){: external}
+[{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://ibm.com/cloud/hardware-security-module){: external}
 to generate provider-managed key material and perform
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
 operations. HSMs are tamper-resistant hardware devices that store and use
@@ -89,7 +89,7 @@ industry, and regional compliance standards, including GDPR, HIPAA, and ISO
 
 For a complete listing of {{site.data.keyword.cloud_notm}} compliance
 certifications, see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
 {: tip}
 
 ### EU support
@@ -126,8 +126,8 @@ for your {{site.data.keyword.cloud_notm}} account. You can learn more about how
 {{site.data.keyword.keymanagementserviceshort}} processes and protects personal
 data by reviewing the following addendums.
 
-- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){: external}
-- [{{site.data.keyword.IBM_notm}} Data Processing Addendum (DPA)](https://www.ibm.com/support/customer/csol/terms/?cat=dpa){: external}
+- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA)](https://ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){: external}
+- [{{site.data.keyword.IBM_notm}} Data Processing Addendum (DPA)](https://ibm.com/support/customer/csol/terms/?cat=dpa){: external}
 
 ### HIPAA support
 {: #hipaa-ready}
@@ -152,7 +152,7 @@ To find out more, see
 
 {{site.data.keyword.keymanagementserviceshort}} is ISO 27001, 27017, 27018
 certified. You can view compliance certifications by visiting
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
 
 ### Service Organization Controls (SOC)
 {: #soc}
@@ -167,7 +167,7 @@ Control (SOC) compliance for the following types:
 
 For information about requesting an {{site.data.keyword.cloud_notm}} SOC report,
 see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
 
 ### PCI DSS
 {: #pci-dss}
@@ -175,5 +175,5 @@ see
 {{site.data.keyword.keymanagementserviceshort}} meets controls for the Payment
 Card Industry (PCI) data security standards to protect cardholder data. For
 information about requesting an attestation of compliance, see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/compliance){: external}
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}
 or contact an IBM representative.

@@ -7,7 +7,7 @@ Key Protect
     {: .navgroup id="learn"}
     index.md
     
-    [Why IBM Key Protect?](https://www.ibm.com/cloud/key-protect){: external}
+    [Why IBM Key Protect?](https://ibm.com/cloud/key-protect){: external}
 
     {: .topicgroup}
     About the service
