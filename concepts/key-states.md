@@ -49,7 +49,7 @@ between its generation and its destruction.
 | Pre-active  |       0         | Keys are initially created in the _Pre-activation_ state. A pre-active key cannot be used to cryptographically protect data. |
 | Active      |       1         | Keys move immediately into the _Active_ state on the activation date. This transition marks the beginning of a key's cryptoperiod. Keys with no activation date become active immediately and remain active until they expire or are destroyed. |
 | Suspended   |       2         | A key moves into the _Suspended_ state when it is [disabled for encrypt and decrypt operations](/docs/key-protect?topic=key-protect-disable-keys). In this state, the key is unable to cryptographically protect data and can only be moved to the _Active_ or _Destroyed_ states. |
-| Deactivated |       3         | A key moves into the _Deactivated_ state within one hour past its expiration date, if one is assigned. In this state, the only actions that can be performed on the key are unwrap, rewrap and delete.|
+| Deactivated |       3         | A key moves into the _Deactivated_ state within one hour past its expiration date, if one is assigned. In this state, the only actions that can be performed on the key are unwrap, rewrap, rotate, and delete.|
 | Destroyed   |       5         | Deleted keys are in the _Destroyed_ state. Keys in this state are not recoverable. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. |
 {: caption="Table 1. Describes key states and transitions." caption-side="top"}
 
