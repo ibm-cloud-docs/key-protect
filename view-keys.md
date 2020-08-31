@@ -51,67 +51,23 @@ dashboard.
 complete the following steps to view your keys.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. Browse the general characteristics of your keys from the application details
    page:
 
-    <table>
-      <tr>
-        <th>Column</th>
-        <th>Description</th>
-      </tr>
+   | Column | Description |
+   | ------ | ----------- |
+   | Name   | The human-readable alias that was assigned to your key. |
+   | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
+   | State  | The [key state](/docs/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_. |
+   | Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
+   {: caption="Table 1. Describes the **Keys** table." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>Name</varname>
-        </td>
-        <td>
-          <p>
-            The human-readable alias that was assigned to your key.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>ID/varname>
-        </td>
-        <td>
-          <p>
-            A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>State</varname>
-        </td>
-        <td>
-          <p>
-            The [key state](/docs/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. These states include <i>Pre-active</i>, <i>Active</i>, <i>Deactivated
-            </i>, and <i>Destroyed</i>.          
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>Type</varname>
-        </td>
-        <td>
-          <p>
-            The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service.     
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the <b>Keys</b> table.
-      </caption>
-    </table>
     Not seeing the full list of keys that are stored in your
     {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your
     administrator that you are assigned the correct role for the applicable
@@ -141,7 +97,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View general characteristics about your keys by running the following cURL
-command.
+   command.
 
     ```sh
     $ curl -X GET \
@@ -168,10 +124,14 @@ command.
     </td>
     <td>
       <p>
-        <strong>Required.</strong> The region abbreviation, such as <code>us-south</code> or <code>eu-gb</code>, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.
+        <strong>Required.</strong> The region abbreviation, such as
+        <code>us-south</code> or <code>eu-gb</code>, that represents the
+        geographic area where your
+        {{site.data.keyword.keymanagementserviceshort}} instance resides.
       </p>
       <p>
-        For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints)
+        For more information, see
+        [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
       </p>
     </td>
   </tr>
@@ -182,10 +142,13 @@ command.
     </td>
     <td>
       <p>
-        <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the <code>IAM</code> token, including the Bearer value, in the cURL request.
+        <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access
+        token. Include the full contents of the <code>IAM</code> token,
+        including the Bearer value, in the cURL request.
       </p>
       <p>
-        For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+        For more information, see
+        [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
       </p>
     </td>
   </tr>
@@ -196,10 +159,12 @@ command.
     </td>
     <td>
       <p>
-        <strong>Required.</strong> The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} instance.
+        <strong>Required.</strong> The unique identifier that is assigned to
+        your {{site.data.keyword.keymanagementserviceshort}} instance.
       </p>
       <p>
-        For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+        For more information, see
+        [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
       </p>
     </td>
   </tr>
@@ -210,13 +175,14 @@ command.
     </td>
     <td>
       <p>
-        The unique identifier that is used to track and correlate transactions.      
+        The unique identifier that is used to track and correlate transactions.
       </p>
     </td>
   </tr>
 
   <caption style="caption-side:bottom;">
-    Table 2. Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API.
+    Table 2. Describes the variables that are needed to view keys with the
+    {{site.data.keyword.keymanagementserviceshort}} API.
   </caption>
 </table>
 

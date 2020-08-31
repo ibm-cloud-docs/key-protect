@@ -50,39 +50,30 @@ requests are handled and processed. To learn more, see
 {{site.data.keyword.keymanagementserviceshort}} offers two connectivity options
 for interacting with its service APIs.
 
-<dl>
-  <dt>
-    Public endpoints
-  </dt>
-  <dd>
-    By default, you can connect to resources in your account over the
-    {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in
-    transit by using the Transport Security Layer (TLS) 1.2 protocol.
-  </dd>
+### Public endpoints
+{: #connectivity-options-public}
 
-  <dt>
-    Private endpoints
-  </dt>
-  <dd>
-    <p>
-      For added benefits, you can also enable
-      [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external}
-      for your infrastructure account. When you enable VRF for your account, you
-      can connect to {{site.data.keyword.keymanagementserviceshort}} by using a
-      private IP that is accessible only through the
-      {{site.data.keyword.cloud_notm}} private network.
-    </p>
-    <p>
-      To learn more about VRF, see
-      [Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
-    </p>
-    <p>
-      To learn how to connect to {{site.data.keyword.keymanagementserviceshort}}
-      by using a private endpoint, see
-      [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
-    </p>
-  </dd>
-</dl>
+By default, you can connect to resources in your account over the
+{{site.data.keyword.cloud_notm}} public network. Your data is encrypted in
+transit by using the Transport Security Layer (TLS) 1.2 protocol.
+
+### Private endpoints
+{: #connectivity-options-private}
+
+For added benefits, you can also enable
+[virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external}
+for your infrastructure account.
+
+When you enable VRF for your account, you can connect to
+{{site.data.keyword.keymanagementserviceshort}} by using a private IP that is
+accessible only through the {{site.data.keyword.cloud_notm}} private network.
+
+To learn more about VRF, see
+[Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
+
+To learn how to connect to {{site.data.keyword.keymanagementserviceshort}}
+by using a private endpoint, see
+[Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 
 ## Service endpoints
 {: #service-endpoints}

@@ -485,7 +485,9 @@ your request according to the following table.
         For example, if you have multiple registrations in your instance, and
         you want to only view registrations that are associated with a
         specific Cloud Resource Name (CRN), use
-        <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>.
+        <code>
+          ../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"
+        </code>.
       </p>
       <p>
         For more information, see
@@ -739,7 +741,9 @@ your request according to the following table.
         For example, if you have multiple registrations in your instance, and
         you want to only view registrations that are associated with a specific
         Cloud Resource Name (CRN), use
-        <code>../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"</code>.
+        <code>
+          ../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"
+        </code>.
       </p>
       <p>
         For more information, see

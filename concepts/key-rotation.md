@@ -32,7 +32,7 @@ cryptographic best practices. The following table describes the main benefits of
 key rotation:
 
 | Benefit | Description |
-| --- | --- |
+| ------- | ----------- |
 | Cryptoperiod management for keys | Key rotation limits how long your information is protected by a single key. By rotating your root keys at regular intervals, you also shorten the cryptoperiod of the keys. The longer the lifetime of an encryption key, the higher the probability for a security breach. |
 | Incident mitigation | If your organization detects a security issue, you can immediately rotate the key to mitigate or reduce costs that are associated with key compromise. |
 {: caption="Table 1. Describes the benefits of key rotation" caption-side="top"}
@@ -255,8 +255,8 @@ Rotate your keys regularly, for example every 30 days, to meet cryptographic
 best practices.
 
 | Rotation type | Frequency | Description |
-| --- | --- | --- |
-| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Every 1 - 12 months | Choose a rotation interval between 1 - 12 months for your key based on your on-going security needs. After you set an rotation policy for a key, the clock starts immediately based on the initial creation date for the key. For example, if you set a monthly rotation policy for a key that you created on `2019/02/01`, {{site.data.keyword.keymanagementserviceshort}} automatically rotates the key on `2019/03/01`.|
+| ------------- | --------- | ----------- |
+| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Every 1 - 12 months | Choose a rotation interval between 1 - 12 months for your key based on your on-going security needs. After you set an rotation policy for a key, the clock starts immediately based on the initial creation date for the key. For example, if you set a monthly rotation policy for a key that you created on `2019/02/01`, {{site.data.keyword.keymanagementserviceshort}} automatically rotates the key on `2019/03/01`. |
 | [Manual key rotation](/docs/key-protect?topic=key-protect-rotate-keys) | Up to one rotation per hour | If you're manually rotating a key, {{site.data.keyword.keymanagementserviceshort}} allows one rotation per hour for each root key. |
 {: caption="Table 2. Rotation frequency options for rotating keys in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
@@ -264,10 +264,12 @@ best practices.
 {: #rotation-next-steps}
 
 - To learn how to use {{site.data.keyword.keymanagementserviceshort}} to set an
-automatic rotation policy for an individual key, see
-[Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
+  automatic rotation policy for an individual key, see
+  [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
+
 - To find out more about manually rotating root keys, see
-[Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
+  [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
+
 - To find out more about viewing the key versions that are available for a root
-key, see
-[Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
+  key, see
+  [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).

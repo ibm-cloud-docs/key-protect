@@ -50,108 +50,81 @@ the cloud by importing keys into
 Keep the following considerations in mind when you're ready to import root key
 material to the service.
 
-<dl>
-  <dt>
-    Review your options for creating key material
-  </dt>
-  <dd>
-    <p>
-      Explore your options for creating 256-bit symmetric encryption keys based
-      on your security needs. For example, you can use your internal key
-      management system, backed by a FIPS-validated, on-premises hardware
-      security module (HSM), to generate key material before you bring keys to
-      the cloud.
-    </p>
-    <p>
-      If you're building a proof of concept, you can also use a cryptography
-      toolkit such as
-      [OpenSSL](https://www.openssl.org/){: external}
-      to generate key material that you can import into
-      {{site.data.keyword.keymanagementserviceshort}} for your testing needs.
-    </p>
-  </dd>
+### Review your options for creating key material
+{: #importing-keys-plan-ahead-1}
 
-  <dt>
-    Choose an option for importing key material into
-    {{site.data.keyword.keymanagementserviceshort}}
-  </dt>
-  <dd>
-    <p>
-      Choose from two options for importing root keys based on the level of
-      security that's required for your environment or workload. By default,
-      {{site.data.keyword.keymanagementserviceshort}} encrypts your key material
-      while it's in transit by using the Transport Layer Security (TLS) 1.2
-      protocol.
-    </p>
-    <p>
-      If you're building a proof of concept or trying out the service for the
-      first time, you can import root key material into
-      {{site.data.keyword.keymanagementserviceshort}} by using this default
-      option.
-    </p>
-    <p>
-      If your workload requires a security mechanism beyond TLS, you can also
-      [use an import token](#using-import-tokens)
-      to encrypt and import root key material into the service.
-    </p>
-  </dd>
+Explore your options for creating 256-bit symmetric encryption keys based on
+your security needs.
 
-  <dt>
-    Plan ahead for encrypting your key material
-  </dt>
-  <dd>
-    <p>
-      If you choose to encrypt your key material by using an import token,
-      determine a method for running RSA encryption on the key material. You
-      must use the <code>RSAES_OAEP_SHA_256</code> encryption scheme as
-      specified by the
-      [PKCS #1 v2.1 standard for RSA encryption](https://tools.ietf.org/html/rfc3447){: external}.
-    </p>
-    <p>
-      Review the capabilities of your internal key management system or
-      on-premises HSM to determine your options, or check out the
-      [secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key)
-      for examples.
-    </p>
-  </dd>
+For example, you can use your internal key management system, backed by a
+FIPS-validated, on-premises hardware security module (HSM), to generate key
+material before you bring keys to the cloud.
 
-  <dt>
-    Plan ahead for encrypting the nonce
-  </dt>
-  <dd>
-    <p>
-      If you choose to encrypt your key material by using an import token, you
-      must also determine a method for running AES-GCM encryption on the nonce
-      that is distributed by {{site.data.keyword.keymanagementserviceshort}}.
-      The nonce serves as a session token that checks the originality of a
-      request to protect against malicious attacks and unauthorized calls.
-    </p>
-    <p>
-      Review the capabilities of your internal key management system or
-      on-premises HSM to determine your options, or check out the
-      [secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce)
-      for examples.
-    </p>
-  </dd>
+If you're building a proof of concept, you can also use a cryptography toolkit
+such as
+[OpenSSL](https://www.openssl.org/){: external}
+to generate key material that you can import into
+{{site.data.keyword.keymanagementserviceshort}} for your testing needs.
 
-  <dt>
-    Manage the lifecycle of imported key material
-  </dt>
-  <dd>
-    <p>
-      After you import key material into the service, keep in mind that you are
-      responsible for managing the complete lifecycle of your key. By using the
-      {{site.data.keyword.keymanagementserviceshort}} API, you can set an
-      expiration date for the key when you decide to upload it into the service.
-    </p>
-    <p>
-      However, if you want to
-      [rotate an imported root key](/docs/key-protect?topic=key-protect-rotate-keys),
-      you must generate and provide new key material to retire and replace the
-      existing key.
-    </p>
-  </dd>
-</dl>
+### Choose an option for importing key material into {{site.data.keyword.keymanagementserviceshort}}
+{: #importing-keys-plan-ahead-2}
+
+Choose from two options for importing root keys based on the level of
+security that's required for your environment or workload.
+
+By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key
+material while it's in transit by using the Transport Layer Security (TLS) 1.2
+protocol.
+
+If you're building a proof of concept or trying out the service for the
+first time, you can import root key material into
+{{site.data.keyword.keymanagementserviceshort}} by using this default
+option.
+
+If your workload requires a security mechanism beyond TLS, you can also
+[use an import token](#using-import-tokens)
+to encrypt and import root key material into the service.
+
+### Plan ahead for encrypting your key material
+{: #importing-keys-plan-ahead-3}
+
+If you choose to encrypt your key material by using an import token, determine a
+method for running RSA encryption on the key material. You must use the
+`RSAES_OAEP_SHA_256` encryption scheme as specified by the
+[PKCS #1 v2.1 standard for RSA encryption](https://tools.ietf.org/html/rfc3447){: external}.
+
+Review the capabilities of your internal key management system or on-premises
+HSM to determine your options, or check out the
+[secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-key)
+for examples.
+
+### Plan ahead for encrypting the nonce
+{: #importing-keys-plan-ahead-4}
+
+If you choose to encrypt your key material by using an import token, you must
+also determine a method for running AES-GCM encryption on the nonce that is
+distributed by {{site.data.keyword.keymanagementserviceshort}}.
+
+The nonce serves as a session token that checks the originality of a request to
+protect against malicious attacks and unauthorized calls.
+
+Review the capabilities of your internal key management system or
+on-premises HSM to determine your options, or check out the
+[secure import tutorial](/docs/key-protect?topic=key-protect-tutorial-import-keys#tutorial-import-encrypt-nonce)
+for examples.
+
+### Manage the lifecycle of imported key material
+{: #importing-keys-plan-ahead-5}
+
+After you import key material into the service, keep in mind that you are
+responsible for managing the complete lifecycle of your key. By using the
+{{site.data.keyword.keymanagementserviceshort}} API, you can set an expiration
+date for the key when you decide to upload it into the service.
+
+However, if you want to
+[rotate an imported root key](/docs/key-protect?topic=key-protect-rotate-keys),
+you must generate and provide new key material to retire and replace the
+existing key.
 
 ## Using import tokens
 {: #using-import-tokens}
