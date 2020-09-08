@@ -111,7 +111,7 @@ Use the retrieved key ID to create a access policy:
 4. Click **Assign users additional access**.
 5. From the list of services, select
    **{{site.data.keyword.keymanagementserviceshort}}**.
-6. From the list of s{{site.data.keyword.keymanagementserviceshort}} instances,
+6. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
    select the {{site.data.keyword.keymanagementserviceshort}} instance that
    contains the key that you want to grant access to.
 7. Enter identifying information about the key.

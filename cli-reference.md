@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-09-09"
 
-keywords: Key Protect CLI plug-in, CLI reference, version 0.5.0
+keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
 subcollection: key-protect
 
@@ -18,7 +18,7 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI reference version 0.5.0
+# CLI reference version 0.5.2
 {: #cli-reference}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
@@ -41,14 +41,14 @@ so that you can use the commands and flags that are available for the
 ### Previous version
 {: #cli-reference-previous}
 
-The documentation for version 0.5.0 does not include deprecated commands.
+The documentation for version 0.5.2 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
 
-All deprecated commands work in versions 0.4.0 and 0.5.0. That is, version 0.5.0
+All deprecated commands work in versions 0.4.0 and 0.5.2. That is, version 0.5.2
 is backwards compatible with versions 0.3.9 and 0.4.0. For example, you can
-issue the `kp create` command even though it's deprecated in version 0.5.0.
+issue the `kp create` command even though it's deprecated in version 0.5.2.
 
 The intent is to remove support for deprecated commands in the next CLI version,
 which is anticipated the end of September, 2020.
@@ -85,7 +85,7 @@ $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 
 The `kp import-token` command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.5.0 | Description |
+| Sub-command                                     | Status v0.5.2 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     | Update        | Encrypt the key that you import into the service |
@@ -99,7 +99,7 @@ The `kp import-token` command prepares a root key for secure import.
 The `kp instance` command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.5.0 | Description |
+| Sub-command                                                         | Status v0.5.2 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   | New           | List policies associated with an instance |
 | policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance "allowed network" policy |
@@ -111,7 +111,7 @@ The `kp instance` command manages policies for a
 
 The `kp key` command manages individual keys.
 
-| Sub-command                                                  | Status v0.5.0 | Description |
+| Sub-command                                                  | Status v0.5.2 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [cancel-delete](#kp-key-cancel-delete)                       | New           | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
@@ -135,7 +135,7 @@ The `kp key` command manages individual keys.
 These are other commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources.
 
-| Command                               | Status v0.5.0 | Description |
+| Command                               | Status v0.5.2 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp registrations](#kp-registrations) | New           | List associations between root keys and other cloud resources |
@@ -547,13 +547,13 @@ Description
 $ ibmcloud kp instance policy-update allowed-network --enable --network-type public-and-private
 
 Updating instance policy...
-SUCCESS
+OK
 
 # list the instance policies
 $ ibmcloud kp instance policies
 
 Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
-SUCCESS
+OK
 Created By        user id ...<redacted>...
 Creation Date     2020-06-22T16:17:52Z
 Last Updated      2020-06-22T16:17:52Z
@@ -566,13 +566,13 @@ Network Allowed   public-and-private
 $ ibmcloud kp instance policy-update allowed-network --disable
 
 Updating instance policy...
-SUCCESS
+OK
 
 # list the instance policies - the policy exists and it's disabled
 $ ibmcloud kp instance policies
 
 Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
-SUCCESS
+OK
 Created By        user id ...<redacted>...
 Creation Date     2020-06-22T16:17:52Z
 Last Updated      2020-06-22T16:20:08Z
@@ -677,13 +677,13 @@ This example sets the "allowed network" policy to "public-and-private".
 $ ibmcloud kp instance policy-update allowed-network --enable --network-type public-and-private
 
 Updating instance policy...
-SUCCESS
+OK
 
 # list the instance policies
 $ ibmcloud kp instance policies
 
 Retrieving policy details for instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
-SUCCESS
+OK
 Created By        user id ...<redacted>...
 Creation Date     2020-06-22T16:17:52Z
 Last Updated      2020-06-22T18:17:32Z
@@ -784,7 +784,7 @@ This example enables the dual authorization delete policy.
 $ ibmcloud kp instance policy-update dual-auth-delete --enable
 
 Updating instance policy...
-SUCCESS
+OK
 
 # list the instance policies
 $ ibmcloud kp instance policies --output json
@@ -806,7 +806,7 @@ $ ibmcloud kp instance policies --output json
 $ ibmcloud kp instance policy-update dual-auth-delete --disable
 
 Updating instance policy...
-SUCCESS
+OK
 
 # list the instance policies
 $ ibmcloud kp instance policies --output json
@@ -841,13 +841,13 @@ the policy is updated.
 $ ibmcloud kp instance policy-update dual-auth-delete --enable
 
 Updating instance policy...
-SUCCESS
+OK
 
 # create a new key
 $ ibmcloud kp key create my-protected-key
 
 Creating key: 'my-protected-key', in instance: 'a192d603-0b8d-452f-aac3-f9e1f95e7411'...
-SUCCESS
+OK
 Key ID                                 Key Name
 6a8a129b-0cd4-4667-ba57-b355a125a7ca   my-protected-key
 
@@ -882,7 +882,7 @@ kp.Error:
 $ ibmcloud kp instance policy-update dual-auth-delete --disable
 
 Updating instance policy...
-SUCCESS
+OK
 
 # attempt to delete the key - this fails because the key policy
 # does not change when the instance policy is updated
@@ -987,7 +987,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 $ ibmcloud kp key cancel-delete $KEY_ID
 
 Cancelling key for deletion...
-SUCCESS
+OK
 ```
 {: screen}
 
@@ -1042,7 +1042,7 @@ Create a root key.
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 24203f96-b134-440e-981a-a24f2d432256   my-root-key
 ```
@@ -1081,7 +1081,7 @@ $ KEY_MATERIAL=$(openssl rand -base64 32)
 $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
 
 Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 5f9eef2d-53b4-42e8-8b56-c2970255210a   my-base64-root-key
 ```
@@ -1128,7 +1128,7 @@ IV=efQgA8xBeyuBy39D
 $ ibmcloud kp key create my-imported-root-key -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV
 
 Creating key: 'my-imported-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 4241a9b3-0ee0-4cfd-b0f3-fd80505fb675   my-imported-root-key
 ```
@@ -1144,7 +1144,7 @@ Create a standard key.
 $ ibmcloud kp key create my-standard-key -s
 
 Creating key: 'my-standard-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 12d3f3a4-aea5-4832-8339-fa14dbffd935   my-standard-key
 ```
@@ -1351,7 +1351,7 @@ Delete a root key.
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 8635b804-9966-4918-a16b-d561fdbf181f   my-root-key
 
@@ -1359,7 +1359,7 @@ Key ID                                 Key Name
 $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f
 
 Grabbing info for key id: 8635b804-9966-4918-a16b-d561fdbf181f...
-SUCCESS
+OK
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 8635b804-9966-4918-a16b-d561fdbf181f   my-root-key                 2020-05-05 19:58:02 +0000 UTC   Key does not expire
 
@@ -1367,7 +1367,7 @@ Key ID                                 Key Name      Description   Creation Date
 $ ibmcloud kp key delete 8635b804-9966-4918-a16b-d561fdbf181f
 
 Deleting key: 8635b804-9966-4918-a16b-d561fdbf181f, from instance: 390086ac-76fa-4094-8cf3-c0829bd69526...
-SUCCESS
+OK
 Deleted Key
 8635b804-9966-4918-a16b-d561fdbf181f
 ```
@@ -1651,7 +1651,7 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 $ ibmcloud kp key disable 264fadc3-7667-4b25-916e-5825fe70de0b
 
 Disabling key: '264fadc3-7667-4b25-916e-5825fe70de0b', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 
 # show key details - a state of "2" is "suspended"
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
@@ -1693,7 +1693,7 @@ $ echo $KEY_ID
 $ ibmcloud kp key disable $KEY_ID
 
 Disabling key: '63d044d9-b38b-4803-85ef-ed9a1e5087c2', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 
 # create a random, base64-encoded, 32-byte data encryption key (DEK)
 $ PLAINTEXT=$(openssl rand -base64 32)
@@ -1799,7 +1799,7 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 $ ibmcloud kp key disable 264fadc3-7667-4b25-916e-5825fe70de0b
 
 Disabling key: '264fadc3-7667-4b25-916e-5825fe70de0b', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 
 # show key details - a state of "2" is "suspended"
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
@@ -1825,7 +1825,7 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 $ ibmcloud kp key enable 264fadc3-7667-4b25-916e-5825fe70de0b
 
 Enabling key: '264fadc3-7667-4b25-916e-5825fe70de0b', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 
 # show key details - a state of "1" is "active"
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
@@ -2334,7 +2334,7 @@ $ echo $KEY_ID
 $ ibmcloud kp key delete $KEY_ID
 
 Deleting key: 62ad0cd5-70a4-4c4d-9d87-5f4db620b120, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
-SUCCESS
+OK
 Deleted Key
 62ad0cd5-70a4-4c4d-9d87-5f4db620b120
 
@@ -2342,7 +2342,7 @@ Deleted Key
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID   Key Name
 
 # restore the deleted key
@@ -2361,7 +2361,7 @@ $ ibmcloud kp key restore $KEY_ID -k $KEY_MATERIAL --output json
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID                                 Key Name
 62ad0cd5-70a4-4c4d-9d87-5f4db620b120   my-base64-root-key
 ```
@@ -2444,7 +2444,7 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID                                 Key Name
 c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
 
@@ -2452,7 +2452,7 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
 $ ibmcloud kp key delete $KEY_ID
 
 Deleting key: c42c6f2c-8b67-4016-b2c3-99fba9490f5d, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
-SUCCESS
+OK
 Deleted Key
 c42c6f2c-8b67-4016-b2c3-99fba9490f5d
 
@@ -2460,7 +2460,7 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID   Key Name
 ```
 {: screen}
@@ -2529,7 +2529,7 @@ $ ibmcloud kp key restore $KEY_ID -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV -
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID                                 Key Name
 c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
 ```
@@ -2657,7 +2657,7 @@ Rotate a root key.
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key
 
@@ -2665,13 +2665,13 @@ Key ID                                 Key Name
 $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
 
 Rotating root key...
-SUCCESS
+OK
 
 # show key details
 $ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
 
 Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
-SUCCESS
+OK
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                 2020-05-06 17:25:22 +0000 UTC   Key does not expire
 
@@ -2704,7 +2704,7 @@ $ KEY_MATERIAL=$(openssl rand -base64 32)
 $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
 
 Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
 
@@ -2715,7 +2715,7 @@ $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
 $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k $NEW_KEY_MATERIAL
 
 Rotating root key...
-SUCCESS
+OK
 
 # the key was created from a key material, NOT providing a new key material will fail
 $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58
@@ -2765,7 +2765,7 @@ eyJjaXBoZXJ0ZXh0IjoiQkFrTlJrS2Q0 ...<redacted>... ODA5OGJjNTI4In0=
 $ ibmcloud kp key rotate $KEY_ID
 
 Rotating root key...
-SUCCESS
+OK
 
 # show key details
 $ ibmcloud kp key show $KEY_ID --output json
@@ -2902,7 +2902,7 @@ This is an example of scheduleing a key to be deleted.
 $ ibmcloud kp key schedule-delete $KEY_ID
 
 Scheduling key for deletion...
-SUCCESS
+OK
 
 # this key has a dual-auth-delete policy
 $ ibmcloud kp key policies $KEY_ID --output json
@@ -2965,7 +2965,7 @@ Create a root key and show the details.
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 8635b804-9966-4918-a16b-d561fdbf181f   my-root-key
 
@@ -2973,7 +2973,7 @@ Key ID                                 Key Name
 $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f
 
 Grabbing info for key id: 8635b804-9966-4918-a16b-d561fdbf181f...
-SUCCESS
+OK
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 8635b804-9966-4918-a16b-d561fdbf181f   my-root-key                 2020-05-05 19:58:02 +0000 UTC   Key does not expire
 ```
@@ -3090,7 +3090,7 @@ Unwrap a ciphertext to reveal the plaintext data encryption key (DEK).
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
 
@@ -3098,7 +3098,7 @@ Key ID                                 Key Name
 $ ibmcloud kp key wrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
 
 Wrapping key...
-SUCCESS
+OK
 Ciphertext
 eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
 
@@ -3109,7 +3109,7 @@ $ CIPHERTEXT=eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
 $ ibmcloud kp key unwrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea $CIPHERTEXT
 
 Unwrapping key...
-SUCCESS
+OK
 Plaintext                                      Rewrapped Plaintext
 mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
 ```
@@ -3156,7 +3156,7 @@ eyJjaXBoZXJ0ZXh0IjoiL1pQUzRLbUxQ ...<redacted>... ZjA2ODhjN2JiIn0=
 $ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1,$AAD2
 
 Unwrapping key...
-SUCCESS
+OK
 Plaintext                                      Rewrapped Plaintext
 H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
 
@@ -3296,7 +3296,7 @@ data encryption key (DEK) and wraps it with the root key.
 $ ibmcloud kp key create my-root-key
 
 Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-SUCCESS
+OK
 Key ID                                 Key Name
 807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
 
@@ -3304,7 +3304,7 @@ Key ID                                 Key Name
 $ ibmcloud kp key wrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
 
 Wrapping key...
-SUCCESS
+OK
 Ciphertext
 eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
 
@@ -3315,7 +3315,7 @@ $ CIPHERTEXT=eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
 $ ibmcloud kp key unwrap 807eb0a6-cc10-4bfe-8331-41a6f712c4ea $CIPHERTEXT
 
 Unwrapping key...
-SUCCESS
+OK
 Plaintext                                      Rewrapped Plaintext
 mXW4GmBhkRG1+Dzkx1D6dMX99a4KyYwtwbghaaLEQZ0=
 ```
@@ -3391,7 +3391,7 @@ eyJjaXBoZXJ0ZXh0IjoiL1pQUzRLbUxQ ...<redacted>... ZjA2ODhjN2JiIn0=
 $ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT -a $AAD1,$AAD2
 
 Unwrapping key...
-SUCCESS
+OK
 Plaintext                                      Rewrapped Plaintext
 H4ZfQe66aKcxirfCdNZ/3Na0JECP6HsAM3yclKmIfPQ=
 
@@ -3512,7 +3512,7 @@ List all keys.
 $ ibmcloud kp keys
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID                                 Key Name
 5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key
@@ -3530,7 +3530,7 @@ parameter.
 $ ibmcloud kp keys -c
 
 Retrieving keys...
-SUCCESS
+OK
 Key ID                                 Key Name      CRN
 5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5f2cc155-fe16-492c-845c-4d1f0688c7ba
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key   crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:c36e9f3a-feaf-4033-8603-687784dc7e51
@@ -3591,12 +3591,12 @@ $ for key in $(echo "${KEYS}"); do
 done
 
 Grabbing info for key id: 5f2cc155-fe16-492c-845c-4d1f0688c7ba...
-SUCCESS
+OK
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 5f2cc155-fe16-492c-845c-4d1f0688c7ba   my-root-key                 2020-05-10 18:04:01 +0000 UTC   Key does not expire
 
 Grabbing info for key id: c36e9f3a-feaf-4033-8603-687784dc7e51...
-SUCCESS
+OK
 Key ID                                 Key Name      Description   Creation Date                   Expiration Date
 c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key                 2020-05-10 17:56:37 +0000 UTC   Key does not expire
 ```
@@ -3831,7 +3831,7 @@ for an in-depth explanation of CRN fields.
 List all registrations, which may include cloud resources such as  databases,
 storage, compute, containers, or messaging.
 
-This example shows the registration between CLoud Object Storage (COS) and
+This example shows the registration between Cloud Object Storage (COS) and
 {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
@@ -4276,11 +4276,13 @@ Select a Region:
 1. au-syd
 2. jp-tok
 3. eu-de
-4. eu-gb
-5. us-south
-6. us-east
+4. eu-fr2 (available by request)
+5. eu-gb
+6. us-south
+7. us-east
+8. staging (us-south)
 Enter a number:
-5
+6
 OK
 ```
 {: screen}
