@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-21"
+lastupdated: "2020-09-09"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -28,6 +28,27 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## September 2020
+{: #september-2020}
+
+### Update: CLI plug-in Version 0.5.2 is now available
+{: #september-2020-cli-plugin-052-available}
+
+New as of: 2020-09-09
+
+The  {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
+was updated with these changes:
+
+- Added endpoint `eu-fr2` (URL is `https://private.eu-fr2.kms.cloud.ibm.com`);
+  you need to request access to use this endpoint.
+
+- Commands that specify JSON outout (`--output json`) now return an empty JSON
+  structure if there is no output.
+
+The
+[CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog)
+has all CLI updates.
 
 ## July 2020
 {: #july-2020}
@@ -505,7 +526,7 @@ regions.
 
 To learn more about the features and benefits of
 {{site.data.keyword.cloud_notm}} HSM 7.0, check out the
-[product page](https://www.ibm.com/cloud/hardware-security-module){: external}.
+[product page](/cloud/hardware-security-module){: external}.
 
 ### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} instances
 {: #legacy-service-eol}

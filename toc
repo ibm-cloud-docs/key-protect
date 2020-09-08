@@ -124,6 +124,7 @@ Key Protect
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    troubleshooting.md
     FAQs.md
+    error-messages.md
+    troubleshooting.md
     {: .navgroup-end}

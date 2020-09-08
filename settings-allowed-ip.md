@@ -2,14 +2,13 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-08-28"
 
-keywords: instance settings, service settings, allowed ip, ip allowlist
+keywords: instance settings, service settings, allowed ip, ip allowlist, ip whitelist
 
 subcollection: key-protect
 
 ---
-<!-- DRAFT ONLY, Do NOT push to publish -->
 
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -22,12 +21,12 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing an allowed ip policy
+# Managing an allowed IP policy
 {: #manage-allowed-ip}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
 instance, you can manage allowed IP policies by using the
-{{site.data.keyword.keymanagementservicelong}} service API.
+{{site.data.keyword.keymanagementserviceshort}} service API.
 {: shortdesc}
 
 ## Managing allowed IP settings
@@ -61,11 +60,6 @@ Before you enable and allowed IP policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **Allowed IP policies only support IPv4 notation.**
-  {{site.data.keyword.keymanagementserviceshort}} currently only supports IPv4
-  notation at this time. If your service has both an IPv4 and an IPv6 address,
-  you will need to resolve all requests to the IPv4 address.
-
 - **If you are using a private endpoint, your private environment should be set up prior to enabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
   Before you create an instance policy for your
   {{site.data.keyword.keymanagementserviceshort}} instance, ensure that you have
@@ -73,9 +67,16 @@ following considerations:
   the private network on your server so that you will be able to assign the
   correct IP addresses to the policy.
 
+- **Allowed IP policies only support traffic from IPv4 addresses through private endpoint.**
+  Keep in mind that while both IPv4 and IPv6 subnets can be added to an allowed
+  IP policy, an active allowed IP policy can only allow IPv4 private network
+  gateway addresses to access
+  {{site.data.keyword.keymanagementserviceshort}} instances via a private
+  endpoint.
+
 - **You will need to need to use a private port to access your {{site.data.keyword.keymanagementserviceshort}} instance via private network.**
   Once you create an allowed IP policy, your
-  {{site.data.keyword.keymanagementserviceshort}}instance will be assigned a
+  {{site.data.keyword.keymanagementserviceshort}} instance will be assigned a
   private endpoint port. You will need to
   [retrieve](#retrieve-allowed-ip-port)
   the port and
@@ -105,6 +106,12 @@ following considerations:
   allowed network policy, the IP addresses that are listed on the policy must
   access the instance from the network specified in the allowed network policy.
 
+- **`ipWhitelist` has been deprecated and replaced with `allowedIP`.**
+  Due to the deprecation of the previous `ipWhitelist` term, if you don't
+  specify a query param while making a `GET` instance policies request, you will
+  receive a duplicate allowed IP record when you retrieving your list of
+  instance policies.
+
 ### Enabling and updating an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #enable-allowed-ip-instance-policy}
 
@@ -113,7 +120,7 @@ As a security admin, you can enable or update an allowed IP policy for a
 to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
+https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
 ```
 {: codeblock}
 
@@ -138,7 +145,7 @@ existing policy.
 
     ```sh
     $ curl -X PUT \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -150,7 +157,7 @@ existing policy.
                 },
                 "resources": [
                     {
-                        "policy_type": "ipWhitelist",
+                        "policy_type": "allowedIP",
                         "policy_data": {
                             "enabled": <true|false>,
                             "attributes": {
@@ -241,14 +248,14 @@ existing policy.
           <varname>ip_address_list</varname>
         </td>
         <td>
-          <strong>Required.</strong> A list of IP subnets that are allowed to
-          send traffic to your {{site.data.keyword.keymanagementserviceshort}}
-          instance. There must be at least one value entered. Each subnet must
-          be specified with CIDR notation. Currently, only IPv4 notation is
-          accepted. Acceptable list format is
-          <code>["X.X.X.X/N", "X.X.X.X/N"]</code>. The maximum amount of subnets
-          that can added to an allowed IP policy is 1,000. This attribute should
-          not be provided when disabling a policy.
+          <strong>Required.</strong> A list of IPv4 or IPv6 subnets that are
+          allowed to send traffic to your
+          {{site.data.keyword.keymanagementserviceshort}} instance. There must
+          be at least one value entered. Each subnet must be specified with
+          CIDR notation. Currently, only IPv4 notation is accepted. Acceptable
+          list format is <code>["X.X.X.X/N", "X.X.X.X.X.X.X.X/N"]</code>. The
+          maximum amount of subnets that can added to an allowed IP policy is
+          1,000. This attribute should not be provided when disabling a policy.
         </td>
       </tr>
 
@@ -269,13 +276,17 @@ existing policy.
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
-    $ curl --ipv4 -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
+
+    `ipWhitelist` has been deprecated and replaced with `allowedIP`. You will
+    see duplicate records when you retrieve your allowed IP policy.
+    {: note}
 
 ### Disabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-allowed-ip-instance-policy}
@@ -286,7 +297,7 @@ disable an existing allowed IP policy for your
 to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
+https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
 ```
 {: codeblock}
 
@@ -305,7 +316,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
 
     ```sh
     $ curl -X PUT \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -317,7 +328,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
                 },
                 "resources": [
                     {
-                        "policy_type": "ipWhitelist",
+                        "policy_type": "allowedIP",
                         "policy_data": {
                             "enabled": false
                         }
@@ -404,8 +415,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
-    $ curl --ipv4 -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist" \
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>"
@@ -417,15 +428,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=ipWhitelist
 
 When you create an allowed IP policy, you can access your
 {{site.data.keyword.keymanagementserviceshort}} instance via public endpoint as
-long as the requesting IP address is on the list of approved IP addresses
-associated with the policy. If you send a request to your instance through an
-unauthorized IP address, you will receive a `HTTP 401` error stating that you
-are unauthorized to make a request to the
+long as the requesting IP address is on the list of approved IPv4 or IPv6
+addresses associated with the policy. If you send a request to your instance
+through an unauthorized IP address, you will receive a `HTTP 401` error stating
+that you are unauthorized to make a request to the
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-Currently, only IPv4 notation is accepted. If you have both an IPv4 and an IPv6
-address, it is recommended that you include the `--ipv4` flag in all of your
-cURL requests to ensure that the requests are resolved to IPv4.
+Only IPv4 addresses will be accepted via private endpoint. If your private
+network gateway has both an IPv4 and an IPv6 address, it is recommended that you
+include the `--ipv4` flag in all of your both an IPv4 and an IPv6 address, it is
+recommended that you include the `--ipv4` flag in all of your CURL requests to
+ensure that the requests are resolved to IPv4. cURL requests to the
+{{site.data.keyword.keymanagementserviceshort}} instance with an allowed IP
+policy to ensure that the requests are resolved to IPv4.
 
 The following example shows how to utilize the `--ipv4` flag in a `GET` keys
 request to a public endpoint.
@@ -464,8 +479,13 @@ include the `--ipv4` flag in all of your cURL requests to the
 {{site.data.keyword.keymanagementserviceshort}} instance with an allowed IP
 policy to ensure that the requests are resolved to IPv4.
 
-The following example shows how to utilize the `--ipv4` flag in a `GET` policies
-request via a private endpoint.
+`ipWhitelist` has been deprecated and replaced with `allowedIP`. If there isn't
+a query parameter specified in your `GET` instance policies request, you will
+see duplicate records when you retrieve your allowed IP policy.
+{: note}
+
+The following example shows how to utilize the `--ipv4` flag in a `GET` instance
+policies request via a private endpoint.
 
 ```sh
 $ curl -k -L --ipv4 -X GET \
@@ -490,7 +510,7 @@ policy by making a `GET` call to the following endpoint. **Note** that calls to
 this API bypass allowed IP policy enforcement.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port
+https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
 ```
 {: codeblock}
 
@@ -509,10 +529,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port
 
     ```sh
     $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
-        -H "content-type: application/vnd.ibm.kms.ip_whitelist_port+json"
+        -H "content-type: application/vnd.ibm.kms.allowed_ip_port+json"
     ```
     {: codeblock}
 
@@ -585,7 +605,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/ip_whitelist_port
       </caption>
     </table>
 
-    A successful `GET api/v2/instance/ip_whitelist_port` response returns the
+    A successful `GET api/v2/instance/allowed_ip_port` response returns the
     private endpoint port that was assigned to your
     {{site.data.keyword.keymanagementserviceshort}} instance upon creation of
     its associated allowed IP policy in the `private_endpoint_port` field. If

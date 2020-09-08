@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-09-09"
 
 keywords: Key Protect CLI plug-in, CLI changelog
 
@@ -34,6 +34,20 @@ that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in.
 {: tip}
 
+## CLI version 0.5.2
+{: #cli-changelog-052}
+
+Release date: 2020-09-TODO
+
+### Changes
+{: #cli-changelog-052-changes}
+
+- Added endpoint `eu-fr2` (URL is `https://private.eu-fr2.kms.cloud.ibm.com`);
+  you need to request access to use this endpoint.
+
+- Commands that specify JSON outout (`--output json`) now return an empty JSON
+  structure if there is no output.
+
 ## CLI version 0.5.1
 {: #cli-changelog-051}
 
@@ -44,7 +58,7 @@ Release date: 2020-07-21
 
 - Changed the `command successful` message from `SUCCESS` TO `OK`.
 
-- Removed additional line breaks in the response.
+- Remove additional line breaks in the response.
 
 - For Windows, `OK` and `FAILED` messages are the same color as the `ibmcloud`
   command colors.
