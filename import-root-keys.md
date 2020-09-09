@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-09-09"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -57,9 +57,12 @@ from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. To import a key, click **Add key** and select the **Import your own key**
    window.
 
@@ -105,7 +108,7 @@ from two users to delete keys.
         </td>
         <td>
           <p>
-            The base64 encoded key material, such as an existing key-wrapping
+            The base64-encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service. For more
             information, check out
             [Base64 encoding your key material](#how-to-encode-root-key-material).
@@ -114,15 +117,8 @@ from two users to delete keys.
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            <ul>
-              <li>
-                The key must be 128, 192, or 256 bits.
-              </li>
-              <li>
-                The bytes of data, for example 32 bytes for 256 bits, must be
-                encoded by using base64 encoding.
-              </li>
-            </ul>
+            The key must be 16, 24, or 32 bytes long, corresponding to 128, 192,
+            or 256 bits in length. The key must be base64-encoded.
           </p>
         </td>
       </tr>
@@ -289,7 +285,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         </td>
         <td>
           <p>
-            The base64 encoded key material, such as an existing key-wrapping
+            The base64-encoded key material, such as an existing key-wrapping
             key, that you want to store and manage in the service. For more
             information, check out
             [Base64 encoding your key material](#how-to-encode-root-key-material).
@@ -298,15 +294,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            <ul>
-              <li>
-                The key must be 128, 192, or 256 bits.
-              </li>
-              <li>
-                The bytes of data, for example 32 bytes for 256 bits, must be
-                encoded by using base64 encoding.
-              </li>
-            </ul>
+            The key must be 128, 192, or 256 bits in length, corresponding to
+            16, 24, or 32 bytes long. The key must be base64-encoded.
           </p>
         </td>
       </tr>
@@ -360,7 +349,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-## Base64 encoding your key material
+## Base64-encoding your key material
 {: #how-to-encode-root-key-material}
 
 When importing an existing root key, it is required to include the encrypted key
@@ -369,10 +358,12 @@ material that you want to store and manage in the service.
 ### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-root-import}
 
+Use this process to encrypt the contents of a key material in a file.
+
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-2. Base64 encode your key material string by running the following command:
+2. Base64-encode your key material string by running the following command:
 
     ```sh
     openssl base64 -in <infile> -out <outfile>
@@ -395,6 +386,10 @@ material that you want to store and manage in the service.
           <p>
             The name of the file where your key material string resides.
           </p>
+          <p>
+            Ensure that the key is 16, 24, or 32 bytes long, corresponding to
+            128, 192, or 256 bits in length. The key must be base64-encoded.
+          </p>
         </td>
       </tr>
       <tr>
@@ -403,17 +398,14 @@ material that you want to store and manage in the service.
         </td>
         <td>
           <p>
-            The name of the file where your base64 encoded key material will be
-            outputted once the command has ran.
-          </p>
-          <p>
-            Ensure that the key is 128, 192, or 256 bits in length.
+            The name of the file where your base64-encoded key material will be
+            created once the command has run.
           </p>
         </td>
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to base64 encode your
+        Table 3. Describes the variables that are needed to base64-encode your
         key material.
       </caption>
     </table>
@@ -427,13 +419,16 @@ material that you want to store and manage in the service.
 ### Using OpenSSL to create and encode new key material
 {: #open-ssl-encoding-root-new-key-material}
 
+Use this process to create a random base64-encoded key material with a specific
+byte length. 32 bytes (256 bits) is recommended.
+
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-2. Base64 encode your key material string by running the following command:
+2. Base64-encode your key material string by running the following command:
 
     ```sh
-    openssl rand <byte_length> -base64
+    openssl rand -base64 <byte_length>
     ```
     {: pre}
 
@@ -451,10 +446,11 @@ material that you want to store and manage in the service.
         </td>
         <td>
           <p>
-            The length of the key, measured in bytes. You will need to convert the desired bit length into bytes for the command.
+            The length of the key, measured in bytes.
           </p>
           <p>
-            Acceptable bit lengths: 128, 192, 256. Converted byte lengths are 16, 24, and 32.
+            Acceptable byte lengths are 16, 24, or 32 bytes, corresponding to
+            128, 192, or 256 bits in length. The key must be base64-encoded.
           </p>
         </td>
       </tr>
@@ -468,9 +464,11 @@ material that you want to store and manage in the service.
 #### Key Material Creation Examples
 {: #open-ssl-examples}
 
-1. `openssl rand 16 -base64` will generate 128 bit key material.
-2. `openssl rand 24 -base64` will generate 192 bit key material.
-3. `openssl rand 32 -base64` will generate 256 bit key material.
+1. `openssl rand -base64 16` will generate a 128-bit key material.
+
+2. `openssl rand -base64 24` will generate a 192-bit key material.
+
+3. `openssl rand -base64 32` will generate a 256-bit key material.
 
 ## What's next
 {: #import-root-key-next-steps}
