@@ -138,8 +138,8 @@ These are other commands for managing
 | Command                               | Status v0.5.2 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
-| [kp registrations](#kp-registrations) | New           | List associations between root keys and other cloud resources |
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
+| [kp registrations](#kp-registrations) | New           | List associations between root keys and other cloud resources |
 {: caption="Table 4. Commands for managing other resources" caption-side="top"}
 
 ## Viewing help
@@ -1258,8 +1258,16 @@ $ echo $PAYLOAD | base64 -d
   </dt>
   <dd>
     <p>
-      If you generated a key then this is the 32-byte (256-bit) base64-encoded
-      key material that you store and manage in the service.
+      If you generated a key then this is the base64-encoded key material that
+      you store and manage in the service.
+    </p>
+    <p>
+      Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or
+      256 bits. The key must be base64-encoded.
+    </p>
+    <p>
+      Standard keys can be up to 10,000 bytes in size. The key must be
+      base64-encoded.
     </p>
     <p>
       If you are creating a key using an import token then this is the encrypted
@@ -3782,6 +3790,119 @@ done
   </dd>
 </dl>
 
+## kp region-set
+{: #kp-region-set}
+
+Target a different {{site.data.keyword.keymanagementserviceshort}} regional
+endpoint.
+
+```sh
+ibmcloud kp region-set REGION
+     -i, --instance-id INSTANCE_ID
+    [-u, --unset]
+```
+{: pre}
+
+### Examples
+{: #kp-region-set-examples}
+
+These are examples of `kp region-set`.
+
+#### Example 1
+{: #kp-region-set-example-1}
+
+If the `REGION` parameter is not specified, you are prompted to select a region.
+
+```sh
+# set the region endpoint
+$ ibmcloud kp region-set
+
+Select a Region:
+1. au-syd
+2. jp-tok
+3. eu-de
+4. eu-fr2 (available by request)
+5. eu-gb
+6. us-south
+7. us-east
+8. staging (us-south)
+Enter a number:
+6
+OK
+```
+{: screen}
+
+#### Example 2
+{: #kp-region-set-example-2}
+
+Set the region explicitly.
+
+```sh
+# set the region endpoint to "us-south"
+$ ibmcloud kp region-set us-south
+
+OK
+```
+{: screen}
+
+The `REGION` must be a valid regional endpoint.
+
+```sh
+# this should fail (not a valid regional endpoint)
+$ ibmcloud kp region-set not-a-region
+
+FAILED
+```
+{: screen}
+
+#### Example 3
+{: #kp-region-set-example-3}
+
+Unset (remove) the regional endpoint.
+
+```sh
+# remove the regional endpoint
+$ ibmcloud kp region-set -u
+
+OK
+```
+{: screen}
+
+### Required parameters
+{: #kp-region-set-required}
+
+<dl>
+  <dt>
+    <code>-i, --instance-id</code>
+  </dt>
+  <dd>
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+    {{site.data.keyword.keymanagementserviceshort}} instance. You can
+    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
+    <code>-i</code>.
+  </dd>
+</dl>
+
+### Optional parameters
+{: #kp-region-set-optional}
+
+<dl>
+  <dt>
+    <code>REGION</code>
+  </dt>
+  <dd>
+    Specify a regional endpoint. This parameter is optional and if not
+    specified, you are prompted to select a regional endpoint from a list.
+  </dd>
+
+  <dt>
+    <code>-u, --unset</code>
+  </dt>
+  <dd>
+    Unset (remove) the regional endpoiont.
+  </dd>
+</dl>
+
 ## kp registrations
 {: #kp-registrations}
 
@@ -4242,118 +4363,5 @@ No service instance found.
       Setting the output to JSON (<code>--output json</code>) includes the cloud
       resource name (CRN) in the output.
     </p>
-  </dd>
-</dl>
-
-## kp region-set
-{: #kp-region-set}
-
-Target a different {{site.data.keyword.keymanagementserviceshort}} regional
-endpoint.
-
-```sh
-ibmcloud kp region-set REGION
-     -i, --instance-id INSTANCE_ID
-    [-u, --unset]
-```
-{: pre}
-
-### Examples
-{: #kp-region-set-examples}
-
-These are examples of `kp region-set`.
-
-#### Example 1
-{: #kp-region-set-example-1}
-
-If the `REGION` parameter is not specified, you are prompted to select a region.
-
-```sh
-# set the region endpoint
-$ ibmcloud kp region-set
-
-Select a Region:
-1. au-syd
-2. jp-tok
-3. eu-de
-4. eu-fr2 (available by request)
-5. eu-gb
-6. us-south
-7. us-east
-8. staging (us-south)
-Enter a number:
-6
-OK
-```
-{: screen}
-
-#### Example 2
-{: #kp-region-set-example-2}
-
-Set the region explicitly.
-
-```sh
-# set the region endpoint to "us-south"
-$ ibmcloud kp region-set us-south
-
-OK
-```
-{: screen}
-
-The `REGION` must be a valid regional endpoint.
-
-```sh
-# this should fail (not a valid regional endpoint)
-$ ibmcloud kp region-set not-a-region
-
-FAILED
-```
-{: screen}
-
-#### Example 3
-{: #kp-region-set-example-3}
-
-Unset (remove) the regional endpoint.
-
-```sh
-# remove the regional endpoint
-$ ibmcloud kp region-set -u
-
-OK
-```
-{: screen}
-
-### Required parameters
-{: #kp-region-set-required}
-
-<dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
-  </dd>
-</dl>
-
-### Optional parameters
-{: #kp-region-set-optional}
-
-<dl>
-  <dt>
-    <code>REGION</code>
-  </dt>
-  <dd>
-    Specify a regional endpoint. This parameter is optional and if not
-    specified, you are prompted to select a regional endpoint from a list.
-  </dd>
-
-  <dt>
-    <code>-u, --unset</code>
-  </dt>
-  <dd>
-    Unset (remove) the regional endpoiont.
   </dd>
 </dl>
