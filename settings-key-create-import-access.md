@@ -25,7 +25,7 @@ subcollection: key-protect
 {: #manage-keyCreateImportAccess}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
-instance, you can manage key creation/import policies by using the
+instance, you can manage keyCreateImportAccess policies by using the
 {{site.data.keyword.keymanagementservicelong}} service API.
 {: shortdesc}
 
@@ -33,7 +33,7 @@ instance, you can manage key creation/import policies by using the
 {: #manage-keyCreateImportAccess-instance-policy}
 
 A keyCreateImportAccess policy for {{site.data.keyword.keymanagementserviceshort}}
-instances is an access policy that you can use to restrict how keys are created and imported in to
+instances is an access policy that you can use to restrict how keys are created and imported ito
 your {{site.data.keyword.keymanagementserviceshort}} instance. When you enable this policy,
 {{site.data.keyword.keymanagementserviceshort}} only permits the creation or importation of keys in your 
 {{site.data.keyword.keymanagementserviceshort}} instance that follow
