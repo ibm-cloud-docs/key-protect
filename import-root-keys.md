@@ -451,7 +451,7 @@ material that you want to store and manage in the service.
         </td>
         <td>
           <p>
-            The length of the key, measured in bytes. You will need to convert the desired bit length into bytes.
+            The length of the key, measured in bytes. You will need to convert the desired bit length into bytes for the command.
           </p>
           <p>
             Acceptable bit lengths: 128, 192, 256. Converted byte lengths are 16, 24, and 32.
