@@ -83,12 +83,6 @@ supports key registration, refer to its service documentation for more
 information.
 {: note}
 
-This capability is currently available only by using the
-{{site.data.keyword.keymanagementserviceshort}} API. To find out more, check
-out the
-[{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect#list-registrations-for-a-key){: external}.
-{: preview}
-
 ## Viewing protected resources in the console
 {: #view-protected-resources-console}
 
