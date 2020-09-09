@@ -433,7 +433,7 @@ material that you want to store and manage in the service.
 2. Base64 encode your key material string by running the following command:
 
     ```sh
-    openssl rand <bit_length> -base64
+    openssl rand <byte_length> -base64
     ```
     {: pre}
 
@@ -447,14 +447,14 @@ material that you want to store and manage in the service.
       </tr>
       <tr>
         <td>
-          <varname>bit_length</varname>
+          <varname>byte_length</varname>
         </td>
         <td>
           <p>
-            The length of the key, measured in bits.
+            The length of the key, measured in bytes. You will need to convert the desired bit length into bytes.
           </p>
           <p>
-            Acceptable bit lengths: 128, 192, 256
+            Acceptable bit lengths: 128, 192, 256. Converted byte lengths are 16, 24, and 32.
           </p>
         </td>
       </tr>
@@ -464,6 +464,13 @@ material that you want to store and manage in the service.
         key material.
       </caption>
     </table>
+
+#### Key Material Creation Examples
+{: #open-ssl-examples}
+
+1. `openssl rand 16 -base64` will generate 128 bit key material.
+2. `openssl rand 24 -base64` will generate 192 bit key material.
+3. `openssl rand 32 -base64` will generate 256 bit key material.
 
 ## What's next
 {: #import-root-key-next-steps}
