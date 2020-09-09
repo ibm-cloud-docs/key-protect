@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-01"
+lastupdated: "2020-09-09"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -21,53 +21,47 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing a key creation/import policy
-{: #manage-key-creation-import}
+# Managing a keyCreateImportAccess policy
+{: #manage-keyCreateImportAccess}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
 instance, you can manage key creation/import policies by using the
 {{site.data.keyword.keymanagementservicelong}} service API.
 {: shortdesc}
 
-## Managing key creation/import settings
-{: #manage-key-creation-instance-policy}
+## Managing keyCreateImportAccess settings
+{: #manage-keyCreateImportAccess-instance-policy}
 
-Key creation/import for {{site.data.keyword.keymanagementserviceshort}}
-instances is an access policy that you can use to restrict how keys are created and imported in
+A keyCreateImportAccess policy for {{site.data.keyword.keymanagementserviceshort}}
+instances is an access policy that you can use to restrict how keys are created and imported in to
 your {{site.data.keyword.keymanagementserviceshort}} instance. When you enable this policy,
-{{site.data.keyword.keymanagementserviceshort}} only permits the creation or import of keys in your 
+{{site.data.keyword.keymanagementserviceshort}} only permits the creation or importation of keys in your 
 {{site.data.keyword.keymanagementserviceshort}} instance that follow
-the key creation and import settings listed on the key creation/import policy.
+the key creation and importation settings listed on the keyCreateImportAccess policy.
 
-Setting and retrieving a key creation/import policy is supported through the
-application programming interface (API). Key creation/import policy support will be
+Setting and retrieving a keyCreateImportAccess policy is supported through the
+application programming interface (API). KeyCreateImportAccess policy support will be
 added to the user interface (UI), command line interface (CLI), and software
 development kit (SDK) in the future. To find out more about
 accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
 [Setting up the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-Before you enable a key creation/import policy for your
+Before you enable a keyCreateImportAccess policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **Key creation/import policies do not affect keys that existed prior to policy creation.**
-  The policy only applies to keys that are created or imported after the policy is created. You will still have
-  access to the keys that existed in your {{site.data.keyword.keymanagementserviceshort}} instance prior to policy creation.
+- **KeyCreateImportAccess policies do not affect keys that existed prior to policy creation.**
+  KeyCreateImportAccess policies only affects Key Protect requests that are sent after the policy is set. You will still have access to all keys that existed in your Key Protect instance prior to policy creation.
 
-- **Once a key creation/import policy is set, you will not be able to create a key in your instance via the UI.**
-  Key import/creation policies are not supported in the UI at this time. Once a key/import creation policy is enabled for your instance,
-  you will need to use the {{site.data.keyword.keymanagementserviceshort}} api to [create or import] (/apidocs/key-protect#createkey) 
-  keys into your instance. 
-
-- **Key creation/import policies only apply to your keys during the time of key creation/import.**
-  The policy is only enforced when keys are being created in your {{site.data.keyword.keymanagementserviceshort}} instance. 
-  Once the key is created, authorized users can invoke all of the {{site.data.keyword.keymanagementserviceshort}} actions (rotate,wrap, unwrap, etc.)
-  on the key as usual.
+- **KeyCreateImportAccess policies can affect your keys across various key actions.**
+  The `enforce_token` attribute will affect imported keys during creation, rotation, and restoration. The `create_root_key`, `import_root_key`, 
+  `create_standard_key`, and `import_standard_key` attributes will only affect keys at creation time. All other {{site.data.keyword.keymanagementserviceshort}} 
+  actions (wrap, unwrap, etc.) are unaffected and can be invoked on the key as usual.
   
-### Enabling and updating a key creation/import policy for your {{site.data.keyword.keymanagementserviceshort}} instance
-{: #enable-key-creation-import-policy}
+### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance
+{: #enable-keyCreateImportAccess-policy}
 
-As a security admin, you can enable or update a key creation/import policy for a
+As a security admin, you can enable or update a keyCreateImportAccess policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
@@ -77,21 +71,20 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImpo
 {: codeblock}
 
 If you are updating your {{site.data.keyword.keymanagementserviceshort}}
-instance's key creation/import policy, you will need to provide all of the previous attributes
-that were allowed under the policy, as the new request will override the
-existing policy.
+instance's keyCreateImportAccess policy, keep in mind that if an attribute is omitted from the request, the field will be set to the default value 
+and the existing value for the omitted field will be overwritten.
 {: important}
 
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To enable and disable key creation/import policies, you must be assigned a _Manager_
+    To enable and disable keyCreateImportAccess policies, you must be assigned a _Manager_
     access policy for your {{site.data.keyword.keymanagementserviceshort}}
     instance. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Enable or update a key creation/import policy for your
+2. Enable or update a keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
@@ -111,7 +104,7 @@ existing policy.
                     {
                         "policy_type": "keyCreateImportAccess",
                         "policy_data": {
-                            "enabled": <true|false>,
+                            "enabled": true,
                             "attributes": {
                                 "create_root_key": <true/false>,
                                 "create_standard_key": <true/false>,
@@ -190,17 +183,6 @@ existing policy.
 
       <tr>
         <td>
-          <varname>enabled</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> Set to <code>true</code> to enable a
-          key creation/import policy. Set to <code>false</code> to disable your key creation/import
-          policy.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
           <varname>create_root_key</varname>
         </td>
         <td>
@@ -250,25 +232,24 @@ existing policy.
         <td>
           <strong>Required.</strong> Set to <code>true</code> to prevent authorized users from importing key material 
           into the your {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Set to <code>false</code> to 
-          allow authorized users to import key material into the your instance without using an import token..
+          allow authorized users to import key material into your instance without using an import token.
         </td>
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable a key creation/import
+        Table 1. Describes the variables that are needed to enable a keyCreateImportAccess
         policy.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that your {{site.data.keyword.keymanagementserviceshort}}
-    instance now has an enabled key creation/import policy.
+    instance now has an enabled keyCreateImportAccess policy.
     Your {{site.data.keyword.keymanagementserviceshort}} instance will now only
-    allow the creation or importing of keys from the methods specified in your request.
+    allow the creation or importation of keys from the methods specified in your request.
 
-3. Optional: Verify that the key creation/import policy was created by browsing the
-   policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+3. Optional: Verify that the keyCreateImportAccess policy was created/updated by retrieving 
+   the policy details for your {{site.data.keyword.keymanagementserviceshort}} instance
 
     ```sh
     $ curl -X GET \
@@ -279,11 +260,11 @@ existing policy.
     ```
     {: codeblock}
 
-### Disabling a key creation/import policy for your {{site.data.keyword.keymanagementserviceshort}} instance
+### Disabling a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-key-create-import-policy}
 
 As a manager of a {{site.data.keyword.keymanagementserviceshort}} instance,
-disable an existing key creation/import policy for your
+disable an existing keyCreateImportAccess policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
@@ -292,16 +273,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImpo
 ```
 {: codeblock}
 
+Do not provide any attributes when making a request to disable your keyCreateImportAccess policy.
+{:note}
+
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To disable key creation/import policies, you must be assigned a _Manager_ access
+    To disable keyCreateImportAccess policies, you must be assigned a _Manager_ access
     policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To
     learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}}
     service actions, check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Disable an existing key creation/import policy for your
+2. Disable an existing keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following cURL command.
 
@@ -392,18 +376,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImpo
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to disable a key creation/import
+        Table 2. Describes the variables that are needed to disable a keyCreateImportAccess
         policy.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
-    indicates that the key creation/import policy was updated for your service
+    indicates that the keyCreateImportAccess policy was updated for your service
     instance.
 
-3. Optional: Verify that the key creation/import policy was updated by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+3. Optional: Verify that the keyCreateImportAccess policy was updated by retrieving the policy 
+   details for your {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     $ curl -X GET \
