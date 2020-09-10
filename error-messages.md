@@ -1,7 +1,7 @@
 ---
 copyright:
 years: 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-10"
 
 keywords: Key Protect error messages
 
@@ -13,8 +13,6 @@ subcollection: key-protect
 {:external: target="_blank" .external}
 {:note: .note}
 {:screen: .screen}
-
-<!-- TODO Robert Metcalf - do not merge into publish until this is complete -->
 
 # Error messages
 {: #error-messages}
@@ -2528,10 +2526,9 @@ service need to create the registration.
 A service-to-service request is required to create, delete, replace, or update a
 registration.
 
-See these resources for more information about registrations.
+See this resources for more information about registrations.
 
 - [API documentation](/apidocs/key-protect#createregistration){: external}
-- [Service to service example usage](/docs/get-coding?topic=get-coding-servicetoservice#exampleservice){: external}
 
 ## 27 - This action is not permitted on this...
 {: #error-messages-feature-restricted-err}
