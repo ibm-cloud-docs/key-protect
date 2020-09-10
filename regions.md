@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-09-10"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -69,7 +69,7 @@ When you enable VRF for your account, you can connect to
 accessible only through the {{site.data.keyword.cloud_notm}} private network.
 
 To learn more about VRF, see
-[Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/direct-link?topic=direct-link-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
+[Virtual routing and forwarding on {{site.data.keyword.cloud_notm}}](/docs/dl?topic=dl-overview-of-virtual-routing-and-forwarding-vrf-on-ibm-cloud){: external}.
 
 To learn how to connect to {{site.data.keyword.keymanagementserviceshort}}
 by using a private endpoint, see
