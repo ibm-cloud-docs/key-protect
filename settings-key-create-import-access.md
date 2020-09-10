@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-10"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -51,7 +51,7 @@ Before you enable a keyCreateImportAccess policy for your
 following considerations:
 
 - **KeyCreateImportAccess policies do not affect keys that existed prior to policy creation.**
-  KeyCreateImportAccess policies only affects Key Protect requests that are sent after the policy is set. You will still have access to all keys that existed in your Key Protect instance prior to policy creation.
+  KeyCreateImportAccess policies only affect Key Protect requests that are sent after the policy is set. You will still have access to all keys that existed in your Key Protect instance prior to policy creation.
 
 - **KeyCreateImportAccess policies can affect your keys across various key actions.**
   The `enforce_token` attribute will affect imported keys during creation, rotation, and restoration. The `create_root_key`, `import_root_key`, 
@@ -77,7 +77,7 @@ and the existing value for the omitted field will be overwritten.
 
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To enable and disable keyCreateImportAccess policies, you must be assigned a _Manager_
+    To enable keyCreateImportAccess policies, you must be assigned a _Manager_
     access policy for your {{site.data.keyword.keymanagementserviceshort}}
     instance. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
@@ -189,6 +189,8 @@ and the existing value for the omitted field will be overwritten.
           <strong>Required.</strong> Set to <code>true</code> to allow root keys to be created
           in your {{site.data.keyword.keymanagementserviceshort}} instance. Set to <code>false</code> to 
           prevent root keys from being created in your instance.
+
+          Note: If omitted, `POST /instance/policies` will set this attribute to the default value (`true`).
         </td>
       </tr>
 
@@ -200,6 +202,8 @@ and the existing value for the omitted field will be overwritten.
           <strong>Required.</strong> Set to <code>true</code> to allow standard keys to be created
           in your {{site.data.keyword.keymanagementserviceshort}} instance. Set to <code>false</code> to 
           prevent standard keys from being created in your instance.
+
+          Note: If omitted, `POST /instance/policies` will set this attribute to the default value (`true`).
         </td>
       </tr>
 
@@ -211,6 +215,8 @@ and the existing value for the omitted field will be overwritten.
           <strong>Required.</strong> Set to <code>true</code> to allow root keys to be imported
           into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to <code>false</code> to 
           prevent root keys from being imported into your instance.
+
+          Note: If omitted, `POST /instance/policies` will set this attribute to the default value (`true`).
         </td>
       </tr>
 
@@ -222,6 +228,8 @@ and the existing value for the omitted field will be overwritten.
           <strong>Required.</strong> Set to <code>true</code> to allow standard keys to be imported
           into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to <code>false</code> to 
           prevent standard keys from being imported into your instance.
+
+          Note: If omitted, `POST /instance/policies` will set this attribute to the default value (`true`).
         </td>
       </tr>
 
@@ -233,6 +241,10 @@ and the existing value for the omitted field will be overwritten.
           <strong>Required.</strong> Set to <code>true</code> to prevent authorized users from importing key material 
           into the your {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Set to <code>false</code> to 
           allow authorized users to import key material into your instance without using an import token.
+
+          If enabled, this attribute will take precedence over the `import_root_key` and `import_standard_key` attributes.
+
+          Note: If omitted, `POST /instance/policies` will set this attribute to the default value (`false`).
         </td>
       </tr>
 
@@ -249,7 +261,7 @@ and the existing value for the omitted field will be overwritten.
     allow the creation or importation of keys from the methods specified in your request.
 
 3. Optional: Verify that the keyCreateImportAccess policy was created/updated by retrieving 
-   the policy details for your {{site.data.keyword.keymanagementserviceshort}} instance
+   the policy details for your {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     $ curl -X GET \
@@ -385,8 +397,8 @@ Do not provide any attributes when making a request to disable your keyCreateImp
     indicates that the keyCreateImportAccess policy was updated for your service
     instance.
 
-3. Optional: Verify that the keyCreateImportAccess policy was updated by retrieving the policy 
-   details for your {{site.data.keyword.keymanagementserviceshort}} instance.
+3. Optional: Verify that the keyCreateImportAccess policy was disabled by retrieving 
+   the policy details for your {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     $ curl -X GET \
@@ -396,3 +408,4 @@ Do not provide any attributes when making a request to disable your keyCreateImp
         -H "bluemix-instance: <instance_ID>"
     ```
     {: codeblock}
+    
