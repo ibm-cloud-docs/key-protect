@@ -45,7 +45,7 @@ protocol to encrypt data in transit.
 | {{site.data.keyword.keymanagementserviceshort}} REST API | The {{site.data.keyword.keymanagementserviceshort}} REST API drives encryption key creation and management across {{site.data.keyword.cloud_notm}} services. |
 | IBM-managed hardware security module | Behind the scenes, {{site.data.keyword.cloud_notm}} data centers provide the hardware to protect your keys. Hardware security modules (HSMs) are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary. All cryptographic operations, such as key creation and key rotation, are performed within the HSM. |
 | Customer-managed encryption keys | Root keys are symmetric key-wrapping keys that protect data encryption keys with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). Root keys never leave the boundary of the hardware security module. |
-| Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
+| Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}
 
 ## {{site.data.keyword.keymanagementserviceshort}} workload isolation
