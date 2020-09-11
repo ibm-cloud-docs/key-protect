@@ -462,7 +462,7 @@ byte length. 32 bytes (256 bits) is recommended.
     </table>
 
 #### Key Material Creation Examples
-{: #open-ssl-examples}
+{: #import-root-key-open-ssl-examples}
 
 1. `openssl rand -base64 16` will generate a 128-bit key material.
 
