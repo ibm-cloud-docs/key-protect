@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-15"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -1889,7 +1889,9 @@ interval.
 ```sh
 ibmcloud kp key policies KEY_ID
      -i, --instance-id INSTANCE_ID
+    [-d, --dual-auth]
     [-o, --output      OUTPUT]
+    [-r, --rotation]
 ```
 {: pre}
 
@@ -1991,11 +1993,25 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 <dl>
   <dt>
+    <code>-d, --dual-auth</code>
+  </dt>
+  <dd>
+    Show policies that have a <code>dual-auth-delete</code> policy.
+  </dd>
+
+  <dt>
     <code>-o, --output</code>
   </dt>
   <dd>
     Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
+  </dd>
+
+  <dt>
+    <code>-r, --rotation</code>
+  </dt>
+  <dd>
+    Show policies that have a <code>rotation</code> policy.
   </dd>
 </dl>
 
