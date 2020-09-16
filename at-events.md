@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-09-16"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -360,6 +360,12 @@ The following fields include extra information:
 
 - The `requestData.newValue.policyDualAuthDeleteEnabled` field includes if your
   dual auth delete policy is currently enabled or disabled.
+
+- The `requestData.initialValue.policyAllowedIPAttribute` field includes if
+  your allowed IP policy was previously enabled or disabled.
+
+- The `requestData.newValue.policyAllowedIPAttribute` field includes if
+  your allowed IP policy is currently enabled or disabled.
 
 ### Import token events
 {: #import-token-events}
