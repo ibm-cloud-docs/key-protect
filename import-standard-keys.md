@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-09-09"
 
 keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
 
@@ -42,9 +42,12 @@ from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. To import a new key, click **Add key** and select the **Import your own key**
    window.
 
@@ -92,7 +95,7 @@ from two users to delete keys.
         </td>
         <td>
           <p>
-            The base64 encoded key material, such as a symmetric key, that you
+            The base64-encoded key material, such as a symmetric key, that you
             want to manage in the service. For more information, check out
             [Base64 encoding your key material](#how-to-encode-standard-key-material).
           </p>
@@ -100,10 +103,8 @@ from two users to delete keys.
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            <ul>
-              <li>The key can be up to 10,000 bytes in size.</li>
-              <li>The bytes of data must be base64 encoded.</li>
-            </ul>
+            A standard key can be up to 10,000 bytes in size. The key must be
+            base64-encoded.
           </p>
         </td>
       </tr>
@@ -291,20 +292,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         </td>
         <td>
           <p>
-            The base64 encoded key material, such as a symmetric key, that you
-            want to manage in the service.
-            For more information, check out
+            The base64-encoded key material, such as a symmetric key, that you
+            want to manage in the service. For more information, check out
             [Base64 encoding your key material](#how-to-encode-standard-key-material).
           </p>
           <p>
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            <ul>
-              <li>The key can be up to 10,000 bytes in size.</li>
-              <li>The bytes of data must be base64 encoded.</li>
-              <li>Ensure that the key is 128, 192, or 256 bits in length.</li>
-            </ul>
+            A standard key can be up to 10,000 bytes in size. The key must be
+            base64-encoded.
           </p>
         </td>
       </tr>
@@ -357,7 +354,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-## Base64 encoding your key material
+## Base64-encoding your key material
 {: #how-to-encode-standard-key-material}
 
 When importing an existing standard key, it is required to include the encrypted
@@ -366,10 +363,14 @@ key material that you want to store and manage in the service.
 ### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-standard-existing-key-material}
 
+Use this process to encrypt the contents of a file. For example, you might have
+a file with credentials, not just an encrypted key, that you want to store in
+{{site.data.keyword.keymanagementserviceshort}}.
+
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-2. Base64 encode your key material string by running the following command:
+2. Base64-encode your key material string by running the following command:
 
     ```sh
     openssl base64 -in <infile> -out <outfile>
@@ -399,18 +400,13 @@ key material that you want to store and manage in the service.
           <varname>outfile</varname>
         </td>
         <td>
-          <p>
-            The name of the file where your base64 encoded key material will be
-            be outputted once the command has ran.
-          </p>
-          <p>
-            Ensure that the key is 128, 192, or 256 bits in length.
-          </p>
+          The name of the file where your base64-encoded key material will be
+          created once the command has run.
         </td>
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to base64 encode your
+        Table 3. Describes the variables that are needed to base64-encode your
         key material.
       </caption>
     </table>
@@ -424,13 +420,16 @@ key material that you want to store and manage in the service.
 ### Using OpenSSL to create and encode new key material
 {: #open-ssl-encoding-standard-new-key-material}
 
+Use this process to create a random base64-encoded key material with a specific
+byte length. 32 bytes (256 bits) is recommended.
+
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-2. Base64 encode your key material string by running the following command:
+2. Base64-encode your key material string by running the following command:
 
     ```sh
-    openssl rand <byte_length> -base64
+    openssl rand -base64 <byte_length>
     ```
     {: pre}
 
@@ -448,10 +447,11 @@ key material that you want to store and manage in the service.
         </td>
         <td>
           <p>
-            The length of the key, measured in bytes. You will need to convert the desired bit length into bytes for the command.
+            The length of the key, measured in bytes.
           </p>
           <p>
-            Acceptable bit lengths: 128, 192, 256. Converted byte lengths are 16, 24, and 32.
+            Acceptable byte lengths are 16, 24, or 32 bytes, corresponding to
+            128, 192, or 256 bits in length. The key must be base64-encoded.
           </p>
         </td>
       </tr>
@@ -462,11 +462,13 @@ key material that you want to store and manage in the service.
     </table>
 
 #### Key Material Creation Examples
-{: #open-ssl-examples}
+{: #import-standard-key-open-ssl-examples}
 
-1. `openssl rand 16 -base64` will generate 128 bit key material.
-2. `openssl rand 24 -base64` will generate 192 bit key material.
-3. `openssl rand 32 -base64` will generate 256 bit key material.
+1. `openssl rand -base64 16` will generate a 128-bit key material.
+
+2. `openssl rand -base64 24` will generate a 192-bit key material.
+
+3. `openssl rand -base64 32` will generate a 256-bit key material.
 
 ## What's next
 {: #import-standard-key-next-steps}
