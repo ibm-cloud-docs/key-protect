@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -39,9 +39,6 @@ New as of: 2020-09-09
 
 The  {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
 was updated with these changes:
-
-- Added endpoint `eu-fr2` (URL is `https://private.eu-fr2.kms.cloud.ibm.com`);
-  you need to request access to use this endpoint.
 
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
   structure if there is no output.
