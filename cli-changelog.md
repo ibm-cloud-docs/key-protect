@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-21"
 
 keywords: Key Protect CLI plug-in, CLI changelog
 
@@ -41,9 +41,6 @@ Release date: 2020-09-TODO
 
 ### Changes
 {: #cli-changelog-052-changes}
-
-- Added endpoint `eu-fr2` (URL is `https://private.eu-fr2.kms.cloud.ibm.com`);
-  you need to request access to use this endpoint.
 
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
   structure if there is no output.

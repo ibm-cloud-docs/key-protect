@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-09-21"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -3837,13 +3837,12 @@ Select a Region:
 1. au-syd
 2. jp-tok
 3. eu-de
-4. eu-fr2 (available by request)
-5. eu-gb
-6. us-south
-7. us-east
-8. staging (us-south)
+4. eu-gb
+5. us-south
+6. us-east
+7. staging (us-south)
 Enter a number:
-6
+5
 OK
 ```
 {: screen}
