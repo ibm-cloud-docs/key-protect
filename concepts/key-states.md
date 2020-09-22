@@ -96,8 +96,8 @@ state.
   <tr>
     <td>Rotate key</td>
     <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td></td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
+    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
     <td></td>
   </tr>
 
