@@ -44,6 +44,7 @@ Key Protect
         settings-dual-auth.md
         settings-network-policy.md
         settings-allowed-ip.md
+        settings-key-create-import-access.md
 
     {: .topicgroup}
     Accessing the API
