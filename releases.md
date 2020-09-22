@@ -32,6 +32,16 @@ Stay up-to-date with the new features that are available for
 ## September 2020
 {: #september-2020}
 
+### Added: Manage key creation and importation policies
+{: #added-key-creation-importation-policies}
+
+New as of: 2020-09-17
+
+You can set a key creation and importation policy to restrict how keys are created 
+and imported into your {{site.data.keyword.keymanagementserviceshort}} instance.
+To find out more, see
+[Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
+
 ### Update: User interface
 {: #september-2020-user-interface}
 
