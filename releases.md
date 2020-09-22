@@ -42,28 +42,21 @@ and imported into your {{site.data.keyword.keymanagementserviceshort}} instance.
 To find out more, see
 [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
 
-### Update: User interface
-{: #september-2020-user-interface}
+### Added: Feature updates to the {{site.data.keyword.keymanagementserviceshort}} UI
+{: #september-2020-ui-updates}
 
-The following changes are in the
-[{{site.data.keyword.keymanagementserviceshort}} user interface](https://{DomainName}/){: external}.
+New as of: 2020-09-22
 
-Added a filter capability when listing keys. The filter icon is next to the
-"Add Key" button. You filter by the "key state".
-- Pre-active
-- Enabled
-- Disabled
-- Deactivated
-- Destroyed
+The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
+following feature:
 
-You could search for deleted keys by selecting the "destroyed" filter.
-
-This new feature could list an imported root key that was deleted and now the
-user wishes to restore it. Note: you must include the original Key Material
-to restore the key.
-
-The "Restore" option is now available via the overflow icon (3 vertical dots)
-for a qualified deleted key (imported root key).
+- List keys by key state: You can now use the {{site.data.keyword.keymanagementserviceshort}}
+  UI to filter and retrieve keys that are in a specified state. For more information, see
+  [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys#filter-key-state-gui).
+  
+If you have _Manager_ access permissions, you can filter for keys in the **Destroyed** state 
+and restore an imported root key via the ⋯ icon on the **Keys** table. Note: you must include the 
+original Key Material to restore the key.
 
 ### Update: CLI plug-in Version 0.5.2 is now available
 {: #september-2020-cli-plugin-052-available}

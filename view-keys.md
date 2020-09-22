@@ -60,13 +60,64 @@ complete the following steps to view your keys.
 4. Browse the general characteristics of your keys from the application details
    page:
 
-   | Column | Description |
-   | ------ | ----------- |
-   | Name   | The human-readable alias that was assigned to your key. |
-   | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
-   | State  | The [key state](/docs/key-protect?topic=key-protect-key-states) based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_. |
-   | Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
-   {: caption="Table 1. Describes the **Keys** table." caption-side="top"}
+    <table>
+      <tr>
+        <th>Column</th>
+        <th>Description</th>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>Name</varname>
+        </td>
+        <td>
+          <p>
+            The human-readable alias that was assigned to your key.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>ID</varname>
+        </td>
+        <td>
+          <p>
+            A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} 
+            service. You can use the ID value to make calls to the service with the 
+            [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>State</varname>
+        </td>
+        <td>
+          <p>
+          The [key state](/docs/key-protect?topic=key-protect-key-states) based on 
+          [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. 
+          These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>Type</varname>
+        </td>
+        <td>
+          <p>
+            The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) 
+            that describes your key's designated purpose within the service.
+        </td>
+      </tr>
+
+      <caption style="caption-side:bottom;">
+        Table 2. Describes the **Keys** table..
+      </caption>
+    </table>
 
     Not seeing the full list of keys that are stored in your
     {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your
@@ -75,6 +126,39 @@ complete the following steps to view your keys.
     For more information about roles, see
     [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
     {: tip}
+
+### Retrieving keys by state
+{: #filter-key-state-gui}
+
+By filtering on the state of specific keys in your {{site.data.keyword.keymanagementserviceshort}} 
+instance, you can retrieve keys that are in the states that you specify.
+
+For example, you might have keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance that are in the active,
+suspended, and destroyed states, but you only want to retrieve keys in the
+active state when you look through a list of keys.
+
+For more information on key states, see
+[Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
+{: note}
+
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
+complete the following steps to view your keys.
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+4. On the application details page, click the filter icon and select the dropdown
+   from the **Status** menu.
+
+5. Select the key state of the keys that you would like to retrieve.
+
+6. Click the **Apply** button.
+
 
 ## Viewing keys with the API
 {: #view-keys-api}
