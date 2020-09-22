@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -32,12 +32,35 @@ Stay up-to-date with the new features that are available for
 ## September 2020
 {: #september-2020}
 
+### Update: User interface
+{: #september-2020-user-interface}
+
+The following changes are in the
+[{{site.data.keyword.keymanagementserviceshort}} user interface](https://{DomainName}/){: external}.
+
+Added a filter capability when listing keys. The filter icon is next to the
+"Add Key" button. You filter by the "key state".
+- Pre-active
+- Enabled
+- Disabled
+- Deactivated
+- Destroyed
+
+You could search for deleted keys by selecting the "destroyed" filter.
+
+This new feature could list an imported root key that was deleted and now the
+user wishes to restore it. Note: you must include the original Key Material
+to restore the key.
+
+The "Restore" option is now available via the overflow icon (3 vertical dots)
+for a qualified deleted key (imported root key).
+
 ### Update: CLI plug-in Version 0.5.2 is now available
 {: #september-2020-cli-plugin-052-available}
 
 New as of: 2020-09-09
 
-The  {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
+The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
 was updated with these changes:
 
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
