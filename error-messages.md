@@ -1,7 +1,8 @@
 ---
+
 copyright:
 years: 2020
-lastupdated: "2020-09-10"
+lastupdated: "2020-09-16"
 
 keywords: Key Protect error messages
 
@@ -748,7 +749,7 @@ The `key disable` request fails because the key has expired and you are
 attempting to change the key state from disabled (state value is 3) to enabled
 (state value is 1).
 
-The following steps will return a `key has been disabled` error.
+The following steps return a `key has been disabled` error.
 
 1. Create a key with an expiration date
 2. Allow the expiration date to pass
@@ -1047,7 +1048,7 @@ This error occurs when you "rewrap" or "unwrap" a key and there is no body.
 #### Example
 {: #error-messages-no-body-err-context-example}
 
-The following steps will return a `missing body in request` error.
+The following steps return a `missing body in request` error.
 
 1. Create a root key
 2. Create a data encryption key (DEK), this is the `plaintext`
@@ -2633,7 +2634,7 @@ already on the server resulting in a version control conflict.
 {: #error-messages-key-rotation-not-permitted-context}
 
 A root key can be rotated, at most, once an hour. Attempting to rotate a root
-key any sooner than one hour will return this error message.
+key any sooner than one hour returns this error message.
 
 ```sh
 # step 1 - create a root key and provide a key material

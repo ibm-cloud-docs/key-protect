@@ -209,10 +209,17 @@ $ ibmcloud kp import-token show
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -297,10 +304,17 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 
   <dt>
@@ -404,10 +418,17 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 
   <dt>
@@ -514,10 +535,17 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -610,10 +638,17 @@ $ ibmcloud kp instance policies --output json
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -713,10 +748,17 @@ Network Allowed   public-and-private
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 
   <dt>
@@ -917,10 +959,17 @@ kp.Error:
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -1242,10 +1291,17 @@ $ echo $PAYLOAD | base64 -d
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -1546,10 +1602,17 @@ No service instance found.
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -1739,10 +1802,17 @@ kp.Error:
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -1873,10 +1943,17 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -1981,10 +2058,17 @@ $ ibmcloud kp key policies $KEY_ID --output json
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -2574,10 +2658,17 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 
   <dt>
@@ -2849,10 +2940,17 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -3064,10 +3162,17 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -3219,10 +3324,17 @@ FAILED
     <code>-i, --instance-ID</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -3449,10 +3561,17 @@ FAILED
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -3757,10 +3876,17 @@ done
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -3891,10 +4017,17 @@ OK
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 
@@ -4341,10 +4474,17 @@ No service instance found.
     <code>-i, --instance-id</code>
   </dt>
   <dd>
-    The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance. You can
-    <code>export KP_INSTANCE_ID=INSTANCE_ID</code> instead of specifying
-    <code>-i</code>.
+    <p>
+      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+      {{site.data.keyword.keymanagementserviceshort}} instance.
+    </p>
+    <p>
+      You can set an environment variable instead of specifying <code>-i</code>
+      with the following command.
+    </p>
+    <p>
+      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+    </p>
   </dd>
 </dl>
 

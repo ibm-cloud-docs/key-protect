@@ -37,8 +37,10 @@ Stay up-to-date with the new features that are available for
 
 New as of: 2020-09-17
 
-You can set a key creation and importation policy to restrict how keys are created 
-and imported into your {{site.data.keyword.keymanagementserviceshort}} instance.
+You can set a key creation and importation policy to restrict how keys are
+created and imported into your {{site.data.keyword.keymanagementserviceshort}}
+instance.
+
 To find out more, see
 [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
 
@@ -50,13 +52,15 @@ New as of: 2020-09-22
 The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following feature:
 
-- List keys by key state: You can now use the {{site.data.keyword.keymanagementserviceshort}}
-  UI to filter and retrieve keys that are in a specified state. For more information, see
+- List keys by key state: You can now use the
+  {{site.data.keyword.keymanagementserviceshort}} UI to filter and retrieve keys
+  that are in a specified state. For more information, see
   [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys#filter-key-state-gui).
-  
-If you have _Manager_ access permissions, you can filter for keys in the **Destroyed** state 
-and restore an imported root key via the ⋯ icon on the **Keys** table. Note: you must include the 
-original Key Material to restore the key.
+
+If you have _Manager_ access permissions, you can filter for keys in the
+**Destroyed** state and restore an imported root key via the ⋯ icon on the
+**Keys** table. Note: you must include the original Key Material to restore the
+key.
 
 ### Update: CLI plug-in Version 0.5.2 is now available
 {: #september-2020-cli-plugin-052-available}
