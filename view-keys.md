@@ -83,8 +83,9 @@ complete the following steps to view your keys.
         </td>
         <td>
           <p>
-            A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} 
-            service. You can use the ID value to make calls to the service with the 
+            A unique key ID that was assigned to your key by the
+            {{site.data.keyword.keymanagementserviceshort}} service. You can use
+            the ID value to make calls to the service with the
             [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
           </p>
         </td>
@@ -96,9 +97,11 @@ complete the following steps to view your keys.
         </td>
         <td>
           <p>
-          The [key state](/docs/key-protect?topic=key-protect-key-states) based on 
-          [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. 
-          These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_.
+            The [key state](/docs/key-protect?topic=key-protect-key-states)
+            based on
+            [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
+            These states include _Pre-active_, _Active_, _Deactivated_, and
+            _Destroyed_.
           </p>
         </td>
       </tr>
@@ -109,7 +112,8 @@ complete the following steps to view your keys.
         </td>
         <td>
           <p>
-            The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) 
+            The
+            [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
             that describes your key's designated purpose within the service.
         </td>
       </tr>
@@ -130,8 +134,9 @@ complete the following steps to view your keys.
 ### Retrieving keys by state
 {: #filter-key-state-gui}
 
-By filtering on the state of specific keys in your {{site.data.keyword.keymanagementserviceshort}} 
-instance, you can retrieve keys that are in the states that you specify.
+By filtering on the state of specific keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance, you can retrieve keys
+that are in the states that you specify.
 
 For example, you might have keys in your
 {{site.data.keyword.keymanagementserviceshort}} instance that are in the active,
@@ -152,13 +157,12 @@ complete the following steps to view your keys.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the application details page, click the filter icon and select the dropdown
-   from the **Status** menu.
+4. On the application details page, click the filter icon and select the
+   dropdown from the **Status** menu.
 
 5. Select the key state of the keys that you would like to retrieve.
 
 6. Click the **Apply** button.
-
 
 ## Viewing keys with the API
 {: #view-keys-api}

@@ -362,7 +362,6 @@ The following fields include extra information:
 {: #dual-auth-event}
 
 The following fields include extra information:
-
 - The `requestData.initialValue.policyDualAuthDeleteEnabled` field includes if
   your dual auth delete policy was previously enabled or disabled.
 
@@ -381,8 +380,10 @@ The following fields include extra information:
   your allowed IP policy is currently enabled or disabled.
 
 ##### Key Creation and Importation Access Policies
-{: #allowed-network-event}
+{: #allowed-key-creation-policy}
+
 The following fields include extra information:
+
 - The `requestData.initialValue.PolicyKCIAEnabled` field includes if
   your key creation and importation policy was previously enabled or disabled.
 
@@ -390,35 +391,40 @@ The following fields include extra information:
   your key creation and importation policy is currently enabled or disabled.
 
 - The `requestData.initialValue.PolicyKCIAAttrCRK` field includes if
-  your key creation and importation policy previously allowed the creation of root keys.
+  your key creation and importation policy previously allowed the creation of
+  root keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCRK` field includes if
   your key creation and importation policy allows the creation of root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrCSK` field includes if
-  your key creation and importation policy previously allowed the creation of standard keys.
+  your key creation and importation policy previously allowed the creation of
+  standard keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCSK` field includes if
   your key creation and importation policy allows the creation of standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrIRK` field includes if
-  your key creation and importation policy previously allowed imported root keys.
+  your key creation and importation policy previously allowed imported root
+  keys.
 
 - The `requestData.newValue.PolicyKCIAAttrIRK` field includes if
   your key creation and importation policy allows imported root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrISK` field includes if
-  your key creation and importation policy previously allowed imported standard keys.
+  your key creation and importation policy previously allowed imported standard
+  keys.
 
 - The `requestData.newValue.PolicyKCIAAttrISK` field includes if
   your key creation and importation policy allows imported standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy previously required keys to be imported via
-  import token.
-  
+  your key creation and importation policy previously required keys to be
+  imported via import token.
+
 - The `requestData.newValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy requires keys to be imported via import token.
+  your key creation and importation policy requires keys to be imported via
+  import token.
 
 ### Import token events
 {: #import-token-events}
