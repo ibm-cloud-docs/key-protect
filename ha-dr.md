@@ -86,8 +86,9 @@ keys (DEKs) created by either of root key.
 {: #application-level-high-availability}
 
 Applications that communicate over networks are subject to transient faults. You
-should design your application to interact with Key Protect by using modern
-resiliency techniques, such as Exponential backoff.
+should design your application to interact with
+{{site.data.keyword.keymanagementserviceshort}} by using modern resiliency
+techniques, such as Exponential backoff.
 [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){: external}
 is a technique that retries requests exponentially, with increasing delays
 between each request.

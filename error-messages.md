@@ -31,12 +31,6 @@ message is passed from another system, such as IAM, to
 {{site.data.keyword.keymanagementserviceshort}} to the user.
 {: note}
 
-## To be resolved
-{: #error-messages-to-be-resolved}
-
-These error messages require advice and/or insight from the Key Protect
-development team.
-
 ## Table of contents
 {: #error-messages-table-of-contents}
 

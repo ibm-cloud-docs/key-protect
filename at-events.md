@@ -362,6 +362,7 @@ The following fields include extra information:
 {: #dual-auth-event}
 
 The following fields include extra information:
+
 - The `requestData.initialValue.policyDualAuthDeleteEnabled` field includes if
   your dual auth delete policy was previously enabled or disabled.
 
