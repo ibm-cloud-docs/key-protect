@@ -54,9 +54,11 @@ Before you enable a keyCreateImportAccess policy for your
 following considerations:
 
 - **KeyCreateImportAccess policies do not affect keys that existed prior to policy creation.**
-  KeyCreateImportAccess policies only affect Key Protect requests that are sent
-  after the policy is set. You will still have access to all keys that existed
-  in your Key Protect instance prior to policy creation.
+  KeyCreateImportAccess policies only affect
+  {{site.data.keyword.keymanagementserviceshort}} requests that are sent after
+  the policy is set. You will still have access to all keys that existed in your
+  {{site.data.keyword.keymanagementserviceshort}} instance prior to policy
+  creation.
 
 - **KeyCreateImportAccess policies can affect your keys across various key actions.**
   The `enforce_token` attribute will affect imported keys during creation,
