@@ -30,17 +30,30 @@ You can protect your in-transit data from quantum computer attacks by using {{si
 ## What is quantum safe cryptography?
 {: #quantum-safe-cryptography}
 
-Quantum safe cryptography is a technology that uses quantum mechanics to transfer an encryption key between two locations. When you send data to {{site.data.keyword.keymanagementserviceshort}}, that data is passed over a Transport Layer Security(TLS) connection that is supported by classic {{site.data.keyword.keymanagementserviceshort}} algorithms. These algorithms protect your data from brute force attacks during the key exchange process. However, as quantum computing 
-continues to grow, there is a future possibility of large scale quantum computer having the ability potentially break those classic algorithms and cause widespread 
-problems. To mitigate the risk of being attacked by a quantum computer, it is important to be prepared for the future.
+Quantum safe cryptography is a technology that uses quantum mechanics to
+transfer an encryption key between two locations. When you send data to
+{{site.data.keyword.keymanagementserviceshort}}, that data is passed over a
+Transport Layer Security (TLS) connection that is supported by classic
+{{site.data.keyword.keymanagementserviceshort}} algorithms.
 
-To keep your TLS connection resilient, {{site.data.keyword.keymanagementserviceshort}} has introduced new endpoints that are supported by quantum safe algorithms to 
-ensure that your TLS connection is stable and secure during the key exchange process.
+These algorithms protect your data from brute force attacks during the key
+exchange process. However, as quantum computing continues to grow, there is a
+future possibility of large scale quantum computer having the ability
+potentially break those classic algorithms and cause widespread problems.
 
-Quantum safe cryptography is only supported through the {{site.data.keyword.keymanagementserviceshort}} 
-software development kit (SDK). Quantum safe cryptography support will be
-added to the command line interface (CLI) in the future. To find out more about
-accessing the {{site.data.keyword.keymanagementserviceshort}} SDK, check out
+To mitigate the risk of being attacked by a quantum computer, it is important to
+be prepared for the future.
+
+To keep your TLS connection resilient,
+{{site.data.keyword.keymanagementserviceshort}} has introduced new endpoints
+that are supported by quantum safe algorithms to ensure that your TLS connection
+is stable and secure during the key exchange process.
+
+Quantum safe cryptography is only supported through the
+{{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).
+Quantum safe cryptography support will be added to the command line interface
+(CLI) in the future. To find out more about accessing the
+{{site.data.keyword.keymanagementserviceshort}} SDK, check out
 [Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
 
 ## What are the considerations of Quantum Safe Cryptography?
@@ -52,12 +65,19 @@ following considerations:
 - **The National Institute for Standards and Technology (NIST) is in the process of [standardizing quantum safe algorithms](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography){: external}.**
     NIST is currently evaluating candidate approaches to quantum safe cryptography and isn't expected to complete the standardization process until after 2023. 
 - **Performance results may vary from traditional key algorithms.**
-    The bandwidth requirements of the quantum safe algorithms vary from classic algorithms. Quantum safe algorithm performance can also be affected by network profile, 
-    CPU speed, and API call rates. 
+  The bandwidth requirements of the quantum safe algorithms vary from classic
+  algorithms. Quantum safe algorithm performance can also be affected by network
+  profile, CPU speed, and API call rates.
+
 - **Quantum Safe Cryptography only protects data in transit, not at rest.**
-    The Quantum Safe algorithms utilized by {{site.data.keyword.keymanagementserviceshort}} protect your data as it travels to a {{site.data.keyword.keymanagementserviceshort}} endpoint. Quantum safe algorithms are not used to encrypt data associated with root keys.
+  The Quantum Safe algorithms utilized by
+  {{site.data.keyword.keymanagementserviceshort}} protect your data as it
+  travels to a {{site.data.keyword.keymanagementserviceshort}} endpoint. Quantum
+  safe algorithms are not used to encrypt data associated with root keys.
+
 - **{{site.data.keyword.keymanagementserviceshort}} currently only supports Quantum Safe Cryptography for Linux Platforms.**
-    Quantum safe cryptography support will be added to additional operating systems in the future.
+  Quantum safe cryptography support will be added to additional operating
+  systems in the future.
 
 ## Using Quantum Safe Cryptography with Key Protect
 {: #how-to-use-qsc}
@@ -65,7 +85,7 @@ following considerations:
 You can choose from multiple algorithms between two different quantum safe TLS connection modes when sending requests to {{site.data.keyword.keymanagementserviceshort}}. 
 
 ### Quantum Safe Mode vs Hybrid Mode
-{: #quantum-safe-modes} 
+{: #quantum-safe-modes}
 
 {{site.data.keyword.keymanagementserviceshort}} has two modes that will protect your keys under quantum attacks: Quantum Safe Mode and Hybrid mode. 
 
@@ -82,17 +102,24 @@ When configuring the sdk, you will have the choice to select one of six algorith
 `p256_kyber512`, `p384_kyber768`, `p521_kyber1024`. Hybrid mode supports the `p256_kyber512`, `p384_kyber768`, and `p521_kyber1024` algorithms. Quantum Safe mode 
 supports the `kyber512`, `kyber768`, and `kyber1024` algorithms. 
 
-These kyber algorithm is recommended by the Open Quantum Safe(OQS) project community. To find out more see, [CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
+Quantum Safe mode supports the `kyber512`, `kyber768`, and `kyber1024`
+algorithms.
+
+These kyber algorithm is recommended by the Open Quantum Safe (OQS) project
+community. To find out more, see
+[CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
 {: note}
 
-### Quantum Safe Enabled Endpoints 
-{#quantum-safe-endpoints}
+### Quantum Safe Enabled Endpoints
+{: #quantum-safe-endpoints}
 
-{{site.data.keyword.keymanagementservicefull}} has quantum safe enabled endpoints for 3 regions; `US-South`, `EU-GB`, and `EU-DE`. See the following table to 
-determine which quantum safe enabled endpoints to use when sending requests to the {{site.data.keyword.keymanagementservicefull}} service.
+{{site.data.keyword.keymanagementservicefull}} has quantum safe enabled
+endpoints for 3 regions; `US-South`, `EU-GB`, and `EU-DE`. See the following
+table to determine which quantum safe enabled endpoints to use when sending
+requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
-| Region        | Public endpoints             |
-| ------------- | ---------------------------- |
+| Region        | Public endpoints                 |
+| ------------- | -------------------------------- |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com` |
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`    |
 | Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`    |
@@ -102,8 +129,8 @@ determine which quantum safe enabled endpoints to use when sending requests to t
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Region        | Private endpoints                    |
-| ------------- | ------------------------------------ |
+| Region        | Private endpoints                        |
+| ------------- | ---------------------------------------- |
 | Dallas        | `qsc.private.us-south.kms.cloud.ibm.com` |
 | London        | `qsc.private.eu-gb.kms.cloud.ibm.com`    |
 | Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`    |
@@ -187,9 +214,10 @@ Once you have the prerequisites installed, follow these steps to configure the K
 ## Using Quantum Safe {{site.data.keyword.keymanagementserviceshort}} endpoints via CURL
 {: #configure-qsc-curl}
 
-When you making a call to the the a quantum safe enabled endpoint via curl request, you will
-need to specify a couple of flags to ensure that the request successfully goes through. The following table
-contains a list of flags that are required when making a quantum safe curl request.
+When you making a call to the the a quantum safe enabled endpoint via curl
+request, you will need to specify a couple of flags to ensure that the request
+successfully goes through. The following table contains a list of flags that are
+required when making a quantum safe curl request.
 
 <table>
   <tr>
@@ -202,9 +230,7 @@ contains a list of flags that are required when making a quantum safe curl reque
       <varname>-k</varname>
     </td>
     <td>
-      <p>
-        The flag will bypass any certificate errors during a connection to HTTPS.
-      </p>
+      The flag will bypass any certificate errors during a connection to HTTPS.
     </td>
   </tr>
 
@@ -213,9 +239,7 @@ contains a list of flags that are required when making a quantum safe curl reque
       <varname>-tlsv1.3</varname>
     </td>
     <td>
-      <p>
-        This flag enforces that the curl connects to a TLS v1.3 server.
-      </p>
+      This flag enforces that the curl connects to a TLS v1.3 server.
     </td>
   </tr>
 
@@ -224,20 +248,21 @@ contains a list of flags that are required when making a quantum safe curl reque
       <varname>--curves</varname>
     </td>
     <td>
-      <p>
-        This flag will specify which quantum safe algorithm that {{site.data.keyword.keymanagementserviceshort}} should use to protect your data while in transit.
-      </p>
+      This flag will specify which quantum safe algorithm that
+      {{site.data.keyword.keymanagementserviceshort}} should use to protect your
+      data while in transit.
     </td>
   </tr>
 
   <caption style="caption-side:bottom;">
-    Table 1. Describes the flags needed to make curl request to the {{site.data.keyword.keymanagementserviceshort}} service.
+    Table 1. Describes the flags needed to make curl request to the
+    {{site.data.keyword.keymanagementserviceshort}} service.
   </caption>
 </table>
 
-
 You can use the following example request to retrieve a list of keys for your
-{{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe enabled endpoint.
+{{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe
+enabled endpoint.
 
 ```sh
 $ curl -k --tlsv1.3 --curves <qsc_algorithm> -X GET \
@@ -262,8 +287,8 @@ Replace the variables in your request according to the following table.
     </td>
     <td>
       <p>
-        <strong>Required.</strong> The quantum safe algorithm that will be 
-        used to protect your data in transit. 
+        <strong>Required.</strong> The quantum safe algorithm that will be
+        used to protect your data in transit.
       </p>
       <p>
         For more information on available algorithms, see
