@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-10-07"
 
 keywords: quantum safe cryptography, quantum cryptography, post quantum, quantum resistant
 
@@ -34,27 +34,20 @@ Quantum safe cryptography is a technology that uses quantum mechanics to
 transfer an encryption key between two locations. When you send data to
 {{site.data.keyword.keymanagementserviceshort}}, that data is passed over a
 Transport Layer Security (TLS) connection that is supported by classic
-{{site.data.keyword.keymanagementserviceshort}} algorithms.
+algorithms.
 
 These algorithms protect your data from brute force attacks during the key
 exchange process. However, as quantum computing continues to grow, there is a
-future possibility of large scale quantum computer having the ability
+future possibility of large scale quantum computers having the ability
 potentially break those classic algorithms and cause widespread problems.
 
-To mitigate the risk of being attacked by a quantum computer, it is important to
-be prepared for the future.
+To mitigate the risk of TLS key exchange mechanisms being attacked by a quantum 
+computer, it is important to be prepared for the future.
 
 To keep your TLS connection resilient,
 {{site.data.keyword.keymanagementserviceshort}} has introduced new endpoints
 that are supported by quantum safe algorithms to ensure that your TLS connection
 is stable and secure during the key exchange process.
-
-Quantum safe cryptography is only supported through the
-{{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).
-Quantum safe cryptography support will be added to the command line interface
-(CLI) in the future. To find out more about accessing the
-{{site.data.keyword.keymanagementserviceshort}} SDK, check out
-[Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
 
 ## What are the considerations of Quantum Safe Cryptography?
 {: #considerations}
@@ -79,6 +72,13 @@ following considerations:
   Quantum safe cryptography support will be added to additional operating
   systems in the future.
 
+- **Quantum safe cryptography is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK). **
+  Quantum safe cryptography support will be added to the command line interface
+  (CLI) in the future. To find out more about accessing the
+  {{site.data.keyword.keymanagementserviceshort}} SDK, check out
+  [Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
+
+
 ## Using Quantum Safe Cryptography with Key Protect
 {: #how-to-use-qsc}
 
@@ -90,22 +90,29 @@ You can choose from multiple algorithms between two different quantum safe TLS c
 {{site.data.keyword.keymanagementserviceshort}} has two modes that will protect your keys under quantum attacks: Quantum Safe Mode and Hybrid mode. 
 
 - **Hybrid Mode**:
-    Hybrid mode uses a combination of quantum safe algorithms and classic algorithms to protect your data.
+    Hybrid mode uses a combination of quantum safe algorithms and classic key exchange algorithms to protect your data while in transit. When you make a request
+    using this mode, the classic elliptic algorithm and the quantum safe algorithm will each generate a key to protect your data. These keys will then combine to 
+    cryptographically protect your data as it makes its way to the {{site.data.keyword.keymanagementserviceshort}} service. 
+
+    Hybrid mode supports the following algorithms:
+    
+    - `p256_kyber512`
+    - `p384_kyber768`
+    - `p521_kyber1024`
+
 - **Quantum Safe Mode**:
-    Quantum safe mode only uses quantum safe algorithms to protect your data.  
+    Quantum safe mode uses quantum safe algorithms to protect your data while in transit. When you make a request using this mode, the quantum safe 
+    algorithm will generate a key to cryptographically protect your data as it makes its way to the {{site.data.keyword.keymanagementserviceshort}} 
+    service. 
 
 
-### Algorithm Types
-{#quantum-safe-algorithms}
+    Quantum Safe mode supports the following algorithms:
 
-When configuring the sdk, you will have the choice to select one of six algorithms to protect your data while in transit: `kyber512`, `kyber768`, `kyber1024`, 
-`p256_kyber512`, `p384_kyber768`, `p521_kyber1024`. Hybrid mode supports the `p256_kyber512`, `p384_kyber768`, and `p521_kyber1024` algorithms. Quantum Safe mode 
-supports the `kyber512`, `kyber768`, and `kyber1024` algorithms. 
+    - `kyber512`
+    - `kyber768`
+    - `kyber1024`
 
-Quantum Safe mode supports the `kyber512`, `kyber768`, and `kyber1024`
-algorithms.
-
-These kyber algorithm is recommended by the Open Quantum Safe (OQS) project
+These kyber algorithms are recommended by the Open Quantum Safe (OQS) project
 community. To find out more, see
 [CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
 {: note}
