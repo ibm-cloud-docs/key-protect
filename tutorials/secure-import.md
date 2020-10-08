@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-08"
 
 keywords: Key Protect tutorial, secure import
 
@@ -711,7 +711,7 @@ To import the key:
     If you created more test keys in your
     {{site.data.keyword.keymanagementserviceshort}} instance, be sure to
     [remove all encryption keys from your instance](/docs/key-protect?topic=key-protect-delete-keys)
-    before you deprovision the instance.
+    before you delete or deprovision the instance.
     {: tip}
 
 ## Next steps

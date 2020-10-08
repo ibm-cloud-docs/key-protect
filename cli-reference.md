@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-08"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -1527,8 +1527,9 @@ $ ibmcloud kp key create my-cos-key --output json
 # capture the KP root key id
 $ MY_COS_KEY_ID=52a9d772-8982-4620-bfb4-b070dd812a0c
 
-# create a COS bucket and set KP encryption - must be done in the console user
-# interface (UI) because there is no API or CLI support at this time
+# create a COS bucket and set KP encryption
+#   must be done in the console user interface (UI) because
+#   there is no API or CLI support at this time
 
 # capture the name of the COS bucket that was created
 $ COS_BUCKET=my-cos-kms-bucket
@@ -1667,6 +1668,15 @@ To disable a root key, you must be assigned a _Manager_ service access role
 for the instance or key. To learn how IAM roles map to
 {{site.data.keyword.keymanagementserviceshort}} service actions, check out
 [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+
+If you're using an integrated Cloud Service that supports revoking access to a
+disabled root key, the service may take up to a maximum of 4 hours before access
+to the root key's associated data is revoked.
+
+After access to the associated data is revoked, a corresponding `disable event`
+is displayed in the Activity Tracker web UI. The `disable event` indicates the
+key has been revoked (and is now disabled) and the key can **not** be used for
+encrypt and decrypt operations.
 
 ```sh
 ibmcloud kp key disable KEY_ID
@@ -1823,11 +1833,14 @@ When you enable a root key that was previously disabled, the key transitions
 from the _Suspended_ (value is 2) to the _Active_ (value is 1) key state. This
 action restores the key's encrypt and decrypt operations.
 
-If you're using an integrated Cloud Service that supports revoking access to a
+If you're using an integrated Cloud Service that supports restoring access to a
 disabled root key, the service may take up to a maximum of 4 hours before access
-to the root key's associated data is restored. After access to the associated
-data is restored, a corresponding enable event is displayed in the Activity
-Tracker web UI.
+to the root key's associated data is restored.
+
+After access to the associated data is restored, a corresponding `enable event`
+is displayed in the Activity Tracker web UI. The `enable event` indicates the
+key has been restored (and is now enabled) and the key can be used for encrypt
+and decrypt operations, such as wrap, unwrap, and rewrap.
 
 ```sh
 ibmcloud kp key enable KEY_ID
@@ -4243,14 +4256,18 @@ $ ibmcloud kp key create my-cos-key --output json
 # capture the KP root key id
 $ MY_COS_KEY_ID=2cbea94c-6070-4a24-b0f8-7a56e4d7cb6f
 
-# create a COS bucket and set KP encryption - must be done in the console user
-# interface (UI) because there is no API or CLI support at this time
-# Go to... Resource list -> Storage -> my-cos-1
-# Create bucket -> custom bucket
-# Properties of a custom bucket
-#   bucket name: my-cos-kms-bucket; location: us-south (same region as KP)
-#   checkbox: Key Protect; instance: my-kms-1; key name: my-cos-key
-#   button: Create bucket
+# create a COS bucket and set KP encryption
+#   must be done in the console user interface (UI) because
+#   there is no API or CLI support at this time
+# 1 - In the UI, go to... Resource list -> Storage -> my-cos-1
+# 2 - Create bucket -> custom bucket
+# 3 - Properties of a custom bucket
+#   a - bucket name: my-cos-kms-bucket
+#   b - location: us-south (same region as KP)
+#   c - checkbox: Key Protect
+#   d - instance: my-kms-1
+#   e - key name: my-cos-key
+#   f - button: Create bucket
 
 # capture the name of the COS bucket that was created
 $ COS_BUCKET=my-cos-kms-bucket
@@ -4410,8 +4427,9 @@ $ ibmcloud kp key create my-cos-key --output json
 # capture the KP root key id
 $ MY_COS_KEY_ID=464d78c3-57dc-49a5-b932-8ebf8f8c7771
 
-# create a COS bucket and set KP encryption - must be done in the console user
-# interface (UI) because there is no API or CLI support at this time
+# create a COS bucket and set KP encryption
+#   must be done in the console user interface (UI) because
+#   there is no API or CLI support at this time
 
 # capture the name of the COS bucket that was created
 $ COS_BUCKET=my-cos-kms-bucket

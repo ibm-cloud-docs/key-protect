@@ -124,12 +124,12 @@ information, see
 
 | Deployment Region | Activity Tracker Region |
 | ----------------- | ----------------------- |
-| `us-south`        | `us-south`              |
-| `us-east`         | `us-east`               |
-| `eu-gb`           | `eu-gb`                 |
-| `eu-de`           | `eu-de`                 |
 | `au-syd`          | `au-syd`                |
+| `eu-de`           | `eu-de`                 |
+| `eu-gb`           | `eu-gb`                 |
 | `jp-tok`          | `jp-tok`                |
+| `us-east`         | `us-east`               |
+| `us-south`        | `us-south`              |
 {: caption="Table 5. Activity Tracker regions" caption-side="top"}
 
 ## Analyzing successful events
@@ -719,45 +719,8 @@ The following table lists the actions associated with each severity level:
 
 The following table lists the status codes associated with each severity level:
 
-<table>
-  <tr>
-    <th>Severity</th>
-    <th>Status Code</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>Critical</varname>
-    </td>
-    <td>
-      <p>
-        <code>503</code>, <code>507</code>
-      </p>
-      <p>
-        <code>401</code>, <code>403</code>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>Warning</varname>
-    </td>
-    <td>
-      <p>
-        <code>502</code>,
-        <code>504</code>
-      </p>
-      <p>
-        <code>505</code>,
-        <code>400</code>
-      </p>
-      <p>
-        <code>409</code>,
-        <code>424</code>
-      </p>
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 8. Describes the severity level for
-    {{site.data.keyword.keymanagementserviceshort}} response status codes.
-  </caption>
-</table>
+| Severity | Status Code                  |
+| -------- | ---------------------------- |
+| Critical | 401, 403, 503, 507           |
+| Warning  | 400, 409, 424, 502, 504, 505 |
+{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
