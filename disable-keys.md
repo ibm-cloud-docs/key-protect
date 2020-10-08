@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-08"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -39,7 +39,7 @@ your data by enabling the disabled root key.
 If you are using a Cloud Service that is integrated with
 {{site.data.keyword.keymanagementserviceshort}}, your data might not be
 accessible after disabling a root key. To determine whether an
-[integrated Service](/docs/key-protect?topic=key-protect-integrate-services)
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
 supports revoking access to data by disabling a
 {{site.data.keyword.keymanagementserviceshort}} root key, refer to its service
 documentation.
@@ -48,26 +48,45 @@ documentation.
 ## Disabling or enabling a root key
 {: #disable-enable-root-key}
 
-When you disable a root key, the key transitions to the
-[_Suspended_ state](/docs/key-protect?topic=key-protect-key-states),
-and it can no longer be used to cryptographically protect data.
+### Disabling a root key
+{: #disable-root-key}
+
+When you disable a root key that was previously enabled, the key transitions
+from the
+[_Active_](/docs/key-protect?topic=key-protect-key-states)
+to the
+[_Suspended_](/docs/key-protect?topic=key-protect-key-states)
+key state. This action mean the key can no longer be used to cryptographically
+protect data.
 
 If you're using an integrated Cloud Service that supports revoking access to a
 disabled root key, the service may take up to a maximum of 4 hours before access
-to the root key's associated data is revoked. After access to the associated
-data is revoked, a corresponding disable event is displayed in the Activity
-Tracker web UI.
+to the root key's associated data is revoked.
+
+After access to the associated data is revoked, a corresponding `disable event`
+is displayed in the Activity Tracker web UI. The `disable event` indicates the
+key has been revoked (and is now disabled) and the key can **not** be used for
+encrypt and decrypt operations.
 {: note}
 
-When you enable a root key that was previously disabled, the key transitions
-from the _Suspended_ to the _Active_ key state. This action restores the key's
-encrypt and decrypt operations.
+### Enabling a root key
+{: #enable-root-key}
 
-If you're using an integrated Cloud Service that supports revoking access to a
+When you enable a root key that was previously disabled, the key transitions
+from the
+[_Suspended_](/docs/key-protect?topic=key-protect-key-states)
+to the
+[_Active_](/docs/key-protect?topic=key-protect-key-states)
+key state. This action restores the key's encrypt and decrypt operations.
+
+If you're using an integrated Cloud Service that supports restoring access to a
 disabled root key, the service may take up to a maximum of 4 hours before access
-to the root key's associated data is restored. After access to the associated
-data is restored, a corresponding enable event is displayed in the Activity
-Tracker web UI.
+to the root key's associated data is restored.
+
+After access to the associated data is restored, a corresponding `enable event`
+is displayed in the Activity Tracker web UI. The `enable event` indicates the
+key has been restored (and is now enabled) and the key can be used for encrypt
+and decrypt operations.
 {: note}
 
 ## Disabling and enabling root keys in the console
@@ -76,7 +95,7 @@ Tracker web UI.
 If you prefer to enable or disable your root keys by using a graphical
 interface, you can use the IBM Cloud console.
 
-### Disabling a root key
+### Disabling a root key in the console
 {: #disable-ui}
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
@@ -93,7 +112,7 @@ complete the following steps to disable a key:
 6. From the options menu, click **Disable key** and confirm the key was disabled
    in the updated **Keys** table.
 
-### Enabling a root key
+### Enabling a root key in the console
 {: #enable-ui}
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](#disable-ui) a root key,
@@ -113,7 +132,7 @@ complete the following steps to enable the key:
 ## Disabling and enabling root keys with the API
 {: #disable-enable-api}
 
-### Disabling a root key
+### Disabling a root key with the API
 {: #disable-api}
 
 You can disable a root key that's in the _Active_ key state by making a `POST`
@@ -294,7 +313,7 @@ the key.
     ```
     {: screen}
 
-### Enabling a disabled root key
+### Enabling a disabled root key with the API
 {: #enable-api}
 
 You can enable a root key that's in the _Suspended_ key state by making a `POST`

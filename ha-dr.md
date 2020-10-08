@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-29"
+lastupdated: "2020-10-08"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -89,9 +89,10 @@ Applications that communicate over networks are subject to transient faults. You
 should design your application to interact with
 {{site.data.keyword.keymanagementserviceshort}} by using modern resiliency
 techniques, such as Exponential backoff.
+
 [Exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff){: external}
-is a technique that retries requests exponentially, with increasing delays
-between each request.
+is a technique that retries requests, exponentially increasing delays between
+each request.
 
 ### Example Algorithm
 {: #example-backoff-algorithm}

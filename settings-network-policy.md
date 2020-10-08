@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-08"
 
 keywords: instance settings, service settings, network access policies
 
@@ -93,12 +93,21 @@ environment is set up before setting the network access policy to
 [using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 {: note}
 
-#### Deprovision a {{site.data.keyword.keymanagementserviceshort}} instance
-{: #deprovision-a-service-instance}
+#### Delete or deprovision a {{site.data.keyword.keymanagementserviceshort}} instance
+{: #delete-a-service-instance}
 
-The network access policy is not enforced when a request for a
-{{site.data.keyword.keymanagementserviceshort}} instance is
+The network access policy is not enforced when a
+{{site.data.keyword.keymanagementserviceshort}} instance is deleted or
 deprovisioned.
+
+The instance access policy, which controls access to the instance from either
+public or private IP addresses, is not enforced when the following command to
+delete the instance is issued.
+
+```sh
+$ ibmcloud resource service-instance-delete (NAME | ID)
+```
+{: codeblock}
 
 ### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enabling-network-access-to-your-service-instance-ui}

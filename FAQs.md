@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-10-08"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -48,7 +48,7 @@ within the account and then applies pricing.
 When you import encryption keys into
 {{site.data.keyword.keymanagementserviceshort}}, or when you use
 {{site.data.keyword.keymanagementserviceshort}} to generate keys from its HSMs,
-those keys become _active_ keys. Pricing is based on all active keys within an
+those keys become _Active_ keys. Pricing is based on all active keys within an
 {{site.data.keyword.cloud_notm}} account.
 
 ## How should I group and manage my keys?
@@ -276,7 +276,7 @@ Yes. If you need to add a key that doesn't require dual authorization to your
 [disable dual authorization for the {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy-ui)
 so that any new or future keys won't require it.
 
-## What happens when I need to deprovision my {{site.data.keyword.keymanagementserviceshort}} instance?
+## What happens when I need to delete or deprovision my {{site.data.keyword.keymanagementserviceshort}} instance?
 {: #deprovision-service}
 {: faq}
 {: support}
@@ -284,7 +284,7 @@ so that any new or future keys won't require it.
 If you decide to move on from {{site.data.keyword.keymanagementserviceshort}},
 you must delete any remaining keys from your
 {{site.data.keyword.keymanagementserviceshort}} instance before you can
-deprovision the service. After you delete your
+delete or deprovision the service. After you delete your
 {{site.data.keyword.keymanagementserviceshort}} instance,
 {{site.data.keyword.keymanagementserviceshort}} uses
 [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-08"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -232,7 +232,8 @@ encoding. You will need to decode the key before encrypting it.
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-2. Base64 encode your key material string by running the following command:
+2. Decode your base64 encoded key material string by running the following
+   command:
 
     ```sh
     openssl base64 -d -in <infile> -out <outfile>
