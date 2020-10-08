@@ -33,21 +33,27 @@ endpoints.
 {: #quantum-safe-cryptography}
 
 Quantum safe cryptography is a technology that uses quantum safe algorithms to
-transfer an encryption key between two locations. When you transmit data
-across the web, that data is passed over a Transport Layer Security (TLS) 
-connection that is supported by classic algorithms.
+transfer an encryption key between two locations. When you use quantum safe 
+cryptopgraphy to transmit data across the web, that data is passed over a 
+Transport Layer Security (TLS) connection that is supported by quantum safe 
+algorithms. These algorithms protect your data from brute force attacks during
+the key exchange process.
 
-These algorithms protect your data from brute force attacks during the key
-exchange process. However, as quantum computing continues to grow, there is a
-future possibility of large scale quantum computers having the ability to
-potentially break those classic algorithms and cause a data breach.
+## Why is quantum safe cryptography important?
+{: #quantum-safe-cryptography-importance}
 
-To mitigate the risk of TLS key exchange mechanisms being attacked by a quantum 
-computer, it is important to be prepared for the future.
+As quantum computing continues to grow in complexity, it is possible that a 
+large scale quantum computer could have the ability to break the AES algorithms
+in current key exchange mechanisms. Any TLS traffic that is recorded today could
+be decrypted by a quantum computer and cause a data breach.
+
+If your application requires the long-term use of confidential data that is passed 
+over a TLS connection, you should migrate to quantum-safe cryptography
+to minimize the risk of future quantum computer attacks.
 
 To keep your data resilient, {{site.data.keyword.keymanagementserviceshort}} has 
-introduced the ability to use a TLS connection that is supported by quantum safe
-algorithms to ensure that your data is secure during the key exchange process.
+introduced the ability to use a quantum safe enabled TLS connection to ensure that 
+your data is secure during the key exchange process.
 
 ## What are the considerations of Quantum Safe Cryptography?
 {: #considerations}
@@ -145,12 +151,12 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Region        | Private endpoints                        |
-| ------------- | ---------------------------------------- |
-| Dallas        | `qsc-stage.private.kms.test.cloud.ibm.com`       |
-| Dallas        | `qsc.private.us-south.kms.cloud.ibm.com` |
-| London        | `qsc.private.eu-gb.kms.cloud.ibm.com`    |
-| Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`    |
+| Region        | Private endpoints                         |
+| ------------- | ----------------------------------------- |
+| Dallas        | `qsc-stage.private.kms.test.cloud.ibm.com`|
+| Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`  |
+| London        | `qsc.private.eu-gb.kms.cloud.ibm.com`     |
+| Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`     |
 {: caption="Table 2. Lists quantum safe enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
@@ -165,106 +171,53 @@ are not quantum safe enabled.
 {: #configure-qsc-sdk}
 
 ### Prerequisites
-{: #qsc-pre-reqs}
+{: #qsc-pre-reqs-sdk}
 
 Before setting up your application to work with the SDK, follow these steps to
 install the necessary packages: 
-
-#### Additional Prerequisites for Centos and Fedora Distributions
-{: #qsc-pre-reqs-centos-fedora} 
-
-If you are using a Centos or Fedora distribution, install the following packages:
-
-1. Install [Ncurses](https://invisible-island.net/ncurses/){: external}.
-
-2. Install [gcc-c++](https://gcc.gnu.org/){: external}.
-
-3. Install [Openssl-devel](https://pkgs.org/download/openssl-devel){: external}.
-
-4. Install [glibc-locale-source](https://pkgs.org/download/glibc-locale-source)){: external}.
-
-5. Install [glibc-langpack-en](https://pkgs.org/download/glibc-langpack-en){: external}.
-
-#### Additional Prerequisites for Debian and Ubuntu Distributions
-{: #qsc-pre-reqs-debian-ubuntu} 
-
-If you are using a Debian or Ubuntu distribution, install the following packages:
-
-1. Install [libssl-dev](https://pkgs.org/download/libssl-dev){: external}.
-
-2. Install [build-essential](https://pkgs.org/download/build-essential){: external}.
-
-#### Universal Prerequisites for Debian and Ubuntu Distributions
-{: #qsc-pre-reqs-centos}  
 
 1. Install [Golang](https://golang.org/){: external}.
 
 2. Install and configure [Git](https://git-scm.com/){: external}.
 
-3. Install [Libtool](https://www.gnu.org/software/libtool/){: external}.
+3. Install [OQS Openssl](https://github.com/IBM/oqssa) 
 
-4. Install [Automake](https://www.gnu.org/software/automake/){: external}.
-
-5. Install [Autoconf](https://www.gnu.org/software/autoconf/){: external}.
-
-6. Install [CMake](https://cmake.org/){: external}.
-
-7. Install [Make](https://www.gnu.org/software/make/){: external}.
-
-8. Install [OpenSSL](https://www.openssl.org/){: external}.
-
-9. Install [Wget](https://www.gnu.org/software/wget/){: external}.
-
-10. Install [Sudo](https://www.sudo.ws/install.html){: external}.
-
-11. Install [Patch](http://savannah.gnu.org/projects/patch/){: external}.
-
-12. Install pkg-config by running the following command:
+4. Download the {{site.data.keyword.keymanagementserviceshort}} Quantum script and run the following command:
 
     ```sh
-    apt-get install -y pkg-config
+      task run script.txt
     ```
     {: pre}
 
-3. Install [OQS Openssl](https://github.com/IBM/oqssa) and run the following script:
-
-    ```sh
-    curl <filler info for script>
-    ```
-    {: pre}
+    The script will install the additional dependencies needed to utilize the
+    {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+    {: note}
 
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
 {: #qsc-application-steps}
 
 Once you have the prerequisites installed, follow these steps to configure the
-{{site.data.keyword.keymanagementserviceshort}} SDK your application:
+{{site.data.keyword.keymanagementserviceshort}} SDK with your application:
 
-1. Clone the {{site.data.keyword.keymanagementserviceshort}} Go client by
-   running the following command:
-
-    ```sh
-    git clone git@github.com:IBM/keyprotect-go-client.git
-    ```
-    {: pre}
-
-2. Navigate to the folder where the client resides by running the following
+1. Navigate to the folder where the go client resides by running the following
    command:
 
     ```sh
-    cd ~/go/src/github.com/IBM/keyprotect-go-client
+    cd <path to go client>/IBM/keyprotect-go-client
     ```
     {: pre}
 
 3. Run your application by running the following command:
 
     ```sh
-    export LD_LIBRARY_PATH=/opt/oqssa/lib:$LD_LIBRARY_PATHexamples/test-app
+    export LD_LIBRARY_PATH=/opt/oqssa/lib:$LD_LIBRARY_PATH
     ```
     {: pre}
 
 4. Set the chosen quantum safe algorithm in the initialization of the
    {{site.data.keyword.keymanagementserviceshort}} client in your application
-   code. Use the following code as an example of algorithm configuration:
+   code. If you do not specify an algorithm, your application will default to using
+   the `p384_kyper768` algorithm. Use the following code as an example of algorithm configuration:
 
     ```go
     qscConfig := kp.ClientQSCConfig{
@@ -283,7 +236,7 @@ Once you have the prerequisites installed, follow these steps to configure the
    the following command:
 
     ```sh
-    CPATH=/opt/oqssa/include/ PKG_CONFIG_PATH=/opt/oqssa/lib/pkgconfig go build –tags quantum
+    CPATH=$HOME_DIRECTORY/opt/oqssa/include/ PKG_CONFIG_PATH=$HOME_DIRECTORY/opt/oqssa/lib/pkgconfig go build –tags quantum
     ```
     {: pre}
 
@@ -291,15 +244,35 @@ Once you have the prerequisites installed, follow these steps to configure the
 ## Using Quantum Safe {{site.data.keyword.keymanagementserviceshort}} endpoints via CURL
 {: #configure-qsc-curl}
 
-When you making a call to the the a quantum safe enabled endpoint via curl
-request, you will need to specify a couple of flags to ensure that the request
-successfully goes through. 
+### Prerequisites
+{: #qsc-pre-reqs}
 
-Follow the steps in the [prerequisites](#qsc-pre-reqs) section to ensure you
-have the correct CURL binary installed.
-{: note}
+Before make a curl request to a {{site.data.keyword.keymanagementserviceshort}} quantum 
+safe enabled endpoint , follow these steps to install the necessary packages: 
 
-The following table contains a list of flags that are
+1. Install [Golang](https://golang.org/){: external}.
+
+2. Install and configure [Git](https://git-scm.com/){: external}.
+
+3. Install [OQS Openssl](https://github.com/IBM/oqssa) 
+
+4. Download the Key Protect Quantum script and run the following command:
+
+    ```sh
+      task run script.txt
+    ```
+    {: pre}
+
+    The script will install the additional dependencies needed to utilize the
+    {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+    {: note}
+
+### Making a CURL request to a quantum safe enabled endpoint
+{: #qsc-curl-steps}
+
+When making a call to the the a quantum safe enabled endpoint via curl
+request, you will need to suse specific to ensure that the request
+successfully goes through. The following table contains a list of flags that are
 required when making a quantum safe curl request.
 
 <table>
@@ -333,7 +306,8 @@ required when making a quantum safe curl request.
     <td>
       This flag will specify which quantum safe algorithm that
       {{site.data.keyword.keymanagementserviceshort}} should use to protect your
-      data while in transit.
+      data while in transit. If you do not specify an algorithm, the flag 
+      will default to the `p384_kyper768` algorithm.
     </td>
   </tr>
 
