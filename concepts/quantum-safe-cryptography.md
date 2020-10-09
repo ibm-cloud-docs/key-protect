@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-10-09"
 
-keywords: quantum safe cryptography, quantum cryptography, post quantum, quantum resistant, quantum safe TLS
+keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
 subcollection: key-protect
 
@@ -32,14 +32,14 @@ from quantum computer attacks.
 {: #quantum-safe-cryptography}
 
 Quantum safe Cryptography, also known as post Quantum Cryptography, is a new generation of 
-the public-key cryptographic system that is undergoing NIST evaluation. These new post Quantum 
+the public-key cryptographic system that is undergoing NIST evaluation. These new Quantum 
 Cryptographic algorithms are based on hard mathematical problems that even large quantum computers 
 cannot break.
 
-Using these post Quantum Cryptographic algorithms for TLS communication, the security of the key exchange 
-negotiated between the client and server are expected to have higher security levels than the current RSA 
-and ECC algorithms. However NIST hast not standardized the algorithms, until then 
-{{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both post-quantum 
+When these Quantum Cryptographic algorithms are used for TLS communication, the security of the 
+key exchange negotiated between the client and server are expected to have higher security levels 
+than the current RSA and ECC algorithms. However NIST hast not standardized the algorithms, until then 
+{{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both Quantum Safe
 and current ECC algorithms combined.
 
 ## Why is Quantum Safe TLS important?
@@ -60,80 +60,85 @@ your data is secure during the key exchange process.
 ## What are the considerations of Quantum Safe Cryptography?
 {: #qsc-considerations}
 
-Before configuring your application to send requests through a quantum safe
-enabled {{site.data.keyword.keymanagementserviceshort}} endpoint, please keep in
+Before configuring your application to send requests to {{site.data.keyword.keymanagementserviceshort}} 
+through a quantum safe enabled {{site.data.keyword.keymanagementserviceshort}} endpoint, please keep in
 mind the following considerations:
 
 - **The National Institute for Standards and Technology (NIST) is in the process of [standardizing quantum safe algorithms](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography){: external}.**
     NIST is currently evaluating candidate approaches to quantum safe
     cryptography and isn't expected to complete the standardization process
-    until after 2023.
+    until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
+    the Kyber algorithm, which is one of the third round candidates under evaluation.
+    If NIST's research reveals that the Kyber algorithm is not quantum
+    safe, the key exchange mechanism key is still supported by the AES algorithm.
+
 - **Performance results may vary from traditional key algorithms.**
   The bandwidth requirements of the quantum safe algorithms vary from classic
   algorithms. Quantum safe algorithm performance can also be affected by network
   profile, CPU speed, and API call rates.
 
-- **Quantum Safe Cryptography only protects data in transit, not at rest.**
+- **Quantum Safe Cryptography implemented in TLS only protects data in transit, not at rest.**
   The Quantum Safe algorithms utilized by
-  {{site.data.keyword.keymanagementserviceshort}} protect your data as it
-  travels to a {{site.data.keyword.keymanagementserviceshort}} endpoint. Quantum
-  safe algorithms are not used to encrypt data associated with root keys.
+  {{site.data.keyword.keymanagementserviceshort}} protect your data from breach as it
+  travels to a {{site.data.keyword.keymanagementserviceshort}} endpoint. Imported root 
+  keys(including their associated payloads) are encrypted by TLS session keys.
 
 - **{{site.data.keyword.keymanagementserviceshort}} currently only supports Quantum Safe Cryptography for Linux Platforms.**
-  Quantum safe cryptography support will be added to additional operating
-  systems in the future.
+  {{site.data.keyword.keymanagementserviceshort}} will provide Quantum Safe Cryptography
+  support to additional operating systems in the future.
 
-- **Quantum safe cryptography is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).**
-  Quantum safe cryptography support will be added to the command line interface
+- **Quantum Safe Cryptography is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).**
+  Quantum Safe Cryptography support will be added to the command line interface
   (CLI) in the future. To find out more about accessing the
   {{site.data.keyword.keymanagementserviceshort}} SDK, check out
   [Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
 
 
-## Using Quantum Safe Cryptography with Key Protect
+## Using Quantum Safe Cryptography with {{site.data.keyword.keymanagementserviceshort}}
 {: #how-to-use-qsc}
 
-You can choose from multiple algorithms between two different quantum safe TLS
+You can choose between hybrid and non-hybrid quantum safe TLS
 connection modes when sending requests to
 {{site.data.keyword.keymanagementserviceshort}}.
 
 ### Quantum Safe Mode vs Hybrid Mode
 {: #quantum-safe-modes}
 
-{{site.data.keyword.keymanagementserviceshort}} has two modes that will protect
-your keys under quantum attacks: Quantum Safe Mode and Hybrid mode.
+{{site.data.keyword.keymanagementserviceshort}} supports two modes that protect
+your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
 
 - **Hybrid Mode**:
-  Hybrid mode uses a combination of quantum safe algorithms and classic key exchange 
+  Hybrid mode uses a combination of a quantum safe algorithm and classic key exchange 
   algorithms to protect your data while in transit. When you make a request using this mode, 
   the classic elliptic algorithm and the quantum safe algorithm will be used in a key exchange
   mechanisms to cryptographically protect your data as it makes its way to the 
   {{site.data.keyword.keymanagementserviceshort}} service. 
 
-  Hybrid mode supports the following algorithms:
+  Hybrid mode supports the hybrid Kyber algorithm with the following parameter sets(key sizes):
   
   - `p256_kyber512`
   - `p384_kyber768`
   - `p521_kyber1024`
 
-The hybrid algorithms are recommended by the Open Quantum Safe (OQS) project community. For more information,
-see [Limitations and Security](https://github.com/open-quantum-safe/liboqs#limitations-and-security).
+The hybrid Kyber algorithms is recommended by the Open Quantum Safe (OQS) project community. For more information
+about the algorithm and its associated key sizes, see
+[Limitations and Security](https://github.com/open-quantum-safe/liboqs#limitations-and-security).
 {: note}
 
 - **Quantum Safe Mode**:
-  Quantum safe mode uses quantum safe algorithms to protect your data while in transit. When you 
-  make a request using this mode, the quantum safe algorithm will will be used in a key exchange
+  Quantum safe mode uses a quantum safe algorithm to protect your data while in transit. When you 
+  make a request using this mode, the quantum safe algorithm will be used in a key exchange
   mechanism to cryptographically protect your data as it makes its way to the 
   {{site.data.keyword.keymanagementserviceshort}} service. 
 
-  Quantum Safe mode supports the following algorithms:
+  Quantum Safe mode supports the Kyber algorithm with the following parameter sets(key sizes):
 
   - `kyber512`
   - `kyber768`
   - `kyber1024`
 
-The quantum safe algorithms are recommended by {{site.data.keyword.cloud_notm}}. To find out more about the algorithms, see
-[CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
+The Kyber algorithm is recommended by {{site.data.keyword.cloud_notm}}. To find out more about the algorithm and 
+its associated key sizes, see [CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
 {: note}
 
 ### Quantum Safe Enabled Endpoints
@@ -158,7 +163,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Private endpoints                               |
 | ------------- | ----------------------------------------------- |
-| Dallas        | `qsc.private.qa.us-south.kms.test.cloud.ibm.com`|
+| Staging        | `qsc.private.qa.us-south.kms.test.cloud.ibm.com`|
 | Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`        |
 | London        | `qsc.private.eu-gb.kms.cloud.ibm.com`           |
 | Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`           |
@@ -172,56 +177,51 @@ The classic {{site.data.keyword.keymanagementserviceshort}} service endpoints
 are not quantum safe enabled.
 {: note}
 
-## Using Quantum Safe {{site.data.keyword.keymanagementserviceshort}} endpoints via the SDK
+## Configure Quantum Safe TLS with {{site.data.keyword.keymanagementserviceshort}} via the SDK
 {: #configure-qsc-sdk}
 
 ### Prerequisites
 {: #qsc-pre-reqs-sdk}
 
-Before setting up your application to work with the SDK, follow these steps to
-install the necessary packages: 
+Before setting up your application to work with the SDK, follow these steps:
 
-1. Install [Golang](https://golang.org/){: external}.
+1. Download the {site.data.keyword.keymanagementserviceshort}} script. This script will install and 
+  build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
+  (`$HOME/opt/oqssa/`). 
 
-2. Install and configure [Git](https://git-scm.com/){: external}.
+2. Compile the {site.data.keyword.keymanagementserviceshort}} script and run the following command:
+   ```sh
+      bash configure-quantum-safe-ibm-kms.sh
+  ```
 
-3. Download the {{site.data.keyword.keymanagementserviceshort}} Quantum script and run the following command:
+The script will install the following additional dependencies needed to utilize the 
+{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+permissions in order to install the dependency packages.
 
-    ```sh
-      task run script.txt
-    ```
-    {: pre}
-
-The script will install the additional dependencies needed to utilize the
-{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+Debian (Ubuntu) dependencies:
+  `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+    
+RHEL (Centos/Fedora) dependencies:
+  `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
 {: note}
 
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
-{: #qsc-application-steps}
+{: #qsc-sdk-application-steps}
 
 Once you have the prerequisites installed, follow these steps to configure the
 {{site.data.keyword.keymanagementserviceshort}} SDK with your application:
-
-1. Navigate to the folder where the go client resides by running the following
-   command:
-
+  
+1. Navigate to the folder where the go client resides by running the following command:
+    
     ```sh
-    cd <path to go client>/IBM/keyprotect-go-client
+      cd $HOME/keyprotect-go-client
     ```
     {: pre}
 
-3. Run your application by running the following command:
-
-    ```sh
-    export LD_LIBRARY_PATH=/opt/oqssa/lib:$LD_LIBRARY_PATH
-    ```
-    {: pre}
-
-4. Set the chosen quantum safe algorithm in the initialization of the
-   {{site.data.keyword.keymanagementserviceshort}} client in your application
-   code. If you do not specify an algorithm, your application will default to using
-   the `p384_kyper768` algorithm. Use the following code as an example of algorithm configuration:
-
+2. Set the Kyber algorithm in the initialization of the {{site.data.keyword.keymanagementserviceshort}} 
+   client in your application code. If you do not specify an algorithm, your application will default 
+   to using the `p384_kyper768` algorithm. Use the following code as an example of algorithm configuration:
+    
     ```go
     qscConfig := kp.ClientQSCConfig{
         AlgorithmID: kp.KP_QSC_ALGO_p384_KYBER768,
@@ -229,68 +229,63 @@ Once you have the prerequisites installed, follow these steps to configure the
     ```
     {: pre}
 
-For a full example of how to initialize the
-{{site.data.keyword.keymanagementserviceshort}} quantum safe client in your
-application, see
-[QSC Demo](https://github.ibm.com/jfeng/qsc-sdk-samples/blob/master/qsc-demo.go#13){: external}.
-{: note}
 
-5. Compile the {{site.data.keyword.keymanagementserviceshort}} SDK by running
+3. Compile the {{site.data.keyword.keymanagementserviceshort}} SDK by running
    the following command:
-
     ```sh
-    CPATH=$HOME_DIRECTORY/opt/oqssa/include/ PKG_CONFIG_PATH=$HOME_DIRECTORY/opt/oqssa/lib/pkgconfig go build –tags quantum
+    LD_LIBRARY_PATH=$HOME/opt/oqssa/lib PKG_CONFIG_PATH=$HOME/opt/oqssa/lib/pkgconfig go build –tags quantum
     ```
     {: pre}
-
 
 ## Using Quantum Safe {{site.data.keyword.keymanagementserviceshort}} endpoints via CURL
 {: #configure-qsc-curl}
 
 ### Prerequisites
-{: #qsc-pre-reqs}
+{: #qsc-pre-reqs-curl}
 
 Before make a curl request to a {{site.data.keyword.keymanagementserviceshort}} quantum 
-safe enabled endpoint , follow these steps to install the necessary packages: 
+safe enabled endpoint, follow these steps:
 
-1. Install [Golang](https://golang.org/){: external}.
+1. Download the {site.data.keyword.keymanagementserviceshort}} script. This script will install and 
+  build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
+  (`$HOME/opt/oqssa/`). 
 
-2. Install and configure [Git](https://git-scm.com/){: external}.
+2. Compile the {site.data.keyword.keymanagementserviceshort}} script and run the following command:
+   ```sh
+      bash configure-quantum-safe-ibm-kms.sh
+  ```
 
-3. Download the Key Protect Quantum script and run the following command:
+The script will install the following additional dependencies needed to utilize the 
+{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+permissions in order to install the dependency packages.
 
-    ```sh
-      task run script.txt
-    ```
-    {: pre}
-
-The script will install the additional dependencies needed to utilize the
-{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+Debian (Ubuntu) dependencies:
+  `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+    
+RHEL (Centos/Fedora) dependencies:
+  `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
 {: note}
 
 ### Making a CURL request to a quantum safe enabled endpoint
 {: #qsc-curl-steps}
 
 When making a call to the the a quantum safe enabled endpoint via curl
-request, you will need to use specific flags to ensure that the request
+request, you will need to suse specific to ensure that the request
 successfully goes through. The following table contains a list of flags that are
 required when making a quantum safe curl request.
-
 <table>
   <tr>
     <th>Flag</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <varname>-tlsv1.3</varname>
     </td>
     <td>
-      This flag enforces that the curl connects to a server using TLS v1.3.
+      This flag enforces that the curl connects to a TLS v1.3 server.
     </td>
   </tr>
-
   <tr>
     <td>
       <varname>--curves</varname>
@@ -301,34 +296,28 @@ required when making a quantum safe curl request.
       flag will default to the `p384_kyper768` algorithm.
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 1. Describes the flags needed to make curl request to the
     {{site.data.keyword.keymanagementserviceshort}} service.
   </caption>
 </table>
-
 You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe
 enabled endpoint.
-
 ```sh
-$ curl --tlsv1.3 --curves <qsc_algorithm> -X GET \
+$ curl -k --tlsv1.3 --curves <qsc_algorithm> -X GET \
     "https://qsc.<region>.kms.cloud.ibm.com/api/v2/keys" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
-
 Replace the variables in your request according to the following table.
-
 <table>
   <tr>
     <th>Variable</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <varname>qsc_algorithm</varname>
@@ -344,7 +333,6 @@ Replace the variables in your request according to the following table.
       </p>
     </td>
   </tr>
-
   <tr>
     <td>
       <varname>region</varname>
@@ -363,7 +351,6 @@ Replace the variables in your request according to the following table.
       </p>
     </td>
   </tr>
-
   <tr>
     <td>
       <varname>IAM_token</varname>
@@ -380,7 +367,6 @@ Replace the variables in your request according to the following table.
       </p>
     </td>
   </tr>
-
   <tr>
     <td>
       <varname>instance_ID</varname>
@@ -397,7 +383,6 @@ Replace the variables in your request according to the following table.
       </p>
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 2. Describes the variables needed to make a list keys request through
     a quantum safe endpoint.
