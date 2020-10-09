@@ -21,26 +21,28 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Introduction to quantum safe TLS
-{: #quantum-safe-cryptography-introduction}
+# Introduction to Quantum-safe Cryptography in TLS
+{: #quantum-safe-cryptography-tls-introduction}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to protect your in-transit data 
 from quantum computer attacks.
 {: #shortdesc}
 
-## What is quantum safe cryptography?
+## What is Quantum Safe Cryptography?
 {: #quantum-safe-cryptography}
 
-Quantum safe cryptography, also called post quantum cryptography, is a new generation 
-of the public-key cryptographic system, which is under active development. Quantum safe 
-cryptography will be resistant against attacks by quantum computers as well as classic 
-computers.
+Quantum safe Cryptography, also known as post Quantum Cryptography, is a new generation of 
+the public-key cryptographic system that is undergoing NIST evaluation. These new post Quantum 
+Cryptographic algorithms are based on hard mathematical problems that even large quantum computers 
+cannot break.
 
-When quantum safe cryptographic algorithms are used in Transport Layer Security (TLS) 
-protocol, the security of key exchange negotiation between client and server get enhanced 
-over current RSA or ECC algorithms.
+Using these post Quantum Cryptographic algorithms for TLS communication, the security of the key exchange 
+negotiated between the client and server are expected to have higher security levels than the current RSA 
+and ECC algorithms. However NIST hast not standardized the algorithms, until then 
+{{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both post-quantum 
+and current ECC algorithms combined.
 
-## Why is quantum safe TLS important?
+## Why is Quantum Safe TLS important?
 {: #quantum-safe-cryptography-importance}
 
 As quantum computing continues to evolve and advance, a large quantum computer will be 
@@ -56,7 +58,7 @@ introduced the ability to use a quantum safe enabled TLS connection to ensure th
 your data is secure during the key exchange process.
 
 ## What are the considerations of Quantum Safe Cryptography?
-{: #considerations}
+{: #qsc-considerations}
 
 Before configuring your application to send requests through a quantum safe
 enabled {{site.data.keyword.keymanagementserviceshort}} endpoint, please keep in
