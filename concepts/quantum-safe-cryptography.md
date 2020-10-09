@@ -24,9 +24,8 @@ subcollection: key-protect
 # Introduction to quantum safe TLS
 {: #quantum-safe-cryptography-introduction}
 
-You can protect your in-transit data from quantum computer attacks by using
-{{site.data.keyword.keymanagementservicefull}}'s quantum safe enabled service
-endpoints.
+You can use {{site.data.keyword.keymanagementservicefull}} to protect your in-transit data 
+from quantum computer attacks.
 {: #shortdesc}
 
 ## What is quantum safe cryptography?
@@ -191,9 +190,9 @@ install the necessary packages:
     ```
     {: pre}
 
-    The script will install the additional dependencies needed to utilize the
-    {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
-    {: note}
+The script will install the additional dependencies needed to utilize the
+{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+{: note}
 
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
 {: #qsc-application-steps}
@@ -228,11 +227,11 @@ Once you have the prerequisites installed, follow these steps to configure the
     ```
     {: pre}
 
-    For a full example of how to initialize the
-    {{site.data.keyword.keymanagementserviceshort}} quantum safe client in your
-    application, see
-    [QSC Demo](https://github.ibm.com/jfeng/qsc-sdk-samples/blob/master/qsc-demo.go#13){: external}.
-    {: note}
+For a full example of how to initialize the
+{{site.data.keyword.keymanagementserviceshort}} quantum safe client in your
+application, see
+[QSC Demo](https://github.ibm.com/jfeng/qsc-sdk-samples/blob/master/qsc-demo.go#13){: external}.
+{: note}
 
 5. Compile the {{site.data.keyword.keymanagementserviceshort}} SDK by running
    the following command:
@@ -263,9 +262,9 @@ safe enabled endpoint , follow these steps to install the necessary packages:
     ```
     {: pre}
 
-    The script will install the additional dependencies needed to utilize the
-    {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
-    {: note}
+The script will install the additional dependencies needed to utilize the
+{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. 
+{: note}
 
 ### Making a CURL request to a quantum safe enabled endpoint
 {: #qsc-curl-steps}
