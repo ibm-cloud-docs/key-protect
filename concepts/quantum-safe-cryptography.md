@@ -189,21 +189,20 @@ Before setting up your application to work with the SDK, follow these steps:
   build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
   (`$HOME/opt/oqssa/`). 
 
-2. Compile the {site.data.keyword.keymanagementserviceshort}} script and run the following command:
+2. Compile the {{site.data.keyword.keymanagementserviceshort}} script and run the following command:
    ```sh
       bash configure-quantum-safe-ibm-kms.sh
   ```
 
-The script will install the following additional dependencies needed to utilize the 
-{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
-permissions in order to install the dependency packages.
+  The script will install the following additional dependencies needed to utilize the 
+  {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+  permissions in order to install the dependency packages.
 
-Debian (Ubuntu) dependencies:
-  `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
-    
-RHEL (Centos/Fedora) dependencies:
-  `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
-{: note}
+  Debian (Ubuntu) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+      
+  RHEL (Centos/Fedora) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
 
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
 {: #qsc-sdk-application-steps}
@@ -214,7 +213,7 @@ Once you have the prerequisites installed, follow these steps to configure the
 1. Navigate to the folder where the go client resides by running the following command:
     
     ```sh
-      cd $HOME/keyprotect-go-client
+       cd $HOME/keyprotect-go-client
     ```
     {: pre}
 
@@ -250,21 +249,20 @@ safe enabled endpoint, follow these steps:
   build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
   (`$HOME/opt/oqssa/`). 
 
-2. Compile the {site.data.keyword.keymanagementserviceshort}} script and run the following command:
+2. Compile the {{site.data.keyword.keymanagementserviceshort}} script and run the following command:
    ```sh
       bash configure-quantum-safe-ibm-kms.sh
   ```
 
-The script will install the following additional dependencies needed to utilize the 
-{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
-permissions in order to install the dependency packages.
+  The script will install the following additional dependencies needed to utilize the 
+  {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+  permissions in order to install the dependency packages.
 
-Debian (Ubuntu) dependencies:
-  `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
-    
-RHEL (Centos/Fedora) dependencies:
-  `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
-{: note}
+  Debian (Ubuntu) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+      
+  RHEL (Centos/Fedora) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
 
 ### Making a CURL request to a quantum safe enabled endpoint
 {: #qsc-curl-steps}
