@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-10-09"
 
-keywords: quantum safe cryptography, quantum cryptography, post quantum, quantum resistant
+keywords: quantum safe cryptography, quantum cryptography, post quantum, quantum resistant, quantum safe TLS
 
 subcollection: key-protect
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Introduction to quantum safe cryptography
+# Introduction to quantum safe TLS
 {: #quantum-safe-cryptography-introduction}
 
 You can protect your in-transit data from quantum computer attacks by using
@@ -32,26 +32,27 @@ endpoints.
 ## What is quantum safe cryptography?
 {: #quantum-safe-cryptography}
 
-Quantum safe cryptography is a technology that uses quantum safe algorithms to
-transfer an encryption key between two locations. When you use quantum safe 
-cryptopgraphy to transmit data across the web, that data is passed over a 
-Transport Layer Security (TLS) connection that is supported by quantum safe 
-algorithms. These algorithms protect your data from brute force attacks during
-the key exchange process.
+Quantum safe cryptography, also called post quantum cryptography, is a new generation 
+of the public-key cryptographic system, which is under active development. Quantum safe 
+cryptography will be resistant against attacks by quantum computers as well as classic 
+computers.
 
-## Why is quantum safe cryptography important?
+When quantum safe cryptographic algorithms are used in Transport Layer Security (TLS) 
+protocol, the security of key exchange negotiation between client and server get enhanced 
+over current RSA or ECC algorithms.
+
+## Why is quantum safe TLS important?
 {: #quantum-safe-cryptography-importance}
 
-As quantum computing continues to grow in complexity, it is possible that a 
-large scale quantum computer could have the ability to break the AES algorithms
-in current key exchange mechanisms. Any TLS traffic that is recorded today could
-be decrypted by a quantum computer and cause a data breach.
+As quantum computing continues to evolve and advance, a large quantum computer will be 
+able to run a "SHOR" algorithm and break the public cryptographic algorithms (RSA/ECC) 
+used to secure TLS communication in a matter of minutes. While large quantum computers 
+are not available today, TLS data-in-transit can be snooped, stored, and breached when 
+these large quantum computers are made available. Data has longer life so it is critical 
+that {{site.data.keyword.keymanagementserviceshort}} supports quantum safe
+cryptographic algorithms to secure TLS communications.
 
-If your application requires the long-term use of confidential data that is passed 
-over a TLS connection, you should migrate to quantum-safe cryptography
-to minimize the risk of future quantum computer attacks.
-
-To keep your data resilient, {{site.data.keyword.keymanagementserviceshort}} has 
+To keep your in-transit data resilient, {{site.data.keyword.keymanagementserviceshort}} has 
 introduced the ability to use a quantum safe enabled TLS connection to ensure that 
 your data is secure during the key exchange process.
 
@@ -114,6 +115,10 @@ your keys under quantum attacks: Quantum Safe Mode and Hybrid mode.
   - `p384_kyber768`
   - `p521_kyber1024`
 
+The hybrid algorithms are recommended by the Open Quantum Safe (OQS) project community. For more information,
+see [Limitations and Security](https://github.com/open-quantum-safe/liboqs#limitations-and-security).
+{: note}
+
 - **Quantum Safe Mode**:
   Quantum safe mode uses quantum safe algorithms to protect your data while in transit. When you 
   make a request using this mode, the quantum safe algorithm will will be used in a key exchange
@@ -126,8 +131,7 @@ your keys under quantum attacks: Quantum Safe Mode and Hybrid mode.
   - `kyber768`
   - `kyber1024`
 
-These kyber algorithms are recommended by the Open Quantum Safe (OQS) project
-community. To find out more, see
+The quantum safe algorithms are recommended by {{site.data.keyword.cloud_notm}}. To find out more about the algorithms, see
 [CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
 {: note}
 
@@ -139,24 +143,24 @@ endpoints for 3 regions; `US-South`, `EU-GB`, and `EU-DE`. See the following
 table to determine which quantum safe enabled endpoints to use when sending
 requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
-| Region        | Public endpoints                   |
-| ------------- | ---------------------------------- |
-| Staging       | `qsc-stage.kms.test.cloud.ibm.com` |
-| Dallas        | `qsc.us-south.kms.cloud.ibm.com`   | 
-| London        | `qsc.eu-gb.kms.cloud.ibm.com`      |
-| Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`      |
+| Region        | Public endpoints                         |
+| ------------- | ---------------------------------------- |
+| Staging       | `qsc.qa.us-south.kms.test.cloud.ibm.com` |
+| Dallas        | `qsc.us-south.kms.cloud.ibm.com`         | 
+| London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
+| Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
 {: caption="Table 1. Lists quantum safe enabled public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Region        | Private endpoints                         |
-| ------------- | ----------------------------------------- |
-| Dallas        | `qsc-stage.private.kms.test.cloud.ibm.com`|
-| Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`  |
-| London        | `qsc.private.eu-gb.kms.cloud.ibm.com`     |
-| Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`     |
+| Region        | Private endpoints                               |
+| ------------- | ----------------------------------------------- |
+| Dallas        | `qsc.private.qa.us-south.kms.test.cloud.ibm.com`|
+| Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`        |
+| London        | `qsc.private.eu-gb.kms.cloud.ibm.com`           |
+| Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`           |
 {: caption="Table 2. Lists quantum safe enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
@@ -180,9 +184,7 @@ install the necessary packages:
 
 2. Install and configure [Git](https://git-scm.com/){: external}.
 
-3. Install [OQS Openssl](https://github.com/IBM/oqssa) 
-
-4. Download the {{site.data.keyword.keymanagementserviceshort}} Quantum script and run the following command:
+3. Download the {{site.data.keyword.keymanagementserviceshort}} Quantum script and run the following command:
 
     ```sh
       task run script.txt
@@ -254,9 +256,7 @@ safe enabled endpoint , follow these steps to install the necessary packages:
 
 2. Install and configure [Git](https://git-scm.com/){: external}.
 
-3. Install [OQS Openssl](https://github.com/IBM/oqssa) 
-
-4. Download the Key Protect Quantum script and run the following command:
+3. Download the Key Protect Quantum script and run the following command:
 
     ```sh
       task run script.txt
@@ -271,7 +271,7 @@ safe enabled endpoint , follow these steps to install the necessary packages:
 {: #qsc-curl-steps}
 
 When making a call to the the a quantum safe enabled endpoint via curl
-request, you will need to suse specific to ensure that the request
+request, you will need to use specific flags to ensure that the request
 successfully goes through. The following table contains a list of flags that are
 required when making a quantum safe curl request.
 
@@ -283,19 +283,10 @@ required when making a quantum safe curl request.
 
   <tr>
     <td>
-      <varname>-k</varname>
-    </td>
-    <td>
-      The flag will bypass any certificate errors during a connection to HTTPS.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
       <varname>-tlsv1.3</varname>
     </td>
     <td>
-      This flag enforces that the curl connects to a TLS v1.3 server.
+      This flag enforces that the curl connects to a server using TLS v1.3.
     </td>
   </tr>
 
@@ -304,10 +295,9 @@ required when making a quantum safe curl request.
       <varname>--curves</varname>
     </td>
     <td>
-      This flag will specify which quantum safe algorithm that
-      {{site.data.keyword.keymanagementserviceshort}} should use to protect your
-      data while in transit. If you do not specify an algorithm, the flag 
-      will default to the `p384_kyper768` algorithm.
+      This flag will specify which quantum safe algorithm should be used in the 
+      TLSv1.3 key exchange mechanism.. If you do not specify an algorithm, the 
+      flag will default to the `p384_kyper768` algorithm.
     </td>
   </tr>
 
@@ -322,7 +312,7 @@ You can use the following example request to retrieve a list of keys for your
 enabled endpoint.
 
 ```sh
-$ curl -k --tlsv1.3 --curves <qsc_algorithm> -X GET \
+$ curl --tlsv1.3 --curves <qsc_algorithm> -X GET \
     "https://qsc.<region>.kms.cloud.ibm.com/api/v2/keys" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
