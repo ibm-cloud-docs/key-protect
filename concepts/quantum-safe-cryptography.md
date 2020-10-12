@@ -116,9 +116,9 @@ your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
 
   Hybrid mode supports the hybrid Kyber algorithm with the following parameter sets(key sizes):
   
-  - `p256_kyber512`
-  - `p384_kyber768`
-  - `p521_kyber1024`
+  - `p256_kyber512`: combines kyber512 with ECDH using p_256 curve. It provides L1 security.
+  - `p384_kyber768`: combines kyber768 with ECDH using p_384 curve. It provides L3 security.
+  - `p521_kyber1024`: combines kyber1024 with ECDH using p_521 curve. It provides L5 security.
 
 The hybrid algorithm is used based on guidance from the Open Quantum Safe (OQS) project community. 
 For more information about the algorithm and its associated key sizes, see
