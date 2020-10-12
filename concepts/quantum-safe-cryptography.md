@@ -24,8 +24,8 @@ subcollection: key-protect
 # Introduction to Quantum-safe Cryptography in TLS
 {: #quantum-safe-cryptography-tls-introduction}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to protect your in-transit data 
-from quantum computer attacks.
+You can use a quantum safe enabled TLS connection to send requests to a 
+{{site.data.keyword.keymanagementservicefull}} service endpoint.
 {: #shortdesc}
 
 ## What is Quantum Safe Cryptography?
