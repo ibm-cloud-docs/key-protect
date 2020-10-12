@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-12"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -29,17 +29,34 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## October 2020
+{: #october-2020}
+
+### Added: Manage key creation and importation policies in the UI
+{: #added-key-creation-importation-policies-ui}
+
+New as of: 2020-10-12
+
+You can set a key creation and importation policy, in the
+[user interface (UI)](https://{DomainName}/){: external},
+to restrict how keys are created and imported into your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
+See the updated "Manage instance policies" pane in the
+{{site.data.keyword.keymanagementserviceshort}} UI.
+
 ## September 2020
 {: #september-2020}
 
-### Added: Manage key creation and importation policies
-{: #added-key-creation-importation-policies}
+### Added: Manage key creation and importation policies in the API
+{: #added-key-creation-importation-policies-api}
 
 New as of: 2020-09-17
 
-You can set a key creation and importation policy to restrict how keys are
-created and imported into your {{site.data.keyword.keymanagementserviceshort}}
-instance.
+You can set a key creation and importation policy, using the
+[API](/apidocs/key-protect){: external},
+to restrict how keys are created and imported into your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
 
 To find out more, see
 [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
