@@ -37,9 +37,9 @@ cryptographic algorithms are based on hard mathematical problems that even large
 cannot break.
 
 When these quantum cryptographic algorithms are used for TLS communication, the security of the 
-ukey exchange between the client and server are expected to have higher security levels 
-than the current RSA and ECC algorithms. However NIST hast not standardized the algorithms, until then 
-{{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both Quantum Safe
+public key exchange between the client and server are expected to have higher security levels 
+than the current RSA and ECC algorithms. However, NIST hast not standardized the algorithms and until 
+then, {{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both Quantum Safe
 and current ECC algorithms combined.
 
 ## Why is Quantum Safe TLS important?
@@ -70,18 +70,21 @@ keep in mind the following considerations:
     until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
     the Kyber algorithm, which is one of the third round candidates under evaluation.
     If NIST's research reveals that the Kyber algorithm is not quantum
-    safe, the key exchange mechanism key is still supported by the ECC algorithm.
+    safe, the key exchange mechanism is still protected by the classic TLS algorithms
+    when using the Kyber algorithm in hybrid mode.
 
 - **Performance results may vary from traditional key algorithms.**
-  The bandwidth requirements of the quantum safe algorithms vary from classic
-  algorithms. Quantum safe algorithm performance can also be affected by network
-  profile, CPU speed, and API call rates.
+  The quantum safe algorithm uses a larger key size compared to classic public key 
+  algorithms, therefore the network bandwidth requirements will be higher. Quantum safe 
+  algorithm performance can also be affected by network profile, CPU speed, and API 
+  call rates.
 
 - **Quantum Safe Cryptography implemented in TLS only protects data in transit, not at rest.**
-  The quantum safe algorithms utilized by
-  {{site.data.keyword.keymanagementserviceshort}} protect your data from breach as it
-  travels to a {{site.data.keyword.keymanagementserviceshort}} service endpoint. Imported root 
-  keys(including their associated payloads) are encrypted by TLS session keys.
+  The quantum safe algorithms utilized by {{site.data.keyword.keymanagementserviceshort}} 
+  protect your data from breach as it travels to a {{site.data.keyword.keymanagementserviceshort}} 
+  service endpoint. Imported root keys(including their associated payloads) are encrypted by TLS 
+  session keys. Data-at-rest encryption uses symmetric keys and AES 256 symmetric keys are safe 
+  from large quantum computer attacks.
 
 - **{{site.data.keyword.keymanagementserviceshort}} currently only supports Quantum Safe Cryptography for Linux Platforms.**
   {{site.data.keyword.keymanagementserviceshort}} will provide quantum safe cryptography
@@ -152,7 +155,6 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Public endpoints                         |
 | ------------- | ---------------------------------------- |
-| Staging       | `qsc.qa.us-south.kms.test.cloud.ibm.com` |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         | 
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
 | Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
@@ -164,7 +166,6 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Private endpoints                               |
 | ------------- | ----------------------------------------------- |
-| Staging       | `qsc.qa.private.us-south.kms.test.cloud.ibm.com`|
 | Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`        |
 | London        | `qsc.private.eu-gb.kms.cloud.ibm.com`           |
 | Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`           |
