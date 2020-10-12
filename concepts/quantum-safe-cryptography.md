@@ -37,7 +37,7 @@ cryptographic algorithms are based on hard mathematical problems that even large
 cannot break.
 
 When these quantum cryptographic algorithms are used for TLS communication, the security of the 
-key exchange negotiated between the client and server are expected to have higher security levels 
+ukey exchange between the client and server are expected to have higher security levels 
 than the current RSA and ECC algorithms. However NIST hast not standardized the algorithms, until then 
 {{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both Quantum Safe
 and current ECC algorithms combined.
@@ -61,8 +61,8 @@ your data is secure during the key exchange process.
 {: #qsc-considerations}
 
 Before configuring your application to send requests to {{site.data.keyword.keymanagementserviceshort}} 
-through a quantum safe enabled {{site.data.keyword.keymanagementserviceshort}} endpoint, please keep in
-mind the following considerations:
+through a quantum safe enabled {{site.data.keyword.keymanagementserviceshort}} service endpoint, please 
+keep in mind the following considerations:
 
 - **The National Institute for Standards and Technology (NIST) is in the process of [standardizing quantum safe algorithms](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography){: external}.**
     NIST is currently evaluating candidate approaches to quantum safe
@@ -70,7 +70,7 @@ mind the following considerations:
     until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
     the Kyber algorithm, which is one of the third round candidates under evaluation.
     If NIST's research reveals that the Kyber algorithm is not quantum
-    safe, the key exchange mechanism key is still supported by the AES algorithm.
+    safe, the key exchange mechanism key is still supported by the ECC algorithm.
 
 - **Performance results may vary from traditional key algorithms.**
   The bandwidth requirements of the quantum safe algorithms vary from classic
@@ -80,7 +80,7 @@ mind the following considerations:
 - **Quantum Safe Cryptography implemented in TLS only protects data in transit, not at rest.**
   The quantum safe algorithms utilized by
   {{site.data.keyword.keymanagementserviceshort}} protect your data from breach as it
-  travels to a {{site.data.keyword.keymanagementserviceshort}} endpoint. Imported root 
+  travels to a {{site.data.keyword.keymanagementserviceshort}} service endpoint. Imported root 
   keys(including their associated payloads) are encrypted by TLS session keys.
 
 - **{{site.data.keyword.keymanagementserviceshort}} currently only supports Quantum Safe Cryptography for Linux Platforms.**
@@ -111,7 +111,7 @@ your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
   Hybrid mode uses a combination of a quantum safe algorithm and classic key exchange 
   algorithms to protect your data while in transit. When you make a request using this mode, 
   the classic elliptic algorithm and the quantum safe algorithm will be used in a key exchange
-  mechanisms to cryptographically protect your data as it makes its way to the 
+  mechanism to cryptographically protect your data as it makes its way to the 
   {{site.data.keyword.keymanagementserviceshort}} service. 
 
   Hybrid mode supports the hybrid Kyber algorithm with the following parameter sets(key sizes):
@@ -120,8 +120,8 @@ your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
   - `p384_kyber768`
   - `p521_kyber1024`
 
-The hybrid Kyber algorithms is recommended by the Open Quantum Safe (OQS) project community. For more information
-about the algorithm and its associated key sizes, see
+The hybrid algorithm is used based on guidance from the Open Quantum Safe (OQS) project community. 
+For more information about the algorithm and its associated key sizes, see
 [Limitations and Security](https://github.com/open-quantum-safe/liboqs#limitations-and-security).
 {: note}
 
@@ -137,8 +137,9 @@ about the algorithm and its associated key sizes, see
   - `kyber768`
   - `kyber1024`
 
-The Kyber algorithm is recommended by {{site.data.keyword.cloud_notm}}. To find out more about the algorithm and 
-its associated key sizes, see [CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
+The Kyber algorithm is used based on recommendation from {{site.data.keyword.cloud_notm}}. To find out 
+more about the algorithm and its associated key sizes, see 
+[CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
 {: note}
 
 ### Quantum Safe Enabled Endpoints
@@ -151,6 +152,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Public endpoints                         |
 | ------------- | ---------------------------------------- |
+| Staging       | `qsc.qa.us-south.kms.test.cloud.ibm.com` |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         | 
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
 | Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
@@ -162,6 +164,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Private endpoints                               |
 | ------------- | ----------------------------------------------- |
+| Staging       | `qsc.qa.private.us-south.kms.test.cloud.ibm.com`|
 | Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`        |
 | London        | `qsc.private.eu-gb.kms.cloud.ibm.com`           |
 | Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`           |
@@ -183,7 +186,7 @@ are not quantum safe enabled.
 
 Before setting up your application to work with the SDK, follow these steps:
 
-1. Download the {site.data.keyword.keymanagementserviceshort}} script. This script will install and 
+1. Download the {{site.data.keyword.keymanagementserviceshort}} script. This script will install and 
   build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
   (`$HOME/opt/oqssa/`). 
 
@@ -206,7 +209,8 @@ Before setting up your application to work with the SDK, follow these steps:
 {: #qsc-sdk-application-steps}
 
 Once you have the prerequisites installed, follow these steps to configure the
-{{site.data.keyword.keymanagementserviceshort}} SDK with your application:
+[{{site.data.keyword.keymanagementserviceshort}} SDK](https://github.com/IBM/keyprotect-go-client#usage){:external}
+with your application:
   
 1. Navigate to the folder where the go client resides by running the following command:
     
