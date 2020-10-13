@@ -39,19 +39,19 @@ cannot break.
 When these quantum cryptographic algorithms are used for TLS communication, the security of the 
 public key exchange between the client and server are expected to have higher security levels 
 than the current RSA and ECC algorithms. However, NIST hast not standardized the algorithms and until 
-then, {{site.data.keyword.keymanagementserviceshort}} will adopt a hybrid method to use both Quantum Safe
-and current ECC algorithms combined.
+then, {{site.data.keyword.keymanagementserviceshort}} has adopted a hybrid method that combines both Quantum Safe
+and current ECC algorithms to protect in-transit data.
 
 ## Why is Quantum Safe TLS important?
 {: #quantum-safe-cryptography-importance}
 
 As quantum computing continues to evolve and advance, a large quantum computer will be 
-able to run a "SHOR" algorithm and break the public cryptographic algorithms (RSA/ECC) 
-used to secure TLS communication in a matter of minutes. While large quantum computers 
-are not available today, TLS data-in-transit can be snooped, stored, and breached when 
-these large quantum computers are made available. Data has longer life so it is critical 
-that {{site.data.keyword.keymanagementserviceshort}} supports quantum safe
-cryptographic algorithms to secure TLS communications.
+able to run a "SHOR" algorithm that can break the current TLS communication algorithms 
+(RSA/ECC) in a matter of minutes. While large quantum computers are not available today, 
+any TLS data-in-transit that has been snooped and stored can be breached when these large 
+quantum computers are made available. Data has a long shelf life so it is critical that 
+{{site.data.keyword.keymanagementserviceshort}} supports quantum safe cryptographic algorithms 
+to secure TLS communications.
 
 To keep your in-transit data resilient, {{site.data.keyword.keymanagementserviceshort}} has 
 introduced the ability to use a quantum safe enabled TLS connection to ensure that 
@@ -60,18 +60,18 @@ your data is secure during the key exchange process.
 ## What are the considerations of Quantum Safe Cryptography?
 {: #qsc-considerations}
 
-Before configuring your application to send requests to {{site.data.keyword.keymanagementserviceshort}} 
+Before configuring your service to send requests to {{site.data.keyword.keymanagementserviceshort}} 
 through a quantum safe enabled {{site.data.keyword.keymanagementserviceshort}} service endpoint, please 
 keep in mind the following considerations:
 
 - **The National Institute for Standards and Technology (NIST) is in the process of [standardizing quantum safe algorithms](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography){: external}.**
-    NIST is currently evaluating candidate approaches to quantum safe
-    cryptography and isn't expected to complete the standardization process
-    until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
-    the Kyber algorithm, which is one of the third round candidates under evaluation.
-    If NIST's research reveals that the Kyber algorithm is not quantum
-    safe, the key exchange mechanism is still protected by the classic TLS algorithms
-    when using the Kyber algorithm in hybrid mode.
+  NIST is currently evaluating candidate approaches to quantum safe
+  cryptography and isn't expected to complete the standardization process
+  until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
+  the Kyber algorithm, which is one of the third round candidates under evaluation.
+  If NIST's research reveals that the Kyber algorithm is not quantum
+  safe, the key exchange mechanism is still protected by the classic TLS algorithms
+  when using the Kyber algorithm in hybrid mode.
 
 - **Performance results may vary from traditional key algorithms.**
   The quantum safe algorithm uses a larger key size compared to classic public key 
@@ -79,25 +79,25 @@ keep in mind the following considerations:
   algorithm performance can also be affected by network profile, CPU speed, and API 
   call rates.
 
-- **Quantum Safe Cryptography implemented in TLS only protects data in transit, not at rest.**
+- **Quantum Safe TLS only protects data in transit, not at rest.**
   The quantum safe algorithms utilized by {{site.data.keyword.keymanagementserviceshort}} 
   protect your data from breach as it travels to a {{site.data.keyword.keymanagementserviceshort}} 
   service endpoint. Imported root keys(including their associated payloads) are encrypted by TLS 
   session keys. Data-at-rest encryption uses symmetric keys and AES 256 symmetric keys are safe 
   from large quantum computer attacks.
 
-- **{{site.data.keyword.keymanagementserviceshort}} currently only supports Quantum Safe Cryptography for Linux Platforms.**
-  {{site.data.keyword.keymanagementserviceshort}} will provide quantum safe cryptography
+- **{{site.data.keyword.keymanagementserviceshort}} only supports Quantum Safe TLS for Linux Platforms.**
+  {{site.data.keyword.keymanagementserviceshort}} will provide quantum safe TLS connection
   support to additional operating systems in the future.
 
-- **Quantum Safe Cryptography is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).**
-  Quantum safe cryptography support will be added to the command line interface
+- **Quantum Safe TLS is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).**
+  Quantum safe TLS support will be added to the command line interface
   (CLI) in the future. To find out more about accessing the
   {{site.data.keyword.keymanagementserviceshort}} SDK, check out
   [Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
 
 
-## Using Quantum Safe Cryptography with {{site.data.keyword.keymanagementserviceshort}}
+## Using Quantum Safe TLS with {{site.data.keyword.keymanagementserviceshort}}
 {: #how-to-use-qsc}
 
 You can choose between hybrid and non-hybrid quantum safe TLS
@@ -125,7 +125,7 @@ your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
 
 The hybrid algorithm is used based on guidance from the Open Quantum Safe (OQS) project community. 
 For more information about the algorithm and its associated key sizes, see
-[Limitations and Security](https://github.com/open-quantum-safe/liboqs#limitations-and-security).
+[Limitations and Security](https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/stebila-prototyping-post-quantum.pdf){:external}.
 {: note}
 
 - **Quantum Safe Mode**:
