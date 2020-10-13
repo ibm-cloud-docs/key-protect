@@ -125,7 +125,7 @@ your keys during a TLS connection: Quantum Safe Mode and Hybrid mode.
 
 The hybrid algorithm is used based on guidance from the Open Quantum Safe (OQS) project community. 
 For more information about the algorithm and its associated key sizes, see
-[Limitations and Security](https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/stebila-prototyping-post-quantum.pdf){:external}.
+[Prototyping post-quantum and hybrid key exchange](https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/stebila-prototyping-post-quantum.pdf){:external}.
 {: note}
 
 - **Quantum Safe Mode**:
