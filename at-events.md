@@ -614,6 +614,9 @@ with an invalid key, but you are also unauthenticated for the
 the request, the unauthentication will take precedence and the event will be
 evaluated as a `401` bad request call with a severity of `critical`.
 
+{{site.data.keyword.keymanagementserviceshort}} returns a 401 responseCode for unauthorized/forbidden {{site.data.keyword.keymanagementserviceshort}} service requests.
+{: important}
+
 The following table lists the actions associated with each severity level:
 
 <table>
