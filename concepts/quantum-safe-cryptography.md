@@ -157,7 +157,6 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 | ------------- | ---------------------------------------- |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         | 
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
-| Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
 {: caption="Table 1. Lists quantum safe enabled public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -168,7 +167,6 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 | ------------- | ----------------------------------------------- |
 | Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`        |
 | London        | `qsc.private.eu-gb.kms.cloud.ibm.com`           |
-| Frankfurt     | `qsc.private.eu-de.kms.cloud.ibm.com`           |
 {: caption="Table 2. Lists quantum safe enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
