@@ -187,24 +187,78 @@ are not quantum safe enabled.
 
 Before setting up your application to work with the SDK, follow these steps:
 
-1. Download the {{site.data.keyword.keymanagementserviceshort}} script. This script will install and 
-  build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
-  (`$HOME/opt/oqssa/`). 
+1. Download the [Open Quantum Safe Software Stack (OQSSA) script](https://github.com/IBM/oqssa/blob/master/build-oqssa.sh){:external}. 
+   This script will build and install all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
+   (`$HOME/opt/oqssa/`). 
 
-2. Compile the {{site.data.keyword.keymanagementserviceshort}} script and run the following command:
-   ```sh
-      bash configure-quantum-safe-ibm-kms.sh
-  ```
-
-  The script will install the following additional dependencies needed to utilize the 
-  {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+2. Make sure dependent packages required for building OQSSA are installed. You will need `sudo` 
   permissions in order to install the dependency packages.
 
-  Debian (Ubuntu) dependencies:
+  - Debian (Ubuntu) dependencies:
     `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+  
+    If you are using a Debian distribution, copy the following code snippet to a file and execute it to 
+    verify that all necessary packages have been installed:
+
+    ```sh
+    echo "Starting prerequisites verification"
+    CMAKE_VER_REQUIRED="3.*"
+    packages="libtool automake autoconf cmake make openssl libssl-dev git wget build-essential golang patch perl diffutils"
+    for REQUIRED_PKG in $packages
+    do
+      PKG_STATUS=$(dpkg-query -W --showformat='${Version},${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+      if [ "" = "$PKG_STATUS" ]
+      then
+          echo "$REQUIRED_PKG is NOT installed"
+          #sudo apt-get -y install $REQUIRED_PKG
+      else
+          PKG_VER=$(echo $PKG_STATUS| cut -d',' -f 1)
+          if [ "cmake" == $REQUIRED_PKG ]  && ! [[ $PKG_VER =~ $CMAKE_VER_REQUIRED ]]
+          then
+            echo "$REQUIRED_PKG Version is: $PKG_VER. OQSSA requires cmake 3.5 and above."
+          fi
+      fi
+    done
+    echo "Prerequisites verification completed"
+    ```
       
-  RHEL (Centos/Fedora) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
+  - RHEL (Centos/Fedora) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils 'Developement Tools'`
+
+    If you are using a RHEL distribution, copy the following code snippet to a file and execute it to 
+    verify that all necessary packages have been installed:    
+    
+    ```sh
+    echo "Starting prerequisites verification"
+    CMAKE_VER_REQUIRED="3.*"
+    packages="git libtool automake autoconf cmake make openssl  ncurses-devel gcc-c++ openssl-devel wget glibc-locale-source glibc-langpack-en sudo golang patch perl diffutils"
+    for REQUIRED_PKG in $packages
+    do
+      PKG_STATUS=$(rpm -q --qf '%{VERSION},%{INSTALLTIME}\n' $REQUIRED_PKG)
+      if [[ "$PKG_STATUS" == *"not installed"* ]];
+      then
+        echo "$REQUIRED_PKG is NOT installed"
+        #sudo yum -y install $REQUIRED_PKG
+      else
+          PKG_VER=$(echo $PKG_STATUS| cut -d',' -f 1)
+          if [ "cmake" == $REQUIRED_PKG ]  && ! [[ $PKG_VER =~ $CMAKE_VER_REQUIRED ]]
+          then
+            echo "$REQUIRED_PKG Version is: $PKG_VER. OQSSA requires cmake 3.5 and above."
+          fi
+      fi
+    done
+    PKG_STATUS=$(yum grouplist Dev* |grep "Development Tools")
+    if [ "" = "$PKG_STATUS" ]
+    then
+      echo "Developement Tools is NOT installed"
+    fi
+    echo "Prerequisites verification completed"
+    ```
+
+3. Once prerequisite packages are installed and verified, execute script to build and install OQSSA:
+   ```sh
+    bash build-oqssa.sh
+   ```
 
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
 {: #qsc-sdk-application-steps}
@@ -248,24 +302,78 @@ with your application:
 Before make a curl request to a {{site.data.keyword.keymanagementserviceshort}} quantum 
 safe enabled endpoint, follow these steps:
 
-1. Download the {site.data.keyword.keymanagementserviceshort}} script. This script will install and 
-  build all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
-  (`$HOME/opt/oqssa/`). 
+1. Download the [Open Quantum Safe Software Stack (OQSSA) script](https://github.com/IBM/oqssa/blob/master/build-oqssa.sh){:external}. 
+   This script will build and install all necessary dependencies(`liboqs`, `openssl`, and `libcurl`) into your HOME directory folder 
+   (`$HOME/opt/oqssa/`). 
 
-2. Compile the {{site.data.keyword.keymanagementserviceshort}} script and run the following command:
-   ```sh
-      bash configure-quantum-safe-ibm-kms.sh
-  ```
-
-  The script will install the following additional dependencies needed to utilize the 
-  {{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoints. You will need `sudo` 
+2. Make sure dependent packages required for building OQSSA are installed. You will need `sudo` 
   permissions in order to install the dependency packages.
 
-  Debian (Ubuntu) dependencies:
+  - Debian (Ubuntu) dependencies:
     `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+  
+    If you are using a Debian distribution, copy the following code snippet to a file and execute it to 
+    verify that all necessary packages have been installed:
+
+    ```sh
+    echo "Starting prerequisites verification"
+    CMAKE_VER_REQUIRED="3.*"
+    packages="libtool automake autoconf cmake make openssl libssl-dev git wget build-essential golang patch perl diffutils"
+    for REQUIRED_PKG in $packages
+    do
+      PKG_STATUS=$(dpkg-query -W --showformat='${Version},${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+      if [ "" = "$PKG_STATUS" ]
+      then
+          echo "$REQUIRED_PKG is NOT installed"
+          #sudo apt-get -y install $REQUIRED_PKG
+      else
+          PKG_VER=$(echo $PKG_STATUS| cut -d',' -f 1)
+          if [ "cmake" == $REQUIRED_PKG ]  && ! [[ $PKG_VER =~ $CMAKE_VER_REQUIRED ]]
+          then
+            echo "$REQUIRED_PKG Version is: $PKG_VER. OQSSA requires cmake 3.5 and above."
+          fi
+      fi
+    done
+    echo "Prerequisites verification completed"
+    ```
       
-  RHEL (Centos/Fedora) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils`
+  - RHEL (Centos/Fedora) dependencies:
+    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils 'Developement Tools'`
+
+    If you are using a RHEL distribution, copy the following code snippet to a file and execute it to 
+    verify that all necessary packages have been installed:    
+    
+    ```sh
+    echo "Starting prerequisites verification"
+    CMAKE_VER_REQUIRED="3.*"
+    packages="git libtool automake autoconf cmake make openssl  ncurses-devel gcc-c++ openssl-devel wget glibc-locale-source glibc-langpack-en sudo golang patch perl diffutils"
+    for REQUIRED_PKG in $packages
+    do
+      PKG_STATUS=$(rpm -q --qf '%{VERSION},%{INSTALLTIME}\n' $REQUIRED_PKG)
+      if [[ "$PKG_STATUS" == *"not installed"* ]];
+      then
+        echo "$REQUIRED_PKG is NOT installed"
+        #sudo yum -y install $REQUIRED_PKG
+      else
+          PKG_VER=$(echo $PKG_STATUS| cut -d',' -f 1)
+          if [ "cmake" == $REQUIRED_PKG ]  && ! [[ $PKG_VER =~ $CMAKE_VER_REQUIRED ]]
+          then
+            echo "$REQUIRED_PKG Version is: $PKG_VER. OQSSA requires cmake 3.5 and above."
+          fi
+      fi
+    done
+    PKG_STATUS=$(yum grouplist Dev* |grep "Development Tools")
+    if [ "" = "$PKG_STATUS" ]
+    then
+      echo "Developement Tools is NOT installed"
+    fi
+    echo "Prerequisites verification completed"
+    ```
+
+3. Once prerequisite packages are installed and verified, execute script to build and install OQSSA:
+   ```sh
+    bash build-oqssa.sh
+   ```
 
 ### Making a CURL request to a quantum safe enabled endpoint
 {: #qsc-curl-steps}
