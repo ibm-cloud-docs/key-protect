@@ -103,7 +103,7 @@ from two users to delete keys.
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            A standard key can be up to 10,000 bytes in size. The key must be
+            A standard key can be up to 7,500 bytes in size. The key must be
             base64-encoded.
           </p>
         </td>
@@ -300,7 +300,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             Ensure that the key material meets the following requirements:
           </p>
           <p>
-            A standard key can be up to 10,000 bytes in size. The key must be
+            A standard key can be up to 7,500 bytes in size. The key must be
             base64-encoded.
           </p>
         </td>
