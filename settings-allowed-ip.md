@@ -486,7 +486,7 @@ policies request via a private endpoint.
 
 ```sh
 $ curl -k -L --ipv4 -X GET \
-    "https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
+    "https://private.<region>.kms.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
     -H "authorization: Bearer <token>" \
     -H "bluemix-instance: <instance_ID>" \
