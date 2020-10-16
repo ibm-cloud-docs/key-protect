@@ -39,19 +39,19 @@ cannot break.
 When these quantum cryptographic algorithms are used for TLS communication, the security of the 
 public key exchange between the client and server are expected to have higher security levels 
 than the current RSA and ECC algorithms. However, NIST hast not standardized the algorithms and until 
-then, {{site.data.keyword.keymanagementserviceshort}} has adopted a hybrid method that combines both Quantum Safe
-and current ECC algorithms to protect in-transit data.
+then, {{site.data.keyword.keymanagementserviceshort}} has adopted a hybrid method that combines both 
+Quantum Safe and current ECC algorithms to protect in-transit data.
 
 ## Why is Quantum Safe TLS important?
 {: #quantum-safe-cryptography-importance}
 
 As quantum computing continues to evolve and advance, a large quantum computer will be 
-able to run a "SHOR" algorithm that can break the current TLS communication algorithms 
-(RSA/ECC) in a matter of minutes. While large quantum computers are not available today, 
-any TLS data-in-transit that has been snooped and stored can be breached when these large 
-quantum computers are made available. Data has a long shelf life so it is critical that 
-{{site.data.keyword.keymanagementserviceshort}} supports quantum safe cryptographic algorithms 
-to secure TLS communications.
+able to run a ["SHOR" algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm){: external} that 
+can break the current TLS communication algorithms (RSA/ECC) in a matter of minutes. While large 
+quantum computers are not available today, any TLS data-in-transit that has been snooped and stored 
+can be breached when these large quantum computers are made available. Data has a long shelf life so 
+it is critical that {{site.data.keyword.keymanagementserviceshort}} supports quantum safe cryptographic 
+algorithms to secure TLS communications.
 
 To keep your in-transit data resilient, {{site.data.keyword.keymanagementserviceshort}} has 
 introduced the ability to use a quantum safe enabled TLS connection to ensure that 
@@ -68,10 +68,11 @@ keep in mind the following considerations:
   NIST is currently evaluating candidate approaches to quantum safe
   cryptography and isn't expected to complete the standardization process
   until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
-  the Kyber algorithm, which is one of the third round candidates under evaluation.
-  If NIST's research reveals that the Kyber algorithm is not quantum
-  safe, the key exchange mechanism is still protected by the classic TLS algorithms
-  when using the Kyber algorithm in hybrid mode.
+  the [Kyber algorithm](https://pq-crystals.org/index.shtml), which is one 
+  of the third round candidates under evaluation. If NIST's research reveals 
+  that the Kyber algorithm is not quantum safe, the key exchange mechanism 
+  is still protected by the classic TLS algorithms when using the Kyber 
+  algorithm in hybrid mode.
 
 - **Performance results may vary from traditional key algorithms.**
   The quantum safe algorithm uses a larger key size compared to classic public key 
@@ -91,8 +92,8 @@ keep in mind the following considerations:
   support to additional operating systems in the future.
 
 - **Quantum Safe TLS is only supported through the {{site.data.keyword.keymanagementserviceshort}} software development kit (SDK).**
-  Quantum safe TLS support will be added to the command line interface
-  (CLI) in the future. To find out more about accessing the
+  Quantum safe TLS support will be added to the {{site.data.keyword.keymanagementserviceshort}} 
+  command line interface (CLI) in the future. To find out more about accessing the
   {{site.data.keyword.keymanagementserviceshort}} SDK, check out
   [Setting up the SDK](/docs/key-protect?topic=key-protect-set-up-api).
 
@@ -274,7 +275,7 @@ with your application:
 
 2. Set the Kyber algorithm in the initialization of the {{site.data.keyword.keymanagementserviceshort}} 
    client in your application code. If you do not specify an algorithm, your application will default 
-   to using the `p384_kyper768` algorithm. Use the following code as an example of algorithm configuration:
+   to using the `p384_kyber768` algorithm. Use the following code as an example of algorithm configuration:
     
     ```go
     qscConfig := kp.ClientQSCConfig{
@@ -433,12 +434,12 @@ Replace the variables in your request according to the following table.
     </td>
     <td>
       <p>
-        <strong>Required.</strong> The quantum safe algorithm that will be
+        <strong>Required.</strong> The kyber algorithm in the key size that will be
         used to protect your data in transit.
       </p>
       <p>
-        For more information on available algorithms, see
-        [Algorithm Types](#quantum-safe-algorithms).
+        Acceptable algorithm + keysizes: `kyber512`, `kyber768`, `kyber1024`, 
+        `p256_kyber512`, `p384_kyber768`, and `p521_kyber1024`.
       </p>
     </td>
   </tr>
