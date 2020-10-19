@@ -150,7 +150,7 @@ more about the algorithm and its associated key sizes, see
 {: #quantum-safe-endpoints}
 
 {{site.data.keyword.keymanagementservicefull}} has quantum safe enabled
-endpoints for 3 regions; `US-South`, `EU-GB`, and `EU-DE`. See the following
+endpoints for 3 regions; `US-South`and `EU-GB`. See the following
 table to determine which quantum safe enabled endpoints to use when sending
 requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
