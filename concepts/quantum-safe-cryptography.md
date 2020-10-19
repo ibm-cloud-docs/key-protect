@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-11"
+lastupdated: "2020-10-19"
 
 keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
@@ -33,8 +33,8 @@ You can use a quantum safe enabled TLS connection to send requests to a
 
 Quantum safe cryptography, also known as post quantum cryptography, is a new generation of 
 the public-key cryptographic system that is undergoing NIST evaluation. These new quantum 
-cryptographic algorithms are based on hard mathematical problems that even large quantum computers 
-cannot break.
+cryptographic algorithms are based on hard mathematical problems that based on current research, even 
+large quantum computers cannot break.
 
 When these quantum cryptographic algorithms are used for TLS communication, the security of the 
 public key exchange between the client and server are expected to have higher security levels 
@@ -68,7 +68,7 @@ keep in mind the following considerations:
   NIST is currently evaluating candidate approaches to quantum safe
   cryptography and isn't expected to complete the standardization process
   until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
-  the [Kyber algorithm](https://pq-crystals.org/index.shtml), which is one 
+  the [Kyber algorithm](https://pq-crystals.org/index.shtml){: external}, which is one 
   of the third round candidates under evaluation. If NIST's research reveals 
   that the Kyber algorithm is not quantum safe, the key exchange mechanism 
   is still protected by the classic TLS algorithms when using the Kyber 
@@ -402,7 +402,7 @@ required when making a quantum safe curl request.
     <td>
       This flag will specify which quantum safe algorithm should be used in the 
       TLSv1.3 key exchange mechanism.. If you do not specify an algorithm, the 
-      flag will default to the `p384_kyper768` algorithm.
+      flag will default to the `p384_kyber768` algorithm.
     </td>
   </tr>
   <caption style="caption-side:bottom;">
