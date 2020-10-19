@@ -93,6 +93,7 @@ Key Protect
         set-dual-auth-policy.md
 
     restore-keys.md
+    key-rings.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
