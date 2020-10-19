@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-10-19"
 
 keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
 
@@ -10,16 +10,16 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
 {:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
+{:external: target="_blank" .external}
 {:important: .important}
+{:note: .note}
+{:pre: .pre}
+{:screen: .screen}
+{:shortdesc: .shortdesc}
+{:table: .aria-labeledby="caption"}
 {:term: .term}
+{:tip: .tip}
 
 # Importing standard keys
 {: #import-standard-keys}
@@ -422,6 +422,12 @@ a file with credentials, not just an encrypted key, that you want to store in
 
 Use this process to create a random base64-encoded key material with a specific
 byte length. 32 bytes (256 bits) is recommended.
+
+You would create a 16-, 24-, or 32-byte key material, for use as a standard key,
+if you want the standard key to have the same characteristics as a root key. A
+standard key is one which can leave the service. Standard keys are often used in
+your apps and services.
+{: note}
 
 1. Download and install
    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.

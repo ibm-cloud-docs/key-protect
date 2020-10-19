@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-19"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -1208,6 +1208,8 @@ Any base64-encoded string can be imported as a standard key. This example shows
 how to store credentials, not just encryption keys, in
 {{site.data.keyword.keymanagementserviceshort}}.
 
+Standard keys can be up to 7,500 bytes in size before base64-encoding.
+
 ```sh
 # create a file with your credentials
 $ cat credentials.json
@@ -1322,7 +1324,7 @@ $ echo $PAYLOAD | base64 -d
       256 bits. The key must be base64-encoded.
     </p>
     <p>
-      Standard keys can be up to 10,000 bytes in size. The key must be
+      Standard keys can be up to 7,500 bytes in size. The key must be
       base64-encoded.
     </p>
     <p>
