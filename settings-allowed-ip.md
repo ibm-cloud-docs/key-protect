@@ -141,7 +141,7 @@ existing policy.
 
 2. Enable or update an allowed IP policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -206,7 +206,7 @@ existing policy.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -312,7 +312,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
 
 2. Disable an existing allowed IP policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -374,7 +374,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl></code>
+            request.
           </p>
           <p>
             For more information, see
@@ -434,13 +435,10 @@ through an unauthorized IP address, you will receive a `HTTP 401` error stating
 that you are unauthorized to make a request to the
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-Only IPv4 addresses will be accepted via private endpoint. If your private
+Only IPv4 addresses will be accepted via private endpoints. If your private
 network gateway has both an IPv4 and an IPv6 address, it is recommended that you
-include the `--ipv4` flag in all of your both an IPv4 and an IPv6 address, it is
-recommended that you include the `--ipv4` flag in all of your CURL requests to
-ensure that the requests are resolved to IPv4. cURL requests to the
-{{site.data.keyword.keymanagementserviceshort}} instance with an allowed IP
-policy to ensure that the requests are resolved to IPv4.
+include the `--ipv4` flag in all of your `curl` requests to ensure that the
+requests are resolved to IPv4.
 
 The following example shows how to utilize the `--ipv4` flag in a `GET` keys
 request to a public endpoint.
@@ -455,7 +453,7 @@ $ curl --ipv4 -X GET \
 {: codeblock}
 
 When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid
-running into issues with the cURL request.
+running into issues with the `curl` request.
 {: important}
 
 ## Accessing an instance via private endpoint
@@ -473,11 +471,10 @@ The private endpoint port should only be used when accessing your
 endpoint.
 {: note}
 
-Only IPv4 addresses will be accepted via private endpoint. If your private
+Only IPv4 addresses will be accepted via private endpoints. If your private
 network gateway has both an IPv4 and an IPv6 address, it is recommended that you
-include the `--ipv4` flag in all of your cURL requests to the
-{{site.data.keyword.keymanagementserviceshort}} instance with an allowed IP
-policy to ensure that the requests are resolved to IPv4.
+include the `--ipv4` flag in all of your `curl` requests to ensure that the
+requests are resolved to IPv4.
 
 `ipWhitelist` has been deprecated and replaced with `allowedIP`. If there isn't
 a query parameter specified in your `GET` instance policies request, you will
@@ -489,7 +486,7 @@ policies request via a private endpoint.
 
 ```sh
 $ curl -k -L --ipv4 -X GET \
-    "https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
+    "https://private.<region>.kms.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
     -H "authorization: Bearer <token>" \
     -H "bluemix-instance: <instance_ID>" \
@@ -498,7 +495,7 @@ $ curl -k -L --ipv4 -X GET \
 {: codeblock}
 
 When using the `--ipv4` flag, the flag should come before the `-X` flag to avoid
-running into issues with the cURL request.
+running into issues with the `curl` request.
 {: important}
 
 ### Retrieving the private port for an allowed IP policy enabled {{site.data.keyword.keymanagementserviceshort}} instance
@@ -525,7 +522,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
     {: note}
 
 2. Retrieve the private endpoint port assigned to your allowed IP policy by
-   running the following cURL command.
+   running the following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -572,7 +569,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -688,7 +685,7 @@ Replace the variables in your request according to the following table.
       <p>
         <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
         access token. Include the full contents of the <code>IAM</code>
-        token, including the Bearer value, in the cURL request.
+        token, including the Bearer value, in the <code>curl</code> request.
       </p>
       <p>
         For more information, see

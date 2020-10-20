@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-12"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -44,16 +44,32 @@ TLS connection to secure your communication to the
 To find out more, see
 [Using Quantum Safe Cryptography](/docs/key-protect?topic=key-protect-quantum-safe-cryptography-tls-introduction).
 
+### Added: Manage key creation and importation policies in the UI
+{: #added-key-creation-importation-policies-ui}
+
+New as of: 2020-10-12
+
+You can set a key creation and importation policy, in the
+[user interface (UI)](https://{DomainName}/){: external},
+to restrict how keys are created and imported into your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
+See the updated "Manage instance policies" pane in the
+{{site.data.keyword.keymanagementserviceshort}} UI.
+
 ## September 2020
 {: #september-2020}
 
-### Added: Manage key creation and importation policies
-{: #added-key-creation-importation-policies}
+### Added: Manage key creation and importation policies in the API
+{: #added-key-creation-importation-policies-api}
 
 New as of: 2020-09-17
 
-You can set a key creation and importation policy to restrict how keys are created 
-and imported into your {{site.data.keyword.keymanagementserviceshort}} instance.
+You can set a key creation and importation policy, using the
+[API](/apidocs/key-protect){: external},
+to restrict how keys are created and imported into your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
 To find out more, see
 [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
 
@@ -65,13 +81,15 @@ New as of: 2020-09-22
 The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following feature:
 
-- List keys by key state: You can now use the {{site.data.keyword.keymanagementserviceshort}}
-  UI to filter and retrieve keys that are in a specified state. For more information, see
+- List keys by key state: You can now use the
+  {{site.data.keyword.keymanagementserviceshort}} UI to filter and retrieve keys
+  that are in a specified state. For more information, see
   [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys#filter-key-state-gui).
-  
-If you have _Manager_ access permissions, you can filter for keys in the **Destroyed** state 
-and restore an imported root key via the ⋯ icon on the **Keys** table. Note: you must include the 
-original Key Material to restore the key.
+
+If you have _Manager_ access permissions, you can filter for keys in the
+**Destroyed** state and restore an imported root key via the ⋯ icon on the
+**Keys** table. Note: you must include the original Key Material to restore the
+key.
 
 ### Update: CLI plug-in Version 0.5.2 is now available
 {: #september-2020-cli-plugin-052-available}

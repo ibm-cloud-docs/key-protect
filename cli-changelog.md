@@ -37,7 +37,7 @@ plug-in.
 ## CLI version 0.5.2
 {: #cli-changelog-052}
 
-Release date: 2020-09-TODO
+Release date: 2020-09-21
 
 ### Changes
 {: #cli-changelog-052-changes}

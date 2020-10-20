@@ -1,7 +1,8 @@
 ---
+
 copyright:
 years: 2020
-lastupdated: "2020-09-10"
+lastupdated: "2020-10-16"
 
 keywords: Key Protect error messages
 
@@ -29,12 +30,6 @@ other systems, such as identity and access management (IAM), where the error
 message is passed from another system, such as IAM, to
 {{site.data.keyword.keymanagementserviceshort}} to the user.
 {: note}
-
-## To be resolved
-{: #error-messages-to-be-resolved}
-
-These error messages require advice and/or insight from the Key Protect
-development team.
 
 ## Table of contents
 {: #error-messages-table-of-contents}
@@ -70,47 +65,49 @@ included at the end of the error message.
    [details](#error-messages-incomplete-metadata-err)
 10. Key restoration has expired
     [details](#error-messages-key-restore-expired)
-11. Missing body in request
+11. KeyCreateImportAccess instance policy...
+    [details](#error-messages-key-create-import-access-err)
+12. Missing body in request
     [details](#error-messages-no-body-err)
-12. Number of authorizations required to...
+13. Number of authorizations required to...
     [details](#error-messages-authorizations-not-met)
-13. Only a single instance policy may be...
+14. Only a single instance policy may be...
     [details](#error-messages-num-collection-resource-err)
-14. Only imported keys may be restored
+15. Only imported keys may be restored
     [details](#error-messages-key-impt-req-err)
-15. Requested action can only be completed with a root key (400)
+16. Requested action can only be completed with a root key (400)
     [details](#error-messages-key-root-req-err)
-16. Requested action can only be completed with a root key (422)
+17. Requested action can only be completed with a root key (422)
     [details](#error-messages-key-root-req-reg-err)
-17. The action could not be performed on...
+18. The action could not be performed on...
     [details](#error-messages-key-expired-err)
-18. The encrypted nonce given does not match...
+19. The encrypted nonce given does not match...
     [details](#error-messages-incorrect-nonce-err)
-19. The import token has expired
+20. The import token has expired
     [details](#error-messages-import-token-expired-err)
-20. The key cannot be deleted because it's...
+21. The key cannot be deleted because it's...
     [details](#error-messages-prev-key-del-err)
-21. The key is not dual auth enabled and...
+22. The key is not dual auth enabled and...
     [details](#error-messages-not-dual-auth-err)
-22. The key was updated recently
+23. The key was updated recently
     [details](#error-messages-req-too-early-err)
-23. The provided ciphertext is invalid or...
+24. The provided ciphertext is invalid or...
     [details](#error-messages-unprocessable-ciphertext-err)
-24. The provided encrypted nonce was not...
+25. The provided encrypted nonce was not...
     [details](#error-messages-incorrect-nonce-iv-err)
-25. The resource(s) queried does not belong to the service.
+26. The resource(s) queried does not belong to the service.
     [details](#error-messages-resource-owner-err)
-26. This action can only be done by a service...
+27. This action can only be done by a service...
     [details](#error-messages-service-only-err)
-27. This action is not permitted on this...
+28. This action is not permitted on this...
     [details](#error-messages-feature-restricted-err)
-28. This request requires that the key version...
+29. This request requires that the key version...
     [details](#error-messages-key-version-invalid)
-29. This root key has been rotated within...
+30. This root key has been rotated within...
     [details](#error-messages-key-rotation-not-permitted)
-30. This root key was created with user-supplied...
+31. This root key was created with user-supplied...
     [details](#error-messages-key-payload-req-err)
-31. Unauthorized: The user does not have...
+32. Unauthorized: The user does not have...
     [details](#error-messages-unauthorized-err)
 
 ## 1 - Collection total does not match number...
@@ -150,8 +147,7 @@ The `create instance policy` request fails because the
 `resources` array.
 
 ```sh
-# this request fails because the collectionTotal
-# is 2 and there is 1 (one) resource
+# this request fails because the collectionTotal is 2 and there is 1 (one) resource
 $ curl -X PUT \
     "https://us-south.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
@@ -237,8 +233,7 @@ The `create instance policy` request fails because the `policy` query parameter
 (dualAuthDelete) does not match the `resources.policy_type` (badName).
 
 ```sh
-# this request fails because the query parameter
-# does not match the resource
+# this request fails because the query parameter does not match the resource
 $ curl -X PUT \
     "https://us-south.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
@@ -748,7 +743,7 @@ The `key disable` request fails because the key has expired and you are
 attempting to change the key state from disabled (state value is 3) to enabled
 (state value is 1).
 
-The following steps will return a `key has been disabled` error.
+The following steps return a `key has been disabled` error.
 
 1. Create a key with an expiration date
 2. Allow the expiration date to pass
@@ -1017,7 +1012,230 @@ The client should not repeat this request without modification.
 This error occurs when you try to restore a key that was deleted more than 30
 days ago.
 
-## 11 - Missing body in request
+## 11 - KeyCreateImportAccess instance policy...
+{: #error-messages-key-create-import-access-err}
+
+### Message
+{: #error-messages-key-create-import-access-err-message}
+
+KeyCreateImportAccess instance policy does not allow this action
+
+Reason code: KEY_CREATE_IMPORT_ACCESS_ERR
+
+### HTTP status code
+{: #error-messages-key-create-import-access-err-http}
+
+409 - Conflict
+
+The HTTP `409 Conflict` response status code indicates a request conflict with
+current state of the server.
+
+Conflicts are most likely to occur in response to a `PUT` request. For example,
+you may get a `409` response when uploading a file which is older than the one
+already on the server resulting in a version control conflict.
+
+### Context
+{: #error-messages-key-create-import-access-err-context}
+
+The `KeyCreateImportAccess` instance policy was enabled and a request to create
+or import a key was not allowed.
+
+For example, the instance policy does not allow creating a standard key and a
+request to create a standard key was rejected.
+
+#### Example
+{: #error-messages-key-create-import-access-err-example}
+
+The following steps return this error.
+
+1. Enable the instance policy and prevent creating standard keys
+2. Attempt to create a standard key, which fails
+3. Remove (disable) the instance policy, which allows creating standard keys
+4. Create a standard key, which succeeds
+
+```sh
+# step 1 - enable an instance policy, which prevents creating standard keys
+$ curl -X PUT \
+    "https://us-south.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer $ACCESS_TOKEN" \
+    -H "bluemix-instance: $KP_INSTANCE_ID" \
+    -H "content-type: application/vnd.ibm.kms.policy+json" \
+    -d '{
+            "metadata": {
+                "collectionType": "application/vnd.ibm.kms.policy+json",
+                "collectionTotal": 1
+            },
+            "resources": [
+                {
+                    "policy_type": "keyCreateImportAccess",
+                    "policy_data": {
+                        "enabled": true,
+                        "attributes": {
+                            "create_root_key": true,
+                            "create_standard_key": false,
+                            "import_root_key": true,
+                            "import_standard_key": true,
+                            "enforce_token": true
+                        }
+                    }
+                }
+            ]
+        }'
+
+# step 2a - fails when using the ibmcloud CLI
+# because the instance policy prevents creating standard keys
+$ ibmcloud kp key create my-standard-key --standard-key
+
+FAILED
+kp.Error:
+    correlation_id='43c45c85-7a1f-478c-b235-49decec8c88f',
+    msg='Conflict:
+        Key could not be created:
+        Please see `reasons` for more details (KEY_CREATE_IMPORT_ACCESS_ERR)',
+    reasons='[KEY_CREATE_IMPORT_ACCESS_ERR:
+        KeyCreateImportAccess instance policy does not allow this action -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+
+# step 2b - fails when using the the ibmcloud API
+# because the instance policy prevents creating standard keys
+$ curl -X POST \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys" \
+    -H "authorization: Bearer $ACCESS_TOKEN" \
+    -H "bluemix-instance: $KP_INSTANCE_ID" \
+    -H "content-type: application/vnd.ibm.kms.key+json" \
+    -d '{
+            "metadata": {
+                "collectionType": "application/vnd.ibm.kms.key+json",
+                "collectionTotal": 1
+            },
+            "resources": [
+                {
+                    "type": "application/vnd.ibm.kms.key+json",
+                    "name": "my-standard-key",
+                    "description": "my-standard-key",
+                    "extractable": true
+                }
+            ]
+        }'
+```
+{: codeblock}
+
+#### JSON response from ibmcloud API
+{: #error-messages-key-create-import-access-err-example-json-1}
+
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Conflict: Key could not be created: Please see `reasons` for more details (KEY_CREATE_IMPORT_ACCESS_ERR)",
+            "reasons": [
+                {
+                    "code": "KEY_CREATE_IMPORT_ACCESS_ERR",
+                    "message": "KeyCreateImportAccess instance policy does not allow this action",
+                    "status": 409,
+                    "moreInfo": "https://cloud.ibm.com/apidocs/key-protect"
+                }
+            ]
+        }
+    ]
+}
+```
+{: screen}
+
+Steps 3-4 disables the `keyCreateImportAccess` policy and successfully creates a
+standard key.
+
+```sh
+# step 3 - disable the policy, that is, enable creating standard keys
+$ curl -X PUT \
+    "https://us-south.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer $ACCESS_TOKEN" \
+    -H "bluemix-instance: $KP_INSTANCE_ID" \
+    -H "content-type: application/vnd.ibm.kms.policy+json" \
+    -d '{
+            "metadata": {
+                "collectionType": "application/vnd.ibm.kms.policy+json",
+                "collectionTotal": 1
+            },
+            "resources": [
+                {
+                    "policy_type": "keyCreateImportAccess",
+                    "policy_data": {
+                        "enabled": false
+                    }
+                }
+            ]
+        }'
+
+# step 4a - create a standard key using the ibmcloud CLI
+$ ibmcloud kp key create my-standard-key --standard-key -o json
+
+{
+    "id": "3511e0bc-e32d-40b8-b6c2-96cd651858a4",
+    "name": "my-standard-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": true,
+    "state": 1,
+    "crn": "crn:v1:bluemic:public:kms:us-south:a/819bdf4436ef4c198fdf4f0b81d53116:87fa68d0-fa10-47d0-a201-603949808530:key:3511e0bc-e32d-40b8-b6c2-96cd651858a4",
+    "deleted": false
+}
+
+# step 4b - create a standard key using the ibmcloud API
+curl -X POST \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys" \
+    -H "authorization: Bearer $ACCESS_TOKEN" \
+    -H "bluemix-instance: $KP_INSTANCE_ID" \
+    -H "content-type: application/vnd.ibm.kms.key+json" \
+    -d '{
+            "metadata": {
+                "collectionType": "application/vnd.ibm.kms.key+json",
+                "collectionTotal": 1
+            },
+            "resources": [
+                {
+                    "type": "application/vnd.ibm.kms.key+json",
+                    "name": "my-standard-key",
+                    "description": "my-standard-key",
+                    "extractable": true
+                }
+            ]
+        }'
+```
+{: codeblock}
+
+#### JSON response from ibmcloud API
+{: #error-messages-key-create-import-access-err-example-json-2}
+
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "60d72058-ec53-4d77-b7ef-ba56443e76d5",
+            "name": "my-standard-key",
+            "description": "my-standard-key",
+            "state": 1,
+            "extractable": true,
+            "crn":"crn:v1:bluemix:public:kms:us-south:a/819bdf4436ef4c198fdf4f0b81d53116:87fa68d0-fa10-47d0-a201-603949808530:key:60d72058-ec53-4d77-b7ef-ba56443e76d5",
+            "imported": false,
+            "deleted": false
+        }
+    ]
+}
+```
+{: screen}
+
+## 12 - Missing body in request
 {: #error-messages-no-body-err}
 
 ### Message
@@ -1047,7 +1265,7 @@ This error occurs when you "rewrap" or "unwrap" a key and there is no body.
 #### Example
 {: #error-messages-no-body-err-context-example}
 
-The following steps will return a `missing body in request` error.
+The following steps return a `missing body in request` error.
 
 1. Create a root key
 2. Create a data encryption key (DEK), this is the `plaintext`
@@ -1141,7 +1359,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 12 - Number of authorizations required to...
+## 13 - Number of authorizations required to...
 {: #error-messages-authorizations-not-met}
 
 ### Message
@@ -1252,7 +1470,7 @@ $ curl -X DELETE \
 ```
 {: screen}
 
-## 13 - Only a single instance policy may be...
+## 14 - Only a single instance policy may be...
 {: #error-messages-num-collection-resource-err}
 
 ### Message
@@ -1346,7 +1564,7 @@ $ curl -X PUT \
 ```
 {: screen}
 
-## 14 - Only imported keys may be restored
+## 15 - Only imported keys may be restored
 {: #error-messages-key-impt-req-err}
 
 ### Message
@@ -1493,7 +1711,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 15 - Requested action can only be completed...
+## 16 - Requested action can only be completed...
 {: #error-messages-key-root-req-err}
 
 ### Message
@@ -1577,7 +1795,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 16 - Requested action can only be completed...
+## 17 - Requested action can only be completed...
 {: #error-messages-key-root-req-reg-err}
 
 ### Message
@@ -1613,7 +1831,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 17 - The action could not be performed on...
+## 18 - The action could not be performed on...
 {: #error-messages-key-expired-err}
 
 ### Message
@@ -1774,7 +1992,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 18 - The encrypted nonce given does not match...
+## 19 - The encrypted nonce given does not match...
 {: #error-messages-incorrect-nonce-err}
 
 ### Message
@@ -1947,7 +2165,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 19 - The import token has expired
+## 20 - The import token has expired
 {: #error-messages-import-token-expired-err}
 
 ### Message
@@ -2072,7 +2290,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 20 - The key cannot be deleted because it's...
+## 21 - The key cannot be deleted because it's...
 {: #error-messages-prev-key-del-err}
 
 ### Message
@@ -2115,7 +2333,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 21 - The key is not dual auth enabled and...
+## 22 - The key is not dual auth enabled and...
 {: #error-messages-not-dual-auth-err}
 
 ### Message
@@ -2319,7 +2537,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 22 - The key was updated recently
+## 23 - The key was updated recently
 {: #error-messages-req-too-early-err}
 
 ### Message
@@ -2389,7 +2607,7 @@ OK
 ```
 {: codeblock}
 
-## 23 - The provided ciphertext is invalid or...
+## 24 - The provided ciphertext is invalid or...
 {: #error-messages-unprocessable-ciphertext-err}
 
 ### Message
@@ -2422,7 +2640,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 24 - The provided encrypted nonce was not...
+## 25 - The provided encrypted nonce was not...
 {: #error-messages-incorrect-nonce-iv-err}
 
 ### Message
@@ -2456,7 +2674,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 25 - The resource(s) queried does not belong to the service
+## 26 - The resource(s) queried does not belong to the service
 {: #error-messages-resource-owner-err}
 
 ### Message
@@ -2491,7 +2709,7 @@ Object Storage (COS) bucket to encrypt their data using a
 
 Using the COS example, COS cannot delete the key used to encrypt data.
 
-## 26 - This action can only be done by a service...
+## 27 - This action can only be done by a service...
 {: #error-messages-service-only-err}
 
 ### Message
@@ -2530,7 +2748,7 @@ See this resources for more information about registrations.
 
 - [API documentation](/apidocs/key-protect#createregistration){: external}
 
-## 27 - This action is not permitted on this...
+## 28 - This action is not permitted on this...
 {: #error-messages-feature-restricted-err}
 
 ### Message
@@ -2563,7 +2781,7 @@ For example, instance policy was created for an `allowedIp` address range, which
 only supports IPv4 addresses. You then made a request to the instance with an
 IPv6 address, which returns this error.
 
-## 28 - This request requires that the key version...
+## 29 - This request requires that the key version...
 {: #error-messages-key-version-invalid}
 
 ### Message
@@ -2606,7 +2824,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 29 - This root key has been rotated within...
+## 30 - This root key has been rotated within...
 {: #error-messages-key-rotation-not-permitted}
 
 ### Message
@@ -2633,7 +2851,7 @@ already on the server resulting in a version control conflict.
 {: #error-messages-key-rotation-not-permitted-context}
 
 A root key can be rotated, at most, once an hour. Attempting to rotate a root
-key any sooner than one hour will return this error message.
+key any sooner than one hour returns this error message.
 
 ```sh
 # step 1 - create a root key and provide a key material
@@ -2711,7 +2929,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 30 - This root key was created with user-supplied...
+## 31 - This root key was created with user-supplied...
 {: #error-messages-key-payload-req-err}
 
 ### Message
@@ -2793,7 +3011,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 31 - Unauthorized: The user does not have...
+## 32 - Unauthorized: The user does not have...
 {: #error-messages-unauthorized-err}
 
 ### Message
@@ -2965,6 +3183,9 @@ These are the error messages, sorted the the HTTP status code.
 - Key is protecting one or more cloud resources -
   [details](#error-messages-protected-resource-err)
 
+- KeyCreateImportAccess instance policy does not allow this action -
+  [details](#error-messages-key-create-import-access-err)
+
 - Number of authorizations required to delete is not met -
   [details](#error-messages-authorizations-not-met)
 
@@ -3041,6 +3262,8 @@ These are the error messages, sorted the the reason code.
   [details](#error-messages-incorrect-nonce-iv-err)
 - KEY_ACTION_INVALID_STATE_ERR -
   [details](#error-messages-key-action-invalid-state-err)
+- KEY_CREATE_IMPORT_ACCESS_ERR -
+  [details](#error-messages-key-create-import-access-err)
 - KEY_DELETED_ERR -
   [details](#error-messages-key-deleted-err)
 - KEY_EXPIRED_ERR -

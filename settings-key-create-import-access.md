@@ -35,9 +35,10 @@ instance, you can manage keyCreateImportAccess policies by using the
 A keyCreateImportAccess policy for
 {{site.data.keyword.keymanagementserviceshort}} instances is an access policy
 that you can use to restrict how keys are created and imported into your
-{{site.data.keyword.keymanagementserviceshort}} instance. When you enable this
-policy, {{site.data.keyword.keymanagementserviceshort}} only permits the
-creation or importation of keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance.
+
+When you enable this policy, {{site.data.keyword.keymanagementserviceshort}}
+only permits the creation or importation of keys in your
 {{site.data.keyword.keymanagementserviceshort}} instance that follow the key
 creation and importation settings listed on the keyCreateImportAccess policy.
 
@@ -53,9 +54,11 @@ Before you enable a keyCreateImportAccess policy for your
 following considerations:
 
 - **KeyCreateImportAccess policies do not affect keys that existed prior to policy creation.**
-  KeyCreateImportAccess policies only affect Key Protect requests that are sent
-  after the policy is set. You will still have access to all keys that existed
-  in your Key Protect instance prior to policy creation.
+  KeyCreateImportAccess policies only affect
+  {{site.data.keyword.keymanagementserviceshort}} requests that are sent after
+  the policy is set. You will still have access to all keys that existed in your
+  {{site.data.keyword.keymanagementserviceshort}} instance prior to policy
+  creation.
 
 - **KeyCreateImportAccess policies can affect your keys across various key actions.**
   The `enforce_token` attribute will affect imported keys during creation,
@@ -194,13 +197,17 @@ existing value for the omitted field will be overwritten with the default value.
           <varname>create_root_key</varname>
         </td>
         <td>
-          <strong>Required.</strong> Set to <code>true</code> to allow root keys
-          to be created in your {{site.data.keyword.keymanagementserviceshort}}
-          instance. Set to <code>false</code> to prevent root keys from being
-          created in your instance.
-
-          Note: If omitted, <code>POST /instance/policies</code> will set this
-          attribute to the default value (<code>true</code>).
+          <p>
+            <strong>Required.</strong> Set to <code>true</code> to allow root
+            keys to be created in your
+            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
+            <code>false</code> to prevent root keys from being created in your
+            instance.
+          </p>
+          <p>
+            Note: If omitted, <code>POST /instance/policies</code> will set this
+            attribute to the default value (<code>true</code>).
+          </p>
         </td>
       </tr>
 
@@ -209,14 +216,17 @@ existing value for the omitted field will be overwritten with the default value.
           <varname>create_standard_key</varname>
         </td>
         <td>
-          <strong>Required.</strong> Set to <code>true</code> to allow standard
-          keys to be created in your
-          {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-          <code>false</code> to prevent standard keys from being created in your
-          instance.
-
-          Note: If omitted, <code>POST /instance/policies</code> will set this
-          attribute to the default value (<code>true</code>).
+          <p>
+            <strong>Required.</strong> Set to <code>true</code> to allow
+            standard keys to be created in your
+            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
+            <code>false</code> to prevent standard keys from being created in
+            your instance.
+          </p>
+          <p>
+            Note: If omitted, <code>POST /instance/policies</code> will set this
+            attribute to the default value (<code>true</code>).
+          </p>
         </td>
       </tr>
 
@@ -225,14 +235,17 @@ existing value for the omitted field will be overwritten with the default value.
           <varname>import_root_key</varname>
         </td>
         <td>
-          <strong>Required.</strong> Set to <code>true</code> to allow root keys
-          to be imported into your
-          {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-          <code>false</code> to prevent root keys from being imported into your
-          instance.
-
-          Note: If omitted, <code>POST /instance/policies</code> will set this
-          attribute to the default value (<code>true</code>).
+          <p>
+            <strong>Required.</strong> Set to <code>true</code> to allow root
+            keys to be imported into your
+            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
+            <code>false</code> to prevent root keys from being imported into
+            your instance.
+          </p>
+          <p>
+            Note: If omitted, <code>POST /instance/policies</code> will set this
+            attribute to the default value (<code>true</code>).
+          </p>
         </td>
       </tr>
 
@@ -241,14 +254,17 @@ existing value for the omitted field will be overwritten with the default value.
           <varname>import_standard_key</varname>
         </td>
         <td>
-          <strong>Required.</strong> Set to <code>true</code> to allow standard
-          keys to be imported into your
-          {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-          <code>false</code> to prevent standard keys from being imported into
-          your instance.
-
-          Note: If omitted, <code>POST /instance/policies</code> will set this
-          attribute to the default value (<code>true</code>).
+          <p>
+            <strong>Required.</strong> Set to <code>true</code> to allow
+            standard keys to be imported into your
+            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
+            <code>false</code> to prevent standard keys from being imported into
+            your instance.
+          <p>
+          <p>
+            Note: If omitted, <code>POST /instance/policies</code> will set this
+            attribute to the default value (<code>true</code>).
+          </p>
         </td>
       </tr>
 
@@ -257,19 +273,23 @@ existing value for the omitted field will be overwritten with the default value.
           <varname>enforce_token</varname>
         </td>
         <td>
-          <strong>Required.</strong> Set to <code>true</code> to prevent
-          authorized users from importing key material into the your
-          {{site.data.keyword.keymanagementserviceshort}} instance without using
-          an import token. Set to <code>false</code> to allow authorized users
-          to import key material into your instance without using an import
-          token.
-
-          If enabled, this attribute will take precedence over the
-          <code>import_root_key</code> and <code>import_standard_key</code>
-          attributes.
-
-          Note: If omitted, <code>POST /instance/policies</code> will set this
-          attribute to the default value (<code>false</code>).
+          <p>
+            <strong>Required.</strong> Set to <code>true</code> to prevent
+            authorized users from importing key material into the your
+            {{site.data.keyword.keymanagementserviceshort}} instance without
+            using an import token. Set to <code>false</code> to allow authorized
+            users to import key material into your instance without using an
+            import token.
+          </p>
+          <p>
+            If enabled, this attribute will take precedence over the
+            <code>import_root_key</code> and <code>import_standard_key</code>
+            attributes.
+          </p>
+          <p>
+            Note: If omitted, <code>POST /instance/policies</code> will set this
+            attribute to the default value (<code>false</code>).
+          </p>
         </td>
       </tr>
 

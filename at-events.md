@@ -124,12 +124,12 @@ information, see
 
 | Deployment Region | Activity Tracker Region |
 | ----------------- | ----------------------- |
-| `us-south`        | `us-south`              |
-| `us-east`         | `us-east`               |
-| `eu-gb`           | `eu-gb`                 |
-| `eu-de`           | `eu-de`                 |
 | `au-syd`          | `au-syd`                |
+| `eu-de`           | `eu-de`                 |
+| `eu-gb`           | `eu-gb`                 |
 | `jp-tok`          | `jp-tok`                |
+| `us-east`         | `us-east`               |
+| `us-south`        | `us-south`              |
 {: caption="Table 5. Activity Tracker regions" caption-side="top"}
 
 ## Analyzing successful events
@@ -381,8 +381,10 @@ The following fields include extra information:
   your allowed IP policy is currently enabled or disabled.
 
 ##### Key Creation and Importation Access Policies
-{: #allowed-network-event}
+{: #allowed-key-creation-policy}
+
 The following fields include extra information:
+
 - The `requestData.initialValue.PolicyKCIAEnabled` field includes if
   your key creation and importation policy was previously enabled or disabled.
 
@@ -390,35 +392,40 @@ The following fields include extra information:
   your key creation and importation policy is currently enabled or disabled.
 
 - The `requestData.initialValue.PolicyKCIAAttrCRK` field includes if
-  your key creation and importation policy previously allowed the creation of root keys.
+  your key creation and importation policy previously allowed the creation of
+  root keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCRK` field includes if
   your key creation and importation policy allows the creation of root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrCSK` field includes if
-  your key creation and importation policy previously allowed the creation of standard keys.
+  your key creation and importation policy previously allowed the creation of
+  standard keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCSK` field includes if
   your key creation and importation policy allows the creation of standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrIRK` field includes if
-  your key creation and importation policy previously allowed imported root keys.
+  your key creation and importation policy previously allowed imported root
+  keys.
 
 - The `requestData.newValue.PolicyKCIAAttrIRK` field includes if
   your key creation and importation policy allows imported root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrISK` field includes if
-  your key creation and importation policy previously allowed imported standard keys.
+  your key creation and importation policy previously allowed imported standard
+  keys.
 
 - The `requestData.newValue.PolicyKCIAAttrISK` field includes if
   your key creation and importation policy allows imported standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy previously required keys to be imported via
-  import token.
-  
+  your key creation and importation policy previously required keys to be
+  imported via import token.
+
 - The `requestData.newValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy requires keys to be imported via import token.
+  your key creation and importation policy requires keys to be imported via
+  import token.
 
 ### Import token events
 {: #import-token-events}
@@ -607,6 +614,9 @@ with an invalid key, but you are also unauthenticated for the
 the request, the unauthentication will take precedence and the event will be
 evaluated as a `401` bad request call with a severity of `critical`.
 
+{{site.data.keyword.keymanagementserviceshort}} returns a 401 `reason.reasonCode` for unauthorized/forbidden {{site.data.keyword.keymanagementserviceshort}} service requests.
+{: important}
+
 The following table lists the actions associated with each severity level:
 
 <table>
@@ -712,45 +722,8 @@ The following table lists the actions associated with each severity level:
 
 The following table lists the status codes associated with each severity level:
 
-<table>
-  <tr>
-    <th>Severity</th>
-    <th>Status Code</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>Critical</varname>
-    </td>
-    <td>
-      <p>
-        <code>503</code>, <code>507</code>
-      </p>
-      <p>
-        <code>401</code>, <code>403</code>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>Warning</varname>
-    </td>
-    <td>
-      <p>
-        <code>502</code>,
-        <code>504</code>
-      </p>
-      <p>
-        <code>505</code>,
-        <code>400</code>
-      </p>
-      <p>
-        <code>409</code>,
-        <code>424</code>
-      </p>
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 8. Describes the severity level for
-    {{site.data.keyword.keymanagementserviceshort}} response status codes.
-  </caption>
-</table>
+| Severity | Status Code                  |
+| -------- | ---------------------------- |
+| Critical | 401, 403, 503, 507           |
+| Warning  | 400, 409, 424, 502, 504, 505 |
+{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}

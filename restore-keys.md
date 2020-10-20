@@ -55,12 +55,16 @@ complete the following steps to restore the key:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the application details page, use the **Keys** table to browse the keys in
-   your {{site.data.keyword.keymanagementserviceshort}} instance.
-5. Click the **Restore Key** button to open a tab and enter the key ID and
+4. On the application details page, click the filter icon and select the
+   dropdown from the **Status** menu.
+5. Select the **Destroyed** state.
+6. Click the **Apply** button.
+7. Click the ⋯ icon to open a list of options for the key that you want to
+   delete.
+8. Click the **Restore Key** button to open a tab and enter the key ID and
    original key material that was associated with the deleted key.
-6. Click **Restore Key** button.
-7. Confirm the key was restored in the updated **Keys** table.
+9. Click **Restore Key** button.
+10. Confirm the key was restored in the updated **Keys** table.
 
 ## Restoring a deleted key with the API
 {: #restore-api}

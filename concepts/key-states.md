@@ -68,95 +68,18 @@ perform on a key. The check mark icon
 indicates that the action on a key is expected to succeed based on the key
 state.
 
-<table>
-  <tr>
-    <th>Action</th>
-    <th>Active</th>
-    <th>Suspended</th>
-    <th>Deactivated</th>
-    <th>Destroyed</th>
-  </tr>
-
-  <tr>
-    <td>Get key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-  </tr>
-
-  <tr>
-    <td>List keys</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Rotate key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Wrap key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Unwrap key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Rewrap key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Disable key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Enable key</td>
-    <td></td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Delete key</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Restore key</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>![Check mark icon](../../icons/checkmark-icon.svg)</td>
-  </tr>
-</table>
+| Action      | Active                                             | Suspended                                          | Deactivated                                        | Destroyed                                          |
+| ----------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| Get key     | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List keys   | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Rotate key  | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Wrap key    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |                                                    |                                                    |
+| Unwrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Rewrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Disable key | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |                                                    |                                                    |
+| Enable key  |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |                                                    |
+| Delete key  | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Restore key |                                                    |                                                    |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Describes how key states affect service actions." caption-side="top"}
 
 ## Monitoring for lifecycle changes
