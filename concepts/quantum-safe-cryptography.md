@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-20"
 
 keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
@@ -194,7 +194,7 @@ Before setting up your application to work with the SDK, follow these steps:
   permissions in order to install the dependency packages.
 
   - Debian (Ubuntu) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+    `libtool automake autoconf cmake(3.5 or above) make openssl libssl-dev build-essential git wget golang(1.14 or above) patch perl diffutils`
   
     If you are using a Debian distribution, copy the following code snippet to a file and execute it to 
     verify that all necessary packages have been installed:
@@ -222,7 +222,7 @@ Before setting up your application to work with the SDK, follow these steps:
     ```
       
   - RHEL (Centos/Fedora) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils 'Developement Tools'`
+    `libtool automake autoconf cmake(3.5 or above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang (1.14 or above) patch perl diffutils 'Developement Tools'`
 
     If you are using a RHEL distribution, copy the following code snippet to a file and execute it to 
     verify that all necessary packages have been installed:    
@@ -314,7 +314,7 @@ safe enabled endpoint, follow these steps:
   permissions in order to install the dependency packages.
 
   - Debian (Ubuntu) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl libssl-dev build-essential git wget golang patch perl diffutils`
+    `libtool automake autoconf cmake(3.5 or above) make openssl libssl-dev build-essential git wget golang(1.14 or above) patch perl diffutils`
   
     If you are using a Debian distribution, copy the following code snippet to a file and execute it to 
     verify that all necessary packages have been installed:
@@ -342,7 +342,7 @@ safe enabled endpoint, follow these steps:
     ```
       
   - RHEL (Centos/Fedora) dependencies:
-    `libtool automake autoconf cmake(3.5 and above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang patch perl diffutils 'Developement Tools'`
+    `libtool automake autoconf cmake(3.5 or above) make openssl  ncurses-devel gcc-c++ glibc-locale-source glibc-langpack-enopenssl-devel git wget golang (1.14 or above) patch perl diffutils 'Developement Tools''`
 
     If you are using a RHEL distribution, copy the following code snippet to a file and execute it to 
     verify that all necessary packages have been installed:    
