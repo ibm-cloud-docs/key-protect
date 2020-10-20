@@ -68,8 +68,34 @@ following considerations:
   {{site.data.keyword.keymanagementserviceshort}} actions (wrap, unwrap, etc.)
   are unaffected and can be invoked on the key as usual.
 
-### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance
-{: #enable-keyCreateImportAccess-policy}
+### Enabling and updating a keyCreateImportAccess policy fo your {{site.data.keyword.keymanagementserviceshort}} instance via console
+{: #enable-keyCreateImportAccess-policy-console}
+
+If you prefer to manage keyCreateImportAccess policy settings using 
+{{site.data.keyword.keymanagementserviceshort}}'s graphical interface, 
+you can use the IBM Cloud console.
+
+If "enforce_token" is enabled, all import key actions will not be available in the UI. The 
+"enforce_token" option makes [Secure Import](/docs/key-protect?topic=key-protect-create-import-tokens) 
+a requirement for all key imports. Secure Import support is only available 
+in the {{site.data.keyword.keymanagementserviceshort}} CLI or API.
+{: note}
+
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
+complete the following steps to enable a keyCreateImportAccess policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+4. On the **Manage instance policies** page, click the **Add policy** button.
+5. Under the **Create and import access** section, enable or disable any 
+   keyCreateImportAccess settings you desire. Note that any create or import 
+   key actions that have been disabled will no longer be available via the 
+   "Add Key" modal.
+
+### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance via API
+{: #enable-keyCreateImportAccess-policy-api}
 
 As a security admin, you can enable or update a keyCreateImportAccess policy for
 a {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT`
