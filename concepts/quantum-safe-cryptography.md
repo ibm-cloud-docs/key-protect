@@ -68,7 +68,7 @@ keep in mind the following considerations:
   NIST is currently evaluating candidate approaches to quantum safe
   cryptography and isn't expected to complete the standardization process
   until after 2023. {{site.data.keyword.keymanagementserviceshort}} uses
-  the [Kyber algorithm](https://pq-crystals.org/index.shtml){: external}, which is one 
+  the [Kyber algorithm](https://pq-crystals.org/kyber/index.shtml){: external}, which is one 
   of the third round candidates under evaluation. If NIST's research reveals 
   that the Kyber algorithm is not quantum safe, the key exchange mechanism 
   is still protected by the classic TLS algorithms when using the Kyber 
