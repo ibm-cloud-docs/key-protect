@@ -259,6 +259,12 @@ Before setting up your application to work with the SDK, follow these steps:
     bash build-oqssa.sh
    ```
 
+4. Run the following command to set the Quantum library path:
+   ```sh
+   export LD_LIBRARY_PATH=$HOME/opt/oqssa/lib:$LD_LIBRARY_PATH
+   ```
+   {: pre}
+
 ### Configuring the {{site.data.keyword.keymanagementserviceshort}} SDK with your application
 {: #qsc-sdk-application-steps}
 
@@ -284,11 +290,10 @@ with your application:
     ```
     {: pre}
 
-
 3. Compile the {{site.data.keyword.keymanagementserviceshort}} SDK by running
    the following command:
     ```sh
-    LD_LIBRARY_PATH=$HOME/opt/oqssa/lib PKG_CONFIG_PATH=$HOME/opt/oqssa/lib/pkgconfig go build –tags quantum
+    LD_LIBRARY_PATH=$HOME/opt/oqssa/lib PKG_CONFIG_PATH=$HOME/opt/oqssa/lib/pkgconfig go build –-tags quantum
     ```
     {: pre}
 
@@ -415,7 +420,7 @@ You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe
 enabled endpoint.
 ```sh
-$ curl -k --tlsv1.3 --curves <qsc_algorithm> -X GET \
+$ curl --tlsv1.3 --curves <qsc_algorithm> -X GET \
     "https://qsc.<region>.kms.cloud.ibm.com/api/v2/keys" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
