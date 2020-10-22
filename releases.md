@@ -32,6 +32,18 @@ Stay up-to-date with the new features that are available for
 ## October 2020
 {: #october-2020}
 
+### Added: Quantum Safe Cryptography in TLS Connections
+{: #added-quantum-safe-cryptography}
+
+New as of: 2020-10-20
+
+In preparation for the post-quantum era, you can use a quantum safe enabled 
+TLS connection to secure your communication to the 
+{{site.data.keyword.keymanagementservicefull}} service.
+
+To find out more, see
+[Using Quantum Safe Cryptography](/docs/key-protect?topic=key-protect-quantum-safe-cryptography-tls-introduction).
+
 ### Added: Manage key creation and importation policies in the UI
 {: #added-key-creation-importation-policies-ui}
 

@@ -21,6 +21,7 @@ Key Protect
         concepts/envelope-encryption.md
         concepts/key-rotation.md
         concepts/key-states.md
+        concepts/quantum-safe-cryptography.md
 
     {: .topicgroup}
     Integrations
