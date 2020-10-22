@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -49,7 +49,7 @@ you can wrap a DEK with advanced encryption by making a `POST` call to the
 following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
 ```
 {: codeblock}
 
@@ -67,7 +67,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \

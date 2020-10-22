@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -73,7 +73,7 @@ Restore a previously imported root key by making a `POST` call to the following
 endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/restore
 ```
 {: codeblock}
 
@@ -105,7 +105,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{
@@ -306,7 +306,7 @@ If you initially used an import token to import the root key, you can restore
 the key by making a `POST` call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/restore
 ```
 {: codeblock}
 
@@ -336,7 +336,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{

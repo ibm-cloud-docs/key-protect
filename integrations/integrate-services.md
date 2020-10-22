@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-11"
+lastupdated: "2020-10-22"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -139,8 +139,8 @@ on a resource.
 
 | Method | Description |
 | ------ | ----------- |
-| `POST /keys/{root_key_ID}?action=wrap` | [Wrap (encrypt) a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) |
-| `POST /keys/{root_key_ID}?action=unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
+| `POST /keys/{root_key_ID}/actions/wrap` | [Wrap (encrypt) a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) |
+| `POST /keys/{root_key_ID}/actions/unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
 {: caption="Table 6. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods." caption-side="bottom"}
 
 To find out more about programmatically managing your keys in

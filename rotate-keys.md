@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -108,7 +108,7 @@ complete the following steps to rotate the key:
 You can rotate a root key by making a `POST` call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}
 
@@ -126,7 +126,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -322,7 +322,7 @@ If you initially imported a root key by using an import token, you can rotate
 the key by making a `POST` call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}
 
@@ -353,7 +353,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{

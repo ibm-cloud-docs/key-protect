@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -57,7 +57,7 @@ rewrap a data encryption key that is associated with the root key by making a
 `POST` call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 ```
 {: codeblock}
 
@@ -74,7 +74,7 @@ cURL command.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \

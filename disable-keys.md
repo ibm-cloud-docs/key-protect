@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-22"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -139,7 +139,7 @@ You can disable a root key that's in the _Active_ key state by making a `POST`
 call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 ```
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api#retrieve-credentials).
@@ -162,7 +162,7 @@ encrypt and decrypt operations.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=disable" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>"
     ```
@@ -320,7 +320,7 @@ You can enable a root key that's in the _Suspended_ key state by making a `POST`
 call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
 ```
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -347,7 +347,7 @@ and decrypt operations.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=enable" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>"
     ```

@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-22"
 
 keywords: Key Protect error messages
 
@@ -703,7 +703,7 @@ kp.Error:
 
 # this API request fails because the key is deleted a third time
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=disable" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/disable" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -815,7 +815,7 @@ $ sleep 60
 
 # step 3 - fails because you cannot enable a key after the expiration date
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=enable" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/enable" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -1300,7 +1300,7 @@ eyJjaXBoZXJ0ZXh0IjoiR0VnTFZGSmpK...<redacted>...YWU3MWY4NmRjIn0=
 # step 4 - fails to unwrap the ciphertext, which reveals the original DEK
 # (plaintext), because there is no body (the -d option)
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=unwrap" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/unwrap" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -1336,7 +1336,7 @@ $ curl -X POST \
 ```sh
 # step 5 - succeeds to unwrap the ciphertext because the request is complete
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=unwrap" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/unwrap" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -1667,7 +1667,7 @@ kp.Error:
 # step 5 - this API request fails because you can only restore keys
 # that were imported (created with a key material or an import token)
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -1762,7 +1762,7 @@ b2dae7bb-2da5-493e-99d2-a6379e35e58c
 
 # this request fails because a standard key cannot be disabled
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=disable" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/disable" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -1948,7 +1948,7 @@ aa713df1-857c-4c46-be80-3051756280c9
 
 # step 6 - fails because you cannot restore a deleted key after the expiration date
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -2427,7 +2427,7 @@ $ KEY_ID=eb086d96-3b2c-48b5-bf31-c8f0305eea77
 
 # this request fails because the key DOES NOT have a dual authorization policy
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=setKeyForDeletion" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/setKeyForDeletion" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -2465,7 +2465,7 @@ Remove an authorization for a key with a dual authorization policy.
 ```sh
 # this request fails because the key DOES NOT have a dual authorization policy
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=unsetKeyForDeletion" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/unsetKeyForDeletion" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"
@@ -2876,7 +2876,7 @@ $ echo $KEY_MATERIAL_NEW_1
 rK9CCRHxr8RpVvKQSEvud1zHAPnXl3PvhaPwx2aRxGE=
 
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=rotate" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/rotate" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -2893,7 +2893,7 @@ $ echo $KEY_MATERIAL_NEW_2
 pQX+ghaaH/r/s54ICWuwq3jQDPWlHQMDhAV0mwpBf2w=
 
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=rotate" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/rotate" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -2974,7 +2974,7 @@ e52ee578-af71-4cd7-ba19-f1a8020d6a10
 
 # step 2 - rotate the key without a new key material
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID?action=rotate" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/rotate" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json"

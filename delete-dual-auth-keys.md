@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -87,7 +87,7 @@ you can provide the first authorization to delete a key by making a `POST` call
 to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion
 ```
 {: codeblock}
 
@@ -105,7 +105,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -199,7 +199,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 
     If you need to prevent the deletion of a key that's already authorized for
     deletion, you can remove the existing authorization by calling
-    `POST /api/v2/keys/<key_ID>?action=unsetKeyForDeletion`.
+    `POST /api/v2/keys/<key_ID>/actions/unsetKeyForDeletion`.
     {: tip}
 
 ### Step 2. Delete the key
@@ -401,7 +401,7 @@ expires, you can remove the existing authorization by making a `POST` call to
 the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeletion
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion
 ```
 {: codeblock}
 
@@ -420,7 +420,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
