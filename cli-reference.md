@@ -896,6 +896,7 @@ Key ID                                 Key Name
 # list the policies for the key - dual-auth-delete is
 # enabled because the key inherits the instance policy
 $ ibmcloud kp key policies 6a8a129b-0cd4-4667-ba57-b355a125a7ca --output json
+
 [
   {
     "createdBy": "user id ...<redacted>...",
@@ -1161,7 +1162,7 @@ Encrypted Key
 qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
 
 # capture the encrypted key material
-ENCRYPTED_KEY=qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
+$ ENCRYPTED_KEY=qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
 
 # encrypt the nonce
 $ ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE
@@ -1170,8 +1171,8 @@ Encrypted Nonce                            IV
 fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==   efQgA8xBeyuBy39D
 
 # capture the encrypted nonce and the initialization vector (IV)
-ENCRYPTED_NONCE=fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==
-IV=efQgA8xBeyuBy39D
+$ ENCRYPTED_NONCE=fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==
+$ IV=efQgA8xBeyuBy39D
 
 # create a root key using an import token, provide an encrypted key, nonce, and initialization vector (IV)
 $ ibmcloud kp key create my-imported-root-key -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV
@@ -1225,6 +1226,7 @@ $ cat credentials.json
 $ ENCODED=$(base64 -i credentials.json)
 
 $ echo $ENCODED
+
 ewoJImhvc3QiOiAibG9jYWxob3N0IiwK...<redacted>...cGFzc3dvcmQiCn0K
 
 # create a new key that contains the base64-encoded credentials
@@ -1248,6 +1250,7 @@ $ ibmcloud kp key show $KEY_ID --output json
 
 # OR... CAPTURE THE PAYLOAD
 $ PAYLOAD=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["payload"]')
+
 {
   "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
   "name": "credentials-key",
@@ -3744,6 +3747,7 @@ List all keys and iterate over them, showing details.
 ```sh
 # list all keys and convert to a list
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+
 $ for key in $(echo "${KEYS}"); do
   ibmcloud kp key show ${key}
 done
@@ -3871,6 +3875,7 @@ f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
 
 # delete the test keys
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+
 $ for KEY_ID in $(echo "${KEYS}"); do
   KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
   if [[ $KEY_NAME == *"my-test-key-"* ]]; then
@@ -4167,6 +4172,7 @@ a `service plan name` and a `location`, which is in the catalog.
 ```sh
 # show the catalog offerings for cloud object storage (COS) and Key Protect
 $ ibmcloud catalog service cloud-object-storage
+
 $ ibmcloud catalog service kms
 ```
 
@@ -4314,9 +4320,11 @@ Successfully downloaded '/cos-file.txt' from bucket 'my-cos-kms-bucket'
 
 # verify that the upload and download files are the same
 $ cat cos-file-upload.txt
+
 This is a test file
 
 $ cat cos-file-download.txt
+
 This is a test file
 
 # delete the object
