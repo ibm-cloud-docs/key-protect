@@ -185,8 +185,8 @@ The following list describes the import token workflow.
       in your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 You can create only one import token per
-{{site.data.keyword.keymanagementserviceshort}} instance. To learn more about
-retrieval limits for import tokens,
+{{site.data.keyword.keymanagementserviceshort}} instance at a time. To learn
+more about retrieval limits for import tokens,
 [see the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect#create-an-import-token){: external}.
 {: note}
 

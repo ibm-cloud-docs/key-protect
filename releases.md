@@ -37,8 +37,8 @@ Stay up-to-date with the new features that are available for
 
 New as of: 2020-10-20
 
-In preparation for the post-quantum era, you can use a quantum safe enabled 
-TLS connection to secure your communication to the 
+In preparation for the post-quantum era, you can use a quantum safe enabled TLS
+connection to secure your communication to the
 {{site.data.keyword.keymanagementservicefull}} service.
 
 To find out more, see
