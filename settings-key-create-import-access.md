@@ -124,7 +124,7 @@ existing value for the omitted field will be overwritten with the default value.
 
 2. Enable or update a keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -193,7 +193,7 @@ existing value for the omitted field will be overwritten with the default value.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -374,7 +374,7 @@ keyCreateImportAccess policy.
 
 2. Disable an existing keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -436,7 +436,7 @@ keyCreateImportAccess policy.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

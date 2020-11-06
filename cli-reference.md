@@ -102,8 +102,8 @@ The `kp instance` command manages policies for a
 | Sub-command                                                         | Status v0.5.2 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   | New           | List policies associated with an instance |
-| policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance "allowed network" policy |
-| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   | New           | Update the instance "dual auth delete" policy |
+| policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance policy for "allowed network" |
+| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   | New           | Update the instance policy for "dual auth delete" |
 {: caption="Table 2. Sub-commands for managing keys" caption-side="top"}
 
 ### kp key command
@@ -119,8 +119,8 @@ The `kp key` command manages individual keys.
 | [disable](#kp-key-disable)                                   | New           | Disable a key |
 | [enable](#kp-key-enable)                                     | New           | Enable a key |
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
-| policy-update [dual-auth-delete](#kp-key-policy-update-dual) | Update        | Update the "dual auth delete" policy |
-| policy-update [rotation](#kp-key-policy-update-rotation)     | Update        | Update the "rotation" policy |
+| policy-update [dual-auth-delete](#kp-key-policy-update-dual) | Update        | Update the key policy for "dual auth delete" |
+| policy-update [rotation](#kp-key-policy-update-rotation)     | Update        | Update the key polcy for "rotation" |
 | [restore](#kp-key-restore)                                   | New           | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   | New           | Authorize a key, with a dual-auth-delete policy, to be deleted |
@@ -660,14 +660,14 @@ $ ibmcloud kp instance policies --output json
     <code>-a, --allowed-network</code>
   </dt>
   <dd>
-    Show the "allowed network" policy.
+    Show the instance policy for "allowed network".
   </dd>
 
   <dt>
     <code>-d, --dual-auth-delete</code>
   </dt>
   <dd>
-    Show the "dual authorization delete" policy.
+    Show the instance policy for "dual authorization delete".
   </dd>
 
   <dt>
@@ -2595,10 +2595,10 @@ Key ID   Key Name
 restore the key
 
 ```sh
-# NOTE: the "kp key restore" requires an import token to complete the process,
-# if you follow this example, the import token created above may still exist and
-# the example works; otherwise, if the import token has expired then you need to
-# create a new import token prior to restoring the key
+# NOTE: "kp key restore" requires an import token to complete the process,
+# if you follow this example, the previously created import token may still
+# exist and the example works; otherwise, if the import token has expired then
+# you need to create a new import token prior to restoring the key
 
 # create an import token that expires in 5 minutes and allows 10 retrievals
 $ ibmcloud kp import-token create -e 300 -m 10
@@ -2699,9 +2699,9 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
     <p>
       If you created the root key using an <code>import token</code>, then the
       value of the <code>-k, --key-material</code> option is the
-      <b>encrypted material key</b>. See example 2, above, which uses an import
-      token to create the root key and it uses an import token to restore the
-      root key.
+      <b>encrypted material key</b>. See example 2, which uses an import token
+      to create the root key and it uses an import token to restore the root
+      key.
     </p>
   </dd>
 </dl>
@@ -3798,7 +3798,7 @@ bc459a2f-56cb-445e-b4ee-9d1866b57560 my-test-key-11
 90138be5-1dd1-4eea-b7c1-73cc8609e7f7 my-test-key-19
 cf0a3d8b-4856-4aa5-be6a-88cca465eab0 my-test-key-20
 
-# this is the above list sorted in KEY_ID order
+# this is the same list sorted in KEY_ID order
 # this is the order we expect when listing keys
 
 10954149-0217-472d-8137-42fc330dbd03 my-test-key-16

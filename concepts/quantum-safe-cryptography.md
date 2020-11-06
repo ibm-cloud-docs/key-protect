@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-05"
 
 keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
@@ -333,8 +333,9 @@ with your application:
 ### Prerequisites
 {: #qsc-pre-reqs-curl}
 
-Before make a curl request to a {{site.data.keyword.keymanagementserviceshort}}
-quantum safe enabled endpoint, follow these steps:
+Before making a `curl` request to a
+{{site.data.keyword.keymanagementserviceshort}} quantum safe enabled endpoint,
+follow these steps:
 
 1. Download the
    [Open Quantum Safe Software Stack (OQSSA) script](https://github.com/IBM/oqssa/blob/master/build-oqssa.sh){: external}.
@@ -418,10 +419,10 @@ quantum safe enabled endpoint, follow these steps:
 ### Making a CURL request to a quantum safe enabled endpoint
 {: #qsc-curl-steps}
 
-When making a call to the the a quantum safe enabled endpoint via curl
+When making a call to the the a quantum safe enabled endpoint via `curl`
 request, you will need to suse specific to ensure that the request
 successfully goes through. The following table contains a list of flags that are
-required when making a quantum safe curl request.
+required when making a quantum safe `curl` request.
 
 <table>
   <tr>
@@ -433,7 +434,7 @@ required when making a quantum safe curl request.
       <varname>-tlsv1.3</varname>
     </td>
     <td>
-      This flag enforces that the curl connects to a TLS v1.3 server.
+      This flag enforces that <code>curl</code> connects to a TLS v1.3 server.
     </td>
   </tr>
   <tr>
@@ -447,8 +448,8 @@ required when making a quantum safe curl request.
     </td>
   </tr>
   <caption style="caption-side:bottom;">
-    Table 1. Describes the flags needed to make curl request to the
-    {{site.data.keyword.keymanagementserviceshort}} service.
+    Table 1. Describes the flags needed to make <code>curl</code> requests to
+    the {{site.data.keyword.keymanagementserviceshort}} service.
   </caption>
 </table>
 
@@ -514,7 +515,7 @@ Replace the variables in your request according to the following table.
       <p>
         <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
         access token. Include the full contents of the <code>IAM</code>
-        token, including the Bearer value, in the cURL request.
+        token, including the Bearer value, in the <code>curl</code> request.
       </p>
       <p>
         For more information, see

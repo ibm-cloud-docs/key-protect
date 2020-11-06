@@ -60,10 +60,9 @@ Key states affect whether an action that is performed on a key succeeds or
 fails. For example, if a key is in the _Active_ state, you can't restore the
 key, because the key wasn't previously deleted.
 
-The following table shows how {{site.data.keyword.keymanagementserviceshort}}
-handles service actions based on the state of a key. The column headers
-represent the key states, and the row headers represent the actions that you can
-perform on a key. The check mark icon
+The following table describes how key states affect service actions. The column
+headers represent the key states, and the row headers represent the actions that
+you can perform on a key. The check mark icon
 (![Check mark icon](../../icons/checkmark-icon.svg)
 indicates that the action on a key is expected to succeed based on the key
 state.

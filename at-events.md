@@ -38,8 +38,8 @@ Auditing Data Federation (CADF) standard.
 For more information regarding the Activity Tracker service, see the
 [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started){: external}.
 
-To see which {{site.data.keyword.keymanagementserviceshort}} API requests
-correlate to the actions below, check out the
+To determine which {{site.data.keyword.keymanagementserviceshort}} API requests
+correlate to the actions below, see
 [{{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
 
 ## Key events

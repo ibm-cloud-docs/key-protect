@@ -159,7 +159,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletio
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -235,7 +235,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to delete the key and its contents.
+3. Run the following `curl` command to delete the key and its contents.
 
     ```sh
     $ curl -X DELETE \
@@ -292,7 +292,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -474,7 +474,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDelet
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -86,7 +86,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
     {: note}
 
 2. Retrieve the dual authorization policy for a specified key by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -143,7 +143,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -239,7 +239,7 @@ be reverted.
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
 
-2. Enable dual authorization for a specified key by running the following cURL
+2. Enable dual authorization for a specified key by running the following `curl`
    command.
 
     ```sh
@@ -311,7 +311,7 @@ be reverted.
         <p>
           <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
           access token. Include the full contents of the <code>IAM</code> token,
-          including the Bearer value, in the cURL request.
+          including the Bearer value, in the <code>curl</code> request.
         </p>
         <p>
           For more information, see

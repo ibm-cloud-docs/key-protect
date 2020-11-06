@@ -563,7 +563,7 @@ To import the key:
 
 2. Store the encrypted key in your
    {{site.data.keyword.keymanagementserviceshort}} instance by running
-   the following cURL command.
+   the following `curl` command.
 
     ```sh
     $ curl -X POST \

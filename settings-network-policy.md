@@ -163,7 +163,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
 
 2. Enable a network access policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -228,7 +228,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

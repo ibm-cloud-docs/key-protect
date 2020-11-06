@@ -67,7 +67,7 @@ Replace `<access_token>` and `<instance_ID>` with your retrieved service and
 authentication credentials.
 
 Want to track your API requests in case something goes wrong? When you include
-the `-v` flag as part of cURL request, you get a `correlation-id` value in the
+the `-v` flag as part of `curl` request, you get a `correlation-id` value in the
 response headers. You can use this value to correlate and track the request for
 debugging purposes.
 {: tip}

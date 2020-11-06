@@ -94,15 +94,20 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 {: #view-protected-resources-console-instance}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the application details page, select the `Associated Resources` tab on the
-   left side menu.
+
+4. Select the `Associated resources` link on the left side menu.
+
 5. On the Associated resources page, use the **Associated Resources** table to
    browse the registrations in your service.
+
 6. Click the `^` icon under the `Details` column to view a list of details for a
    specific registration.
+
 7. Click `Filter` button to filter for resources by key ID, Cloud Resource Name
    (CRN), and retention policy.
 
@@ -110,12 +115,17 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 {: #view-protected-resources-console-key}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, use the **Keys** table to browse the keys in
    your service.
+
 5. Click the ⋯ icon to open a list of options for the key.
+
 6. From the options menu, click **Key associated resources** to view the key's
    associated registrations.
 
@@ -263,7 +273,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View the registrations that are associated with a root key by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -325,7 +335,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -586,7 +596,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View the registrations that match a CRN query that you specify by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -632,7 +642,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

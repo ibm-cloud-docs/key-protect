@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-10-04"
 
 keywords: list encryption keys, view encryption key, retrieve encryption key, retrieve key API examples
 
@@ -184,7 +184,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. View general characteristics about your keys by running the following cURL
+2. View general characteristics about your keys by running the following `curl`
    command.
 
     ```sh
@@ -232,7 +232,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
       <p>
         <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access
         token. Include the full contents of the <code>IAM</code> token,
-        including the Bearer value, in the cURL request.
+        including the Bearer value, in the <code>curl</code> request.
       </p>
       <p>
         For more information, see
