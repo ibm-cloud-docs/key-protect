@@ -64,7 +64,8 @@ key (WDEK).
 3. Copy the `ciphertext` value that was returned during the initial wrap
    request.
 
-4. Run the following cURL command to decrypt and authenticate the key material.
+4. Run the following `curl` command to decrypt and authenticate the key
+   material.
 
     ```sh
     $ curl -X POST \
@@ -130,7 +131,7 @@ key (WDEK).
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

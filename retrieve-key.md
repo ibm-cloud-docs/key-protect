@@ -55,7 +55,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     making a `GET /v2/keys` request, or by accessing the
     {{site.data.keyword.keymanagementserviceshort}} GUI.
 
-3. Run the following cURL command to get details about your key and the key
+3. Run the following `curl` command to get details about your key and the key
    material.
 
     ```sh
@@ -104,7 +104,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -122,7 +122,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
 
-3. Replace the key with new key material by running the following cURL command.
+3. Replace the key with new key material by running the following `curl`
+   command.
 
     ```sh
     $ curl -X POST \
@@ -185,7 +186,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -348,8 +349,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
     To learn how to use an import token, check out
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
-5. Replace the existing key with new key material by running the following cURL
-   command.
+5. Replace the existing key with new key material by running the following
+   `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -417,7 +418,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -63,7 +63,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
 
 3. Copy the ID of the root key that you want to use for wrapping.
 
-4. Run the following cURL command to protect the key with a wrap operation.
+4. Run the following `curl` command to protect the key with a wrap operation.
 
     ```sh
     $ curl -X POST \
@@ -129,7 +129,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -131,7 +131,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 2. Call the
    [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
-   with the following cURL command.
+   with the following `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -196,7 +196,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

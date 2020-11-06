@@ -62,15 +62,18 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 {: codeblock}
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
 2. Copy the ID of the rotated root key that you used to perform the initial wrap
-request.
+   request.
 
     You can retrieve the ID for a key by making a `GET api/v2/keys` request, or
     by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}}
     GUI.
+
 3. Copy the `ciphertext` value that was returned during the latest wrap request.
+
 4. Rewrap the key with the latest root key material by running the following
-cURL command.
+   `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -136,7 +139,7 @@ cURL command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

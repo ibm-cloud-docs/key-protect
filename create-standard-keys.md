@@ -43,11 +43,14 @@ from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. To create a new key, click **Add key** and select the **Create a key**
-window.
+   window.
 
     Specify the key's details:
 
@@ -108,8 +111,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Call the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
-with the following cURL command.
+   [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
+   with the following `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -173,7 +176,7 @@ with the following cURL command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -299,8 +302,8 @@ with the following cURL command.
     {{site.data.keyword.keymanagementserviceshort}} API.
 
 3. Optional: Verify that the key was created by running the following call to
-get the keys in your {{site.data.keyword.keymanagementserviceshort}} service
-instance.
+   get the keys in your {{site.data.keyword.keymanagementserviceshort}} service
+   instance.
 
     ```sh
     $ curl -X GET \

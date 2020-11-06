@@ -22,7 +22,7 @@ These error messages are created by
 {{site.data.keyword.keymanagementserviceshort}} and shown in the user interface
 (UI).
 
-Most error messages have one or more examples, usually curl, that show the
+Most error messages have one or more examples, usually `curl`, that show the
 request and response.
 
 This is not a complete list of error messages. Some messages are created by
