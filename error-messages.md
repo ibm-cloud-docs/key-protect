@@ -746,7 +746,9 @@ attempting to change the key state from disabled (state value is 3) to enabled
 The following steps return a `key has been disabled` error.
 
 1. Create a key with an expiration date
+
 2. Allow the expiration date to pass
+
 3. Enable the key
 
 ```sh
@@ -1049,8 +1051,11 @@ request to create a standard key was rejected.
 The following steps return this error.
 
 1. Enable the instance policy and prevent creating standard keys
+
 2. Attempt to create a standard key, which fails
+
 3. Remove (disable) the instance policy, which allows creating standard keys
+
 4. Create a standard key, which succeeds
 
 ```sh
@@ -1268,10 +1273,14 @@ This error occurs when you "rewrap" or "unwrap" a key and there is no body.
 The following steps return a `missing body in request` error.
 
 1. Create a root key
+
 2. Create a data encryption key (DEK), this is the `plaintext`
+
 3. Wrap the DEK with the root key, this creates a `ciphertext`
+
 4. Request **fails** to unwrap the new ciphertext to reveal the original DEK
    (plaintext) because of a missing body
+
 5. Request **succeeds** to unwrap the new ciphertext to reveal the original DEK
    (plaintext) because the body is specified
 
@@ -1393,8 +1402,11 @@ authorization from two users.
 These steps illustrate how to create the error message.
 
 1. Create a root key
+
 2. Enable the dual authorization policy
+
 3. List the policies (verify dual authorization is enabled)
+
 4. Delete the key, which **fails** because not enough authorizations are met to
    delete the key
 
@@ -1618,9 +1630,13 @@ deleted key without provided the original `key material`.
 Follow these steps to create the `only imported keys may be restored` error.
 
 1. Create a root key without a key material (payload)
+
 2. Delete the key
+
 3. Sleep 30 seconds
+
 4. Create a key material
+
 5. Restore the key and provide a key material (payload)
 
 ```sh
@@ -1866,10 +1882,15 @@ A `key restore` request fails because the key is delete and the key has expired.
 The following steps will create this error.
 
 1. Create a key material (payload) and an expiration date
+
 2. Create a root key using the key material and the expiration date
+
 3. Capture the key id
+
 4. Allow the expiration date to pass
+
 5. Delete the key
+
 6. Restore the key, which **fails** because you cannot restore a deleted key
    after the expiration date
 

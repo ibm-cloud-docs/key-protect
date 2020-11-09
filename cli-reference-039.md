@@ -23,7 +23,7 @@ subcollection: key-protect
 This document is specific to the `key-protect` plugin, version `0.3.9`.
 {: important}
 
-* The latest CLI Reference, version 0.4.0, is
+- The latest CLI Reference, version 0.4.0, is
 [found here](/docs/key-protect?topic=key-protect-cli-reference).
 
 Verify the installed plug-in version.

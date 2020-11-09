@@ -275,7 +275,7 @@ ibmcloud kp import-token key-encrypt
 ### Example
 {: #kp-import-token-key-encrypt-example}
 
-This example encrypts a `kp key material` using the public key created by
+This example encrypts a `key material` using the public key created by
 `kp import-token create`.
 
 ```sh
@@ -358,12 +358,14 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
       {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt
       keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
     </p>
-    <p>
-      For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
-    </p>
   </dd>
 </dl>
+
+### Notes
+{: #kp-import-token-key-encrypt-notes}
+
+For more information about HPCS, see
+[Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
 
 ## kp import-token nonce-encrypt
 {: #kp-import-token-nonce-encrypt}
@@ -387,7 +389,7 @@ ibmcloud kp import-token nonce-encrypt
 ### Example
 {: #kp-import-token-nonce-encrypt-example}
 
-This example encrypts the `nonce` using the `kp key material`.
+This example encrypts the `nonce` using the `key material`.
 
 A nonce is an arbitrary number that can be used just once in a cryptographic
 communication.
@@ -472,12 +474,14 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
       {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt
       keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
     </p>
-    <p>
-      For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
-    </p>
   </dd>
 </dl>
+
+### Notes
+{: #kp-import-token-nonce-encrypt-notes}
+
+For more information about HPCS, see
+[Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
 
 ## kp import-token show
 {: #kp-import-token-show}
@@ -990,11 +994,15 @@ command is the "authorization" to delete the key.
 Follow this process to delete a key with a `dual-auth-delete` policy.
 
 1. Create a key and enable the `dual-auth-delete` policy
+
 2. User 1 schedules (authorizes) a key deletion with the
    `kp key schedule-delete` command
+
 3. User 2 schedules (authorizes) a key deletion
+
 4. The key is deleted after the second `schedule-delete` is performed, which is
    supported in the user interface, API, and CLI
+
 5. If a second authorization does not occur within 7 days, the key returns to
    its default status
 
@@ -2408,17 +2416,17 @@ the _Active_ (value is 1) key state, and you restore access to any data that was
 previously encrypted with the key.
 
 You can restore a deleted key within 30 days of its deletion. This capability is
-available only for root keys that were created with a `kp key material`.
+available only for root keys that were created with a `key material`.
 {: note}
 
-You can only restore root keys that were created with a `kp key material`, using
+You can only restore root keys that were created with a `key material`, using
 `kp key create` with the `-k, --key-material` option. You _cannot_ restore a
 root key if the `--key-material` option was **not** specified.
 {: important}
 
 If you want to restore a deleted root key then you **must** save the
-`kp key material` that was used to create the root key. You _cannot_ restore a
-deleted key without provided the original `kp key material`.
+`key material` that was used to create the root key. You _cannot_ restore a
+deleted key without provided the original `key material`.
 {: important}
 
 ```sh
@@ -2501,8 +2509,9 @@ restores the key.
 
 This is a two-step process.
 
-1. create a root key using an import token and then delete the key
-2. create an import token, which is required to restore the key, and restore the
+1. Create a root key using an import token and then delete the key
+
+2. Create an import token, which is required to restore the key, and restore the
    key
 
 Creating a root key using an import token has a time limit (the
@@ -2864,12 +2873,17 @@ FAILED
 This examples shows how to...
 
 1. Create a root key
+
 2. Create a data encryption key (DEK), this is the `plaintext`
+
 3. Wrap the DEK with the root key, this creates a `ciphertext`
+
 4. Rotate the root key
+
 5. Unwrap the ciphertext to reveal the original DEK (plaintext) and a new
    ciphertext (the new ciphertext is the plaintext wrapped with the new rotated
    root key)
+
 6. Unwrap the new ciphertext to reveal the original DEK (plaintext)
 
 ```sh
@@ -3007,11 +3021,15 @@ administrative users to delete the key.
 Follow this process to delete a key with a `dual-auth-delete` policy.
 
 1. Create a key and enable the `dual-auth-delete` policy
+
 2. User 1 schedules (authorizes) a key deletion with the
    `kp key schedule-delete` command
+
 3. User 2 schedules (authorizes) a key deletion
+
 4. The key is deleted after the second `schedule-delete` is performed, which is
    supported in the user interface, API, and CLI
+
 5. If a second authorization does not occur within 7 days, the key returns to
    its default status
 

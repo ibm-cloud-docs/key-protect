@@ -103,17 +103,17 @@ $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 
 These commands show `kp` help information.
 
-* `ibmcloud kp -h`
-* `ibmcloud kp import-token -h`
-* `ibmcloud kp key -h`
-* `ibmcloud kp keys -h`
-* `ibmcloud kp region-set -h`
+- `ibmcloud kp -h`
+- `ibmcloud kp import-token -h`
+- `ibmcloud kp key -h`
+- `ibmcloud kp keys -h`
+- `ibmcloud kp region-set -h`
 
 The `kp import-token` and `kp key` commands have sub-commands. These examples
 show help for specific sub-commands, which you can change.
 
-* `ibmcloud kp import-token create -h`
-* `ibmcloud kp key delete -h`
+- `ibmcloud kp import-token create -h`
+- `ibmcloud kp key delete -h`
 
 ## kp import-token create
 {: #kp-import-token-create-040}

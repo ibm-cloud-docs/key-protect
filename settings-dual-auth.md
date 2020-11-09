@@ -72,13 +72,19 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the **Manage instance policies** page, click the **Add policy** button.
+
 5. Choose **Dual authorization deletion** and hit the switch to enable the
    policy.
+
 6. Click the **Add policy** button.
+
 7. Confirm the policy was created in the updated **Policies** table.
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
@@ -233,14 +239,19 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the **Manage instance policies** page, use the **Policies** table to
    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
    instance.
+
 5. Click the ⋯ icon to open a list of options for the policy that you want to
    disable.
+
 6. From the options menu, click **Disable policy** and confirm the policy was
    disabled in the updated **Policies** table.
 
