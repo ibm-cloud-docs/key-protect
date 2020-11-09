@@ -86,10 +86,14 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to enable a keyCreateImportAccess policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the **Manage instance policies** page, click the **Add policy** button.
+
 5. Under the **Create and import access** section, enable or disable any
    keyCreateImportAccess settings you desire. Note that any create or import
    key actions that have been disabled will no longer be available via the

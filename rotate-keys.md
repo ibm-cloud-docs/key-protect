@@ -51,13 +51,18 @@ use the {{site.data.keyword.cloud_notm}} console.
 complete the following steps to rotate the key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, use the **Keys** table to browse the keys in
    your service.
+
 5. Click the ⋯ icon to open a list of options for the key that you want to
    rotate.
+
 6. From the options menu, click **Rotate key**.
 
     If you initially provided the key material for the key, specify the

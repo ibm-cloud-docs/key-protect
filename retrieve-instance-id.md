@@ -37,10 +37,13 @@ You can view the instance ID that is associated with your
 to your {{site.data.keyword.cloud_notm}} resource list.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse
    a list of your cloud services.
+
 3. Click the table row that describes your
    {{site.data.keyword.keymanagementserviceshort}} instance.
+
 4. From the service details view, copy the **GUID** value.
 
     This **GUID** value represents the instance ID that uniquely identifies your

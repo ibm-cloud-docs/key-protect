@@ -668,8 +668,8 @@ legacy instance by navigating to your resource list from the
 
 If your {{site.data.keyword.keymanagementserviceshort}} instance is
 listed in the **Cloud Foundry Services** section of the
-{{site.data.keyword.cloud_notm}} resource list, or if you're using the
-`https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for
+{{site.data.keyword.cloud_notm}} resource list, or if you're using a
+`bluemix.net` API endpoint to target operations for
 the service, you're using a legacy instance of the
 {{site.data.keyword.keymanagementserviceshort}}. After 15 May 2019, the legacy
 endpoint will no longer be accessible, and you won't be able to target the

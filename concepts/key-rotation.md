@@ -177,22 +177,28 @@ Keep in mind the following considerations as you prepare to use
       rewrap the key's associated data encryption keys (DEKs) with the latest
       key version.
     </p>
-    <p class="note">
-      To enable key rotation options for your {{site.data.keyword.cloud_notm}}
-      data service, the data service must be integrated with
-      {{site.data.keyword.keymanagementserviceshort}}. Refer to the
-      documentation for your {{site.data.keyword.cloud_notm}} data service, or
-      [check out our list of integrated services to learn more](/docs/key-protect?topic=key-protect-integrate-services).
-    </p>
-    <p class="tip">
-      When you rotate a key in {{site.data.keyword.keymanagementserviceshort}},
-      you're not charged additional fees. You can continue to unwrap your
-      wrapped data encryption keys (WDEKs) with retired key material at no extra
-      cost. For more information about our pricing options, see the
-      [{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
+    <p>
+      After {{site.data.keyword.keymanagementserviceshort}} receives
+      confirmation from those services that all associated DEKs are rewrapped,
+      you receive an event in your Activity Tracker web UI to show that the
+      rotation is complete.
     </p>
   </dd>
 </dl>
+
+To enable key rotation options for your {{site.data.keyword.cloud_notm}} data
+service, the data service must be integrated with
+{{site.data.keyword.keymanagementserviceshort}}. Refer to the documentation for
+your {{site.data.keyword.cloud_notm}} data service, or
+[check out our list of integrated services to learn more](/docs/key-protect?topic=key-protect-integrate-services).
+{: note}
+
+When you rotate a key in {{site.data.keyword.keymanagementserviceshort}}, you're
+not charged additional fees. You can continue to unwrap your wrapped data
+encryption keys (WDEKs) with retired key material at no extra cost. For more
+information about our pricing options, see the
+[{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
+{: tip}
 
 ### Understanding the key rotation process
 {: #understand-key-rotation-process}

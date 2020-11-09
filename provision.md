@@ -38,10 +38,10 @@ referred to as a `service instance`) is a namespace.
 A namespace organizes keys into logical groups and provides isolation and
 protection between namespaces.
 
-* For example, you may choose to have two
-{{site.data.keyword.keymanagementserviceshort}} instances - one for the finance
-department and one for manufacturing. Two instances provides isolation so keys
-in one business unit are not accessible from other business units.
+- For example, you may choose to have two
+  {{site.data.keyword.keymanagementserviceshort}} instances - one for the
+  finance department and one for manufacturing. Two instances provides isolation
+  so keys in one business unit are not accessible from other business units.
 
 The term `instance` is sometimes used to describe compute resources, such as
 [virtual servers](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial){: external}
@@ -58,15 +58,19 @@ To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from
 the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
 1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+
 2. Click **Catalog** to view the list of services that are available on
-{{site.data.keyword.cloud_notm}}.
+   {{site.data.keyword.cloud_notm}}.
+
 3. From the All Categories navigation pane, click the **Security and Identity**
-category.
+   category.
+
 4. From the list of services, click the
-**{{site.data.keyword.keymanagementserviceshort}}** tile.
+   **{{site.data.keyword.keymanagementserviceshort}}** tile.
+
 5. Select a service plan, and click **Create** to provision an instance of
-{{site.data.keyword.keymanagementserviceshort}} in the account, region, and
-resource group where you are logged in.
+   {{site.data.keyword.keymanagementserviceshort}} in the account, region, and
+   resource group where you are logged in.
 
 ## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} CLI
 {: #provision-cli}
@@ -197,8 +201,9 @@ Space:
 Provision a public {{site.data.keyword.keymanagementserviceshort}} instance. The
 next section has an example of provisioning a `private` instance.
 
-* Public endpoints are **outside** the {{site.data.keyword.cloud_notm}}.
-* Private endpoints are **inside** the {{site.data.keyword.cloud_notm}}.
+- Public endpoints are **outside** the {{site.data.keyword.cloud_notm}}.
+
+- Private endpoints are **inside** the {{site.data.keyword.cloud_notm}}.
 
 A public instance accepts API requests from both `public and private` endpoints.
 Public network access is the default setting and is used if a policy is not set.

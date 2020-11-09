@@ -38,6 +38,7 @@ credentials.
 To gather your credentials:
 
 1. [Generate an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+
 2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## Forming your API request

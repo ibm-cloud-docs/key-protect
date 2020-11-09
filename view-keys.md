@@ -33,7 +33,9 @@ Audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the
 key.
+
 - [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/key-protect?topic=key-protect-at-events).
+
 - Inspect which users have access to keys and if the level of access is
 appropriate.
 
@@ -65,32 +67,25 @@ complete the following steps to view your keys.
         <th>Column</th>
         <th>Description</th>
       </tr>
-
       <tr>
         <td>
           <varname>Name</varname>
         </td>
         <td>
-          <p>
-            The human-readable alias that was assigned to your key.
-          </p>
+          The human-readable alias that was assigned to your key.
         </td>
       </tr>
-
       <tr>
         <td>
           <varname>ID</varname>
         </td>
         <td>
-          <p>
-            A unique key ID that was assigned to your key by the
-            {{site.data.keyword.keymanagementserviceshort}} service. You can use
-            the ID value to make calls to the service with the
-            [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
-          </p>
+          A unique key ID that was assigned to your key by the
+          {{site.data.keyword.keymanagementserviceshort}} service. You can use
+          the ID value to make calls to the service with the
+          [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
         </td>
       </tr>
-
       <tr>
         <td>
           <varname>State</varname>
@@ -98,26 +93,25 @@ complete the following steps to view your keys.
         <td>
           <p>
             The [key state](/docs/key-protect?topic=key-protect-key-states)
-            based on
+            is based on
             [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
+          </p>
+          <p>
             These states include _Pre-active_, _Active_, _Deactivated_, and
             _Destroyed_.
           </p>
         </td>
       </tr>
-
       <tr>
         <td>
           <varname>Type</varname>
         </td>
         <td>
-          <p>
-            The
-            [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-            that describes your key's designated purpose within the service.
+          The
+          [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
+          that describes your key's designated purpose within the service.
         </td>
       </tr>
-
       <caption style="caption-side:bottom;">
         Table 2. Describes the **Keys** table..
       </caption>
@@ -200,79 +194,73 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     Replace the variables in the example request according to the following
     table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>region</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The region abbreviation, such as
-        <code>us-south</code> or <code>eu-gb</code>, that represents the
-        geographic area where your
-        {{site.data.keyword.keymanagementserviceshort}} instance resides.
-      </p>
-      <p>
-        For more information, see
-        [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>IAM_token</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}} access
-        token. Include the full contents of the <code>IAM</code> token,
-        including the Bearer value, in the <code>curl</code> request.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>instance_ID</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The unique identifier that is assigned to
-        your {{site.data.keyword.keymanagementserviceshort}} instance.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>correlation_ID</varname>
-    </td>
-    <td>
-      <p>
-        The unique identifier that is used to track and correlate transactions.
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 2. Describes the variables that are needed to view keys with the
-    {{site.data.keyword.keymanagementserviceshort}} API.
-  </caption>
-</table>
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} instance resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the <code>curl</code> request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>correlation_ID</varname>
+        </td>
+        <td>
+          The unique identifier that is used to track and correlate
+          transactions.
+        </td>
+      </tr>
+      <caption style="caption-side:bottom;">
+        Table 2. Describes the variables that are needed to view keys with the
+        {{site.data.keyword.keymanagementserviceshort}} API.
+      </caption>
+    </table>
 
     A successful `GET api/v2/keys` request returns a collection of keys that are
     available in your {{site.data.keyword.keymanagementserviceshort}} service
@@ -374,7 +362,6 @@ following table.
     <th>Variable</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <varname>offset</varname>
@@ -391,7 +378,6 @@ following table.
       </p>
     </td>
   </tr>
-
   <tr>
     <td>
       <varname>limit</varname>
@@ -407,7 +393,6 @@ following table.
       </p>
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 2. Describes the <code>limit</code> and <code>offset</code> variables
   </caption>
@@ -421,7 +406,6 @@ For usage notes, check out the following examples for setting your `limit` and
     <th>URL</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <code>.../keys</code>
@@ -430,7 +414,6 @@ For usage notes, check out the following examples for setting your `limit` and
       Lists all of your available resources, up to the first 200 keys.
     </td>
   </tr>
-
   <tr>
     <td>
       <code>.../keys?limit=10</code>
@@ -439,7 +422,6 @@ For usage notes, check out the following examples for setting your `limit` and
       Lists the first 10 keys.
     </td>
   </tr>
-
   <tr>
     <td>
       <code>.../keys?offset=25&limit=50</code>
@@ -448,7 +430,6 @@ For usage notes, check out the following examples for setting your `limit` and
       Lists keys 26 - 75.
     </td>
   </tr>
-
   <tr>
     <td>
       <code>.../keys?offset=3000&limit=50</code>
@@ -457,7 +438,6 @@ For usage notes, check out the following examples for setting your `limit` and
       Lists keys 3001 - 3050.
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 3. Provides usage notes for the limit and offset query parameters
   </caption>
@@ -503,7 +483,6 @@ Replace the `state` variable in your request according to the following table.
     <th>Variable</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <varname>state</varname>
@@ -523,7 +502,6 @@ Replace the `state` variable in your request according to the following table.
       </p>
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 4. Describes the <code>state</code> variable.
   </caption>
@@ -537,7 +515,6 @@ parameter.
     <th>URL</th>
     <th>Description</th>
   </tr>
-
   <tr>
     <td>
       <code>.../keys</code>
@@ -546,7 +523,6 @@ parameter.
       Lists all of your available resources, up to the first 200 keys.
     </td>
   </tr>
-
   <tr>
     <td>
       <code>.../keys?state=5</code>
@@ -555,7 +531,6 @@ parameter.
       Lists keys in the deleted state.
     </td>
   </tr>
-
   <tr>
     <td>
       <code>.../keys?state=2,3</code>
@@ -564,7 +539,6 @@ parameter.
       Lists keys in the suspended and deactivated state.
     </td>
   </tr>
-
   <caption style="caption-side:bottom;">
     Table 5. Provides usage notes for the stage query parameter.
   </caption>
