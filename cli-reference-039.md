@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-10"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.3.9
 
@@ -17,8 +17,12 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI reference version 0.3.9
+# CLI - 0.3.9 (deprecated)
 {: #cli-reference-039}
+
+CLI version 0.3.9 is deprecated. The current version is
+[found here](/docs/key-protect?topic=key-protect-cli-reference).
+{: note}
 
 This document is specific to the `key-protect` plugin, version `0.3.9`.
 {: important}
