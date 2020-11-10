@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-11-10"
 
 keywords: Key Protect CLI plug-in, CLI changelog
 
@@ -45,7 +45,7 @@ Release date: 2020-09-21
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
   structure if there is no output.
 
-## CLI version 0.5.1
+## CLI version 0.5.1 (deprecated)
 {: #cli-changelog-051}
 
 Release date: 2020-07-21
@@ -60,7 +60,7 @@ Release date: 2020-07-21
 - For Windows, `OK` and `FAILED` messages are the same color as the `ibmcloud`
   command colors.
 
-## CLI version 0.5.0
+## CLI version 0.5.0 (deprecated)
 {: #cli-changelog-050}
 
 Release date: 2020-06-19
@@ -163,7 +163,7 @@ Documentation:
   : add the `-n` (--number-of-keys) and `-s` (--starting-offset) options to
   retrieve a subset of keys
 
-## CLI version 0.4.0
+## CLI version 0.4.0 (deprecated)
 {: #cli-changelog-040}
 
 Release date: 2020-05-01
@@ -230,7 +230,7 @@ The intent is to remove support for deprecated commands in the next CLI version,
 which is anticipated the end of September, 2020.
 {: important}
 
-## CLI version 0.3.9
+## CLI version 0.3.9 (deprecated)
 {: #cli-changelog-039}
 
 Release date: 2019-11-11

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-11-10"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -18,7 +18,7 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI reference version 0.5.2
+# CLI - 0.5.2
 {: #cli-reference}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
