@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-09"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -140,7 +140,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-                         "name": "<key_alias>",
+                         "name": "<key_name>",
+                         "aliases": [alias_list],
                          "description": "<key_description>",
                          "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
                          "extractable": <key_type>
@@ -224,7 +225,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
       <tr>
         <td>
-          <varname>key_alias</varname>
+          <varname>key_name</varname>
         </td>
         <td>
           <p>
@@ -234,6 +235,28 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             <b>Important:</b> To protect your privacy, do not store your
             personal data as metadata for your key.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>key_alias</varname>
+        </td>
+        <td>
+          <p>
+            One or more unique, human-readable aliases assigned to your key.
+          </p>
+          <p>
+            <b>Important:</b> To protect your privacy, do not store your
+            personal data as metadata for your key.
+
+            Each alias must be alphanumeric and cannot contain spaces or special 
+            characters other than `-` or `_`. The alias cannot be a UUID and must 
+            not be a Key Protect reserved name: `allowed_ip`, `key`, `keys`, 
+            `metadata`, `policy`, `policies`, `registration`, `registrations`, 
+            `ring`, `rings`, `rotate`, `wrap`, `unwrap`, `rewrap`, `version`, 
+            `versions`.
           </p>
         </td>
       </tr>
@@ -320,6 +343,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-root-key",
+                "aliases": [...],
                 "description": "A test root key",
                 "state": 1,
                 "extractable": false,

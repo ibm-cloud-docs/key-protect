@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-09"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -130,7 +130,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-                        "name": "<key_alias>",
+                        "name": "<key_name>",
+                        "aliases": [alias_list],
                         "description": "<key_description>",
                         "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
                         "extractable": <key_type>
@@ -234,12 +235,34 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
       <tr>
         <td>
-          <varname>key_alias</varname>
+          <varname>key_name</varname>
         </td>
         <td>
           <strong>Required.</strong> A unique, human-readable name for easy
           identification of your key. To protect your privacy, do not store your
           personal data as metadata for your key.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>key_alias</varname>
+        </td>
+        <td>
+          <p>
+            One or more unique, human-readable aliases assigned to your key.
+          </p>
+          <p>
+            <b>Important:</b> To protect your privacy, do not store your
+            personal data as metadata for your key.
+
+            Each alias must be alphanumeric and cannot contain spaces or special 
+            characters other than `-` or `_`. The alias cannot be a UUID and must 
+            not be a Key Protect reserved name: `allowed_ip`, `key`, `keys`, 
+            `metadata`, `policy`, `policies`, `registration`, `registrations`, 
+            `ring`, `rings`, `rotate`, `wrap`, `unwrap`, `rewrap`, `version`, 
+            `versions`.
+          </p>
         </td>
       </tr>
 

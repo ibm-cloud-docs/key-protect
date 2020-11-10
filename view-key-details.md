@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-09"
 
 keywords: get details for a key, get key configuration, get details, view encryption key details, view encryption key, retrieve encryption key details, API examples
 
@@ -171,6 +171,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-standard-key",
+                "aliases": [...],
                 "state": 1,
                 "expirationDate": "2020-03-15T03:50:12Z",
                 "extractable": true,
