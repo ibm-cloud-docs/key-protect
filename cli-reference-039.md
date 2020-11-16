@@ -12,6 +12,7 @@ subcollection: key-protect
 
 {:external: target="_blank" .external}
 {:important: .important}
+{:note: .note}
 {:pre: .pre}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
