@@ -32,12 +32,12 @@ restrictions to keys to ensure the security of your resources.
 Audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the
-key.
+  key.
 
 - [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/key-protect?topic=key-protect-at-events).
 
 - Inspect which users have access to keys and if the level of access is
-appropriate.
+  appropriate.
 
 For more information about auditing access to your resources, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
@@ -62,60 +62,13 @@ complete the following steps to view your keys.
 4. Browse the general characteristics of your keys from the application details
    page:
 
-    <table>
-      <tr>
-        <th>Column</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>
-          <varname>Name</varname>
-        </td>
-        <td>
-          The human-readable alias that was assigned to your key.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>ID</varname>
-        </td>
-        <td>
-          A unique key ID that was assigned to your key by the
-          {{site.data.keyword.keymanagementserviceshort}} service. You can use
-          the ID value to make calls to the service with the
-          [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>State</varname>
-        </td>
-        <td>
-          <p>
-            The [key state](/docs/key-protect?topic=key-protect-key-states)
-            is based on
-            [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
-          </p>
-          <p>
-            These states include _Pre-active_, _Active_, _Deactivated_, and
-            _Destroyed_.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>Type</varname>
-        </td>
-        <td>
-          The
-          [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that describes your key's designated purpose within the service.
-        </td>
-      </tr>
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the **Keys** table..
-      </caption>
-    </table>
+    | Column | Description |
+    | ------ | ----------- |
+    | Name   | The human-readable alias that was assigned to your key. |
+    | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
+    | State  | The [key state](/docs/key-protect?topic=key-protect-key-states) is based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.<br><br>These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_. |
+    | Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
+    {: caption="Table 2. Describes the **Keys** table." caption-side="bottom"}
 
     Not seeing the full list of keys that are stored in your
     {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your
