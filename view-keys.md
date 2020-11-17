@@ -496,3 +496,102 @@ parameter.
     Table 5. Provides usage notes for the stage query parameter.
   </caption>
 </table>
+
+### Retrieving keys by Extractable value
+{: #filter-keys-state-api}
+
+By specifying the `extractable` parameter at query time, you can retrieve keys whose material
+can leave the service.
+
+For example, you might have both standard and root keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance, but you only want to retrieve keys 
+with extractable key material when you make a `GET /keys` request.
+
+The extractable query parameter takes in a boolean.
+{: note}
+
+You can use the following example request to retrieve a different set of keys.
+
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
+
+Replace the `extractable` variable in your request according to the following table.
+
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>
+      <varname>extractable</varname>
+    </td>
+    <td>
+      <p>
+        The type of keys to be retrieved. Filters keys based on the `extractable` property. 
+        You can use this query parameter to search for keys whose material can leave the service. 
+        If set to `true`, standard keys will be retrieved. If set to `false`, root keys will be 
+        retrieved. If omitted, both root and standard keys will be retrieved.
+      </p>
+      <p>
+        For example, if you want to only list keys with extractable material in your
+        {{site.data.keyword.keymanagementserviceshort}} instance, use
+        <code>../keys?extractable=true</code>. You can also pair
+        <code>extractable</code> with<code>offset</code>, <code>limit</code>, and <code>state</code> 
+        to page through your available resources.
+      </p>
+    </td>
+  </tr>
+
+  <caption style="caption-side:bottom;">
+    Table 5. Describes the <code>extractable</code> variable.
+  </caption>
+</table>
+
+For usage notes, check out the following examples for setting your `extractable` query
+parameter.
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>
+      <code>.../keys</code>
+    </td>
+    <td>
+      Lists all of your available resources, up to the first 200 keys.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>../keys?extractable=true/code>
+    </td>
+    <td>
+      Lists standard keys.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>../keys?extractable=false</code>
+    </td>
+    <td>
+      Lists root keys.
+    </td>
+  </tr>
+
+  <caption style="caption-side:bottom;">
+    Table 6. Provides usage notes for the extractable query parameter.
+  </caption>
+</table>
