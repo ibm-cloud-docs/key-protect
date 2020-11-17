@@ -46,6 +46,7 @@ Key Protect
         settings-network-policy.md
         settings-allowed-ip.md
         settings-key-create-import-access.md
+        settings-sysdig-metrics.md
 
     {: .topicgroup}
     Accessing the API
@@ -116,6 +117,7 @@ Key Protect
         grant-access-keys.md
 
     at-events.md
+    monitor-sysdig-metrics.md
 
     {: .topicgroup}
     Standards and compliance
