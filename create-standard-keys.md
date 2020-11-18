@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-18"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -256,12 +256,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             <b>Important:</b> To protect your privacy, do not store your
             personal data as metadata for your key.
 
-            Each alias must be alphanumeric and cannot contain spaces or special 
-            characters other than `-` or `_`. The alias cannot be a UUID and must 
-            not be a Key Protect reserved name: `allowed_ip`, `key`, `keys`, 
-            `metadata`, `policy`, `policies`, `registration`, `registrations`, 
-            `ring`, `rings`, `rotate`, `wrap`, `unwrap`, `rewrap`, `version`, 
-            `versions`.
+            Each alias ust be alphanumeric, case sensitive, and cannot contain spaces or special 
+            characters other than dashes (<code>-</code>) or underscores (<code>_</code>). 
+            The alias cannot be a version 4 UUID and must not be a 
+            {{site.data.keyword.keymanagementserviceshort}} reserved name: 
+            <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
+            <code>metadata</code>, <code>policy</code>, <code>policies</code>,
+            <code>registration</code>, <code>registrations</code>,
+            <code>ring</code>, <code>rings</code>, <code>rotate</code>,
+            <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
+            <code>version</code>, <code>versions</code>.
+            Alias size can be between 2 - 90 characters.
           </p>
         </td>
       </tr>

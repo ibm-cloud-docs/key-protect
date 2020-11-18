@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-18"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -363,6 +363,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
               "type": "application/vnd.ibm.kms.key+json",
               "id": "02fd6835-6001-4482-a892-13bd2085f75d",
               "name": "test-root-key",
+              "aliases": [...],
               "state": 5,
               "extractable": false,
               "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",

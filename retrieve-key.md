@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-18"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key, API examples
 
@@ -60,7 +60,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     ```sh
     $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>" \
         -H "accept: application/vnd.ibm.kms.key+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -142,12 +142,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
       <tr>
         <td>
-          <varname>key_ID</varname>
+          <varname>key_ID_or_alias</varname>
         </td>
         <td>
-          <strong>Required.</strong> The identifier for the key that you
-          retrieved in
-          [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
+          <strong>Required.</strong> The identifier or alias associated with the key that you
+          want to retrieve.
         </td>
       </tr>
 
@@ -157,7 +156,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>` response returns details about your
+    A successful `GET api/v2/keys/<key_ID_or_alias>` response returns details about your
     key and the key material. The following JSON object shows an example
     returned value for a standard key.
 
@@ -172,6 +171,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-standard-key",
+                "aliases": [...],
                 "state": 1,
                 "expirationDate": "2020-03-15T03:50:12Z",
                 "extractable": true,
@@ -210,6 +210,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
             {
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "aliases": [...],
                 "name": "test-root-key",
                 "state": 1,
                 "extractable": false,
