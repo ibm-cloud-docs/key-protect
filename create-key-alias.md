@@ -417,7 +417,7 @@ The following table lists the APIs that you can use to create and use a key alia
     </tr>
     <tr>
       <td>
-        <varname>[View key metadata](/docs/key-protect?topic=key-protect-view-key-details)</varname>
+        <varname>[View key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)</varname>
       </td>
       <td>
         <p>

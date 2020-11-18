@@ -21,8 +21,8 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Viewing key metadata
-{: #view-key-metadata}
+# Retrieving Key Metadata
+{: #retrieve-key-metadata}
 
 You can retrieve the general characteristics of a single encryption key by using
 {{site.data.keyword.keymanagementservicefull}}.
