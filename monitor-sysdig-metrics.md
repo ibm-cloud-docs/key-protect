@@ -45,7 +45,7 @@ For more information regarding the {{site.data.keyword.mon_short}} service, see 
 Before you provision an instance of {{site.data.keyword.mon_short}}, consider 
 the following guidance: 
 
-- You will need to enable a [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics) 
+- You will need to enable a [metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics) 
   in the {{site.data.keyword.keymanagementserviceshort}} instance in order to retrieve 
   operational metrics. 
 
@@ -257,27 +257,6 @@ Below are figures that show the metric views available to you on the default das
 ![The image shows an example of a Key Protect metrics dashboard.](images/metrics-1.png){: caption="Figure 1. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
 
 ![The image shows an example of a Key Protect metrics dashboard.](images/metrics-2.png){: caption="Figure 2. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
-
-### Default Dashboard Metrics
-{: #metric-stats}
-
-The following data is available to view on your dashboard:
-
-- Total Requests Across All Instances
-- Total Requests by Resource Group Name
-- Total Successful Requests Across All Instances
-- Total Successful Requests By Instance
-- Total Successful Requests by KMS API
-- Total Successful Requests By Response Codes
-- Total Failed Requests Across All Instances
-- Total Failed Requests By Instance
-- Total Failed Requests by KMS API
-- Total Failed Requests By Response Codes
-- Total Unauthorized Access Requests
-- Total Unauthorized Access Requests By Instance
-- Total Unauthorized Access Requests By KMS API
-- Total Unauthorized Access Requests By Response Code
-- Average Request API Latency
 
 ## Setting Alerts
 {: #set-monitor-alerts}
