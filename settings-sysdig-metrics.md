@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-11-16"
 
-keywords: IBM, monitoring, metrics, operational metrics
+keywords: instance settings, service settings, operational metrics, metrics
 
 subcollection: key-protect
 
@@ -19,281 +19,320 @@ subcollection: key-protect
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 
-# {{site.data.keyword.mon_short}} Operational metrics
-{: #operational-metrics}
+# Managing metrics
+{: #manage-sysdig-metrics}
 
-As a security officer, auditor, or manager, you can use the {{site.data.keyword.mon_full_notm}}
-service to measure how users and applications interact with
-{{site.data.keyword.keymanagementservicefull}}.
+After you set up your {{site.data.keyword.keymanagementservicelong}} service
+instance, you can manage Sysdig metrics by using the service API.
 {: shortdesc}
 
-{{site.data.keyword.mon_full_notm}} records data on the operations 
-that occur inside of {{site.data.keyword.cloud_notm}}. You can use 
-this service to gain operational visibility into the performance 
-and health of your applications, services, and platforms 
-and to comply with regulatory audit requirements. In addition, you 
-can be alerted about API requests to {{site.data.keyword.keymanagementserviceshort}} 
-as they happen. 
+## Managing metrics settings
+{: #manage-metrics-policy}
 
-For more information regarding the {{site.data.keyword.mon_short}} service, see the
-[getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs//Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started-monitor){: external}.
+Metrics for {{site.data.keyword.keymanagementserviceshort}} service
+instances is an extra policy that allows you to receive the operational metrics 
+for your {{site.data.keyword.keymanagementserviceshort} instance. When you enable 
+this policy, {{site.data.keyword.mon_short}} can be used to monitor any operations 
+that are performed on the resources in your 
+{{site.data.keyword.keymanagementserviceshort} instance. 
 
-## Before you begin
-{: #operational-metrics-considerations}
+Enabling metrics is only available through the {{site.data.keyword.keymanagementserviceshort}} 
+API. To find out more about accessing the {{site.data.keyword.keymanagementserviceshort}} 
+APIs, check out [Setting up the API](/docs/key-protect?topic=key-protect-set-up-api).
+{: preview}
 
-Before you provision an instance of {{site.data.keyword.mon_short}}, consider 
-the following guidance: 
+Before you enable operational metrics for your
+{{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
+following considerations:
 
-- You will need to enable a [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics) 
-  in the {{site.data.keyword.keymanagementserviceshort}} instance in order to retrieve 
-  operational metrics. 
+- **When you enable metrics for your {{site.data.keyword.keymanagementserviceshort}} instance, metrics are only reported after the time that the policy is enabled.**
+  Once your metrics policy is enabled, you will see operational metrics for all api requests 
+  that occur in your instance after the the policy is activated. You will not be able 
+  to view any metrics prior to the time that the policy is enabled.
 
-- Other {{site.data.keyword.cloud_notm}} users with `administrator` or `editor` permissions can manage 
-  the {{site.data.keyword.mon_short}} service in the {{site.data.keyword.cloud_notm}}. These users 
-  must also have platform permissions to create resources within the context of the resource group 
-  where they plan to provision the instance.
+- **You will need to provision a {{site.data.keyword.mon_short}} instance for your policy in order to see the metrics.**
+  You will need to [provision a {{site.data.keyword.mon_short}} instance](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision) 
+  that is located in the same region as the {{site.data.keyword.keymanagementserviceshort}} instance 
+  that you would like to receive operational metrics for. Once you provision the {{site.data.keyword.mon_short}}
+  instance, you will need to [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-sysdig).
 
-## Connecting {{site.data.keyword.mon_short}} with {{site.data.keyword.mon_full_notm}}
-{: #connect-sysdig-keyprotect}
+### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
+{: #enable-metrics-instance-policy-api}
 
-Your dashboard will show metrics for all {{site.data.keyword.keymanagementserviceshort}} 
-instances with an enabled metrics policy.
-{: note}
+As an instance manager, enable a metrics policy for a
+{{site.data.keyword.keymanagementserviceshort}} instance by making a
+`PUT` call to the following endpoint.
 
-### Configure a {{site.data.keyword.mon_short}} instance for metrics
-{: #configure-sysdig}
+```
+https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
+```
+{: codeblock}
 
-To enable platform metrics in a region, complete the following steps:
+1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-1. [Provision an instance of {{site.data.keyword.mon_short}}](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision) 
-   in the region of the Key Protect instance that contains an [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics).
-2. Go to the [monitoring dashboard](https://cloud.ibm.com/observe/monitoring).
-3. Click on "Configure platform metrics."
-4. Select the region where the {{site.data.keyword.keymanagementserviceshort}} instance was created.
-5. Select the {{site.data.keyword.keymanagementserviceshort}} instance in which you would like to receive metrics.
-5. Click "Configure."
-6. Your {{site.data.keyword.keymanagementserviceshort}} instance is now set for platform metrics.
+    To enable metrics policies, you must be assigned a
+    _Manager_ access policy for your
+    {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
+    roles map to {{site.data.keyword.keymanagementserviceshort}} service
+    actions, check out
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    {: note}
 
+2. Enable a metrics policy for your
+   {{site.data.keyword.keymanagementserviceshort}} instance by running the
+   following `curl` command.
 
-## Key Protect Metrics Details
-{: #kp-metrics}
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "policy_type": "metrics",
+                        "policy_data": {
+                            "enabled": true
+                        }
+                    }
+                ]
+            }'
+    ```
+    {: codeblock}
 
-You can measure the types of requests being made in your service instance and as well as the latency of the requests.
+    Replace the variables in the example request according to the following
+    table.
 
-### API Hits
-{: #kp-metrics}
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
 
-The type and amount of API requests being made to your {{site.data.keyword.keymanagementserviceshort}} instance.
+      <tr>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} instance resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
+      </tr>
 
-<table>
-  <tr>
-    <th>Metadata</th>
-    <th>Description</th>
-  </tr>
+      <tr>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the <code>curl</code> request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
+        </td>
+      </tr>
 
-  <tr>
-    <td>
-      Metric Name
-    </td>
-    <td>
-      <p>
-        <code>ibm_kms_api_request_gauge</code>
-      </p>
-    </td>
-  </tr>
+      <tr>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} service
+            instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
 
-  <tr>
-    <td>
-      Metric Type
-    </td>
-    <td>
-      Gauge
-    </td>
-  </tr>
+      <caption style="caption-side:bottom;">
+        Table 1. Describes the variables that are needed to enable a metrics policy.
+      </caption>
+    </table>
 
-  <tr>
-    <td>
-      Value Type
-    </td>
-    <td>
-      <p>
-        none
-      </p>
-    </td>
-  </tr>
+    A successful request returns an HTTP `204 No Content` response, which
+    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+    is now enabled for reporting operational metrics. 
 
-  <tr>
-    <td>
-      Label Tag
-    </td>
-    <td>
-      status code, instance id, keyid
-    </td>
-  </tr>
+    This new policy only reports on operations that occur after the policy is enabled. If you need
+    to enable dual authorization for an existing key, see
+    [Creating a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
+    {: note}
 
-  <caption style="caption-side:bottom;">
-    Table 1. Describes the API Hits metrics.
-  </caption>
-</table>
+3. Optional: Verify that the metrics policy was created by browsing
+   the policies that are available for your
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 
-## Latency
-{: #kp-metrics}
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
+    ```
+    {: codeblock}
 
-The amount of time it takes to receive a response to your {{site.data.keyword.keymanagementserviceshort}} requests.
+### Disabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
+{: #disable-dual-auth-instance-policy-api}
 
-<table>
-  <tr>
-    <th>Metadata</th>
-    <th>Description</th>
-  </tr>
+As an instance manager, disable an existing metrics policy for a
+{{site.data.keyword.keymanagementserviceshort}} instance by making a
+`PUT` call to the following endpoint.
 
-  <tr>
-    <td>
-      Metric Name
-    </td>
-    <td>
-      <p>
-        <code>ibm_kms_api_latency_gauge</code>
-      </p>
-    </td>
-  </tr>
+```
+https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
+```
+{: codeblock}
 
-  <tr>
-    <td>
-      Metric Type
-    </td>
-    <td>
-      Gauge
-    </td>
-  </tr>
+1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
-  <tr>
-    <td>
-      Value Type
-    </td>
-    <td>
-      <p>
-        Seconds
-      </p>
-    </td>
-  </tr>
+    To disable metrics policies, you must be assigned a
+    _Manager_ access policy for your
+    {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
+    roles map to {{site.data.keyword.keymanagementserviceshort}} service
+    actions, check out
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    {: note}
 
-  <tr>
-    <td>
-      Label Tag
-    </td>
-    <td>
-      none
-    </td>
-  </tr>
+2. Disable an existing metrics policy for your
+   {{site.data.keyword.keymanagementserviceshort}} instance by running the
+   following `curl` command.
 
-  <caption style="caption-side:bottom;">
-    Table 2. Describes the Latency metrics.
-  </caption>
-</table>
+    ```sh
+    $ curl -X PUT \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>" \
+        -H "content-type: application/vnd.ibm.kms.policy+json" \
+        -d '{
+                "metadata": {
+                    "collectionType": "application/vnd.ibm.kms.policy+json",
+                    "collectionTotal": 1
+                },
+                "resources": [
+                    {
+                        "type": "application/vnd.ibm.kms.policy+json",
+                        "metrics": {
+                            "enabled": false
+                        }
+                    }
+                ]
+            }'
+    ```
+    {: codeblock}
 
-## Metrics Filter Attributes
-{: #metrics-filter-attributes}
+    Replace the variables in the example request according to the following
+    table.
 
-You can filter your metrics by using the following attributes. 
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
 
-<table>
-  <tr>
-    <th>Attribute Name</th>
-    <th>Description</th>
-  </tr>
+      <tr>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} instance
+            resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
+      </tr>
 
-  <tr>
-    <td>
-      <code>ibmResourceGroupName</code>
-    </td>
-    <td>
-      <p>
-        The name of the resource group being measured by the service.
-      </p>
-    </td>
-  </tr>
+      <tr>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the <code>curl</code> request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
+        </td>
+      </tr>
 
-  <tr>
-    <td>
-      <code>ibmScope</code>
-    </td>
-    <td>
-      The account, organization, or space GUID associated with the metric.
-    </td>
-  </tr>
+      <tr>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} service
+            instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
 
-  <tr>
-    <td>
-      <code>ibmServiceInstanceName</code>
-    </td>
-    <td>
-      <p>
-        The service instance associated with the metric.
-      </p>
-    </td>
-  </tr>
+      <caption style="caption-side:bottom;">
+        Table 1. Describes the variables that are needed to enable metrics polcies.
+      </caption>
+    </table>
 
-  <tr>
-    <td>
-      <code>ibmKmsApi</code>
-    </td>
-    <td>
-      The Key Protect api call associated with the metric.
-    </td>
-  </tr>
+    A successful request returns an HTTP `204 No Content` response, which
+    indicates that the metrics policy was updated for your service
+    instance. 
 
-  <caption style="caption-side:bottom;">
-    Table 3. Describes the filter attributes for {{site.data.keyword.keymanagementserviceshort}} metrics.
-  </caption>
-</table>
+3. Optional: Verify that the metrics policy was updated by browsing
+   the policies that are available for your
+   {{site.data.keyword.keymanagementserviceshort}} instance.
 
-## Default Dashboards
-{: #kp-metrics}
+    ```sh
+    $ curl -X GET \
+        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+        -H "accept: application/vnd.ibm.kms.policy+json" \
+        -H "authorization: Bearer <IAM_token>" \
+        -H "bluemix-instance: <instance_ID>"
+    ```
+    {: codeblock}
 
-Below are figures that show the metric views available to you on the default dashboard.
+## What's next
+{: #monitor-metrics-next-steps}
 
-![The image shows an example of a Key Protect metrics dashboard.](images/metrics-1.png){: caption="Figure 1. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
-
-![The image shows an example of a Key Protect metrics dashboard.](images/metrics-2.png){: caption="Figure 2. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
-
-### Default Dashboard Metrics
-{: #metric-stats}
-
-The following data is available to view on your dashboard:
-
-- Total Requests Across All Instances
-- Total Requests by Resource Group Name
-- Total Successful Requests Across All Instances
-- Total Successful Requests By Instance
-- Total Successful Requests by KMS API
-- Total Successful Requests By Response Codes
-- Total Failed Requests Across All Instances
-- Total Failed Requests By Instance
-- Total Failed Requests by KMS API
-- Total Failed Requests By Response Codes
-- Total Unauthorized Access Requests
-- Total Unauthorized Access Requests By Instance
-- Total Unauthorized Access Requests By KMS API
-- Total Unauthorized Access Requests By Response Code
-- Average Request API Latency
-
-## Setting Alerts
-{: #set-monitor-alerts}
-
-You can set alerts on your dashboard to notify you of certain metrics
-
-To setup a metric, complete the follow steps. 
-
-1. Click `Alerts` on the side menu.
-2. Click `Add Alert` at the top of the page.
-3. Select `Metric` as the alert type.
-4. Select the aggregation and the metric that you would like to be performed on.
-5. Select the scope if applicable.
-6. Set the metric and time requirements for the alert to trigger.
-7. Configure and set up the notification channel and notification interval.
-8. Click the `CREATE` button.
-
-For more information on configuring metric alerts, see [Metric Alerts](https://docs.sysdig.com/en/metric-alerts.html){: external}
-{: note}
+- To find out more about configuring your {{site.data.keyword.keymanagementserviceshort}} instance
+  with {{site.data.keyword.mon_short}}, check out 
+  [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
