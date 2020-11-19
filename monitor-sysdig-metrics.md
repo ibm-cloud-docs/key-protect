@@ -42,6 +42,9 @@ For more information regarding the {{site.data.keyword.mon_short}} service, see 
 ## Before you begin
 {: #operational-metrics-considerations}
 
+There are costs associated with using {{site.data.keyword.mon_full_notm}} to monitor the operation metrics for your {{site.data.keyword.keymanagementserviceshort}} instance. For information on {{site.data.keyword.mon_full_notm}} pricing, see [Pricing](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-pricing_plans).
+{: important}
+
 Before you provision an instance of {{site.data.keyword.mon_short}}, consider 
 the following guidance: 
 
@@ -128,7 +131,7 @@ The type and amount of API requests being made to your {{site.data.keyword.keyma
       Label Tag
     </td>
     <td>
-      status code, instance id, keyid
+      status code, instance id,
     </td>
   </tr>
 
@@ -174,7 +177,7 @@ The amount of time it takes to receive a response to your {{site.data.keyword.ke
     </td>
     <td>
       <p>
-        Seconds
+        Milliseconds
       </p>
     </td>
   </tr>
@@ -184,7 +187,7 @@ The amount of time it takes to receive a response to your {{site.data.keyword.ke
       Label Tag
     </td>
     <td>
-      none
+      Api
     </td>
   </tr>
 
