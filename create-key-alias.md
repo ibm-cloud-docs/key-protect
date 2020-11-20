@@ -37,11 +37,6 @@ Aliases enable your service to refer to a key by recognizable custom names, rath
 than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} 
 service. 
 
-Using a key alias also makes it easier to maintain your code. For example, you can 
-have your application refer to an alias name rather than a key id. Once your application
-needs to refer to a new key, you can map the alias to the new key id, eliminating the need
-to change your code.
-
 ## Creating key aliases with the API
 {: #create-key-alias-api}
 
@@ -371,10 +366,11 @@ Below are additional details about key aliases:
   An alias can only be associated with one key that is located in the same instance and region.
   If you would like to change the key that the alias is associated with, you will need to delete 
   the alias, wait up to 10 minutes, then recreate the alias and map it to necessary key.
-- **You can create an alias with the same name in a different region.**
-  Each alias will be associated with a different key in each region. This enables your service's
-  application code to be reusuable in different regions. For example, if you have an alias named
-  `Application Key` in both the US-South and US-East regions, with each linked to a different key. 
+- **You can create an alias with the same name in a different instance or region.**
+  Each alias will be associated with a different key in each instance or region. This enables 
+  your service's application code to be reusuable in different instances or regions. For example, 
+  if you have an alias named `Application Key` in both the US-South and US-East regions, with each 
+  linked to a different key. 
 
 ## APIs that use key alias
 {: #key-alias-apis}

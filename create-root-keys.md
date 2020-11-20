@@ -74,7 +74,7 @@ from two users to delete keys.
         </td>
         <td>
           <p>
-            A human-readable alias for easy identification of your key. Length
+            A human-readable name for easy identification of your key. Length
             must be within 2 - 90 characters.
           </p>
           <p>
@@ -241,7 +241,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
       <tr>
         <td>
-          <varname>key_alias</varname>
+          <varname>alias_list</varname>
         </td>
         <td>
           <p>
