@@ -79,7 +79,7 @@ from two users to delete keys.
         <td>
           <p>
             A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters.
+            must be within 2 - 90 characters (inclusive).
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -162,7 +162,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-                        "name": "<key_alias>",
+                        "name": "<key_name>",
+                        "aliases": [alias_list],
                         "description": "<key_description>",
                         "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
                         "payload": "<key_material>",
@@ -247,12 +248,39 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
       <tr>
         <td>
-          <varname>key_alias</varname>
+          <varname>key_name</varname>
         </td>
         <td>
           <strong>Required.</strong> A unique, human-readable name for easy
           identification of your key. To protect your privacy, do not store your
           personal data as metadata for your key.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>alias_list</varname>
+        </td>
+        <td>
+          <p>
+            One or more unique, human-readable aliases assigned to your key.
+          </p>
+          <p>
+            <b>Important:</b> To protect your privacy, do not store your
+            personal data as metadata for your key.
+          </p>
+          <p>
+            Each alias must be alphanumeric, case sensitive, and cannot contain
+            spaces or special characters other than <code>-</code> or
+            <code>_</code>. The alias cannot be a UUID and must not be a
+            {{site.data.keyword.keymanagementserviceshort}} reserved name:
+            <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
+            <code>metadata</code>, <code>policy</code>, <code>policies</code>,
+            <code>registration</code>, <code>registrations</code>,
+            <code>ring</code>, <code>rings</code>, <code>rotate</code>,
+            <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
+            <code>version</code>, <code>versions</code>.
+          </p>
         </td>
       </tr>
 
