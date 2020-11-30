@@ -32,12 +32,12 @@ restrictions to keys to ensure the security of your resources.
 Audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the
-key.
+  key.
 
 - [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.cloudaccesstrailshort}}](/docs/key-protect?topic=key-protect-at-events).
 
 - Inspect which users have access to keys and if the level of access is
-appropriate.
+  appropriate.
 
 For more information about auditing access to your resources, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
@@ -62,60 +62,13 @@ complete the following steps to view your keys.
 4. Browse the general characteristics of your keys from the application details
    page:
 
-    <table>
-      <tr>
-        <th>Column</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>
-          <varname>Name</varname>
-        </td>
-        <td>
-          The human-readable alias that was assigned to your key.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>ID</varname>
-        </td>
-        <td>
-          A unique key ID that was assigned to your key by the
-          {{site.data.keyword.keymanagementserviceshort}} service. You can use
-          the ID value to make calls to the service with the
-          [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>State</varname>
-        </td>
-        <td>
-          <p>
-            The [key state](/docs/key-protect?topic=key-protect-key-states)
-            is based on
-            [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.
-          </p>
-          <p>
-            These states include _Pre-active_, _Active_, _Deactivated_, and
-            _Destroyed_.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>Type</varname>
-        </td>
-        <td>
-          The
-          [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that describes your key's designated purpose within the service.
-        </td>
-      </tr>
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the **Keys** table..
-      </caption>
-    </table>
+    | Column | Description |
+    | ------ | ----------- |
+    | Name   | The human-readable alias that was assigned to your key. |
+    | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
+    | State  | The [key state](/docs/key-protect?topic=key-protect-key-states) is based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}.<br><br>These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_. |
+    | Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
+    {: caption="Table 2. Describes the **Keys** table." caption-side="bottom"}
 
     Not seeing the full list of keys that are stored in your
     {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your
@@ -541,5 +494,104 @@ parameter.
   </tr>
   <caption style="caption-side:bottom;">
     Table 5. Provides usage notes for the stage query parameter.
+  </caption>
+</table>
+
+### Retrieving keys by Extractable value
+{: #filter-keys-state-api}
+
+By specifying the `extractable` parameter at query time, you can retrieve keys whose material
+can leave the service.
+
+For example, you might have both standard and root keys in your
+{{site.data.keyword.keymanagementserviceshort}} instance, but you only want to retrieve keys 
+with extractable key material when you make a `GET /keys` request.
+
+The extractable query parameter takes in a boolean.
+{: note}
+
+You can use the following example request to retrieve a different set of keys.
+
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
+
+Replace the `extractable` variable in your request according to the following table.
+
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>
+      <varname>extractable</varname>
+    </td>
+    <td>
+      <p>
+        The type of keys to be retrieved. Filters keys based on the `extractable` property. 
+        You can use this query parameter to search for keys whose material can leave the service. 
+        If set to `true`, standard keys will be retrieved. If set to `false`, root keys will be 
+        retrieved. If omitted, both root and standard keys will be retrieved.
+      </p>
+      <p>
+        For example, if you want to only list keys with extractable material in your
+        {{site.data.keyword.keymanagementserviceshort}} instance, use
+        <code>../keys?extractable=true</code>. You can also pair
+        <code>extractable</code> with<code>offset</code>, <code>limit</code>, and <code>state</code> 
+        to page through your available resources.
+      </p>
+    </td>
+  </tr>
+
+  <caption style="caption-side:bottom;">
+    Table 5. Describes the <code>extractable</code> variable.
+  </caption>
+</table>
+
+For usage notes, check out the following examples for setting your `extractable` query
+parameter.
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>
+      <code>.../keys</code>
+    </td>
+    <td>
+      Lists all of your available resources, up to the first 200 keys.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>../keys?extractable=true/code>
+    </td>
+    <td>
+      Lists standard keys.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>../keys?extractable=false</code>
+    </td>
+    <td>
+      Lists root keys.
+    </td>
+  </tr>
+
+  <caption style="caption-side:bottom;">
+    Table 6. Provides usage notes for the extractable query parameter.
   </caption>
 </table>

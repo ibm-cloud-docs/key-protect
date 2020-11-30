@@ -67,7 +67,7 @@ from two users to delete keys.
         <td>
           <p>
             A human-readable name for easy identification of your key. Length
-            must be within 2 - 90 characters.
+            must be within 2 - 90 characters (inclusive).
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -96,7 +96,7 @@ from two users to delete keys.
     </table>
 
 5. When you are finished filling out the key's details, click **Create key** to
-confirm.
+   confirm.
 
 ## Creating standard keys with the API
 {: #create-standard-key-api}
@@ -238,7 +238,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <varname>key_name</varname>
         </td>
         <td>
-          <strong>Required.</strong> A unique, human-readable name for easy
+          <strong>Required.</strong> A human-readable name for easy
           identification of your key. To protect your privacy, do not store your
           personal data as metadata for your key.
         </td>
@@ -255,11 +255,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             <b>Important:</b> To protect your privacy, do not store your
             personal data as metadata for your key.
-
-            Each alias ust be alphanumeric, case sensitive, and cannot contain spaces or special 
-            characters other than dashes (<code>-</code>) or underscores (<code>_</code>). 
-            The alias cannot be a version 4 UUID and must not be a 
-            {{site.data.keyword.keymanagementserviceshort}} reserved name: 
+          </p>
+          <p>
+            Each alias must be alphanumeric, case sensitive, and cannot contain
+            spaces or special characters other than <code>-</code> or
+            <code>_</code>. The alias cannot be a UUID and must not be a
+            {{site.data.keyword.keymanagementserviceshort}} reserved name:
             <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
             <code>metadata</code>, <code>policy</code>, <code>policies</code>,
             <code>registration</code>, <code>registrations</code>,

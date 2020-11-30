@@ -66,7 +66,7 @@ from two users to delete keys.
         <td>
           <p>
             A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters.
+            must be within 2 - 90 characters (inclusive).
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -275,11 +275,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             <b>Important:</b> To protect your privacy, do not store your
             personal data as metadata for your key.
-
-            Each alias must be alphanumeric, case sensitive, and cannot contain 
-            spaces or special sharacters other than <code>-</code> or <code>_</code>. 
-            The alias cannot be a UUID and must not be a 
-            {{site.data.keyword.keymanagementserviceshort}} reserved name: 
+          </p>
+          <p>
+            Each alias must be alphanumeric, case sensitive, and cannot contain
+            spaces or special characters other than <code>-</code> or
+            <code>_</code>. The alias cannot be a UUID and must not be a
+            {{site.data.keyword.keymanagementserviceshort}} reserved name:
             <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
             <code>metadata</code>, <code>policy</code>, <code>policies</code>,
             <code>registration</code>, <code>registrations</code>,

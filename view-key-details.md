@@ -145,8 +145,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
           <varname>key_ID_or_alias</varname>
         </td>
         <td>
-          <strong>Required.</strong> The identifier or alias for the key that you want to
-          inspect.
+          <strong>Required.</strong> The identifier or alias for the key that
+          you want to inspect.
         </td>
       </tr>
 
@@ -171,7 +171,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-standard-key",
-                "aliases": [...],
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                ],
                 "state": 1,
                 "expirationDate": "2020-03-15T03:50:12Z",
                 "extractable": true,
