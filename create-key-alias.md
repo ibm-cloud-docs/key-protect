@@ -58,7 +58,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
    
    To create a key alias, you must be assigned a _Manager_ or _Writer_
-   service access roles for the instance or key. To learn how IAM roles map to
+   service access role for the instance or key. To learn how IAM roles map to
    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
    {: note}
