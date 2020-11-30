@@ -33,9 +33,14 @@ with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
 
 Key aliases are unique human-readable names that can be used to identify a key. 
-Aliases enable your service to refer to a key by recognizable custom names, rather 
-than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} 
-service. 
+Aliases enable your service to refer to a key by recognizable custom names, 
+rather than the auto-generated identifier provided by the 
+{{site.data.keyword.keymanagementserviceshort}} service. For example, if you 
+create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d`and 
+is aliased as `US-South_Test-Key`, you can use `US-South-Test-Key` to refer 
+to the key in your calls to the {{site.data.keyword.keymanagementserviceshort}} 
+rather than they key ID.
+
 
 ## Creating key aliases with the API
 {: #create-key-alias-api}
