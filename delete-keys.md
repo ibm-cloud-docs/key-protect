@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-18"
 
 keywords: delete key, delete key API examples
 
@@ -241,6 +241,10 @@ at query time to delete the key.
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-root-key",
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                  ],
                 "state": 5,
                 "extractable": false,
                 "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
@@ -432,6 +436,7 @@ the key.
             {
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
                 "type": "application/vnd.ibm.kms.key+json",
+                "aliases": [...],
                 "name": "test-root-key",
                 "description": "...",
                 "state": 5,

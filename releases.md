@@ -264,7 +264,7 @@ If you have _Reader_ access permissions, you can now use the
 about a specific standard key without retrieving the key itself.
 
 To find out more, see
-[Viewing details about a key](/docs/key-protect?topic=key-protect-view-key-details).
+[Viewing details about a key](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
 
 ### Added: View versions for a root key
 {: #added-key-versions}

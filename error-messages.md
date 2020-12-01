@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-24"
 
 keywords: Key Protect error messages
 
@@ -79,35 +79,39 @@ included at the end of the error message.
     [details](#error-messages-key-root-req-err)
 17. Requested action can only be completed with a root key (422)
     [details](#error-messages-key-root-req-reg-err)
-18. The action could not be performed on...
+18. Requested change is not compliant with configuration rules
+    [details](#error-config_rule_conflict_err)
+19. Signature is invalid
+    [details](#error-invalid_sig_exp_err)
+20. The action could not be performed on...
     [details](#error-messages-key-expired-err)
-19. The encrypted nonce given does not match...
+21. The encrypted nonce given does not match...
     [details](#error-messages-incorrect-nonce-err)
-20. The import token has expired
+22. The import token has expired
     [details](#error-messages-import-token-expired-err)
-21. The key cannot be deleted because it's...
+23. The key cannot be deleted because it's...
     [details](#error-messages-prev-key-del-err)
-22. The key is not dual auth enabled and...
+24. The key is not dual auth enabled and...
     [details](#error-messages-not-dual-auth-err)
-23. The key was updated recently
+25. The key was updated recently
     [details](#error-messages-req-too-early-err)
-24. The provided ciphertext is invalid or...
+26. The provided ciphertext is invalid or...
     [details](#error-messages-unprocessable-ciphertext-err)
-25. The provided encrypted nonce was not...
+27. The provided encrypted nonce was not...
     [details](#error-messages-incorrect-nonce-iv-err)
-26. The resource(s) queried does not belong to the service.
+28. The resource(s) queried does not belong to the service.
     [details](#error-messages-resource-owner-err)
-27. This action can only be done by a service...
+29. This action can only be done by a service...
     [details](#error-messages-service-only-err)
-28. This action is not permitted on this...
+30. This action is not permitted on this...
     [details](#error-messages-feature-restricted-err)
-29. This request requires that the key version...
+31. This request requires that the key version...
     [details](#error-messages-key-version-invalid)
-30. This root key has been rotated within...
+32. This root key has been rotated within...
     [details](#error-messages-key-rotation-not-permitted)
-31. This root key was created with user-supplied...
+33. This root key was created with user-supplied...
     [details](#error-messages-key-payload-req-err)
-32. Unauthorized: The user does not have...
+34. Unauthorized: The user does not have...
     [details](#error-messages-unauthorized-err)
 
 ## 1 - Collection total does not match number...
@@ -1683,7 +1687,7 @@ kp.Error:
 # step 5 - this API request fails because you can only restore keys
 # that were imported (created with a key material or an import token)
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -1847,7 +1851,66 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 18 - The action could not be performed on...
+## 18 - Requested change is not compliant...
+{: #error-config_rule_conflict_err}
+
+### Message
+{: #error-config-rule-conflict-err-message}
+
+Requested change is not compliant with configuration rules
+
+Reason code: CONFIG_RULE_CONFLICT_ERR
+
+### HTTP status code
+{: #error-config-rule-conflict-err-http}
+
+403 - Forbidden
+
+The HTTP `403 Forbidden` client error status response code indicates that the
+server understood the request but refuses to authorize it.
+
+This status is similar to `401`, but in this case, re-authenticating will make
+no difference. The access is permanently forbidden and tied to the application
+logic, such as insufficient rights to a resource.
+
+### Context
+{: #error-config-rule-conflict-err-context}
+
+This error message occurs when an instance policy prevents access to a resource.
+For example, if the request originated from a public IP address and the instance
+policy prohibits access from a public IP address, then you will receive this
+error message.
+
+## 19 - Signature is invalid
+{: #error-invalid_sig_exp_err}
+
+### Message
+{: #error-invalid-sig-exp-err-message}
+
+Signature is invalid
+
+Reason code: INVALID_SIG_EXP_ERR
+
+### HTTP status code
+{: #error-invalid-sig-exp-err-http}
+
+422 - Unprocessable Entity
+
+The HTTP `422 Unprocessable Entity` response status code indicates that the
+server understands the content type of the request entity, and the syntax of the
+request entity is correct, but it was unable to process the contained
+instructions.
+
+The client should not repeat this request without modification.
+### Context
+{: #error-invalid-sig-exp-err-context}
+
+An error occurred when a key was rewrapped.
+
+If you get this error please contact
+[IBM support](/unifiedsupport/supportcenter){: external}
+
+## 20 - The action could not be performed on...
 {: #error-messages-key-expired-err}
 
 ### Message
@@ -1969,7 +2032,7 @@ aa713df1-857c-4c46-be80-3051756280c9
 
 # step 6 - fails because you cannot restore a deleted key after the expiration date
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -2013,7 +2076,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 19 - The encrypted nonce given does not match...
+## 21 - The encrypted nonce given does not match...
 {: #error-messages-incorrect-nonce-err}
 
 ### Message
@@ -2186,7 +2249,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 20 - The import token has expired
+## 22 - The import token has expired
 {: #error-messages-import-token-expired-err}
 
 ### Message
@@ -2311,7 +2374,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 21 - The key cannot be deleted because it's...
+## 23 - The key cannot be deleted because it's...
 {: #error-messages-prev-key-del-err}
 
 ### Message
@@ -2354,7 +2417,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 22 - The key is not dual auth enabled and...
+## 24 - The key is not dual auth enabled and...
 {: #error-messages-not-dual-auth-err}
 
 ### Message
@@ -2558,7 +2621,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 23 - The key was updated recently
+## 25 - The key was updated recently
 {: #error-messages-req-too-early-err}
 
 ### Message
@@ -2628,7 +2691,7 @@ OK
 ```
 {: codeblock}
 
-## 24 - The provided ciphertext is invalid or...
+## 26 - The provided ciphertext is invalid or...
 {: #error-messages-unprocessable-ciphertext-err}
 
 ### Message
@@ -2661,7 +2724,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 25 - The provided encrypted nonce was not...
+## 27 - The provided encrypted nonce was not...
 {: #error-messages-incorrect-nonce-iv-err}
 
 ### Message
@@ -2695,7 +2758,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 26 - The resource(s) queried does not belong to the service
+## 28 - The resource(s) queried does not belong to the service
 {: #error-messages-resource-owner-err}
 
 ### Message
@@ -2730,7 +2793,7 @@ Object Storage (COS) bucket to encrypt their data using a
 
 Using the COS example, COS cannot delete the key used to encrypt data.
 
-## 27 - This action can only be done by a service...
+## 29 - This action can only be done by a service...
 {: #error-messages-service-only-err}
 
 ### Message
@@ -2769,7 +2832,7 @@ See this resources for more information about registrations.
 
 - [API documentation](/apidocs/key-protect#createregistration){: external}
 
-## 28 - This action is not permitted on this...
+## 30 - This action is not permitted on this...
 {: #error-messages-feature-restricted-err}
 
 ### Message
@@ -2802,7 +2865,7 @@ For example, instance policy was created for an `allowedIp` address range, which
 only supports IPv4 addresses. You then made a request to the instance with an
 IPv6 address, which returns this error.
 
-## 29 - This request requires that the key version...
+## 31 - This request requires that the key version...
 {: #error-messages-key-version-invalid}
 
 ### Message
@@ -2845,7 +2908,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 30 - This root key has been rotated within...
+## 32 - This root key has been rotated within...
 {: #error-messages-key-rotation-not-permitted}
 
 ### Message
@@ -2950,7 +3013,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 31 - This root key was created with user-supplied...
+## 33 - This root key was created with user-supplied...
 {: #error-messages-key-payload-req-err}
 
 ### Message
@@ -3032,7 +3095,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 32 - Unauthorized: The user does not have...
+## 34 - Unauthorized: The user does not have...
 {: #error-messages-unauthorized-err}
 
 ### Message
@@ -3185,6 +3248,9 @@ These are the error messages, sorted the the HTTP status code.
 ### HTTP 403 - Forbidden
 {: #error-messages-http-403}
 
+- Requested change is not compliant with configuration rules -
+  [details](#error-config_rule_conflict_err)
+
 - The resource(s) queried does not belong to the service -
   [details](#error-messages-resource-owner-err)
 
@@ -3243,6 +3309,9 @@ These are the error messages, sorted the the HTTP status code.
 - Requested action can only be completed with a root key -
   [details](#error-messages-key-root-req-reg-err)
 
+- Signature is invalid
+  [details](#error-invalid-sig-exp-err-message)
+
 - The provided ciphertext is invalid or corrupted -
   [details](#error-messages-unprocessable-ciphertext-err)
 
@@ -3271,6 +3340,8 @@ These are the error messages, sorted the the reason code.
   [details](#error-messages-body-query-param-mismatch-err)
 - COLLECTION_TOTAL_MISMATCH_ERR -
   [details](#error-messages-collection-total-mismatch-err)
+- CONFIG_RULE_CONFLICT_ERR
+  [details](#error-config_rule_conflict_err)
 - FEATURE_RESTRICTED_ERR -
   [details](#error-messages-feature-restricted-err)
 - IMPORT_TOKEN_EXPIRED_ERR -
@@ -3281,6 +3352,8 @@ These are the error messages, sorted the the reason code.
   [details](#error-messages-incorrect-nonce-err)
 - INCORRECT_NONCE_IV_ERR -
   [details](#error-messages-incorrect-nonce-iv-err)
+- INVALID_SIG_EXP_ERR
+  [details](#error-invalid_sig_exp_err)
 - KEY_ACTION_INVALID_STATE_ERR -
   [details](#error-messages-key-action-invalid-state-err)
 - KEY_CREATE_IMPORT_ACCESS_ERR -
