@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-18"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key, API examples
 
@@ -213,6 +213,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
             {
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "aliases": [...],
                 "name": "test-root-key",
                 "state": 1,
                 "extractable": false,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-18"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -267,6 +267,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             <code>ring</code>, <code>rings</code>, <code>rotate</code>,
             <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
             <code>version</code>, <code>versions</code>.
+            Alias size can be between 2 - 90 characters.
           </p>
         </td>
       </tr>

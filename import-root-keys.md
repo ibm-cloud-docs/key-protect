@@ -283,7 +283,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           </p>
         </td>
       </tr>
-
       <tr>
         <td>
           <varname>key_description</varname>

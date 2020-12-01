@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-11-09"
 
 keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
 
@@ -51,6 +51,9 @@ The following table lists the key actions that generate an event:
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
 | `kms.secrets.delete`              | Delete a key                                                 |
+| `kms.secrets.createalias`         | Create a key alias                                           |
+| `kms.secrets.deletealias`         | Delete a key alias                                           |
+| `kms.secrets.expire`              | Expire a key                                                 |
 | `kms.secrets.read`                | Retrieve all key information                                 |
 | `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
 | `kms.secrets.head`                | Retrieve key total                                           |
@@ -235,6 +238,24 @@ The following field includes extra information:
 
 - The `responseData.keyState` field includes the integer that correlates to the
   state of the key.
+
+#### Expire Key
+{: #delete-key-success}
+
+The following field includes extra information:
+
+- The `requestData.keyType` field includes the type of key that was created.
+
+- The `responseData.keyId` field includes the unique identifier associated with
+  the key.
+
+- The `requestData.expirationDate` field includes the date that the key expired on. 
+
+- The `responseData.initialValue.keyState` field includes the integer that correlates 
+  to the previous state of the key.
+
+- The `responseData.newValue.keyState` field includes the integer that correlates to 
+  the current state of the key.
 
 #### Wrap or unwrap key
 {: #wrap-unwrap-key-success}

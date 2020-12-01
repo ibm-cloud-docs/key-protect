@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-18"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 

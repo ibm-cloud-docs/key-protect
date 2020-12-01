@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-18"
 
 keywords: get details for a key, get key configuration, get details, view encryption key details, view encryption key, retrieve encryption key details, API examples
 
@@ -34,8 +34,8 @@ or configuration, without retrieving the key itself. If you have _Reader_ access
 permissions, you can use the {{site.data.keyword.keymanagementserviceshort}}
 API to retrieve only metadata about a key.
 
-## Viewing key details with the API
-{: #view-key-details-api}
+## Viewing key metadata with the API
+{: #view-key-metadata-api}
 
 To view detailed information about a specific key, you can make a `GET` call to
 the following endpoint.
@@ -156,7 +156,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>/metadata` response returns details
+    A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns details
     about your key. The following JSON object shows an example returned value
     for a standard key.
 
