@@ -85,26 +85,26 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
    following `curl` command.
 
     ```sh
-    $ curl -X PUT \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" \
-        -H "content-type: application/vnd.ibm.kms.policy+json" \
-        -d '{
-                "metadata": {
-                    "collectionType": "application/vnd.ibm.kms.policy+json",
-                    "collectionTotal": 1
-                },
-                "resources": [
-                    {
-                        "policy_type": "metrics",
-                        "policy_data": {
-                            "enabled": true
-                        }
-                    }
-                ]
-            }'
+    curl -X  PUT \
+     "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+     -H "accept: application/vnd.ibm.kms.policy+json" \
+     -H "authorization: Bearer <IAM_token>" \
+     -H "bluemix-instance: <instance_ID>" \
+     -H "content-type: application/vnd.ibm.kms.policy+json" \
+     -d '{
+             "metadata": {
+                 "collectionType": "application/vnd.ibm.kms.policy+json",
+                 "collectionTotal": 1
+             },
+             "resources": [
+                 {
+                     "policy_type": "metrics",
+                     "policy_data": {
+                         "enabled": false
+                     }
+                 }
+             ]
+         }'
     ```
     {: codeblock}
 
@@ -178,9 +178,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
     is now enabled for reporting operational metrics. 
 
-    This new policy only reports on operations that occur after the policy is enabled. If you need
-    to enable dual authorization for an existing key, see
-    [Creating a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
+    This new policy only reports on operations that occur after the policy is
+    enabled.
     {: note}
 
 3. Optional: Verify that the metrics policy was created by browsing

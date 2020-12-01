@@ -42,7 +42,10 @@ For more information regarding the {{site.data.keyword.mon_short}} service, see 
 ## Before you begin
 {: #operational-metrics-considerations}
 
-There are costs associated with using {{site.data.keyword.mon_full_notm}} to monitor the operation metrics for your {{site.data.keyword.keymanagementserviceshort}} instance. For information on {{site.data.keyword.mon_full_notm}} pricing, see [Pricing](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-pricing_plans).
+Enabling Key Protect service metrics will add new metrics to your 
+{{site.data.keyword.mon_short}} instance. For information on 
+{{site.data.keyword.mon_short}} pricing, see 
+[Pricing](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-pricing_plans){: external}.
 {: important}
 
 Before you provision an instance of {{site.data.keyword.mon_short}}, consider 
@@ -57,7 +60,7 @@ the following guidance:
   must also have platform permissions to create resources within the context of the resource group 
   where they plan to provision the instance.
 
-## Connecting {{site.data.keyword.mon_short}} with {{site.data.keyword.mon_full_notm}}
+## Connecting {{site.data.keyword.mon_short}} with {{site.data.keyword.keymanagementserviceshort}}
 {: #connect-sysdig-keyprotect}
 
 Your dashboard will show metrics for all {{site.data.keyword.keymanagementserviceshort}} 
@@ -82,12 +85,21 @@ To enable platform metrics in a region, complete the following steps:
 ## Key Protect Metrics Details
 {: #kp-metrics}
 
-You can measure the types of requests being made in your service instance and as well as the latency of the requests.
+You can use the metrics in your Sysdig dashboard to measure 
+the types of requests being made in your service instance as
+well as the latency of the requests. 
 
 ### API Hits
 {: #kp-metrics}
 
-The type and amount of API requests being made to your {{site.data.keyword.keymanagementserviceshort}} instance.
+The type and amount of API requests being made to your
+{{site.data.keyword.keymanagementserviceshort}} instance. 
+For example, you can track how many api requests have been
+made by an authorized user be setting an 
+[alert](#set-monitor-alerts) that triggers when your sysdig 
+instance notices a frequent amount of 401 status codes being 
+returned from your
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
 <table>
   <tr>
@@ -131,7 +143,7 @@ The type and amount of API requests being made to your {{site.data.keyword.keyma
       Label Tag
     </td>
     <td>
-      status code, instance id,
+      status code, instance id
     </td>
   </tr>
 
@@ -143,7 +155,12 @@ The type and amount of API requests being made to your {{site.data.keyword.keyma
 ## Latency
 {: #kp-metrics}
 
-The amount of time it takes to receive a response to your {{site.data.keyword.keymanagementserviceshort}} requests.
+The amount of time it takes 
+{{site.data.keyword.keymanagementserviceshort}} to receive
+an API request and respond to it.
+
+The latency is calculated by getting the average of all requests of the same type that occur within 60 seconds.
+{: note}
 
 <table>
   <tr>
@@ -187,7 +204,7 @@ The amount of time it takes to receive a response to your {{site.data.keyword.ke
       Label Tag
     </td>
     <td>
-      Api
+      api
     </td>
   </tr>
 
@@ -252,19 +269,53 @@ You can filter your metrics by using the following attributes.
   </caption>
 </table>
 
+Due to {{site.data.keyword.mon_short}} limitations, you 
+will only be able to see the values in the dropdown filters
+for up to 6 hours at a time.
+{: note}
+
 ## Default Dashboards
 {: #kp-metrics}
 
-Below are figures that show the metric views available to you on the default dashboard.
+You will need to configure platform metrics and enable a 
+[metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics) 
+on your KP service instance in order to view your 
+{{site.data.keyword.keymanagementserviceshort}} operational metrics dashboard. 
+{: note}
+### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance
 
-![The image shows an example of a Key Protect metrics dashboard.](images/metrics-1.png){: caption="Figure 1. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
+After configuring your {{site.data.keyword.mon_short}} 
+instance to receive platform metrics, follow the below 
+steps:
 
-![The image shows an example of a Key Protect metrics dashboard.](images/metrics-2.png){: caption="Figure 2. Shows some of the metrics available on the Sysdig dashboard." caption-side="bottom"}
+1. Go to the [monitoring dashboard](/observe/monitoring){: external} that contains your sysdig instance. 
+2. Click on the `View {{site.data.keyword.mon_short}}`button that is in the `View Dashboard` column of the sysdig instance.
+3. Once you are in the {{site.data.keyword.mon_short}} platform, Click `Dashboards` to open up the side menu.
+4. Select`IBM` under the Dashboard Templates section.
+5. Select `{{site.data.keyword.keymanagementserviceshort}} - Overview` to view the dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
+![The image shows an example of the monitoring dashboard.](images/sys-dig-instance-dashboard.png)
+{: caption="Figure 1. Shows some the monitoring dashboard that lists your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
+
+![The image shows an example of the dashboard menu in{{site.data.keyword.mon_short}}.](images/sysdig-dashboard-menu.png)
+{: caption="Figure 2. Shows the dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
+
+Below are figures that show the metric views available to you on the default
+dashboard.
+
+![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/sysdg-operation-dash1.png)
+{: caption="Figure 3. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+
+![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/sysdig-operation-view2.png)
+{: caption="Figure 4. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+
+You will not be able to see any metrics in your {{site.data.keyword.mon_short}} instance until you enable a metrics policy for your {{site.data.keyword.keymanagementserviceshort}} instance and make api requests to your {{site.data.keyword.keymanagementserviceshort}} instance.
+{: note}
 ## Setting Alerts
 {: #set-monitor-alerts}
 
-You can set alerts on your dashboard to notify you of certain metrics
+You can set alerts on your {{site.data.keyword.mon_short}} dashboard to 
+notify you of certain metrics. 
 
 To setup a metric, complete the follow steps. 
 
@@ -277,5 +328,14 @@ To setup a metric, complete the follow steps.
 7. Configure and set up the notification channel and notification interval.
 8. Click the `CREATE` button.
 
-For more information on configuring metric alerts, see [Metric Alerts](https://docs.sysdig.com/en/metric-alerts.html){: external}
+
+The following figure shows an example of how to configure an alert when your
+service instance recieves multiple 401 and 403 errors within a 10 minute time
+span.
+
+![The image shows an example of a 401 and 403 configuration.](images/sysdig-401-alert.png)
+{: caption="Figure 4=5. Shows the configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+
+For more information on configuring metric alerts, see
+[Metric Alerts](https://docs.sysdig.com/en/metric-alerts.html){: external}
 {: note}
