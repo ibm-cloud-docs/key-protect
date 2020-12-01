@@ -58,6 +58,23 @@ following considerations:
   that you would like to receive operational metrics for. Once you provision the {{site.data.keyword.mon_short}}
   instance, you will need to [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-sysdig).
 
+### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the Console
+{: #enable-metrics-instance-policy-ui}
+
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance, provisioning a 
+{{site.data.keyword.mon_short}}, and enabling platform metrics,
+complete the following steps to enable a metrics policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+4. On the **Manage instance policies** page, click the **Enable** button
+    in the metrics policy section.
+
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-metrics-instance-policy-api}
 
