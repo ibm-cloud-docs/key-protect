@@ -31,16 +31,17 @@ instance, you can manage Sysdig metrics by using the service API.
 ## Managing metrics settings
 {: #manage-metrics-policy}
 
-Metrics for {{site.data.keyword.keymanagementserviceshort}} service
-instances is an extra policy that allows you to receive the operational metrics 
-for your {{site.data.keyword.keymanagementserviceshort} instance. When you enable 
-this policy, {{site.data.keyword.mon_short}} can be used to monitor any operations 
-that are performed on the resources in your 
-{{site.data.keyword.keymanagementserviceshort} instance. 
+Metrics for {{site.data.keyword.keymanagementserviceshort}} service instances is
+an extra policy that allows you to receive the operational metrics for your
+{{site.data.keyword.keymanagementserviceshort}} instance. When you enable this
+policy, {{site.data.keyword.mon_short}} can be used to monitor any operations
+that are performed on the resources in your
+{{site.data.keyword.keymanagementserviceshort}} instance.
 
-Enabling metrics is only available through the {{site.data.keyword.keymanagementserviceshort}} 
-API. To find out more about accessing the {{site.data.keyword.keymanagementserviceshort}} 
-APIs, check out [Setting up the API](/docs/key-protect?topic=key-protect-set-up-api).
+Enabling metrics is only available through the
+{{site.data.keyword.keymanagementserviceshort}} API. To find out more about
+accessing the {{site.data.keyword.keymanagementserviceshort}} APIs, check out
+[Setting up the API](/docs/key-protect?topic=key-protect-set-up-api).
 {: preview}
 
 Before you enable operational metrics for your
@@ -48,15 +49,19 @@ Before you enable operational metrics for your
 following considerations:
 
 - **When you enable metrics for your {{site.data.keyword.keymanagementserviceshort}} instance, metrics are only reported after the time that the policy is enabled.**
-  Once your metrics policy is enabled, you will see operational metrics for all api requests 
-  that occur in your instance after the the policy is activated. You will not be able 
-  to view any metrics prior to the time that the policy is enabled.
+  Once your metrics policy is enabled, you will see operational metrics for all
+  API requests that occur in your instance after the the policy is activated.
+  You will not be able to view any metrics prior to the time that the policy is
+  enabled.
 
 - **You will need to provision a {{site.data.keyword.mon_short}} instance for your policy in order to see the metrics.**
-  You will need to [provision a {{site.data.keyword.mon_short}} instance](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision) 
-  that is located in the same region as the {{site.data.keyword.keymanagementserviceshort}} instance 
-  that you would like to receive operational metrics for. Once you provision the {{site.data.keyword.mon_short}}
-  instance, you will need to [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-sysdig).
+  You will need to
+  [provision a {{site.data.keyword.mon_short}} instance](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision){: external}
+  that is located in the same region as the
+  {{site.data.keyword.keymanagementserviceshort}} instance that you would like
+  to receive operational metrics for. Once you provision the
+  {{site.data.keyword.mon_short}} instance, you will need to
+  [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-sysdig).
 
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the Console
 {: #enable-metrics-instance-policy-ui}
@@ -187,13 +192,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable a metrics policy.
+        Table 1. Describes the variables that are needed to enable a metrics
+        policy.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
-    is now enabled for reporting operational metrics. 
+    is now enabled for reporting operational metrics.
 
     This new policy only reports on operations that occur after the policy is
     enabled.
@@ -213,7 +219,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     {: codeblock}
 
 ### Disabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
-{: #disable-dual-auth-instance-policy-api}
+{: #disable-metrics-api}
 
 As an instance manager, disable an existing metrics policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
@@ -325,13 +331,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable metrics polcies.
+        Table 1. Describes the variables that are needed to enable metrics
+        policies.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that the metrics policy was updated for your service
-    instance. 
+    instance.
 
 3. Optional: Verify that the metrics policy was updated by browsing
    the policies that are available for your
@@ -349,6 +356,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 ## What's next
 {: #monitor-metrics-next-steps}
 
-- To find out more about configuring your {{site.data.keyword.keymanagementserviceshort}} instance
-  with {{site.data.keyword.mon_short}}, check out 
+- To find out more about configuring your
+  {{site.data.keyword.keymanagementserviceshort}} instance with
+  {{site.data.keyword.mon_short}}, check out
   [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
