@@ -140,10 +140,10 @@ returned from your
 
   <tr>
     <td>
-      Label Tag
+      Segment By
     </td>
     <td>
-      status code, instance id
+      [Attributes for Segmentation](#attributes-for-segmentation)
     </td>
   </tr>
 
@@ -201,10 +201,10 @@ The latency is calculated by getting the average of all requests of the same typ
 
   <tr>
     <td>
-      Label Tag
+      Segment By
     </td>
     <td>
-      api
+      [Attributes for Segmentation](#attributes-for-segmentation)
     </td>
   </tr>
 
@@ -213,10 +213,130 @@ The latency is calculated by getting the average of all requests of the same typ
   </caption>
 </table>
 
+
+## Attributes for Segmentation
+{: #attributes-for-segmentation}
+
+You can filter your metrics by using the following attributes. 
+
+<table>
+  <tr>
+    <th>Attribute Name</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_resource_type</code>
+    </td>
+    <td>
+      <p>
+        Supported resource type is 'instance'.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_kms_response_code</code>
+    </td>
+    <td>
+      Response code for the Key Protect service API request.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_scope</code>
+    </td>
+    <td>
+      <p>
+        The account, organization, or space GUID associated with the metric.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_ctype</code>
+    </td>
+    <td>
+      public, dedicated or local.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_location</code>
+    </td>
+    <td>
+      Location of the Key Protect service instance.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_service_name</code>
+    </td>
+    <td>
+      kms.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_resource</code>
+    </td>
+    <td>
+      Key Protect service instance ID.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_kms_api</code>
+    </td>
+    <td>
+      Key Protect service API name.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_resource_group_name</code>
+    </td>
+    <td>
+      Resource group name associated with the Key Protect service instance.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_service_instance_name</code>
+    </td>
+    <td>
+      Key Protect service instance name.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>ibm_service_instance</code>
+    </td>
+    <td>
+      Key Protect service instnace ID.
+    </td>
+  </tr>
+
+  <caption style="caption-side:bottom;">
+    Table 3. Describes the attributes use for segmenting metrics.
+  </caption>
+</table>
+
 ## Metrics Filter Attributes
 {: #metrics-filter-attributes}
 
-You can filter your metrics by using the following attributes. 
+You can scope down your metrics by using the following scope filters. 
 
 <table>
   <tr>
@@ -230,7 +350,7 @@ You can filter your metrics by using the following attributes.
     </td>
     <td>
       <p>
-        The name of the resource group being measured by the service.
+        The name of the resource group associated with the Key Protect service instance.
       </p>
     </td>
   </tr>
@@ -265,13 +385,14 @@ You can filter your metrics by using the following attributes.
   </tr>
 
   <caption style="caption-side:bottom;">
-    Table 3. Describes the filter attributes for {{site.data.keyword.keymanagementserviceshort}} metrics.
+    Table 3. Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics.
   </caption>
 </table>
 
 Due to {{site.data.keyword.mon_short}} limitations, you 
 will only be able to see the values in the dropdown filters
-for up to 6 hours at a time.
+for up to 6 hours at a time. You can manually type in value 
+into scope variables to use scope filters for given time periods.
 {: note}
 
 ## Default Dashboards
@@ -288,7 +409,7 @@ After configuring your {{site.data.keyword.mon_short}}
 instance to receive platform metrics, follow the below 
 steps:
 
-1. Go to the [monitoring dashboard](/observe/monitoring){: external} that contains your sysdig instance. 
+1. Go to the [monitoring dashboard](/observe/monitoring){: external} and find your sysdig instance that is configured to receive platform metrics. 
 2. Click on the `View {{site.data.keyword.mon_short}}`button that is in the `View Dashboard` column of the sysdig instance.
 3. Once you are in the {{site.data.keyword.mon_short}} platform, Click `Dashboards` to open up the side menu.
 4. Select`IBM` under the Dashboard Templates section.
