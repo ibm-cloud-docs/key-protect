@@ -29,6 +29,21 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## December 2020
+{: #december-2020}
+### Added: Create a key alias
+{: #added-key-alias}
+
+New as of: 2020-12-01
+
+If you have _Writer_ or _Manager_ access permissions, you can now use the
+{{site.data.keyword.keymanagementserviceshort}} REST API to create a key alias.
+You can use a key alias to refer to a key in your 
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
+To find out more, see
+[Creating key aliases](/docs/key-protect?topic=key-protect-create-key-alias).
+
 ## October 2020
 {: #october-2020}
 
