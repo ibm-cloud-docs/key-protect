@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-24"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -43,7 +43,7 @@ you can unwrap a specified data encryption key (DEK) to access its contents by
 making a `POST` call to the following endpoint.
 
 ```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/actions/unwrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unwrap
 ```
 {: codeblock}
 

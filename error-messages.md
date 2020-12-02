@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-11-24"
 
 keywords: Key Protect error messages
 
@@ -1687,7 +1687,7 @@ kp.Error:
 # step 5 - this API request fails because you can only restore keys
 # that were imported (created with a key material or an import token)
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
@@ -2032,7 +2032,7 @@ aa713df1-857c-4c46-be80-3051756280c9
 
 # step 6 - fails because you cannot restore a deleted key after the expiration date
 $ curl -X POST \
-    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/restore" \
+    "https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/restore" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
