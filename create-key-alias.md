@@ -37,7 +37,7 @@ Aliases enable your service to refer to a key by recognizable custom names,
 rather than the auto-generated identifier provided by the 
 {{site.data.keyword.keymanagementserviceshort}} service. For example, if you 
 create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and 
-it is aliased as `US-South_Test-Key`, you can use `US-South-Test-Key` to 
+it is aliased as `US-South-Test-Key`, you can use `US-South-Test-Key` to 
 refer to your key when you make calls to the 
 {{site.data.keyword.keymanagementserviceshort}} api to 
 [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or 
