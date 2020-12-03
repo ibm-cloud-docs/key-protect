@@ -418,7 +418,7 @@ steps:
 {: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
 
 
-### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance usimg observability page
+### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance using observability page
 
 After configuring your {{site.data.keyword.mon_short}} 
 instance to receive platform metrics, follow the below 
