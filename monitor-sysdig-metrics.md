@@ -324,7 +324,7 @@ You can filter your metrics by using the following attributes.
       <code>ibm_service_instance</code>
     </td>
     <td>
-      Key Protect service instnace ID.
+      Key Protect service instance ID.
     </td>
   </tr>
 
@@ -403,7 +403,22 @@ You will need to configure platform metrics and enable a
 on your KP service instance in order to view your 
 {{site.data.keyword.keymanagementserviceshort}} operational metrics dashboard. 
 {: note}
-### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance
+
+### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance using {{site.data.keyword.keymanagementserviceshort}} console
+
+After configuring your {{site.data.keyword.mon_short}} 
+instance to receive platform metrics, follow the below 
+steps:
+
+1. Go to the [Provision service instance](/docs/key-protect?topic=key-protect-provision#provision-gui) and create your {{site.data.keyword.keymanagementserviceshort}} service instance.
+2. Click on the `Actions` dropdown.
+3. Select `Monitoring`. This will take you to the {{site.data.keyword.keymanagementserviceshort}} dashboard. 
+
+![The image shows an example of the console monitoring button.](images/kp-ui-monitoring-button.png)
+{: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
+
+
+### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance usimg observability page
 
 After configuring your {{site.data.keyword.mon_short}} 
 instance to receive platform metrics, follow the below 
