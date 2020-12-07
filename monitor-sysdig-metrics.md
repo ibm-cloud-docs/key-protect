@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-12-07"
 
 keywords: IBM, monitoring, metrics, operational metrics
 
@@ -28,16 +28,31 @@ service to measure how users and applications interact with
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-{{site.data.keyword.mon_full_notm}} records data on the operations 
-that occur inside of {{site.data.keyword.cloud_notm}}. You can use 
-this service to gain operational visibility into the performance 
-and health of your applications, services, and platforms 
-and to comply with regulatory audit requirements. In addition, you 
-can be alerted about API requests to {{site.data.keyword.keymanagementserviceshort}} 
-as they happen. 
+{{site.data.keyword.mon_full_notm}} records data on the operations that occur 
+inside of {{site.data.keyword.cloud_notm}}. This service allows you to gain 
+operational visibility into the performance and health of your applications, 
+services, and platforms. You can use its advanced features to monitor and 
+troubleshoot, define alerts based on API response codes, and design custom 
+dashboards.
 
 For more information regarding the {{site.data.keyword.mon_short}} service, see the
 [getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs//Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started-monitor){: external}.
+
+## What metrics are available?
+{: #kp-metrics}
+
+You can use {{site.data.keyword.mon_short}} to track 
+the type of API requests being made in your service instance as
+well as the latency of the requests.
+
+The following contains examples of metrics that can be measured
+in your {{site.data.keyword.mon_short}} dashboard:
+
+- Total requests being made in your 
+  {{site.data.keyword.keymanagementserviceshort}} instance
+- Successful vs failed API requests categorized by API type
+- API request latency over time
+- Total API requests categorized by response code
 
 ## Before you begin
 {: #operational-metrics-considerations}
@@ -337,6 +352,7 @@ You can filter your metrics by using the following attributes.
 {: #metrics-filter-attributes}
 
 You can scope down your metrics by using the following scope filters. 
+These filters are more granular than the segmentation filters.
 
 <table>
   <tr>
