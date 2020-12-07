@@ -122,6 +122,7 @@ Key Protect
         shared-responsibilities.md
         ha-dr.md
         data-security.md
+        manage-scc.md
 
     related-links.md
     {: .navgroup-end}

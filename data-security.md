@@ -21,8 +21,8 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Security and compliance
-{: #security-and-compliance}
+# Data security and compliance
+{: #data-security-and-compliance}
 
 {{site.data.keyword.keymanagementservicefull}} has data security strategies in
 place to meet your compliance needs and ensure that your data remains secure and
