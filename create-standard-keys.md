@@ -267,7 +267,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
             <code>ring</code>, <code>rings</code>, <code>rotate</code>,
             <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
             <code>version</code>, <code>versions</code>.
-            Alias size can be between 2 - 90 characters.
+            Alias size can be between 2 - 90 characters (inclusive).
           </p>
         </td>
       </tr>
