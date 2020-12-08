@@ -81,10 +81,10 @@ available properties that you can use to create a rule for
 {{site.data.keyword.keymanagementserviceshort}}, review the following table. Note 
 that the 
 
-| Resource Kind | Property Name | Operator | Value | Description | Optional Attribute | Optional Attribute |
-|-|-|-|-|-|-|-|
-| instance | allowed_network | string_equals | <ul><li>public-and-private</li><li>private-only</li></ul> | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. | **location**<br> <br><ul><li><br>Description: Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from.<br></li><li>Values:<ul><li>au-syd</li><li>eu-de</li><li>eu-gb</li><li>jp-tok</li><li>us-east</li><li>us-south</li></ul></li></ul> | **resource_id**<br> <br><ul><li>Description: {{site.data.keyword.keymanagementserviceshort}} service instance GUID</li><li>a valid GUID</li></ul> |
-|  |  |  |  |  |  |  |
+| Resource Kind | Property Name | Operator | Value | Description | Optional Target Attributes |
+|-|-|-|-|-|-|
+| instance | allowed_network | string_equals | <ul><li>public-and-private</li><li>private-only</li></ul> | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. | <ul><li>**location**: Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from.<br></li><br><li>**resource_id**:{{site.data.keyword.keymanagementserviceshort}} service instance GUID<br></li></ul> |
+|  |  |  |  |  |  |
 {: caption="Table 1. Config rule properties and target attributes for {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 To learn more about config rule capabilities, check out
