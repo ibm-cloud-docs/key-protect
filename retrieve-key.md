@@ -213,7 +213,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
             {
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                "aliases": [...],
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                ],
                 "name": "test-root-key",
                 "state": 1,
                 "extractable": false,

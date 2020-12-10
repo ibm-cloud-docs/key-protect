@@ -21,10 +21,6 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-<!-- TODO start - DO NOT MERGE INTO PRODUCTION
-  This file stays in draft until 2.74 merges into production
--->
-
 # Creating key aliases
 {: #create-key-alias}
 
