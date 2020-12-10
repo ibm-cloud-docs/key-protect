@@ -98,8 +98,8 @@ Key Protect
 
     {: .topicgroup}
     Enhancing security
-      data-security.md
-      manage-scc.md
+        data-security.md
+        manage-scc.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

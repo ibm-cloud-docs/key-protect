@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-10"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
@@ -28,6 +28,7 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 * Monitor for controls and goals that pertain to
   {{site.data.keyword.keymanagementserviceshort}}.
+
 * Define rules for {{site.data.keyword.keymanagementserviceshort}} that can help
   to standardize resource configuration.
 
@@ -41,9 +42,9 @@ to help ensure that your organization is adhering to the external and internal
 standards for your industry. By using the {{site.data.keyword.compliance_short}}
 to validate the resource configurations in your account against a
 [profile](#x2034950){: term}, you can identify potential security or compliance
-issues as they arise. Note that all of the goals for 
-{{site.data.keyword.keymanagementserviceshort}} are added to the 
-{{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can 
+issues as they arise. Note that all of the goals for
+{{site.data.keyword.keymanagementserviceshort}} are added to the
+{{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can
 also be mapped to other profiles.
 
 To begin monitoring your {{site.data.keyword.keymanagementserviceshort}}
@@ -53,9 +54,8 @@ section is required. Check out
 [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic-security-compliance-getting-started){: external}
 for more information.
 
-This service only supports the ability to view the results of your configuration
-scans in the Security and Compliance Center. It is not necessary to set up a
-collector to use configuration rules.
+All of the goals for Certificate Manager are added to the IBM Cloud Best Practices 
+Controls 1.0 profile but can also be mapped to other profiles.
 {: note}
 
 ### Available goals for {{site.data.keyword.compliance_short}}
@@ -74,6 +74,11 @@ As a security or compliance focal, you can use the
 for the {{site.data.keyword.keymanagementserviceshort}} instances that you
 create.
 
+This service only supports the ability to view the results of your configuration
+scans in the Security and Compliance Center. It is not necessary to set up a
+collector to use configuration rules.
+{: note}
+
 [Config rules](#x3084914){: term}
 are used to monitor and optionally enforce the configuration standards that you
 want to implement across your accounts. To learn more about the about the
@@ -81,12 +86,10 @@ available properties that you can use to create a rule for
 {{site.data.keyword.keymanagementserviceshort}}, review the following table. Note 
 that the 
 
-| Resource Kind | Property Name | Operator | Value | Description | Optional Target Attributes |
-|-|-|-|-|-|-|
-| instance | allowed_network | string_equals | <ul><li>public-and-private</li><li>private-only</li></ul> | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. | <ul><li>**location**: Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from.<br></li><br><li>**resource_id**:{{site.data.keyword.keymanagementserviceshort}} service instance GUID<br></li></ul> |
-|  |  |  |  |  |  |
+| Resource Kind | Property Name | Operator | Value | Description |
+|-|-|-|-|-|
+| `instance` | `allowed_network`| `string_equals` | public-and-private<br>private-only | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. |
 {: caption="Table 1. Config rule properties and target attributes for {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
 To learn more about config rule capabilities, check out
 [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule){: external}.
-
