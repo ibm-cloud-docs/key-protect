@@ -28,7 +28,6 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 * Monitor for controls and goals that pertain to
   {{site.data.keyword.keymanagementserviceshort}}.
-
 * Define rules for {{site.data.keyword.keymanagementserviceshort}} that can help
   to standardize resource configuration.
 
@@ -62,8 +61,8 @@ Controls 1.0 profile but can also be mapped to other profiles.
 {: #kp-available-goals}
 
 * Ensure automated rotation for keys is enabled. (This lifecycle applies to
-  {{site.data.keyword.keymanagementserviceshort}} generated keys only)
-* Ensure the key management service has high availability
+  {{site.data.keyword.keymanagementserviceshort}} generated keys only.)
+* Ensure the key management service has high availability.
 
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
@@ -83,8 +82,7 @@ collector to use configuration rules.
 are used to monitor and optionally enforce the configuration standards that you
 want to implement across your accounts. To learn more about the about the
 available properties that you can use to create a rule for
-{{site.data.keyword.keymanagementserviceshort}}, review the following table. Note 
-that the 
+{{site.data.keyword.keymanagementserviceshort}}, review the following table. 
 
 | Resource Kind | Property Name | Operator | Value | Description |
 |-|-|-|-|-|
