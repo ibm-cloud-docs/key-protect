@@ -125,7 +125,7 @@ For example, you can create a root key, manage the key in
 {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect
 the data that is stored across different cloud services.
 
-![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg)
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](images/kp-integrations.svg)
 {: caption="Figure 1. Contextual view of {{site.data.keyword.keymanagementserviceshort}} integration." caption-side="bottom"}
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods

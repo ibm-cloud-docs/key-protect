@@ -53,7 +53,7 @@ encryption process by using the same root key, resulting in decrypted and
 authenticated data.
 
 The following diagram shows a contextual view of the key wrapping functionality.
-![The diagram shows a contextual view of envelope encryption.](../images/envelope-encryption.svg)
+![The diagram shows a contextual view of envelope encryption.](images/envelope-encryption.svg)
 {: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57,
@@ -124,7 +124,7 @@ The key wrap operation provides both confidentiality and integrity protection
 for a DEK.
 
 The following diagram shows the key wrapping process in action:
-![The diagram shows key wrapping in action.](../images/wrapping-keys.svg)
+![The diagram shows key wrapping in action.](images/wrapping-keys.svg)
 {: caption="Figure 2. Key wrapping in action." caption-side="bottom"}
 
 The following table describes the inputs needed to perform a key wrap operation:
@@ -161,7 +161,7 @@ wrap request. To complete the unwrap request, you must also supply the
 additional authenticated data (AAD) to check the integrity of the key contents.
 
 The following diagram shows key unwrapping in action.
-![The diagram shows how unwrapping data works.](../images/unwrapping-keys.svg)
+![The diagram shows how unwrapping data works.](images/unwrapping-keys.svg)
 {: caption="Figure 3. Key unwrapping in action." caption-side="bottom"}
 
 After you send the unwrap request, the system reverses the key wrapping process

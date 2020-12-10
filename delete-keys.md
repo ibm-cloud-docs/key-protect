@@ -436,7 +436,10 @@ the key.
             {
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
                 "type": "application/vnd.ibm.kms.key+json",
-                "aliases": [...],
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                ],
                 "name": "test-root-key",
                 "description": "...",
                 "state": 5,

@@ -240,7 +240,7 @@ The following field includes extra information:
   state of the key.
 
 #### Expire Key
-{: #delete-key-success}
+{: #expire-key-success}
 
 The following field includes extra information:
 
@@ -249,13 +249,14 @@ The following field includes extra information:
 - The `responseData.keyId` field includes the unique identifier associated with
   the key.
 
-- The `requestData.expirationDate` field includes the date that the key expired on. 
+- The `requestData.expirationDate` field includes the date that the key expired
+  on.
 
-- The `responseData.initialValue.keyState` field includes the integer that correlates 
-  to the previous state of the key.
+- The `responseData.initialValue.keyState` field includes the integer that
+  correlates to the previous state of the key.
 
-- The `responseData.newValue.keyState` field includes the integer that correlates to 
-  the current state of the key.
+- The `responseData.newValue.keyState` field includes the integer that
+  correlates to the current state of the key.
 
 #### Wrap or unwrap key
 {: #wrap-unwrap-key-success}
