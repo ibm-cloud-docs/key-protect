@@ -207,13 +207,13 @@ Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API
 drives the key rotation process.
 
 The following diagram shows a contextual view of the key rotation functionality.
-![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
+![The diagram shows a contextual view of key rotation.](images/key-rotation.svg)
 {: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}}
 creates a new key version by associating new key material with your root key.
 
-![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg)
+![The diagram shows a micro view the root key stack.](images/root-key-stack.svg)
 {: caption="Figure 2. Micro view of a root key stack." caption-side="bottom"}
 
 To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to

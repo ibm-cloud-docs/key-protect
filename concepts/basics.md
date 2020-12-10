@@ -78,7 +78,7 @@ The {{site.data.keyword.keymanagementserviceshort}} service uses only symmetric
 key encryption for its key operations. The following diagram shows symmetric key
 encryption in action.
 
-![This diagram shows how symmetric key encryption works.](../images/symmetric-encryption.svg)
+![This diagram shows how symmetric key encryption works.](images/symmetric-encryption.svg)
 {: caption="Figure 1. Symmetric key encryption." caption-side="bottom"}
 
 ## Additional resources

@@ -156,9 +156,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns details
-    about your key. The following JSON object shows an example returned value
-    for a standard key.
+    A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns
+    details about your key. The following JSON object shows an example returned
+    value for a standard key.
 
     ```json
     {
