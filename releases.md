@@ -52,7 +52,7 @@ New as of: 2020-12-01
 
 If you have _Writer_ or _Manager_ access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} REST API to create a key alias.
-You can use a key alias to refer to a key in your 
+You can use a key alias to refer to a key in your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 To find out more, see
