@@ -47,13 +47,15 @@ Key Protect
         settings-allowed-ip.md
         settings-key-create-import-access.md
         settings-sysdig-metrics.md
-
+        
     {: .topicgroup}
     Accessing the API
         set-up-api.md
         retrieve-access-token.md
         retrieve-instance-id.md
         private-network.md
+        virtual-private-endpoints.md
+
 
     set-up-cli.md
 
