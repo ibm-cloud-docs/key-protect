@@ -36,10 +36,9 @@ VPE extends your VPC's private network address so that you are able to leverage 
 
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
 network connection, you must use the
-{{site.data.keyword.keymanagementserviceshort}} API or the
-[{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-reference).
+{{site.data.keyword.keymanagementserviceshort}} API.
 This capability is not available from the
-{{site.data.keyword.keymanagementserviceshort}} GUI.
+{{site.data.keyword.keymanagementserviceshort}} GUI or CLI.
 {: note}
 
 ## Before you begin
