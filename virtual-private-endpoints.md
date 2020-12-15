@@ -62,14 +62,14 @@ To create a VPN gateway using the UI:
 2. Select the Menu icon on the upper left of the page, then click `VPC Infrastructure > Virtual private endpoint gateway`
     in the Network section.
 3. On the Virtual private endpoint gateways for VPC page, click `Create` and specify the following information:
-        - Name: Enter a name for the VPN gateway, such as my-vpn-gateway.
-        - Virtual Private Cloud: Select the VPC for the VPN gateway.
-        - VPC Region: The region where your VPC resides
-        - Resource group: Select a resource group for the VPN gateway.
-        - Region: Shows the region where the VPC is located and where the VPN gateway will be provisioned.
-        - Cloud Service Offerings: Select Key-Protect
-        - Cloud Service Regions: You have the option to choose between Dallas (staging) or Sydney
-        - Endpoint: Choose the endpoint that you would like to send traffic through using the selected service region
+   - Name: Enter a name for the VPN gateway, such as my-vpn-gateway
+   - Virtual Private Cloud: Select the VPC for the VPN gateway
+   - VPC Region: The region where your VPC resides
+   - Resource group: Select a resource group for the VPN gateway
+   - Region: Shows the region where the VPC is located and where the VPN gateway will be provisioned.
+   - Cloud Service Offerings: Select {{site.data.keyword.keymanagementserviceshort}}
+   - Cloud Service Regions: You have the option to choose between Dallas (staging) or Sydney
+   - Endpoint: Choose the endpoint that you would like to send traffic through using the selected service region
 4. Select a method of reserving an IP for your VPC gateway
 5. Click the "Create virtual private endpoint gateway" button
 
