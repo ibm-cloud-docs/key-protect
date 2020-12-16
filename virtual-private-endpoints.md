@@ -43,9 +43,9 @@ that enables your virtual server instance to interact with
 
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a virtual private
 endpoint, you must use the
-{{site.data.keyword.keymanagementserviceshort}} API, CLI, SDK, or Terraform.
+{{site.data.keyword.keymanagementserviceshort}} API, SDK, or Terraform.
 This capability is not available from the
-{{site.data.keyword.keymanagementserviceshort}} console or UI.
+{{site.data.keyword.keymanagementserviceshort}} UI.
 {: note}
 
 ## Before you begin
