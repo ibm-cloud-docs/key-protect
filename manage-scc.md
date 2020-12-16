@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-15"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
@@ -43,8 +43,7 @@ to validate the resource configurations in your account against a
 [profile](#x2034950){: term}, you can identify potential security or compliance
 issues as they arise. Note that all of the goals for
 {{site.data.keyword.keymanagementserviceshort}} are added to the
-{{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can
-also be mapped to other profiles.
+{{site.data.keyword.cloud_notm}} 
 
 To begin monitoring your {{site.data.keyword.keymanagementserviceshort}}
 resources, at least one configuration rule as outlined in the
@@ -52,18 +51,6 @@ resources, at least one configuration rule as outlined in the
 section is required. Check out
 [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic-security-compliance-getting-started){: external}
 for more information.
-
-All of the goals for Certificate Manager are added to the IBM Cloud Best Practices 
-Controls 1.0 profile but can also be mapped to other profiles.
-{: note}
-
-### Available goals for {{site.data.keyword.compliance_short}}
-{: #kp-available-goals}
-
-* Ensure automated rotation for keys is enabled. (This lifecycle applies to
-  {{site.data.keyword.keymanagementserviceshort}} generated keys only.)
-* Ensure the key management service has high availability.
-
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
 
@@ -82,10 +69,10 @@ collector to use configuration rules.
 are used to monitor and optionally enforce the configuration standards that you
 want to implement across your accounts. To learn more about the about the
 available properties that you can use to create a rule for
-{{site.data.keyword.keymanagementserviceshort}}, review the following table. 
+{{site.data.keyword.keymanagementserviceshort}}, review the following table.
 
 | Resource Kind | Property Name | Operator | Value | Description |
-|-|-|-|-|-|
+| ------------- | ------------- | -------- | ----- | ----------- |
 | `instance` | `allowed_network`| `string_equals` | public-and-private<br>private-only | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. |
 {: caption="Table 1. Config rule properties and target attributes for {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 
