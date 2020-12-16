@@ -36,7 +36,7 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 As a security or compliance focal, you can use the
 {{site.data.keyword.keymanagementserviceshort}}
-[goals](#x2117978){: term}
+config rules
 to help ensure that your organization is adhering to the external and internal
 standards for your industry. By using the {{site.data.keyword.compliance_short}}
 to validate the resource configurations in your account against a
