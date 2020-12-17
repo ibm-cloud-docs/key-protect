@@ -75,6 +75,5 @@ For example, from the Sydney region, you can use {{site.data.keyword.keymanageme
 | Region  | Endpoints Supported in Region                                                                                                                                                                                                             |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sydney  | `private.us-south.kms.cloud.ibm.com`<br> `private.us-east.kms.cloud.ibm.com`<br>  `private.eu-gb.kms.cloud.ibm.com`<br> `private.eu-de.kms.cloud.ibm.com`<br>`private.au-syd.kms.cloud.ibm.com`<br>`private.jp-tok.kms.cloud.ibm.com`<br> |
-| Staging | `private.qa.us-south.kms.test.cloud.ibm.com`                                                                                                                                                                                              |
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 
