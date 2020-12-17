@@ -96,6 +96,11 @@ Key Protect
         set-dual-auth-policy.md
 
     restore-keys.md
+
+    {: .topicgroup}
+    Enhancing security
+        data-security.md
+        manage-scc.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -123,7 +128,6 @@ Key Protect
     Standards and compliance
         shared-responsibilities.md
         ha-dr.md
-        data-security.md
 
     related-links.md
     {: .navgroup-end}
