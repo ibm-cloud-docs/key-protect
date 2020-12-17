@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-12-10"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
