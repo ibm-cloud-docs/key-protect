@@ -72,8 +72,13 @@ The following table lists regions where {{site.data.keyword.keymanagementservice
 with the endpoints supported from that region. You can connect to other regions endpoints from supported region. 
 For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} us-south endpoint.
 
-| Region  | Endpoints Supported in Region                                                                                                                                                                                                             |
-|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sydney  | `private.us-south.kms.cloud.ibm.com`<br> `private.us-east.kms.cloud.ibm.com`<br>  `private.eu-gb.kms.cloud.ibm.com`<br> `private.eu-de.kms.cloud.ibm.com`<br>`private.au-syd.kms.cloud.ibm.com`<br>`private.jp-tok.kms.cloud.ibm.com`<br> |
+| Region  | Endpoints Supported in Region | CRN |                                                                                                                                                                                                            
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| Sydney  | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 
