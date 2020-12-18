@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -78,14 +78,14 @@ complete the following steps to create a dual authorization policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Manage instance policies** page, click the **Add policy** button.
+4. Click the **Manage instance policies** link on the left side of the page.
 
-5. Choose **Dual authorization deletion** and hit the switch to enable the
-   policy.
+   - Find the `Dual authorization delete` panel (on the top-left side of the
+     page).
 
-6. Click the **Add policy** button.
+   - Toggle `Dual authorization deletion` to enable or disable the policy.
 
-7. Confirm the policy was created in the updated **Policies** table.
+   - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-dual-auth-instance-policy-api}
