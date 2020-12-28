@@ -47,10 +47,10 @@ collector to use configuration rules.
 are used to monitor and optionally enforce the configuration standards that you
 want to implement across your accounts. To learn more about the about the
 available properties that you can use to create a rule for
-{{site.data.keyword.keymanagementserviceshort}}, review the following table. 
+{{site.data.keyword.keymanagementserviceshort}}, review the following table.
 
 | Resource Kind | Property Name | Operator | Value | Description |
-|-|-|-|-|-|
+| ------------- | ------------- | -------- | ----- | ----------- |
 | `instance` | `allowed_network`| `string_equals` | public-and-private<br>private-only | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. |
 {: caption="Table 1. Config rule properties and target attributes for {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 

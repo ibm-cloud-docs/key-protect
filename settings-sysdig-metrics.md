@@ -66,8 +66,8 @@ following considerations:
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the Console
 {: #enable-metrics-instance-policy-ui}
 
-After creating a {{site.data.keyword.keymanagementserviceshort}} instance, provisioning a 
-{{site.data.keyword.mon_short}}, and enabling platform metrics,
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
+provisioning a {{site.data.keyword.mon_short}}, and enabling platform metrics,
 complete the following steps to enable a metrics policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
@@ -95,7 +95,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
     To enable metrics policies, you must be assigned a
-    _Manager_ access policy for your
+    _Manager_ IAM access policy for your
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out

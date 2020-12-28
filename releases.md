@@ -33,18 +33,17 @@ Stay up-to-date with the new features that are available for
 {: #december-2020}
 
 ### Added: Create a metrics policy
-{: #added-key-alias}
+{: #added-metrics-policy}
 
 New as of: 2020-12-11
 
 If you have _Manager_ IAM access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} UI to create a metrics policy
-that allows you to view the operational metrics for your 
+that allows you to view the operational metrics for your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
 To find out more, see
-[Managing metrics](docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
-
+[Managing metrics](/docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
 ### Added: Create a key alias
 {: #added-key-alias}
 
