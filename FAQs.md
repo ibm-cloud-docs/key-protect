@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -171,7 +171,7 @@ To find out more, check out
 {: faq}
 {: support}
 
-When you use a root key to protect at-rest data with envelope encryption, the
+When you use a root key to protect at rest data with envelope encryption, the
 cloud services that use the key can create a registration between the key and
 the resource that it protects. Registrations are associations between keys and
 cloud resources that help you get a full view of which encryption keys protect

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -35,7 +35,7 @@ encryption keys (DEKs) that are associated with the root key. With the rewrap
 API, you can reencrypt or rewrap your DEKs without exposing the keys in their
 plaintext form.
 
-To learn how envelope encryption helps you control the security of at-rest data
+To learn how envelope encryption helps you control the security of at rest data
 in the cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 

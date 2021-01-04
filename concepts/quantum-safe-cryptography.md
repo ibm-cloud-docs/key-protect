@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-05"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
@@ -92,7 +92,7 @@ mind the following considerations:
   {{site.data.keyword.keymanagementserviceshort}} protect your data from breach
   as it travels to a {{site.data.keyword.keymanagementserviceshort}} service
   endpoint. Imported root keys (including their associated payloads) are
-  encrypted by TLS session keys. Data-at-rest encryption uses symmetric keys and
+  encrypted by TLS session keys. Data at rest encryption uses symmetric keys and
   AES 256 symmetric keys are safe from large quantum computer attacks.
 
 - **{{site.data.keyword.keymanagementserviceshort}} only supports Quantum Safe TLS for Linux Platforms.**

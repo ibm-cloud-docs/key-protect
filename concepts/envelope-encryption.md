@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-07-01"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
-keywords: data-at-rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
 subcollection: key-protect
 
@@ -178,7 +178,7 @@ customer-managed keys for those services.
 
 Associating a resource in your cloud data service with a root key in
 {{site.data.keyword.keymanagementserviceshort}} allows your data to be protected
-at-rest while having management control of the root key.
+at rest while having management control of the root key.
 
 For more information on the services that offer integration with
 {{site.data.keyword.keymanagementserviceshort}}, see
