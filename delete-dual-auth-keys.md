@@ -86,7 +86,7 @@ second user with a _Manager_ access policy can use the
 you can provide the first authorization to delete a key by making a `POST` call
 to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion
 ```
 {: codeblock}
@@ -222,7 +222,7 @@ second user and the 7-day period expires, you must
 Delete a key and its contents by making a `DELETE` call to the following
 endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
@@ -404,7 +404,7 @@ If you need to cancel an authorization for a key before the 7-day waiting period
 expires, you can remove the existing authorization by making a `POST` call to
 the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion
 ```
 {: codeblock}

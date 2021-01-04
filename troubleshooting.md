@@ -188,7 +188,7 @@ You're assigned a _Manager_ access policy for the
 {{site.data.keyword.keymanagementserviceshort}} instance. You try to delete a
 key, but the action fails with the following error message.
 
-```
+```plaintext
 Conflict: Key could not be deleted. Status: 409, Correlation ID: 160cc463-71d1-4b30-a5f2-d3f7e9f2b75e
 ```
 {: screen}

@@ -94,7 +94,7 @@ As an instance manager, enable a dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete
 ```
 {: codeblock}
@@ -262,7 +262,7 @@ As an instance manager, disable an existing dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete
 ```
 {: codeblock}

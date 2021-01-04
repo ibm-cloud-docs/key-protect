@@ -109,7 +109,7 @@ As a security admin, you can enable or update a keyCreateImportAccess policy for
 a {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT`
 call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess
 ```
 {: codeblock}
@@ -361,7 +361,7 @@ disable an existing keyCreateImportAccess policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess
 ```
 {: codeblock}

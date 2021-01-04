@@ -103,7 +103,7 @@ ibmcloud login
 ### Example
 {: #provision-login-example}
 
-```
+```sh
 $ ibmcloud login
 API endpoint: https://cloud.ibm.com
 Region: us-south
@@ -135,7 +135,7 @@ ibmcloud login --sso
 ### Example
 {: #provision-login-federated-example}
 
-```
+```sh
 $ ibmcloud login --sso
 API endpoint: https://cloud.ibm.com
 Region: us-south
@@ -178,7 +178,7 @@ ibmcloud target -r <region_name> -g <resource_group_name>
 ### Example
 {: #provision-select-region-example}
 
-```
+```sh
 $ ibmcloud target -r us-south -g Default
 Targeted resource group Default
 
@@ -225,7 +225,7 @@ ibmcloud resource service-instance-create <instance_name> kms tiered-pricing <re
 ### Example
 {: #provision-public-example}
 
-```
+```sh
 # create a public service instance
 $ ibmcloud resource service-instance-create <instance_name> kms tiered-pricing us-south
 Creating service instance <instance_name> in resource group Default of account <account name> as <email address>...
@@ -288,7 +288,7 @@ from outside the {{site.data.keyword.cloud_notm}}.
 The `-p` option specifies a JSON file or JSON string of parameters used to
 create the service instance.
 
-```
+```sh
 # create a private service instance
 $ ibmcloud resource service-instance-create <service-name> kms tiered-pricing us-south -p '{"allowed_network": "private-only"}'
 Creating service instance <service-name> in resource group Default of account <account name> as <email address>...
@@ -364,8 +364,8 @@ You cannot delete a service instance that contains keys.
 ### Example
 {: #provision-delete-example}
 
-```
-% ibmcloud resource service-instance-delete <instance_name>
+```sh
+$ ibmcloud resource service-instance-delete <instance_name>
 Deleting service instance <instance_name> in resource group Default under account <account name> as <email address>...
 Really delete the service instance <instance_name> with ID crn:v1:bluemix:public:kms:us-south:a/ea988d3289c24739a0977651b46fb145:a152eee4-262e-4a39-ae13-a71b9882dcb6::? [y/N] > y
 FAILED

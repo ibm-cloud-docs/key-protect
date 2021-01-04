@@ -85,7 +85,7 @@ You can also retrieve the instance ID for your
     {{site.data.keyword.keymanagementserviceshort}} instance. The
     following truncated example shows the CLI output.
 
-    ```
+    ```plaintext
     crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
@@ -117,7 +117,7 @@ and then pipe the JSON output to `jq` to extract this value.
     {{site.data.keyword.keymanagementserviceshort}} instance. The
     following output shows an example instance ID:
 
-    ```
+    ```plaintext
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}

@@ -42,7 +42,7 @@ cloud, see
 you can unwrap a specified data encryption key (DEK) to access its contents by
 making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unwrap
 ```
 {: codeblock}

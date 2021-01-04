@@ -81,7 +81,7 @@ complete the following steps to restore the key:
 Restore a previously imported root key by making a `POST` call to the following
 endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 ```
 {: codeblock}
@@ -314,7 +314,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 If you initially used an import token to import the root key, you can restore
 the key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 ```
 {: codeblock}

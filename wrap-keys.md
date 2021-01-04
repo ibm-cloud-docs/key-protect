@@ -48,7 +48,7 @@ manage in {{site.data.keyword.keymanagementserviceshort}}.
 you can wrap a DEK with advanced encryption by making a `POST` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
 ```
 {: codeblock}

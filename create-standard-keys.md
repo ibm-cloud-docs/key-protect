@@ -103,7 +103,7 @@ from two users to delete keys.
 
 Create a standard key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}

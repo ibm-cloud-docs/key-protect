@@ -87,7 +87,7 @@ As an instance manager, enable a metrics policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 ```
 {: codeblock}
@@ -225,7 +225,7 @@ As an instance manager, disable an existing metrics policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 ```
 {: codeblock}

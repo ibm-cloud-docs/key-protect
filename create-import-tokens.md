@@ -42,7 +42,7 @@ Create an import token that's associated with your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/import_token
 ```
 {: codeblock}
@@ -189,7 +189,7 @@ Retrieve the import token that's associated with your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/import_token
 ```
 {: codeblock}

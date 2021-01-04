@@ -41,7 +41,7 @@ module. The key material for a root key cannot be retrieved.
 To view detailed information about a specific key, you can make a `GET` call to
 the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
 ```
 {: codeblock}
