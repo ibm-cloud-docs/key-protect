@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-22"
+  years: 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: view protected data
 
@@ -30,7 +30,7 @@ Cloud Object Storage buckets or Cloud Databases deployments, by using the
 {{site.data.keyword.keymanagementservicelong_notm}} API.
 {: shortdesc}
 
-When you use a root key to protect at-rest data with envelope encryption, the
+When you use a root key to protect at rest data with envelope encryption, the
 cloud services that use the key can create a registration between the key and
 the resource that it protects.
 

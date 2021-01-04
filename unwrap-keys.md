@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-24"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -30,7 +30,7 @@ and checks the integrity of its contents, returning the original key material to
 your {{site.data.keyword.cloud_notm}} data service.
 {: shortdesc}
 
-To learn how key wrapping helps you control the security of at-rest data in the
+To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}

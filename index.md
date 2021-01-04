@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-03-19"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
-keywords: key management service, kms, manage encryption keys, data encryption, data-at-rest, protect data encryption keys
+keywords: key management service, kms, manage encryption keys, data encryption, data at rest, protect data encryption keys
 
 subcollection: key-protect
 
@@ -206,7 +206,7 @@ For more information about securely importing your keys, see
 
 Now you can use your keys to code your apps and services. If you added a root
 key to the service, you might want to learn more about using the root key to
-protect the keys that encrypt your at-rest data. Check out
+protect the keys that encrypt your at rest data. Check out
 [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys) to get started.
 
 - To find out more about managing and protecting your encryption keys with a

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -33,7 +33,7 @@ When you wrap a [data encryption key](#x4791827){: term} with a
 combines the strength of multiple algorithms to protect the privacy and the
 integrity of your encrypted data.
 
-To learn how key wrapping helps you control the security of at-rest data in the
+To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}

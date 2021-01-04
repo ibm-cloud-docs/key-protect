@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: Key Protect tutorial, secure import
 
@@ -30,7 +30,7 @@ using {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
 As a security professional for your organization, you're always looking for ways
-to enhance the security of your at-rest data on the cloud.
+to enhance the security of your at rest data on the cloud.
 
 To comply with strict data governance and regulatory audit requirements, you
 want to integrate your apps with a key management service that offers

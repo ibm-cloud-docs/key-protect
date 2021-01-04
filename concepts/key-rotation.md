@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-04-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -233,7 +233,7 @@ root key.
 
 To secure your envelope encryption workflow,
 [rewrap your DEKs](/docs/key-protect?topic=key-protect-rewrap-keys)
- after you rotate a root key so that your at-rest data is protected by the
+ after you rotate a root key so that your at rest data is protected by the
  newest root key.
 
 Alternatively if {{site.data.keyword.keymanagementserviceshort}} detects that

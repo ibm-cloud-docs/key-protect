@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-02-25"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementservicefull}} and
 {{site.data.keyword.cos_full}} work together to help you own the security of
-your at-rest data. Learn how to add advanced encryption to your
+your at rest data. Learn how to add advanced encryption to your
 {{site.data.keyword.cos_full}} resources by using the
 {{site.data.keyword.keymanagementservicelong_notm}} service.
 {: shortdesc}

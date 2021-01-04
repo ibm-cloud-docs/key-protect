@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-10"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -4096,7 +4096,7 @@ Registrations are associations between root keys and other cloud resources, such
 as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 
 For example, in {{site.data.keyword.keymanagementserviceshort}} you create a
-root key, which is used by COS to protect data at-rest.
+root key, which is used by COS to protect data at rest.
 
 The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
