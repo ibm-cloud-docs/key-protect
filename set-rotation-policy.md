@@ -86,7 +86,7 @@ the root key with new key material.
 For a high-level view, you can browse the rotation policies that are associated
 with a root key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}
@@ -228,7 +228,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 Create a rotation policy for your root key by making a `PUT` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}
@@ -393,7 +393,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 Update an existing policy for a root key by making a `PUT` call to the following
 endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}

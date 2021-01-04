@@ -112,7 +112,7 @@ complete the following steps to rotate the key:
 
 You can rotate a root key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}
@@ -327,7 +327,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 If you initially imported a root key by using an import token, you can rotate
 the key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}

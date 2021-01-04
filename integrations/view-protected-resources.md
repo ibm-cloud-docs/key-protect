@@ -265,7 +265,7 @@ The following table describes the properties of a registration.
 You can retrieve the registration details that are associated with a specific
 root key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 ```
 {: codeblock}
@@ -588,7 +588,7 @@ following table.
 You can also retrieve a list of registrations that are associated with any cloud
 resource by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
 ```
 {: codeblock}
@@ -854,7 +854,7 @@ that match the first 8 segments of their service CRN.
 - To search for the existence of a registration up to a specific CRN segment,
   use a colon followed by an asterisk (`*`).
 
-    ```
+    ```plaintext
     crn:v1:bluemix:public:databases-for-redis:us-south:a/
     274074dce64e9c423ffc238516c755e1:29caf0e7-120f-4da8-9551-3abf57ebcfc7:*:*
     ```
@@ -868,7 +868,7 @@ that match the first 8 segments of their service CRN.
   prefixed by `<string>`, use a colon followed by `<string>*` on the last
   segment of the CRN query.
 
-  ```
+  ```plaintext
   crn:v1:bluemix:public:cloud-object-storage:global:a/e1bb63d6a20dc57c87501ac4c4c99dcb:*:bucket:prod*
   ```
   {: screen}

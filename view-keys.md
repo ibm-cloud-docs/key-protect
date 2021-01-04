@@ -124,7 +124,7 @@ For a high-level view, you can browse keys that are managed in your provisioned
 instance of {{site.data.keyword.keymanagementserviceshort}} by making a `GET`
 call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}

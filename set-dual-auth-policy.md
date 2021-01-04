@@ -72,7 +72,7 @@ To learn how to delete a key that has a dual authorization policy, see
 For a high-level view, you can retrieve the dual authorization policy for a
 single key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete
 ```
 {: codeblock}
@@ -222,7 +222,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuth
 Create a dual authorization policy for single key by making a `PUT` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies?policy=dualAuthDelete
 ```
 {: codeblock}

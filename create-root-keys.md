@@ -116,7 +116,7 @@ Level 3 certified hardware security modules (HSMs) that are located in secure
 
 Create a root key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}

@@ -148,7 +148,7 @@ complete the following steps to enable the key:
 You can disable a root key that's in the _Active_ key state by making a `POST`
 call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 ```
 
@@ -329,7 +329,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 You can enable a root key that's in the _Suspended_ key state by making a `POST`
 call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
 ```
 

@@ -137,7 +137,7 @@ from two users to delete keys.
 Import symmetric keys to {{site.data.keyword.keymanagementserviceshort}} by
 making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}

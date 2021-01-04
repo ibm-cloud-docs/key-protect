@@ -154,7 +154,7 @@ and
 [list](/apidocs/key-protect#list-instance-policies){: external}
 instance policies.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork
 ```
 {: codeblock}

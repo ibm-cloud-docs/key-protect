@@ -44,7 +44,7 @@ rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out
 For a high-level view, you can list the versions that are associated with a root
 key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 ```
 {: codeblock}

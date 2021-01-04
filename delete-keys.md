@@ -91,7 +91,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one
 authorization to delete a key. You can delete a key and its contents by making a
 `DELETE` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
@@ -283,7 +283,7 @@ that's protecting a cloud resource, such as a Cloud Object Storage bucket. You
 can force delete a key and its contents by making a `DELETE` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
 ```
 

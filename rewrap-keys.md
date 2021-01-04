@@ -56,7 +56,7 @@ the newest root key material.
 rewrap a data encryption key that is associated with the root key by making a
 `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 ```
 {: codeblock}

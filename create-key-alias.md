@@ -44,7 +44,7 @@ its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
 
 Create a key alias by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 ```
 {: codeblock}
@@ -231,7 +231,7 @@ instance.
 
 Delete a key alias by making a `DELETE` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 ```
 {: codeblock}
