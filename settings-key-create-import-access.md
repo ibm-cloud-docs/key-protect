@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-14"
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -68,14 +68,48 @@ following considerations:
   {{site.data.keyword.keymanagementserviceshort}} actions (wrap, unwrap, etc.)
   are unaffected and can be invoked on the key as usual.
 
-### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance
-{: #enable-keyCreateImportAccess-policy}
+### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
+{: #enable-keyCreateImportAccess-policy-console}
+
+If you prefer to manage keyCreateImportAccess policy settings using
+{{site.data.keyword.keymanagementserviceshort}}'s graphical interface,
+you can use the IBM Cloud console.
+
+If "enforce_token" is enabled, all import key actions will not be available in
+the UI. The "enforce_token" option makes
+[Secure Import](/docs/key-protect?topic=key-protect-create-import-tokens)
+a requirement for all key imports. Secure Import support is only available
+in the {{site.data.keyword.keymanagementserviceshort}} CLI or API.
+{: note}
+
+After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
+complete the following steps to enable a keyCreateImportAccess policy:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+4. Click the **Manage instance policies** link on the left side of the page.
+
+   - Find the `Create and import access` panel (at the top of the page).
+
+   - Enable or disable any keyCreateImportAccess settings you desire. Note that
+     any create or import key actions that have been disabled will no longer be
+     available via the "Add Key" modal.
+
+   - Click `Save` or `Cancel` (whichever is appropriate).
+
+### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
+{: #enable-keyCreateImportAccess-policy-api}
 
 As a security admin, you can enable or update a keyCreateImportAccess policy for
 a {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT`
 call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess
 ```
 {: codeblock}
@@ -97,7 +131,7 @@ existing value for the omitted field will be overwritten with the default value.
 
 2. Enable or update a keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -166,7 +200,7 @@ existing value for the omitted field will be overwritten with the default value.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -327,7 +361,7 @@ disable an existing keyCreateImportAccess policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess
 ```
 {: codeblock}
@@ -347,7 +381,7 @@ keyCreateImportAccess policy.
 
 2. Disable an existing keyCreateImportAccess policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -409,7 +443,7 @@ keyCreateImportAccess policy.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

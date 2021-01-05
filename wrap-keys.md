@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -33,7 +33,7 @@ When you wrap a [data encryption key](#x4791827){: term} with a
 combines the strength of multiple algorithms to protect the privacy and the
 integrity of your encrypted data.
 
-To learn how key wrapping helps you control the security of at-rest data in the
+To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}
@@ -48,8 +48,8 @@ manage in {{site.data.keyword.keymanagementserviceshort}}.
 you can wrap a DEK with advanced encryption by making a `POST` call to the
 following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
 ```
 {: codeblock}
 
@@ -63,11 +63,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
 
 3. Copy the ID of the root key that you want to use for wrapping.
 
-4. Run the following cURL command to protect the key with a wrap operation.
+4. Run the following `curl` command to protect the key with a wrap operation.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -129,7 +129,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=wrap
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

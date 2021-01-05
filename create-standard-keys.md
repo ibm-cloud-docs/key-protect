@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-18"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -43,11 +43,14 @@ from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. To create a new key, click **Add key** and select the **Create a key**
-window.
+   window.
 
     Specify the key's details:
 
@@ -63,8 +66,8 @@ window.
         </td>
         <td>
           <p>
-            A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters.
+            A human-readable name for easy identification of your key. Length
+            must be within 2 - 90 characters (inclusive).
           </p>
           <p>
             To protect your privacy, ensure that the key name does not contain
@@ -93,14 +96,14 @@ window.
     </table>
 
 5. When you are finished filling out the key's details, click **Create key** to
-confirm.
+   confirm.
 
 ## Creating standard keys with the API
 {: #create-standard-key-api}
 
 Create a standard key by making a `POST` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
 ```
 {: codeblock}
@@ -108,8 +111,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Call the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
-with the following cURL command.
+   [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
+   with the following `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -127,7 +130,8 @@ with the following cURL command.
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-                        "name": "<key_alias>",
+                        "name": "<key_name>",
+                        "aliases": [alias_list],
                         "description": "<key_description>",
                         "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
                         "extractable": <key_type>
@@ -173,7 +177,7 @@ with the following cURL command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -231,12 +235,40 @@ with the following cURL command.
 
       <tr>
         <td>
-          <varname>key_alias</varname>
+          <varname>key_name</varname>
         </td>
         <td>
-          <strong>Required.</strong> A unique, human-readable name for easy
+          <strong>Required.</strong> A human-readable name for easy
           identification of your key. To protect your privacy, do not store your
           personal data as metadata for your key.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>alias_list</varname>
+        </td>
+        <td>
+          <p>
+            One or more unique, human-readable aliases assigned to your key.
+          </p>
+          <p>
+            <b>Important:</b> To protect your privacy, do not store your
+            personal data as metadata for your key.
+          </p>
+          <p>
+            Each alias must be alphanumeric, case sensitive, and cannot contain
+            spaces or special characters other than <code>-</code> or
+            <code>_</code>. The alias cannot be a UUID and must not be a
+            {{site.data.keyword.keymanagementserviceshort}} reserved name:
+            <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
+            <code>metadata</code>, <code>policy</code>, <code>policies</code>,
+            <code>registration</code>, <code>registrations</code>,
+            <code>ring</code>, <code>rings</code>, <code>rotate</code>,
+            <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
+            <code>version</code>, <code>versions</code>.
+            Alias size can be between 2 - 90 characters (inclusive).
+          </p>
         </td>
       </tr>
 
@@ -299,8 +331,8 @@ with the following cURL command.
     {{site.data.keyword.keymanagementserviceshort}} API.
 
 3. Optional: Verify that the key was created by running the following call to
-get the keys in your {{site.data.keyword.keymanagementserviceshort}} service
-instance.
+   get the keys in your {{site.data.keyword.keymanagementserviceshort}} service
+   instance.
 
     ```sh
     $ curl -X GET \

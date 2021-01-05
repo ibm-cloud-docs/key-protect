@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-18"
 
 keywords: get details for a key, get key configuration, get details, view encryption key details, view encryption key, retrieve encryption key details, API examples
 
@@ -21,8 +21,8 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Viewing details about a key
-{: #view-key-details}
+# Retrieving Key Metadata
+{: #retrieve-key-metadata}
 
 You can retrieve the general characteristics of a single encryption key by using
 {{site.data.keyword.keymanagementservicefull}}.
@@ -34,14 +34,14 @@ or configuration, without retrieving the key itself. If you have _Reader_ access
 permissions, you can use the {{site.data.keyword.keymanagementserviceshort}}
 API to retrieve only metadata about a key.
 
-## Viewing key details with the API
-{: #view-key-details-api}
+## Viewing key metadata with the API
+{: #view-key-metadata-api}
 
 To view detailed information about a specific key, you can make a `GET` call to
 the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
 ```
 {: codeblock}
 
@@ -56,11 +56,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
 
-3. Get details about the key by running the following cURL command.
+3. Get details about the key by running the following `curl` command.
 
     ```sh
     $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata" \
         -H "accept: application/vnd.ibm.kms.key+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -104,7 +104,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -142,11 +142,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
 
       <tr>
         <td>
-          <varname>key_ID</varname>
+          <varname>key_ID_or_alias</varname>
         </td>
         <td>
-          <strong>Required.</strong> The identifier for the key that you want to
-          inspect.
+          <strong>Required.</strong> The identifier or alias for the key that
+          you want to inspect.
         </td>
       </tr>
 
@@ -156,9 +156,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>/metadata` response returns details
-    about your key. The following JSON object shows an example returned value
-    for a standard key.
+    A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns
+    details about your key. The following JSON object shows an example returned
+    value for a standard key.
 
     ```json
     {
@@ -171,6 +171,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/metadata
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-standard-key",
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                ],
                 "state": 1,
                 "expirationDate": "2020-03-15T03:50:12Z",
                 "extractable": true,

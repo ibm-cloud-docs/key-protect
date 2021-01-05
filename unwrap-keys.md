@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
 
@@ -30,7 +30,7 @@ and checks the integrity of its contents, returning the original key material to
 your {{site.data.keyword.cloud_notm}} data service.
 {: shortdesc}
 
-To learn how key wrapping helps you control the security of at-rest data in the
+To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}
@@ -42,8 +42,8 @@ cloud, see
 you can unwrap a specified data encryption key (DEK) to access its contents by
 making a `POST` call to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=unwrap
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unwrap
 ```
 {: codeblock}
 
@@ -64,11 +64,12 @@ key (WDEK).
 3. Copy the `ciphertext` value that was returned during the initial wrap
    request.
 
-4. Run the following cURL command to decrypt and authenticate the key material.
+4. Run the following `curl` command to decrypt and authenticate the key
+   material.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unwrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unwrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -130,7 +131,7 @@ key (WDEK).
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

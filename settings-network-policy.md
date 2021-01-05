@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, network access policies
 
@@ -127,14 +127,21 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a network access policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the **Manage instance policies** page, click the **Add policy** button.
-5. Choose **Network** and select the network that you would like traffic to come
-   through.
-6. Click the **Add policy** button.
-7. Confirm the policy was created in the updated **Policies** table.
+
+4. Click the **Manage instance policies** link on the left side of the page.
+
+   - Find the `Network access allowed` panel (on the top-right side of the
+     page).
+
+   - Change the policy by selecting either `Public and private (default)` or
+     `Private only` from the dropdown.
+
+   - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enabling-network-access-to-your-service-instance-api}
@@ -147,7 +154,7 @@ and
 [list](/apidocs/key-protect#list-instance-policies){: external}
 instance policies.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork
 ```
 {: codeblock}
@@ -163,7 +170,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
 
 2. Enable a network access policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -228,7 +235,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -314,14 +321,19 @@ After creating a network access policy, complete the following steps to disable
 a network access policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the **Manage instance policies** page, use the **Policies** table to
    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
    instance.
+
 5. Click the ⋯ icon to open a list of options for the policy that you want to
    disable.
+
 6. From the options menu, click **Disable policy** and confirm the policy was
    disabled in the updated **Policies** table.
 

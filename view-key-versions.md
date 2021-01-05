@@ -44,7 +44,7 @@ rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out
 For a high-level view, you can list the versions that are associated with a root
 key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 ```
 {: codeblock}
@@ -61,7 +61,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
     dashboard.
 
 3. Get a list of versions that are associated with the root key by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -118,7 +118,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -29,8 +29,48 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## December 2020
+{: #december-2020}
+
+### Added: Create a metrics policy
+{: #added-metrics-policy}
+
+New as of: 2020-12-11
+
+If you have _Manager_ IAM access permissions, you can now use the
+{{site.data.keyword.keymanagementserviceshort}} UI to create a metrics policy
+that allows you to view the operational metrics for your
+{{site.data.keyword.keymanagementserviceshort}} instance.
+
+To find out more, see
+[Managing metrics](/docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
+### Added: Create a key alias
+{: #added-key-alias}
+
+New as of: 2020-12-01
+
+If you have _Writer_ or _Manager_ access permissions, you can now use the
+{{site.data.keyword.keymanagementserviceshort}} REST API to create a key alias.
+You can use a key alias to refer to a key in your
+{{site.data.keyword.keymanagementserviceshort}} service instance.
+
+To find out more, see
+[Creating key aliases](/docs/key-protect?topic=key-protect-create-key-alias).
+
 ## October 2020
 {: #october-2020}
+
+### Added: Quantum Safe Cryptography in TLS Connections
+{: #added-quantum-safe-cryptography}
+
+New as of: 2020-10-20
+
+In preparation for the post-quantum era, you can use a quantum safe enabled TLS
+connection to secure your communication to the
+{{site.data.keyword.keymanagementservicefull}} service.
+
+To find out more, see
+[Using Quantum Safe Cryptography](/docs/key-protect?topic=key-protect-quantum-safe-cryptography-tls-introduction).
 
 ### Added: Manage key creation and importation policies in the UI
 {: #added-key-creation-importation-policies-ui}
@@ -172,21 +212,24 @@ logs. These updates will be available across all supported regions by 29 May
 2020.
 
 - Successful replace registration, update registration, and unwrap key events
-will change from severity level `warning` to `normal`.
+  will change from severity level `warning` to `normal`.
+
 - The `rewrapedKeyVersionId` field will change to `rewrappedKeyVersionId`.
+
 - The `TotalResources` field will change to `totalResources`.
 
 - **Why are we making these changes?**
-These changes are required to remove deprecated event fields and support
-upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+  These changes are required to remove deprecated event fields and support
+  upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+
 - **How will the changes impact my environment?**
-This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
-audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
-actions. The change does not impact
-{{site.data.keyword.keymanagementserviceshort}} operations. As a security or
-compliance admin, ensure that the removed and changed event fields do not affect
-your audit operations.
+  This change impacts the event fields that are returned in
+  [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+  audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
+  actions. The change does not impact
+  {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
+  compliance admin, ensure that the removed and changed event fields do not
+  affect your audit operations.
 
 ### Added: Use an import token to rotate a key
 {: #added-secure-rotate}
@@ -252,7 +295,7 @@ If you have _Reader_ access permissions, you can now use the
 about a specific standard key without retrieving the key itself.
 
 To find out more, see
-[Viewing details about a key](/docs/key-protect?topic=key-protect-view-key-details).
+[Viewing details about a key](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
 
 ### Added: View versions for a root key
 {: #added-key-versions}
@@ -283,8 +326,8 @@ logs. These updates will be available across all supported regions by 15 April
 2020.
 
 - **What's changing?**
-This change impacts the following {{site.data.keyword.at_full_notm}} event
-fields.
+  This change impacts the following {{site.data.keyword.at_full_notm}} event
+  fields.
 
   <table>
     <tr>
@@ -349,16 +392,17 @@ fields.
   </table>
 
 - **Why are we making these changes?**
-These changes are required to remove deprecated event fields and support
-upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+  These changes are required to remove deprecated event fields and support
+  upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+
 - **How will the changes impact my environment?**
-This change impacts the event fields that are returned in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
-audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
-actions. The change does not impact
-{{site.data.keyword.keymanagementserviceshort}} operations. As a security or
-compliance admin, ensure that the removed and changed event fields do not affect
-your audit operations.
+  This change impacts the event fields that are returned in
+ [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+  audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
+  actions. The change does not impact
+  {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
+  compliance admin, ensure that the removed and changed event fields do not
+  affect your audit operations.
 
 ### Added: View associations between root keys and IBM Cloud resources
 {: #added-registrations}
@@ -389,13 +433,14 @@ New as of: 2020-02-25
 to protect against the accidental or malicious deletion of keys.
 
 - {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a
-root key that's actively protecting a cloud resource. To learn if a key is
-registered to cloud resource, you can
-[review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
-that are associated with the key.
+  root key that's actively protecting a cloud resource. To learn if a key is
+  registered to cloud resource, you can
+  [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
+  that are associated with the key.
+
 - You can now
-[force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
-that's protecting a cloud resource.
+  [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
+  that's protecting a cloud resource.
 
 ### Added: ReaderPlus service access role
 {: #added-readerplus}
@@ -418,13 +463,14 @@ return additional fields in the response bodies of some
 {{site.data.keyword.keymanagementserviceshort}} REST APIs.
 
 - **Why are we making these changes?**
-The extra response fields are required to support upcoming features and service
-enhancements.
+  The extra response fields are required to support upcoming features and
+  service enhancements.
+
 - **How will the changes impact my environment?**
-These changes are backwards-compatible and affect only the response details for
-some API calls, including the create key, retrieve key, wrap key, unwrap key,
-and rewrap key actions. Customers and integrated services must ensure that the
-additional fields do not affect their operations.
+  These changes are backwards-compatible and affect only the response details
+  for some API calls, including the create key, retrieve key, wrap key, unwrap
+  key, and rewrap key actions. Customers and integrated services must ensure
+  that the additional fields do not affect their operations.
 
 ## January 2020
 {: #jan-2020}
@@ -440,6 +486,7 @@ enable dual authorization, you require an action from two users to delete a key.
 
 - To learn how to enable dual authorization at the instance level, see
 [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth).
+
 - To learn how to enable dual authorization at the key level, see
 [Enabling a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
@@ -507,7 +554,9 @@ beta period.
 The following API methods have changed:
 
 - `POST api/v2/lockers` is now `POST api/v2/import_token`
+
 - `GET api/v2/lockers` is now `GET api/v2/import_token`
+
 - `GET api/v2/lockers/{id}` is no longer supported
 
 You can now create
@@ -656,8 +705,8 @@ legacy instance by navigating to your resource list from the
 
 If your {{site.data.keyword.keymanagementserviceshort}} instance is
 listed in the **Cloud Foundry Services** section of the
-{{site.data.keyword.cloud_notm}} resource list, or if you're using the
-`https://ibm-key-protect.edge.bluemix.net` API endpoint to target operations for
+{{site.data.keyword.cloud_notm}} resource list, or if you're using a
+`bluemix.net` API endpoint to target operations for
 the service, you're using a legacy instance of the
 {{site.data.keyword.keymanagementserviceshort}}. After 15 May 2019, the legacy
 endpoint will no longer be accessible, and you won't be able to target the
@@ -814,11 +863,12 @@ New as of: 2017-12-15
 (BYOK) and customer-managed encryption.
 
 - Introduced
-[root keys](/docs/key-protect?topic=key-protect-envelope-encryption#key-types),
-also called Customer Root Keys (CRKs), as primary resources in the service.
+  [root keys](/docs/key-protect?topic=key-protect-envelope-encryption#key-types),
+  also called Customer Root Keys (CRKs), as primary resources in the service.
+
 - Enabled
-[envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how)
-for {{site.data.keyword.cos_full_notm}} buckets.
+  [envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how)
+  for {{site.data.keyword.cos_full_notm}} buckets.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
 {: #added-london-region}

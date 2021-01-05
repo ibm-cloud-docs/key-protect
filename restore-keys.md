@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-24"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -52,18 +52,27 @@ use the IBM Cloud console.
 complete the following steps to restore the key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, click the filter icon and select the
    dropdown from the **Status** menu.
+
 5. Select the **Destroyed** state.
+
 6. Click the **Apply** button.
+
 7. Click the ⋯ icon to open a list of options for the key that you want to
    delete.
+
 8. Click the **Restore Key** button to open a tab and enter the key ID and
    original key material that was associated with the deleted key.
+
 9. Click **Restore Key** button.
+
 10. Confirm the key was restored in the updated **Keys** table.
 
 ## Restoring a deleted key with the API
@@ -72,8 +81,8 @@ complete the following steps to restore the key:
 Restore a previously imported root key by making a `POST` call to the following
 endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 ```
 {: codeblock}
 
@@ -92,7 +101,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to restore the key and regain access to its
+3. Run the following `curl` command to restore the key and regain access to its
    associated data.
 
    You cannot restore a key that has an expiration date that is current or in
@@ -105,7 +114,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{
@@ -168,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -305,8 +314,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
 If you initially used an import token to import the root key, you can restore
 the key by making a `POST` call to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 ```
 {: codeblock}
 
@@ -332,11 +341,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 5. Restore the key and regain access to its associated data by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{
@@ -402,7 +411,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=restore
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           <p>
           <p>
             For more information, see

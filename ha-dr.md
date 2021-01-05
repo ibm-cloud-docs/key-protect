@@ -45,7 +45,7 @@ of the supported
 which represent the geographic area where your
 {{site.data.keyword.keymanagementserviceshort}} requests are handled and
 processed. Each {{site.data.keyword.cloud_notm}} region contains
-[multiple availability zones](https://ibm.com/blogs/bluemix/2018/06/expansion-availability-zones-global-regions/){: external}
+[multiple availability zones](https://www.ibm.com/cloud/blog/announcements/expansion-availability-zones-global-regions){: external}
 to meet local access, low latency, and security requirements for the region.
 
 As you plan your encryption at rest strategy with

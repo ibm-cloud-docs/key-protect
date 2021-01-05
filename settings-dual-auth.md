@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -72,14 +72,20 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. On the **Manage instance policies** page, click the **Add policy** button.
-5. Choose **Dual authorization deletion** and hit the switch to enable the
-   policy.
-6. Click the **Add policy** button.
-7. Confirm the policy was created in the updated **Policies** table.
+
+4. Click the **Manage instance policies** link on the left side of the page.
+
+   - Find the `Dual authorization delete` panel (on the top-left side of the
+     page).
+
+   - Toggle `Dual authorization deletion` to enable or disable the policy.
+
+   - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-dual-auth-instance-policy-api}
@@ -88,7 +94,7 @@ As an instance manager, enable a dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete
 ```
 {: codeblock}
@@ -105,7 +111,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 
 2. Enable a dual authorization policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -166,7 +172,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -233,14 +239,19 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the **Manage instance policies** page, use the **Policies** table to
    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
    instance.
+
 5. Click the ⋯ icon to open a list of options for the policy that you want to
    disable.
+
 6. From the options menu, click **Disable policy** and confirm the policy was
    disabled in the updated **Policies** table.
 
@@ -251,7 +262,7 @@ As an instance manager, disable an existing dual authorization policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete
 ```
 {: codeblock}
@@ -268,7 +279,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 
 2. Disable an existing dual authorization policy for your
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following cURL command.
+   following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -330,7 +341,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

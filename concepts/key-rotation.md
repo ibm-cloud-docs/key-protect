@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-04-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -177,22 +177,28 @@ Keep in mind the following considerations as you prepare to use
       rewrap the key's associated data encryption keys (DEKs) with the latest
       key version.
     </p>
-    <p class="note">
-      To enable key rotation options for your {{site.data.keyword.cloud_notm}}
-      data service, the data service must be integrated with
-      {{site.data.keyword.keymanagementserviceshort}}. Refer to the
-      documentation for your {{site.data.keyword.cloud_notm}} data service, or
-      [check out our list of integrated services to learn more](/docs/key-protect?topic=key-protect-integrate-services).
-    </p>
-    <p class="tip">
-      When you rotate a key in {{site.data.keyword.keymanagementserviceshort}},
-      you're not charged additional fees. You can continue to unwrap your
-      wrapped data encryption keys (WDEKs) with retired key material at no extra
-      cost. For more information about our pricing options, see the
-      [{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
+    <p>
+      After {{site.data.keyword.keymanagementserviceshort}} receives
+      confirmation from those services that all associated DEKs are rewrapped,
+      you receive an event in your Activity Tracker web UI to show that the
+      rotation is complete.
     </p>
   </dd>
 </dl>
+
+To enable key rotation options for your {{site.data.keyword.cloud_notm}} data
+service, the data service must be integrated with
+{{site.data.keyword.keymanagementserviceshort}}. Refer to the documentation for
+your {{site.data.keyword.cloud_notm}} data service, or
+[check out our list of integrated services to learn more](/docs/key-protect?topic=key-protect-integrate-services).
+{: note}
+
+When you rotate a key in {{site.data.keyword.keymanagementserviceshort}}, you're
+not charged additional fees. You can continue to unwrap your wrapped data
+encryption keys (WDEKs) with retired key material at no extra cost. For more
+information about our pricing options, see the
+[{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
+{: tip}
 
 ### Understanding the key rotation process
 {: #understand-key-rotation-process}
@@ -201,13 +207,13 @@ Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API
 drives the key rotation process.
 
 The following diagram shows a contextual view of the key rotation functionality.
-![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
+![The diagram shows a contextual view of key rotation.](images/key-rotation.svg)
 {: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}}
 creates a new key version by associating new key material with your root key.
 
-![The diagram shows a micro view the root key stack.](../images/root-key-stack.svg)
+![The diagram shows a micro view the root key stack.](images/root-key-stack.svg)
 {: caption="Figure 2. Micro view of a root key stack." caption-side="bottom"}
 
 To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to
@@ -227,7 +233,7 @@ root key.
 
 To secure your envelope encryption workflow,
 [rewrap your DEKs](/docs/key-protect?topic=key-protect-rewrap-keys)
- after you rotate a root key so that your at-rest data is protected by the
+ after you rotate a root key so that your at rest data is protected by the
  newest root key.
 
 Alternatively if {{site.data.keyword.keymanagementserviceshort}} detects that

@@ -119,7 +119,7 @@ As a security admin, you can enable or update an allowed IP policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
 ```
 {: codeblock}
@@ -296,7 +296,7 @@ disable an existing allowed IP policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance by making a `PUT` call
 to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
 ```
 {: codeblock}
@@ -486,7 +486,7 @@ policies request via a private endpoint.
 
 ```sh
 $ curl -k -L --ipv4 -X GET \
-    "https://private.<region>.kms.test.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
+    "https://private.<region>.kms.cloud.ibm.com:<private_enpoint_port>/api/v2/instance/policies" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
     -H "authorization: Bearer <token>" \
     -H "bluemix-instance: <instance_ID>" \
@@ -506,7 +506,7 @@ You can retrieve the private endpoint port associated with your
 policy by making a `GET` call to the following endpoint. **Note** that calls to
 this API bypass allowed IP policy enforcement.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
 ```
 {: codeblock}

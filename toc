@@ -21,6 +21,7 @@ Key Protect
         concepts/envelope-encryption.md
         concepts/key-rotation.md
         concepts/key-states.md
+        concepts/quantum-safe-cryptography.md
 
     {: .topicgroup}
     Integrations
@@ -45,6 +46,7 @@ Key Protect
         settings-network-policy.md
         settings-allowed-ip.md
         settings-key-create-import-access.md
+        settings-sysdig-metrics.md
 
     {: .topicgroup}
     Accessing the API
@@ -59,6 +61,7 @@ Key Protect
     Creating keys
         create-root-keys.md
         create-standard-keys.md
+        create-key-alias.md
 
     {: .topicgroup}
     Importing keys
@@ -94,6 +97,11 @@ Key Protect
 
     restore-keys.md
     key-rings.md
+
+    {: .topicgroup}
+    Enhancing security
+        data-security.md
+        manage-scc.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -115,12 +123,12 @@ Key Protect
         grant-access-keys.md
 
     at-events.md
+    monitor-sysdig-metrics.md
 
     {: .topicgroup}
     Standards and compliance
         shared-responsibilities.md
         ha-dr.md
-        data-security.md
 
     related-links.md
     {: .navgroup-end}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-02-25"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: Key Protect integration, integrate COS with Key Protect
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementservicefull}} and
 {{site.data.keyword.cos_full}} work together to help you own the security of
-your at-rest data. Learn how to add advanced encryption to your
+your at rest data. Learn how to add advanced encryption to your
 {{site.data.keyword.cos_full}} resources by using the
 {{site.data.keyword.keymanagementservicelong_notm}} service.
 {: shortdesc}
@@ -87,7 +87,7 @@ associated data.
 The following figure shows how {{site.data.keyword.keymanagementserviceshort}}
 integrates with {{site.data.keyword.cos_full_notm}} to further secure your
 encryption keys.
-![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope.svg)
+![The figure shows a contextual view of envelope encryption.](images/kp-cos-envelope.svg)
 {: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
 
 To learn more about how envelope encryption works in
@@ -112,14 +112,19 @@ exists between your {{site.data.keyword.cos_full_notm}} and
 To add envelope encryption to your storage bucket:
 
 1. From your {{site.data.keyword.cos_full_notm}} dashboard, click
-**Create bucket**.
+   **Create bucket**.
+
 2. Specify the bucket's details.
+
 3. In the **Advanced Configuration** section, select
-**Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
+   **Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
+
 4. From the list of {{site.data.keyword.keymanagementserviceshort}} service
-instances, select the instance that contains the root key that you want to use
-for key wrapping.
+   instances, select the instance that contains the root key that you want to
+   use for key wrapping.
+
 5. For **Key Name**, select the alias of the root key.
+
 6. Click **Create** to confirm the bucket creation.
 
 From the {{site.data.keyword.cos_full_notm}} GUI, you can browse the buckets

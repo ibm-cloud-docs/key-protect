@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-11-18"
 
 keywords: delete key, delete key API examples
 
@@ -64,15 +64,20 @@ console.
 complete the following steps to delete a key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, use the **Keys** table to browse the keys in
-your service.
+   your service.
+
 5. Click the ⋯ icon to open a list of options for the key that you want to
-delete.
+   delete.
+
 6. From the options menu, click **Delete key** and confirm the key deletion in
-the next screen.
+   the next screen.
 
 After you delete a key, the key transitions to the _Destroyed_ state. Keys in
 this state are no longer recoverable. Metadata that is associated with the key,
@@ -86,7 +91,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one
 authorization to delete a key. You can delete a key and its contents by making a
 `DELETE` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
@@ -108,7 +113,7 @@ at query time to delete the key.
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
 
-3. Run the following cURL command to delete the key and its contents.
+3. Run the following `curl` command to delete the key and its contents.
 
     ```sh
     $ curl -X DELETE \
@@ -165,7 +170,7 @@ at query time to delete the key.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -236,6 +241,10 @@ at query time to delete the key.
                 "type": "application/vnd.ibm.kms.key+json",
                 "id": "02fd6835-6001-4482-a892-13bd2085f75d",
                 "name": "test-root-key",
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                  ],
                 "state": 5,
                 "extractable": false,
                 "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
@@ -274,7 +283,7 @@ that's protecting a cloud resource, such as a Cloud Object Storage bucket. You
 can force delete a key and its contents by making a `DELETE` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
 ```
 
@@ -300,7 +309,7 @@ the key.
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to force delete the key and its contents.
+3. Run the following `curl` command to force delete the key and its contents.
 
     ```sh
     $ curl -X DELETE \
@@ -357,7 +366,7 @@ the key.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -427,6 +436,10 @@ the key.
             {
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
                 "type": "application/vnd.ibm.kms.key+json",
+                "aliases": [
+                    "alias-1",
+                    "alias-2"
+                ],
                 "name": "test-root-key",
                 "description": "...",
                 "state": 5,

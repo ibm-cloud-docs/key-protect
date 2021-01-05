@@ -38,6 +38,7 @@ credentials.
 To gather your credentials:
 
 1. [Generate an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+
 2. [Retrieve the instance ID that uniquely identifies your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## Forming your API request
@@ -67,7 +68,7 @@ Replace `<access_token>` and `<instance_ID>` with your retrieved service and
 authentication credentials.
 
 Want to track your API requests in case something goes wrong? When you include
-the `-v` flag as part of cURL request, you get a `correlation-id` value in the
+the `-v` flag as part of `curl` request, you get a `correlation-id` value in the
 response headers. You can use this value to correlate and track the request for
 debugging purposes.
 {: tip}

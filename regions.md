@@ -35,7 +35,7 @@ Review region and connectivity options for interacting with
 {{site.data.keyword.keymanagementserviceshort}} is available in the following
 regions:
 
-![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map_min.svg)
+![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg)
 {: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-22"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -35,7 +35,7 @@ encryption keys (DEKs) that are associated with the root key. With the rewrap
 API, you can reencrypt or rewrap your DEKs without exposing the keys in their
 plaintext form.
 
-To learn how envelope encryption helps you control the security of at-rest data
+To learn how envelope encryption helps you control the security of at rest data
 in the cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
@@ -56,25 +56,28 @@ the newest root key material.
 rewrap a data encryption key that is associated with the root key by making a
 `POST` call to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 ```
 {: codeblock}
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
 2. Copy the ID of the rotated root key that you used to perform the initial wrap
-request.
+   request.
 
     You can retrieve the ID for a key by making a `GET api/v2/keys` request, or
     by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}}
     GUI.
+
 3. Copy the `ciphertext` value that was returned during the latest wrap request.
+
 4. Rewrap the key with the latest root key material by running the following
-cURL command.
+   `curl` command.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rewrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -136,7 +139,7 @@ cURL command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

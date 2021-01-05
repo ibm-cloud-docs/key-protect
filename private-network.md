@@ -135,7 +135,7 @@ network traffic, you can target the private endpoint for
     The following CLI output shows the account details of a VRF and service
     endpoint-enabled account.
 
-    ```
+    ```plaintext
     Retrieving account John Doe's Account of john.doe@email.com...
     OK
 

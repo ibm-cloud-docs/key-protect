@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-10"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
@@ -18,8 +18,12 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI reference version 0.4.0
+# CLI - 0.4.0 (deprecated)
 {: #cli-reference-040}
+
+CLI version 0.4.0 is deprecated. The current version is
+[found here](/docs/key-protect?topic=key-protect-cli-reference).
+{: note}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
 manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
@@ -103,17 +107,17 @@ $ export KP_INSTANCE_ID=390086ac-76fa-4094-8cf3-c0829bd69526
 
 These commands show `kp` help information.
 
-* `ibmcloud kp -h`
-* `ibmcloud kp import-token -h`
-* `ibmcloud kp key -h`
-* `ibmcloud kp keys -h`
-* `ibmcloud kp region-set -h`
+- `ibmcloud kp -h`
+- `ibmcloud kp import-token -h`
+- `ibmcloud kp key -h`
+- `ibmcloud kp keys -h`
+- `ibmcloud kp region-set -h`
 
 The `kp import-token` and `kp key` commands have sub-commands. These examples
 show help for specific sub-commands, which you can change.
 
-* `ibmcloud kp import-token create -h`
-* `ibmcloud kp key delete -h`
+- `ibmcloud kp import-token create -h`
+- `ibmcloud kp key delete -h`
 
 ## kp import-token create
 {: #kp-import-token-create-040}

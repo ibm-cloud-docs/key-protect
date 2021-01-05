@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-11-18"
 
 keywords: delete keys with dual authorization, dual authorization, policy-based, key deletion
 
@@ -86,8 +86,8 @@ second user with a _Manager_ access policy can use the
 you can provide the first authorization to delete a key by making a `POST` call
 to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion
 ```
 {: codeblock}
 
@@ -105,7 +105,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -159,7 +159,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -199,7 +199,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion
 
     If you need to prevent the deletion of a key that's already authorized for
     deletion, you can remove the existing authorization by calling
-    `POST /api/v2/keys/<key_ID>?action=unsetKeyForDeletion`.
+    `POST /api/v2/keys/<key_ID>/actions/unsetKeyForDeletion`.
     {: tip}
 
 ### Step 2. Delete the key
@@ -222,7 +222,7 @@ second user and the 7-day period expires, you must
 Delete a key and its contents by making a `DELETE` call to the following
 endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 {: codeblock}
@@ -235,7 +235,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
     request, or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-3. Run the following cURL command to delete the key and its contents.
+3. Run the following `curl` command to delete the key and its contents.
 
     ```sh
     $ curl -X DELETE \
@@ -292,7 +292,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -363,6 +363,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
               "type": "application/vnd.ibm.kms.key+json",
               "id": "02fd6835-6001-4482-a892-13bd2085f75d",
               "name": "test-root-key",
+              "aliases": [
+                    "alias-1",
+                    "alias-2"
+                  ],
               "state": 5,
               "extractable": false,
               "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
@@ -400,8 +404,8 @@ If you need to cancel an authorization for a key before the 7-day waiting period
 expires, you can remove the existing authorization by making a `POST` call to
 the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeletion
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion
 ```
 {: codeblock}
 
@@ -420,7 +424,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=setKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -474,7 +478,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=unsetKeyForDeleti
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-22"
+lastupdated: "2020-10-22"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -51,13 +51,18 @@ use the {{site.data.keyword.cloud_notm}} console.
 complete the following steps to rotate the key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, use the **Keys** table to browse the keys in
    your service.
+
 5. Click the ⋯ icon to open a list of options for the key that you want to
    rotate.
+
 6. From the options menu, click **Rotate key**.
 
     If you initially provided the key material for the key, specify the
@@ -107,8 +112,8 @@ complete the following steps to rotate the key:
 
 You can rotate a root key by making a `POST` call to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}
 
@@ -122,11 +127,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
 
-3. Replace the key with new key material by running the following cURL command.
+3. Replace the key with new key material by running the following `curl`
+   command.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -185,7 +191,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -321,8 +327,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
 If you initially imported a root key by using an import token, you can rotate
 the key by making a `POST` call to the following endpoint.
 
-```
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 ```
 {: codeblock}
 
@@ -348,12 +354,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
     To learn how to use an import token, check out
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
-5. Replace the existing key with new key material by running the following cURL
-   command.
+5. Replace the existing key with new key material by running the following
+   `curl` command.
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -d '{
@@ -417,7 +423,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?action=rotate
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see

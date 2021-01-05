@@ -37,10 +37,13 @@ You can view the instance ID that is associated with your
 to your {{site.data.keyword.cloud_notm}} resource list.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse
    a list of your cloud services.
+
 3. Click the table row that describes your
    {{site.data.keyword.keymanagementserviceshort}} instance.
+
 4. From the service details view, copy the **GUID** value.
 
     This **GUID** value represents the instance ID that uniquely identifies your
@@ -82,7 +85,7 @@ You can also retrieve the instance ID for your
     {{site.data.keyword.keymanagementserviceshort}} instance. The
     following truncated example shows the CLI output.
 
-    ```
+    ```plaintext
     crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
@@ -114,7 +117,7 @@ and then pipe the JSON output to `jq` to extract this value.
     {{site.data.keyword.keymanagementserviceshort}} instance. The
     following output shows an example instance ID:
 
-    ```
+    ```plaintext
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}

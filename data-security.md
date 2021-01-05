@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Security and compliance
+# Data security and compliance
 {: #security-and-compliance}
 
 {{site.data.keyword.keymanagementservicefull}} has data security strategies in
@@ -126,7 +126,7 @@ for your {{site.data.keyword.cloud_notm}} account. You can learn more about how
 {{site.data.keyword.keymanagementserviceshort}} processes and protects personal
 data by reviewing the following addendums.
 
-- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA)](https://ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){: external}
+- [{{site.data.keyword.keymanagementservicefull_notm}} Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=180A0EC0658B11E5A8DABB56563AC132){: external}
 - [{{site.data.keyword.IBM_notm}} Data Processing Addendum (DPA)](https://ibm.com/support/customer/csol/terms/?cat=dpa){: external}
 
 ### HIPAA support

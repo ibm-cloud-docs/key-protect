@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2020, 2021
+lastupdated: "2021-01-04"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.5.2
 
@@ -18,7 +18,7 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI reference version 0.5.2
+# CLI - 0.5.2
 {: #cli-reference}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
@@ -102,8 +102,8 @@ The `kp instance` command manages policies for a
 | Sub-command                                                         | Status v0.5.2 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   | New           | List policies associated with an instance |
-| policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance "allowed network" policy |
-| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   | New           | Update the instance "dual auth delete" policy |
+| policy-update [allowed-network](#kp-instance-policy-update-allowed) | New           | Update the instance policy for "allowed network" |
+| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   | New           | Update the instance policy for "dual auth delete" |
 {: caption="Table 2. Sub-commands for managing keys" caption-side="top"}
 
 ### kp key command
@@ -119,8 +119,8 @@ The `kp key` command manages individual keys.
 | [disable](#kp-key-disable)                                   | New           | Disable a key |
 | [enable](#kp-key-enable)                                     | New           | Enable a key |
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
-| policy-update [dual-auth-delete](#kp-key-policy-update-dual) | Update        | Update the "dual auth delete" policy |
-| policy-update [rotation](#kp-key-policy-update-rotation)     | Update        | Update the "rotation" policy |
+| policy-update [dual-auth-delete](#kp-key-policy-update-dual) | Update        | Update the key policy for "dual auth delete" |
+| policy-update [rotation](#kp-key-policy-update-rotation)     | Update        | Update the key polcy for "rotation" |
 | [restore](#kp-key-restore)                                   | New           | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   | New           | Authorize a key, with a dual-auth-delete policy, to be deleted |
@@ -275,7 +275,7 @@ ibmcloud kp import-token key-encrypt
 ### Example
 {: #kp-import-token-key-encrypt-example}
 
-This example encrypts a `kp key material` using the public key created by
+This example encrypts a `key material` using the public key created by
 `kp import-token create`.
 
 ```sh
@@ -358,12 +358,14 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
       {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt
       keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
     </p>
-    <p>
-      For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
-    </p>
   </dd>
 </dl>
+
+### Notes
+{: #kp-import-token-key-encrypt-notes}
+
+For more information about HPCS, see
+[Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
 
 ## kp import-token nonce-encrypt
 {: #kp-import-token-nonce-encrypt}
@@ -387,7 +389,7 @@ ibmcloud kp import-token nonce-encrypt
 ### Example
 {: #kp-import-token-nonce-encrypt-example}
 
-This example encrypts the `nonce` using the `kp key material`.
+This example encrypts the `nonce` using the `key material`.
 
 A nonce is an arbitrary number that can be used just once in a cryptographic
 communication.
@@ -472,12 +474,14 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
       {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt
       keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
     </p>
-    <p>
-      For more information about HPCS, see
-      [Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
-    </p>
   </dd>
 </dl>
+
+### Notes
+{: #kp-import-token-nonce-encrypt-notes}
+
+For more information about HPCS, see
+[Getting started with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external}.
 
 ## kp import-token show
 {: #kp-import-token-show}
@@ -660,14 +664,14 @@ $ ibmcloud kp instance policies --output json
     <code>-a, --allowed-network</code>
   </dt>
   <dd>
-    Show the "allowed network" policy.
+    Show the instance policy for "allowed network".
   </dd>
 
   <dt>
     <code>-d, --dual-auth-delete</code>
   </dt>
   <dd>
-    Show the "dual authorization delete" policy.
+    Show the instance policy for "dual authorization delete".
   </dd>
 
   <dt>
@@ -896,6 +900,7 @@ Key ID                                 Key Name
 # list the policies for the key - dual-auth-delete is
 # enabled because the key inherits the instance policy
 $ ibmcloud kp key policies 6a8a129b-0cd4-4667-ba57-b355a125a7ca --output json
+
 [
   {
     "createdBy": "user id ...<redacted>...",
@@ -989,11 +994,15 @@ command is the "authorization" to delete the key.
 Follow this process to delete a key with a `dual-auth-delete` policy.
 
 1. Create a key and enable the `dual-auth-delete` policy
+
 2. User 1 schedules (authorizes) a key deletion with the
    `kp key schedule-delete` command
+
 3. User 2 schedules (authorizes) a key deletion
+
 4. The key is deleted after the second `schedule-delete` is performed, which is
    supported in the user interface, API, and CLI
+
 5. If a second authorization does not occur within 7 days, the key returns to
    its default status
 
@@ -1161,7 +1170,7 @@ Encrypted Key
 qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
 
 # capture the encrypted key material
-ENCRYPTED_KEY=qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
+$ ENCRYPTED_KEY=qT1pyiS1Sivbmmt4doTtfZC4XuLazk7u ...<redacted>... +a/6EqeAamo/9vo=
 
 # encrypt the nonce
 $ ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE
@@ -1170,8 +1179,8 @@ Encrypted Nonce                            IV
 fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==   efQgA8xBeyuBy39D
 
 # capture the encrypted nonce and the initialization vector (IV)
-ENCRYPTED_NONCE=fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==
-IV=efQgA8xBeyuBy39D
+$ ENCRYPTED_NONCE=fR8uRvbrKIm9y/LCq9p6pwFBXbF864q/bw5meQ==
+$ IV=efQgA8xBeyuBy39D
 
 # create a root key using an import token, provide an encrypted key, nonce, and initialization vector (IV)
 $ ibmcloud kp key create my-imported-root-key -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV
@@ -1208,6 +1217,8 @@ Any base64-encoded string can be imported as a standard key. This example shows
 how to store credentials, not just encryption keys, in
 {{site.data.keyword.keymanagementserviceshort}}.
 
+Standard keys can be up to 7,500 bytes in size before base64-encoding.
+
 ```sh
 # create a file with your credentials
 $ cat credentials.json
@@ -1223,6 +1234,7 @@ $ cat credentials.json
 $ ENCODED=$(base64 -i credentials.json)
 
 $ echo $ENCODED
+
 ewoJImhvc3QiOiAibG9jYWxob3N0IiwK...<redacted>...cGFzc3dvcmQiCn0K
 
 # create a new key that contains the base64-encoded credentials
@@ -1246,6 +1258,7 @@ $ ibmcloud kp key show $KEY_ID --output json
 
 # OR... CAPTURE THE PAYLOAD
 $ PAYLOAD=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["payload"]')
+
 {
   "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
   "name": "credentials-key",
@@ -1322,7 +1335,7 @@ $ echo $PAYLOAD | base64 -d
       256 bits. The key must be base64-encoded.
     </p>
     <p>
-      Standard keys can be up to 10,000 bytes in size. The key must be
+      Standard keys can be up to 7,500 bytes in size. The key must be
       base64-encoded.
     </p>
     <p>
@@ -2403,17 +2416,17 @@ the _Active_ (value is 1) key state, and you restore access to any data that was
 previously encrypted with the key.
 
 You can restore a deleted key within 30 days of its deletion. This capability is
-available only for root keys that were created with a `kp key material`.
+available only for root keys that were created with a `key material`.
 {: note}
 
-You can only restore root keys that were created with a `kp key material`, using
+You can only restore root keys that were created with a `key material`, using
 `kp key create` with the `-k, --key-material` option. You _cannot_ restore a
 root key if the `--key-material` option was **not** specified.
 {: important}
 
 If you want to restore a deleted root key then you **must** save the
-`kp key material` that was used to create the root key. You _cannot_ restore a
-deleted key without provided the original `kp key material`.
+`key material` that was used to create the root key. You _cannot_ restore a
+deleted key without provided the original `key material`.
 {: important}
 
 ```sh
@@ -2496,8 +2509,9 @@ restores the key.
 
 This is a two-step process.
 
-1. create a root key using an import token and then delete the key
-2. create an import token, which is required to restore the key, and restore the
+1. Create a root key using an import token and then delete the key
+
+2. Create an import token, which is required to restore the key, and restore the
    key
 
 Creating a root key using an import token has a time limit (the
@@ -2590,10 +2604,10 @@ Key ID   Key Name
 restore the key
 
 ```sh
-# NOTE: the "kp key restore" requires an import token to complete the process,
-# if you follow this example, the import token created above may still exist and
-# the example works; otherwise, if the import token has expired then you need to
-# create a new import token prior to restoring the key
+# NOTE: "kp key restore" requires an import token to complete the process,
+# if you follow this example, the previously created import token may still
+# exist and the example works; otherwise, if the import token has expired then
+# you need to create a new import token prior to restoring the key
 
 # create an import token that expires in 5 minutes and allows 10 retrievals
 $ ibmcloud kp import-token create -e 300 -m 10
@@ -2694,9 +2708,9 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
     <p>
       If you created the root key using an <code>import token</code>, then the
       value of the <code>-k, --key-material</code> option is the
-      <b>encrypted material key</b>. See example 2, above, which uses an import
-      token to create the root key and it uses an import token to restore the
-      root key.
+      <b>encrypted material key</b>. See example 2, which uses an import token
+      to create the root key and it uses an import token to restore the root
+      key.
     </p>
   </dd>
 </dl>
@@ -2859,12 +2873,17 @@ FAILED
 This examples shows how to...
 
 1. Create a root key
+
 2. Create a data encryption key (DEK), this is the `plaintext`
+
 3. Wrap the DEK with the root key, this creates a `ciphertext`
+
 4. Rotate the root key
+
 5. Unwrap the ciphertext to reveal the original DEK (plaintext) and a new
    ciphertext (the new ciphertext is the plaintext wrapped with the new rotated
    root key)
+
 6. Unwrap the new ciphertext to reveal the original DEK (plaintext)
 
 ```sh
@@ -3002,11 +3021,15 @@ administrative users to delete the key.
 Follow this process to delete a key with a `dual-auth-delete` policy.
 
 1. Create a key and enable the `dual-auth-delete` policy
+
 2. User 1 schedules (authorizes) a key deletion with the
    `kp key schedule-delete` command
+
 3. User 2 schedules (authorizes) a key deletion
+
 4. The key is deleted after the second `schedule-delete` is performed, which is
    supported in the user interface, API, and CLI
+
 5. If a second authorization does not occur within 7 days, the key returns to
    its default status
 
@@ -3742,6 +3765,7 @@ List all keys and iterate over them, showing details.
 ```sh
 # list all keys and convert to a list
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+
 $ for key in $(echo "${KEYS}"); do
   ibmcloud kp key show ${key}
 done
@@ -3792,7 +3816,7 @@ bc459a2f-56cb-445e-b4ee-9d1866b57560 my-test-key-11
 90138be5-1dd1-4eea-b7c1-73cc8609e7f7 my-test-key-19
 cf0a3d8b-4856-4aa5-be6a-88cca465eab0 my-test-key-20
 
-# this is the above list sorted in KEY_ID order
+# this is the same list sorted in KEY_ID order
 # this is the order we expect when listing keys
 
 10954149-0217-472d-8137-42fc330dbd03 my-test-key-16
@@ -3869,6 +3893,7 @@ f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
 
 # delete the test keys
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
+
 $ for KEY_ID in $(echo "${KEYS}"); do
   KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
   if [[ $KEY_NAME == *"my-test-key-"* ]]; then
@@ -4071,7 +4096,7 @@ Registrations are associations between root keys and other cloud resources, such
 as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 
 For example, in {{site.data.keyword.keymanagementserviceshort}} you create a
-root key, which is used by COS to protect data at-rest.
+root key, which is used by COS to protect data at rest.
 
 The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
@@ -4165,6 +4190,7 @@ a `service plan name` and a `location`, which is in the catalog.
 ```sh
 # show the catalog offerings for cloud object storage (COS) and Key Protect
 $ ibmcloud catalog service cloud-object-storage
+
 $ ibmcloud catalog service kms
 ```
 
@@ -4312,9 +4338,11 @@ Successfully downloaded '/cos-file.txt' from bucket 'my-cos-kms-bucket'
 
 # verify that the upload and download files are the same
 $ cat cos-file-upload.txt
+
 This is a test file
 
 $ cat cos-file-download.txt
+
 This is a test file
 
 # delete the object

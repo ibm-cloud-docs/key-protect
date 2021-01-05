@@ -52,14 +52,20 @@ If you prefer to manage policies for your root keys by using a graphical
 interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
 4. On the application details page, use the **Keys** table to browse the keys in
-your service.
+   your service.
+
 5. Click the ⋯ icon to open a list of options for a specific key.
+
 6. From the options menu, click **Manage policy** to manage the rotation policy
-for the key.
+   for the key.
+
 7. From the list of rotation options, select a frequency of rotation in months.
 
     If your key has an existing rotation policy, the interface displays the
@@ -80,7 +86,7 @@ the root key with new key material.
 For a high-level view, you can browse the rotation policies that are associated
 with a root key by making a `GET` call to the following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}
@@ -88,7 +94,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the rotation policy for a specified key by running the following
-cURL command.
+   `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -146,7 +152,7 @@ cURL command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -222,15 +228,15 @@ cURL command.
 Create a rotation policy for your root key by making a `PUT` call to the
 following endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}
 
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Create a rotation policy for a specified key by running the following cURL
-command.
+2. Create a rotation policy for a specified key by running the following `curl`
+   command.
 
     ```sh
     $ curl -X PUT \
@@ -302,7 +308,7 @@ command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
@@ -387,15 +393,15 @@ command.
 Update an existing policy for a root key by making a `PUT` call to the following
 endpoint.
 
-```
+```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 ```
 {: codeblock}
 
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Replace the rotation policy for a specified key by running the following cURL
-command.
+2. Replace the rotation policy for a specified key by running the following
+   `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -467,7 +473,7 @@ command.
           <p>
             <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
             access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the cURL request.
+            token, including the Bearer value, in the <code>curl</code> request.
           </p>
           <p>
             For more information, see
