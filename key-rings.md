@@ -33,20 +33,20 @@ in your service instance.
 
 As an account admin, you can separate the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
-called `key rings`. Key rings are a container of keys that belong to your
+called `key rings`. Key rings are a collection of keys that belong to your
 service instance. You can grant access to the key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
 {{site.data.keyword.cloud_notm}} console. You can provide different access
-policies per key ring, for instance, you can allow Group A to only view one key
-ring in your service instance and allow Group B to have access to all of the key 
+policies per key ring, for example, you can allow access group A to only view one key
+ring in your service instance and allow access group B to have access to all of the key 
 rings in your instance.
 
 Before you create a key ring for your
 {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
 following considerations:
 
-- **Every {{site.data.keyword.keymanagementserviceshort}} instance comes with a default key ring**
-  Each newly created {{site.data.keyword.keymanagementserviceshort}} comes with
+- **Every {{site.data.keyword.keymanagementserviceshort}} instance comes with a default key ring.**
+  Each newly created {{site.data.keyword.keymanagementserviceshort}} instance comes with
   a generated key ring with an ID of `default`. All keys that are not associated
   with an otherwise specified key ring exists within the default key ring.
 
@@ -59,7 +59,7 @@ following considerations:
   creation. If a key ring id is not passed in upon creation, the key will belong
   to the default key ring.
 
-- **It is not recommended to use key rings and fine grain policies within the same service instance.**
+- **It's not recommended to apply both the keyRing and resource/resourceType attributes on a single IAM policy.**
   When creating IAM access policies, it is recommended that you specify at most either a key ring ID or
   a resource ID.
 
@@ -82,7 +82,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
-        -H "content-type: application/vnd.ibm.kms.key_ring+json" \
         -H "correlation-id: <correlation_ID>"
     ```
     {: codeblock}
@@ -188,7 +187,9 @@ The maximum amount of key rings is 50 per service instance.
 
 You can grant access to a key ring within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
-{{site.data.keyword.cloud_notm}} console.
+{{site.data.keyword.cloud_notm}} console, 
+[IAM API](/apidocs/iam-policy-management#create-policy){: external}, 
+or [CLI](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.
 
 Review
 [roles and permissions](/docs/key-protect?topic=key-protect-manage-access)
@@ -196,7 +197,7 @@ to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
 {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tip}
 
-To assign access:
+To assign access to a key ring via console:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
    **Users** to browse the existing users in your account.
@@ -213,9 +214,12 @@ To assign access:
 6. From the list of services, select
    **{{site.data.keyword.keymanagementserviceshort}}**.
 
-7. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
-   select a {{site.data.keyword.keymanagementserviceshort}} instance that you
-   want to grant access to.
+7. Select **Services based on attributes**.
+
+8. Select the **Instance ID** attribute and select the instance in which the key
+   ring resides.
+
+9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
 
 8. Choose a combination of
    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles)
@@ -224,7 +228,11 @@ To assign access:
 9. Click **Add**.
 
 10. Continue to add platform and service access roles as needed and when you are
-    finished, click **Assign**.
+    finished, click **Assign**. Note that the user must be assigned at least _Reader_ 
+    access to the entire instance in order for them to access the key ring. This instance 
+    level access policy will be separate from the key ring access policy.
+
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
 
 ## Listing key rings with the API
 {: #list-key-ring-api}
@@ -246,7 +254,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
     ```sh
     $ curl -X GET \
         "https://<region>.kms.cloud.ibm.com/api/v2/key_rings" \
-        -H "accept: application/vnd.ibm.collection+json" \
+        -H "accept: application/vnd.ibm.kms.key_ring+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "correlation-id: <correlation_ID>"
@@ -342,7 +350,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
         },
         "resources": [
             {
-                "id": "Sample Key Ring",
+                "id": "default",
                 "creationDate": "2020-03-11T16:30:06Z",
                 "createdBy": "..."
             },
@@ -366,7 +374,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>
 ```
 
 This action won't succeed if the key ring contains at least one key, regardless
-of key state.
+of key state(including keys in the _Destroyed_ state).
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).

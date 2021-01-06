@@ -147,3 +147,58 @@ Use the retrieved key ID to create a access policy:
 
 ![The image shows an example of how to grant user access to a key.](images/fine-grain-key-policy.png)
 {: caption="Figure 2. Shows how to grant user access to a key." caption-side="bottom"}
+
+## Granting access to key rings in an instance
+{: #grant-access-key-ring-level}
+
+You can grant access to key rings within a
+{{site.data.keyword.keymanagementserviceshort}} instance by using the
+{{site.data.keyword.cloud_notm}} console, IAM API, or IAM CLI.
+
+Review
+[roles and permissions](/docs/key-protect?topic=key-protect-manage-access)
+to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
+{{site.data.keyword.keymanagementserviceshort}} actions.
+{: tip}
+
+### Granting access to key rings in an instance via console
+{: #grant-access-key-ring-console}
+
+To assign access to a key ring via the console:
+
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
+   **Users** to browse the existing users in your account.
+
+2. Select a table row, and click the ⋯ icon to open a list of options for that
+   user.
+
+3. From the options menu, click **Assign access**.
+
+4. Click **Assign users additional access**.
+
+5. Click the **IAM services** button.
+
+6. From the list of services, select
+   **{{site.data.keyword.keymanagementserviceshort}}**.
+
+7. Select **Services based on attributes**.
+
+8. Select the **Instance ID** attribute and select the instance in which the key
+   ring resides.
+
+9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
+
+8. Choose a combination of
+   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles)
+   to assign access for the user.
+
+9. Click **Add**.
+
+10. Continue to add platform and service access roles as needed and when you are
+    finished, click **Assign**.
+
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
+
+You can also create an access policy via [API](/apidocs/iam-policy-management#create-policy){: external}
+or [CLI](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.
+{: note}
