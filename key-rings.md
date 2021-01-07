@@ -372,7 +372,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>
 ```
 
 This action won't succeed if the key ring contains at least one key, regardless
-of key state(including keys in the _Destroyed_ state).
+of key state (including keys in the _Destroyed_ state).
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
