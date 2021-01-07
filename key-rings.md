@@ -229,8 +229,8 @@ To assign access to a key ring via console:
 
 10. Continue to add platform and service access roles as needed and when you are
     finished, click **Assign**. Note that the user must be assigned at least _Reader_ 
-    access to the entire instance in order for them to access the key ring. This instance 
-    level access policy will be separate from the key ring access policy.
+    access to the entire instance in order for them to list, create and delete key rings 
+    within the instance.
 
 ![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
 
@@ -350,9 +350,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
         },
         "resources": [
             {
-                "id": "default",
-                "creationDate": "2020-03-11T16:30:06Z",
-                "createdBy": "..."
+                "id": "default"
             },
             {
                 "id": "Sample Key Ring 2",
@@ -389,7 +387,7 @@ of key state(including keys in the _Destroyed_ state).
 
     ```sh
     $ curl -X DELETE \
-        "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_ID>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "prefer: <return_preference>"
@@ -477,6 +475,6 @@ of key state(including keys in the _Destroyed_ state).
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
-    indicates that your key ring was deleted.
+    indicates that the key ring was successfully deleted.
 
 <!--- TODO end: DO NOT MERGE INTO PRODUCTION UNTIL 1/15/2021 -->
