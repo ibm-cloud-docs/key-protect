@@ -162,7 +162,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
     </table>
 
     A successful `GET api/v2/keys/<key_ID>/actions/sync"` request returns an HTTP `204 No Content` 
-    response, which indicates that the IBM cloud service that's associated with the specified key 
+    response, which indicates that the IBM cloud service that is associated with the specified key 
     has been notified.
 
     The sync API can only be called once per hour per key. If you send a request to this API and 
