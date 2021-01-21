@@ -28,6 +28,7 @@ Key Protect
         integrations/integrate-services.md
         integrations/integrate-cos.md
         integrations/view-protected-resources.md
+        integrations/sync-resources.md
 
     {: .topicgroup}
     Tutorials
