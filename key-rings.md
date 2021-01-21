@@ -27,19 +27,24 @@ subcollection: key-protect
 # Managing key rings
 {: #managing-key-rings}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to separate the keys
-in your service instance.
+You can use {{site.data.keyword.keymanagementservicefull}} to group the keys
+in your service instance and restrict access controls at a key ring level.
 {: shortdesc}
 
-As an account admin, you can separate the keys in your
+As an account admin, you can bundle the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
-called `key rings`. Key rings are a collection of keys that belong to your
-service instance. You can grant access to the key rings within a
+called `key rings`. A key ring is a collection of keys located within your
+service instance, in which you can restrict access to via iam access policy. 
+For example, if you want to delegate administration to a specific set of keys 
+for an isolated group, you can create a key ring for those keys with an iam 
+access policy that restricts access to that key ring to the specified group. 
+Users who have access to that specific key ring can create and manage the 
+resources that exist within the key ring.
+
+You can grant access to key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
-{{site.data.keyword.cloud_notm}} console. You can provide different access
-policies per key ring, for example, you can allow access group A to only view one key
-ring in your service instance and allow access group B to have access to all of the key 
-rings in your instance.
+{{site.data.keyword.cloud_notm}} console, IAM API, or IAM CLI.
+{: note}
 
 Before you create a key ring for your
 {{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
