@@ -117,6 +117,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
+        -H "x-kms-key-ring: <key_ring_ID>" 
         -d '{
                 "metadata": {
                     "collectionType": "application/vnd.ibm.kms.key+json",
@@ -226,6 +227,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
                 encoded by using base64 encoding.
               </li>
             </ul>
+          <varname>key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
+            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
+            in every key ring associated with the specified instance. It is recommended to specify 
+            the key ring ID for a more optimized request.
+
+            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
+            header is: default.
+          </p>
+          <p>
+            For more information, see
+            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
           </p>
         </td>
       </tr>

@@ -140,6 +140,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         -H "accept: application/vnd.ibm.collection+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
+        -H "x-kms-key-ring: <key_ring_ID>" \
         -H "correlation-id: <correlation_ID>"
     ```
     {: codeblock}
@@ -197,6 +198,23 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             For more information, see
             [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <varname>key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Optional.</strong> The unique identifier of the target key ring. If unspecified, 
+            the response will include all resources that the user has access to in the specified
+            instance. If provided, the response will only include resources that the user has 
+            access to in the specified key ring.
+          </p>
+          <p>
+            For more information, see
+            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
           </p>
         </td>
       </tr>
