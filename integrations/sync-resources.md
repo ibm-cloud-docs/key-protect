@@ -30,7 +30,8 @@ Databases deployments, by using the
 {: shortdesc}
 
 
-When you perform an operation on a root key that is associated with other 
+When you perform a key lifecycle action (for example `rotation`, `restore`, 
+`disable`, `enable`, `deletion`) on a root key that is associated with other 
 IBM cloud services, those IBM cloud services are notified of the key 
 lifecycle event and are encouraged to respond accordingly. In the case that 
 the cloud services do not respond to the key lifecycle notification, you can 
