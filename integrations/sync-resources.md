@@ -161,11 +161,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>/actions/sync"` request returns an HTTP `204 No Content` 
+    A successful `GET api/v2/keys/<key_ID>/actions/sync` request returns an HTTP `204 No Content` 
     response, which indicates that the IBM cloud service that is associated with the specified key 
     has been notified.
 
-    The sync API can only be called once per hour per key. If you send a request to this API and 
-    the key has been synced within the past hour, the API will return a `409 Conflict` response.
+    The sync API can only be initialized if it has been longer than an hour since the last 
+    notification to the associated cloud services of the key. If you send a request to this API and 
+    the key has been synced or a key lifecycle action has been taken within the past hour,
+    the API will return a `409 Conflict` response.
     {: note}
     
