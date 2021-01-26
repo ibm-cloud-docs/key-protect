@@ -68,17 +68,54 @@ Before you target a virtual private endpoint for
 ## Virtual Private Service Endpoints
 {: #vpe-endpoints}
 
-The following table lists regions where {{site.data.keyword.keymanagementserviceshort}} service supports VPE along 
-with the endpoints supported from that region. You can connect to other regions endpoints from supported region. 
-For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} us-south endpoint.
+The following table lists regions where {{site.data.keyword.keymanagementserviceshort}} service supports VPE. It also lists {{site.data.keyword.keymanagementserviceshort}} endpoints supported from each region. You can connect to {{site.data.keyword.keymanagementserviceshort}} service in another region using supported endpoints. 
+For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} service in us-south region using us-south endpoint.
 
 | Region  | Endpoints Supported in Region | CRN |                                                                                                                                                                                                            
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| Sydney  | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| Dallas  | | |
+| |`private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
 | |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
 | |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
 | |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
 | |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
 | |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| Washington  | | | |
+| |`private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| Sydney    | | | |
+| | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| Tokyo    | | | |
+| | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| London    | | | |
+| | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| Frankfurt    | | | |
+| | `private.us-south.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:us-south:::endpoint:private.us-south.kms.cloud.ibm.com` | 
+| |`private.us-east.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:us-east:::endpoint:private.us-east.kms.cloud.ibm.com`| 
+| |`private.eu-gb.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-gb:::endpoint:private.eu-gb.kms.cloud.ibm.com`|
+| |`private.eu-de.kms.cloud.ibm.com` |`crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`|
+| |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
+| |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
+| BNPP (EU_FR2)    | | | |
+| | `private.eu-fr2.kms.cloud.ibm.com` | `crn:v1:bluemix:public:kms:eu-fr2:::endpoint:private.eu-fr2.kms.cloud.ibm.com` |
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 
