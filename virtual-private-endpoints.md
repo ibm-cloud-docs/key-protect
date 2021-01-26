@@ -68,8 +68,11 @@ Before you target a virtual private endpoint for
 ## Virtual Private Service Endpoints
 {: #vpe-endpoints}
 
-The following table lists regions where {{site.data.keyword.keymanagementserviceshort}} service supports VPE. It also lists {{site.data.keyword.keymanagementserviceshort}} endpoints supported from each region. You can connect to {{site.data.keyword.keymanagementserviceshort}} service in another region using supported endpoints. 
-For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} service in us-south region using us-south endpoint.
+The following table lists regions where {{site.data.keyword.keymanagementserviceshort}} service supports VPE. 
+It also lists {{site.data.keyword.keymanagementserviceshort}} endpoints supported from each region. You can 
+connect to {{site.data.keyword.keymanagementserviceshort}} service in another region using supported endpoints. 
+For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} service in 
+`us-south` region using the us-south endpoint.
 
 | Region  | Endpoints Supported in Region | CRN |                                                                                                                                                                                                            
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
