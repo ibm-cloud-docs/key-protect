@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, network access policies
 
@@ -133,14 +133,15 @@ complete the following steps to create a network access policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Manage instance policies** page, click the **Add policy** button.
+4. Click the **Manage instance policies** link on the left side of the page.
 
-5. Choose **Network** and select the network that you would like traffic to come
-   through.
+   - Find the `Network access allowed` panel (on the top-right side of the
+     page).
 
-6. Click the **Add policy** button.
+   - Change the policy by selecting either `Public and private (default)` or
+     `Private only` from the dropdown.
 
-7. Confirm the policy was created in the updated **Policies** table.
+   - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enabling-network-access-to-your-service-instance-api}
