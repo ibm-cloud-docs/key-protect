@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-01-26"
 
 keywords: instance settings, service settings, network access policies
 
