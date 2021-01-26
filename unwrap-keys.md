@@ -74,6 +74,7 @@ key (WDEK).
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.key_action+json" \
+        -H "x-kms-key-ring: <key_ring_ID>" \
         -H "correlation-id: <correlation_ID>" \
         -d '{
                 "ciphertext": "<encrypted_data_key>",
@@ -157,6 +158,27 @@ key (WDEK).
         </td>
       </tr>
 
+      <tr>
+        <td>
+          <varname>key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
+            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
+            in every key ring associated with the specified instance. It is recommended to specify 
+            the key ring ID for a more optimized request.
+
+            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
+            header is: default.
+          </p>
+          <p>
+            For more information, see
+            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
+          </p>
+        </td>
+      </tr>
+      
       <tr>
         <td>
           <varname>correlation_ID</varname>

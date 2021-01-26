@@ -120,6 +120,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.key+json" \
+        -H "x-kms-key-ring: <key_ring_ID" \
         -H "correlation-id: <correlation_ID>" \
         -H "prefer: <return_preference>" \
         -d '{
@@ -199,6 +200,24 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
           <p>
             For more information, see
             [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Optional.</strong> The unique identifier of the target key ring that you would 
+            like the newly create key to belong to. If unspecified, the header is automatically
+            set to 'default' and the key will sit in the default key ring in the specified 
+            {{site.data.keyword.keymanagementserviceshort}} service instance.
+          </p>
+          <p>
+            For more information, see
+            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
           </p>
         </td>
       </tr>
