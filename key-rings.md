@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-26"
 
 keywords: key rings
 
@@ -22,8 +22,6 @@ subcollection: key-protect
 {:preview: .preview}
 {:term: .term}
 
-<!--- TODO start: DO NOT MERGE INTO PRODUCTION UNTIL 1/15/2021 -->
-
 # Managing key rings
 {: #managing-key-rings}
 
@@ -34,11 +32,11 @@ in your service instance and restrict access controls at a key ring level.
 As an account admin, you can bundle the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
 called `key rings`. A key ring is a collection of keys located within your
-service instance, in which you can restrict access to via iam access policy. 
+service instance, in which you can restrict access to via IAM access policy. 
 For example, if you want to delegate administration to a specific set of keys 
-for an isolated group, you can create a key ring for those keys with an iam 
-access policy that restricts access to that key ring to the specified group. 
-Users who have access to that specific key ring can create and manage the 
+for a specific group of users, you can create a key ring for those keys and 
+assign the appropriate  IAM access policy to the target user group. Users that 
+are assigned access to the specific key ring can create and manage the 
 resources that exist within the key ring.
 
 You can grant access to key rings within a
@@ -63,10 +61,6 @@ following considerations:
   A key can only belong to one key ring. Key ring assignment happens upon key
   creation. If a key ring id is not passed in upon creation, the key will belong
   to the default key ring.
-
-- **It's not recommended to apply both the keyRing and resource/resourceType attributes on a single IAM policy.**
-  When creating IAM access policies, it is recommended that you specify at most either a key ring ID or
-  a resource ID.
 
 ## Creating key rings with the API
 {: #create-key-ring-api}
