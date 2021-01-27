@@ -29,6 +29,54 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## January 2021
+{: #january-2021}
+
+### Added: Create a key ring
+{: #added-key-ring}
+
+New as of: 2021-01-27
+
+You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API 
+to manage access to a specific set of keys that are bundle a collection 
+called a `key ring`. You can manage and restrict access to key rings to via 
+IAM policies.
+
+To find out more, see
+[Managing key rings](/docs/key-protect?topic=key-protect-managing-key-rings).
+
+### Updated: Restore a deleted key
+{: #updated-restore-key}
+
+New as of: 2021-01-06
+
+Restore key improved: If you have _Manager_ access permissions, you can
+now use the the {{site.data.keyword.keymanagementserviceshort}} UI to restore all
+unexpired-deleted keys.
+
+For more information, see [Restoring
+keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui). 
+
+### Added: Manual Data Synchronization
+{: #added-manual-data-synchronization}
+
+You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API 
+to initiate a manual data synchronization request to to synchronize your service's 
+key records with what is in {{site.data.keyword.keymanagementserviceshort}}'s database
+records.
+
+For more information, see
+[Sync associated resources](/apidocs/key-protect#syncassociatedresources){: external}.
+
+This API is available only for users if a cloud service has enabled
+the key registiation feature as part of its integration with
+{{site.data.keyword.keymanagementserviceshort}}. To learn if an
+[integrated
+service](/docs/key-protect?topic=key-protect-integrate-services)
+supports key registration, refer to its service documentation for
+more information.
+{: preview}
+
 ## December 2020
 {: #december-2020}
 
