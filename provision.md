@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-1"
+lastupdated: "2021-01-28"
 
 keywords: service instance, create service instance, KMS service instance, Key Protect service instance
 
@@ -62,13 +62,9 @@ the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 2. Click **Catalog** to view the list of services that are available on
    {{site.data.keyword.cloud_notm}}.
 
-3. From the All Categories navigation pane, click the **Security and Identity**
-   category.
+3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
-4. From the list of services, click the
-   **{{site.data.keyword.keymanagementserviceshort}}** tile.
-
-5. Select a service plan, and click **Create** to provision an instance of
+4. Select a service plan, and click **Create** to provision an instance of
    {{site.data.keyword.keymanagementserviceshort}} in the account, region, and
    resource group where you are logged in.
 
