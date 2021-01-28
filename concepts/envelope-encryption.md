@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-01-28"
 
 keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -24,12 +24,19 @@ subcollection: key-protect
 # Protecting data with envelope encryption
 {: #envelope-encryption}
 
-Envelope encryption is the practice of encrypting data with a data encryption
-key (DEK) and then encrypting the DEK with a root key that you can fully manage.
+Envelope encryption is the practice of encrypting data with a data 
+encryption key (DEK) and then encrypting the DEK with a root key that you can 
+fully manage.
 {: shortdesc}
 
-{{site.data.keyword.keymanagementservicefull}} protects your stored data with
-advanced encryption and offers several benefits:
+When using encryption to protect sensitive data, it is important to also protect
+the data encryption key guarding your data. Envelope encryption is the process of 
+protecting your data encryption keys by encrypting the DEK with a root key. Root 
+keys are fully manageable and are used decrypt your data encryption key so you can access 
+the underlying data.
+
+{{site.data.keyword.keymanagementservicefull}} uses the envelope encryption to 
+protects your stored, which offers several benefits:
 
 | Benefit | Description |
 | ------- | ----------- |
@@ -43,18 +50,16 @@ advanced encryption and offers several benefits:
 {: #overview}
 
 Envelope encryption combines the strength of multiple encryption algorithms to
-protect your sensitive data in the cloud. It works by wrapping one or more data
-encryption keys (DEKs) with advanced encryption by using a root key that you can
-fully manage.
+protect your sensitive data in the cloud. It works by using a root key to 
+wrap (encrypt) one or more data encryption keys (DEKs). The root key is fully 
+manageable and safeguards your DEKs and their underlying data with encryption
+algorithms.
 
-This key wrapping process creates wrapped DEKs that protect your stored data
-from unauthorized access or exposure. Unwrapping a DEK reverses the envelope
-encryption process by using the same root key, resulting in decrypted and
-authenticated data.
-
-The following diagram shows a contextual view of the key wrapping functionality.
-![The diagram shows a contextual view of envelope encryption.](images/envelope-encryption.svg)
-{: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
+This key wrapping process creates wrapped DEKs that protect your stored 
+plaintext datafrom unauthorized access or exposure. Unwrapping a DEK reverses 
+the envelope encryption process by using the same root key, resulting in 
+decrypted and authenticated data. A DEK cannot be unwrapped without the
+associated root key, which adds an extra layer of security.
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57,
 Recommendation for Key Management. To learn more, see
@@ -108,66 +113,53 @@ ID for your key from the {{site.data.keyword.keymanagementserviceshort}}
 dashboard or by using the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
-## Wrapping keys
+## Wrapping keys with envelope encryption
 {: #wrapping}
 
-Root keys help you group, manage, and protect data encryption keys (DEKs) stored
-in the cloud. You can wrap one or more DEKs with advanced encryption by
+You can wrap one or more DEKs with advanced encryption by
 designating a root key in {{site.data.keyword.keymanagementserviceshort}} that
 you can fully manage.
 
-After you designate a root key in
-{{site.data.keyword.keymanagementserviceshort}}, you can send a key wrap request
-to the service by using the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
-The key wrap operation provides both confidentiality and integrity protection
-for a DEK.
+Complete the following steps to encrypt data via envelope encryption:
 
-The following diagram shows the key wrapping process in action:
-![The diagram shows key wrapping in action.](images/wrapping-keys.svg)
-{: caption="Figure 2. Key wrapping in action." caption-side="bottom"}
+1. Generate or use a provisioned DEK from an IBM Cloud service to encrypt 
+   your sensitive data.
+2. [Generate](/docs/key-protect?topic=key-protect-create-root-keys) 
+   or [import](/docs/key-protect?topic=key-protect-import-root-keys) 
+   a root key that will be used to protect the DEK from step 1.
+3. Use the root key to [wrap](/docs/key-protect?topic=key-protect-wrap-keys
+   the DEK. To provide maximum encryption security, you can specify additional authenticated data (AAD)
+    during your wrap request. Note that the same authentication
+   data will be required when unwrapping the DEK.
+4. Store and maintain the base64 encoded wrapped DEK output in a secure location,
+   such as an app or service.
 
-The following table describes the inputs needed to perform a key wrap operation:
-
-| Input | Description |
-| ----- | ----------- |
-| Root key ID | The ID value for the root key that you want to use for wrapping. The root key can be imported into the service, or it can originate in {{site.data.keyword.keymanagementserviceshort}} from its HSMs. Root keys that are used for wrapping must be 128, 192, or 256 bits so that a wrap request can succeed. |
-| Plaintext | Optional: The data encryption key (DEK) that you want to use for data encryption. This value must be base64 encoded. To generate a new DEK, you can omit the `plaintext` property. {{site.data.keyword.keymanagementserviceshort}} generates a random plaintext (32 bytes) that is rooted in an HSM and then wraps that value. |
-| Additional authentication data (AAD) | Optional: An array of strings that checks the integrity of the key contents. Each string can hold up to 255 characters. If you supply AAD during a wrap request, you must specify the same AAD during the subsequent unwrap request. |
-{: caption="Table 2. Inputs required for key wrapping in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
-
-If you send a wrap request without specifying the plaintext to encrypt, the
-AES-GCM encryption algorithm generates and converts a plaintext to an
-unintelligible form of data called a ciphertext. This process outputs a 256-bit
-DEK with new key material.
-
-The system then uses an AES key-wrapping algorithm, which wraps the DEK and its
-key material with the specified root key. A successful wrap operation returns a
-base64 encoded wrapped DEK that you can store in an
-{{site.data.keyword.cloud_notm}} app or service.
+You can generate a new DEK by omitting the `plaintext` property in your 
+wrap request. The newly created DEK will automatically be wrapped as part
+of the request
+{: note}
 
 ## Unwrapping keys
 {: #unwrapping}
 
-Unwrapping a data encryption key (DEK) decrypts and authenticates the contents
-within the key, returning the original key material to your data service.
+Unwrapping a data encryption key (DEK) decrypts and authenticates the data
+protected within the key.
 
 If your business application needs to access the contents of your wrapped DEKs,
 you can use the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}
-to send an unwrap request to the service. To unwrap a DEK, you specify the ID
-value of the root key and the `ciphertext` value returned during the initial
-wrap request. To complete the unwrap request, you must also supply the
-additional authenticated data (AAD) to check the integrity of the key contents.
+to send an unwrap request to the service. 
 
-The following diagram shows key unwrapping in action.
-![The diagram shows how unwrapping data works.](images/unwrapping-keys.svg)
-{: caption="Figure 3. Key unwrapping in action." caption-side="bottom"}
 
-After you send the unwrap request, the system reverses the key wrapping process
-by using the same AES algorithms. A successful unwrap operation returns the
-base64 encoded `plaintext` value to your {{site.data.keyword.cloud_notm}} data
-at rest service.
+Complete the following steps to encrypt data via envelope encryption:
+
+1. Retrieve the base64 encoded ciphertext of the wrapped DEK.
+2. Retrieve the key ID value of the root key.
+3. Make an unwrap request to [{{site.data.keyword.keymanagementserviceshort}} Unwrap API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
+   Note that if you specified additional authenticated data (AAD) in a previous 
+   wrap request, you must supply them in your unwrap request.
+4. Use the returned base64 encoded plaintext to decrypt the data protected under
+   the DEK.
 
 ## Integrating with {{site.data.keyword.cloud_notm}} Services
 {: #envelope-encryption-integration}
