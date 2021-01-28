@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-22"
+lastupdated: "2021-01-28"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -43,7 +43,7 @@ following **database** services.
 | [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-mongodb?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql){: external} | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-postgresql?topic=cloud-databases-key-protect){: external} |
-| [{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis){: external} | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect){: external} |
+| [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis){: external} | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-redis?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_mongodb_full}}](/docs/hyper-protect-dbaas-for-mongodb){: external} | {{site.data.keyword.ihsdbaas_mongodb_full}} offers fully managed and highly secure {{site.data.keyword.mongodb}} databases with a high level of data confidentiality for your sensitive data. | [View docs](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-key-protect-byok){: external} |
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.ihsdbaas_postgresql_full}}](/docs/hyper-protect-dbaas-for-postgresql){: external} | {{site.data.keyword.ihsdbaas_postgresql_full}} offers fully managed and highly secure {{site.data.keyword.postgresql}} databases with a high level of data confidentiality for your sensitive data. | [View docs](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-key-protect-byok){: external} |
 | [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq){: external} | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/messages-for-rabbitmq?topic=cloud-databases-key-protect){: external} |
