@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-02"
+lastupdated: "2020-02-03"
 
 keywords: instance settings, service settings, network access policies, virtual private endpoints, private gateway, VPE
 
@@ -24,14 +24,13 @@ subcollection: key-protect
 # Using a virtual private endpoint
 {: #virtual-private-endpoints}
 
-After you create a virtual private endpoint, you can send 
-requests to the {{site.data.keyword.keymanagementservicelong}} service 
-from your Virtual Private Cloud (VPC).
+After you created your VPC and you want to connect to 
+{{site.data.keyword.keymanagementserviceshort}} service for your 
+data encryption needs, you can create a virtual private endpoint 
+in your VPC to access Key Protect service within your VPC network.
 {: shortdesc}
 
-Virtual Private Endpoint (VPE) for VPC enables you to connect to 
-{{site.data.keyword.keymanagementserviceshort}} from within your 
-VPC network. You can configure the VPE to use the IP addresses of 
+You can configure the VPE to use the IP addresses of 
 your choice, which are allocated from a subnet within your VPC. 
 VPEs are bound to a [VPE gateway](/docs/vpc?topic=vpc-about-vpe) 
 and serve as an intermediary 
@@ -41,9 +40,8 @@ that enables your workload to interact with
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a 
 virtual private endpoint, you must use the 
 {{site.data.keyword.keymanagementserviceshort}} API, SDK, or Terraform.
-This capability is not available from the
-{{site.data.keyword.keymanagementserviceshort}} UI, due to the IBM Console
-only being accessible through public networks.
+The {{site.data.keyword.keymanagementserviceshort}} UI has to be accessed 
+through public network from your VPC.
 {: note}
 
 ## Before you begin
@@ -124,4 +122,3 @@ of the target region.
 | |`private.au-syd.kms.cloud.ibm.com`|`crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`|
 | |`private.jp-tok.kms.cloud.ibm.com`| `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`|
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
-
