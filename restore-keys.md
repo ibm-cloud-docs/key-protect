@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-24"
+lastupdated: "2021-01-11"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -25,30 +25,40 @@ subcollection: key-protect
 # Restoring keys
 {: #restore-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to restore a
-previously deleted root key and access its associated data on the cloud.
+You can use {{site.data.keyword.keymanagementservicefull}} to restore
+a previously deleted key (root or standard; imported or managed)
+and access its associated data on the cloud.
 {: shortdesc}
 
-As an admin, you might need to restore a root key that you imported to
-{{site.data.keyword.keymanagementserviceshort}} so that you can access data that
-the key previously protected. When you restore a key, you move the key from the
-_Destroyed_ to the _Active_ key state, and you restore access to any data that
-was previously encrypted with the key.
+As an admin, you might need to restore a key that you imported to
+{{site.data.keyword.keymanagementserviceshort}} so that you can
+access data that the key previously protected. When you restore a
+key, you move the key from the _Destroyed_ to the _Active_ key
+state, and you restore access to any data that was previously
+encrypted with the key.
 
-At this time, you are only able to restore root keys. Support is not available
-for restoring standard keys.
-
-You can restore a deleted key within 30 days of its deletion. This capability is
-available only for root keys that were previously imported to the service.
+You can restore a deleted key within 30 days of its deletion if it
+has not expired. After 30 days deletion is irreversible.
 {: note}
+
+## Determining restorablity of a key with the API
+{: #determine-restorability}
+
+You can determine if a key is restorable using the API. By using
+the [GET](/docs/view-key-details?topic=) or [GET
+metadata](/docs/view-key-details?topic=view-key-metadata-api) calls,
+examine the `restoreExpirationDate` and `restoreAllowed` fields
+returned with the key.
 
 ## Restoring a deleted key with the console
 {: #restore-ui}
 
-If you prefer to restore your root key by using a graphical interface, you can
-use the IBM Cloud console.
+If you prefer to restore your key by using a graphical interface,
+you can use the IBM Cloud console.
 
-[After you import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [delete](/docs/key-protect?topic=key-protect-delete-keys) a root key,
+[After you import your existing keys into the
+service](/docs/key-protect?topic=key-protect-create-root-keys) and
+[delete](/docs/key-protect?topic=key-protect-delete-keys) a key,
 complete the following steps to restore the key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
@@ -66,10 +76,9 @@ complete the following steps to restore the key:
 6. Click the **Apply** button.
 
 7. Click the ⋯ icon to open a list of options for the key that you want to
-   delete.
+   restore.
 
-8. Click the **Restore Key** button to open a tab and enter the key ID and
-   original key material that was associated with the deleted key.
+8. Click the **Restore Key** button to open a tab and enter the key ID.
 
 9. Click **Restore Key** button.
 
@@ -78,7 +87,7 @@ complete the following steps to restore the key:
 ## Restoring a deleted key with the API
 {: #restore-api}
 
-Restore a previously imported root key by making a `POST` call to the following
+Restore a previously imported key by making a `POST` call to the following
 endpoint.
 
 ```plaintext
@@ -88,18 +97,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To restore a key, you must be assigned a _Manager_ access policy for the
-    instance or key. To learn how IAM roles map to
-    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
-    {: note}
+   To restore a key, you must be assigned a _Manager_ access policy
+   for the instance or key. To learn how IAM roles map to
+   {{site.data.keyword.keymanagementserviceshort}} service actions,
+   check out [Service access
+   roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+   {: note}
 
 2. Retrieve the ID of the key that you want to restore.
 
-    You can retrieve the ID for a specified key by making a
-    [list keys request](/apidocs/key-protect#list-keys){: external}
-    request, or by viewing your keys in the
-    {{site.data.keyword.keymanagementserviceshort}} dashboard.
+   You can retrieve the ID for a specified key by making a [list
+   keys request](/apidocs/key-protect#list-keys){: external} request,
+   or by viewing your keys in the
+   {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following `curl` command to restore the key and regain access to its
    associated data.
@@ -118,17 +128,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>" 
-        -d '{
-                "metadata": {
-                    "collectionType": "application/vnd.ibm.kms.key+json",
-                    "collectionTotal": 1
-                },
-                "resources": [
-                    {
-                        "payload": "<key_material>"
-                    }
-                ]
-            }'
     ```
     {: codeblock}
 
@@ -206,27 +205,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
       <tr>
         <td>
-          <varname>key_material</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The base64 encoded key material, such as
-            an existing such as an existing root key, that you want to store and
-            manage in the service.
-          </p>
-          <p>
-            Ensure that the key material meets the following requirements:
-          </p>
-          <p>
-            <ul>
-              <li>
-                The key must be 128, 192, or 256 bits.
-              </li>
-              <li>
-                The bytes of data, for example 32 bytes for 256 bits, must be
-                encoded by using base64 encoding.
-              </li>
-            </ul>
           <varname>key_ring_ID</varname>
         </td>
         <td>
@@ -252,14 +230,14 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
       </caption>
     </table>
 
-    A successful restore request returns an HTTP `201 Created` response, which
-    indicates that the key was restored to the _Active_ key state and is now
-    available for encrypt and decrypt operations. All attributes and policies
-    that were previously associated with the key are also restored.
+   A successful restore request returns an HTTP `201 Created` response, which
+   indicates that the key was restored to the _Active_ key state and is now
+   available for encrypt and decrypt operations. All attributes and policies
+   that were previously associated with the key are also restored.
 
-    You will have access to data associated with the key as soon as the key is
-    restored.
-    {: note}
+   You will have access to data associated with the key as soon as the key is
+   restored.
+   {: note}
 
 4. Optional: Verify that the key was restored by retrieving details about the
    key.
@@ -273,13 +251,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
     ```
     {: codeblock}
 
-    Review the `state` field in the response body to verify that the key
-    transitioned to the _Active_ key state. The following JSON output shows the
-    metadata details for an _Active_ key.
+   Review the `state` field in the response body to verify that the key
+   transitioned to the _Active_ key state. The following JSON output shows the
+   metadata details for an _Active_ key.
 
-    The integer mapping for the _Active_ key state is 1. Key States are based on
-    NIST SP 800-57.
-    {: note}
+   The integer mapping for the _Active_ key state is 1. Key States are based on
+   NIST SP 800-57.
+   {: note}
 
     ```json
     {
