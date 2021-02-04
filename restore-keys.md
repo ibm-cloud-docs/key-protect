@@ -78,7 +78,7 @@ complete the following steps to restore the key:
 7. Click the ⋯ icon to open a list of options for the key that you want to
    restore.
 
-8. Click the **Restore Key** button to open a tab and enter the key ID.
+8. Click the **Restore Key** button to open the restore side panel.
 
 9. Click **Restore Key** button.
 
