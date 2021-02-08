@@ -30,8 +30,20 @@ Stay up-to-date with the new features that are available for
 {: shortdesc}
 
 
-## Frebruary 2021
+## February 2021
 {: #february-2021}
+
+### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
+{: #february-2021-ui-updates}
+
+New as of: 2021-02-05
+
+If you have _Manager_ access permissions, you can filter for keys in the
+**Destroyed** state and restore an imported root key via the ⋯ icon on the
+**Keys** table. You can use the restore key side panel to complete the 
+process for restoring the key.
+
+For more information, see [Restoring a deleted key with the console](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
 {: #added-private-endpoints}
