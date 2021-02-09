@@ -98,7 +98,9 @@ advanced encryption and management of data.
   </dt>
   <dd>
     Standard keys, which can be used as DEKs, can store encrypted data in 
-    {{site.data.keyword.keymanagementserviceshort}}. 
+    {{site.data.keyword.keymanagementserviceshort}}. Once your plaintext 
+    standard key is generated an protecting underlying data, destroy the 
+    plaintext and safely store the encrypted standard key. 
   </dd>
 </dl>
 
