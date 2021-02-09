@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-01-28"
 
 keywords: Key Protect tutorial, secure import
 
@@ -275,8 +275,8 @@ security for your encryption key while it's in flight to the service.
     $ curl -X POST \
         "$KP_API_URL/api/v2/import_token" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" \
+        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "bluemix-instance: $INSTANCE_ID" \
         -H "content-type: application/json" \
         -d '{
                 "expiration": 1200,
@@ -342,8 +342,8 @@ To retrieve the import token contents:
     $ curl -X GET \
         "$KP_API_URL/api/v2/import_token" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" > getImportTokenResponse.json
+        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "bluemix-instance: $INSTANCE_ID" > getImportTokenResponse.json
     ```
     {: codeblock}
 
@@ -569,8 +569,8 @@ To import the key:
     $ curl -X POST \
         "$KP_API_URL/api/v2/keys" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" \
+        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "bluemix-instance: $INSTANCE_ID" \
         -H "content-type: application/json" \
         -d '{
                 "metadata": {
@@ -681,8 +681,8 @@ To import the key:
     $ curl -X DELETE \
         "$KP_API_URL/api/v2/keys/$ROOT_KEY_ID" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" | jq .
+        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "bluemix-instance: $INSTANCE_ID" | jq .
     ```
     {: codeblock}
 

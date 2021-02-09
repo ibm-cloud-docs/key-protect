@@ -29,6 +29,37 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+
+## February 2021
+{: #february-2021}
+
+### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
+{: #february-2021-ui-updates}
+
+New as of: 2021-02-05
+
+If you have _Manager_ access permissions, you can filter for keys in the
+**Destroyed** state and restore an imported root key via the ⋯ icon on the
+**Keys** table. You can use the restore key side panel to complete the 
+process for restoring the key.
+
+For more information, see [Restoring a deleted key with the console](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
+
+### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
+{: #added-private-endpoints}
+
+New as of: 2021-02-05
+
+You can now connect to {{site.data.keyword.keymanagementserviceshort}} from your
+virtual private cloud(VPC) via virtual private endpoint. VPEs are bound to a 
+[VPE gateway](/docs/vpc?topic=vpc-about-vpe) and serve as an intermediary 
+that enables your workload to interact with 
+{{site.data.keyword.keymanagementserviceshort}}.
+
+To get started, [provision a Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started){: external}
+and create a [VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external}. For more information, see
+[Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
+
 ## January 2021
 {: #january-2021}
 
@@ -66,7 +97,7 @@ key records with what is in {{site.data.keyword.keymanagementserviceshort}}'s da
 records.
 
 For more information, see
-[Sync associated resources](/apidocs/key-protect#syncassociatedresources){: external}.
+[Sync associated resources](/docs/key-protect?topic=key-protect-sync-associated-resources){: external}.
 
 This API is available only for users if a cloud service has enabled
 the key registiation feature as part of its integration with
