@@ -1,10 +1,11 @@
 ---
 
 copyright:
-years: 2020
-lastupdated: "2020-11-24"
+years: 2020, 2021
 
-keywords: Key Protect error messages
+lastupdated: "2021-02-08"
+
+keywords: Key Protect, error messages, error codes
 
 subcollection: key-protect
 
@@ -14,6 +15,8 @@ subcollection: key-protect
 {:external: target="_blank" .external}
 {:note: .note}
 {:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
 
 # Error messages
 {: #error-messages}
@@ -45,74 +48,76 @@ The table of contents is sorted by the error message.
 Some error messages occur more than once, in those cases the HTTP status code is
 included at the end of the error message.
 
-1. Collection total does not match number...
-  [details](#error-messages-collection-total-mismatch-err)
-2. Data in body does not match data required...
-  [details](#error-messages-body-query-param-mismatch-err)
-3. Extracting the subject from the bearer...
-  [details](#error-messages-bearer-sub-extraction-err)
-4. Invalid body data was passed...
-  [details](#error-messages-bad-body-err)
-5. Key has already been deleted...
-  [details](#error-messages-key-deleted-err)
-6. Key is not in a valid state (409)
-  [details](#error-messages-key-action-invalid-state-err)
-7. Key is not in a valid state (422)
-  [details](#error-messages-key-invalid-state-err)
-8. Key is protecting one or more cloud...
-  [details](#error-messages-protected-resource-err)
-9. Key metadata became corrupted...
-   [details](#error-messages-incomplete-metadata-err)
-10. Key restoration has expired
+1. 	Collection total does not match number...
+  	[details](#error-messages-collection-total-mismatch-err)
+2. 	Data in body does not match data required...
+  	[details](#error-messages-body-query-param-mismatch-err)
+3. 	Extracting the subject from the bearer...
+  	[details](#error-messages-bearer-sub-extraction-err)
+4. 	Invalid body data was passed...
+  	[details](#error-messages-bad-body-err)
+5. 	Invalid field error...
+	  [details](#error-messages-invalid-field-err)
+6.	Key has already been deleted...
+    [details](#error-messages-key-deleted-err)
+7. Key is not in a valid state (409)
+  	[details](#error-messages-key-action-invalid-state-err)
+8. Key is not in a valid state (422)
+  	[details](#error-messages-key-invalid-state-err)
+9. Key is protecting one or more cloud...
+	  [details](#error-messages-protected-resource-err)
+10. Key metadata became corrupted...
+    [details](#error-messages-incomplete-metadata-err)
+11. Key restoration has expired
     [details](#error-messages-key-restore-expired)
-11. KeyCreateImportAccess instance policy...
+12. KeyCreateImportAccess instance policy...
     [details](#error-messages-key-create-import-access-err)
-12. Missing body in request
+13. Missing body in request
     [details](#error-messages-no-body-err)
-13. Number of authorizations required to...
+14. Number of authorizations required to...
     [details](#error-messages-authorizations-not-met)
-14. Only a single instance policy may be...
+15. Only a single instance policy may be...
     [details](#error-messages-num-collection-resource-err)
-15. Only imported keys may be restored
+16. Only imported keys may be restored
     [details](#error-messages-key-impt-req-err)
-16. Requested action can only be completed with a root key (400)
+17. Requested action can only be completed with a root key (400)
     [details](#error-messages-key-root-req-err)
-17. Requested action can only be completed with a root key (422)
+18. Requested action can only be completed with a root key (422)
     [details](#error-messages-key-root-req-reg-err)
-18. Requested change is not compliant with configuration rules
+19. Requested change is not compliant with configuration rules
     [details](#error-config_rule_conflict_err)
-19. Signature is invalid
+20. Signature is invalid
     [details](#error-invalid_sig_exp_err)
-20. The action could not be performed on...
+21. The action could not be performed on...
     [details](#error-messages-key-expired-err)
-21. The encrypted nonce given does not match...
+22. The encrypted nonce given does not match...
     [details](#error-messages-incorrect-nonce-err)
-22. The import token has expired
+23. The import token has expired
     [details](#error-messages-import-token-expired-err)
-23. The key cannot be deleted because it's...
+24. The key cannot be deleted because it's...
     [details](#error-messages-prev-key-del-err)
-24. The key is not dual auth enabled and...
+25. The key is not dual auth enabled and...
     [details](#error-messages-not-dual-auth-err)
-25. The key was updated recently
+26. The key was updated recently
     [details](#error-messages-req-too-early-err)
-26. The provided ciphertext is invalid or...
+27. The provided ciphertext is invalid or...
     [details](#error-messages-unprocessable-ciphertext-err)
-27. The provided encrypted nonce was not...
+28. The provided encrypted nonce was not...
     [details](#error-messages-incorrect-nonce-iv-err)
-28. The resource(s) queried does not belong to the service.
+29. The resource(s) queried does not belong to the service.
     [details](#error-messages-resource-owner-err)
-29. This action can only be done by a service...
+30. This action can only be done by a service...
     [details](#error-messages-service-only-err)
-30. This action is not permitted on this...
+31. This action is not permitted on this...
     [details](#error-messages-feature-restricted-err)
-31. This request requires that the key version...
+32. This request requires that the key version...
     [details](#error-messages-key-version-invalid)
-32. This root key has been rotated within...
+33. This root key has been rotated within...
     [details](#error-messages-key-rotation-not-permitted)
-33. This root key was created with user-supplied...
+34. This root key was created with user-supplied...
     [details](#error-messages-key-payload-req-err)
-34. Unauthorized: The user does not have...
-    [details](#error-messages-unauthorized-err)
+35. Unauthorized: The user does not have...
+	  [details](#error-messages-unauthorized-err)
 
 ## 1 - Collection total does not match number...
 {: #error-messages-collection-total-mismatch-err}
@@ -562,7 +567,113 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 5 - Key has already been deleted...
+## 5 - Invalid key error...
+{: #error-messages-invalid-field-err}
+
+### Message
+{: #error-messages-invalid-field-err-message}
+
+When wrapping a key, the message, `The field 'plaintext' must be: a base64 encoded key material` will be shown if invalid plaintext is passed in the request. 
+
+When unwrapping a key, the message, `The field 'ciphertext' must be: the original base64 encoded ciphertext from the wrap operation` if invalid ciphertext is passed.
+
+### HTTP status code
+{: #error-messages-invalid-field-err-http}
+
+400
+
+### Context
+{: #error-messages-invalid-field-err-context}
+
+A sample request to wrap a key that fails:
+
+```sh
+curl -X POST \
+"https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/wrap" \
+-H "authorization: Bearer <ACCESS_TOKEN>" \
+-H "bluemix-instance: <KP_INSTANCE_ID>" \
+-H "application/vnd.ibm.kms.key_action+json" \
+-d '{
+    "plaintext": "q+x3Qi.../BVb8bPj....vVD;",
+}'
+```
+{: pre}
+
+The response:
+
+```sh
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Bad Request: Wrap with key could not be performed: Please see `reasons` for more details (INVALID_FIELD_ERR)",
+            "reasons": [
+                {
+                    "code": "INVALID_FIELD_ERR",
+                    "message": "The field `plaintext` must be: a base64 encoded key material: illegal base64 data at input byte 38",
+                    "status": 400,
+                    "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
+                    "target": {
+                        "type": "field",
+                        "name": "plaintext"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+{: screen}
+
+A sample request to unwrap a key that fails:
+
+```sh
+request:
+
+curl -X POST \
+"https://us-south.kms.cloud.ibm.com/api/v2/keys/$KEY_ID/actions/unwrap" \
+-H "authorization: Bearer <ACCESS_TOKEN>" \
+-H "bluemix-instance: <KP_INSTANCE_ID>" \
+-H "application/vnd.ibm.kms.key_action+json" \
+-d '{
+    "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiUnl...hYTUtNDNmMi05NTc5LWM2NjAzN2EwNjhkNyJ"
+}'
+```
+{: pre}
+
+The response:
+
+```
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Bad Request: Unwrap with key could not be performed: Please see 'reasons' for more details (INVALID_FIELD_ERR)",
+            "reasons": [
+                {
+                    "code": "INVALID_FIELD_ERR",
+                    "message": "The field 'ciphertext' must be: the original base64 encoded ciphertext from the wrap operation: illegal base64 data at input byte 208",
+                    "status": 400,
+                    "moreInfo": "https://cloud.ibm.com/apidocs/key-protect",
+                    "target": {
+                        "type": "field",
+                        "name": "ciphertext"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+{: screen}
+
+## 6 - Key has already been deleted...
 {: #error-messages-key-deleted-err}
 
 ### Message
@@ -639,7 +750,7 @@ $ curl -X DELETE \
 ```
 {: screen}
 
-## 6 - Key is not in a valid state
+## 7 - Key is not in a valid state
 {: #error-messages-key-action-invalid-state-err}
 
 ### Message
@@ -854,7 +965,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 7 - Key is not in a valid state
+## 8 - Key is not in a valid state
 {: #error-messages-key-invalid-state-err}
 
 ### Message
@@ -890,7 +1001,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 8 - Key is protecting one or more cloud...
+## 9 - Key is protecting one or more cloud...
 {: #error-messages-protected-resource-err}
 
 ### Message
@@ -958,7 +1069,7 @@ $ ibmcloud kp key delete $KEY_ID -i $KP_INSTANCE_ID --force --output json
 ```
 {: codeblock}
 
-## 9 - Key metadata became corrupted...
+## 10 - Key metadata became corrupted...
 {: #error-messages-incomplete-metadata-err}
 
 ### Message
@@ -990,7 +1101,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 10 - Key restoration has expired
+## 11 - Key restoration has expired
 {: #error-messages-key-restore-expired}
 
 ### Message
@@ -1018,7 +1129,7 @@ The client should not repeat this request without modification.
 This error occurs when you try to restore a key that was deleted more than 30
 days ago.
 
-## 11 - KeyCreateImportAccess instance policy...
+## 12 - KeyCreateImportAccess instance policy...
 {: #error-messages-key-create-import-access-err}
 
 ### Message
@@ -1244,7 +1355,7 @@ curl -X POST \
 ```
 {: screen}
 
-## 12 - Missing body in request
+## 13 - Missing body in request
 {: #error-messages-no-body-err}
 
 ### Message
@@ -1372,7 +1483,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 13 - Number of authorizations required to...
+## 14 - Number of authorizations required to...
 {: #error-messages-authorizations-not-met}
 
 ### Message
@@ -1486,7 +1597,7 @@ $ curl -X DELETE \
 ```
 {: screen}
 
-## 14 - Only a single instance policy may be...
+## 15 - Only a single instance policy may be...
 {: #error-messages-num-collection-resource-err}
 
 ### Message
@@ -1580,7 +1691,7 @@ $ curl -X PUT \
 ```
 {: screen}
 
-## 15 - Only imported keys may be restored
+## 16 - Only imported keys may be restored
 {: #error-messages-key-impt-req-err}
 
 ### Message
@@ -1731,7 +1842,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 16 - Requested action can only be completed...
+## 17 - Requested action can only be completed...
 {: #error-messages-key-root-req-err}
 
 ### Message
@@ -1815,7 +1926,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 17 - Requested action can only be completed...
+## 18 - Requested action can only be completed...
 {: #error-messages-key-root-req-reg-err}
 
 ### Message
@@ -1851,7 +1962,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 18 - Requested change is not compliant...
+## 19 - Requested change is not compliant...
 {: #error-config_rule_conflict_err}
 
 ### Message
@@ -1881,7 +1992,7 @@ For example, if the request originated from a public IP address and the instance
 policy prohibits access from a public IP address, then you will receive this
 error message.
 
-## 19 - Signature is invalid
+## 20 - Signature is invalid
 {: #error-invalid_sig_exp_err}
 
 ### Message
@@ -1910,7 +2021,7 @@ An error occurred when a key was rewrapped.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 20 - The action could not be performed on...
+## 21 - The action could not be performed on...
 {: #error-messages-key-expired-err}
 
 ### Message
@@ -2076,7 +2187,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 21 - The encrypted nonce given does not match...
+## 22 - The encrypted nonce given does not match...
 {: #error-messages-incorrect-nonce-err}
 
 ### Message
@@ -2249,7 +2360,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 22 - The import token has expired
+## 23 - The import token has expired
 {: #error-messages-import-token-expired-err}
 
 ### Message
@@ -2374,7 +2485,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 23 - The key cannot be deleted because it's...
+## 24 - The key cannot be deleted because it's...
 {: #error-messages-prev-key-del-err}
 
 ### Message
@@ -2417,7 +2528,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 24 - The key is not dual auth enabled and...
+## 25 - The key is not dual auth enabled and...
 {: #error-messages-not-dual-auth-err}
 
 ### Message
@@ -2621,7 +2732,7 @@ kp.Error:
 ```
 {: codeblock}
 
-## 25 - The key was updated recently
+## 26 - The key was updated recently
 {: #error-messages-req-too-early-err}
 
 ### Message
@@ -2691,7 +2802,7 @@ OK
 ```
 {: codeblock}
 
-## 26 - The provided ciphertext is invalid or...
+## 27 - The provided ciphertext is invalid or...
 {: #error-messages-unprocessable-ciphertext-err}
 
 ### Message
@@ -2724,7 +2835,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 27 - The provided encrypted nonce was not...
+## 28 - The provided encrypted nonce was not...
 {: #error-messages-incorrect-nonce-iv-err}
 
 ### Message
@@ -2758,7 +2869,7 @@ This error is returned when there is an internal error.
 If you get this error please contact
 [IBM support](/unifiedsupport/supportcenter){: external}
 
-## 28 - The resource(s) queried does not belong to the service
+## 29 - The resource(s) queried does not belong to the service
 {: #error-messages-resource-owner-err}
 
 ### Message
@@ -2793,7 +2904,7 @@ Object Storage (COS) bucket to encrypt their data using a
 
 Using the COS example, COS cannot delete the key used to encrypt data.
 
-## 29 - This action can only be done by a service...
+## 30 - This action can only be done by a service...
 {: #error-messages-service-only-err}
 
 ### Message
@@ -2832,7 +2943,7 @@ See this resources for more information about registrations.
 
 - [API documentation](/apidocs/key-protect#createregistration){: external}
 
-## 30 - This action is not permitted on this...
+## 31 - This action is not permitted on this...
 {: #error-messages-feature-restricted-err}
 
 ### Message
@@ -2865,7 +2976,7 @@ For example, instance policy was created for an `allowedIp` address range, which
 only supports IPv4 addresses. You then made a request to the instance with an
 IPv6 address, which returns this error.
 
-## 31 - This request requires that the key version...
+## 32 - This request requires that the key version...
 {: #error-messages-key-version-invalid}
 
 ### Message
@@ -2908,7 +3019,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-## 32 - This root key has been rotated within...
+## 33 - This root key has been rotated within...
 {: #error-messages-key-rotation-not-permitted}
 
 ### Message
@@ -3013,7 +3124,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 33 - This root key was created with user-supplied...
+## 34 - This root key was created with user-supplied...
 {: #error-messages-key-payload-req-err}
 
 ### Message
@@ -3095,7 +3206,7 @@ $ curl -X POST \
 ```
 {: screen}
 
-## 34 - Unauthorized: The user does not have...
+## 35 - Unauthorized: The user does not have...
 {: #error-messages-unauthorized-err}
 
 ### Message
@@ -3207,6 +3318,12 @@ These are the error messages, sorted the the HTTP status code.
 - Invalid body data was passed: Please ensure the data passed had valid
   formatting with no invalid characters -
   [details](#error-messages-bad-body-err)
+
+- Invalid field error: for wrap `The field 'plaintext' must be: a base64
+	encoded key material` if invalid plaintext is passed in the request; and `The
+	field 'ciphertext' must be: the original base64 encoded ciphertext from the
+	wrap operation` for unwrap if invalid ciphertext is passed. -
+  [details](#error-messages-invalid-field-err)
 
 - Key restoration has expired -
   [details](#error-messages-key-restore-expired)
@@ -3328,7 +3445,7 @@ These are the error messages, sorted the the HTTP status code.
 ## Sorted by reason code
 {: #error-messages-sorted-by-reason-code}
 
-These are the error messages, sorted the the reason code.
+This section sorts error messages by the reason code.
 
 - AUTHORIZATIONS_NOT_MET -
   [details](#error-messages-authorizations-not-met)
@@ -3352,6 +3469,8 @@ These are the error messages, sorted the the reason code.
   [details](#error-messages-incorrect-nonce-err)
 - INCORRECT_NONCE_IV_ERR -
   [details](#error-messages-incorrect-nonce-iv-err)
+- INVALID_FIELD_ERR -
+	[details](#error-messages-invalid-field-err)
 - INVALID_SIG_EXP_ERR
   [details](#error-invalid_sig_exp_err)
 - KEY_ACTION_INVALID_STATE_ERR -
