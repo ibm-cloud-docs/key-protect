@@ -29,17 +29,19 @@ encryption key (DEK) and then encrypting the DEK with a fully
 manageable root key.
 {: shortdesc}
 
-When working with sensitive data, it is important to protect the data with a data 
-encryption key (DEK). A DEK is an encryption key that is designed to encrypt and decrypt 
-data and can be generated and managed by your service or an IBM Cloud service.
-While the DEK protects your data, DEKs are also susceptible to attacks so you should take
-preventative measures of protecting your DEKs with envelope encryption. Envelope encryption 
-is the process of protecting your data encryption keys by encrypting the DEK with a root key. 
-Root keys are fully manageable and are used to decrypt your data encryption key so you can access 
-the underlying data.
+When working with sensitive data, it is important to protect the data with a 
+data encryption key (DEK). A DEK is an encryption key that is designed to 
+encrypt and decrypt data and can be generated and managed by your service or 
+an IBM Cloud service. While the DEK secures your data, the DEK itself is also 
+susceptible to attacks so you should take preventative measures to protect your 
+DEKs with envelope encryption. Envelope encryption is the process of protecting 
+your data encryption keys by encrypting the DEK with a [root key](#key-types). 
+The same root key is used to decrypt your DEK, which you can use to
+decrypt any data encrypted by the DEK.
 
-{{site.data.keyword.keymanagementservicefull}} uses envelope encryption to 
-protects your stored, which offers several benefits:
+You can use {{site.data.keyword.keymanagementservicefull}} to create fully managed 
+root keys for use with envelope encryption to protect your stored data, which 
+offers several benefits:
 
 | Benefit | Description |
 | ------- | ----------- |
