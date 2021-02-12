@@ -45,10 +45,11 @@ offers several benefits:
 
 | Benefit | Description |
 | ------- | ----------- |
-| Customer-managed encryption keys | With the service, you can provision root keys to protect the security of your encrypted data encryption keys (DEKs) in the cloud. Root keys serve as master key-wrapping keys, which help you manage and safeguard the DEKs provisioned in {{site.data.keyword.cloud_notm}} data services. You decide whether to import your existing root keys, or have {{site.data.keyword.keymanagementserviceshort}} generate them on your behalf. |
-| Confidentiality and integrity protection | {{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) to protect keys. When you create keys in the service, {{site.data.keyword.keymanagementserviceshort}} generates them within the trust boundary of {{site.data.keyword.cloud_notm}} hardware security modules (HSMs), so only you have access to your encryption keys. |
-| Cryptographic shredding of data | If your organization detects a security issue, or your app no longer needs a set of data, you can choose to shred the data permanently from the cloud. When you delete a root key that protects other DEKS, you ensure that the keys' associated data can no longer be accessed or decrypted. |
-| Delegated user access control | {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/key-protect?topic=key-protect-manage-access#roles), security admins decide who can access which root keys in the service. |
+| Root Key Material Management | With {{site.data.keyword.keymanagementservicefull}}, you can control how root key material is managed. A [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) can be set to automatically rotate root key material at 1 to 12 month intervals to meet desired security standards and cryptographic best practices, or you can [rotate a root key manually](/docs/key-protect?topic=key-protect-rotate-keys). {{site.data.keyword.keymanagementservicefull}} will automatically detect the which version of the root key was used to encrypt any ciphertext associated with the root key and provides the ability to rewrap ciphertext with the latest key material. |
+| Confidentiality and integrity protection | When you create keys in the service, {{site.data.keyword.keymanagementserviceshort}} generates them within the trust boundary of a {{site.data.keyword.cloud_notm}} [hardware security module (HSM)](link to what hsms do), meaning you can provision root keys in the cloud without ever exposing raw root key material outside of a secured HSM. The Advanced Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) is used to encrypt the root key material within the service. |
+| Cryptographic shredding of data | If your organization detects a security issue, or your app no longer needs a set of encrypted data, you can choose to crypto-shred the data permanently. When you purge the root key that encrypts a DEK, you remove the ability to unencrypt that DEK, ensuring that the DEK's associated data can no longer be recovered.|
+| Delegated user access control | {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/key-protect?topic=key-protect-manage-access#roles), security admins can securely share access to root keys. Encrypted DEKs can then be shared and unencrypted only by those with access to the encrypting root key, mitigating the key exchange problem of symmetric algorithms. |
+| Customer-managed encryption keys | {{site.data.keyword.keymanagementserviceshort}} allows you to manage what actions a specific root key can do, such as [wrapping, rotating, and deleting a key](/docs/key-protect?topic=key-protect-key-states#key-states-service-actions). |
 {: caption="Table 1. Describes the benefits of customer-managed encryption" caption-side="top"}
 
 ## How it works
@@ -56,8 +57,8 @@ offers several benefits:
 
 Envelope encryption combines the strength of multiple encryption algorithms to
 protect your sensitive data in the cloud. It works by using a root key to 
-wrap (encrypt) one or more data encryption keys (DEKs). The root key is fully 
-manageable and safeguards your wrapped (encrypted) DEKs with encryption algorithms.
+wrap (encrypt) one or more data encryption keys (DEKs). The root key safeguards 
+your wrapped (encrypted) DEKs with encryption algorithms.
 
 This key wrapping process creates wrapped DEKs that protect them from unauthorized 
 access or exposure. Unwrapping a DEK reverses 
