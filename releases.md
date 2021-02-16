@@ -29,7 +29,6 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-
 ## February 2021
 {: #february-2021}
 
@@ -62,7 +61,7 @@ Note: A key purge can be reversed by restoring the hard deleted key.
   (key metadata, registrations, policies, etc) for an extended period of time, 
   it is recommended to perform the necessary API or CLI calls to retrieve and 
   store that data in your own storage device.
-  
+
 ### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
 {: #february-2021-ui-updates}
 
@@ -153,6 +152,7 @@ that allows you to view the operational metrics for your
 
 To find out more, see
 [Managing metrics](/docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
+
 ### Added: Create a key alias
 {: #added-key-alias}
 
