@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-12"
+  years: 2017, 2021
+lastupdated: "2020-02-18"
 
 keywords: release notes, changelog, what's new, service updates, service bulletin
 
@@ -31,6 +31,25 @@ Stay up-to-date with the new features that are available for
 
 ## February 2021
 {: #february-2021}
+
+### Added: Updates to the Key Protect UI
+{: #upcoming-key-encrypt-ui}
+
+New as of: 2021-02-15
+
+Managing keys through the UI interface has been enhanced with new options presented in a simple and convenient selectable option menu within the context of each managed key. Simply click on the "overflow" icon  at the end of each row to access common features and UI enhancements.
+
+Note that "Associated Resources" are now accessible within the context of each key in the console, as well as having its own item in the menu. Also, setting a key's rotation policy is now possible in the same panel where a key can be manually rotated.
+
+### Added: Feature updates to the Key Protect UI
+{: #upcoming-key-encrypt-ui}
+
+New as of: 2021-02-15
+
+The Key Protect UI now has support for the following feature:
+
+Wrap/Unwrap (Envelope Encryption)
+You can now use the Key Protect UI to wrap/unwrap active root keys. For more information, see Protecting data with envelope encryption for an overview, or check the documentation for how to wrap and unwrap your keys.
 
 ### Coming soon: Updates to key deletion functionality
 {: #upcoming-key-deletion-changes}
