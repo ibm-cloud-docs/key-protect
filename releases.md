@@ -29,40 +29,9 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-
 ## February 2021
 {: #february-2021}
 
-### Coming soon: Updates to key deletion functionality
-{: #upcoming-key-deletion-changes}
-
-Release Date: 2021-02-10
-
-Beginning in late February 2021, {{site.data.keyword.keymanagementserviceshort}} 
-will implement a key purge feature that will automatically purge any keys that 
-have been deleted for more than 90 days. A purged key and its associated data 
-will be permanently removed, or hard deleted, from the 
-{{site.data.keyword.keymanagementserviceshort}} database.
-
-When a user or service deletes a key in Key Protect today, if the key is not 
-restored within 30 days, the key is soft deleted. All key data, except key 
-material data, remains in {{site.data.keyword.keymanagementserviceshort}}, and 
-those details are retrievable by List Keys, Get Key and other APIs. Once 
-automatic key purge is introduced, users will not be able to retrieve any
-information regarding a purged key. Any API calls that use the Key ID of a 
-purged key will result in a 404 HTTP Not Found error.
-
-Note: A key purge can be reversed by restoring the hard deleted key.
-
-- **How will the changes impact my environment?**
-  The majority of users will not notice an impact. Please note that any data 
-  related to a purged key (key metadata, registrations, policies, etc) will no 
-  longer be available via the {{site.data.keyword.keymanagementserviceshort}} 
-  service. If you are required to retain any data related to a purged key 
-  (key metadata, registrations, policies, etc) for an extended period of time, 
-  it is recommended to perform the necessary API or CLI calls to retrieve and 
-  store that data in your own storage device.
-  
 ### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
 {: #february-2021-ui-updates}
 
@@ -153,6 +122,7 @@ that allows you to view the operational metrics for your
 
 To find out more, see
 [Managing metrics](/docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
+
 ### Added: Create a key alias
 {: #added-key-alias}
 
@@ -305,6 +275,22 @@ To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
 
 For a detailed explanation of changes in version 0.5.0, see the
 [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+
+<!-- TODO start: do not merge into publish, the private endpoint announcement is for the draft branch only -->
+
+### Added: Private endpoint in staging environment
+{: #added-private-stage-endpoint}
+
+New as of: 2020-06-09
+
+You can create and manage {{site.data.keyword.keymanagementserviceshort}}
+resources on IBM Cloud's private network by targeting a private service endpoint
+in the staging environment. To view the endpoint, see
+[Stage Endpoints](/docs/key-protect?topic=key-protect-usage#usage-stage-endpoints).
+To find out more about using private endpoints, see 
+[Using Private Endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
+
+<!-- TODO end: do not merge into publish, the private endpoint announcement is for the draft branch only -->
 
 ## May 2020
 {: #may-2020}

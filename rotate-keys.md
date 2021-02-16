@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-22"
+  years: 2017, 2021
+lastupdated: "2021-02-18"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -63,9 +63,9 @@ complete the following steps to rotate the key:
 5. Click the ⋯ icon to open a list of options for the key that you want to
    rotate.
 
-6. From the options menu, click **Rotate key**.
+6. From the options menu, click **Rotate** to open the **Rotation** side panel.
 
-    If you initially provided the key material for the key, specify the
+    For imported root keys only, please specify the
     following details:
 
     <table>
@@ -105,7 +105,7 @@ complete the following steps to rotate the key:
       </caption>
     </table>
 
-7. When you are finished, click **Rotate key** to confirm.
+7. Click **Rotate** to confirm.
 
 ## Rotating root keys with the API
 {: #rotate-key-api}
