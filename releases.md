@@ -306,22 +306,6 @@ To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
 For a detailed explanation of changes in version 0.5.0, see the
 [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
-<!-- TODO start: do not merge into publish, the private endpoint announcement is for the draft branch only -->
-
-### Added: Private endpoint in staging environment
-{: #added-private-stage-endpoint}
-
-New as of: 2020-06-09
-
-You can create and manage {{site.data.keyword.keymanagementserviceshort}}
-resources on IBM Cloud's private network by targeting a private service endpoint
-in the staging environment. To view the endpoint, see
-[Stage Endpoints](/docs/key-protect?topic=key-protect-usage#usage-stage-endpoints).
-To find out more about using private endpoints, see 
-[Using Private Endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
-
-<!-- TODO end: do not merge into publish, the private endpoint announcement is for the draft branch only -->
-
 ## May 2020
 {: #may-2020}
 
