@@ -41,6 +41,8 @@ Managing keys through the UI interface has been enhanced with new options presen
 
 Note that "Associated Resources" are now accessible within the context of each key in the console, as well as having its own item in the menu. Also, setting a key's rotation policy is now possible in the same panel where a key can be manually rotated.
 
+Also, the list of endpoints in the console has grown with the addition of Osaka. You can now update your applications to reference the new endpoint.
+
 ### Added: Feature updates to the Key Protect UI
 {: #upcoming-key-encrypt-ui}
 
