@@ -32,6 +32,36 @@ Stay up-to-date with the new features that are available for
 ## February 2021
 {: #february-2021}
 
+### Coming soon: Updates to key deletion functionality
+{: #upcoming-key-deletion-changes}
+
+Release Date: 2021-02-10
+
+Beginning in late February 2021, {{site.data.keyword.keymanagementserviceshort}} 
+will implement a key purge feature that will automatically purge any keys that 
+have been deleted for more than 90 days. A purged key and its associated data 
+will be permanently removed, or hard deleted, from the 
+{{site.data.keyword.keymanagementserviceshort}} database.
+
+When a user or service deletes a key in Key Protect today, if the key is not 
+restored within 30 days, the key is soft deleted. All key data, except key 
+material data, remains in {{site.data.keyword.keymanagementserviceshort}}, and 
+those details are retrievable by List Keys, Get Key and other APIs. Once 
+automatic key purge is introduced, users will not be able to retrieve any
+information regarding a purged key. Any API calls that use the Key ID of a 
+purged key will result in a 404 HTTP Not Found error.
+
+Note: A key purge can be reversed by restoring the hard deleted key.
+
+- **How will the changes impact my environment?**
+  The majority of users will not notice an impact. Please note that any data 
+  related to a purged key (key metadata, registrations, policies, etc) will no 
+  longer be available via the {{site.data.keyword.keymanagementserviceshort}} 
+  service. If you are required to retain any data related to a purged key 
+  (key metadata, registrations, policies, etc) for an extended period of time, 
+  it is recommended to perform the necessary API or CLI calls to retrieve and 
+  store that data in your own storage device.
+
 ### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
 {: #february-2021-ui-updates}
 
