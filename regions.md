@@ -97,19 +97,24 @@ endpoints to use when you connect to the
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Region        | Private endpoints                    |
-| ------------- | ------------------------------------ |
-| Dallas        | `private.us-south.kms.cloud.ibm.com` |
-| Washington DC | `private.us-east.kms.cloud.ibm.com`  |
-| London        | `private.eu-gb.kms.cloud.ibm.com`    |
-| Frankfurt     | `private.eu-de.kms.cloud.ibm.com`    |
-| Sydney        | `private.au-syd.kms.cloud.ibm.com`   |
-| Tokyo         | `private.jp-tok.kms.cloud.ibm.com`   |
+<!-- TODO start: the staging region is for the draft branch only -->
+
+| Region        | Private endpoints                            |
+| ------------- | -------------------------------------------- |
+| Dallas        | `private.us-south.kms.cloud.ibm.com`         |
+| Washington DC | `private.us-east.kms.cloud.ibm.com`          |
+| London        | `private.eu-gb.kms.cloud.ibm.com`            |
+| Frankfurt     | `private.eu-de.kms.cloud.ibm.com`            |
+| Sydney        | `private.au-syd.kms.cloud.ibm.com`           |
+| Tokyo         | `private.jp-tok.kms.cloud.ibm.com`           |
+| Staging       | `private.qa.us-south.kms.test.cloud.ibm.com` |
 {: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
 {: class="comparison-tab-table"}
 {: row-headers}
+
+<!-- TODO end: the staging region is for the draft branch only -->
 
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
