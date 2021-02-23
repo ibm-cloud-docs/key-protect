@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-10"
+  years: 2017, 2021
+lastupdated: "2020-02-23"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -91,30 +91,12 @@ endpoints to use when you connect to the
 | Frankfurt     | `eu-de.kms.cloud.ibm.com`    |
 | Sydney        | `au-syd.kms.cloud.ibm.com`   |
 | Tokyo         | `jp-tok.kms.cloud.ibm.com`   |
+| Osaka         | `jp-osa.kms.cloud.ibm.com`   |
 {: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
 {: class="comparison-tab-table"}
 {: row-headers}
-
-<!-- TODO start: the staging region is for the draft branch only -->
-
-| Region        | Private endpoints                            |
-| ------------- | -------------------------------------------- |
-| Dallas        | `private.us-south.kms.cloud.ibm.com`         |
-| Washington DC | `private.us-east.kms.cloud.ibm.com`          |
-| London        | `private.eu-gb.kms.cloud.ibm.com`            |
-| Frankfurt     | `private.eu-de.kms.cloud.ibm.com`            |
-| Sydney        | `private.au-syd.kms.cloud.ibm.com`           |
-| Tokyo         | `private.jp-tok.kms.cloud.ibm.com`           |
-| Staging       | `private.qa.us-south.kms.test.cloud.ibm.com` |
-{: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
-{: #table-2}
-{: tab-title="Private"}
-{: class="comparison-tab-table"}
-{: row-headers}
-
-<!-- TODO end: the staging region is for the draft branch only -->
 
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
