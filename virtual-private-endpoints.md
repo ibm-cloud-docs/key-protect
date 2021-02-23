@@ -56,7 +56,7 @@ Before you target a virtual private endpoint for
   are set for your virtual private endpoint.
 - Understand the [limitations](/docs/vpc?topic=vpc-limitations-vpe){: external} of having a virtual private endpoint.
 - Ensure that you have [created](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external} and understand how to 
-  [access](/docs/vpc?topic=vpc-accessing-vpe-after-setup) a VPE gateway{: external}.
+  [access](/docs/vpc?topic=vpc-accessing-vpe-after-setup){: external} a VPE gateway.
 - Understand how to [view details](/docs/vpc?topic=vpc-vpe-viewing-details-of-an-endpoint-gateway){: external} of 
   a Virtual Private Endpoint.
 
