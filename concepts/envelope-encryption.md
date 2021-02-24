@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-24"
 
 keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -29,28 +29,18 @@ encryption key (DEK) and then encrypting the DEK with a fully
 manageable root key.
 {: shortdesc}
 
-When working with sensitive data, it is important to protect the data with a 
-data encryption key (DEK). A DEK is an encryption key that is designed to 
-encrypt and decrypt data and can be generated and managed by your service or 
-an IBM Cloud service. While the DEK secures your data, the DEK itself is also 
+When working with sensitive data in a world with where hackers are prevalent, 
+it is necessary to use advanced encryption techniques to protect your data. When 
+you encrypt your data, it encrypted with a Data Encryption Key (DEK). A DEK is an encryption 
+key that is designed to encrypt and decrypt data and can be generated and managed 
+by your service or an IBM Cloud service.
+
+While the DEK secures your data, the DEK itself is also 
 susceptible to attacks so you should take preventative measures to protect your 
-DEKs with envelope encryption. Envelope encryption is the process of protecting 
-your data encryption keys by encrypting the DEK with a [root key](#key-types). 
-The same root key is used to decrypt your DEK, which you can use to
-decrypt any data encrypted by the DEK.
-
-You can use {{site.data.keyword.keymanagementservicefull}} to create fully managed 
-root keys for use with envelope encryption to protect your stored data, which 
-offers several benefits:
-
-| Benefit | Description |
-| ------- | ----------- |
-| Root Key Material Management | With {{site.data.keyword.keymanagementservicefull}}, you can control how root key material is managed. A [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) can be set to automatically rotate root key material at 1 to 12 month intervals to meet desired security standards and cryptographic best practices, or you can [rotate a root key manually](/docs/key-protect?topic=key-protect-rotate-keys). {{site.data.keyword.keymanagementservicefull}} will automatically detect the which version of the root key was used to encrypt any ciphertext associated with the root key and provides the ability to rewrap ciphertext with the latest key material. |
-| Confidentiality and integrity protection | When you create keys in the service, {{site.data.keyword.keymanagementserviceshort}} generates them within the trust boundary of a {{site.data.keyword.cloud_notm}} [hardware security module (HSM)](link to what hsms do), meaning you can provision root keys in the cloud without ever exposing raw root key material outside of a secured HSM. The Advanced Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) is used to encrypt the root key material within the service. |
-| Cryptographic shredding of data | If your organization detects a security issue, or your app no longer needs a set of encrypted data, you can choose to crypto-shred the data permanently. When you purge the root key that encrypts a DEK, you remove the ability to unencrypt that DEK, ensuring that the DEK's associated data can no longer be recovered.|
-| Delegated user access control | {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/key-protect?topic=key-protect-manage-access#roles), security admins can securely share access to root keys. Encrypted DEKs can then be shared and unencrypted only by those with access to the encrypting root key, mitigating the key exchange problem of symmetric algorithms. |
-| Customer-managed encryption keys | {{site.data.keyword.keymanagementserviceshort}} allows you to manage what actions a specific root key can do, such as [wrapping, rotating, and deleting a key](/docs/key-protect?topic=key-protect-key-states#key-states-service-actions). |
-{: caption="Table 1. Describes the benefits of customer-managed encryption" caption-side="top"}
+DEKs by using envelope encryption. Envelope encryption is the process of protecting 
+your DEKs by encrypting them with a [root key](#key-types). 
+The same root key is used to decrypt your DEK. Note that you can use multiple root keys
+to encrypt the same DEK. 
 
 ## How it works
 {: #overview}
@@ -58,13 +48,13 @@ offers several benefits:
 Envelope encryption combines the strength of multiple encryption algorithms to
 protect your sensitive data in the cloud. It works by using a root key to 
 wrap (encrypt) one or more data encryption keys (DEKs). The root key safeguards 
-your wrapped (encrypted) DEKs with encryption algorithms.
+your wrapped (encrypted) DEKs with encryption algorithms, protecting them from 
+unauthorized access or exposure. 
 
-This key wrapping process creates wrapped DEKs that protect them from unauthorized 
-access or exposure. Unwrapping a DEK reverses 
-the envelope encryption process by using the same root key, resulting in 
-decrypted and authenticated DEK. A wrapped DEK cannot be unwrapped without the
-associated root key, which adds an extra layer of security.
+Unwrapping a DEK reverses the envelope encryption process by using the associated 
+root key, resulting in a decrypted and authenticated DEK. A wrapped DEK cannot 
+be unwrapped without the associated root key, which adds an extra layer of 
+security to your data.
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57,
 Recommendation for Key Management. To learn more, see
@@ -85,7 +75,10 @@ advanced encryption and management of data.
       Root keys are primary resources in
       {{site.data.keyword.keymanagementserviceshort}}. They are symmetric
       key-wrapping keys used as roots of trust for wrapping (encrypting) and
-      unwrapping (decrypting) other keys stored in a data service.
+      unwrapping (decrypting) other keys stored in a data service. Root keys 
+      contain key material that is used to wrap and unwrap DEKs. The key 
+      material of the root key can either be imported or generated by the 
+      {{site.data.keyword.keymanagementserviceshort}} service.
     </p>
     <p>
       With {{site.data.keyword.keymanagementserviceshort}}, you can create,
@@ -102,7 +95,7 @@ advanced encryption and management of data.
   <dd>
     Standard keys, which can be used as DEKs, can store encrypted data in 
     {{site.data.keyword.keymanagementserviceshort}}. Once your plaintext 
-    standard key is generated an protecting underlying data, destroy the 
+    standard key is generated and protecting underlying data, destroy the 
     plaintext and safely store the encrypted standard key. 
   </dd>
 </dl>
