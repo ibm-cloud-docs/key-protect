@@ -24,9 +24,13 @@ subcollection: key-protect
 # Protecting data with envelope encryption
 {: #envelope-encryption}
 
-Envelope encryption is the practice of encrypting data with a data 
-encryption key (DEK) and then encrypting the DEK with a fully 
-manageable root key.
+{{site.data.keyword.keymanagementserviceshort}} uses envelope encryption 
+to assist in protecting your {{site.data.keyword.keymanagementserviceshort}}
+data. Envelope encryption involves using root keys, whether generated or imported into 
+{{site.data.keyword.keymanagementserviceshort}}, to protect your Data Encryption 
+Keys (DEKs). This topic describes the process of envelope encryption and how 
+to use {{site.data.keyword.keymanagementserviceshort}} to encrypt and decrypt 
+your data.
 {: shortdesc}
 
 When working with sensitive data, it is important to use advanced encryption 
