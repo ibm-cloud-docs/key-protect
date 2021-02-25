@@ -26,11 +26,10 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementserviceshort}} uses envelope encryption 
 to assist in protecting your {{site.data.keyword.keymanagementserviceshort}}
-data. Envelope encryption involves using root keys, whether generated or imported into 
-{{site.data.keyword.keymanagementserviceshort}}, to protect your Data Encryption 
-Keys (DEKs). This topic describes the process of envelope encryption and how 
-to use {{site.data.keyword.keymanagementserviceshort}} to encrypt and decrypt 
-your data.
+data. Envelope encryption involves encrypting your data with a Data Encryption Key, 
+and then using a root key to protect your data encryption key (DEK). This topic describes 
+the process of envelope encryption and how to use {{site.data.keyword.keymanagementserviceshort}} 
+to encrypt and decrypt your data.
 {: shortdesc}
 
 When working with sensitive data, it is important to use advanced encryption 
@@ -40,7 +39,7 @@ it is often helpful to use a Key Management System to assist in keeping your dat
 to keep your data resilient. Envelope encryption is the process of using encrypted keys, 
 Data Encryption Keys and Root Keys, to protect your sensitive data. 
 
-Data Encryption Keys (DEKs) are designed to encrypt your data and can be generated and 
+Data encryption keys (DEKs) are designed to encrypt your data and can be generated and 
 managed by your service or an IBM Cloud service. While the DEK secures your data, the 
 DEK itself is also susceptible to attacks so you should take preventative measures to 
 protect your DEKs by encrypting them with a [root key](#key-types). The same root 
