@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-03-19"
+  years: 2017, 2020, 2021
+lastupdated: "2021-03-01"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -67,11 +67,11 @@ you can perform on a key. The check mark icon
 indicates that the action on a key is expected to succeed based on the key
 state.
 
-| Action      | Active                                             | Suspended                                          | Deactivated                                        | Destroyed                                          |
+| Action      | Active                                             | Suspended (disabled keys)                                         | Deactivated (expired keys)                                       | Destroyed (deleted keys)                                          |
 | ----------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | Get key     | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | List keys   | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
-| Rotate key  | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
+| Rotate key  | ![Check mark icon](../../icons/checkmark-icon.svg) |  | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
 | Wrap key    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |                                                    |                                                    |
 | Unwrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
 | Rewrap key  | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |

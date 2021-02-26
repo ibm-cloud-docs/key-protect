@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2020-02-18"
+lastupdated: "2021-02-28"
 
-keywords: release notes, changelog, what's new, service updates, service bulletin
+keywords: release notes, service updates, service bulletin
 
 subcollection: key-protect
 
@@ -32,6 +32,24 @@ Stay up-to-date with the new features that are available for
 ## February 2021
 {: #february-2021}
 
+### Added: Functionality to key restoration
+{: 2021-02-25-key-restore}
+
+New as of: 2021-02-25
+
+The process to restore keys has been enhanced:
+
+* Deleted keys can now be restored up to 30 days after deletion. After 30 days, it is no longer possible to restore a key.
+* Any and all types of keys (standard or root, imported or created) can be restored.
+* It is no longer required to pass in key material when restoring a key.
+
+For more information, check out [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
+
+### Added: Updates to search by extractable content
+{: #added-search-extractable}
+
+Rotating keys and re-wrapping encrypted content with a new DEK is fundamental to security. Quickly retrieve keys having extractable content with [this search feature](/docs/key-protect?topic=key-protect-view-keys#filter-keys-extractable-state-api).
+
 ### Added: Updates to the Key Protect UI
 {: #upcoming-key-encrypt-ui}
 
@@ -58,29 +76,29 @@ You can now use the Key Protect UI to wrap/unwrap active root keys. For more inf
 
 Release Date: 2021-02-10
 
-Beginning in late February 2021, {{site.data.keyword.keymanagementserviceshort}} 
-will implement a key purge feature that will automatically purge any keys that 
-have been deleted for more than 90 days. A purged key and its associated data 
-will be permanently removed, or hard deleted, from the 
+Beginning in late February 2021, {{site.data.keyword.keymanagementserviceshort}}
+will implement a key purge feature that will automatically purge any keys that
+have been deleted for more than 90 days. A purged key and its associated data
+will be permanently removed, or hard deleted, from the
 {{site.data.keyword.keymanagementserviceshort}} database.
 
-When a user or service deletes a key in Key Protect today, if the key is not 
-restored within 30 days, the key is soft deleted. All key data, except key 
-material data, remains in {{site.data.keyword.keymanagementserviceshort}}, and 
-those details are retrievable by List Keys, Get Key and other APIs. Once 
+When a user or service deletes a key in Key Protect today, if the key is not
+restored within 30 days, the key is soft deleted. All key data, except key
+material data, remains in {{site.data.keyword.keymanagementserviceshort}}, and
+those details are retrievable by List Keys, Get Key and other APIs. Once
 automatic key purge is introduced, users will not be able to retrieve any
-information regarding a purged key. Any API calls that use the Key ID of a 
+information regarding a purged key. Any API calls that use the Key ID of a
 purged key will result in a 404 HTTP Not Found error.
 
 Note: A key purge can be reversed by restoring the hard deleted key.
 
 - **How will the changes impact my environment?**
-  The majority of users will not notice an impact. Please note that any data 
-  related to a purged key (key metadata, registrations, policies, etc) will no 
-  longer be available via the {{site.data.keyword.keymanagementserviceshort}} 
-  service. If you are required to retain any data related to a purged key 
-  (key metadata, registrations, policies, etc) for an extended period of time, 
-  it is recommended to perform the necessary API or CLI calls to retrieve and 
+  The majority of users will not notice an impact. Please note that any data
+  related to a purged key (key metadata, registrations, policies, etc) will no
+  longer be available via the {{site.data.keyword.keymanagementserviceshort}}
+  service. If you are required to retain any data related to a purged key
+  (key metadata, registrations, policies, etc) for an extended period of time,
+  it is recommended to perform the necessary API or CLI calls to retrieve and
   store that data in your own storage device.
 
 ### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
@@ -90,10 +108,10 @@ New as of: 2021-02-05
 
 If you have _Manager_ access permissions, you can filter for keys in the
 **Destroyed** state and restore an imported root key via the ⋯ icon on the
-**Keys** table. You can use the restore key side panel to complete the 
+**Keys** table. You can use the restore key side panel to complete the
 process for restoring the key.
 
-For more information, see [Restoring a deleted key with the console](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
+For more information, see [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
 {: #added-private-endpoints}
@@ -101,9 +119,9 @@ For more information, see [Restoring a deleted key with the console](https://tes
 New as of: 2021-02-05
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} from your
-virtual private cloud(VPC) via virtual private endpoint. VPEs are bound to a 
-[VPE gateway](/docs/vpc?topic=vpc-about-vpe) and serve as an intermediary 
-that enables your workload to interact with 
+virtual private cloud(VPC) via virtual private endpoint. VPEs are bound to a
+[VPE gateway](/docs/vpc?topic=vpc-about-vpe) and serve as an intermediary
+that enables your workload to interact with
 {{site.data.keyword.keymanagementserviceshort}}.
 
 To get started, [provision a Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started){: external}
@@ -118,9 +136,9 @@ and create a [VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: exte
 
 New as of: 2021-01-27
 
-You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API 
-to manage access to a specific set of keys that are bundle a collection 
-called a `key ring`. You can manage and restrict access to key rings to via 
+You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API
+to manage access to a specific set of keys that are bundle a collection
+called a `key ring`. You can manage and restrict access to key rings to via
 IAM policies.
 
 To find out more, see
@@ -136,13 +154,13 @@ now use the the {{site.data.keyword.keymanagementserviceshort}} UI to restore al
 unexpired-deleted keys.
 
 For more information, see [Restoring
-keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui). 
+keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 ### Added: Manual Data Synchronization
 {: #added-manual-data-synchronization}
 
-You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API 
-to initiate a manual data synchronization request to to synchronize your service's 
+You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API
+to initiate a manual data synchronization request to to synchronize your service's
 key records with what is in {{site.data.keyword.keymanagementserviceshort}}'s database
 records.
 
