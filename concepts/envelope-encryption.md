@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-03-01"
 
 keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
 
@@ -27,7 +27,7 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementserviceshort}} uses envelope encryption 
 to assist in protecting your {{site.data.keyword.keymanagementserviceshort}}
 data. Envelope encryption involves encrypting your data with a Data Encryption Key, 
-and then using a root key to protect your data encryption key (DEK). This topic describes 
+then encrypting the Data Encryption Key with a root key. This topic describes 
 the process of envelope encryption and how to use {{site.data.keyword.keymanagementserviceshort}} 
 to encrypt and decrypt your data.
 {: shortdesc}
@@ -39,23 +39,47 @@ it is often helpful to use a Key Management System to assist in keeping your dat
 to keep your data resilient. Envelope encryption is the process of using encrypted keys, 
 Data Encryption Keys and Root Keys, to protect your sensitive data. 
 
-Data encryption keys (DEKs) are designed to encrypt your data and can be generated and 
-managed by your service or an IBM Cloud service. While the DEK secures your data, the 
-DEK itself is also susceptible to attacks so you should take preventative measures to 
-protect your DEKs by encrypting them with a [root key](#key-types). The same root 
-key that was used to encrypt your DEK will be needed to decrypt it.
+Imagine that you plan to send a letter to a colleague. You want to discuss information that is
+highly sensitive, so you generate a secret code (Data Encryption Key) that is used to write
+(encrypt) the message in the letter. The letter is delivered to a mailbox (wrapped Data Encryption Key)
+that can only be opened by those with a copy of the mailbox key (Root key), including the colleague. Anyone
+who does not have an exact copy of the key will be unable to open the mailbox and see it's contents. When
+your colleague uses the key to unlock (unencrypt) the mailbox, they will need to know the secret code
+that the letter is written in to be able to understand the message. Everyone who is not aware of the secret
+code will conclude that the letter is a random mix of characters and will not be able to understand the letter's
+contents.
 
-You can use multiple root keys to encrypt the same DEK. In fact, it is recommended to 
-[back up](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery) 
-any keys that are created or imported into the {{site.data.keyword.keymanagementserviceshort}}
-service.
+Data encryption keys (DEKs) are designed to encrypt your data and can be generated and 
+managed by your service or an IBM Cloud service.
 {: note}
 
-## How it works
-{: #overview}
 
-Envelope encryption combines the strength of multiple encryption algorithms to
-protect your sensitive data in the cloud. It works by using a root key to 
+Envelope encryption offers several benefits for protecting your data:
+- Protection under a combination of multiple algorithms
+  Envelope encryption uses the best benefits from symmetric and public key algorithms to keep your keys secure. 
+  1. Symmetric key algorithms work faster, are more scalable, and more secure than public key algorithms. Public key algorithms 
+     use complicated mathematics that increase computational overhead, especially when dealing with large volumes
+     of data. Public key algorithms are also more susceptible to brute force attacks due to having a private key algorithm component that is
+     easily recognizable by hackers. Symmetric key algorithms requires less computed power and are resistant to 
+     brute force attacks due to having a less recognizable structure.
+  2. Public key algorithms allow for easier access control when granting access to keys at an individual level
+     compared to symmetric key algorithms. Symmetric key algorithms have a key exchange problem, which is that
+     access to a secret key can only be exchanged through a secure transfer. By using public key algorithms,
+     encrypted DEKs (wDEKs) can be shared and unencrypted only by those with access to the encrypting root key,
+     mitigating the key exchange problem of symmetric algorithms. 
+- Easier key management
+  You can encrypt multiple DEKs under a singular root key, which minimizes the amount of keys that you 
+  might need to manage in a key management service. You can also choose to save time on key maintenance by only rotating your root keys, instead of 
+  rotating and re-encrypting all of your DEKs. Note that in cases such as personnel turnover, process malfunctions, or the 
+  detection of a security issue, it is recommended to rotate all DEKs and root keys associated with the incident.
+- Data Key Protection
+  Since your DEKs are wrapped by a root key, you do not have to worry about how to store the encrypted data key. Due to this, you
+  can store the wDEK with alongside the associated encrypted data.
+
+## How envelope encryption works
+{: #envelope-encryption-overview}
+
+Envelope encryption works by using a root key to 
 wrap (encrypt) one or more data encryption keys (DEKs). The root key safeguards 
 your wrapped (encrypted) DEKs with encryption algorithms, protecting them from 
 unauthorized access or exposure. 
