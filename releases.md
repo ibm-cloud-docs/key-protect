@@ -29,6 +29,14 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## March 2021
+{: #march-2021}
+
+### Added: Major Changes to the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
+{: #added-cli-changes}
+
+Added support for aliases and key-rings bring best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+
 ## February 2021
 {: #february-2021}
 
