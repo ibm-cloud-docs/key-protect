@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-28"
+lastupdated: "2021-03-02"
 
 keywords: release notes, service updates, service bulletin
 
