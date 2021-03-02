@@ -3556,10 +3556,11 @@ Select a Region:
 2. eu-de
 3. eu-fr2 (available by request)
 4. eu-gb
-5. jp-tok
-6. us-east
-7. us-south
-8. staging (us-south)
+5. jp-osa
+6. jp-tok
+7. us-east
+8. us-south
+9. staging (us-south)
 Enter a number:
 5
 OK
