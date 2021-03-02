@@ -40,14 +40,20 @@ to keep your data resilient. Envelope encryption is the process of using encrypt
 Data Encryption Keys and Root Keys, to protect your sensitive data. 
 
 Imagine that you plan to send a letter to a colleague. You want to discuss information that is
-highly sensitive, so you generate a secret code (Data Encryption Key) that is used to write
-(encrypt) the message in the letter. The letter is delivered to a mailbox (wrapped Data Encryption Key)
-that can only be opened by those with a copy of the mailbox key (Root key), including the colleague. Anyone
-who does not have an exact copy of the key will be unable to open the mailbox and see it's contents. When
-your colleague uses the key to unlock (unencrypt) the mailbox, they will need to know the secret code
-that the letter is written in to be able to understand the message. Everyone who is not aware of the secret
-code will conclude that the letter is a random mix of characters and will not be able to understand the letter's
-contents.
+highly sensitive, so you generate a secret code that is used to write the message in the letter.
+The letter is delivered to a mailbox that can only be opened by those with a copy of the mailbox
+key, which includes the colleague. Anyone who does not have an exact copy of the key will be unable
+to open the mailbox and see it's contents. When your colleague uses the key to unlock the mailbox,
+they will need to know the secret code that the letter is written in to be able to understand the
+message. Everyone who is not aware of the secret code will conclude that the letter is a random mix
+of characters and will not be able to understand the letter's contents.
+
+{{site.data.keyword.keymanagementserviceshort}} uses a similar system to protect your data. The secret
+code you generated to write the message is what we call a "Data Encryption Key" (DEK). The mailbox the
+message was delivered to is a "wrapper" that is called, appropriately enough, a Wrapped Data
+Encryption Key (WDEK). The wrapped key is unwrapped by the root key, which is called a mailbox key in the 
+scenario above, and the data encryption key becomes exposed. The data encryption key's underlying data 
+then becomes readable.
 
 Data encryption keys (DEKs) are designed to encrypt your data and can be generated and 
 managed by your service or an IBM Cloud service.
@@ -143,7 +149,14 @@ you can fully manage.
 Complete the following steps to encrypt data via envelope encryption:
 
 1. Generate or provision a DEK from an IBM Cloud service, such as as [COS](/docs/cloud-object-storage?topic=cloud-object-storage-encryption), 
-   to encrypt your sensitive data. The DEK will encrypt your sensitive data.
+   to encrypt your sensitive data. 
+   
+   You can also generate a DEK by passing in an empty body on a [wrap request](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-wrap-keys#wrap-key-api) to
+   the {{site.data.keyword.keymanagementserviceshort}} service. The response will
+   contain the base64 encoded key material of the generated DEK, along with the
+   wrapped DEK.
+   {: note}
+
 2. [Generate](/docs/key-protect?topic=key-protect-create-root-keys) 
    or [import](/docs/key-protect?topic=key-protect-import-root-keys) 
    a root key that will be used to protect the DEK from step 1.
