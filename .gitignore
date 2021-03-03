@@ -3,3 +3,6 @@
 
 # OS artifiacts
 .DS_Store
+
+#intellij
+.idea/
