@@ -50,10 +50,10 @@ of characters and will not be able to understand the letter's contents.
 
 {{site.data.keyword.keymanagementserviceshort}} uses a similar system to protect your data. The secret
 code you generated to write the message is what we call a "Data Encryption Key" (DEK). The mailbox the
-message was delivered to is a "wrapper" that is called, appropriately enough, a Wrapped Data
-Encryption Key (WDEK). The wrapped key is unwrapped by the root key, which is called a mailbox key in the 
-scenario above, and the data encryption key becomes exposed. The data encryption key's underlying data 
-then becomes readable.
+message was delivered to is a "wrapper" around the DEK with the end result called, appropriately enough,
+a Wrapped Data Encryption Key (WDEK). The wrapped key is unwrapped by the root key, which is called a
+mailbox key in the scenario above, and the data encryption key becomes exposed. The data encryption key's
+underlying data then becomes readable.
 
 Data encryption keys (DEKs) are designed to encrypt your data and can be generated and 
 managed by your service or an IBM Cloud service.
@@ -63,16 +63,16 @@ managed by your service or an IBM Cloud service.
 Envelope encryption offers several benefits for protecting your data:
 - Protection under a combination of multiple algorithms
   Envelope encryption uses the best benefits from symmetric and public key algorithms to keep your keys secure. 
-  1. Symmetric key algorithms work faster, are more scalable, and more secure than public key algorithms. Public key algorithms 
-     use complicated mathematics that increase computational overhead, especially when dealing with large volumes
+  1. Symmetric key algorithms work faster, are more scalable, and more secure than public key algorithms. Public key algorithms,
+     also known as asymmetric algorithms, use complicated mathematics that increase computational overhead, especially when dealing with large volumes
      of data. Public key algorithms are also more susceptible to brute force attacks due to having a private key algorithm component that is
      easily recognizable by hackers. Symmetric key algorithms requires less computed power and are resistant to 
      brute force attacks due to having a less recognizable structure.
-  2. Public key algorithms allow for easier access control when granting access to keys at an individual level
-     compared to symmetric key algorithms. Symmetric key algorithms have a key exchange problem, which is that
-     access to a secret key can only be exchanged through a secure transfer. By using public key algorithms,
-     encrypted DEKs (wDEKs) can be shared and unencrypted only by those with access to the encrypting root key,
-     mitigating the key exchange problem of symmetric algorithms. 
+  2. Public key algorithms are better at handling identity management than symmetric key algorithms. Symmetric key
+     algorithms have a key exchange problem, which is that access to a key can only be exchanged through a secure
+     transfer. Public key algorithms assign identities using two different keys -- a public key which is strictly
+     used to encrypt messages, making it safe for anyone to have, and a private key that decrypt messages and never
+     needs to be shared.
 - Easier key management
   You can encrypt multiple DEKs under a singular root key, which minimizes the amount of keys that you 
   might need to manage in a key management service. You can also choose to save time on key maintenance by only rotating your root keys, instead of 
@@ -138,6 +138,10 @@ advanced encryption and management of data.
     plaintext and safely store the encrypted standard key. 
   </dd>
 </dl>
+
+To keep your confidential data secure, it is a best practice to never store 
+plaintext information.
+{: important}
 
 ## Wrapping keys with envelope encryption
 {: #wrapping}
