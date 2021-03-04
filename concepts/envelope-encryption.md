@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020, 2021
 lastupdated: "2021-03-01"
 
-keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+keywords: envelope encryption, encrypt data, encrypt data encryption key
 
 subcollection: key-protect
 
@@ -188,7 +188,7 @@ you can use the {{site.data.keyword.keymanagementserviceshort}} API
 to send an [unwrap request]((/apidocs/key-protect#invoke-an-action-on-a-key){: external}) to the service. 
 
 
-Complete the following steps to encrypt data via envelope encryption:
+Complete the following steps to decrypt data via envelope encryption:
 
 1. Retrieve the base64 encoded ciphertext of the wrapped DEK.
 2. [Retrieve the key ID](/docs/key-protect?topic=key-protect-view-keys) 
