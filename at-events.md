@@ -51,6 +51,7 @@ The following table lists the key actions that generate an event:
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
 | `kms.secrets.delete`              | Delete a key                                                 |
+| `kms.secrets.patch`               | Patch a key                                                  |
 | `kms.secrets.createalias`         | Create a key alias                                           |
 | `kms.secrets.deletealias`         | Delete a key alias                                           |
 | `kms.secrets.expire`              | Expire a key                                                 |

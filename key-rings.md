@@ -210,7 +210,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-    To update the key ring of a key, you must have at least _Writer_ service access to the key and the target key ring. To learn how IAM roles map to
+    To update the key ring of a key, you must have at least _Manager_ service access to the key and the target key ring. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
     [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
     {: note}
