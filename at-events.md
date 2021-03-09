@@ -325,6 +325,16 @@ The following fields include extra information:
 - The `responseData.keyVersionCreationDate` field includes the date that the
   current version of the key was created.
 
+#### Patch key
+{: #get-key-success}
+
+The following fields include extra information:
+
+- The `requestData.initialValue.keyRingId` field includes the ID of the key ring that 
+  the key previously belonged to.
+
+- The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
+  key currently belongs to.
 #### List key versions
 {: #list-key-versions-success}
 
