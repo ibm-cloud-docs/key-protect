@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2021-01-26"
+lastupdated: "2021-03-01"
 
 keywords: key rings
 
@@ -25,19 +25,20 @@ subcollection: key-protect
 # Managing key rings
 {: #managing-key-rings}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to group the keys
-in your service instance and restrict access controls at a key ring level.
+You can use {{site.data.keyword.keymanagementservicefull}} to create
+a group of keys for a target group of users that require the same IAM 
+access permissions.
 {: shortdesc}
 
 As an account admin, you can bundle the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
-called `key rings`. A key ring is a collection of keys located within your
-service instance, in which you can restrict access to via IAM access policy. 
-For example, if you want to delegate administration to a specific set of keys 
-for a specific group of users, you can create a key ring for those keys and 
-assign the appropriate  IAM access policy to the target user group. Users that 
-are assigned access to the specific key ring can create and manage the 
-resources that exist within the key ring.
+called `key rings`. A key ring is a collection of keys, within your
+service instance, that all require the same IAM access permissions.
+For example, if you have a group of team members who will need a particular
+type of access to a specific group of keys, you can create a key ring for those
+keys and assign the appropriate IAM access policy to the target user group. The
+users that are assigned access to the key ring can create and manage the resources
+that exist within the key ring. 
 
 You can grant access to key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
@@ -180,6 +181,207 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 The maximum amount of key rings is 50 per service instance.
 {: note}
+
+## Transferring a key to a different key ring
+{: #transfer-key-key-ring}
+
+As requirements change and new team members are brought into an org, you might
+create new key rings to reflect these organizational changes. After creating the
+key rings, it might be necessary to move a key from an existing key ring to a
+new key ring that has different IAM permissions. For example, you might be
+onboarding a team that will need specific access to a key that belongs to a custom
+key ring. You can create a new key ring that is dedicated to the onboarding
+team and, since keys can only be associated with one key ring at a time, you will need
+to move the key to the new key ring.
+
+After transferring a key to a different key ring, it may take up to a maximum of ten minutes 
+for the change to take effect.
+{: important}
+
+### Transferring a key to a different key ring with the API
+{: #transfer-key-key-ring-api}
+
+Transfer a key to a different key ring by making a `PATCH` call to the following endpoint.
+
+```plaintext
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
+```
+{: codeblock}
+
+1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
+
+    To update the key ring of a key, you must have at least _Writer_ service access to the key and the target key ring. To learn how IAM roles map to
+    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    {: note}
+
+2. Update the key ring of a key by running the following `curl` command.
+
+    ```sh
+    $ curl -X PATCH \
+      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
+      -H 'accept: application/vnd.ibm.kms.key+json' \
+      -H 'authorization: Bearer <IAM_token>' \
+      -H 'bluemix-instance: <instance_ID>' \
+      -H 'content-type: application/vnd.ibm.kms.key+json' \
+      -H "x-kms-key-ring: <original_key_ring_ID>" \
+      -H "correlation-id: <correlation_ID>" \
+      -d '{
+        "keyRingID": "<new_key_ring_ID>"
+      }'
+    ```
+    {: codeblock}
+
+    Replace the variables in the example request according to the following
+    table.
+
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>region</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The region abbreviation, such as
+            <code>us-south</code> or <code>eu-gb</code>, that represents the
+            geographic area where your
+            {{site.data.keyword.keymanagementserviceshort}} instance resides.
+          </p>
+          <p>
+            For more information, see
+            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>IAM_token</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
+            access token. Include the full contents of the <code>IAM</code>
+            token, including the Bearer value, in the <code>curl</code> request.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>instance_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier that is assigned to
+            your {{site.data.keyword.keymanagementserviceshort}} service
+            instance.
+          </p>
+          <p>
+            For more information, see
+            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>original_key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Optional.</strong> The unique identifier of the key ring that
+            the currently key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}}
+            will search for the key in every key ring associated with the specified instance.
+            It is therefore recommended to specify the key ring ID for a more optimized request.
+            Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>correlation_ID</varname>
+        </td>
+        <td>
+          The unique identifier that is used to track and correlate
+          transactions.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <varname>new_key_ring_ID</varname>
+        </td>
+        <td>
+          <p>
+            <strong>Required.</strong> The unique identifier for the target key ring
+            that you would like to move the key to.
+          </p>
+        </td>
+      </tr>
+
+      <caption style="caption-side:bottom;">
+        Table 2. Describes the variables that are needed to update a key's key ring
+        with the {{site.data.keyword.keymanagementserviceshort}} API
+      </caption>
+    </table>
+
+    A successful `PATCH api/v2/keys/key_ID` request returns the key's metadata, including
+    the id of the key ring that the key now belongs to.
+    
+    ``` json
+    {
+     "metadata": {
+         "collectionType": "application/vnd.ibm.kms.key+json",
+         "collectionTotal": 1
+     },
+     "resources": [
+         {
+             "type": "application/vnd.ibm.kms.key+json",
+             "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+             "name": "test-root-key",
+             "aliases": [
+                 "alias-1",
+                 "alias-2"
+               ],
+             "description": "A test root key",
+             "state": 1,
+             "extractable": false,
+             "keyRingID": "new-key-ring",
+             "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+             "imported": false,
+             "creationDate": "2020-03-12T03:37:32Z",
+             "createdBy": "...",
+             "algorithmType": "AES",
+             "algorithmMetadata": {
+                 "bitLength": "256",
+                 "mode": "CBC_PAD"
+             },
+             "algorithmBitSize": 256,
+             "algorithmMode": "CBC_PAD",
+             "lastUpdateDate": "2020-03-12T03:37:32Z",
+             "keyVersion": {
+                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                 "creationDate": "2020-03-12T03:37:32Z"
+             },
+             "dualAuthDelete": {
+                 "enabled": false
+             },
+             "deleted": false
+         }
+     ]
+    }
+    ```
 
 ## Granting access to a key ring
 {: #grant-access-key-ring}
@@ -332,7 +534,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
   </tr>
 
   <caption style="caption-side:bottom;">
-    Table 2. Describes the variables that are needed to view key rings with the
+    Table 3. Describes the variables that are needed to view key rings with the
     {{site.data.keyword.keymanagementserviceshort}} API.
   </caption>
 </table>
@@ -468,12 +670,10 @@ of key state (including keys in the _Destroyed_ state).
       </tr>
 
       <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to delete keys with the
+        Table 4. Describes the variables that are needed to delete keys with the
         {{site.data.keyword.keymanagementserviceshort}} API.
       </caption>
     </table>
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that the key ring was successfully deleted.
-
-<!--- TODO end: DO NOT MERGE INTO PRODUCTION UNTIL 1/15/2021 -->
