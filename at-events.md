@@ -336,6 +336,7 @@ The following fields include extra information:
 
 - The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
   key currently belongs to.
+  
 #### List key versions
 {: #list-key-versions-success}
 
