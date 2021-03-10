@@ -51,6 +51,7 @@ The following table lists the key actions that generate an event:
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
 | `kms.secrets.delete`              | Delete a key                                                 |
+| `kms.secrets.patch`               | Patch a key                                                  |
 | `kms.secrets.createalias`         | Create a key alias                                           |
 | `kms.secrets.deletealias`         | Delete a key alias                                           |
 | `kms.secrets.expire`              | Expire a key                                                 |
@@ -325,6 +326,17 @@ The following fields include extra information:
 - The `responseData.keyVersionCreationDate` field includes the date that the
   current version of the key was created.
 
+#### Patch key
+{: #get-key-success}
+
+The following fields include extra information:
+
+- The `requestData.initialValue.keyRingId` field includes the ID of the key ring that 
+  the key previously belonged to.
+
+- The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
+  key currently belongs to.
+  
 #### List key versions
 {: #list-key-versions-success}
 
