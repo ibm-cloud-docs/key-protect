@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2021-03-01"
+lastupdated: "2021-03-09"
 
 keywords: key rings
 
@@ -33,12 +33,18 @@ access permissions.
 As an account admin, you can bundle the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
 called `key rings`. A key ring is a collection of keys, within your
-service instance, that all require the same IAM access permissions.
+service instance, that all require the same IAM access permissions. 
 For example, if you have a group of team members who will need a particular
 type of access to a specific group of keys, you can create a key ring for those
 keys and assign the appropriate IAM access policy to the target user group. The
 users that are assigned access to the key ring can create and manage the resources
 that exist within the key ring. 
+
+Key rings are also useful where you have different business units who require strict
+access over a particular set of keys related to their activities and not other keys
+managed by other units. As an account admin, you can create a key ring per
+business unit and grant users of that business unit the ability to interact with the
+key inside of the key rings based on the level of assigned access.
 
 You can grant access to key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
