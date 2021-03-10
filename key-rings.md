@@ -42,7 +42,7 @@ that exist within the key ring.
 
 Key rings are also useful in cases where it is important for one business unit to 
 have access to a set of keys that another business unit should not have. An account admin
-can create key rings for each business unit and assign the appropriate level of access to 
+can create key rings for each business unit and [assign](#grant-access-key-ring) the appropriate level of access to 
 the appropriate users.
 
 You can grant access to key rings within a
