@@ -195,7 +195,7 @@ create new key rings to reflect these organizational changes. After creating the
 key rings, it might be necessary to move a key from an existing key ring to a
 new key ring that has different IAM permissions. For example, you might be
 onboarding a team that will need specific access to a key that belongs to a custom, non-default
-key ring that you previously made. You can create a new key ring that is dedicated to the onboarding
+key ring that was previously made. You can create a new key ring that is dedicated to the onboarding
 team and, since keys can only be associated with one key ring at a time, you will need
 to move the key to the new key ring.
 
