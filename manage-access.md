@@ -129,9 +129,21 @@ The following table shows how service access roles map to
 | Cancel deletion for a key | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 | Delete a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 | Restore a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Patch a key | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-2}
 {: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
 {: tab-title="Keys"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
+
+| Action | Reader | ReaderPlus | Writer | Manager |
+| ------ | ------ | ---------- | ------ | ------- |
+| Create a key ring | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| List key rings | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+| Delete a key ring | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
+{: #table-3}
+{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="top"}
+{: tab-title="Key Rings"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
@@ -142,7 +154,7 @@ The following table shows how service access roles map to
 | Set instance policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 | List instance policies | | | | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-3}
-{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="top"}
+{: caption="Table 4. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="top"}
 {: tab-title="Policies"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -152,7 +164,7 @@ The following table shows how service access roles map to
 | Create an import token | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 | Retrieve an import token | | | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-4}
-{: caption="Table 4. Lists service access roles as they apply to import token resources" caption-side="top"}
+{: caption="Table 5. Lists service access roles as they apply to import token resources" caption-side="top"}
 {: tab-title="Import tokens"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -166,7 +178,7 @@ The following table shows how service access roles map to
 | Replace a registration[^services-3] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 | Delete a registration[^services-4] | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
 {: #table-5}
-{: caption="Table 5. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
+{: caption="Table 6. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
 {: tab-title="Registrations"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}

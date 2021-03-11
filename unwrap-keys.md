@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+  years: 2017, 2021
+lastupdated: "2021-02-18"
 
-keywords: unwrap key, decrypt key, decrypt data encryption key, access data encryption key, envelope encryption API examples
+keywords: unwrap key, decrypt key, decrypt data encryption key
 
 subcollection: key-protect
 
@@ -24,16 +24,40 @@ subcollection: key-protect
 # Unwrapping keys
 {: #unwrap-keys}
 
-You can unwrap a data encryption key to access its contents by using the
-{{site.data.keyword.keymanagementservicefull}} API. Unwrapping a DEK decrypts
-and checks the integrity of its contents, returning the original key material to
-your {{site.data.keyword.cloud_notm}} data service.
+{{site.data.keyword.keymanagementservicelong}} combines the strength of multiple algorithms to protect the privacy and the integrity of your encrypted data. You can unwrap a [data encryption key](#x4791827){: term} (DEK), to access its contents by using the {{site.data.keyword.keymanagementservicefull}} API and Console. Unwrapping a DEK decrypts and checks the integrity of its contents, returning the original key material to your {{site.data.keyword.cloud_notm}} data service.
 {: shortdesc}
 
 To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}
+
+## Unwrapping a key using the console
+{: #unwrapping-keys-ui}
+
+If you already have an instance of {{site.data.keyword.keymanagementserviceshort}} and you wish to encrypt your DEK by using a graphical interface,
+you can use the {{site.data.keyword.cloud_notm}} console.
+
+After you import or create your [own keys](/docs/key-protect?topic=key-protect-create-root-keys),
+complete the following steps to wrap your data using the key:
+
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+1. From the **Menu**, choose the **Resource List** to view a list of your resources.
+
+1. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+1. Choose the `root key` that you used to originally wrap your data from the list of your keys.
+
+1. Click the `⋯` icon to open a list of options for the DEK that you want to
+   unwrap.
+
+1. Click the **Envelope encryption** option to open the side panel. Choose the "Unwrap key" tab if it is not already highlighted.
+
+1. Supply any required text for the above in the appropriate fields, including the ciphertext and any additional data you stored locally for the purpose of unwrapping the DEK.
+
+1. Click **Unwrap Key** button.
 
 ## Unwrapping keys by using the API
 {: #unwrap-key-api}

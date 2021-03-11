@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
+  years: 2017, 2021
 lastupdated: "2021-01-04"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
@@ -25,11 +25,11 @@ subcollection: key-protect
 {: #wrap-keys}
 
 You can manage and protect your encryption keys with a root key by using the
-{{site.data.keyword.keymanagementservicelong}} API.
+{{site.data.keyword.keymanagementservicelong}} API and Console.
 {: shortdesc}
 
 When you wrap a [data encryption key](#x4791827){: term} with a
-[root key](#x6946961){: term}, {{site.data.keyword.keymanagementserviceshort}}
+[root key](#x6946961){: term} (DEK), {{site.data.keyword.keymanagementserviceshort}}
 combines the strength of multiple algorithms to protect the privacy and the
 integrity of your encrypted data.
 
@@ -37,6 +37,34 @@ To learn how key wrapping helps you control the security of at rest data in the
 cloud, see
 [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 {: tip}
+
+## Wrapping a key using the console
+{: #wrapping-keys-ui}
+
+If you already have an instance of {{site.data.keyword.keymanagementserviceshort}} and wish to encrypt your DEK by using a graphical interface, you can use the {{site.data.keyword.cloud_notm}} console.
+
+After you import or create your [own keys](/docs/key-protect?topic=key-protect-create-root-keys),
+complete the following steps to wrap your data using the key:
+
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+1. From the **Menu**, choose the **Resource List** to view a list of your resources.
+
+1. From your {{site.data.keyword.cloud_notm}} resource list, select your
+   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+1. Choose the `root key` from the list of your keys that you wish to use to wrap your data.
+
+1. Click the `⋯` icon to open a list of options for the key that you want to
+   restore.
+
+1. Click the **Envelope encryption** option to open the side panel. Choose the "Wrap key" tab if it is not already highlighed.
+
+1. Select how to wrap the key, either by requesting {{}} to "Wrap the key for me" allowing the service to provide base64 encoded text and any additional authentication data as needed, or choose "Wrap key with plain text and/or additional authentication data (AAD)"
+
+1. Supply any text for the above in the appropriate fields, ensuring that the additional data is stored locally for any future operations if provided.
+
+1. Click **Wrap Key** button.
 
 ## Wrapping keys by using the API
 {: #wrap-key-api}

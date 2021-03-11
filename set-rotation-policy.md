@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-22"
+  years: 2017, 2021
+lastupdated: "2020-02-18"
 
 keywords: automatic key rotation, set rotation policy, policy-based, key rotation
 
@@ -63,15 +63,13 @@ interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
 5. Click the ⋯ icon to open a list of options for a specific key.
 
-6. From the options menu, click **Manage policy** to manage the rotation policy
-   for the key.
+6. From the options menu, click **Rotate** to open the **Rotation** side panel. 
 
-7. From the list of rotation options, select a frequency of rotation in months.
+7. Under **Manage rotation policy**, select from the list of rotation options the desired frequency of rotation, in months.
 
-    If your key has an existing rotation policy, the interface displays the
-    key's existing rotation period.
+   If your key has an existing rotation policy, the interface displays the key's existing rotation period.
 
-8. Click **Create policy** to set the policy for the key.
+8. Click **Set policy** to set the policy for the key.
 
 When it's time to rotate the key based on the rotation interval that you
 specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces
