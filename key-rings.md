@@ -45,7 +45,7 @@ have access to a set of keys that another business unit should not have. An acco
 can create key rings for each business unit and [assign](#grant-access-key-ring) the appropriate 
 level of access to the appropriate users. In the case that the account admin would like to delegate
 platform management of a specific key ring to someone else, they can assign a user a 
-[platform administrator role at the key ring level](https://cloud.ibm.com/docs/account?topic=account-userroles#platformroles). 
+[platform administrator role at the key ring level](/docs/account?topic=account-userroles#platformroles). 
 The sub administrator will then have the ability to manage the key ring and grant access to the appropriate users.
 
 You can grant access to key rings within a
