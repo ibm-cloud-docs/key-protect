@@ -31,13 +31,21 @@ in your service instance and restrict access controls at a key ring level.
 
 As an account admin, you can bundle the keys in your
 {{site.data.keyword.keymanagementserviceshort}} service instance into groups
-called `key rings`. A key ring is a collection of keys located within your
-service instance, in which you can restrict access to via IAM access policy. 
-For example, if you want to delegate administration to a specific set of keys 
-for a specific group of users, you can create a key ring for those keys and 
-assign the appropriate  IAM access policy to the target user group. Users that 
-are assigned access to the specific key ring can create and manage the 
-resources that exist within the key ring.
+called `key rings`. A key ring is a collection of keys, within your
+service instance, that all require the same IAM access permissions. 
+For example, if you have a group of team members who will need a particular
+type of access to a specific group of keys, you can create a key ring for those
+keys and assign the appropriate IAM access policy to the target user group. The
+users that are assigned access to the key ring can create and manage the resources
+that exist within the key ring. 
+
+Key rings are also useful in cases where it is important for one business unit to 
+have access to a set of keys that another business unit should not have. An account admin
+can create key rings for each business unit and [assign](#grant-access-key-ring) the appropriate 
+level of access to the appropriate users. In the case that the account admin would like to delegate
+platform management of a specific key ring to someone else, they can assign a user a 
+[platform administrator role at the key ring level](https://cloud.ibm.com/docs/account?topic=account-userroles#platformroles). 
+The sub administrator will then have the ability to manage the key ring and grant access to the appropriate users.
 
 You can grant access to key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
