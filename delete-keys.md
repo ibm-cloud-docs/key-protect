@@ -213,7 +213,7 @@ at query time to delete the key.
           </p>
           <p>
             For more information, see
-            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
+            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
           </p>
         </td>
       </tr>

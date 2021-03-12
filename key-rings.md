@@ -22,8 +22,8 @@ subcollection: key-protect
 {:preview: .preview}
 {:term: .term}
 
-# Managing key rings
-{: #managing-key-rings}
+# Grouping Keys
+{: #grouping-keys}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to create
 a group of keys for a target group of users that require the same IAM 
