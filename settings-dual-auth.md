@@ -215,7 +215,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
           </p>
           <p>
             For more information, see
-            [Grouping keys](docs/key-protect?topic=key-protect-grouping-keys).
+            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
           </p>
         </td>
       </tr>
@@ -406,7 +406,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
           </p>
           <p>
             For more information, see
-            [Grouping keys](docs/key-protect?topic=key-protect-grouping-keys).
+            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
           </p>
         </td>
       </tr>

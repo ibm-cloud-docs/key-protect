@@ -153,7 +153,7 @@ Use the retrieved key ID to create a access policy:
 
 A key ring is a collection of keys located within your service instance, in which you can 
 restrict access to via iam access policy. For information on key rings,
-see [Grouping keys](docs/key-protect?topic=key-protect-grouping-keys).
+see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
 
 You can grant access to key rings within a
 {{site.data.keyword.keymanagementserviceshort}} instance by using the

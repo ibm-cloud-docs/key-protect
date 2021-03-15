@@ -198,7 +198,7 @@ key (WDEK).
           </p>
           <p>
             For more information, see
-            [Grouping keys](docs/key-protect?topic=key-protect-grouping-keys).
+            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
           </p>
         </td>
       </tr>
