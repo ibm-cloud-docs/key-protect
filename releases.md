@@ -32,6 +32,19 @@ Stay up-to-date with the new features that are available for
 ## March 2021
 {: #march-2021}
 
+### Added: Transfer a key to a different key ring
+{: #added-transfer-key-key-ring}
+
+New as of: 2021-03-12
+
+You can now use the {{site.data.keyword.keymanagementserviceshort}} API to transfer
+a key from one key ring to another key ring. In order to move a key, you must have
+_Manager_ IAM access permissions to both the key and the target key ring, which is the
+key ring that you would like the key to be transferred to.
+
+To find out more, see
+[Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys#transfer-key-key-ring-api).
+
 ### Added: Major Changes to the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: #added-cli-changes}
 
