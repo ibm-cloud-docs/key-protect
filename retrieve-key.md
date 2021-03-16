@@ -147,7 +147,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
           </p>
           <p>
             For more information, see
-            [Managing key rings](docs/key-protect?topic=key-protect-managing-key-rings).
+            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
           </p>
         </td>
       </tr>

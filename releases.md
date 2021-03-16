@@ -163,7 +163,7 @@ called a `key ring`. You can manage and restrict access to key rings to via
 IAM policies.
 
 To find out more, see
-[Managing key rings](/docs/key-protect?topic=key-protect-managing-key-rings).
+[Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
 
 ### Updated: Restore a deleted key
 {: #updated-restore-key}
