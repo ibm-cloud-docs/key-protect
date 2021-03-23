@@ -84,7 +84,9 @@ You can also retrieve the instance ID for your
     Replace `<instance_name>` with the unique alias that you assigned to your
     {{site.data.keyword.keymanagementserviceshort}} instance. If you do not know the name of your instance,
     run the [`ibmcloud resource service-instances` command](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instances) to retrieve a list of instance names that you provisioned
-    in the selected region. The following truncated example shows the CLI output.
+    in the selected region. 
+    
+    The following truncated example shows the CLI output.
 
     ```plaintext
     crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
@@ -117,8 +119,9 @@ and then pipe the JSON output to `jq` to extract this value.
     Replace `<instance_name>` with the unique alias that you assigned to your
     {{site.data.keyword.keymanagementserviceshort}} instance. If you do not know the name of your instance,
     make a [`GET /v2/resource_instances` request](/apidocs/resource-controller/resource-controller#list-resource-instances){: external}
-    to retrieve a list of instance names that you provisioned in the selected region. The following output shows an 
-    example instance ID:
+    to retrieve a list of instance names that you provisioned in the selected region. 
+    
+    The following output shows an example instance ID:
 
     ```plaintext
     42454b3b-5b06-407b-a4b3-34d9ef323901
