@@ -116,8 +116,8 @@ advanced encryption and management of data.
     <p>
       Standard keys are resources in 
       {{site.data.keyword.keymanagementserviceshort}} that be used to store secrets. 
-      Once your plaintext standard key is generated and protecting underlying data, 
-      destroy the plaintext and safely store the encrypted standard key. 
+      Once your plaintext standard key is generated or imported into the {{site.data.keyword.keymanagementserviceshort}}
+      service, destroy the plaintext and safely store the encrypted standard key. 
     </p>
     <p>
       To see which IBM Cloud service provides the best capabilities for managing your secrets,
