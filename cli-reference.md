@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-02"
+lastupdated: "2021-04-01"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -294,11 +294,11 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 
 * **`-a, --hash`**
 
-   The hash algorithm used to wrap the key. SHA1 and SHA256 are supported. The default is SHA256. SHA1 is only supported by Hyper Protect Crypto Services (HPCS).
+   The hash algorithm used to wrap the key. SHA1 and SHA256 are supported. The default is SHA256. SHA1 is only supported by HPCS.
 
    This option is used to generate an encrypted key that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
 
-   HPCS is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
+   Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
 
 ### Notes
 {: #kp-import-token-key-encrypt-notes}
@@ -373,11 +373,11 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 
 * **`-c, --cbc`**
 
-   Encrypt the nonce using the AES-CBC encryption algorithm. This algorithm method is only supported for Hyper Protect Crypto Services (HPCS). The default encryption algorithm is AES-GCM.
+   Encrypt the nonce using the AES-CBC encryption algorithm. This algorithm method is only supported for HPCS. The default encryption algorithm is AES-GCM.
 
    This option is used to generate an encrypted nonce that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
 
-   HPCS is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
+   Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
 
 ### Notes
 {: #kp-import-token-nonce-encrypt-notes}
@@ -1120,7 +1120,7 @@ $ echo $PAYLOAD | base64 -d
 
    If you generated a key then this is the base64-encoded key material that you store and manage in the service.
 
-   Root keys must be 16, 24, or 32 bytes long. This corresponds to 128, 192, or 256 bits of entropy. The key must be base64-encoded.
+   Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256 bits. The key must be base64-encoded.
 
    Standard keys can be up to 7,500 bytes in size. The key must be base64-encoded.
 
@@ -1371,7 +1371,7 @@ No service instance found.
 
 * **`-f, --force`**
 
-   Any key that has "registrations" (associations between root keys and other cloud resources, such as Cloud Object Storage buckets or Cloud Databases deployments) can still be deleted using the force flag.
+   Delete a key, with force, which is used to delete a key that has "registrations." Registrations are associations between root keys and other cloud resources, such as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 
    For more information, see [kp registrations](#kp-registrations)
 
@@ -1411,7 +1411,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is revoked.
 
 After access to the associated data is revoked, a corresponding `disable event`
-is displayed in the Activity Tracker UI. The `disable event` indicates the
+is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `disable event` indicates the
 key has been revoked (and is now disabled) and the key can **not** be used for
 encrypt and decrypt operations.
 
@@ -1567,7 +1567,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is restored.
 
 After access to the associated data is restored, a corresponding `enable event`
-is displayed in the Activity Tracker web UI. The `enable event` indicates the
+is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `enable event` indicates the
 key has been restored (and is now enabled) and the key can be used for encrypt
 and decrypt operations, such as wrap, unwrap, and rewrap.
 
@@ -1812,7 +1812,9 @@ $ ibmcloud kp key policies $KEY_ID --output json
 {: #kp-key-policy-update-dual}
 
 You can use {{site.data.keyword.keymanagementserviceshort}} to safely delete
-encryption keys by shredding its contents and associated data. Any data that is encrypted by the key becomes inaccessible. Using a dual-auth-delete policy makes the process of deletion even safer by requiring the participation of two users.
+encryption keys by using a dual authorization process. When you delete a key,
+you shred its contents and associated data. Any data that is encrypted by the
+key becomes inaccessible.
 
 Deleting a key that has a
 [dual authorization policy](/docs/key-protect?topic=key-protect-manage-dual-auth)
@@ -3230,7 +3232,7 @@ FAILED
    The `plaintext` specifies a base64-encoded data encryption key (DEK) that is wrapped by the root key (the `KEY_ID` parameter).
 
    The base64-encoded data encryption key (DEK) that you want to manage and protect. To import an existing key, provide a 32-byte (256-bit) key.
-   
+
    To generate and wrap a new DEK, omit the `--plaintext` parameter.
 
 * **`--key-ring`**
@@ -3554,11 +3556,10 @@ Select a Region:
 2. eu-de
 3. eu-fr2 (available by request)
 4. eu-gb
-5. jp-osa
-6. jp-tok
-7. us-east
-8. us-south
-9. staging (us-south)
+5. jp-tok
+6. us-east
+7. us-south
+8. staging (us-south)
 Enter a number:
 5
 OK

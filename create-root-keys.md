@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-18"
+  years: 2017, 2021
+lastupdated: "2021-04-01"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -20,34 +20,35 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating root keys
 {: #create-root-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to create root keys
-by using the {{site.data.keyword.cloud_notm}} console, or programmatically with
-the {{site.data.keyword.keymanagementserviceshort}} API.
+Use {{site.data.keyword.keymanagementservicefull}} to create root keys with the {{site.data.keyword.cloud_notm}} console.
 {: shortdesc}
+{: ui}
 
-Root keys are symmetric key-wrapping keys that are used to protect the security
-of encrypted data in the cloud. For more information about root keys, see
-[Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+Use {{site.data.keyword.keymanagementservicefull}} to create root keys programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
+{: shortdesc}
+{: api}
 
-Encryption keys that are created in one region can be used to encrypt data
-stores located in any region within IBM Cloud.
+Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+
+Encryption keys that are created in one region can be used to encrypt data stores located in any region within IBM Cloud.
 {: note}
+
+You can specify an expiration date when creating a root key. After performing an action on the key, such as wrap or unwrap, an associated {{site.data.keyword.at_full}}  event will send information on the date that the key expires and how many days are left until that day arrives. You can also [configure an alert](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-alerts#alerts_step3_preset) that will notify you days before key expiration. For more information on monitoring key expiration via {{site.data.keyword.at_full_notm}}, see [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## Creating root keys in the console
 {: #create-root-key-gui}
+{: ui}
 
-[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision),
-complete the following steps to create a root key in the
+[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key in the
 {{site.data.keyword.cloud_notm}} console.
 
-If you enable
-[dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
-keep in mind that any keys that you add to the service require an authorization
-from two users to delete keys.
+If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
@@ -62,57 +63,19 @@ from two users to delete keys.
 
     Specify the key's details:
 
-    <table>
-      <tr>
-        <th>Setting</th>
-        <th>Description</th>
-      </tr>
+| Setting | Description |
+| --- | --- |
+| Name | A human-readable name for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location.|
+|Key type|The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. From the list of key types, select Root key.|
+{: caption="Table 1. Describes the **Create a key** settings." caption-side="top"}
 
-      <tr>
-        <td>
-          Name
-        </td>
-        <td>
-          <p>
-            A human-readable name for easy identification of your key. Length
-            must be within 2 - 90 characters (inclusive).
-          </p>
-          <p>
-            To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or
-            location.
-          </p>
-        </td>
-      </tr>
+When you are finished filling out the key's details, click **Create key** to confirm.
 
-      <tr>
-        <td>
-          Key type
-        </td>
-        <td>
-          The
-          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that you would like to manage in
-          {{site.data.keyword.keymanagementserviceshort}}. From the list of key
-          types, select <b>Root key</b>.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the <b>Create a key</b> settings
-      </caption>
-    </table>
-
-5. When you are finished filling out the key's details, click **Create key** to
-   confirm.
-
-Keys that are created in the service are symmetric 256-bit keys, supported by
-the AES-CBC-PAD algorithm. For added security, keys are generated by FIPS 140-2
-Level 3 certified hardware security modules (HSMs) that are located in secure
-{{site.data.keyword.cloud_notm}} data centers.
+Keys that are created in the service are symmetric 256-bit keys, supported by the AES-CBC-PAD algorithm. For added security, keys are generated by FIPS 140-2 Level 3 certified hardware security modules (HSMs) that are located in secure {{site.data.keyword.cloud_notm}} data centers.
 
 ## Creating root keys with the API
 {: #create-root-key-api}
+{: api}
 
 Create a root key by making a `POST` call to the following endpoint.
 
@@ -155,264 +118,78 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+| Variable | Description |
+| --- | --- |
+|region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the target key ring that you would like the newly create key to belong to. If unspecified, the header is automatically set to 'default' and the key will sit in the default key ring in the specified {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|correlation_ID|The unique identifier that is used to track and correlate transactions.|
+|key_name|**Required**. A unique, human-readable name for easy identification of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
+|alias_list|One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than dashes (-) or underscores (_). The alias cannot be a version 4 UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 - 90 characters (inclusive).|
+|key_description|An extended description of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
+|YYYY-MM-DD HH:MM:SS.SS|The date and time that the key expires in the system, in RFC 3339 format. The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
+|key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service creates a root key that you can use for wrap or unwrap operations.|
+{: caption="Table 1. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
+{: important}
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+If the `expirationDate` is provided in your create key request, the key will transition to the deactivated state within one hour past the key's expiration date.
+{: note}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+A successful `POST api/v2/keys` response returns the ID value for your key, along with other metadata. The ID is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API.
 
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the target key ring that you would 
-            like the newly create key to belong to. If unspecified, the header is automatically
-            set to 'default' and the key will sit in the default key ring in the specified 
-            {{site.data.keyword.keymanagementserviceshort}} service instance.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "name": "test-root-key",
+            "aliases": [
+                "alias-1",
+                "alias-2"
+              ],
+            "description": "A test root key",
+            "state": 1,
+            "extractable": false,
+            "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+            "imported": false,
+            "creationDate": "2020-03-12T03:37:32Z",
+            "createdBy": "...",
+            "algorithmType": "AES",
+            "algorithmMetadata": {
+                "bitLength": "256",
+                "mode": "CBC_PAD"
+            },
+            "algorithmBitSize": 256,
+            "algorithmMode": "CBC_PAD",
+            "lastUpdateDate": "2020-03-12T03:37:32Z",
+            "keyVersion": {
+                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "creationDate": "2020-03-12T03:37:32Z"
+            },
+            "dualAuthDelete": {
+                "enabled": false
+            },
+            "deleted": false
+        }
+    ]
+}
+```
+{: screen}
 
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_name</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> A unique, human-readable name for easy
-            identification of your key.
-          </p>
-          <p>
-            <b>Important:</b> To protect your privacy, do not store your
-            personal data as metadata for your key.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>alias_list</varname>
-        </td>
-        <td>
-          <p>
-            One or more unique, human-readable aliases assigned to your key.
-          </p>
-          <p>
-            <b>Important:</b> To protect your privacy, do not store your
-            personal data as metadata for your key.
-          </p>
-          <p>
-            Each alias must be alphanumeric, case sensitive, and cannot contain
-            spaces or special characters other than dashes (<code>-</code>) or
-            underscores (<code>_</code>). The alias cannot be a version 4 UUID
-            and must not be a {{site.data.keyword.keymanagementserviceshort}}
-            reserved name: <code>allowed_ip</code>, <code>key</code>,
-            <code>keys</code>, <code>metadata</code>, <code>policy</code>,
-            <code>policies</code>, <code>registration</code>,
-            <code>registrations</code>, <code>ring</code>, <code>rings</code>,
-            <code>rotate</code>, <code>wrap</code>, <code>unwrap</code>,
-            <code>rewrap</code>, <code>version</code>, <code>versions</code>.
-            Alias size can be between 2 - 90 characters (inclusive).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_description</varname>
-        </td>
-        <td>
-          <p>
-            An extended description of your key.
-          </p>
-          <p>
-            <b>Important:</b> To protect your privacy, do not store your
-            personal data as metadata for your key.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>YYYY-MM-DD</varname>
-          <br>
-          <varname>HH:MM:SS.SS</varname>
-        </td>
-        <td>
-          <p>
-            The date and time that the key expires in the system, in RFC 3339
-            format. The key will transition to the deactivated state within one
-            hour past the key's expiration date.
-          </p>
-          <p>
-            If the <code>expirationDate</code> attribute is omitted, the key
-            does not expire.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_type</varname>
-        </td>
-        <td>
-          <p>
-            A boolean value that determines whether the key material can leave
-            the service.
-          </p>
-          <p>
-            When you set the <code>extractable</code> attribute to
-            <code>false</code>, the service creates a root key that you can use
-            for <code>wrap</code> or <code>unwrap</code> operations.
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to add a root key with
-        the {{site.data.keyword.keymanagementserviceshort}} API
-      </caption>
-    </table>
-
-    To protect the confidentiality of your personal data, avoid entering
-    personally identifiable information (PII), such as your name or location,
-    when you add keys to the service. For more examples of PII, see section 2.2
-    of the
-    [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
-    {: important}
-
-    If the `expirationDate` is provided in your create key request, the key will
-    transition to the deactivated state within one hour past the key's
-    expiration date.
-    {: note}
-
-    A successful `POST api/v2/keys` response returns the ID value for your key,
-    along with other metadata. The ID is a unique identifier that is assigned to
-    your key and is used for subsequent calls to the
-    {{site.data.keyword.keymanagementserviceshort}} API.
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "type": "application/vnd.ibm.kms.key+json",
-                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "name": "test-root-key",
-                "aliases": [
-                    "alias-1",
-                    "alias-2"
-                  ],
-                "description": "A test root key",
-                "state": 1,
-                "extractable": false,
-                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-                "imported": false,
-                "creationDate": "2020-03-12T03:37:32Z",
-                "createdBy": "...",
-                "algorithmType": "AES",
-                "algorithmMetadata": {
-                    "bitLength": "256",
-                    "mode": "CBC_PAD"
-                },
-                "algorithmBitSize": 256,
-                "algorithmMode": "CBC_PAD",
-                "lastUpdateDate": "2020-03-12T03:37:32Z",
-                "keyVersion": {
-                    "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                    "creationDate": "2020-03-12T03:37:32Z"
-                },
-                "dualAuthDelete": {
-                    "enabled": false
-                },
-                "deleted": false
-            }
-        ]
-    }
-    ```
-    {: screen}
-
-    For a detailed description of the response parameters, see the
-    {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](/apidocs/key-protect){: external}.
-    {: tip}
+For a detailed description of the response parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](/apidocs/key-protect){: external}.
+{: tip}
 
 ## What's next
 {: #create-root-key-next-steps}
 
-- To find out more about protecting keys with envelope encryption, check out
-  [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
+- To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
-- To find out more about programmatically managing your keys,
-  [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

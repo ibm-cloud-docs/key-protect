@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-07"
+  years: 2020, 2021
+lastupdated: "2021-04-01"
 
 keywords: IBM, monitoring, metrics, operational metrics
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.mon_short}} Operational metrics
+# {{site.data.keyword.mon_short}} operational metrics
 {: #operational-metrics}
 
 As a security officer, auditor, or manager, you can use the
@@ -71,7 +71,7 @@ Before you provision an instance of {{site.data.keyword.mon_short}}, consider
 the following guidance:
 
 - You will need to enable a
-  [metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics)
+  [metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics)
   in the {{site.data.keyword.keymanagementserviceshort}} instance in order to
   retrieve operational metrics.
 
@@ -82,7 +82,7 @@ the following guidance:
   they plan to provision the instance.
 
 ## Connecting {{site.data.keyword.mon_short}} with {{site.data.keyword.keymanagementserviceshort}}
-{: #connect-sysdig-keyprotect}
+{: #connect-monitor-keyprotect}
 
 Your dashboard will show metrics for all
 {{site.data.keyword.keymanagementserviceshort}} instances with an enabled
@@ -90,13 +90,13 @@ metrics policy.
 {: note}
 
 ### Configure a {{site.data.keyword.mon_short}} instance for metrics
-{: #configure-sysdig}
+{: #configure-monitor}
 
 To enable platform metrics in a region, complete the following steps:
 
 1. [Provision an instance of {{site.data.keyword.mon_short}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision){: external}
    in the region of the Key Protect instance that contains an
-   [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics).
+   [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics).
 
 2. Go to the [monitoring dashboard](/observe/monitoring).
 
@@ -116,7 +116,7 @@ To enable platform metrics in a region, complete the following steps:
 ## {{site.data.keyword.keymanagementserviceshort}} Metrics Details
 {: #kp-metrics}
 
-You can use the metrics in your Sysdig dashboard to measure the types of
+You can use the metrics in your monitoring instance dashboard to measure the types of
 requests being made in your service instance as well as the latency of the
 requests.
 
@@ -127,56 +127,17 @@ The type and amount of API requests being made to your
 {{site.data.keyword.keymanagementserviceshort}} instance. For example, you can
 track how many API requests have been made by an authorized user be setting an
 [alert](#set-monitor-alerts)
-that triggers when your sysdig instance notices a frequent amount of 401 status
+that triggers when your monitoring instance notices a frequent amount of 401 status
 codes being returned from your {{site.data.keyword.keymanagementserviceshort}}
 instance.
 
-<table>
-  <tr>
-    <th>Metadata</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      Metric Name
-    </td>
-    <td>
-      <code>ibm_kms_api_request_gauge</code>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Metric Type
-    </td>
-    <td>
-      Gauge
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Value Type
-    </td>
-    <td>
-      none
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Segment By
-    </td>
-    <td>
-      [Attributes for Segmentation](#attributes-for-segmentation)
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 1. Describes the API Hits metrics.
-  </caption>
-</table>
+|Metadata|Description|
+|--- |--- |
+|Metric Name|ibm_kms_api_request_gauge|
+|Metric Type|Gauge|
+|Value Type|none|
+|Segment By|[Attributes for Segmentation](#attributes-for-segmentation)|
+{: caption="Table 1. Describes the API Hits metrics." caption-side="bottom"}
 
 ## Latency
 {: #latency}
@@ -189,170 +150,33 @@ The latency is calculated by getting the average of all requests of the same
 type that occur within 60 seconds.
 {: note}
 
-<table>
-  <tr>
-    <th>Metadata</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      Metric Name
-    </td>
-    <td>
-      <code>ibm_kms_api_latency_gauge</code>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Metric Type
-    </td>
-    <td>
-      Gauge
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Value Type
-    </td>
-    <td>
-      Milliseconds
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Segment By
-    </td>
-    <td>
-      [Attributes for Segmentation](#attributes-for-segmentation)
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 2. Describes the Latency metrics.
-  </caption>
-</table>
+|Metadata|Description|
+|--- |--- |
+|Metric Name|ibm_kms_api_latency_gauge|
+|Metric Type|Gauge|
+|Value Type|Milliseconds|
+|Segment By|[Attributes for Segmentation](#attributes-for-segmentation)|
+{: caption="Table 2. Describes the Latency metrics." caption-side="bottom"}
 
 ## Attributes for Segmentation
 {: #attributes-for-segmentation}
 
 You can filter your metrics by using the following attributes.
 
-<table>
-  <tr>
-    <th>Attribute Name</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_resource_type</code>
-    </td>
-    <td>
-      Supported resource type is <code>instance</code>.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_kms_response_code</code>
-    </td>
-    <td>
-      Response code for the {{site.data.keyword.keymanagementserviceshort}}
-      service API request.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_scope</code>
-    </td>
-    <td>
-      The account, organization, or space GUID associated with the metric.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_ctype</code>
-    </td>
-    <td>
-      public, dedicated, or local.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_location</code>
-    </td>
-    <td>
-      Location of the {{site.data.keyword.keymanagementserviceshort}} service
-      instance.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_service_name</code>
-    </td>
-    <td>
-      kms.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_resource</code>
-    </td>
-    <td>
-      {{site.data.keyword.keymanagementserviceshort}} service instance ID.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_kms_api</code>
-    </td>
-    <td>
-      {{site.data.keyword.keymanagementserviceshort}} service API name.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_resource_group_name</code>
-    </td>
-    <td>
-      Resource group name associated with the
-      {{site.data.keyword.keymanagementserviceshort}} service instance.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_service_instance_name</code>
-    </td>
-    <td>
-      {{site.data.keyword.keymanagementserviceshort}} service instance name.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibm_service_instance</code>
-    </td>
-    <td>
-      {{site.data.keyword.keymanagementserviceshort}} service instance ID.
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 3. Describes the attributes use for segmenting metrics.
-  </caption>
-</table>
+|Attribute Name|Description|
+|--- |--- |
+|ibm_resource_type|Supported resource type is instance.|
+|ibm_kms_response_code|Response code for the {{site.data.keyword.keymanagementserviceshort}} service API request.|
+|ibm_scope|The account, organization, or space GUID associated with the metric.|
+|ibm_ctype|public, dedicated, or local.|
+|ibm_location|Location of the {{site.data.keyword.keymanagementserviceshort}} service instance.|
+|ibm_service_name|kms.|
+|ibm_resource|{{site.data.keyword.keymanagementserviceshort}} service instance ID.|
+|ibm_kms_api|{{site.data.keyword.keymanagementserviceshort}} service API name.|
+|ibm_resource_group_name|Resource group name associated with the {{site.data.keyword.keymanagementserviceshort}} service instance.|
+|ibm_service_instance_name|{{site.data.keyword.keymanagementserviceshort}} service instance name.|
+|ibm_service_instance|{{site.data.keyword.keymanagementserviceshort}} service instance ID.|
+{: caption="Table 3. Describes the attributes use for segmenting metrics." caption-side="bottom"}
 
 ## Metrics Filter Attributes
 {: #metrics-filter-attributes}
@@ -360,57 +184,13 @@ You can filter your metrics by using the following attributes.
 You can scope down your metrics by using the following scope filters.
 These filters are more granular than the segmentation filters.
 
-<table>
-  <tr>
-    <th>Attribute Name</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibmResourceGroupName</code>
-    </td>
-    <td>
-      The name of the resource group associated with the
-      {{site.data.keyword.keymanagementserviceshort}} service instance.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibmScope</code>
-    </td>
-    <td>
-      The account, organization, or space GUID associated with the metric.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibmServiceInstanceName</code>
-    </td>
-    <td>
-      <p>
-        The service instance associated with the metric.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>ibmKmsApi</code>
-    </td>
-    <td>
-      The {{site.data.keyword.keymanagementserviceshort}} API call associated
-      with the metric.
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 3. Describes the scope filters for
-    {{site.data.keyword.keymanagementserviceshort}} metrics.
-  </caption>
-</table>
+|Attribute Name|Description|
+|--- |--- |
+|ibmResourceGroupName|The name of the resource group associated with the {{site.data.keyword.keymanagementserviceshort}} service instance.|
+|ibmScope|The account, organization, or space GUID associated with the metric.|
+|ibmServiceInstanceName|The service instance associated with the metric.|
+|ibmKmsApi|The {{site.data.keyword.keymanagementserviceshort}} API call associated with the metric.|
+{: caption="Table 3. Table 4. Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics." caption-side="bottom"}
 
 Due to {{site.data.keyword.mon_short}} limitations, you will only be able to see
 the values in the dropdown filters for up to 6 hours at a time. You can manually
@@ -421,7 +201,7 @@ type in value into scope variables to use scope filters for given time periods.
 {: #default-dashboards}
 
 You will need to configure platform metrics and enable a
-[metrics policy](/docs/key-protect?topic=key-protect-manage-sysdig-metrics)
+[metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics)
 on your KP service instance in order to view your
 {{site.data.keyword.keymanagementserviceshort}} operational metrics dashboard.
 {: note}
@@ -452,11 +232,11 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive
 platform metrics, follow the below steps:
 
 1. Go to the
-   [monitoring dashboard](/observe/monitoring){: external} and find your sysdig
+   [monitoring dashboard](/observe/monitoring){: external} and find your monitoring
    instance that is configured to receive platform metrics.
 
 2. Click on the `View {{site.data.keyword.mon_short}}` button that is in the
-   `View Dashboard` column of the sysdig instance.
+   `View Dashboard` column of the monitoring instance.
 
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click
    `Dashboards` to open up the side menu.
@@ -467,26 +247,24 @@ platform metrics, follow the below steps:
    the dashboard for your {{site.data.keyword.keymanagementserviceshort}}
    service instance.
 
-![The image shows an example of the monitoring dashboard.](images/sys-dig-instance-dashboard.png)
-{: caption="Figure 1. Shows some the monitoring dashboard that lists your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
-
-![The image shows an example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/sysdig-dashboard-menu.png)
-{: caption="Figure 2. Shows the dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
+![The image shows an example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png)
+{: caption="Figure 1. Shows the dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
 
 Below are figures that show the metric views available to you on the default
 dashboard.
 
-![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/sysdg-operation-dash1.png)
-{: caption="Figure 3. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png)
+{: caption="Figure 2. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
-![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/sysdig-operation-view2.png)
-{: caption="Figure 4. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-view2.png)
+{: caption="Figure 3. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
 You will not be able to see any metrics in your {{site.data.keyword.mon_short}}
 instance until you enable a metrics policy for your
 {{site.data.keyword.keymanagementserviceshort}} instance and make API requests
 to your {{site.data.keyword.keymanagementserviceshort}} instance.
 {: note}
+
 ## Setting Alerts
 {: #set-monitor-alerts}
 
@@ -515,9 +293,5 @@ The following figure shows an example of how to configure an alert when your
 service instance receives multiple 401 and 403 errors within a 10 minute time
 span.
 
-![The image shows an example of a 401 and 403 configuration.](images/sysdig-401-alert.png)
+![The image shows an example of a 401 and 403 configuration.](images/monitor-401-alert.png)
 {: caption="Figure 4=5. Shows the configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
-
-For more information on configuring metric alerts, see
-[Metric Alerts](https://docs.sysdig.com/en/metric-alerts.html){: external}
-{: note}

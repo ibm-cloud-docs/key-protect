@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-22"
+  years: 2020, 2021
+lastupdated: "2021-04-01"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -64,7 +64,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is revoked.
 
 After access to the associated data is revoked, a corresponding `disable event`
-is displayed in the Activity Tracker web UI. The `disable event` indicates the
+is displayed in the {{site.data.keyword.at_full}} web UI. The `disable event` indicates the
 key has been revoked (and is now disabled) and the key can **not** be used for
 encrypt and decrypt operations.
 {: note}
@@ -84,7 +84,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is restored.
 
 After access to the associated data is restored, a corresponding `enable event`
-is displayed in the Activity Tracker web UI. The `enable event` indicates the
+is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `enable event` indicates the
 key has been restored (and is now enabled) and the key can be used for encrypt
 and decrypt operations.
 {: note}
@@ -182,168 +182,85 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|****Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The unique identifier for the root key that you want to disable.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+{: caption="Table 1. Describes the variables that are needed to disable root keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful disable request returns an HTTP `204 No Content` response,
+which indicates that the root key was disabled for encrypt and decrypt
+operations.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The unique identifier for the root key that
-          you want to disable.
-        </td>
-      </tr>
+### Optional: Verify key disablement
+{: #disable-api-verify}
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+You can verify that a key has been disabled by issuing a get key metadata request:
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+    -H "accept: application/vnd.ibm.kms.key+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
+Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
+Review the `state` field in the response body to verify that the key
+transitioned to the _Suspended_ key state. The following JSON output shows
+the metadata details for a disabled root key.
 
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to disable root keys
-        with the {{site.data.keyword.keymanagementserviceshort}} API.
-      </caption>
-    </table>
+The integer mapping for the _Suspended_ key state is 2. Key States are based
+on NIST SP 800-57.
+{: note}
 
-    A successful disable request returns an HTTP `204 No Content` response,
-    which indicates that the root key was disabled for encrypt and decrypt
-    operations.
-
-4. Optional: Verify that the root key was disabled by retrieving details about
-   the key.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>" \
-        -H "accept: application/vnd.ibm.kms.key+json"
-    ```
-    {: codeblock}
-
-    Review the `state` field in the response body to verify that the key
-    transitioned to the _Suspended_ key state. The following JSON output shows
-    the metadata details for a disabled root key.
-
-    The integer mapping for the _Suspended_ key state is 2. Key States are based
-    on NIST SP 800-57.
-    {: note}
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "type": "application/vnd.ibm.kms.key+json",
-                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "name": "...",
-                "description": "...",
-                "tags": [
-                    "..."
-                ],
-                "state": 2,
-                "extractable": false,
-                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-                "imported": true,
-                "creationDate": "2020-03-10T20:41:27Z",
-                "createdBy": "...",
-                "algorithmType": "AES",
-                "algorithmMetadata": {
-                    "bitLength": "128",
-                    "mode": "CBC_PAD"
-                },
-                "algorithmBitSize": 128,
-                "algorithmMode": "CBC_PAD",
-                "lastUpdateDate": "2020-03-16T20:41:27Z",
-                "keyVersion": {
-                    "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
-                    "creationDate": "2020-03-12T03:37:32Z"
-                },
-                "dualAuthDelete": {
-                    "enabled": false
-                },
-                "deleted": false
-            }
-        ]
-    }
-    ```
-    {: screen}
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "name": "...",
+            "description": "...",
+            "tags": [
+                "..."
+            ],
+            "state": 2,
+            "extractable": false,
+            "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+            "imported": true,
+            "creationDate": "2020-03-10T20:41:27Z",
+            "createdBy": "...",
+            "algorithmType": "AES",
+            "algorithmMetadata": {
+                "bitLength": "128",
+                "mode": "CBC_PAD"
+            },
+            "algorithmBitSize": 128,
+            "algorithmMode": "CBC_PAD",
+            "lastUpdateDate": "2020-03-16T20:41:27Z",
+            "keyVersion": {
+                "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                "creationDate": "2020-03-12T03:37:32Z"
+            },
+            "dualAuthDelete": {
+                "enabled": false
+            },
+            "deleted": false
+        }
+    ]
+}
+```
+{: screen}
 
 ### Enabling a disabled root key with the API
 {: #enable-api}
@@ -382,173 +299,90 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
-        -H "x-kms-key-ring: <key_ring_ID>" 
+        -H "x-kms-key-ring: <key_ring_ID>"
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following
+table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The unique identifier for the root key that you want to enable.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+{: caption="Table 2. Describes the variables that are needed to enable root keys  with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful enable request returns an HTTP `204 No Content` response, which
+indicates that the root key was reinstated for encrypt and decrypt
+operations.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The unique identifier for the root key that
-          you want to enable.
-        </td>
-      </tr>
+### Optional: Verify key enablement
+{: #enable-key-api-verify}
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+You can verify that a key has been enabled by issuing a get key metadata request:
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+    -H "accept: application/vnd.ibm.kms.key+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
+Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
+Review the `state` field in the response body to verify that the root key
+transitioned to the _Active_ key state. The following JSON output shows the
+metadata details for
+an active key.
 
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to enable root keys
-        with the {{site.data.keyword.keymanagementserviceshort}} API.
-      </caption>
-    </table>
+The integer mapping for the _Active_ key state is 1. Key States are based on
+NIST SP 800-57.
+{: note}
 
-    A successful enable request returns an HTTP `204 No Content` response, which
-    indicates that the root key was reinstated for encrypt and decrypt
-    operations.
-
-4. Optional: Verify that the root key was enabled by retrieving details about
-   the key.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
-        -H "accept: application/vnd.ibm.kms.key+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
-
-    Review the `state` field in the response body to verify that the root key
-    transitioned to the _Active_ key state. The following JSON output shows the
-    metadata details for
-    an active key.
-
-    The integer mapping for the _Active_ key state is 1. Key States are based on
-    NIST SP 800-57.
-    {: note}
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "type": "application/vnd.ibm.kms.key+json",
-                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "name": "...",
-                "description": "...",
-                "tags": [
-                    "..."
-                ],
-                "state": 1,
-                "extractable": false,
-                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-                "imported": true,
-                "creationDate": "2020-03-10T20:41:27Z",
-                "createdBy": "...",
-                "algorithmType": "AES",
-                "algorithmMetadata": {
-                    "bitLength": "128",
-                    "mode": "CBC_PAD"
-                },
-                "algorithmBitSize": 128,
-                "algorithmMode": "CBC_PAD",
-                "lastUpdateDate": "2020-03-16T20:41:27Z",
-                "keyVersion": {
-                    "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
-                    "creationDate": "2020-03-12T03:37:32Z"
-                },
-                "dualAuthDelete": {
-                    "enabled": false
-                },
-                "deleted": false
-            }
-        ]
-    }
-    ```
-    {: screen}
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "name": "...",
+            "description": "...",
+            "tags": [
+                "..."
+            ],
+            "state": 1,
+            "extractable": false,
+            "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+            "imported": true,
+            "creationDate": "2020-03-10T20:41:27Z",
+            "createdBy": "...",
+            "algorithmType": "AES",
+            "algorithmMetadata": {
+                "bitLength": "128",
+                "mode": "CBC_PAD"
+            },
+            "algorithmBitSize": 128,
+            "algorithmMode": "CBC_PAD",
+            "lastUpdateDate": "2020-03-16T20:41:27Z",
+            "keyVersion": {
+                "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",
+                "creationDate": "2020-03-12T03:37:32Z"
+            },
+            "dualAuthDelete": {
+                "enabled": false
+            },
+            "deleted": false
+        }
+    ]
+}
+```
+{: screen}
