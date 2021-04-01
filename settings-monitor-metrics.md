@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-16"
+  years: 2020, 2021
+lastupdated: "2021-04-01"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -22,13 +22,13 @@ subcollection: key-protect
 {:preview: .preview}
 
 # Managing metrics
-{: #manage-sysdig-metrics}
+{: #manage-monitor-metrics}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
-instance, you can manage Sysdig metrics by using the service API.
+instance, you can manage monitoring metrics by using the service API.
 {: shortdesc}
 
-## Managing metrics settings
+## Metrics settings
 {: #manage-metrics-policy}
 
 Metrics for {{site.data.keyword.keymanagementserviceshort}} service instances is
@@ -61,7 +61,7 @@ following considerations:
   {{site.data.keyword.keymanagementserviceshort}} instance that you would like
   to receive operational metrics for. Once you provision the
   {{site.data.keyword.mon_short}} instance, you will need to
-  [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-sysdig).
+  [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-monitor).
 
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the Console
 {: #enable-metrics-instance-policy-ui}
@@ -133,69 +133,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable a metrics
-        policy.
-      </caption>
-    </table>
+    |Variable|Description|
+    |--- |--- |
+    |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+    |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+    |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+    {: caption="Table 1. Describes the variables that are needed to enable a metrics policy." caption-side="top"}
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
@@ -271,70 +214,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable metrics
-        policies.
-      </caption>
-    </table>
+    |Variable|Description|
+    |--- |--- |
+    |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+    |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+    |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+    {: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that the metrics policy was updated for your service

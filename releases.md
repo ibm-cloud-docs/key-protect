@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-02"
+lastupdated: "2021-04-01"
 
 keywords: release notes, service updates, service bulletin
 
@@ -95,9 +95,9 @@ You can now use the Key Protect UI to wrap/unwrap active root keys. For more inf
 ### Coming soon: Updates to key deletion functionality
 {: #upcoming-key-deletion-changes}
 
-Release Date: 2021-02-10
+Release Date: 2021-03-15
 
-Beginning in late February 2021, {{site.data.keyword.keymanagementserviceshort}}
+Beginning in April 2021, {{site.data.keyword.keymanagementserviceshort}}
 will implement a key purge feature that will automatically purge any keys that
 have been deleted for more than 90 days. A purged key and its associated data
 will be permanently removed, or hard deleted, from the
@@ -211,7 +211,7 @@ that allows you to view the operational metrics for your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
 To find out more, see
-[Managing metrics](/docs/key-protect?topic=key-protect-manage-sysdig-metrics#enable-metrics-instance-policy-ui).
+[Managing metrics](/docs/key-protect?topic=key-protect-manage-monitor-metrics#enable-metrics-instance-policy-ui).
 
 ### Added: Create a key alias
 {: #added-key-alias}
@@ -483,7 +483,7 @@ To find out more, see
 ## February 2020
 {: #feb-2020}
 
-### Changed: Activity Tracker event fields
+### Changed: {{site.data.keyword.at_full_notm}} event fields
 {: #changed-at-events}
 
 New as of: 2020-02-28
@@ -498,67 +498,12 @@ logs. These updates will be available across all supported regions by 15 April
   This change impacts the following {{site.data.keyword.at_full_notm}} event
   fields.
 
-  <table>
-    <tr>
-      <th>Type of change</th>
-      <th>Affected event fields</th>
-    </tr>
-
-    <tr>
-      <td>
-        Removed event fields
-      </td>
-      <td>
-        <ul>
-          <li><code>meta</code></li>
-          <li><code>observer.typeURI</code></li>
-          <li><code>requestHeader</code></li>
-          <li><code>requestPath</code></li>
-          <li><code>responseBody</code></li>
-          <li><code>type</code></li>
-          <li><code>typeURI</code></li>
-        </ul>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Changed event fields
-      </td>
-      <td>
-        <ul>
-          <li>
-            The <code>eventTime</code> field will change from format
-            <code>2020-02-03T20:20:37+0000</code> to
-            <code>2020-02-03T20:20:37Z</code>.
-          </li>
-          <li>
-            The <code>target.name</code> field is currently set to
-            <code>Key Protect</code>. This value will change to the name of
-            the resource on which the operation was performed. For example,
-            the name of the encryption key, or the name of your
-            {{site.data.keyword.keymanagementserviceshort}} instance.
-          </li>
-        </ul>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        New event fields
-      </td>
-      <td>
-        <ul>
-          <li><code>requestData</code</li>
-          <li><code>responseData</code></li>
-        </ul>
-      </td>
-    </tr>
-
-    <caption style="caption-side:bottom;">
-      Table 1. Describes upcoming Activity Tracker event field changes
-    </caption>
-  </table>
+|Type of change|Affected event fields|
+|--- |--- |
+|Removed event fields|meta<br>observer.typeURI<br>requestHeader<br>requestPath<br>responseBody<br>type<br>typeURI|
+|Changed event fields|The `eventTime` field will change from format `2020-02-03T20:20:37+0000` to `2020-02-03T20:20:37Z`.<br>The target.name field is currently set to {{site.data.keyword.keymanagementserviceshort}}. This value will change to the name of the resource on which the operation was performed. For example, the name of the encryption key, or the name of your {{site.data.keyword.keymanagementserviceshort}} instance.|
+|New event fields|requestData<br>responseData|
+{: caption="Describes upcoming {{site.data.keyword.at_full_notm}} event field changes." caption-side="top"}
 
 - **Why are we making these changes?**
   These changes are required to remove deprecated event fields and support
@@ -760,7 +705,7 @@ for your infrastructure account. For more information, see
 {: #june-2019}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for {{site.data.keyword.at_full_notm}}
-{: #added-at-logdna-support}
+{: #added-at-log-support}
 
 New as of: 2019-06-22
 
@@ -770,7 +715,7 @@ You can now monitor API calls to the
 
 To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}}
 activity, see
-[Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
+[{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## May 2019
 {: #may-2019}

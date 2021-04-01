@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2021-04-01"
 
-keywords: IBM, activity tracker, LogDNA, event, security, KMS API calls, monitor KMS events
+keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
 subcollection: key-protect
 
@@ -20,10 +20,10 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# Activity Tracker events
+# {{site.data.keyword.at_full_notm}} events
 {: #at-events}
 
-As a security officer, auditor, or manager, you can use the Activity Tracker
+As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full_notm}}
 service to track how users and applications interact with
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
@@ -35,7 +35,7 @@ comply with regulatory audit requirements. In addition, you can be alerted about
 actions as they happen. The events that are collected comply with the Cloud
 Auditing Data Federation (CADF) standard.
 
-For more information regarding the Activity Tracker service, see the
+For more information regarding the {{site.data.keyword.at_full_notm}} service, see the
 [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started){: external}.
 
 To determine which {{site.data.keyword.keymanagementserviceshort}} API requests
@@ -70,6 +70,7 @@ The following table lists the key actions that generate an event:
 | `kms.secrets.enable`              | Enable operations for a key                                  |
 | `kms.secrets.disable`             | Disable operations for a key                                 |
 | `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
+| `kms.secrets.expire`              |                                                              |
 | `kms.secrets.default`             | Invalid key request event                                    |
 {: caption="Table 1. Lifecycle Key Actions" caption-side="top"}
 
@@ -126,7 +127,7 @@ view events, you must access the web UI of the
 information, see
 [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started#gs_step4){: external}.
 
-| Deployment Region | Activity Tracker Region |
+| Deployment Region | {{site.data.keyword.at_full_notm}} Region |
 | ----------------- | ----------------------- |
 | `au-syd`          | `au-syd`                |
 | `eu-de`           | `eu-de`                 |
@@ -134,7 +135,7 @@ information, see
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
-{: caption="Table 5. Activity Tracker regions" caption-side="top"}
+{: caption="Table 6. {{site.data.keyword.at_full_notm}} regions" caption-side="top"}
 
 ## Analyzing successful events
 {: #at-events-analyze}
@@ -153,41 +154,13 @@ There are some common fields that
 {{site.data.keyword.keymanagementserviceshort}} uses outside of the CADF event
 model to provide more insight into your data.
 
-<table>
-  <tr>
-    <th>Field</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>requestData.requestURI</varname>
-    </td>
-    <td>
-      The URI of the API request that was made.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>requestData.instanceID</varname>
-    </td>
-    <td>
-      The unique identifier of your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>correlationId</varname>
-    </td>
-    <td>
-      The unique identifier of the API request that generated the event.
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 6. Describes the common fields in Activity Tracker events for
-    {{site.data.keyword.keymanagementserviceshort}} service actions.
-  </caption>
-</table>
+|Field|Description|
+|--- |--- |
+|requestData.requestURI|The URI of the API request that was made.|
+|requestData.instanceID|The unique identifier of your {{site.data.keyword.keymanagementserviceshort}} instance.|
+|correlationId|The unique identifier of the API request that generated the event.|
+{: caption="Table 7. Describes the common fields in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="top"}
+
 
 For more information on the event fields in the Cloud Auditing Data Federation
 (CADF) event model, see
@@ -294,6 +267,17 @@ Rotate key doesn't have any additional fields outside of those from the
 section
 {: note}
 
+#### Patch key
+{: #patch-key}
+
+The following fields include extra information:
+
+- The `requestData.initialValue.keyRingId` field includes the ID of the key ring that
+  the key previously belonged to.
+
+- The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
+  key currently belongs to.
+
 #### Get key total
 {: #list-head-success}
 
@@ -326,17 +310,9 @@ The following fields include extra information:
 - The `responseData.keyVersionCreationDate` field includes the date that the
   current version of the key was created.
 
-#### Patch key
-{: #get-key-success}
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
 
-The following fields include extra information:
-
-- The `requestData.initialValue.keyRingId` field includes the ID of the key ring that 
-  the key previously belonged to.
-
-- The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
-  key currently belongs to.
-  
 #### List key versions
 {: #list-key-versions-success}
 
@@ -489,10 +465,7 @@ The following fields include extra information:
   import token can be retrieved within its expiration time before it is no
   longer accessible.
 
-### Key with registrations events
-{: #key-registration-events}
-
-#### Rotate Key
+#### Completed action of a key rotation
 {: #rotate-key-registrations-success}
 
 The following fields include extra information:
@@ -517,7 +490,7 @@ The following fields include extra information:
 - The `responseData.eventAckData.oldKeyVersionCreationDate` field includes the
   date that the previous key version was created.
 
-#### Restore Key
+#### Completed action of key restoration
 {: #restore-key-registrations-success}
 
 The following fields include extra information:
@@ -534,7 +507,7 @@ The following fields include extra information:
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
   time that the event was acknowledged.
 
-#### Enable Key
+#### Completed action of an enabled key
 {: #enable-key-registrations-success}
 
 The following fields include extra information:
@@ -551,7 +524,7 @@ The following fields include extra information:
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
   time that the event was acknowledged.
 
-#### Disable key
+#### Completed action of a disabled key
 {: #disable-key-registration-success}
 
 The following fields include extra information:
@@ -567,17 +540,6 @@ The following fields include extra information:
 
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
   time that the event was acknowledged.
-
-### Registration events
-{: #registration-events}
-
-#### List registrations
-{: #list-registration-success}
-
-The following field includes extra information:
-
-- The `responseData.totalResources` field includes the total amount of
-  registrations returned in the response.
 
 ## Analyzing failed events
 {: #at-events-analyze-failed}
@@ -640,7 +602,7 @@ all appropriate actions were taken within 4 hours of the action request.
 ## Event Severity
 {: #at-events-event-severity}
 
-The severity for all Activity Tracker events with
+The severity for all {{site.data.keyword.at_full_notm}} events with
 {{site.data.keyword.keymanagementserviceshort}} are based on the type of request
 that was made, then status code. For example, if you make a create key request
 with an invalid key, but you are also unauthenticated for the
@@ -655,106 +617,12 @@ evaluated as a `401` bad request call with a severity of `critical`.
 
 The following table lists the actions associated with each severity level:
 
-<table>
-  <tr>
-    <th>Severity</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>Critical</varname>
-    </td>
-    <td>
-      <p>
-        <code>kms.secrets.delete</code>
-      </p>
-      <p>
-        <code>kms.registrations.delete</code>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>Warning</varname>
-    </td>
-    <td>
-      <p>
-        <code>kms.secrets.rotate</code>,
-        <code>kms.secrets.restore</code>
-      </p>
-      <p>
-        <code>kms.secrets.enable</code>,
-        <code>kms.secrets.disable</code>
-      </p>
-      <p>
-        <code>kms.secrets.setkeyfordeletion</code>,
-        <code>kms.secrets.unsetkeyfordeletion</code>
-      </p>
-      <p>
-        <code>kms.policies.write</code>,
-        <code>kms.instancepolicies.write</code>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>Normal</varname>
-    </td>
-    <td>
-      <p>
-        <code>kms.secrets.create</code>,
-        <code>kms.secrets.read</code>
-      </p>
-      <p>
-        <code>kms.secrets.readmetadata</code>,
-        <code>kms.secrets.head</code>
-      </p>
-      <p>
-        <code>kms.secrets.list</code>,
-        <code>kms.secrets.wrap</code>
-      </p>
-      <p>
-        <code>kms.secrets.unwrap</code>,
-        <code>kms.secrets.rewrap</code>
-      </p>
-      <p>
-        <code>kms.secrets.listkeyversions</code>,
-        <code>kms.secrets.eventack</code>
-      </p>
-      <p>
-        <code>kms.policies.read</code>,
-        <code>kms.instancepolicies.read</code>
-      </p>
-      <p>
-        <code>kms.importtoken.create</code>,
-        <code>kms.importtoken.read</code>
-      </p>
-      <p>
-        <code>kms.registrations.create</code>,
-        <code>kms.registrations.write</code>
-      </p>
-      <p>
-        <code>kms.registrations.merge</code>,
-        <code>kms.registrations.list</code>
-      </p>
-      <p>
-        <code>kms.secrets.ack-delete</code>,
-        <code>kms.secrets.ack-restore</code>
-      </p>
-      <p>
-        <code>kms.secrets.ack-rotate</code>,
-        <code>kms.secrets.ack-enable</code>
-      </p>
-      <p>
-        <code>kms.secrets.ack-disable</code>
-      </p>
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 7. Describes the severity level for
-    {{site.data.keyword.keymanagementserviceshort}} service actions.
-  </caption>
-  </table>
+|Severity|Actions|
+|--- |--- |
+|Critical|kms.secrets.delete<br>kms.registrations.delete|
+|Warning|kms.secrets.rotate, kms.secrets.restore<br>kms.secrets.enable, kms.secrets.disable<br>kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion<br>kms.policies.write, kms.instancepolicies.write|
+|Normal|kms.secrets.create, kms.secrets.read<br>kms.secrets.readmetadata, kms.secrets.head<br>kms.secrets.list, kms.secrets.wrap<br>kms.secrets.unwrap, kms.secrets.rewrap<br>kms.secrets.listkeyversions, kms.secrets.eventack<br>kms.policies.read, kms.instancepolicies.read<br>kms.importtoken.create, kms.importtoken.read<br>kms.registrations.create, kms.registrations.write<br>kms.registrations.merge, kms.registrations.list<br>kms.secrets.ack-delete, kms.secrets.ack-restore<br>kms.secrets.ack-rotate, kms.secrets.ack-enable<br>kms.secrets.ack-disable|
+{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 The following table lists the status codes associated with each severity level:
 
@@ -762,4 +630,4 @@ The following table lists the status codes associated with each severity level:
 | -------- | ---------------------------- |
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
-{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
+{: caption="Table 9. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}

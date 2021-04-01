@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-03-01"
+  years: 2017, 2021
+lastupdated: "2021-04-01"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 
 It is a best practice to rotate your root keys (that is, to create a new version of the key) on a regular basis. Regular rotations reduce what is known as the "cryptoperiod" of the key, and can also be used in specific cases such as personnel turnover, process malfunctions, or the detection of a security issue.
 
-**If you suspect a key has been compromised, disable it as soon as possible**. Check out [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys.html) for more information.
+**If you suspect a key has been compromised, disable it as soon as possible**. Check out [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys) for more information.
 {: important}
 
 Recall that root keys are not just used to create data encryption keys (DEKs), they are also used in conjunction with a master key (secured by IBM using a Hardware Security Module) to create a "wrap" of a DEK. The resulting "wrapped data encryption key" (WDEK) protects the DEK, which is used to encrypt data. If a user has a DEK they want to use, that key can be passed when creating a WDEK using the `wrap` call. If no DEK is specified, {{site.data.keyword.keymanagementserviceshort}} creates the DEK for you.
@@ -53,7 +53,7 @@ Root keys can be rotated manually or on a schedule set by the owner of the key. 
 * **Rotating keys manually**  
   As a security admin, you might want to have more control over the frequency of rotation for your root keys. If you don't want to set an automatic rotation policy for a key, you can manually create a new key to replace an existing key, and then update your applications so that they reference the new key.
 
-  To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}} to rotate the root key at any time. In this scenario, {{site.data.keyword.keymanagementserviceshort} creates and replaces the key on your behalf with each rotation request. The metadata and key ID of the key will not change. For more information about to manually rotate a key, check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
+  To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}} to rotate the root key at any time. In this scenario, {{site.data.keyword.keymanagementserviceshort}} creates and replaces the key on your behalf with each rotation request. The metadata and key ID of the key will not change. For more information about to manually rotate a key, check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 Manually rotating a root key does not disturb any rotation policy that might currently exist for the key. As a result, a good option is to set a regular rotation policy and then manually update keys more often as needed.
 {: tip}
@@ -84,7 +84,7 @@ To enable key rotation options for your {{site.data.keyword.cloud_notm}} data se
 
 After you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} notifies the {{site.data.keyword.cloud_notm}} data services that use the key to protect your data. This notification triggers actions in those services to rewrap the key's associated data encryption keys (DEKs) with the latest key version.
 
-After {{site.data.keyword.keymanagementserviceshort}} receives confirmation from those services that all associated DEKs are rewrapped, you receive an event in your Activity Tracker UI to show that the rotation is complete.
+After {{site.data.keyword.keymanagementserviceshort}} receives confirmation from those services that all associated DEKs are rewrapped, you receive an event in your {{site.data.keyword.at_full_notm}} UI to show that the rotation is complete.
 
 ### Managing retired key versions
 {: #key-rotation-managing}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+  years: 2017, 2021
+lastupdated: "2021-04-01"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -153,18 +153,18 @@ role cannot modify key material.
 {: faq}
 {: support}
 
-You can use the {{site.data.keyword.cloudaccesstrailfull_notm}} service to track
+You can use the {{site.data.keyword.at_full_notm}} service to track
 how users and applications interact with your
 {{site.data.keyword.keymanagementserviceshort}} instance. For example,
 when you create, import, delete, or read a key in
 {{site.data.keyword.keymanagementserviceshort}}, an
-{{site.data.keyword.cloudaccesstrailshort}} event is generated. These events are
-automatically forwarded to the {{site.data.keyword.cloudaccesstrailshort}}
+{{site.data.keyword.at_short}} event is generated. These events are
+automatically forwarded to the {{site.data.keyword.at_short}}
 service in the same region where the
 {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
 To find out more, check out
-[Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
+[{{site.data.keyword.at_full}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## How can I check what data is encrypted by which root key?
 {: #check-protected-data}
@@ -232,13 +232,6 @@ data that's associated with the key becomes inaccessible.
 Disabling a key is a reversible action. You can always
 [enable a disabled key](/docs/key-protect?topic=key-protect-disable-keys#enable-api)
 and restore access to the data that was previously encrypted with the key.
-
-If you have backed up the key material, you can restore the key. However, this
-restores only the latest version. Any data that is associated with older
-versions of the key are not restored.
-
-Restore works if you have the latest version of the key material backed up
-somewhere outside of {{site.data.keyword.keymanagementserviceshort}}.
 
 ## What is a dual authorization policy?
 {: #dual-auth}
