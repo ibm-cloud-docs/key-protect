@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-03-01"
 
-keywords: data at rest encryption, envelope encryption, root key, data encryption key, protect data encryption key, encrypt data encryption key, wrap data encryption key, unwrap data encryption key
+keywords: envelope encryption, encrypt data, encrypt data encryption key
 
 subcollection: key-protect
 
@@ -24,47 +24,57 @@ subcollection: key-protect
 # Protecting data with envelope encryption
 {: #envelope-encryption}
 
-Envelope encryption is the practice of encrypting data with a data 
-encryption key (DEK) and then encrypting the DEK with a fully 
-manageable root key.
+{{site.data.keyword.keymanagementserviceshort}} uses envelope encryption 
+to assist in protecting your {{site.data.keyword.keymanagementserviceshort}}
+data. Envelope encryption involves encrypting your data with a Data Encryption Key, 
+then encrypting the Data Encryption Key with a root key. This topic describes 
+the process of envelope encryption and how to use {{site.data.keyword.keymanagementserviceshort}} 
+to encrypt and decrypt your data.
 {: shortdesc}
 
-When working with sensitive data, it is important to protect the data with a 
-data encryption key (DEK). A DEK is an encryption key that is designed to 
-encrypt and decrypt data and can be generated and managed by your service or 
-an IBM Cloud service. While the DEK secures your data, the DEK itself is also 
-susceptible to attacks so you should take preventative measures to protect your 
-DEKs with envelope encryption. Envelope encryption is the process of protecting 
-your data encryption keys by encrypting the DEK with a [root key](#key-types). 
-The same root key is used to decrypt your DEK, which you can use to
-decrypt any data encrypted by the DEK.
+When working with sensitive data, it is important to use advanced encryption 
+techniques to prevent a data breach. If you have large amounts of confidential data,
+it is often helpful to use a Key Management System to assist in keeping your data secure.
+{{site.data.keyword.keymanagementserviceshort}} uses the envelope encryption technique 
+to keep your data resilient. Envelope encryption is the process of using encrypted keys, 
+Data Encryption Keys and Root Keys, to protect your sensitive data. 
 
-You can use {{site.data.keyword.keymanagementservicefull}} to create fully managed 
-root keys for use with envelope encryption to protect your stored data, which 
-offers several benefits:
+Imagine that you plan to store a file. The file contains confidential information, so you encrypt
+the contents of the file and then encrypt the file itself using a Data Encryption Key (DEK) - a key that 
+is designed to encrypt and decrypt data. You need to store the DEK in a place that isn't detectable, so
+you use a root key to encrypt the DEK. Encrypting the DEK with the root key yields a wrapped DEK (wDEK) that
+you can store side by side with the encrypted file. When you want to read the original plaintext in the file,
+you will need to unwrap (decrypt) the WDEK with the root key which returns the original DEK. Use the original 
+DEK to decrypt the file and you will be able to access its contents.
 
-| Benefit | Description |
-| ------- | ----------- |
-| Root Key Material Management | With {{site.data.keyword.keymanagementservicefull}}, you can control how root key material is managed. A [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) can be set to automatically rotate root key material at 1 to 12 month intervals to meet desired security standards and cryptographic best practices, or you can [rotate a root key manually](/docs/key-protect?topic=key-protect-rotate-keys). {{site.data.keyword.keymanagementservicefull}} will automatically detect the which version of the root key was used to encrypt any ciphertext associated with the root key and provides the ability to rewrap ciphertext with the latest key material. |
-| Confidentiality and integrity protection | When you create keys in the service, {{site.data.keyword.keymanagementserviceshort}} generates them within the trust boundary of a {{site.data.keyword.cloud_notm}} [hardware security module (HSM)](link to what hsms do), meaning you can provision root keys in the cloud without ever exposing raw root key material outside of a secured HSM. The Advanced Encryption Standard (AES) algorithm in Galois/Counter Mode (GCM) is used to encrypt the root key material within the service. |
-| Cryptographic shredding of data | If your organization detects a security issue, or your app no longer needs a set of encrypted data, you can choose to crypto-shred the data permanently. When you purge the root key that encrypts a DEK, you remove the ability to unencrypt that DEK, ensuring that the DEK's associated data can no longer be recovered.|
-| Delegated user access control | {{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system to enable granular access for your keys. [By assigning IAM user roles and advanced permissions](/docs/key-protect?topic=key-protect-manage-access#roles), security admins can securely share access to root keys. Encrypted DEKs can then be shared and unencrypted only by those with access to the encrypting root key, mitigating the key exchange problem of symmetric algorithms. |
-| Customer-managed encryption keys | {{site.data.keyword.keymanagementserviceshort}} allows you to manage what actions a specific root key can do, such as [wrapping, rotating, and deleting a key](/docs/key-protect?topic=key-protect-key-states#key-states-service-actions). |
-{: caption="Table 1. Describes the benefits of customer-managed encryption" caption-side="top"}
+Data encryption keys (DEKs) can be generated and managed by your service or an IBM Cloud service.
+{: note}
 
-## How it works
-{: #overview}
 
-Envelope encryption combines the strength of multiple encryption algorithms to
-protect your sensitive data in the cloud. It works by using a root key to 
+Envelope encryption offers several benefits for protecting your data:
+
+- Reduce Encryption Time and Tasks
+  Instead of generating a new DEK to re-encrypt your plaintext data, you can save time by re-encrypting 
+  the DEK with multiple root keys. Your raw data stays encrypted during the process of re-encrypting the DEK. 
+- Protection under symmetric key algorithms 
+  Symmetric algorithms an encrypt and decrypt large amounts of data at a faster speed compared to other encryption methods. It is
+  also very secure against brute force attacks.
+- Data Encryption Key Protection
+  Since your DEKs are wrapped by a root key, you do not have to worry about how to store the encrypted data key. Due to this, you
+  can store the wDEK with alongside the associated encrypted data.
+
+## How envelope encryption works
+{: #envelope-encryption-overview}
+
+Envelope encryption works by using a root key to 
 wrap (encrypt) one or more data encryption keys (DEKs). The root key safeguards 
-your wrapped (encrypted) DEKs with encryption algorithms.
+your wrapped (encrypted) DEKs with encryption algorithms, protecting them from 
+unauthorized access or exposure. 
 
-This key wrapping process creates wrapped DEKs that protect them from unauthorized 
-access or exposure. Unwrapping a DEK reverses 
-the envelope encryption process by using the same root key, resulting in 
-decrypted and authenticated DEK. A wrapped DEK cannot be unwrapped without the
-associated root key, which adds an extra layer of security.
+Unwrapping a wDEK reverses the envelope encryption process by using the associated 
+root key, resulting in a decrypted and authenticated DEK. A wrapped DEK cannot 
+be unwrapped without the associated root key, which adds an extra layer of 
+security to your data.
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57,
 Recommendation for Key Management. To learn more, see
@@ -85,7 +95,10 @@ advanced encryption and management of data.
       Root keys are primary resources in
       {{site.data.keyword.keymanagementserviceshort}}. They are symmetric
       key-wrapping keys used as roots of trust for wrapping (encrypting) and
-      unwrapping (decrypting) other keys stored in a data service.
+      unwrapping (decrypting) other keys stored in a data service. Root keys 
+      contain key material that is used to wrap and unwrap DEKs. The key 
+      material of the root key can either be imported or generated by the 
+      {{site.data.keyword.keymanagementserviceshort}} service.
     </p>
     <p>
       With {{site.data.keyword.keymanagementserviceshort}}, you can create,
@@ -100,12 +113,22 @@ advanced encryption and management of data.
     Standard keys
   </dt>
   <dd>
-    Standard keys, which can be used as DEKs, can store encrypted data in 
-    {{site.data.keyword.keymanagementserviceshort}}. Once your plaintext 
-    standard key is generated an protecting underlying data, destroy the 
-    plaintext and safely store the encrypted standard key. 
+    <p>
+      Standard keys are resources in 
+      {{site.data.keyword.keymanagementserviceshort}} that be used to store secrets. 
+      Once your plaintext standard key is generated or imported into the {{site.data.keyword.keymanagementserviceshort}}
+      service, destroy the plaintext and safely store the encrypted standard key. 
+    </p>
+    <p>
+      To see which IBM Cloud service provides the best capabilities for managing your secrets,
+      see [Managing secrets in IBM Cloud](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-manage-secrets-ibm-cloud).
+    </p>
   </dd>
 </dl>
+
+To keep your confidential data secure, it is a best practice to never store 
+plaintext information.
+{: important}
 
 ## Wrapping keys with envelope encryption
 {: #wrapping}
@@ -116,16 +139,26 @@ you can fully manage.
 
 Complete the following steps to encrypt data via envelope encryption:
 
-1. Generate or use a provisioned DEK from an IBM Cloud service to encrypt 
-   your sensitive data.
+1. Generate or provision a DEK from an IBM Cloud service, such as as [COS](/docs/cloud-object-storage?topic=cloud-object-storage-encryption), 
+   to encrypt your sensitive data. 
+   
+   You can also generate a DEK by passing in an empty body on a [wrap request](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-wrap-keys#wrap-key-api) to
+   the {{site.data.keyword.keymanagementserviceshort}} service. The response will
+   contain the base64 encoded key material of the generated DEK, along with the
+   wrapped DEK.
+   {: note}
+
 2. [Generate](/docs/key-protect?topic=key-protect-create-root-keys) 
    or [import](/docs/key-protect?topic=key-protect-import-root-keys) 
    a root key that will be used to protect the DEK from step 1.
-3. Use the root key to [wrap](/docs/key-protect?topic=key-protect-wrap-keys
+
+3. Use the root key to encrypt, or [wrap](/docs/key-protect?topic=key-protect-wrap-keys
    the DEK. To provide maximum encryption security, you can specify additional 
    authenticated data (AAD) during your wrap request. Note that the same 
    authentication data will be required when unwrapping the DEK.
-4. Store and maintain the base64 encoded wrapped DEK output in a secure location,
+
+4. The encrypted data is then stored as metadata in the {{site.data.keyword.keymanagementserviceshort}}
+   service. Store and maintain the base64 encoded output from the wrapped DEK in a secure location,
    such as an app or service.
 
 You can generate a new DEK by omitting the `plaintext` property in your 
@@ -140,18 +173,18 @@ Unwrapping a data encryption key (DEK) decrypts and authenticates the data
 protected within the key.
 
 If your business application needs to access the contents of your wrapped DEKs,
-you can use the
-[{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}
-to send an unwrap request to the service. 
+you can use the {{site.data.keyword.keymanagementserviceshort}} API 
+to send an [unwrap request]((/apidocs/key-protect#invoke-an-action-on-a-key){: external}) to the service. 
 
 
-Complete the following steps to encrypt data via envelope encryption:
+Complete the following steps to decrypt data via envelope encryption:
 
 1. Retrieve the base64 encoded ciphertext of the wrapped DEK.
-2. Retrieve the key ID value of the root key.
-3. Make an unwrap request to [{{site.data.keyword.keymanagementserviceshort}} Unwrap API](/apidocs/key-protect#invoke-an-action-on-a-key){: external}.
+2. [Retrieve the key ID](/docs/key-protect?topic=key-protect-view-keys) 
+    of the root key that is associated with the DEK.
+3. Make an [unwrap request](/apidocs/key-protect#invoke-an-action-on-a-key){: external} to {{site.data.keyword.keymanagementserviceshort}}.
    Note that if you specified additional authenticated data (AAD) in a previous 
-   wrap request, you must supply them in your unwrap request.
+   wrap request, you must supply it in your unwrap request.
 4. Use the returned base64 encoded plaintext to decrypt the data protected under
    the DEK.
 
