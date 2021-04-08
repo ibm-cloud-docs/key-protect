@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+  years: 2017, 2021
+lastupdated: "2021-04-08"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data at rest, protect data encryption keys
 
@@ -24,199 +24,81 @@ subcollection: key-protect
 # Getting started tutorial
 {: #getting-started-tutorial}
 
-{{site.data.keyword.keymanagementservicefull}} helps you provision encrypted
-keys for apps across {{site.data.keyword.cloud_notm}} services. This tutorial
-shows you how to create and add existing cryptographic keys by using the
-{{site.data.keyword.keymanagementserviceshort}} dashboard, so you can manage
-data encryption from one central location.
+{{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 {: shortdesc}
 
 ## Getting started with encryption keys
 {: #get-started-keys}
 
-From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can
-create new keys for cryptography, or you can import your existing keys.
+From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can create new keys or import your existing keys.
 
 Choose from two key types:
 
-<dl>
-  <dt>
-    Root keys
-  </dt>
-  <dd>
-    Root keys are symmetric key-wrapping keys that you fully manage in
-    {{site.data.keyword.keymanagementserviceshort}}. You can use a root key to
-    protect other cryptographic keys with advanced encryption. To learn more,
-    see
-    [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
-  </dd>
+* **Root keys**  
+  Symmetric keys that are used to protect other cryptographic keys with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) that you fully manage in {{site.data.keyword.keymanagementserviceshort}}.
 
-  <dt>
-    Standard keys
-  </dt>
-  <dd>
-    Standard keys are symmetric keys that are used for cryptography. You can use
-    a standard key to directly encrypt and decrypt data.
-  </dd>
-</dl>
+* **Standard keys**  
+  Symmetric keys that are typically used to directly encrypt and decrypt data like secrets and passwords.
 
 ## Creating new keys
 {: #create-keys}
 
-[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision),
-you're ready to designate keys in the service.
+[After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision), you're ready to designate keys in the service.
 
 Complete the following steps to create your first cryptographic key.
 
-1. On the application details page, click **Manage** &gt; **Add key**.
+1. On the application details page, click **Manage key** and then **Add key**.
 
 2. To create a new key, select the **Create a key** window.
 
-    Specify the key's details:
+Specify the key's details:
 
-    <table>
-      <tr>
-        <th>Setting</th>
-        <th>Description</th>
-      </tr>
+|Setting|Description|
+|--- |--- |
+|Name|A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location.|
+|Key type|The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.|
+{: caption="Table 1. Description of the Create a key settings." caption-side="top"}
 
-      <tr>
-        <td>
-          Name
-        </td>
-        <td>
-          <p>
-            A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters (inclusive).
-          </p>
-          <p>
-            To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or
-            location.
-          </p>
-        </td>
-      </tr>
+When you are finished filling out the key's details, click **Create key** to confirm.
 
-      <tr>
-        <td>
-          Key type
-        </td>
-        <td>
-          The
-          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that you would like to manage in
-          {{site.data.keyword.keymanagementserviceshort}}.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Description of the <b>Create a key</b> settings
-      </caption>
-    </table>
-
-3. When you are finished filling out the key's details, click **Create key** to
-   confirm.
-
-Keys that are created in the service are symmetric 256-bit keys, supported by
-the AES-CBC-PAD algorithm. For added security, keys are generated by FIPS 140-2
-Level 3 certified hardware security modules (HSMs) that are located in secure
-{{site.data.keyword.cloud_notm}} data centers.
+Keys that are created in the service are symmetric 256-bit keys, supported by the AES-CBC-PAD algorithm. For added security, keys are generated by FIPS 140-2 Level 3 certified hardware security modules (HSMs) that are located in secure {{site.data.keyword.cloud_notm}} data centers.
 
 ## Importing your own keys
 {: #import-keys}
 
-You can enable the security benefits of Bring Your Own Key (BYOK) by introducing
-your existing keys to the service.
+You can enable the security benefits of Bring Your Own Key (BYOK) by importing your existing keys to the service.
 
 Complete the following steps to add an existing key.
 
-1. On the application details page, click **Manage** &gt; **Add key**.
+1. On the application details page, click **Manage key** and then **Add key**.
 
 2. To upload an existing key, select the **Import your own key** window.
 
-    Specify the key's details:
+Specify the key's details:
 
-    <table>
-      <tr>
-        <th>Setting</th>
-        <th>Description</th>
-      </tr>
+|Setting|Description|
+|--- |--- |
+|Name|A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location.|
+|Key type|The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}.|
+|Key material|The key material that you want to store in the {{site.data.keyword.keymanagementserviceshort}} service. The key material that you provide must be base64 encoded.|
+{: caption="Table 2. Description of the Import your own key settings." caption-side="top"}
 
-      <tr>
-        <td>
-          Name
-        </td>
-        <td>
-          <p>
-            A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters (inclusive).
-          </p>
-          <p>
-            To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or
-            location.
-          </p>
-        </td>
-      </tr>
+When you are finished filling out the key's details, click **Import key** to confirm.
 
-      <tr>
-        <td>
-          Key type
-        </td>
-        <td>
-          The
-          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that you would like to manage in
-          {{site.data.keyword.keymanagementserviceshort}}.
-        </td>
-      </tr>
+From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can inspect the general characteristics of your new keys.
 
-      <tr>
-        <td>
-          Key material
-        </td>
-        <td>
-          The key material, such as a symmetric key, that you want to store in
-          the {{site.data.keyword.keymanagementserviceshort}} service. The key
-          that you provide must be base64 encoded.
-        </td>
-      </tr>
+You can programmatically enable an extra layer of protection to Bring Your Own Key (BYOK) by encrypting your key material before you import a key into {{site.data.keyword.keymanagementserviceshort}}.
 
-      <caption style="caption-side:bottom;">
-        Table 2. Description of the <b>Import your own key</b> settings
-      </caption>
-    </table>
-
-3. When you are finished filling out the key's details, click **Import key** to
-   confirm.
-
-From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can
-inspect the general characteristics of your new keys.
-
-You can programmatically enable an extra layer of protection to Bring Your Own
-Key (BYOK) by encrypting your key material before you import a key into Key
-Protect.
-
-For more information about securely importing your keys, see
-[Creating import tokens](/docs/key-protect?topic=key-protect-create-import-tokens).
+For more information about securely importing your keys, see [Creating import tokens](/docs/key-protect?topic=key-protect-create-import-tokens).
 {: note}
 
 ## What's next
 {: #get-started-next-steps}
 
-Now you can use your keys to code your apps and services. If you added a root
-key to the service, you might want to learn more about using the root key to
-protect the keys that encrypt your at rest data. Check out
-[Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys) to get started.
+Now you can use your keys to encrypt your apps and services. If you added a root key to the service, learn more about using the root key to protect the keys that encrypt your at rest data by checking out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
-- To find out more about managing and protecting your encryption keys with a
-  root key, check out
-  [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+- To find out more about managing and protecting your encryption keys with a root key, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
-- To find out more about integrating the
-  {{site.data.keyword.keymanagementserviceshort}} service with other cloud data
-  solutions,
-  [check out the Integrations doc](/docs/key-protect?topic=key-protect-integrate-services).
+- To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, check out the [Integrations](/docs/key-protect?topic=key-protect-integrate-services) documentation.
 
-- To find out more about programmatically managing your keys,
-  [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+- To find out more about programmatically managing your keys, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect){: external} documentation.
