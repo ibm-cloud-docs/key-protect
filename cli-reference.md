@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-21"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -38,10 +38,13 @@ so that you can use the commands and flags that are available for the
 ## Notes
 {: #cli-reference-notes}
 
+The example showing how to use [**`region-set`**](#kp-region-set-examples) outlines a critical step in configuration.
+{: important}
+
 ### Previous versions
 {: #cli-reference-previous}
 
-The documentation for version 0.6.0 does not include deprecated commands.
+This documentation for version 0.6.0 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -3635,7 +3638,7 @@ The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
 
 Do not delete a root key if there are resources, such as COS buckets and
-objects, that rely on the root key. Deleting the root key means you cannot
+objects, that rely on the root key. Deleteing the root key means you cannot
 recover those resources. This known as "crypto shredding" and there is no
 recovery from this action.
 {: note}
