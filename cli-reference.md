@@ -3638,8 +3638,8 @@ The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
 
 Do not delete a root key if there are resources, such as COS buckets and
-objects, that rely on the root key. Deleteing the root key means you cannot
-recover those resources. This known as "crypto shredding" and there is no
+objects, that rely on the root key. Deleting the root key means you cannot
+recover those resources. This is known as "crypto shredding" and there is no
 recovery from this action.
 {: note}
 
