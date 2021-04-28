@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -21,6 +21,8 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Disabling root keys
 {: #disable-keys}
@@ -91,12 +93,14 @@ and decrypt operations.
 
 ## Disabling and enabling root keys in the console
 {: #disable-enable-ui}
+{: ui}
 
 If you prefer to enable or disable your root keys by using a graphical
 interface, you can use the IBM Cloud console.
 
 ### Disabling a root key in the console
 {: #disable-ui}
+{: ui}
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
 complete the following steps to disable a key:
@@ -119,6 +123,7 @@ complete the following steps to disable a key:
 
 ### Enabling a root key in the console
 {: #enable-ui}
+{: ui}
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](#disable-ui) a root key,
 complete the following steps to enable the key:
@@ -136,14 +141,18 @@ complete the following steps to enable the key:
 5. Click the ⋯ icon to open a list of options for the key that you want to
    enable.
 
-6. From the options menu, click **Enable key** and confirm the key was enabled
-   in the updated **Keys** table.
+6. From the options menu, click **Enable key** and confirm the key was enabled in the updated **Keys** table.
+
+Keys cannot be enabled immediately after being disabled. If a key was disabled in error, wait at least 30 seconds before attempting to re-enable it.
+{: tip}
 
 ## Disabling and enabling root keys with the API
 {: #disable-enable-api}
+{: api}
 
 ### Disabling a root key with the API
 {: #disable-api}
+{: api}
 
 You can disable a root key that's in the _Active_ key state by making a `POST`
 call to the following endpoint.
@@ -157,7 +166,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
     To disable a root key, you must be assigned a _Manager_ service access role
     for the instance or key. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Retrieve the ID of the root key that you want to disable.
@@ -188,7 +197,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 |key_ID|**Required**. The unique identifier for the root key that you want to disable.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 {: caption="Table 1. Describes the variables that are needed to disable root keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful disable request returns an HTTP `204 No Content` response,
@@ -197,6 +206,7 @@ operations.
 
 ### Optional: Verify key disablement
 {: #disable-api-verify}
+{: api}
 
 You can verify that a key has been disabled by issuing a get key metadata request:
 
@@ -264,6 +274,7 @@ on NIST SP 800-57.
 
 ### Enabling a disabled root key with the API
 {: #enable-api}
+{: api}
 
 You can enable a root key that's in the _Suspended_ key state by making a `POST`
 call to the following endpoint.
@@ -277,7 +288,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
     To enable a root key, you must be assigned a _Manager_ service access role
     for the instance or key. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Retrieve the ID of the disabled root key that you want to enable.
@@ -312,7 +323,7 @@ table.
 |key_ID|**Required**. The unique identifier for the root key that you want to enable.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 {: caption="Table 2. Describes the variables that are needed to enable root keys  with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful enable request returns an HTTP `204 No Content` response, which
@@ -321,6 +332,7 @@ operations.
 
 ### Optional: Verify key enablement
 {: #enable-key-api-verify}
+{: api}
 
 You can verify that a key has been enabled by issuing a get key metadata request:
 

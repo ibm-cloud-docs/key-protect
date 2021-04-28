@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-11"
+  years: 2017, 2021
+lastupdated: "2021-04-28"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -57,7 +57,7 @@ You do not have the correct authorization to perform
 Verify with an administrator that you are assigned the correct role in the
 applicable {{site.data.keyword.keymanagementserviceshort}} instance. For more
 information about roles, see
-[Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
+[Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tsResolve}
 
 ## Unable to authenticate through the API
@@ -96,7 +96,7 @@ Verify with an administrator that you are assigned the correct platform and
 service access roles in the applicable
 {{site.data.keyword.keymanagementserviceshort}} instance. For more information
 about roles, see
-[Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
+[Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tsResolve}
 
 ## Unable to view or list keys

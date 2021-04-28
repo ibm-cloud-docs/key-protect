@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-22"
+  years: 2017, 2021
+lastupdated: "2021-04-28"
 
-keywords: access token, IAM token, generate access token, generate IAM token, get access token, get IAM token, IAM token API, IAM token CLI
+keywords: access, IAM, token
 
 subcollection: key-protect
 
@@ -105,11 +105,11 @@ for your application, and then exchanging your API key for an
    for the service ID.
 
    You can assign access permissions for your service ID
-   [by using the {{site.data.keyword.cloud_notm}} console](/docs/account?topic=account-assign-access-resources#assign_new_access){: external}.
+   [by using the {{site.data.keyword.cloud_notm}} console](/docs/account?topic=account-assign-access-resources#assign-new-access){: external}.
    To learn how the _Manager_, _Writer_, and _Reader_ access roles map to
    specific {{site.data.keyword.keymanagementserviceshort}} service actions,
    see
-   [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
+   [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
    {: tip}
 
 5. Create a

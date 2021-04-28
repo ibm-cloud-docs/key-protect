@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-04-28"
 
 keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
 
@@ -20,6 +20,8 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Wrapping keys
 {: #wrap-keys}
@@ -40,6 +42,7 @@ cloud, see
 
 ## Wrapping a key using the console
 {: #wrapping-keys-ui}
+{: ui}
 
 If you already have an instance of {{site.data.keyword.keymanagementserviceshort}} and wish to encrypt your DEK by using a graphical interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
@@ -48,26 +51,22 @@ complete the following steps to wrap your data using the key:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
-1. From the **Menu**, choose the **Resource List** to view a list of your resources.
+2. From the **Menu**, choose the **Resource List** to view a list of your resources.
 
-1. From your {{site.data.keyword.cloud_notm}} resource list, select your
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-1. Choose the `root key` from the list of your keys that you wish to use to wrap your data.
+4. Choose the Root key from the list of your keys that you want to use to wrap your data.
 
-1. Click the `⋯` icon to open a list of options for the key that you want to
-   restore.
+5. Click the `⋯` icon and then click the **Envelope encryption** option to open the side panel. Make sure the "Wrap key" option is selected.
 
-1. Click the **Envelope encryption** option to open the side panel. Choose the "Wrap key" tab if it is not already highlighed.
+7. You have a choice of whether to allow {{site.data.keyword.keymanagementserviceshort}} to wrap your data or whether you want to provide your own base64 encoded plaintext and additional authentication data (AAD), as needed, to wrap the data. Note that if you choose to provide your own plaintext and AAD, you will have to provide it when unwrapping your data. If you do not have experience creating AAD and base 64 encoded plaintext, the recommended practice is to allow {{site.data.keyword.keymanagementserviceshort}} to wrap your data by leaving the **Wrap key for me** option selected.
 
-1. Select how to wrap the key, either by requesting {{}} to "Wrap the key for me" allowing the service to provide base64 encoded text and any additional authentication data as needed, or choose "Wrap key with plain text and/or additional authentication data (AAD)"
-
-1. Supply any text for the above in the appropriate fields, ensuring that the additional data is stored locally for any future operations if provided.
-
-1. Click **Wrap Key** button.
+8. Click **Wrap Key** button.
 
 ## Wrapping keys by using the API
 {: #wrap-key-api}
+{: api}
 
 You can protect a specified data encryption key (DEK) with a root key that you
 manage in {{site.data.keyword.keymanagementserviceshort}}.
@@ -112,192 +111,58 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/wrap
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The unique identifier for the root key that you want to use for wrapping.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default. or more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+|data_key|**Optional**.The key material of the DEK that you want to manage and protect. The plaintext value must be base64 encoded. For more information on encoding your key material, see [Encoding your key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material). To generate a new DEK, omit the plaintext attribute. The service generates a random plaintext (32 bytes), wraps that value, and then returns both the generated and wrapped values in the response. The generated and wrapped values are base64 encoded and you will need to decode them in order to decrypt the keys.|
+|additional_data|**Optional**.The additional authentication data (AAD) that is used to further secure the key. Each string can hold up to 255 characters. If you supply AAD when you make a wrap call to the service, you must specify the same AAD during the subsequent unwrap call.Important: The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.|
+{: caption="Table 1. Describes the variables that are needed to wrap a specified key in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+Your wrapped data encryption key, containing the base64 encoded key
+material, is returned in the response entity-body. The response body also
+contains the ID of the key version that was used to wrap the supplied
+plaintext. The following JSON object shows an example returned value.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The unique identifier for the root key that
-          you want to use for wrapping.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
-
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>data_key</varname>
-        </td>
-        <td>
-          <p>
-            The key material of the DEK that you want to manage and protect. The
-            <code>plaintext</code> value must be base64 encoded.
-          </p>
-          <p>
-            For more information on encoding your key material, see
-            [Encoding your key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material).
-          </p>
-          <p>
-            To generate a new DEK, omit the <code>plaintext</code> attribute.
-            The service generates a random plaintext (32 bytes), wraps that
-            value, and then returns both the generated and wrapped values in the
-            response. The generated and wrapped values are base64 encoded and
-            you will need to decode them in order to decrypt the keys.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>additional_data</varname>
-        </td>
-        <td>
-          The additional authentication data (AAD) that is used to further
-          secure the key. Each string can hold up to 255 characters. If you
-          supply AAD when you make a wrap call to the service, you must specify
-          the same AAD during the subsequent unwrap call.<br></br>Important:
-          The {{site.data.keyword.keymanagementserviceshort}} service does not
-          save additional authentication data. If you supply AAD, save the data
-          to a secure location to ensure that you can access and provide the
-          same AAD during subsequent unwrap requests.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to wrap a specified key
-        in {{site.data.keyword.keymanagementserviceshort}}.
-      </caption>
-    </table>
-
-    Your wrapped data encryption key, containing the base64 encoded key
-    material, is returned in the response entity-body. The response body also
-    contains the ID of the key version that was used to wrap the supplied
-    plaintext. The following JSON object shows an example returned value.
-
-    ```json
-    {
-        "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
-        "keyVersion": {
-            "id": "02fd6835-6001-4482-a892-13bd2085f75d"
-        }
+```json
+{
+    "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
+    "keyVersion": {
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
     }
-    ```
-    {: screen}
+}
+```
+{: screen}
 
-    If you omit the `plaintext` attribute when you make the wrap request, the
-    service returns both the generated data encryption key (DEK) and the wrapped
-    DEK in base64 encoded format.
+If you omit the `plaintext` attribute when you make the wrap request, the
+service returns both the generated data encryption key (DEK) and the wrapped
+DEK in base64 encoded format.
 
-    ```json
-    {
-        "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
-        "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
-        "keyVersion": {
-            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
-        }
+```json
+{
+    "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+    "ciphertext": "eyJjaXBoZXJ0ZXh0IjoiYmFzZTY0LWtleS1nb2VzLWhlcmUiLCJpdiI6IjRCSDlKREVmYU1RM3NHTGkiLCJ2ZXJzaW9uIjoiNC4wLjAiLCJoYW5kbGUiOiJ1dWlkLWdvZXMtaGVyZSJ9",
+    "keyVersion": {
+        "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6"
     }
-    ```
-    {: screen}
+}
+```
+{: screen}
 
-    The `plaintext` value represents the unwrapped DEK, and the `ciphertext`
-    value represents the wrapped DEK and are both base64 encoded. The
-    `keyVersion.id` value represents the version of the root key that was used
-    for wrapping.
+The `plaintext` value represents the unwrapped DEK, and the `ciphertext`
+value represents the wrapped DEK and are both base64 encoded. The
+`keyVersion.id` value represents the version of the root key that was used
+for wrapping.
 
-    If you want {{site.data.keyword.keymanagementserviceshort}} to generate a
-    new data encryption key (DEK) on your behalf, you can also pass in an empty
-    body on a wrap request. Your generated DEK, containing the base64 encoded
-    key material, is returned in the response entity-body, along with the
-    wrapped DEK.
-    {: tip}
+If you want {{site.data.keyword.keymanagementserviceshort}} to generate a
+new data encryption key (DEK) on your behalf, you can also pass in an empty
+body on a wrap request. Your generated DEK, containing the base64 encoded
+key material, is returned in the response entity-body, along with the
+wrapped DEK.
+{: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -132,7 +132,7 @@ IBM Cloud.
 control system, governed by {{site.data.keyword.iamlong}}, to help you manage
 users and access for your encryption keys. If you are a security admin for your
 service, you can assign
-[Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#roles)
+[Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
 you want to grant to members of your team.
 
 ## What are differences between the Reader and ReaderPlus roles?

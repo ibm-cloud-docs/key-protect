@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-04-28"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key
 
@@ -20,6 +20,8 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Unwrapping keys
 {: #unwrap-keys}
@@ -34,6 +36,7 @@ cloud, see
 
 ## Unwrapping a key using the console
 {: #unwrapping-keys-ui}
+{: ui}
 
 If you already have an instance of {{site.data.keyword.keymanagementserviceshort}} and you wish to encrypt your DEK by using a graphical interface,
 you can use the {{site.data.keyword.cloud_notm}} console.
@@ -45,13 +48,11 @@ complete the following steps to wrap your data using the key:
 
 1. From the **Menu**, choose the **Resource List** to view a list of your resources.
 
-1. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+1. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-1. Choose the `root key` that you used to originally wrap your data from the list of your keys.
+1. Choose the Root key that you used to originally wrap your data from the list of your keys.
 
-1. Click the `⋯` icon to open a list of options for the DEK that you want to
-   unwrap.
+1. Click the `⋯` icon to open a list of options for the DEK that you want to unwrap.
 
 1. Click the **Envelope encryption** option to open the side panel. Choose the "Unwrap key" tab if it is not already highlighted.
 
@@ -61,6 +62,7 @@ complete the following steps to wrap your data using the key:
 
 ## Unwrapping keys by using the API
 {: #unwrap-key-api}
+{: api}
 
 [After you make a wrap call to the service](/docs/key-protect?topic=key-protect-wrap-keys),
 you can unwrap a specified data encryption key (DEK) to access its contents by
@@ -110,162 +112,45 @@ key (WDEK).
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br> For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The unique identifier for the root key that you used for the initial wrap request.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+|additional_data|**Optional**.The additional authentication data (AAD) that is used to further secure the key. Each string can hold up to 255 characters. If you supply AAD when you make a wrap call to the service, you must specify he same AAD during the unwrap call.|
+|encrypted_data_key|**Required**. The ciphertext value that was returned during a wrap operation.|
+{: caption="Table 1. Describes the variables that are needed to unwrap keys in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+The original key material is returned in the response entity-body. The
+response body also contains the ID of the key version that was used to
+unwrap the supplied ciphertext.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The unique identifier for the root key that
-          you used for the initial wrap request.
-        </td>
-      </tr>
+The plaintext that is returned is base64 encoded. For more information on
+how to decode your key material, see
+[Decoding your key material](#how-to-decode-key-material).
+The following JSON object shows an example returned value.
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
-
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>additional_data</varname>
-        </td>
-        <td>
-          The additional authentication data (AAD) that is used to further
-          secure the key. Each string can hold up to 255 characters. If you
-          supply AAD when you make a wrap call to the service, you must specify
-          the same AAD during the unwrap call.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>encrypted_data_key</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The <code>ciphertext</code> value that was
-          returned during a wrap operation.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to unwrap keys in
-        {{site.data.keyword.keymanagementserviceshort}}.
-      </caption>
-    </table>
-
-    The original key material is returned in the response entity-body. The
-    response body also contains the ID of the key version that was used to
-    unwrap the supplied ciphertext.
-
-    The plaintext that is returned is base64 encoded. For more information on
-    how to decode your key material, see
-    [Decoding your key material](#how-to-decode-key-material).
-    The following JSON object shows an example returned value.
-
-    ```json
-    {
-        "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
-        "keyVersion": {
-            "id": "02fd6835-6001-4482-a892-13bd2085f75d"
-        }
+```json
+{
+    "plaintext": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv",
+    "keyVersion": {
+        "id": "02fd6835-6001-4482-a892-13bd2085f75d"
     }
-    ```
+}
+```
 
-    If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
-    the root key that is used to unwrap and access your data, the service also
-    returns a newly wrapped data encryption key (`ciphertext`) in the unwrap
-    response body. The latest key version (`rewrappedKeyVersion`) that is
-    associated with the new `ciphertext` is also returned. Store and use the new
-    `ciphertext` value for future envelope encryption operations so that your
-    data is protected by the latest root key.
+If {{site.data.keyword.keymanagementserviceshort}} detects that you rotated
+the root key that is used to unwrap and access your data, the service also
+returns a newly wrapped data encryption key (`ciphertext`) in the unwrap
+response body. The latest key version (`rewrappedKeyVersion`) that is
+associated with the new `ciphertext` is also returned. Store and use the new
+`ciphertext` value for future envelope encryption operations so that your
+data is protected by the latest root key.
 
 ## Decoding your key material
 {: #how-to-decode-key-material}
@@ -290,39 +175,11 @@ encoding. You will need to decode the key before encrypting it.
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>
-          <varname>infile</varname>
-        </td>
-        <td>
-          <p>
-            The name of the file where your base64 encoded key material string
-            resides.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>outfile</varname>
-        </td>
-        <td>
-          <p>
-            The name of the file where your decoded key material will be be
-            outputted once the command has ran.
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to decode your key
-        material.
-      </caption>
-    </table>
+    |Variable|Description|
+    |--- |--- |
+    |infile|The name of the file where your base64 encoded key material string resides.|
+    |outfile|The name of the file where your decoded key material will be be outputted once the command has ran.|
+    {: caption="Table 2. Describes the variables that are needed to decode your key material." caption-side="top"}
 
   If you want to output the decoded material in the command line directly rather
   than a file, run the command

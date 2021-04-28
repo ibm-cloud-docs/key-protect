@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-04-28"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -34,6 +34,18 @@ that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in.
 {: tip}
 
+## CLI version 0.6.1
+{: #cli-changelog-061}
+
+Release date: 2021-04-30
+
+### Changes
+{: #cli-changelog-061-changes}
+
+There are minor changes in this [release](/docs/key-protect?topic=key-protect-cli-reference).
+
+- Key Update command has been added, supporting transferring your key from its current key ring to a new key ring.
+
 ## CLI version 0.6.0
 {: #cli-changelog-060}
 
@@ -45,7 +57,7 @@ Release date: 2021-02-25
 There are major changes in this [release](/docs/key-protect?topic=key-protect-cli-reference).
 
 - Key Ring support is added to the CLI supporting customization and best practices.
-- Key Alias feature is added to the CLI adding first-in-class management support. 
+- Key Alias feature is added to the CLI adding first-in-class management support.
 - Added support for Osaka (jp-osa) endpoint.
 - Instance policy command supports the new sub commands.
 - Minor changes include JSON output support in sub commands and the deprecation of some commands, features and flags.

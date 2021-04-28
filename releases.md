@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: release notes, service updates, service bulletin
 
@@ -28,6 +28,18 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## April 2021
+{: #april-2021}
+
+### Added: Updates to the Key Protect console
+{: #added-ui-updates-april-2021}
+
+New as of: 2021-04-22
+
+Many of the panels and actions you can take in the console have been modified to accommodate the addition of key rings and add other functionality to the console that previously was only possible using the APIs. This includes a new **Key rings** panel where key rings can be managed and a **Key ring ID** column in the **Keys** panel.
+
+Note that as part of this change, the **Instance policies** and **Manage keys** panels in the console have been renamed **Instance policies** and **Keys** respectively.
 
 ## March 2021
 {: #march-2021}
@@ -251,7 +263,7 @@ You can set a key creation and importation policy, in the
 to restrict how keys are created and imported into your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-See the updated "Manage instance policies" pane in the
+See the updated "Instance policies" pane in the
 {{site.data.keyword.keymanagementserviceshort}} UI.
 
 ## September 2020
@@ -565,7 +577,7 @@ Need to grant read-only access to keys? You can now choose between the _Reader_
 and _ReaderPlus_ IAM roles for better control over access to key material.
 
 To learn more about service access roles, see
-[Managing user access](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+[Managing user access](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 ### Changed: Extra response fields in existing APIs
 {: #changed-extra-response-fields}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-18"
+  years: 2017, 2021
+lastupdated: "2021-04-22"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key, API examples
 
@@ -72,206 +72,111 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+|key_ID_or_alias|**Required**. The identifier or alias for the key that you want to retrieve.|
+{: caption="Table 1. Describes the variables that are needed to view a specified key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+A successful `GET api/v2/keys/<key_ID_or_alias>` response returns details
+about your key and the key material. The following JSON object shows an
+example returned value for a standard key.
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
-
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_ID_or_alias</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The identifier or alias for the key that
-          you want to retrieve.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 4. Describes the variables that are needed to view a specified key
-        with the {{site.data.keyword.keymanagementserviceshort}} API
-      </caption>
-    </table>
-
-    A successful `GET api/v2/keys/<key_ID_or_alias>` response returns details
-    about your key and the key material. The following JSON object shows an
-    example returned value for a standard key.
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "type": "application/vnd.ibm.kms.key+json",
-                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "name": "test-standard-key",
-                "aliases": [
-                    "alias-1",
-                    "alias-2"
-                  ],
-                "state": 1,
-                "expirationDate": "2020-03-15T03:50:12Z",
-                "extractable": true,
-                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
-                "imported": false,
-                "creationDate": "2020-03-12T03:50:12Z",
-                "createdBy": "...",
-                "algorithmType": "AES",
-                "algorithmMetadata": {
-                    "bitLength": "256",
-                    "mode": "CBC_PAD"
-                },
-                "algorithmBitSize": 256,
-                "algorithmMode": "CBC_PAD",
-                "lastUpdateDate": "2020-03-12T03:50:12Z",
-                "dualAuthDelete": {
-                    "enabled": false
-                },
-                "deleted": false,
-                "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv..."
-            }
-        ]
-    }
-    ```
-    {: screen}
-
-    The following JSON object shows an example returned value for a root key.
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "type": "application/vnd.ibm.kms.key+json",
-                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                "aliases": [
-                    "alias-1",
-                    "alias-2"
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "name": "test-standard-key",
+            "aliases": [
+                "alias-1",
+                "alias-2"
                 ],
-                "name": "test-root-key",
-                "state": 1,
-                "extractable": false,
-                "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                "imported": false,
-                "creationDate": "2020-03-05T16:28:38Z",
-                "createdBy": "...",
-                "algorithmType": "AES",
-                "algorithmMetadata": {
-                    "bitLength": "256",
-                    "mode": "CBC_PAD"
-                },
-                "algorithmBitSize": 256,
-                "algorithmMode": "CBC_PAD",
-                "lastUpdateDate": "2020-03-05T16:39:25Z",
-                "keyVersion": {
-                    "id": "436901cb-f4e4-45f4-bd65-91a7f6d13461",
-                    "creationDate": "2020-03-05T16:39:25Z"
-                },
-                "dualAuthDelete": {
-                    "enabled": false
-                },
-                "deleted": false
-            }
-        ]
-    }
-    ```
-    {: screen}
+            "state": 1,
+            "expirationDate": "2020-03-15T03:50:12Z",
+            "extractable": true,
+            "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:12e8c9c2-a162-472d-b7d6-8b9a86b815a6:key:02fd6835-6001-4482-a892-13bd2085f75d",
+            "imported": false,
+            "creationDate": "2020-03-12T03:50:12Z",
+            "createdBy": "...",
+            "algorithmType": "AES",
+            "algorithmMetadata": {
+                "bitLength": "256",
+                "mode": "CBC_PAD"
+            },
+            "algorithmBitSize": 256,
+            "algorithmMode": "CBC_PAD",
+            "lastUpdateDate": "2020-03-12T03:50:12Z",
+            "dualAuthDelete": {
+                "enabled": false
+            },
+            "deleted": false,
+            "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv..."
+        }
+    ]
+}
+```
+{: screen}
 
-    The `payload` or key material for a root key stays within the bounds of a
-    hardware security module and cannot be retrieved.
-    {: note}
+The following JSON object shows an example returned value for a root key.
 
-    For a detailed description of the response parameters, see the
-    {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](/apidocs/key-protect){: external}.
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "type": "application/vnd.ibm.kms.key+json",
+            "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+            "aliases": [
+                "alias-1",
+                "alias-2"
+            ],
+            "name": "test-root-key",
+            "state": 1,
+            "extractable": false,
+            "crn": "crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:30372f20-d9f1-40b3-b486-a709e1932c9c:key:2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+            "imported": false,
+            "creationDate": "2020-03-05T16:28:38Z",
+            "createdBy": "...",
+            "algorithmType": "AES",
+            "algorithmMetadata": {
+                "bitLength": "256",
+                "mode": "CBC_PAD"
+            },
+            "algorithmBitSize": 256,
+            "algorithmMode": "CBC_PAD",
+            "lastUpdateDate": "2020-03-05T16:39:25Z",
+            "keyVersion": {
+                "id": "436901cb-f4e4-45f4-bd65-91a7f6d13461",
+                "creationDate": "2020-03-05T16:39:25Z"
+            },
+            "dualAuthDelete": {
+                "enabled": false
+            },
+            "deleted": false
+        }
+    ]
+}
+```
+{: screen}
+
+The `payload` or key material for a root key stays within the bounds of a
+hardware security module and cannot be retrieved.
+{: note}
+
+For a detailed description of the response parameters, see the
+{{site.data.keyword.keymanagementserviceshort}}
+[REST API reference doc](/apidocs/key-protect){: external}.

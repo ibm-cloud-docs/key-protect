@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-15"
+  years: 2020, 2021
+lastupdated: "2021-04-28"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -92,7 +92,7 @@ complete the following steps to enable a keyCreateImportAccess policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click the **Manage instance policies** link on the left side of the page.
+4. Click the **Instance policies** link on the left side of the page.
 
    - Find the `Create and import access` panel (at the top of the page).
 
@@ -126,7 +126,7 @@ existing value for the omitted field will be overwritten with the default value.
     access policy for your {{site.data.keyword.keymanagementserviceshort}}
     instance. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Enable or update a keyCreateImportAccess policy for your
@@ -167,192 +167,40 @@ existing value for the omitted field will be overwritten with the default value.
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|create_root_key|**Required**. Set to true to allow root keys to be created in your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent root keys from being created in your instance<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
+|create_standard_key|**Required**. Set to true to allow standard keys to be created in your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent standard keys from being created in your instance.<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
+|import_root_key|**Required**. Set to true to allow root keys to be imported into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent root keys from being imported into your instance <br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
+|import_standard_key|**Required**. Set to true to allow standard keys to be imported into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent standard keys from being imported into your instance.<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
+|enforce_token|**Required**. Set to `true` to prevent authorized users from importing key material into the your {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Set to `false` to allow authorized users to import key material into your instance without using an import token.<br><br>If enabled, this attribute will take precedence over the import_root_key and import_standard_key attributes.<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (false).|
+{: caption="Table 1. Describes the variables that are needed to enable a keyCreateImportAccess policy." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that your {{site.data.keyword.keymanagementserviceshort}}
+instance now has an enabled keyCreateImportAccess policy.
+Your {{site.data.keyword.keymanagementserviceshort}} instance will now only
+allow the creation or importation of keys from the methods specified in your
+request.
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify key create import access policy enablement
+{: #key-create-import-access-verify}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+You can verify that a key create import access policy has been enabled by issuing a list policies request:
 
-      <tr>
-        <td>
-          <varname>create_root_key</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Set to <code>true</code> to allow root
-            keys to be created in your
-            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-            <code>false</code> to prevent root keys from being created in your
-            instance.
-          </p>
-          <p>
-            Note: If omitted, <code>POST /instance/policies</code> will set this
-            attribute to the default value (<code>true</code>).
-          </p>
-        </td>
-      </tr>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <tr>
-        <td>
-          <varname>create_standard_key</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Set to <code>true</code> to allow
-            standard keys to be created in your
-            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-            <code>false</code> to prevent standard keys from being created in
-            your instance.
-          </p>
-          <p>
-            Note: If omitted, <code>POST /instance/policies</code> will set this
-            attribute to the default value (<code>true</code>).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>import_root_key</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Set to <code>true</code> to allow root
-            keys to be imported into your
-            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-            <code>false</code> to prevent root keys from being imported into
-            your instance.
-          </p>
-          <p>
-            Note: If omitted, <code>POST /instance/policies</code> will set this
-            attribute to the default value (<code>true</code>).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>import_standard_key</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Set to <code>true</code> to allow
-            standard keys to be imported into your
-            {{site.data.keyword.keymanagementserviceshort}} instance. Set to
-            <code>false</code> to prevent standard keys from being imported into
-            your instance.
-          <p>
-          <p>
-            Note: If omitted, <code>POST /instance/policies</code> will set this
-            attribute to the default value (<code>true</code>).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>enforce_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Set to <code>true</code> to prevent
-            authorized users from importing key material into the your
-            {{site.data.keyword.keymanagementserviceshort}} instance without
-            using an import token. Set to <code>false</code> to allow authorized
-            users to import key material into your instance without using an
-            import token.
-          </p>
-          <p>
-            If enabled, this attribute will take precedence over the
-            <code>import_root_key</code> and <code>import_standard_key</code>
-            attributes.
-          </p>
-          <p>
-            Note: If omitted, <code>POST /instance/policies</code> will set this
-            attribute to the default value (<code>false</code>).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable a
-        keyCreateImportAccess policy.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}}
-    instance now has an enabled keyCreateImportAccess policy.
-    Your {{site.data.keyword.keymanagementserviceshort}} instance will now only
-    allow the creation or importation of keys from the methods specified in your
-    request.
-
-3. Optional: Verify that the keyCreateImportAccess policy was created/updated by
-   retrieving the policy details for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
-
+Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
 ### Disabling a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-key-create-import-policy}
 
@@ -376,7 +224,7 @@ keyCreateImportAccess policy.
     access policy for your {{site.data.keyword.keymanagementserviceshort}}
     instance. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Disable an existing keyCreateImportAccess policy for your
@@ -410,84 +258,29 @@ keyCreateImportAccess policy.
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 2. Describes the variables that are needed to disable a keyCreateImportAccess policy." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that the keyCreateImportAccess policy was updated for your service
+instance.
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify key create import access policy enablement
+{: #key-create-import-access-disable-api-verify}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+You can verify that a key create import access policy has been disabled by issuing a list policies request:
 
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to disable a
-        keyCreateImportAccess policy.
-      </caption>
-    </table>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that the keyCreateImportAccess policy was updated for your service
-    instance.
-
-3. Optional: Verify that the keyCreateImportAccess policy was disabled by
-   retrieving the policy details for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=keyCreateImportAccess" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.

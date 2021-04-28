@@ -93,7 +93,8 @@ Key Protect
     disable-keys.md
 
     {: .topicgroup}
-    Deleting keys
+    Deleting and purging keys
+        delete-purge-keys.md
         delete-keys.md
         delete-dual-auth-keys.md
         set-dual-auth-policy.md

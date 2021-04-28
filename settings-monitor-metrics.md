@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -77,7 +77,7 @@ complete the following steps to enable a metrics policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Manage instance policies** page, click the **Enable** button
+4. On the **Instance policies** page, click the **Enable** button
     in the metrics policy section.
 
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
@@ -99,7 +99,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Enable a metrics policy for your
@@ -180,7 +180,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Disable an existing metrics policy for your

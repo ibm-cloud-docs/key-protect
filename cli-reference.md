@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-04-28"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -18,7 +18,7 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI - 0.6.0
+# CLI - 0.6.1
 {: #cli-reference}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
@@ -44,7 +44,7 @@ The example showing how to use [**`region-set`**](#kp-region-set-examples) outli
 ### Previous versions
 {: #cli-reference-previous}
 
-This documentation for version 0.6.0 does not include deprecated commands.
+This documentation for version 0.6.1 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -82,7 +82,7 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 The **`kp import-token`** command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.6.0 | Description |
+| Sub-command                                     | Status v0.6.1 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     |         | Encrypt the key that you import into the service |
@@ -96,7 +96,7 @@ The **`kp import-token`** command prepares a root key for secure import.
 The **`kp instance`** command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.6.0 | Description |
+| Sub-command                                                         | Status v0.6.1 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   |            | List policies associated with an instance |
 | policy-update [allowed-network](#kp-instance-policy-update-allowed) |            | Update the instance policy for "allowed network" |
@@ -108,7 +108,7 @@ The **`kp instance`** command manages policies for a
 
 The **`kp key`** command manages individual keys.
 
-| Sub-command                                                  | Status v0.6.0 | Description |
+| Sub-command                                                  | Status v0.6.1 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
@@ -123,6 +123,7 @@ The **`kp key`** command manages individual keys.
 | [schedule-delete](#kp-key-schedule-delete)                   |            | Authorize a key, with a dual-auth-delete policy, to be deleted |
 | [show](#kp-key-show)                                         |         | Retrieve a key |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
+| [update](#kp-key-update)                                     |       new     | Update a key, transferring it to a new key ring |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
 {: caption="Table 3. Sub-commands for managing keys" caption-side="bottom"}
 
@@ -131,10 +132,10 @@ The **`kp key`** command manages individual keys.
 
 Key Ring support allows for managing groups of keys for best practices using **`kp key-ring`**.
 
-| Sub-command                                                  | Status v0.6.0 | Description |
+| Sub-command                                                  | Status v0.6.1 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
-| [create](#kp-key-ring-create)                       | new | Creates a key ring within a kp instance |
-| [delete](#kp-key-ring-delete)                       | new | Deletes a key ring within a kp instance |
+| [create](#kp-key-ring-create)                       |     | Creates a key ring within a kp instance |
+| [delete](#kp-key-ring-delete)                       |     | Deletes a key ring within a kp instance |
 {: caption="Table 4. Sub-commands for managing key-rings" caption-side="bottom"}
 
 ### Other kp commands
@@ -143,10 +144,10 @@ Key Ring support allows for managing groups of keys for best practices using **`
 More commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources could support best practices.
 
-| Command                               | Status v0.6.0 | Description |
+| Command                               | Status v0.6.1 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
-| [kp key-rings](#kp-key-rings)        |        new | Lists the key rings associated with the kp instance |
+| [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
 | [kp registrations](#kp-registrations) |            | List associations between root keys and other cloud resources |
 {: caption="Table 5. Commands for managing other resources" caption-side="bottom"}
@@ -1407,7 +1408,7 @@ from the _Active_ (value is 1) to the _Suspended_ (value is 2) key state.
 To disable a root key, you must be assigned a _Manager_ service access role
 for the instance or key. To learn how IAM roles map to
 {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-[Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+[Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 If you're using an integrated Cloud Service that supports revoking access to a
 disabled root key, the service may take up to a maximum of 4 hours before access
@@ -2875,6 +2876,68 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 * **`--key-ring`**
 
    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+
+## kp key update
+{: #kp-key-update}
+
+[Update a key](/docs/key-protect?topic=key-protect-grouping-keys)
+with an existing key ring or a new key ring in your
+{{site.data.keyword.keymanagementserviceshort}} instance.
+
+```sh
+ibmcloud kp key update KEY_ID
+     -i, --instance-id 		INSTANCE_ID
+     -r, --new-key-ring		KEY_RING_ID
+    [-o, --output      		OUTPUT]
+```
+{: pre}
+
+### Required parameters
+{: #kp-key-update-required}
+
+* **`KEY_ID`**
+
+   The ID of the root key that you want to show.
+
+* **`-i, --instance-id`**
+
+   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+
+   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+
+* **`-r, --new-key-ring`**
+
+   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+
+### Optional parameters
+{: #kp-key-update-optional}
+
+* **`-o, --output`**
+
+   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+
+### Examples
+{: #kp-key-update-examples}
+
+Note that the key ring must already be created, either as part of creating a key, or by itself.
+{: tip}
+
+This is an example of **`kp key update`**.
+
+```sh
+ic kp key update 5f2cc155-fe16-492c-845c-4d1f0688c7ba -r TestRing
+```
+{: pre}
+
+Executing the command has a typical result:
+
+```sh
+Updating key...
+OK
+Key ID                                 Key Name             Key Ring ID   
+5f2cc155-fe16-492c-845c-4d1f0688c7ba   TestKey   						TestRing   
+```
+{: screen}
 
 ## kp key unwrap
 {: #kp-key-unwrap}

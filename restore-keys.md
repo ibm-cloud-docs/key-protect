@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-04-28"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -21,6 +21,8 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Restoring keys
 {: #restore-keys}
@@ -48,16 +50,18 @@ For more information about key states, check out [Monitoring the lifecycle of en
 
 ## How do I know whether a key can be restored?
 {: #restore-keys-eligibility}
+{: ui}
 
 To see whether a destroyed key can be restored:
 
 1. Navigate to your {{site.data.keyword.keymanagementserviceshort}} instance in the {{site.data.keyword.cloud_notm}} console.
-2. In the left navigation, make sure you are on the **Manage Keys** screen.
+2. In the left navigation, make sure you are on the **Keys** screen.
 3. Find the key you want to restore. Note: only keys in a **Destroyed** state can be restored.
 4. Under the `Last updated` column, note the date. Then refer to Table 1, which can be found above. If the key has been deleted within the last 30 days, it can be restored. If it has been more then 30 days, you will not be able to restore the key. If you attempt to restore a key that is no longer eligible to be restored, you will receive an error when trying to restore the key.
 
 ## Restoring a deleted key with the console
 {: #restore-ui}
+{: ui}
 
 If you prefer to restore your key by using a graphical interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
@@ -69,22 +73,19 @@ If you prefer to restore your key by using a graphical interface, you can use th
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the application details page, click the filter icon and select the dropdown from the **Status** menu.
+4. Click **Keys** to open the keys panel and find the key in the destroyed state you want to restore. One way to achieve this is to click the **Key states** drop-down list and select the **Destroyed** state. This will limit the results to only keys that have been deleted.
 
-5. Select the **Destroyed** state.
+5. Click the ⋯ icon to open a list of options for the key that you want to restore. Note that if the key has just been moved to a _Destroyed_ state you must wait 30 seconds before attempting to restore it.
 
-6. Click the **Apply** button.
+6. Click the **Restore Key** button to open the restore side panel.
 
-7. Click the ⋯ icon to open a list of options for the key that you want to restore. You might have to wait a few minutes for the key to be eligible to be restored if it has just been moved to a destroyed state.
+7. Click **Restore Key** button.
 
-8. Click the **Restore Key** button to open the restore side panel.
-
-9. Click **Restore Key** button.
-
-10. Confirm the key was restored in the updated **Keys** table.
+8. Confirm the key was restored in the updated **Keys** table.
 
 ## Restoring a deleted key with the API
 {: #restore-api}
+{: api}
 
 Restore a previously imported key by making a `POST` call to the following endpoint:
 
@@ -95,7 +96,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-   To restore a key, you must have the _Manager_ role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+   To restore a key, you must have the _Manager_ role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 2. Retrieve the ID of the key that you want to restore.
 
@@ -123,7 +124,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 | key_ID      | **Required**. The unique identifier for the key that you want to restore.                                 |
 | IAM_token   | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the `IAM` token, including the `Bearer` value, in the `curl` request. For more information, check out [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
 | instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, check out [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
-| key_ring_ID | **Optional**. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request.  Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.  For more information, check out [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
+| key_ring_ID | **Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request.  Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.  For more information, check out [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
 {: caption="Table 2. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
    A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
@@ -133,6 +134,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
 ### Optional: Verify key restoration
 {: #restore-api-verify}
+{: api}
 
 You can verify that the key has been restored by getting details about the key by issuing:
 
