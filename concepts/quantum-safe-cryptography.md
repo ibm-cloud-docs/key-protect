@@ -173,7 +173,6 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Public endpoints                         |
 | ------------- | ---------------------------------------- |
-| Staging       | `qsc.qa.us-south.kms.test.cloud.ibm.com` |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
 | FrankFurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
@@ -185,10 +184,9 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Private endpoints                                |
 | ------------- | ------------------------------------------------ |
-| Staging       | `qsc.qa.private.us-south.kms.test.cloud.ibm.com` |
-| Dallas        | `qsc.private.us-south.kms.cloud.ibm.com`         |
-| London        | `qsc.private.eu-gb.kms.cloud.ibm.com`            |
-| FrankFurt     | `qsc.private.eu-de.kms.cloud.ibm.com`            |
+| Dallas        | `private-qsc.us-south.kms.cloud.ibm.com`         |
+| London        | `private-qsc.eu-gb.kms.cloud.ibm.com`            |
+| FrankFurt     | `private-qsc.eu-de.kms.cloud.ibm.com`            |
 {: caption="Table 2. Lists quantum safe enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
@@ -426,34 +424,14 @@ request, you will need to suse specific to ensure that the request
 successfully goes through. The following table contains a list of flags that are
 required when making a quantum safe `curl` request.
 
-<table>
-  <tr>
-    <th>Flag</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>-tlsv1.3</varname>
-    </td>
-    <td>
-      This flag enforces that <code>curl</code> connects to a TLS v1.3 server.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>--curves</varname>
-    </td>
-    <td>
-      This flag will specify which quantum safe algorithm should be used in the
-      TLSv1.3 key exchange mechanism.. If you do not specify an algorithm, the
-      flag will default to the <code>p384_kyber768</code> algorithm.
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 1. Describes the flags needed to make <code>curl</code> requests to
-    the {{site.data.keyword.keymanagementserviceshort}} service.
-  </caption>
-</table>
+|Flag|Description|
+|--- |--- |
+|-tlsv1.3|This flag enforces that curl connects to a TLS v1.3 server.|
+|--curves|This flag will specify which quantum safe algorithm should be used in the
+TLSv1.3 key exchange mechanism. If you do not specify an algorithm, the
+flag will default to the p384_kyber768 algorithm.|
+{: caption="Table 3. Describes the flags needed to make <code>curl</code> requests to
+    the {{site.data.keyword.keymanagementserviceshort}} service." caption-side="top"}
 
 You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe
@@ -469,80 +447,11 @@ $ curl --tlsv1.3 --curves <qsc_algorithm> -X GET \
 {: codeblock}
 
 Replace the variables in your request according to the following table.
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>
-      <varname>qsc_algorithm</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The kyber algorithm in the key size that will
-        be used to protect your data in transit.
-      </p>
-      <p>
-        Acceptable algorithm + keysizes: <code>kyber512</code>,
-        <code>kyber768</code>, <code>kyber1024</code>,
-        <code>p256_kyber512</code>, <code>p384_kyber768</code>, and
-        <code>p521_kyber1024</code>.
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>region</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The region abbreviation, such as
-        <code>us-south</code> or <code>eu-gb</code>, that represents the
-        geographic area where your
-        {{site.data.keyword.keymanagementserviceshort}} instance
-        resides.
-      </p>
-      <p>
-        For more information, see
-        [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>IAM_token</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-        access token. Include the full contents of the <code>IAM</code>
-        token, including the Bearer value, in the <code>curl</code> request.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <varname>instance_ID</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The unique identifier that is assigned to
-        your {{site.data.keyword.keymanagementserviceshort}} service
-        instance.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-      </p>
-    </td>
-  </tr>
-  <caption style="caption-side:bottom;">
-    Table 2. Describes the variables needed to make a list keys request through
-    a quantum safe endpoint.
-  </caption>
-</table>
+
+|Variable|Description|
+|--- |--- |
+|qsc_algorithm|**Required**. The kyber algorithm in the key size that will be used to protect your data in transit.<br><br>Acceptable algorithm + keysizes: kyber512, kyber768, kyber1024, p256_kyber512, p384_kyber768, and p521_kyber1024.|
+|region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 4. Describes the variables needed to make a list keys request through a quantum safe endpoint." caption-side="top"}
