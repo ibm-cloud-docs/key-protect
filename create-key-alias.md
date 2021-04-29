@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-17"
+  years: 2020, 2021
+lastupdated: "2021-04-28"
 
 keywords: Create key alias, key alias, view encryption key, retrieve encryption key by alias, create alias API examples
 
@@ -20,6 +20,8 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating key aliases
 {: #create-key-alias}
@@ -39,8 +41,20 @@ refer to your key when you make calls to the
 [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or
 its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
 
+## Creating and editing key aliases with the console
+{: #create-key-alias-ui}
+{: ui}
+
+Key aliases can be added to a key during the process of creating or importing a key.
+
+* For more information about creating a root key or a standard key, check out [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys) or [Creating standard keys](/docs/key-protect?topic=key-protect-create-standard-keys).
+* For more information about importing a root key or a standard key, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys) or [Importing standard keys](/docs/key-protect?topic=key-protect-import-standard-keys).
+
+To edit a key alias, click ⋯ and select **Edit key alias**.
+
 ## Creating key aliases with the API
 {: #create-key-alias-api}
+{: api}
 
 Create a key alias by making a `POST` call to the following endpoint.
 
@@ -54,7 +68,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
    To create a key alias, you must be assigned a _Manager_ or _Writer_
    service access role. To learn how IAM roles map to
    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-   [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+   [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
    {: note}
 
 2. Create a key alias by running the following `curl` command.
@@ -69,158 +83,53 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following
+table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south`or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The identifier for the key that you would like to associate with an alias. To retrieve a key ID, see the [list keys API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
+|key_alias|**Required**. A unique, human-readable name for easy identification of your key.<br><br>Alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than dashes (-) or underscores (_). The alias cannot be a version 4 UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings,rotate, wrap, unwrap, rewrap, version, versions.Alias size can be between 2 - 90 characters (inclusive).<br><br>Note You cannot have duplicate alias names in your {{site.data.keyword.keymanagementserviceshort}} instance.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see[Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+{: caption="Table 1. Describes the variables that are needed to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+To protect the confidentiality of your personal data, avoid entering
+personally identifiable information (PII), such as your name or location,
+when you create a key alias. For more examples of PII, see section 2.2
+of the
+[NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
+{: important}
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The identifier for the key that you
-          would like to associate with an alias. To retrieve a key ID, see the
-          [list keys API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
-        </td>
-      </tr>
+A successful `POST api/v2/keys/<key_ID>/aliases/<key_alias>` response
+returns the alias for your key, along with other metadata. The alias is a
+unique name that is assigned to your key and can be used for to retrieve
+more information about the associated key.
 
-      <tr>
-        <td>
-          <varname>key_alias</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> A unique, human-readable name for easy
-            identification of your key.
-          </p>
-          <p>
-            Alias must be alphanumeric, case sensitive, and cannot contain
-            spaces or special characters other than dashes (<code>-</code>) or
-            underscores (<code>_</code>). The alias cannot be a version 4 UUID
-            and must not be a {{site.data.keyword.keymanagementserviceshort}}
-            reserved name: <code>allowed_ip</code>, <code>key</code>,
-            <code>keys</code>, <code>metadata</code>, <code>policy</code>,
-            <code>policies</code>, <code>registration</code>,
-            <code>registrations</code>, <code>ring</code>, <code>rings</code>,
-            <code>rotate</code>, <code>wrap</code>, <code>unwrap</code>,
-            <code>rewrap</code>, <code>version</code>, <code>versions</code>.
-            Alias size can be between 2 - 90 characters (inclusive).
-          </p>
-          <p>
-            <strong>Note</strong> You cannot have duplicate alias names in your
-            {{site.data.keyword.keymanagementserviceshort}} instance.
-          </p>
-        </td>
-      </tr>
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "alias": "test-alias",
+            "creationDate": "2020-03-12T03:37:32Z",
+            "createdBy": "..."
+        }
+    ]
+}
+```
+{: screen}
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to create a key alias
-        with the {{site.data.keyword.keymanagementserviceshort}} API
-      </caption>
-    </table>
-
-    To protect the confidentiality of your personal data, avoid entering
-    personally identifiable information (PII), such as your name or location,
-    when you create a key alias. For more examples of PII, see section 2.2
-    of the
-    [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
-    {: important}
-
-    A successful `POST api/v2/keys/<key_ID>/aliases/<key_alias>` response
-    returns the alias for your key, along with other metadata. The alias is a
-    unique name that is assigned to your key and can be used for to retrieve
-    more information about the associated key.
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key+json",
-            "collectionTotal": 1
-        },
-        "resources": [
-            {
-                "keyId": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "alias": "test-alias",
-                "creationDate": "2020-03-12T03:37:32Z",
-                "createdBy": "..."
-            }
-        ]
-    }
-    ```
-    {: screen}
-
-    For a detailed description of the response parameters, see the
-    {{site.data.keyword.keymanagementserviceshort}}
-    [REST API reference doc](/apidocs/key-protect){: external}.
-    {: tip}
+For a detailed description of the response parameters, see the
+{{site.data.keyword.keymanagementserviceshort}}
+[REST API reference doc](/apidocs/key-protect){: external}.
+{: tip}
 
 Each key can have up to five aliases. There is a limit of 1,000 aliases per
 instance.
@@ -228,6 +137,7 @@ instance.
 
 ## Deleting key aliases with the API
 {: #delete-key-alias}
+{: api}
 
 Delete a key alias by making a `DELETE` call to the following endpoint.
 
@@ -250,113 +160,26 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following
+table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south`or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The identifier for the key that you retrieved in [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
+|key_alias|**Required**. The unique, human-readable name that identifies your key.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+{: caption="Table 2. Describes the variables that are needed to delete a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful `DELETE api/v2/keys/<key_ID>/aliases/<key_alias>` request
+returns an HTTP `204 No Content` response, which indicates that the alias
+associated with your key was deleted.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The identifier for the key that you
-          retrieved in
-          [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_alias</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique, human-readable name that
-            identifies your key.
-          </p>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to delete a key alias
-        with the {{site.data.keyword.keymanagementserviceshort}} API
-      </caption>
-    </table>
-
-    A successful `DELETE api/v2/keys/<key_ID>/aliases/<key_alias>` request
-    returns an HTTP `204 No Content` response, which indicates that the alias
-    associated with your key was deleted.
-
-    It takes up to 10 minutes for an alias to be completely deleted from the
-    service.
-    {: important}
+It takes up to 10 minutes for an alias to be completely deleted from the
+service.
+{: important}
 
 ## Key Alias FAQ
 {: #alias-faq}
@@ -383,6 +206,7 @@ Below are additional details about key aliases:
 
 ## APIs that use key alias
 {: #key-alias-apis}
+{: api}
 
 The following table lists the APIs that you can use to create and use a key
 alias.

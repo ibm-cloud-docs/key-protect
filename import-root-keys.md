@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-09"
+  years: 2017, 2021
+lastupdated: "2021-04-28"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -20,122 +20,58 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Importing root keys
 {: #import-root-keys}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to secure your
-existing root keys by using the {{site.data.keyword.keymanagementserviceshort}}
-GUI, or programmatically with the
-{{site.data.keyword.keymanagementserviceshort}} API.
+You can use {{site.data.keyword.keymanagementservicefull}} to secure and manage your existing root keys by importing them.
 {: shortdesc}
 
-Root keys are symmetric key-wrapping keys that are used to protect the security
-of encrypted data in the cloud. For more information about importing root keys
-into {{site.data.keyword.keymanagementserviceshort}}, see
-[Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
+Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about importing root keys into {{site.data.keyword.keymanagementserviceshort}}, see [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
-Plan ahead for importing keys by
-[reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead).
-For added security, you can enable the secure import of the key material by
-using an
-[import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)
-to encrypt your key material before you bring it to the cloud.
+Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
 {: note}
 
-## Importing root keys in the console
+## Importing root keys with the console
 {: #import-root-key-gui}
+{: ui}
 
-[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision),
-complete the following steps to import a key with the
-{{site.data.keyword.cloud_notm}} console.
+[After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to import a key with the {{site.data.keyword.cloud_notm}} console.
 
-If you enable
-[dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),
-keep in mind that any keys that you add to the service require an authorization
-from two users to delete keys.
+If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
-3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. To import a key, click **Add key** and select the **Import your own key**
-   window.
+4. To import a key, click **Add** and select the **Import your own key** window.
 
-    Specify the key's details:
+   Specify the key's details:
 
-    <table>
-      <tr>
-        <th>Setting</th>
-        <th>Description</th>
-      </tr>
+|Setting|Description|
+| --- | --- |
+|Key type|The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. Select the **Root key** button.|
+|Name|A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters (inclusive). <br><br>To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location.|
+|Key material|The base64-encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material). Ensure that the key material is 16, 24, or 32 bytes long, and corresponds to 128, 192, or 256 bits in length. The key must also be base64-encoded.|
+| Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
+|Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-key-rings) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
+{: caption="Table 1. Describes the Import your own key settings." caption-side="top"}
 
-      <tr>
-        <td>Name</td>
-        <td>
-          <p>
-            A human-readable alias for easy identification of your key. Length
-            must be within 2 - 90 characters (inclusive).
-          </p>
-          <p>
-            To protect your privacy, ensure that the key name does not contain
-            personally identifiable information (PII), such as your name or
-            location.
-          </p>
-        </td>
-      </tr>
+When you are finished filling out the key's details, click **Import key** to confirm.
 
-      <tr>
-        <td>
-          Key type
-        </td>
-        <td>
-          The
-          [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types)
-          that you would like to manage in
-          {{site.data.keyword.keymanagementserviceshort}}. From the list of key
-          types, select <b>Root key</b>.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          Key material
-        </td>
-        <td>
-          <p>
-            The base64-encoded key material, such as an existing key-wrapping
-            key, that you want to store and manage in the service. For more
-            information, check out
-            [Base64 encoding your key material](#how-to-encode-root-key-material).
-          </p>
-          <p>
-            Ensure that the key material meets the following requirements:
-          </p>
-          <p>
-            The key must be 16, 24, or 32 bytes long, corresponding to 128, 192,
-            or 256 bits in length. The key must be base64-encoded.
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the <b>Import your own key</b> settings
-      </caption>
-    </table>
-
-5. When you are finished filling out the key's details, click **Import key** to
-   confirm.
+If you know which key ring you want a key to be placed in, and you are a _Manager_ of that key ring, you can also navigate to the **Key rings** panel, select ⋯ and click **Add key to key ring**. This will open the same panel you see by clicking **Add** on the **Keys** page with the **Key rings** variable filled in with the name of the key ring.
+{: tip}
 
 ## Importing root keys with the API
 {: #import-root-key-api}
+{: api}
 
-Import symmetric keys to {{site.data.keyword.keymanagementserviceshort}} by
-making a `POST` call to the following endpoint.
+Import symmetric keys to {{site.data.keyword.keymanagementserviceshort}} by making a `POST` call to the following endpoint.
 
 ```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys
@@ -144,9 +80,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-2. Call the
-   [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}
-   with the following `curl` command.
+2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external} with the following `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -177,219 +111,50 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br> For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|correlation_ID|The unique identifier that is used to track and correlate transactions.|
+|key_name|**Required**. A unique, human-readable name for easy identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
+|alias_list|One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than `-` or `_`. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions.|
+|key_description|An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
+|YYYY-MM-DD HH:MM:SS.SS|The date and time that the key expires in the system, in RFC 3339 format. If the expirationDate attribute is omitted, the key does not expire.|
+|key_material|The base64-encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material). Ensure that the key material is 128, 192, or 256 bits in length, corresponding to 16, 24, or 32 bytes long. The key must be base64-encoded.|
+|key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service designates the key as a root key that you can use for wrap or unwrap operations.|
+{: caption="Table 1. Describes the variables that are needed to add a root key with
+the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
+{: important}
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+A successful `POST api/v2/keys` response returns the ID value for your key, along with other metadata. The ID is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API.
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+**Optional**: Verify that the key was added by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-      <tr>
-        <td>
-          <varname>correlation_ID</varname>
-        </td>
-        <td>
-          The unique identifier that is used to track and correlate
-          transactions.
-        </td>
-      </tr>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <tr>
-        <td>
-          <varname>key_name</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> A unique, human-readable name for easy
-          identification of your key. To protect your privacy, do not store your
-          personal data as metadata for your key.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>alias_list</varname>
-        </td>
-        <td>
-          <p>
-            One or more unique, human-readable aliases assigned to your key.
-          </p>
-          <p>
-            <b>Important:</b> To protect your privacy, do not store your
-            personal data as metadata for your key.
-          </p>
-          <p>
-            Each alias must be alphanumeric, case sensitive, and cannot contain
-            spaces or special characters other than <code>-</code> or
-            <code>_</code>. The alias cannot be a UUID and must not be a
-            {{site.data.keyword.keymanagementserviceshort}} reserved name:
-            <code>allowed_ip</code>, <code>key</code>, <code>keys</code>,
-            <code>metadata</code>, <code>policy</code>, <code>policies</code>,
-            <code>registration</code>, <code>registrations</code>,
-            <code>ring</code>, <code>rings</code>, <code>rotate</code>,
-            <code>wrap</code>, <code>unwrap</code>, <code>rewrap</code>,
-            <code>version</code>, <code>versions</code>.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_description</varname>
-        </td>
-        <td>
-          An extended description of your key. To protect your privacy, do not
-          store your personal data as metadata for your key.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>YYYY-MM-DD</varname>
-          <br>
-          <varname>HH:MM:SS.SS</varname>
-        </td>
-        <td>
-          The date and time that the key expires in the system, in RFC 3339
-          format. If the <code>expirationDate</code> attribute is omitted, the
-          key does not expire.
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_material</varname>
-        </td>
-        <td>
-          <p>
-            The base64-encoded key material, such as an existing key-wrapping
-            key, that you want to store and manage in the service. For more
-            information, check out
-            [Base64 encoding your key material](#how-to-encode-root-key-material).
-          </p>
-          <p>
-            Ensure that the key material meets the following requirements:
-          </p>
-          <p>
-            The key must be 128, 192, or 256 bits in length, corresponding to
-            16, 24, or 32 bytes long. The key must be base64-encoded.
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_type</varname>
-        </td>
-        <td>
-          <p>
-            A boolean value that determines whether the key material can leave
-            the service.
-          </p>
-          <p>
-            When you set the <code>extractable</code> attribute to
-            <code>false</code>, the service designates the key as a root key
-            that you can use for <code>wrap</code> or <code>unwrap</code>
-            operations.
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 4. Describes the variables that are needed to add a root key with
-        the {{site.data.keyword.keymanagementserviceshort}} API
-      </caption>
-    </table>
-
-    To protect the confidentiality of your personal data, avoid entering
-    personally identifiable information (PII), such as your name or location,
-    when you add keys to the service. For more examples of PII, see section 2.2
-    of the
-    [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
-    {: important}
-
-    A successful `POST api/v2/keys` response returns the ID value for your key,
-    along with other metadata. The ID is a unique identifier that is assigned to
-    your key and is used for subsequent calls to the
-    {{site.data.keyword.keymanagementserviceshort}} API.
-
-3. Optional: Verify that the key was added by running the following call to
-   browse the keys in your {{site.data.keyword.keymanagementserviceshort}}
-   instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
-        -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
-
-## Base64-encoding your key material
+### Base64-encoding your key material
 {: #how-to-encode-root-key-material}
+{: api}
 
-When importing an existing root key, it is required to include the encrypted key
-material that you want to store and manage in the service.
+When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service.
 
-### Using OpenSSL to encrypt existing key material
+#### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-root-import}
+{: api}
 
 Use this process to encrypt the contents of a key material in a file.
 
-1. Download and install
-   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Base64-encode your key material string by running the following command:
 
@@ -398,60 +163,24 @@ Use this process to encrypt the contents of a key material in a file.
     ```
     {: pre}
 
-    Replace the variables in the example request according to the following
-    table.
+    Replace the variables in the example request according to the following table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>
-          <varname>infile</varname>
-        </td>
-        <td>
-          <p>
-            The name of the file where your key material string resides.
-          </p>
-          <p>
-            Ensure that the key is 16, 24, or 32 bytes long, corresponding to
-            128, 192, or 256 bits in length. The key must be base64-encoded.
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <varname>outfile</varname>
-        </td>
-        <td>
-          <p>
-            The name of the file where your base64-encoded key material will be
-            created once the command has run.
-          </p>
-        </td>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|infile|The name of the file where your key material string resides. Ensure that the key is 16, 24, or 32 bytes long, corresponding to 128, 192, or 256 bits in length. The key must be base64-encoded.|
+|outfile|The name of the file where your base64-encoded key material will be created once the command has run.|
+{: caption="Table 2. Describes the variables that are needed to base64-encode your key material." caption-side="top"}
 
-      <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to base64-encode your
-        key material.
-      </caption>
-    </table>
+If you want to output the base64 material in the command line directly rather than a file, issue `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
+{: note}
 
-  If you want to output the base64 material in the command line directly rather
-  than a file, run the command
-  `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string
-  is the key material input for your imported key.
-  {: note}
-
-### Using OpenSSL to create and encode new key material
+#### Using OpenSSL to create and encode new key material
 {: #open-ssl-encoding-root-new-key-material}
+{: api}
 
-Use this process to create a random base64-encoded key material with a specific
-byte length. 32 bytes (256 bits) is recommended.
+Use this process to create a random base64-encoded key material with a specific byte length. 32 bytes (256 bits) is recommended.
 
-1. Download and install
-   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+1. Download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Base64-encode your key material string by running the following command:
 
@@ -463,31 +192,10 @@ byte length. 32 bytes (256 bits) is recommended.
     Replace the variable in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>
-          <varname>byte_length</varname>
-        </td>
-        <td>
-          <p>
-            The length of the key, measured in bytes.
-          </p>
-          <p>
-            Acceptable byte lengths are 16, 24, or 32 bytes, corresponding to
-            128, 192, or 256 bits in length. The key must be base64-encoded.
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 4. Describes the variable that is needed to create and encode new
-        key material.
-      </caption>
-    </table>
+|Variable|Description|
+|--- |--- |
+|byte_length|The length of the key, measured in bytes. Acceptable byte lengths are 16, 24, or 32 bytes, corresponding to 128, 192, or 256 bits in length. The key must be base64-encoded.|
+{: caption="Table 3. Describes the variable that is needed to create and encode new key material." caption-side="top"}
 
 #### Key Material Creation Examples
 {: #import-root-key-open-ssl-examples}
@@ -501,8 +209,6 @@ byte length. 32 bytes (256 bits) is recommended.
 ## What's next
 {: #import-root-key-next-steps}
 
-- To find out more about protecting keys with envelope encryption, check out
-  [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
+- To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
-- To find out more about programmatically managing your keys,
-  [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

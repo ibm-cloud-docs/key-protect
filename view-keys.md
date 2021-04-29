@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -49,21 +49,25 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
-2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+2. Go to **Menu** > **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Browse the general characteristics of your keys from the application details page:
+4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name (it will not return words found in a key alias or a key ring). The fields found in the table can be customized using the **Settings** button. By default you will see:
 
 | Column | Description |
 | ------ | ----------- |
-| Name   | The human-readable alias that was assigned to your key. |
+| Name   | The display name you gave to your key. |
 | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
-| State  | The [key state](/docs/key-protect?topic=key-protect-key-states) is based on [NIST Special Publication 800-57, Recommendation for Key Management](https://www.nist.gov/publications/recommendation-key-management-part-1-general-0){: external}. These states include _Pre-active_, _Active_, _Deactivated_, and _Destroyed_. |
-| Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that describes your key's designated purpose within the service. |
-{: caption="Table 1. Describes the **Keys** table." caption-side="bottom"}
+| Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
+| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-key-rings) the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
+| Last updated | The date the last time the key was updated. This field can be particularly helpful when assessing whether a _Destroyed_ key can be restored, since restorations can only take place within 30 days of a key being placed in the _Destroyed_ state. |
+| Created | The date the key was created. |
+| Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
+| Key states | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
+{: caption="Table 1. Describes the Keys table." caption-side="bottom"}
 
-Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your administrator that you are assigned the correct role for the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#roles).
+Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance? Verify with your administrator that you are assigned the correct role for the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tip}
 
 ### Retrieving keys by state

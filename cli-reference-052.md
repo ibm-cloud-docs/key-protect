@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-28"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -1680,7 +1680,7 @@ from the _Active_ (value is 1) to the _Suspended_ (value is 2) key state.
 To disable a root key, you must be assigned a _Manager_ service access role
 for the instance or key. To learn how IAM roles map to
 {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-[Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+[Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 If you're using an integrated Cloud Service that supports revoking access to a
 disabled root key, the service may take up to a maximum of 4 hours before access
@@ -4102,8 +4102,8 @@ The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
 
 Do not delete a root key if there are resources, such as COS buckets and
-objects, that rely on the root key. Deleteing the root key means you cannot
-recover those resources. This known as "crypto shredding" and there is no
+objects, that rely on the root key. Deleting the root key means you cannot
+recover those resources. This is known as "crypto shredding" and there is no
 recovery from this action.
 {: note}
 

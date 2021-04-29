@@ -49,7 +49,7 @@ This service only supports the ability to view the results of your configuration
 
 [Config rules](#x3084914){: term}
 are used to monitor and optionally enforce the configuration standards that you
-want to implement across your accounts. To learn more about the about the
+want to implement across your accounts. To learn more about the
 available properties that you can use to create a rule for
 {{site.data.keyword.keymanagementserviceshort}}, review the following table.
 

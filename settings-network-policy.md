@@ -133,7 +133,7 @@ complete the following steps to create a network access policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click the **Manage instance policies** link on the left side of the page.
+4. Click the **Instance policies** link on the left side of the page.
 
    - Find the `Network access allowed` panel (on the top-right side of the
      page).
@@ -165,7 +165,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
     policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To
     learn how IAM (identity and access management) roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Enable a network access policy for your
@@ -199,117 +199,37 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following
+table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|enabled|**Required**. Set to `true` to enable a network access policy. Set to `false` to remove the network access policy, that is, the policy is not enforced.|
+|access_type|**Required**. The network access policy to apply to your {{site.data.keyword.keymanagementserviceshort}} instance. Acceptable values are `public-and-private` or `private-only`.|
+{: caption=" Table 1. Describes the variables that are needed to set a network access policy at the instance level." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+now enforces a network access policy. API requests to the service are
+restricted to the policy you set.
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+This policy applies to {{site.data.keyword.keymanagementserviceshort}}
+instances only. The network access policy does not apply to specific keys.
 
-      <tr>
-        <td>
-          <varname>enabled</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> Set to <code>true</code> to enable a
-          network access policy. Set to <code>false</code> to remove the network
-          access policy, that is, the policy is not enforced.
-        </td>
-      </tr>
+**Optional**: Verify that the network access policy was created by browsing the policies that are available for your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-      <tr>
-        <td>
-          <varname>access_type</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> The network access policy to apply to your
-          {{site.data.keyword.keymanagementserviceshort}} instance.
-          Acceptable values are <code>public-and-private</code> or
-          <code>private-only</code>.
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to set a network access
-        policy at the instance level.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
-    now enforces a network access policy. API requests to the service are
-    restricted to the policy you set.
-
-    This policy applies to {{site.data.keyword.keymanagementserviceshort}}
-    instances only. The network access policy does not apply to specific keys.
-
-3. Optional: Verify that the network access policy was created by browsing the
-   policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwork" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
 ### Disabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #disabling-network-access-to-your-service-instance-ui}
@@ -327,7 +247,7 @@ a network access policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Manage instance policies** page, use the **Policies** table to
+4. On the **Instance policies** page, use the **Policies** table to
    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
    instance.
 

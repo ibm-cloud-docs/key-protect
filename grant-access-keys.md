@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-11"
+  years: 2017, 2021
+lastupdated: "2021-04-28"
 
 keywords: grant access to keys
 
@@ -76,7 +76,7 @@ To assign access:
    want to grant access to.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles)
+   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
    to assign access for the user.
 
 9. Click **Add**.
@@ -137,7 +137,7 @@ Use the retrieved key ID to create a access policy:
       {{site.data.keyword.keymanagementserviceshort}} service.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles)
+   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
    to assign access for the user.
 
 9. Click **Add**.
@@ -151,8 +151,8 @@ Use the retrieved key ID to create a access policy:
 ## Granting access to key rings in an instance
 {: #grant-access-key-ring-level}
 
-A key ring is a collection of keys located within your service instance, in which you can 
-restrict access to via iam access policy. For information on key rings,
+A key ring is a collection of keys located within your service instance, in which you can
+restrict access to via IAM access policy. For information on key rings,
 see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
 
 You can grant access to key rings within a
@@ -193,7 +193,7 @@ To assign access to a key ring via the console:
 9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#roles)
+   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
    to assign access for the user.
 
 9. Click **Add**.
@@ -201,7 +201,7 @@ To assign access to a key ring via the console:
 10. Continue to add platform and service access roles as needed and when you are
     finished, click **Assign**.
 
-![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 2. Shows how to grant user access to an instance." caption-side="bottom"}
 
 You can also create an access policy via [API](/apidocs/iam-policy-management#create-policy){: external}
 or [CLI](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-15"
+  years: 2020, 2021
+lastupdated: "2021-04-28"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -78,7 +78,7 @@ complete the following steps to create a dual authorization policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click the **Manage instance policies** link on the left side of the page.
+4. Click the **Instance policies** link on the left side of the page.
 
    - Find the `Dual authorization delete` panel (on the top-left side of the
      page).
@@ -106,7 +106,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Enable a dual authorization policy for your
@@ -141,115 +141,41 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br> If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+{: caption="Table 1. Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+is now enabled for dual authorization. Keys that you create or import to the
+service now require two authorizations before they can be deleted. For more
+information, see
+[Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+This new policy does not affect existing keys in your instance. If you need
+to enable dual authorization for an existing key, see
+[Creating a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
+{: note}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify dual auth policy enablement
+{: #dual-auth-api-verify}
 
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
+You can verify that a dual auth policy key has been enabled by issuing a list policies request:
 
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
+ ```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable dual
-        authorization at the instance level.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
-    is now enabled for dual authorization. Keys that you create or import to the
-    service now require two authorizations before they can be deleted. For more
-    information, see
-    [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
-
-    This new policy does not affect existing keys in your instance. If you need
-    to enable dual authorization for an existing key, see
-    [Creating a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy#create-dual-auth-key-policy-api).
-    {: note}
-
-3. Optional: Verify that the dual authorization policy was created by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
 
 ### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #disable-dual-auth-instance-policy-ui}
@@ -267,7 +193,7 @@ complete the following steps to create a dual authorization policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Manage instance policies** page, use the **Policies** table to
+4. On the **Instance policies** page, use the **Policies** table to
    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
    instance.
 
@@ -296,7 +222,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Disable an existing dual authorization policy for your
@@ -331,107 +257,32 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+{: caption="Table 1. Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that the dual authorization policy was updated for your service
+instance. Keys that you create or import to the service now require only one
+authorization before they can be deleted. For more information, see
+[Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify dual auth policy disablement
+{: #dual-auth-disable-api-verify}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+You can verify that a dual auth policy key has been disabled by issuing a list policies request:
 
-      <tr>
-        <td>
-          <varname>key_ring_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Optional.</strong> The unique identifier of the key ring that the key belongs to. 
-            If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key 
-            in every key ring associated with the specified instance. It is recommended to specify 
-            the key ring ID for a more optimized request.
+ ```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-            Note: The key ring ID of keys that are created without an `x-kms-key-ring` 
-            header is: default.
-          </p>
-          <p>
-            For more information, see
-            [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable dual
-        authorization at the instance level.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that the dual authorization policy was updated for your service
-    instance. Keys that you create or import to the service now require only one
-    authorization before they can be deleted. For more information, see
-    [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
-
-3. Optional: Verify that the dual authorization policy was updated by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.

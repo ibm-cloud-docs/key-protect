@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2021-04-01"
+  years: 2017, 2028
+lastupdated: "2021-04-28"
 
 keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
@@ -273,10 +273,10 @@ section
 The following fields include extra information:
 
 - The `requestData.initialValue.keyRingId` field includes the ID of the key ring that
-  the key previously belonged to.
+  the key previously was a part of.
 
 - The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
-  key currently belongs to.
+  key currently is a part of.
 
 #### Get key total
 {: #list-head-success}

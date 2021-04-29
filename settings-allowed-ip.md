@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-28"
+  years: 2020, 2021
+lastupdated: "2021-04-28"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist, ip whitelist
 
@@ -136,7 +136,7 @@ existing policy.
     access policy for your {{site.data.keyword.keymanagementserviceshort}}
     instance. To learn how IAM roles map to
     {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Enable or update an allowed IP policy for your
@@ -173,120 +173,40 @@ existing policy.
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|enabled|**Required**. Set to true to enable an allowed IP policy. Set to false to disable the allowed IP policy.|
+|ip_address_list|**Required**. A list of IPv4 or IPv6 subnets that are allowed to send traffic to your {{site.data.keyword.keymanagementserviceshort}} instance. There must be at least one value entered. Each subnet must be specified with CIDR notation. Currently, only IPv4 notation is accepted. Acceptable list format is ["X.X.X.X/N", "X.X.X.X.X.X.X.X/N"]. The  maximum amount of subnets that can added to an allowed IP policy is 1,000. This attribute should not be provided when disabling a policy.|
+{: caption="Table 1. Describes the variables that are needed to enable an allowed IP policy at the instance level." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that your {{site.data.keyword.keymanagementserviceshort}}
+instance now has an enabled allowed IP policy.
+Your {{site.data.keyword.keymanagementserviceshort}} instance will now only
+accept traffic from the IP addresses specified in your request.
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify allowed ip policy enablement
+{: #allowed-ip-key-api-verify}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+You can verify that an allowed ip policy has been enabled by issuing a list policies request:
 
-      <tr>
-        <td>
-          <varname>enabled</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> Set to <code>true</code> to enable an
-          allowed IP policy. Set to <code>false</code> to disable the allowed IP
-          policy.
-        </td>
-      </tr>
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
-      <tr>
-        <td>
-          <varname>ip_address_list</varname>
-        </td>
-        <td>
-          <strong>Required.</strong> A list of IPv4 or IPv6 subnets that are
-          allowed to send traffic to your
-          {{site.data.keyword.keymanagementserviceshort}} instance. There must
-          be at least one value entered. Each subnet must be specified with
-          CIDR notation. Currently, only IPv4 notation is accepted. Acceptable
-          list format is <code>["X.X.X.X/N", "X.X.X.X.X.X.X.X/N"]</code>. The
-          maximum amount of subnets that can added to an allowed IP policy is
-          1,000. This attribute should not be provided when disabling a policy.
-        </td>
-      </tr>
+`ipWhitelist` has been deprecated and replaced with `allowedIP`. You will
+see duplicate records when you retrieve your allowed IP policy.
+{: note}
 
-      <caption style="caption-side:bottom;">
-        Table 1. Describes the variables that are needed to enable an allowed IP
-        policy at the instance level.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}}
-    instance now has an enabled allowed IP policy.
-    Your {{site.data.keyword.keymanagementserviceshort}} instance will now only
-    accept traffic from the IP addresses specified in your request.
-
-3. Optional: Verify that the allowed IP policy was created by browsing the
-   policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
-
-    `ipWhitelist` has been deprecated and replaced with `allowedIP`. You will
-    see duplicate records when you retrieve your allowed IP policy.
-    {: note}
+Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.    
 
 ### Disabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #disable-allowed-ip-instance-policy}
@@ -307,7 +227,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
     policy for your {{site.data.keyword.keymanagementserviceshort}} instance. To
     learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}}
     service actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Disable an existing allowed IP policy for your
@@ -341,88 +261,30 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl  request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 2. Describes the variables that are needed to disable an allowed IP policy at the instance level." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful request returns an HTTP `204 No Content` response, which
+indicates that the allowed IP policy was updated for your service
+instance.
 
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl></code>
-            request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
+### Optional: Verify allowed ip policy disablement
+{: #allowed-ip-key-disable-api-verify}
 
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
+You can verify that an allowed ip policy has been disabled by issuing a list policies request:
 
-      <caption style="caption-side:bottom;">
-        Table 2. Describes the variables that are needed to disable an allowed
-        IP policy at the instance level.
-      </caption>
-    </table>
-
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that the allowed IP policy was updated for your service
-    instance.
-
-3. Optional: Verify that the allowed IP policy was updated by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
-
-    ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
-        -H "accept: application/vnd.ibm.kms.policy+json" \
-        -H "authorization: Bearer <IAM_token>" \
-        -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
 
 ## Accessing an instance via public endpoint
 {: #access-allowed-ip-public-endpoint}
@@ -518,7 +380,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
     {{site.data.keyword.keymanagementserviceshort}} instance. To learn how IAM
     roles map to {{site.data.keyword.keymanagementserviceshort}} service
     actions, check out
-    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#service-access-roles).
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
     {: note}
 
 2. Retrieve the private endpoint port assigned to your allowed IP policy by
@@ -536,78 +398,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 3. Describes the variables that are needed to retrieve the private endpoint port associated with your {{site.data.keyword.keymanagementserviceshort}} instance." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to retrieve the private
-        endpoint port associated with your
-        {{site.data.keyword.keymanagementserviceshort}} instance.
-      </caption>
-    </table>
-
-    A successful `GET api/v2/instance/allowed_ip_port` response returns the
-    private endpoint port that was assigned to your
-    {{site.data.keyword.keymanagementserviceshort}} instance upon creation of
-    its associated allowed IP policy in the `private_endpoint_port` field. If
-    the instance doesn't have an enabled allowed IP policy, no information will
-    be returned.
+A successful `GET api/v2/instance/allowed_ip_port` response returns the
+private endpoint port that was assigned to your
+{{site.data.keyword.keymanagementserviceshort}} instance upon creation of
+its associated allowed IP policy in the `private_endpoint_port` field. If
+the instance doesn't have an enabled allowed IP policy, no information will
+be returned.
 
 ### Sending traffic to your {{site.data.keyword.keymanagementserviceshort}} instance through a private endpoint port
 {: #send-private-allowed-ip-traffic}
@@ -640,82 +443,13 @@ $ curl --ipv4 -X GET \
 
 Replace the variables in your request according to the following table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>region</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The region abbreviation, such as
-        <code>us-south</code> or <code>eu-gb</code>, that represents the
-        geographic area where your
-        {{site.data.keyword.keymanagementserviceshort}} instance
-        resides.
-      </p>
-      <p>
-        For more information, see
-        [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>private_endpoint_port</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The port associated with an instance with an
-        allowed IP policy.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>IAM_token</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-        access token. Include the full contents of the <code>IAM</code>
-        token, including the Bearer value, in the <code>curl</code> request.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>instance_ID</varname>
-    </td>
-    <td>
-      <p>
-        <strong>Required.</strong> The unique identifier that is assigned to
-        your {{site.data.keyword.keymanagementserviceshort}} service
-        instance.
-      </p>
-      <p>
-        For more information, see
-        [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 4. Describes the variables needed to make a list keys request through
-    a private endpoint on an instance with an allowed IP policy.
-  </caption>
-</table>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|private_endpoint_port|**Required**. The port associated with an instance with an allowed IP policy.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 4. Describes the variables needed to make a list keys request through a private endpoint on an instance with an allowed IP policy." caption-side="top"}
 
 ## Using an allowed IP policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services
 {: #allowed-ip-s2s}
