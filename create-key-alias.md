@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-29"
 
 keywords: Create key alias, key alias, view encryption key, retrieve encryption key by alias, create alias API examples
 
@@ -26,20 +26,15 @@ subcollection: key-protect
 # Creating key aliases
 {: #create-key-alias}
 
-You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias
-with the {{site.data.keyword.keymanagementserviceshort}} API.
+You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
+{: api}
 
-Key aliases are unique human-readable names that can be used to identify a key.
-Aliases enable your service to refer to a key by recognizable custom names,
-rather than the auto-generated identifier provided by the
-{{site.data.keyword.keymanagementserviceshort}} service. For example, if you
-create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and
-it is aliased as `US-South-Test-Key`, you can use `US-South-Test-Key` to
-refer to your key when you make calls to the
-{{site.data.keyword.keymanagementserviceshort}} api to
-[retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or
-its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
+You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} console.
+{: shortdesc}
+{: ui}
+
+Key aliases are unique human-readable names that are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Aliases enable your service to refer to a key by recognizable custom names, rather than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} service. For example, if you create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and it is aliased as `US-South-Test-Key`, you can use `US-South-Test-Key` to refer to your key when you make calls to the {{site.data.keyword.keymanagementserviceshort}} api to [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata). The alias can also be used to organize keys in the {{site.data.keyword.keymanagementserviceshort}} console.
 
 ## Creating and editing key aliases with the console
 {: #create-key-alias-ui}
@@ -50,7 +45,7 @@ Key aliases can be added to a key during the process of creating or importing a 
 * For more information about creating a root key or a standard key, check out [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys) or [Creating standard keys](/docs/key-protect?topic=key-protect-create-standard-keys).
 * For more information about importing a root key or a standard key, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys) or [Importing standard keys](/docs/key-protect?topic=key-protect-import-standard-keys).
 
-To edit a key alias, click ⋯ and select **Edit key alias**.
+To edit a key alias, click ⋯ and select **Edit key alias**. In the tab, you will see any existing aliases assigned to the key (and be able to delete them) and be able to add more alias. A key can have up to five aliases.
 
 ## Creating key aliases with the API
 {: #create-key-alias-api}

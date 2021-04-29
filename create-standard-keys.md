@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-29"
 
 keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 # Creating standard keys
 {: #create-standard-keys}
 
-You can create a standard encryption key with the {{site.data.keyword.keymanagementserviceshort}} console
+You can create a standard encryption key with the {{site.data.keyword.keymanagementserviceshort}} console.
 {: shortdesc}
 {: ui}
 
