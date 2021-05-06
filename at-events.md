@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2028
-lastupdated: "2021-04-28"
+  years: 2017, 2021
+lastupdated: "2021-05-06"
 
 keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
@@ -36,7 +36,7 @@ actions as they happen. The events that are collected comply with the Cloud
 Auditing Data Federation (CADF) standard.
 
 For more information regarding the {{site.data.keyword.at_full_notm}} service, see the
-[getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started){: external}.
+[getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}.
 
 To determine which {{site.data.keyword.keymanagementserviceshort}} API requests
 correlate to the actions below, see
@@ -125,7 +125,7 @@ view events, you must access the web UI of the
 {{site.data.keyword.at_full_notm}} service in the same location where your
 {{site.data.keyword.keymanagementserviceshort}} instance is available. For more
 information, see
-[Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started#gs_step4){: external}.
+[Launching the web UI through the IBM Cloud UI](/docs/activity-tracker?topic=activity-tracker-getting-started#gs_step4){: external}.
 
 | Deployment Region | {{site.data.keyword.at_full_notm}} Region |
 | ----------------- | ----------------------- |
@@ -164,7 +164,7 @@ model to provide more insight into your data.
 
 For more information on the event fields in the Cloud Auditing Data Federation
 (CADF) event model, see
-[Event Fields](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event){: external}
+[Event Fields](/docs/activity-tracker?topic=activity-tracker-event){: external}
 
 While `initiator.host.address` is a field that is part of the Cloud Auditing
 Data Federation model, the host address field will not be shown for requests
@@ -276,7 +276,7 @@ The following fields include extra information:
   the key previously was a part of.
 
 - The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
-  key currently is a part of.
+  key is currently a part of.
 
 #### Get key total
 {: #list-head-success}

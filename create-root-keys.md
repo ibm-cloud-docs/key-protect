@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-06"
 
 keywords: create root key, create key-wrapping key, create CRK, create CMK, create customer key, create root key in Key Protect, create key-wrapping key in Key Protect, create customer key in Key Protect, key-wrapping key, root key API examples
 
@@ -39,7 +39,7 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
 Encryption keys that are created in one region can be used to encrypt data stores located in any region within IBM Cloud.
 {: note}
 
-You can specify an expiration date when creating a root key. After performing an action on the key, such as wrap or unwrap, an associated {{site.data.keyword.at_full}}  event will send information on the date that the key expires and how many days are left until that day arrives. You can also [configure an alert](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-alerts#alerts_step3_preset) that will notify you days before key expiration. For more information on monitoring key expiration via {{site.data.keyword.at_full_notm}}, see [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
+You can specify an expiration date when creating a root key. After performing the wrap, unwrap, rewrap, get key, or get key metadata actions on a key, an associated {{site.data.keyword.at_full}} event will send information on the date that the key expires and how many days are left until that day arrives. You can also [configure an alert](/docs/activity-tracker?topic=activity-tracker-alerts#alerts_step3_preset) that will notify you days before key expiration. For more information on monitoring key expiration via {{site.data.keyword.at_full_notm}}, see [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## Creating root keys in the console
 {: #create-root-key-gui}

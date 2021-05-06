@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-06"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing dual authorization
+# Using dual authorization
 {: #manage-dual-auth}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
