@@ -8,9 +8,7 @@ Key Protect
     index.md
 
     {: .topicgroup}
-    About the service
-        about.md
-        architecture.md
+    about.md
 
     {: .topicgroup}
     Concepts

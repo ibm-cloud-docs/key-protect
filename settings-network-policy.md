@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-15"
+  years: 2020, 2021
+lastupdated: "2021-05-06"
 
 keywords: instance settings, service settings, network access policies
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Managing network access policies
+# Setting and editing network access policies
 {: #managing-network-access-policies}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-06"
 
 keywords: release notes, service updates, service bulletin
 
@@ -32,7 +32,7 @@ Stay up-to-date with the new features that are available for
 ## April 2021
 {: #april-2021}
 
-### Added: Updates to the Key Protect console
+### Added: Updates to the Key Protect console and Key purge feature
 {: #added-ui-updates-april-2021}
 
 New as of: 2021-04-22
@@ -40,6 +40,8 @@ New as of: 2021-04-22
 Many of the panels and actions you can take in the console have been modified to accommodate the addition of key rings and add other functionality to the console that previously was only possible using the APIs. This includes a new **Key rings** panel where key rings can be managed and a **Key ring ID** column in the **Keys** panel.
 
 Note that as part of this change, the **Instance policies** and **Manage keys** panels in the console have been renamed **Instance policies** and **Keys** respectively.
+
+This release also adds the ability to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
 
 ## March 2021
 {: #march-2021}
@@ -388,7 +390,7 @@ Release Date: 2020-05-29
 
 Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+[{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
 logs. These updates will be available across all supported regions by 29 May
 2020.
 
@@ -405,7 +407,7 @@ logs. These updates will be available across all supported regions by 29 May
 
 - **How will the changes impact my environment?**
   This change impacts the event fields that are returned in
-  [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+  [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
   audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
   actions. The change does not impact
   {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
@@ -502,7 +504,7 @@ New as of: 2020-02-28
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
-[{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+[{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
 logs. These updates will be available across all supported regions by 15 April
 2020.
 
@@ -523,7 +525,7 @@ logs. These updates will be available across all supported regions by 15 April
 
 - **How will the changes impact my environment?**
   This change impacts the event fields that are returned in
- [{{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-monitor_events){: external}
+ [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
   audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
   actions. The change does not impact
   {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
