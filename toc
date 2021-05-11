@@ -112,9 +112,8 @@ Key Protect
 
     {: .topicgroup}
     Key Protect CLI Reference
-        cli-reference.md
+        /key-protect-cli-plugin/key-protect-cli-plugin-key-protect-cli-reference
         cli-reference-052.md
-        cli-reference-040.md
         cli-reference-039.md
         cli-changelog.md
 
