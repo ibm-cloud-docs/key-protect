@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-14"
 
-keywords: IBM, purge, automatic purge, manual purge, delete, destroy
+keywords: key purge, automatic purge, manual purge
 
 subcollection: key-protect
 
@@ -41,7 +41,7 @@ The following table lists the time frames in which you can view, restore, and pu
 | 4 hours - 30 days       | Destroyed         | Yes                       | Yes          | Yes                      |
 | 30-90 days              | Destroyed         | Yes                       | No           | Yes                      |
 | After 90 days           | Purged `*`        | No                        | No           | Yes                      |
-{: caption="Table 3. Lists how users can interact with keys during certain time intervals after a key has been deleted" caption-side="top"}
+{: caption="Table 1. Lists how users can interact with keys during certain time intervals after a key has been deleted" caption-side="top"}
 
 `*` Note: because purged keys are completely inaccessible and "destroyed" in the common usage of the word, there is technically no "purged" key state. Purged keys no longer exist and therefore don't have a "state" one way or another. However, it can be useful to think of "purged" as being a state as nonexistence is part of the lifecycle of a key.
 
@@ -56,6 +56,36 @@ Once a key has been purged, any API calls that use the Key ID of a purged key wi
 1. [Review the registered IBM resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key. If needed, you can [force deletion on a key](#delete-key-force) that's protecting a registered cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy), which is a Write Once Read Many (WORM) policy set on the customer's relevant cloud resource.
 2. Verify whether a key has a retention policy by checking the `preventKeyDeletion` field of the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact an account owner to remove the retention policy on each resource that is associated with the key before you can delete the key.
 3. Verify the key's deletion authorization policy. By default, keys in {{site.data.keyword.keymanagementserviceshort}} only require a single deletion authorization by a user with the _Manager_ role However, if a [dual authorization policy has been set](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy), two users with the _Manager_ role will have to approve the deletion.
+
+## API Example
+{: #delete-purge-keys-api-example}
+
+Please refer to the prerequisites and configuration settings associated with the [API reference](/apidocs/key-protect#purgekey), before using this example.
+
+ ```sh
+curl -X DELETE
+	https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/purge
+	-H 'accept: application/vnd.ibm.kms.key+json'
+	-H 'authorization: Bearer <IAM_token>'
+	-H 'bluemix-instance: <instance_ID>'
+
+```
+{: pre}
+
+Replace the variables in the example request according to the following table.
+
+| Variable | Description |
+| --- | --- |
+|region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 2. Describes the variables that are needed to purge a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
+
+For a detailed description of the request, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](/apidocs/key-protect){: external}.
+{: tip}
+
+## What's next
+{: #delete-purge-keys-whats-next}
 
 To learn how to delete keys that hold a single authorization policy, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys).
 
