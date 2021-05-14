@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-13"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -56,7 +56,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 |Setting|Description|
 | --- | --- |
 |Key type|The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. Select the **Root key** button.|
-|Name|A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters (inclusive). <br><br>To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location.|
+|Name|A human-readable alias for easy identification of your key. Length must be within 2 - 90 characters (inclusive). <br><br>To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
 |Key material|The base64-encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material). Ensure that the key material is 16, 24, or 32 bytes long, and corresponds to 128, 192, or 256 bits in length. The key must also be base64-encoded.|
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-key-rings) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
@@ -113,18 +113,18 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
 |Variable|Description|
 |--- |--- |
-|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br> For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |correlation_ID|The unique identifier that is used to track and correlate transactions.|
+|return_preference|A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns only the key metadata, such as the key name and ID value, in the response entity-body. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
 |key_name|**Required**. A unique, human-readable name for easy identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
-|alias_list|One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than `-` or `_`. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions.|
-|key_description|An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
-|YYYY-MM-DD HH:MM:SS.SS|The date and time that the key expires in the system, in RFC 3339 format. If the expirationDate attribute is omitted, the key does not expire.|
-|key_material|The base64-encoded key material, such as an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material). Ensure that the key material is 128, 192, or 256 bits in length, corresponding to 16, 24, or 32 bytes long. The key must be base64-encoded.|
-|key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service designates the key as a root key that you can use for wrap or unwrap operations.|
-{: caption="Table 1. Describes the variables that are needed to add a root key with
-the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+|alias_list|**Optional**.One or more unique, human-readable aliases assigned to your key.<br><br>Important: To protect your privacy, do not store your personal data as metadata for your key.<br><br>Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than - or _. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies. registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions.|
+|key_description|**Optional**.An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
+|YYYY-MM-DD HH:MM:SS.SS|**Optional**.The date and time that the key expires in the system, in RFC 3339 format. If the expirationDate attribute is omitted, the key does not expire.|
+|key_material|**Required**.The base64-encoded key material, such as a symmetric key, that you want to manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-standard-key-material).<br><br>Ensure that the key material meets the following requirements:<br>A standard key can be up to 7,500 bytes in size. The key must be base64-encoded.|
+|key_type|A boolean value that determines whether the key material can leave the service.<br><br>When you set the extractable attribute to `true`, the service designates the key as a standard key that you can store in your apps or services.|
+{: caption="Table 2. Describes the variables that are needed to add a standard key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
 To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: important}

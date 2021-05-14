@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-05-13"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -56,7 +56,7 @@ following considerations:
 
 - **You will need to provision a {{site.data.keyword.mon_short}} instance for your policy in order to see the metrics.**
   You will need to
-  [provision a {{site.data.keyword.mon_short}} instance](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision){: external}
+  [provision a {{site.data.keyword.mon_short}} instance](/docs/monitoring?topic=monitoring-provision){: external}
   that is located in the same region as the
   {{site.data.keyword.keymanagementserviceshort}} instance that you would like
   to receive operational metrics for. Once you provision the

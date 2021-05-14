@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-05-13"
 
 keywords: IBM, monitoring, metrics, operational metrics
 
@@ -37,7 +37,7 @@ dashboards.
 
 For more information regarding the {{site.data.keyword.mon_short}} service,
 see the
-[getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started-monitor){: external}.
+[getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started-monitor){: external}.
 
 ## What metrics are available?
 {: #kp-metrics-available}
@@ -64,7 +64,7 @@ in your {{site.data.keyword.mon_short}} dashboard:
 Enabling {{site.data.keyword.keymanagementserviceshort}} service metrics will
 add new metrics to your {{site.data.keyword.mon_short}} instance. For
 information on {{site.data.keyword.mon_short}} pricing, see
-[Pricing](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-pricing_plans){: external}.
+[Pricing](/docs/monitoring?topic=monitoring-pricing_plans){: external}.
 {: important}
 
 Before you provision an instance of {{site.data.keyword.mon_short}}, consider
@@ -94,7 +94,7 @@ metrics policy.
 
 To enable platform metrics in a region, complete the following steps:
 
-1. [Provision an instance of {{site.data.keyword.mon_short}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-provision){: external}
+1. [Provision an instance of {{site.data.keyword.mon_short}}](/docs/monitoring?topic=monitoring-provision){: external}
    in the region of the Key Protect instance that contains an
    [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics).
 
