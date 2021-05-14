@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2020-02-23"
+lastupdated: "2021-05-14"
 
-keywords: Key Protect API endpoints, available regions
+keywords: endpoints, Key Protect API endpoints, available regions
 
 subcollection: key-protect
 
@@ -92,6 +92,7 @@ endpoints to use when you connect to the
 | Sydney        | `au-syd.kms.cloud.ibm.com`   |
 | Tokyo         | `jp-tok.kms.cloud.ibm.com`   |
 | Osaka         | `jp-osa.kms.cloud.ibm.com`   |
+| Toronto       | `ca-tor.kms.cloud.ibm.com`   |
 {: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -106,6 +107,8 @@ endpoints to use when you connect to the
 | Frankfurt     | `private.eu-de.kms.cloud.ibm.com`            |
 | Sydney        | `private.au-syd.kms.cloud.ibm.com`           |
 | Tokyo         | `private.jp-tok.kms.cloud.ibm.com`           |
+| Osaka         | `private.jp-osa.kms.cloud.ibm.com`           |
+| Toronto       | `private.ca-tor.kms.cloud.ibm.com`           |
 {: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
