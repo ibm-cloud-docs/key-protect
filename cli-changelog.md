@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-20"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -33,6 +33,20 @@ Be sure to keep your CLI up-to-date so that you can use the commands and flags
 that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in.
 {: tip}
+
+## CLI version 0.6.2
+{: #cli-changelog-062}
+
+Release date: 2021-05-20
+
+### Changes
+{: #cli-changelog-062-changes}
+
+There are minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+
+- [Key purge](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) command supports purging a deleted key resulting in the permanent deletion of information related to that key. After being purged, the key is not available to be restored: `ibmcloud kp key purge <keyID>`.
+- Support for the new `ca-tor` regional [endpoint](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference); all Key Protect operations supported via CLI can be performed for this region: `ibmcloud kp region-set ca-tor` (sets the target endpoint to key protect **`ca-tor`** endpoint).
+
 
 ## CLI version 0.6.1
 {: #cli-changelog-061}
@@ -94,7 +108,7 @@ Release date: 2020-07-21
 Release date: 2020-06-19
 
 Documentation:
-[CLI reference, version 0.5.0](/docs/key-protect?topic=key-protect-cli-reference)
+[CLI reference, version 0.5.0](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference)
 
 ### Add these commands
 {: #cli-changelog-050-add}
