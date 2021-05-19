@@ -44,10 +44,8 @@ Release date: 2021-05-20
 
 There are minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 
-- [Key purge](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) command supports purge of a deleted key such that the information related to that key is permanently deleted and the key is not available to be restored. 
-`ibmcloud kp key purge <keyID>` 
-- Support for key protect `ca-tor` region [endpoint](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference); all Key Protect operations supported via cli can be performed for this region.
-   `ibmcloud kp region-set ca-tor` - sets the target endpoint to key protect **`ca-tor`** endpoint.
+- [Key purge](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) command supports purging a deleted key resulting in the permanent deletion of information related to that key. After being purged, the key is not available to be restored: `ibmcloud kp key purge <keyID>`.
+- Support for the new `ca-tor` regional [endpoint](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference); all Key Protect operations supported via CLI can be performed for this region: `ibmcloud kp region-set ca-tor` (sets the target endpoint to key protect **`ca-tor`** endpoint).
 
 
 ## CLI version 0.6.1
