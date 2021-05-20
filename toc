@@ -8,7 +8,25 @@ Key Protect
     index.md
 
     {: .topicgroup}
-    about.md
+    Internal adopters
+        internal/usage.md
+        internal/byok-cheatsheet.md
+        internal/onboard-service.md
+        internal/configure-api.md
+        internal/key-registration.md
+        internal/dek-rewrapping.md
+        internal/crypto-erasure.md
+        internal/kms-providers.md
+        internal/api-cli.md
+        internal/psirt.md
+        internal/ui-component.md
+
+    [Why IBM Key Protect?](https://ibm.com/cloud/key-protect){: external}
+
+    {: .topicgroup}
+    About the service
+        about.md
+        architecture.md
 
     {: .topicgroup}
     Concepts
@@ -18,13 +36,6 @@ Key Protect
         concepts/key-rotation.md
         concepts/key-states.md
         concepts/quantum-safe-cryptography.md
-        concepts/manage-access.md
-
-    {: .topicgroup}
-    Tutorials
-        tutorials/secure-import.md
-        [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}
-        [Tutorial: Enhance security of your deployed application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security){: external}
 
     {: .topicgroup}
     Integrations
@@ -32,6 +43,12 @@ Key Protect
         integrations/integrate-cos.md
         integrations/view-protected-resources.md
         integrations/sync-resources.md
+
+    {: .topicgroup}
+    Tutorials
+        tutorials/secure-import.md
+        [Tutorial: Apply end to end security to a cloud application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security){: external}
+        [Tutorial: Enhance security of your deployed application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security){: external}
 
     releases.md
     {: .navgroup-end}
@@ -44,8 +61,8 @@ Key Protect
         settings-network-policy.md
         settings-allowed-ip.md
         settings-key-create-import-access.md
-        settings-monitor-metrics.md
-
+        settings-sysdig-metrics.md
+        
     {: .topicgroup}
     Accessing the API
         set-up-api.md
@@ -54,9 +71,8 @@ Key Protect
         private-network.md
         virtual-private-endpoints.md
 
-    set-up-cli.md
 
-    grant-access-keys.md
+    set-up-cli.md
 
     {: .topicgroup}
     Creating keys
@@ -91,8 +107,7 @@ Key Protect
     disable-keys.md
 
     {: .topicgroup}
-    Deleting and purging keys
-        delete-purge-keys.md
+    Deleting keys
         delete-keys.md
         delete-dual-auth-keys.md
         set-dual-auth-policy.md
@@ -112,16 +127,21 @@ Key Protect
 
     {: .topicgroup}
     Key Protect CLI Reference
-        /key-protect-cli-plugin/key-protect-cli-plugin-key-protect-cli-reference
-        cli-reference-052.md
+        cli-reference.md
+        cli-reference-040.md
         cli-reference-039.md
         cli-changelog.md
 
     {: .topicgroup}
     regions.md
 
+    {: .topicgroup}
+    User access permissions
+        manage-access.md
+        grant-access-keys.md
+
     at-events.md
-    monitor-metrics.md
+    monitor-sysdig-metrics.md
 
     {: .topicgroup}
     Standards and compliance

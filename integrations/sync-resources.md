@@ -30,8 +30,7 @@ Databases deployments, by using the
 {: shortdesc}
 
 
-When you perform a key lifecycle action (for example `rotation`, `restore`, 
-`disable`, `enable`, `deletion`) on a root key that is associated with other 
+When you perform an operation on a root key that is associated with other 
 IBM cloud services, those IBM cloud services are notified of the key 
 lifecycle event and are encouraged to respond accordingly. In the case that 
 the cloud services do not respond to the key lifecycle notification, you can 
@@ -162,13 +161,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
       </caption>
     </table>
 
-    A successful `GET api/v2/keys/<key_ID>/actions/sync` request returns an HTTP `204 No Content` 
-    response, which indicates that the IBM cloud service that is associated with the specified key 
-    has been notified.
+    A successful `GET api/v2/keys/<key_ID>/actions/sync"` request returns an HTTP `204 No Content` 
+    response, which indicates that the IBM cloud service that manages the associated resources of 
+    the specified key has been notified.
 
-    The sync API can only be initialized if it has been longer than an hour since the last 
-    notification to the associated cloud services of the key. If you send a request to this API and 
-    the key has been synced or a key lifecycle action has been taken within the past hour,
-    the API will return a `409 Conflict` response.
+
+    The sync API can only be called once per hour per key. If you send a request to this API and 
+    the key has been synced within the past hour, the API will return a `409 Conflict` response.
     {: note}
-    
