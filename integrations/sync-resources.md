@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-21"
+lastupdated: "2021-01-25"
 
 keywords: sync resources, sync registrations, internal, key registration, KYOK, BYOK
 
@@ -30,7 +30,8 @@ Databases deployments, by using the
 {: shortdesc}
 
 
-When you perform an operation on a root key that is associated with other 
+When you perform a key lifecycle action (for example `rotation`, `restore`, 
+`disable`, `enable`, `deletion`) on a root key that is associated with other 
 IBM cloud services, those IBM cloud services are notified of the key 
 lifecycle event and are encouraged to respond accordingly. In the case that 
 the cloud services do not respond to the key lifecycle notification, you can 
@@ -80,92 +81,22 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The identifier for the root key that is
-            associated with the cloud resources that you want to view.
-          </p>
-          <p>
-            For more information, see
-            [View Keys](/docs/key-protect?topic=key-protect-view-keys).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to initiate a renotification of a key
-        lifecycle event.
-      </caption>
-    </table>
-
-    A successful `GET api/v2/keys/<key_ID>/actions/sync"` request returns an HTTP `204 No Content` 
-    response, which indicates that the IBM cloud service that manages the associated resources of 
-    the specified key has been notified.
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south or eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The identifier for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 3. Describes the variables that are needed to initiate a renotification of a key lifecycle event" caption-side="top"}
 
 
-    The sync API can only be called once per hour per key. If you send a request to this API and 
-    the key has been synced within the past hour, the API will return a `409 Conflict` response.
-    {: note}
+A successful `GET api/v2/keys/<key_ID>/actions/sync` request returns an HTTP `204 No Content` 
+response, which indicates that the IBM cloud service that is associated with the specified key 
+has been notified.
+
+The sync API can only be initialized if it has been longer than an hour since the last 
+notification to the associated cloud services of the key. If you send a request to this API and 
+the key has been synced or a key lifecycle action has been taken within the past hour,
+the API will return a `409 Conflict` response.
+{: note}
+    
