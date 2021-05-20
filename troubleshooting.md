@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-04-28"
+  years: 2017, 2020
+lastupdated: "2020-08-11"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -98,6 +98,44 @@ service access roles in the applicable
 about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tsResolve}
+
+
+
+## Unable to view keys or resources via the UI
+{: #unable-to-view-keys-policies-ui}
+{: troubleshoot}
+
+When you use the {{site.data.keyword.keymanagementserviceshort}} user interface,
+you're unable to view your keys and associated resources.
+
+From the {{site.data.keyword.cloud_notm}} dashboard, you select your instance of
+the {{site.data.keyword.keymanagementserviceshort}} service.
+{: tsSymptoms}
+
+You're assigned a _Manager_ access policy for the
+{{site.data.keyword.keymanagementserviceshort}} instance. You try to view your
+keys, but the action fails with an error message.
+
+The {{site.data.keyword.keymanagementserviceshort}} instance has an enabled
+allowed network policy or allowed IP policy.
+{: tsCauses}
+
+Use the {{site.data.keyword.keymanagementserviceshort}} API to make a call to
+`GET api/v2/instance/policies` to
+[retrieve the list of policies](/apidocs/key-protect#list-instance-policies){: external}
+associated with your {{site.data.keyword.keymanagementserviceshort}} instance.
+If you have an enabled
+[allowed IP policy](/docs/key-protect?topic=key-protect-manage-allowed-ip),
+you will need to use the {{site.data.keyword.keymanagementserviceshort}} API to
+view the keys and associated resources in your instance, as there currently
+isn't any allowed IP policy support via the UI. If you have an enabled
+[allowed network policy](/docs/key-protect?topic=key-protect-managing-network-access-policies),
+check the `allowed_network` field. If the field is set to `private-only`, you
+will not be able to access the instance via UI and the instance will only accept
+API requests from private endpoints.
+{: tsResolve}
+
+
 
 ## Unable to view or list keys
 {: #unable-to-list-keys-api}

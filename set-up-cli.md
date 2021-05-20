@@ -29,7 +29,7 @@ to help you create, import, and manage encryption keys.
 
 To find out more about using the {{site.data.keyword.keymanagementserviceshort}}
 CLI plug-in, check out the
-[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
+[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 {: tip}
 
 ## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
@@ -44,8 +44,7 @@ To install the CLIs:
 1. Install the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
-    After you install the CLI, you can run `ibmcloud` commands to interact with
-    your cloud services.
+   After you install the CLI, you can run `ibmcloud` commands to interact with your cloud services.
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 

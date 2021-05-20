@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-04-28"
+  years: 2020
+lastupdated: "2020-12-15"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -284,3 +284,4 @@ $ curl -X GET \
 {: codeblock}
 
 Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
+

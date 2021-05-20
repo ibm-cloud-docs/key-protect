@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-03-01"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -37,7 +37,7 @@ Cryptographic keys often transition through several states that are a function o
 Although this diagram shows keys in a "pre-activation" state, a state defined in NIST standards, from a technical point of view, "pre-active" defines a state before a key exists. Keys that do not yet exist cannot, obviously, have a state. Nevertheless, it is shown here for conceptual completeness. The "purged" state of a key, in which the key material has been permanently shredded a certain period of time after the key has been moved into a _Destroyed_ state, is not shown in this diagram and is similarly a state of nonexistence.
 {: important}
 
-![Key states diagram.](images/key-states.svg)
+![Key states diagram.](../images/key-states.svg)
 {: caption="Figure 1. Key states and transitions." caption-side="bottom"}
 
 | State       | Integer Mapping | Description |

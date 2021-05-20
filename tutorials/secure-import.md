@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-01-28"
+lastupdated: "2021-01-04"
 
 keywords: Key Protect tutorial, secure import
 
@@ -655,7 +655,7 @@ To import the key:
    [{{site.data.keyword.keymanagementserviceshort}} dashboard](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
    to view and manage your encryption key.
 
-    ![The image shows the {{site.data.keyword.keymanagementserviceshort}} dashboard view.](images/import-keys-demo.png)
+    ![The image shows the {{site.data.keyword.keymanagementserviceshort}} dashboard view.](../images/import-keys-demo.png)
 
     You can browse the general characteristics of your keys from the application
     details page. Choose from a list of options for managing your key, such as

@@ -2,7 +2,6 @@
 
 copyright:
 years: 2020, 2021
-
 lastupdated: "2021-02-08"
 
 keywords: Key Protect, error messages, error codes
@@ -1040,7 +1039,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-[See this explanation](/docs/key-protect?topic=key-protect-cli-reference#kp-key-delete)
+[See this explanation](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-delete)
 of deleting keys that are registered with another cloud resource (look at the
 `force` option).
 
@@ -2216,7 +2215,7 @@ The client should not repeat this request without modification.
 This error message is applicable to the `restore` and `rotate` key interfaces.
 
 This example is based on the `restore` key command and it uses the
-[CLI](/docs/key-protect?topic=key-protect-cli-reference)
+[CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference)
 because the output is easier to follow than the
 [API](/apidocs/key-protect){: external}.
 

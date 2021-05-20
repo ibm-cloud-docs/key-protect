@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-05-10"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -70,7 +70,7 @@ curl -X DELETE
 	-H 'bluemix-instance: <instance_ID>'
 
 ```
-{: pre}
+{: codeblock}
 
 Replace the variables in the example request according to the following table.
 

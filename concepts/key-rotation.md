@@ -46,7 +46,7 @@ Only root keys can be rotated using {{site.data.keyword.keymanagementserviceshor
 Root keys can be rotated manually or on a schedule set by the owner of the key. The option you choose depends on your preferences and the needs of your use case.
 
 * **Setting a rotation policy**  
-  The simplest key rotation option, setting an [automatic rotation interval](/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency) means root keys are updated without further effort from the user. These rotations can be set at 30 day intervals (in other words, every 30 days, or 60 days, or 90 days, up to 12 months, or 720 days). This policy can be managed in the UI or by using the {{site.data.keyword.keymanagementserviceshort}} API. For more information about how to set a rotation policy, check out [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy). The process can also be set using the [CLI](/docs/key-protect?topic=key-protect-cli-reference#kp-key-policy-update-rotation).
+  The simplest key rotation option, setting an [automatic rotation interval](/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency) means root keys are updated without further effort from the user. These rotations can be set at 30 day intervals (in other words, every 30 days, or 60 days, or 90 days, up to 12 months, or 720 days). This policy can be managed in the UI or by using the {{site.data.keyword.keymanagementserviceshort}} API. For more information about how to set a rotation policy, check out [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy). The process can also be set using the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-rotation).
 
   To rotate a key that you initially imported to the service, you must generate and provide new key material for the key with each rotation. As a result, automatic rotation policies are not available for keys that have imported key material. Imported root keys must therefore be rotated manually. Note that the metadata for imported keys, such as the key ID, do not change when the key is rotated, just as with a key generated with {{site.data.keyword.keymanagementserviceshort}}.
 
@@ -111,12 +111,12 @@ To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to r
 Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process.
 
 The following diagram shows a contextual view of how keys are rotated.
-![The diagram shows a contextual view of key rotation.](images/key-rotation.svg)
+![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
 {: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}} creates a new root key version by associating new key material with your key.
 
-![The diagram shows a micro view the key stack.](images/root-key-stack.svg)
+![The diagram shows a micro view the key stack.](../images/root-key-stack.svg)
 {: caption="Figure 2. Micro view of a key stack." caption-side="bottom"}
 
 To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).

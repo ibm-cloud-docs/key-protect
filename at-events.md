@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-04-22"
 
 keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
@@ -104,13 +104,56 @@ The following table lists the import token actions that generate an event:
 ## Registration events
 {: #registration-actions}
 
+
+
 The following table lists the registration actions that generate an event:
 
 | Action                                  | Description                                              |
 | --------------------------------------- | -------------------------------------------------------- |
+| `kms.registrations.create`[^services-1] | Create a registration between a key and a cloud resource |
 | `kms.registrations.list`                | List registrations for any key                           |
+| `kms.registrations.merge`[^services-2]  | Update a registration between a key and a cloud resource |
+| `kms.registrations.write`[^services-3]  | Replace registration between a key and a cloud resource  |
+| `kms.registrations.delete`[^services-4] | Delete registration between a key and a cloud resource   |
 | `kms.registrations.default`             | Invalid registration request event                       |
 {: caption="Table 4. Registration actions" caption-side="top"}
+
+[^services-1]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-2]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-3]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+[^services-4]: This action is performed on your behalf by an
+[integrated service](/docs/key-protect?topic=key-protect-integrate-services)
+that has enabled support for key registration.
+[Learn more](/docs/key-protect?topic=key-protect-view-protected-resources)
+
+## Key with registration events
+{: #protected-resource-key-actions}
+
+The following table lists the event acknowledgement actions that generate an
+event:
+
+| Action                    | Description                                     |
+| ------------------------- | ----------------------------------------------- |
+| `kms.secrets.ack-delete`  | Delete a key with registrations                 |
+| `kms.secrets.ack-restore` | Restore a key with registrations                |
+| `kms.secrets.ack-rotate`  | Rotate a key with registrations                 |
+| `kms.secrets.ack-enable`  | Enable operations for a key with registrations  |
+| `kms.secrets.ack-disable` | Disable operations for a key with registrations |
+{: caption="Table 5. Event acknowledgement actions that involve keys that protect Cloud Resources" caption-side="top"}
+
+
 
 ## Viewing events
 {: #at-ui}
@@ -205,6 +248,9 @@ The following fields include extra information:
 - The `responseData.keyState` field includes the integer that correlates to the
   state of the key.
 
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
+
 #### Delete Key
 {: #delete-key-success}
 
@@ -239,6 +285,12 @@ The following field includes extra information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
   current key version used to wrap input ciphertext on wrap requests.
+
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
+
+- The `responseData.daysToExpire` includes the integer that correlates to the
+  amount of days left until the key expires.
 
 #### Rewrap key
 {: #rewrap-key-success}
@@ -464,6 +516,99 @@ The following fields include extra information:
 - The `responseData.remainingRetrievals` field includes the number of times the
   import token can be retrieved within its expiration time before it is no
   longer accessible.
+
+
+
+### Registration events
+{: #registration-events}
+
+#### Create registration
+{: #create-registration-success}
+
+The following fields include extra information:
+
+- The `requestData.preventKeyDeletion` field is set to true if the registration
+  prevents the associated key from being deleted or false if the registration
+  doesn't prevent the associated key from being deleted.
+
+- The `responseData.keyVersionId` field includes the unique identifier of the
+  current key version used to wrap input ciphertext on wrap requests.
+
+- The `responseData.keyVersionCreationDate` field includes the date that the
+  version of the key was created.
+
+#### Replace Registration
+{: #replace-registration-success}
+
+The following fields include extra information:
+
+- The `requestData.initialValue.preventKeyDeletion` field is set to true if the
+  registration previously prevented the associated key from being deleted or
+  false if the registration didn't previously prevent the associated key from
+  being deleted.
+
+- The `requestData.initialValue.keyVersionId` field includes the unique
+  identifier of the previous key version used to wrap input ciphertext on wrap
+  requests.
+
+- The `requestData.initialValue.keyVersionCreationDate` field includes the date
+  that the previous version of the key was created.
+
+- The `requestData.newValue.preventKeyDeletion` field is set to true if the
+  registration prevents the associated key from being deleted or false if the
+  registration doesn't prevent the associated key from being deleted.
+
+- The `requestData.newValue.keyVersionId` field includes the unique identifier
+  of the current key version used to wrap input ciphertext on wrap requests.
+
+- The `requestData.newValue.keyVersionCreationDate` field includes the date that
+  the previous version of the key was created.
+
+#### Update Registration
+{: #update-registration-success}
+
+The following fields include extra information:
+
+- The `responseData.keyVersionId` field includes the unique identifier of the
+  current key version.
+
+- The `responseData.keyVersionCreationDate` field includes the date that the
+  current version of the key was created.
+
+- The `responseData.eventAckData.eventId` field includes the unique identifier
+  that is associated with the event.
+
+The `responseData.eventAckData.eventId` field appears when a successful
+acknowledgement of a key rotation request occurs.
+{: note}
+
+#### Delete Registration
+{: #delete-registration-success}
+
+The following fields include extra information:
+
+- The `requestData.preventKeyDeletion` field is set to true if the registration
+  prevents the associated key from being deleted or false if the registration
+  doesn't prevent the associated key from being deleted.
+
+- The `responseData.keyVersionId` field includes the unique identifier of the
+  current key version used to wrap input ciphertext on wrap requests.
+
+- The `responseData.keyVersionCreationDate` field includes the date that the
+  current version of the key was created.
+
+#### List registrations
+{: #list-registration-success}
+
+The following field includes extra information:
+
+- The `responseData.totalResources` field includes the total amount of
+  registrations returned in the response.
+
+### Key with registrations events
+{: #key-registration-events}
+
+
 
 #### Completed action of a key rotation
 {: #rotate-key-registrations-success}

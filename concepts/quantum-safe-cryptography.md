@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-04-30"
 
-keywords: quantum safe cryptography, quantum resistant, quantum safe TLS
+keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
 subcollection: key-protect
 
@@ -173,6 +173,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Public endpoints                         |
 | ------------- | ---------------------------------------- |
+| Staging       | `qsc.qa.us-south.kms.test.cloud.ibm.com` |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
 | FrankFurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
@@ -184,6 +185,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
 | Region        | Private endpoints                                |
 | ------------- | ------------------------------------------------ |
+| Staging       | `qa.private-qsc.us-south.kms.test.cloud.ibm.com` |
 | Dallas        | `private-qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `private-qsc.eu-gb.kms.cloud.ibm.com`            |
 | FrankFurt     | `private-qsc.eu-de.kms.cloud.ibm.com`            |

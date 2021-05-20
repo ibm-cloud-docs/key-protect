@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-04-22"
 
 keywords: release notes, service updates, service bulletin
 
@@ -62,7 +62,7 @@ To find out more, see
 ### Added: Major Changes to the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: #added-cli-changes}
 
-Added support for aliases and key-rings bring best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+Added support for aliases and key-rings bring best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
 ## February 2021
 {: #february-2021}
@@ -896,7 +896,7 @@ instance.
 To learn how to install the plug-in, see
 [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
 To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI,
-[check out the CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
+[check out the CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 
 ## September 2018
 {: #sept-2018}
