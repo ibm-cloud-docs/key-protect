@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-21"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -2929,7 +2929,7 @@ ic kp key update 5f2cc155-fe16-492c-845c-4d1f0688c7ba -r TestRing
 ```
 {: pre}
 
-Executing the command has a typical result: 
+Executing the command has a typical result:
 
 ```sh
 Updating key...
@@ -3701,8 +3701,8 @@ The relationship between other cloud resources and
 {{site.data.keyword.keymanagementserviceshort}} is called a `registration`.
 
 Do not delete a root key if there are resources, such as COS buckets and
-objects, that rely on the root key. Deleteing the root key means you cannot
-recover those resources. This known as "crypto shredding" and there is no
+objects, that rely on the root key. Deleting the root key means you cannot
+recover those resources. This is known as "crypto shredding" and there is no
 recovery from this action.
 {: note}
 

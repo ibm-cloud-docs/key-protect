@@ -42,7 +42,7 @@ use, see
 ## Incident and operations management
 {: #incident-and-ops}
 
-You and IBM share responsibilities for the set up and maintenance of your
+You and {{site.data.keyword.IBM_notm}} share responsibilities for the set up and maintenance of your
 {{site.data.keyword.keymanagementservicelong_notm}} instance for your
 application workloads.
 
@@ -51,15 +51,15 @@ data.
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
-| Availability | Provide high availability capabilities, such as IBM-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
+| Availability | Provide high availability capabilities, such as {{site.data.keyword.IBM_notm}}-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
 | Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.at_full}}. | Use the provided tools to [review instance logs and activities](/docs/key-protect?topic=key-protect-at-events). |
-| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/overview?topic=overview-ui#email-prefsl){: external}, and monitor the [IBM Cloud status page](/status?selected=announcement){: external} for general announcements. |
+| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/overview?topic=overview-ui#email-prefsl){: external}, and monitor the [{{site.data.keyword.IBM_notm}} Cloud status page](/status?selected=announcement){: external} for general announcements. |
 {: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 
 ## Change management
 {: #change-management}
 
-You and IBM share responsibilities for keeping
+You and {{site.data.keyword.IBM_notm}} share responsibilities for keeping
 {{site.data.keyword.keymanagementservicelong_notm}} service components at the
 latest version.
 
@@ -73,7 +73,7 @@ You are responsible for change management of your application data.
 ## Identity and access management
 {: #iam-responsibilities}
 
-You and IBM share responsibilities for controlling access to your
+You and {{site.data.keyword.IBM_notm}} share responsibilities for controlling access to your
 {{site.data.keyword.keymanagementservicelong_notm}} instances and resources.
 
 You are responsible for identity and access management to your application data.
@@ -86,7 +86,7 @@ You are responsible for identity and access management to your application data.
 ## Security and regulation compliance
 {: #security-compliance}
 
-IBM is responsible for the security and compliance of
+{{site.data.keyword.IBM_notm}} is responsible for the security and compliance of
 {{site.data.keyword.keymanagementservicelong_notm}}.
 
 You are responsible for the security and compliance of your application data.
@@ -99,7 +99,7 @@ You are responsible for the security and compliance of your application data.
 ## Disaster recovery
 {: #disaster-recovery}
 
-IBM is responsible for the recovery of
+{{site.data.keyword.IBM_notm}} is responsible for the recovery of
 {{site.data.keyword.keymanagementservicelong_notm}} components in case of
 disaster.
 

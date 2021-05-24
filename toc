@@ -26,20 +26,6 @@ Key Protect
         [Tutorial: Enhance security of your deployed application](https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security){: external}
 
     {: .topicgroup}
-    Internal adopters
-        internal/usage.md
-        internal/byok-cheatsheet.md
-        internal/onboard-service.md
-        internal/configure-api.md
-        internal/key-registration.md
-        internal/dek-rewrapping.md
-        internal/crypto-erasure.md
-        internal/kms-providers.md
-        internal/api-cli.md
-        internal/psirt.md
-        internal/ui-component.md
-
-    {: .topicgroup}
     Integrations
         integrations/integrate-services.md
         integrations/integrate-cos.md

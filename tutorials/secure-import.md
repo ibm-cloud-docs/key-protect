@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-01-04"
+  years: 2017, 2021
+lastupdated: "2021-05-24"
 
 keywords: Key Protect tutorial, secure import
 

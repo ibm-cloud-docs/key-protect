@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect, error messages, error codes
 
@@ -572,7 +572,7 @@ $ curl -X POST \
 ### Message
 {: #error-messages-invalid-field-err-message}
 
-When wrapping a key, the message, `The field 'plaintext' must be: a base64 encoded key material` will be shown if invalid plaintext is passed in the request. 
+When wrapping a key, the message, `The field 'plaintext' must be: a base64 encoded key material` will be shown if invalid plaintext is passed in the request.
 
 When unwrapping a key, the message, `The field 'ciphertext' must be: the original base64 encoded ciphertext from the wrap operation` if invalid ciphertext is passed.
 

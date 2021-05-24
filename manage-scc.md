@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-05-24"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
@@ -24,38 +24,12 @@ subcollection: key-protect
 compliance for your organization.
 {: shortdesc}
 
-
-
 With the {{site.data.keyword.compliance_short}}, you can:
-
-* Monitor for controls and goals that pertain to {{site.data.keyword.keymanagementserviceshort}}.
 * Define rules for {{site.data.keyword.keymanagementserviceshort}} that can help
   to standardize resource configuration.
 
 
 
-## Monitoring security and compliance posture with {{site.data.keyword.keymanagementserviceshort}}
-{: #monitor-kp}
-
-As a security or compliance focal, you can use the {{site.data.keyword.keymanagementserviceshort}} [goals](#x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](#x2034950){: term}, you can identify potential issues as they arise.
-
-All of the goals for {{site.data.keyword.keymanagementserviceshort}} are added to the {{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can also be mapped to other profiles.
-{: note}
-
-To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic-security-compliance-getting-started)
-
-### Available goals for {{site.data.keyword.keymanagementserviceshort}}
-{: #kp-available-goals}
-
-* Ensure {{site.data.keyword.keymanagementserviceshort}} service is accessible only using private endpoints.  
-* Ensure automated rotation for root keys is enabled (this lifecycle applies to {{site.data.keyword.keymanagementserviceshort}} service generated keys only).
-* Ensure deletion of all keys in {{site.data.keyword.keymanagementserviceshort}} service instance requires dual authorization.
-* Ensure all encryption (root) key material is imported into the {{site.data.keyword.keymanagementserviceshort}} service using an import token. 
-* Ensure {{site.data.keyword.cloud_notm}} Monitoring is enabled for all {{site.data.keyword.keymanagementserviceshort}} service instances.
-* Ensure key management service has high availability.
-
-This service supports the ability to view the results of your configuration scans in the {{site.data.keyword.compliance_short}}, as well as allowing for the enforcement of defined rules. It is not necessary to set up a collector to use configuration rules.
-{: note}
 
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
@@ -67,8 +41,8 @@ for the {{site.data.keyword.keymanagementserviceshort}} instances that you
 create.
 
 
-
-
+This service only supports the ability to view the results of your configuration scans in the Security and Compliance Center. It is not necessary to set up a collector to use configuration rules.
+{: note}
 
 [Config rules](#x3084914){: term}
 are used to monitor and optionally enforce the configuration standards that you

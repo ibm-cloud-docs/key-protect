@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
@@ -172,7 +172,7 @@ $ ibmcloud kp import-token show
 
 You can set an environment variable instead of specifying `-i` with the given command, replacing `<INSTANCE_ID>` with the UUID of your instance.
 
-```sh 
+```sh
 $ export KP_INSTANCE_ID=<INSTANCE_ID>
 ```
 {: pre}
@@ -352,7 +352,7 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 
 You can set an environment variable instead of specifying `-i` with the given command, replacing `<INSTANCE_ID>` with the UUID of your instance.
 
-```sh 
+```sh
 $ export KP_INSTANCE_ID=<INSTANCE_ID>
 ```
 {: pre}

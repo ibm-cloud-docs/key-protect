@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -74,9 +74,9 @@ To install the CLIs:
    {: pre}
 
    Replace `<INSTANCE_ID>` with the instance ID representing your {{site.data.keyword.keymanagementserviceshort}}. Learn more about your instance, including choosing regions, at [Provisioning the Key Protect service](/docs/key-protect?topic=key-protect-provision).
-   
+
    You will be prompted to choose from a list as shown in the results.
-   
+
    ```
     Select a Region:
 		1. au-syd
@@ -88,12 +88,12 @@ To install the CLIs:
 		7. us-east
 		8. us-south
 		9. staging (us-south)
-		Enter a number: 
+		Enter a number:
    ```
    {: screen}
-   
+
    After you select your region, you can start working with your instance.
-    
+
 1. Optional: Verify that the plug-in was installed successfully.
 
    ```sh
