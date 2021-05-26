@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-03-01"
+  years: 2017, 2021
+lastupdated: "2021-05-26"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
