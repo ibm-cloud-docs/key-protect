@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-05-26"
 
 keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
@@ -245,6 +245,8 @@ The following field includes extra information:
 - The `responseData.keyVersionId` field includes the unique identifier of the
   current key version used to wrap input ciphertext on wrap requests.
 
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
 
 #### Rewrap key
 {: #rewrap-key-success}
@@ -316,6 +318,8 @@ The following fields include extra information:
 - The `responseData.keyVersionCreationDate` field includes the date that the
   current version of the key was created.
 
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
 
 #### List key versions
 {: #list-key-versions-success}
