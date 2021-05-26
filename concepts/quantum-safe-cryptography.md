@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-26"
 
-keywords: quantum safe cryptography, quantum resistant, quantum safe TLS
+keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
 
 subcollection: key-protect
 
@@ -171,11 +171,12 @@ endpoints for 2 regions; `US-South` and `EU-GB`. See the following
 table to determine which quantum safe enabled endpoints to use when sending
 requests to the {{site.data.keyword.keymanagementservicefull}} service.
 
+
 | Region        | Public endpoints                         |
 | ------------- | ---------------------------------------- |
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
-| FrankFurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
+| Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
 {: caption="Table 1. Lists quantum safe enabled public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -186,12 +187,12 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 | ------------- | ------------------------------------------------ |
 | Dallas        | `private-qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `private-qsc.eu-gb.kms.cloud.ibm.com`            |
-| FrankFurt     | `private-qsc.eu-de.kms.cloud.ibm.com`            |
+| Frankfurt     | `private-qsc.eu-de.kms.cloud.ibm.com`            |
 {: caption="Table 2. Lists quantum safe enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
 {: class="comparison-tab-table"}
-{: row-headers}
+
 
 The classic {{site.data.keyword.keymanagementserviceshort}} service endpoints
 are not quantum safe enabled.

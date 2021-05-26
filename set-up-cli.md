@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -29,7 +29,7 @@ to help you create, import, and manage encryption keys.
 
 To find out more about using the {{site.data.keyword.keymanagementserviceshort}}
 CLI plug-in, check out the
-[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-reference).
+[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 {: tip}
 
 ## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
@@ -44,8 +44,7 @@ To install the CLIs:
 1. Install the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
-    After you install the CLI, you can run `ibmcloud` commands to interact with
-    your cloud services.
+   After you install the CLI, you can run `ibmcloud` commands to interact with your cloud services.
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 
@@ -75,9 +74,9 @@ To install the CLIs:
    {: pre}
 
    Replace `<INSTANCE_ID>` with the instance ID representing your {{site.data.keyword.keymanagementserviceshort}}. Learn more about your instance, including choosing regions, at [Provisioning the Key Protect service](/docs/key-protect?topic=key-protect-provision).
-   
+
    You will be prompted to choose from a list as shown in the results.
-   
+
    ```
     Select a Region:
 		1. au-syd
@@ -89,12 +88,12 @@ To install the CLIs:
 		7. us-east
 		8. us-south
 		9. staging (us-south)
-		Enter a number: 
+		Enter a number:
    ```
    {: screen}
-   
+
    After you select your region, you can start working with your instance.
-    
+
 1. Optional: Verify that the plug-in was installed successfully.
 
    ```sh

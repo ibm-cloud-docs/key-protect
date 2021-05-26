@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 

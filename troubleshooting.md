@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-26"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -98,6 +98,8 @@ service access roles in the applicable
 about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tsResolve}
+
+
 
 ## Unable to view or list keys
 {: #unable-to-list-keys-api}

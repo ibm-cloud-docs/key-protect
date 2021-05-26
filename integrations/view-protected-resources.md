@@ -38,42 +38,11 @@ Registrations are associations between keys and cloud resources that help you
 get a full view of which encryption keys protect what data on
 {{site.data.keyword.cloud_notm}}.
 
-<table>
-  <tr>
-    <th>Benefit</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      Centralized view of protected resources
-    </td>
-    <td>
-      As an administrator for your
-      {{site.data.keyword.keymanagementserviceshort}} instance, you
-      want to quickly understand which cloud resources are protected by a root
-      key.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      Security and compliance
-    </td>
-    <td>
-      As a security admin, you need a way to determine the risk that's involved
-      with
-      [destroying a root key](/docs/key-protect?topic=key-protect-delete-keys).
-      You want to examine which keys are actively protecting what data so that
-      you can evaluate exposures based on your organization's security or
-      compliance needs.
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 1. Describes the benefits of key registration.
-  </caption>
-</table>
+|Benefit|Description|
+|--- |--- |
+|Centralized view of protected resources|As an administrator for your {{site.data.keyword.keymanagementserviceshort}} instance, you want to quickly understand which cloud resources are protected by a root key.|
+|Security and compliance|As a security admin, you need a way to determine the risk that's involved with [destroying a root key](/docs/key-protect?topic=key-protect-delete-keys).<br>You want to examine which keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs.|
+{: caption="Table 1. Describes the benefits of key registration." caption-side="top"}
 
 Key registration is an extra feature that's available only if the cloud service
 has enabled it as part of its integration with
@@ -169,95 +138,17 @@ and a cloud resource.
 
 The following table describes the properties of a registration.
 
-<table>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <code>keyID</code>
-    </td>
-    <td>
-      The ID that identifies the root key that is associated with the cloud
-      resource.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>resourceCrn</code>
-    </td>
-    <td>
-      The Cloud Resource Name (CRN) that represents the cloud resource, such as
-      a Cloud Object Storage bucket, that is associated with the key.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>createdBy</code>
-    </td>
-    <td>
-      The unique identifier for the resource that created the registration.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>creationDate</code>
-    </td>
-    <td>
-      The date the registration was created.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>lastUpdated</code>
-    </td>
-    <td>
-      The date the registration was updated.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>description</code>
-    </td>
-    <td>
-      A description for the registration.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>preventKeyDeletion</code>
-    </td>
-    <td>
-      A boolean that determines whether
-      {{site.data.keyword.keymanagementserviceshort}} must prevent deletion of
-      the root key. If <code>true</code>, the associated resource is
-      non-erasable due to a retention policy, and the
-      {{site.data.keyword.keymanagementserviceshort}} key that is encrypting the
-      resource cannot be deleted.
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <code>keyVersion</code>
-    </td>
-    <td>
-      The version of the root key that's protecting the cloud resource.
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 2. Properties that are associated with a registration.
-  </caption>
-</table>
+|Parameter|Description|
+|--- |--- |
+|keyID|The ID that identifies the root key that is associated with the cloud resource.|
+|resourceCrn|The Cloud Resource Name (CRN) that represents the cloud resource, such as a Cloud Object Storage bucket, that is associated with the key.|
+|createdBy|The unique identifier for the resource that created the registration.|
+|creationDate|The date the registration was created.|
+|lastUpdated|The date the registration was updated.|
+|description|A description for the registration.|
+|preventKeyDeletion|A boolean that determines whether {{site.data.keyword.keymanagementserviceshort}} must prevent deletion of the root key. If true, the associated resource is non-erasable due to a retention policy, and the {{site.data.keyword.keymanagementserviceshort}} key that is encrypting the resource cannot be deleted.|
+|keyVersion|The version of the root key that's protecting the cloud resource.|
+{: caption="Table 2. Properties that are associated with a registration." caption-side="top"}
 
 ### Listing registrations for a specific root key
 {: #view-protected-resources-key-id}
@@ -286,139 +177,66 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|key_ID|**Required**. The identifier for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 3. Describes the variables that are needed to list all registrations that are associated with a root key." caption-side="top"}
 
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
+A successful `GET api/v2/keys/<key_ID>/registrations` request returns a
+collection of registrations that are mapped to the specified key ID.
 
-      <tr>
-        <td>
-          <varname>key_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The identifier for the root key that is
-            associated with the cloud resources that you want to view.
-          </p>
-          <p>
-            For more information, see
-            [View Keys](/docs/key-protect?topic=key-protect-view-keys).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-        </td>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 3. Describes the variables that are needed to list all
-        registrations that are associated with a root key.
-      </caption>
-    </table>
-
-    A successful `GET api/v2/keys/<key_ID>/registrations` request returns a
-    collection of registrations that are mapped to the specified key ID.
-
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.registration+json",
-            "collectionTotal": 2
-        },
-        "resources": [
-            {
-                "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-                "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<bucket-name>",
-                "createdBy": "IBMid-25555555",
-                "creationDate": "2010-01-12T05:23:19+0000",
-                "updatedBy": "IBMid-25555555",
-                "lastUpdated": "2010-01-12T05:23:19+0000",
-                "description": "A description of the registration",
-                "preventKeyDeletion": true,
-                "keyVersion": {
-                    "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-                    "creationDate": "2010-01-12T05:23:19+0000"
-                }
-            },
-            {
-                "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<other-bucket-name>",
-                "createdBy": "IBMid-25555555",
-                "creationDate": "2010-01-12T05:23:19+0000",
-                "updatedBy": "IBMid-25555555",
-                "lastUpdated": "2010-01-12T05:23:19+0000",
-                "description": "A description of the registration",
-                "preventKeyDeletion": true,
-                "keyVersion": {
-                    "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
-                    "creationDate": "2010-01-12T05:23:19+0000"
-                }
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.registration+json",
+        "collectionTotal": 2
+    },
+    "resources": [
+        {
+            "keyId": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+            "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<bucket-name>",
+            "createdBy": "IBMid-25555555",
+            "creationDate": "2010-01-12T05:23:19+0000",
+            "updatedBy": "IBMid-25555555",
+            "lastUpdated": "2010-01-12T05:23:19+0000",
+            "description": "A description of the registration",
+            "preventKeyDeletion": true,
+            "keyVersion": {
+                "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+                "creationDate": "2010-01-12T05:23:19+0000"
             }
-        ]
-    }
-    ```
-    {: screen}
+        },
+        {
+            "keyId": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+            "resourceCrn": "crn:v1:bluemix:public:cloud-object-storage:global:a/<account-id>:<service-instance>:bucket:<other-bucket-name>",
+            "createdBy": "IBMid-25555555",
+            "creationDate": "2010-01-12T05:23:19+0000",
+            "updatedBy": "IBMid-25555555",
+            "lastUpdated": "2010-01-12T05:23:19+0000",
+            "description": "A description of the registration",
+            "preventKeyDeletion": true,
+            "keyVersion": {
+                "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",
+                "creationDate": "2010-01-12T05:23:19+0000"
+            }
+        }
+    ]
+}
+```
+{: screen}
 
-    The `resourceCrn` value represents the unique identifier of the cloud
-    resource that is encrypted by `keyId`. The metadata that is associated with
-    the registration, such as its creation date, is also returned in the
-    response body.
+The `resourceCrn` value represents the unique identifier of the cloud
+resource that is encrypted by `keyId`. The metadata that is associated with
+the registration, such as its creation date, is also returned in the
+response body.
 
-    By default, `GET api/v2/keys/registrations` returns the first 200
-    registrations, but you can adjust this limit by using the `limit` parameter
-    at query time.
-    {: note}
+By default, `GET api/v2/keys/registrations` returns the first 200
+registrations, but you can adjust this limit by using the `limit` parameter
+at query time.
+{: note}
 
 #### Filter registrations for a specific root key
 {: #filter-registrations-specifc-key-api}
@@ -447,70 +265,11 @@ $ curl -X GET \
 Replace the `preventKeyDeletion` and `urlEncodedResourceCRNQuery` variables in
 your request according to the following table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>preventKeyDeletion</varname>
-    </td>
-    <td>
-      <p>
-        A boolean that filters registrations based on if a registered resource
-        has a retention policy.
-      </p>
-      <p>
-        For example, if you have multiple registrations in your instance, and
-        you want to list only registrations where
-        <code>preventKeyDeletion</code> is true, use
-        <code>../registrations?preventKeyDeletion=true</code>.
-      </p>
-      <p>
-        You can also pair <code>preventKeyDeletion</code> with
-        <code>offest</code>, <code>limit</code>, and
-        <code>urlEncodedResourceCRNQuery</code> to search through your available
-        resources.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>urlEncodedResourceCRNQuery</varname>
-    </td>
-    <td>
-      <p>
-        The resource CRN that you want to filter registrations by.
-      </p>
-      <p>
-        For example, if you have multiple registrations in your instance, and
-        you want to only view registrations that are associated with a
-        specific Cloud Resource Name (CRN), use
-        <code>
-          ../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"
-        </code>.
-      </p>
-      <p>
-        For more information, see
-        [CRN query examples](#crn-query-examples).
-      </p>
-      <p>
-        You can also pair <code>urlEncodedResourceCRNQuery</code> with
-        <code>offest</code>, <code>limit</code>, and
-        <code>preventKeyDeletion</code> to search through your available
-        resources.
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 4. Describes the <code>preventKeyDeletion</code> and
-    <code>urlEncodedResourceCRNQuery</code> variables.
-  </caption>
-</table>
+|Variable|Description|
+|--- |--- |
+|preventKeyDeletion|A boolean that filters registrations based on if a registered resource  has a retention policy.<br><br>For example, if you have multiple registrations in your instance, and you want to list only registrations where preventKeyDeletion is `true`, use `../registrations?preventKeyDeletion=true`.<br><br>You can also pair preventKeyDeletion with offest, limit, and urlEncodedResourceCRNQuery to search through your available resources.|
+|urlEncodedResourceCRNQuery|The resource CRN that you want to filter registrations by.<br><br>For example, if you have multiple registrations in your instance, and you want to only view registrations that are associated with a specific Cloud Resource Name (CRN), use `../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"`.<br><br> For more information, see [CRN query examples](#crn-query-examples).<br><br>You can also pair urlEncodedResourceCRNQuery with offest, limit, and preventKeyDeletion to search through your available resources.|
+{: caption="Table 4. Describes the `preventKeyDeletion` and `urlEncodedResourceCRNQuery` variables." caption-side="top"}
 
 You can also filter for a subset of registrations by specifying the `limit` and
 `offset` parameters at query time.
@@ -530,57 +289,11 @@ $ curl -X GET \
 Replace the `limit` and `offset` variables in your request according to the
 following table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>offset</varname>
-    </td>
-    <td>
-      <p>
-        The number of registrations to skip.
-      </p>
-      <p>
-        For example, if you have 50 registrations in your instance, and you want
-        to list registrations 26 - 50, use
-        <code>../registrations?offset=25</code>.
-      </p>
-      <p>
-        You can also pair <code>offset</code> with <code>limit</code> to page
-        through your available resources.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>limit</varname>
-    </td>
-    <td>
-      <p>
-        The number of registrations to retrieve.
-      </p>
-      <p>
-        For example, if you have 100 registrations in your instance, and you
-        want to list only 10 registrations, use
-        <code>../registrations?limit=10</code>. The maximum value for
-        <code>limit</code> is 5000.
-      </p>
-      <p>
-        You can also pair <code>offset</code> with <code>limit</code> to page
-        through your available resources.
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 5. Describes the <code>limit</code> and <code>offset</code> variables.
-  </caption>
-</table>
+|Variable|Description|
+|--- |--- |
+|offset|The number of registrations to skip.<br><br>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, use `../registrations?offset=25`.<br><br>You can also pair offset with limit to page through your available resources.|
+|limit|The number of registrations to retrieve.<br><br>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, use `../registrations?limit=10`. The maximum value for limit is 5000.<br><br>You can also pair offset with limit to page through your available resources.|
+{: caption="Table 5. Describes the `limit` and `offset` variables." caption-side="top"}
 
 ### Listing registrations for any root key
 {: #view-protected-resources-any-key}
@@ -609,70 +322,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/registrations
     Replace the variables in the example request according to the following
     table.
 
-    <table>
-      <tr>
-        <th>Variable</th>
-        <th>Description</th>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>region</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The region abbreviation, such as
-            <code>us-south</code> or <code>eu-gb</code>, that represents the
-            geographic area where your
-            {{site.data.keyword.keymanagementserviceshort}} instance
-            resides.
-          </p>
-          <p>
-            For more information, see
-            [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>IAM_token</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> Your {{site.data.keyword.cloud_notm}}
-            access token. Include the full contents of the <code>IAM</code>
-            token, including the Bearer value, in the <code>curl</code> request.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <varname>instance_ID</varname>
-        </td>
-        <td>
-          <p>
-            <strong>Required.</strong> The unique identifier that is assigned to
-            your {{site.data.keyword.keymanagementserviceshort}} service
-            instance.
-          </p>
-          <p>
-            For more information, see
-            [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-          </p>
-      </tr>
-
-      <caption style="caption-side:bottom;">
-        Table 6. Describes the variables that are needed to list registrations
-        for any key in your {{site.data.keyword.keymanagementserviceshort}}
-        instance.
-      </caption>
-    </table>
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 6. Describes the variables that are needed to list registrations for any key in your {{site.data.keyword.keymanagementserviceshort}} instance." caption-side="top"}
 
 #### Filter registrations for any root key
 {: #filter-registrations-any-key-api}
@@ -703,70 +358,12 @@ $ curl -X GET \
 Replace the `preventKeyDeletion` and `urlEncodedResourceCRNQuery` variables in
 your request according to the following table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>preventKeyDeletion</varname>
-    </td>
-    <td>
-      <p>
-        A boolean that filters registrations based on if a registered resource
-        has a retention policy.
-      </p>
-      <p>
-        For example, if you have multiple registrations in your instance, and
-        you want to list only registrations where
-        <code>preventKeyDeletion</code> is true, use
-        <code>../registrations?preventKeyDeletion=true</code>.
-      </p>
-      <p>
-        You can also pair <code>preventKeyDeletion</code> with
-        <code>offest</code>, <code>limit</code>, and
-        <code>urlEncodedResourceCRNQuery</code> to search through your
-        available resources.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>urlEncodedResourceCRNQuery</varname>
-    </td>
-    <td>
-      <p>
-        The resource CRN that you want to filter registrations by.
-      </p>
-      <p>
-        For example, if you have multiple registrations in your instance, and
-        you want to only view registrations that are associated with a specific
-        Cloud Resource Name (CRN), use
-        <code>
-          ../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"
-        </code>.
-      </p>
-      <p>
-        For more information, see
-        [CRN query examples](#crn-query-examples).
-      </p>
-      <p>
-        You can also pair <code>urlEncodedResourceCRNQuery</code> with
-        <code>offest</code>, <code>limit</code>, and
-        <code>preventKeyDeletion</code> to search through your available
-        resources.
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 7. Describes the <code>preventKeyDeletion</code> and
-    <code>urlEncodedResourceCRNQuery</code> variables.
-  </caption>
-</table>
+|Variable|Description|
+|--- |--- |
+|preventKeyDeletion|A boolean that filters registrations based on if a registered resource has a retention policy.<br><br>For example, if you have multiple registrations in your instance, and you want to list only registrations where preventKeyDeletion is `true`, use `../registrations?preventKeyDeletion=true`.<br><br>You can also pair preventKeyDeletion with offest, limit, and urlEncodedResourceCRNQuery to search through your available resources.|
+|urlEncodedResourceCRNQuery|The resource CRN that you want to filter registrations by.<br><br>For example, if you have multiple registrations in your instance, and you want to only view registrations that are associated with a specific Cloud Resource Name (CRN), use `../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"`.<br><br>For more information, see [CRN query examples](#crn-query-examples).<br><br>You can also pair urlEncodedResourceCRNQuery with offest, limit, and preventKeyDeletion to search through your available resources.|
+{: caption="Table 7. Describes the `preventKeyDeletion` and
+    `urlEncodedResourceCRNQuery` variables." caption-side="top"}
 
 You can also filter for a subset of registrations by specifying the `limit` and
 `offset` parameters at query time.
@@ -786,57 +383,11 @@ $ curl -X GET \
 Replace the `limit` and `offset` variables in your request according to the
 following table.
 
-<table>
-  <tr>
-    <th>Variable</th>
-    <th>Description</th>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>offset</varname>
-    </td>
-    <td>
-      <p>
-        The number of registrations to skip.
-      </p>
-      <p>
-        For example, if you have 50 registrations in your instance, and you want
-        to list registrations 26 - 50, use
-        <code>../registrations?offset=25</code>.
-      </p>
-      <p>
-        You can also pair <code>offset</code> with <code>limit</code> to page
-        through your available resources.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <varname>limit</varname>
-    </td>
-    <td>
-      <p>
-        The number of registrations to retrieve.
-      </p>
-      <p>
-        For example, if you have 100 registrations in your instance, and you
-        want to list only 10 registrations, use
-        <code>../registrations?limit=10</code>. The maximum value for
-        <code>limit</code> is 5000.
-      </p>
-      <p>
-        You can also pair <code>offset</code> with <code>limit</code> to page
-        through your available resources.
-      </p>
-    </td>
-  </tr>
-
-  <caption style="caption-side:bottom;">
-    Table 8. Describes the <code>limit</code> and <code>offset</code> variables.
-  </caption>
-</table>
+|Variable|Description|
+|--- |--- |
+|offset|The number of registrations to skip.<br><br>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, use `../registrations?offset=25`.<br><br>You can also pair offset with limit to page through your available resources.|
+|limit|The number of registrations to retrieve.<br><br>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, use `../registrations?limit=10`. The maximum value for limit is 5000.<br><br>You can also pair offset with limit to page through your available resources.|
+{: caption="Table 8. Describes the `limit` and `offset` variables." caption-side="top"}
 
 ### CRN query examples
 {: #crn-query-examples}

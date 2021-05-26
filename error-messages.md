@@ -2,8 +2,7 @@
 
 copyright:
 years: 2020, 2021
-
-lastupdated: "2021-02-08"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect, error messages, error codes
 
@@ -573,7 +572,7 @@ $ curl -X POST \
 ### Message
 {: #error-messages-invalid-field-err-message}
 
-When wrapping a key, the message, `The field 'plaintext' must be: a base64 encoded key material` will be shown if invalid plaintext is passed in the request. 
+When wrapping a key, the message, `The field 'plaintext' must be: a base64 encoded key material` will be shown if invalid plaintext is passed in the request.
 
 When unwrapping a key, the message, `The field 'ciphertext' must be: the original base64 encoded ciphertext from the wrap operation` if invalid ciphertext is passed.
 
@@ -1040,7 +1039,7 @@ as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 For more information about Registrations, see
 [viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-[See this explanation](/docs/key-protect?topic=key-protect-cli-reference#kp-key-delete)
+[See this explanation](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-delete)
 of deleting keys that are registered with another cloud resource (look at the
 `force` option).
 
@@ -2216,7 +2215,7 @@ The client should not repeat this request without modification.
 This error message is applicable to the `restore` and `rotate` key interfaces.
 
 This example is based on the `restore` key command and it uses the
-[CLI](/docs/key-protect?topic=key-protect-cli-reference)
+[CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference)
 because the output is easier to follow than the
 [API](/apidocs/key-protect){: external}.
 

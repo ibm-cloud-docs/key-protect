@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-05-14"
 
-keywords: endpoints, Key Protect API endpoints, available regions
+keywords: Key Protect API endpoints, available regions
 
 subcollection: key-protect
 

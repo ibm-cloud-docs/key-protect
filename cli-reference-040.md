@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-02"
+lastupdated: "2021-05-24"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.4.0
 
@@ -143,6 +143,12 @@ This example creates a import token.
 ```sh
 # create an import token that expires in 5 minutes and allows 3 retrievals
 $ ibmcloud kp import-token create --expiration 300 --max-retrievals 3
+```
+{: screen}
+
+To see the results use `import-token show`
+
+```sh
 Created                         Expires                         Max Retrievals   Remaining Retrievals
 2020-05-04 19:12:07 +0000 UTC   2020-05-04 19:17:07 +0000 UTC   3                3
 
@@ -159,54 +165,32 @@ $ ibmcloud kp import-token show
 ### Required parameters
 {: #kp-import-token-create-req-params-040}
 
-<dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </p>
-    <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
-    </p>
-    <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
-    </p>
-  </dd>
-</dl>
+| Parameter | Description |
+| --- | --- |
+| `-i, --instance-id` | The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance. |
+{: caption="Table 1. Describes a required parameter." caption-side="top"}
+
+You can set an environment variable instead of specifying `-i` with the given command, replacing `<INSTANCE_ID>` with the UUID of your instance.
+
+```sh
+$ export KP_INSTANCE_ID=<INSTANCE_ID>
+```
+{: pre}
 
 ### Optional parameters
 {: #kp-import-token-create-opt-params-040}
 
-<dl>
-  <dt>
-    <code>-e, --expiration</code>
-  </dt>
-  <dd>
-    <p>
-      Specify an expiration time (in seconds) for an import token. This value
+| Parameter | Description | Values |
+| --- | --- | --- |
+| `-e, --expiration` | Specify an expiration time (in seconds) for an import token. This value
       determines how long the import token and its associated public key remain
-      valid for operations.
-    </p>
-    <p>
-      The minimum value is <code>300</code> seconds (5 minutes), and the
+      valid for operations. | The minimum value is <code>300</code> seconds (5 minutes), and the
       maximum value is <code>86400</code> seconds (24 hours). The default value
-      is <code>600</code> seconds (10 minutes).
-    </p>
-  </dd>
-
-  <dt>
-    <code>-m, --max-retrievals</code>
-  </dt>
-  <dd>
-    Set the use count for the import token. This value determines the number of
+      is <code>600</code> seconds (10 minutes). |
+| `-m, --max-retrievals` | Set the use count for the import token. This value determines the number of
     times that the import token can be retrieved within its expiration time
-    before it is no longer accessible. The default value is <code>1</code>.
-  </dd>
-</dl>
+    before it is no longer accessible. | The default value is <code>1</code>. |
+{: caption="Table 2. Describes optional parameters." caption-side="top"}
 
 ## kp import-token key-encrypt
 {: #kp-import-token-key-encrypt-040}
@@ -251,42 +235,15 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 ### Required parameters
 {: #kp-import-token-key-encrypt-required-040}
 
-<dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </p>
-    <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
-    </p>
-    <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
-    </p>
-  </dd>
-
-  <dt>
-    <code>-k, --key</code>
-  </dt>
-  <dd>
-    The base64-encoded key material that you want to store and manage in the
-    service.
-  </dd>
-
-  <dt>
-    <code>-p, --pubkey</code>
-  </dt>
-  <dd>
-    The base64-encoded public encryption key that was distributed by
+| Parameter | Description |
+| --- | --- |
+| `-i, --instance-id` | The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance. |
+| `-k, --key` | The base64-encoded key material that you want to store and manage in the service. |
+| `-p, --pubkey` | The base64-encoded public encryption key that was distributed by
     {{site.data.keyword.keymanagementserviceshort}}. To create new public key,
-    use <code>ibmcloud kp import-token create</code>. To retrieve a public key,
-    use <code>ibmcloud kp import-token show</code>.
-  </dd>
-</dl>
+    use `ibmcloud kp import-token create`. To retrieve a public key,
+    use `ibmcloud kp import-token show`. |
+{: caption="Table 3. Describes required parameters." caption-side="top"}
 
 ## kp import-token nonce-encrypt
 {: #kp-import-token-nonce-encrypt-040}
@@ -331,41 +288,14 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 ### Required parameters
 {: #kp-import-token-nonce-encrypt-required-040}
 
-<dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </p>
-    <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
-    </p>
-    <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
-    </p>
-  </dd>
-
-  <dt>
-    <code>-k, --key</code>
-  </dt>
-  <dd>
-    The base64-encoded key material that you want to store and manage in the
-    service.
-  </dd>
-
-  <dt>
-    <code>-n, --nonce</code>
-  </dt>
-  <dd>
-    The nonce that is used to verify a request to import a key. The value is
+| Parameter | Description |
+| --- | --- |
+| `-i, --instance-id` | The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance. |
+| `-k, --key` | The base64-encoded key material that you want to store and manage in the service. |
+| `-n, --nonce` | The nonce that is used to verify a request to import a key. The value is
     base64-encoded. To retrieve a nonce, use
-    <code>ibmcloud kp import-token show</code>.
-  </dd>
-</dl>
+    `ibmcloud kp import-token show`. |
+{: caption="Table 4. Describes required parameters." caption-side="top"}
 
 ## kp import-token show
 {: #kp-import-token-show-040}
@@ -415,24 +345,17 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 ### Required parameters
 {: #kp-import-token-show-required-040}
 
-<dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </p>
-    <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
-    </p>
-    <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
-    </p>
-  </dd>
-</dl>
+| Parameter | Description |
+| --- | --- |
+| `-i, --instance-id` | The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance. |
+{: caption="Table 5. Describes a required parameter." caption-side="top"}
+
+You can set an environment variable instead of specifying `-i` with the given command, replacing `<INSTANCE_ID>` with the UUID of your instance.
+
+```sh
+$ export KP_INSTANCE_ID=<INSTANCE_ID>
+```
+{: pre}
 
 ## kp key create
 {: #kp-key-create-040}
@@ -557,104 +480,29 @@ Key ID                                 Key Name
 ### Required parameters
 {: #kp-key-create-required-040}
 
-<dl>
-  <dt>
-    <code>KEY_NAME</code>
-  </dt>
-  <dd>
-    A unique, human-readable alias to assign to your key.
-  </dd>
-
-  <dt>
-    <code>-i, --instance-ID</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
-    </p>
-    <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
-    </p>
-    <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
-    </p>
-  </dd>
-</dl>
+| Parameter | Description |
+| --- | --- |
+| `KEY_NAME` | A unique, human-readable reference to assign to your key. |
+| `-i, --instance-id` | The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance. |
+{: caption="Table 6. Describes required parameters." caption-side="top"}
 
 ### Optional parameters
 {: #kp-key-create-optional-040}
 
-<dl>
-  <dt>
-    <code>-k, --key-material</code>
-  </dt>
-  <dd>
-    <p>
-      If you generated a key then this is the 32-byte (256-bit) base64-encoded
-      key material that you want to store and manage in the service.
-    </p>
-    <p>
-      If you are creating a key using an import token then this is the encrypted
-      key from the <code>kp import-token key-encrypt</code> process.
-    </p>
-    <p>
-      To generate a new key, omit the <code>-k, --key-material</code> parameter.
-    </p>
-  </dd>
+| Parameter | Description |
+| --- | --- |
+| `-k, --key-material` | If you generated a key then this is the 32-byte (256-bit) base64-encoded
+      key material that you want to store and manage in the service. If you are creating a key using an import token then this is the encrypted
+      key from the `kp import-token key-encrypt` process. To generate a new key, omit the <code>-k, --key-material</code> parameter. |
+| `-n, --encrypted-nonce` | **Used with import tokens.** The encrypted nonce value that verifies
+      your request to import a key to {{site.data.keyword.keymanagementserviceshort}}. This value must be encrypted by using the key material that you want to import to the service. See `ibmcloud kp import-token --help`. |
+| `-o, --output` | Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`. |
+| `-s, --standard-key` | Set the parameter only if you want to create a [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types). To create a root key, omit the `--standard-key` parameter. |
+| `-v, --iv`| **Used with import tokens.** The initialization vector (IV) that is generated when you encrypt a nonce. The IV value is required to decrypt the encrypted nonce value that you provide when you make a key import request to the service. |
+{: caption="Table 7. Describes optional parameters." caption-side="top"}
 
-  <dt>
-    <code>-n, --encrypted-nonce</code>
-  </dt>
-  <dd>
-    <p>
-      <b>Used with import tokens.</b> The encrypted nonce value that verifies
-      your request to import a key to
-      {{site.data.keyword.keymanagementserviceshort}}. This value must be
-      encrypted by using the key material that you want to import to the
-      service. See <code>ibmcloud kp import-token --help</code>.
-    </p>
-    <p>
-      To retrieve a nonce, use <code>ibmcloud kp import-token show</code>. Then,
-      encrypt the value by running
-      <code>ibmcloud kp import-token nonce-encrypt</code>.
-    </p>
-  </dd>
-
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
-    To change the output format to JSON, use <code>--output json</code>.
-  </dd>
-
-  <dt>
-    <code>-s, --standard-key</code>
-  </dt>
-  <dd>
-    Set the parameter only if you want to create a
-    [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types).
-    To create a root key, omit the <code>--standard-key</code> parameter.
-  </dd>
-
-  <dt>
-    <code>-v, --iv</code>
-  </dt>
-  <dd>
-    <p>
-      <b>Used with import tokens.</b> The initialization vector (IV) that is
-      generated when you encrypt a nonce. The IV value is required to decrypt
-      the encrypted nonce value that you provide when you make a key import
-      request to the service.
-    </p>
-    <p>
-      To generate an IV, encrypt the nonce by running
-      <code>ibmcloud kp import-token nonce-encrypt</code>.
-    </p>
-  </dd>
-</dl>
+To retrieve a nonce, use `ibmcloud kp import-token show`. Then, encrypt the value by running `ibmcloud kp import-token nonce-encrypt`. Also, to generate an IV, encrypt the nonce by running `ibmcloud kp import-token nonce-encrypt`.
+{: note}
 
 ## kp key delete
 {: #kp-key-delete-040}
@@ -752,7 +600,7 @@ $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
   </dt>
   <dd>
     The ID of the key that you want to delete. To retrieve a list of your
-    available keys, run the [kp keys](#kp-keys-040) command.
+    available keys, run the [`kp keys`](#kp-keys-040) command.
   </dd>
 
   <dt>

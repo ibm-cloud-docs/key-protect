@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-05-24"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
@@ -24,14 +24,12 @@ subcollection: key-protect
 compliance for your organization.
 {: shortdesc}
 
-<!---Eliminate "Monitor for controls and goals" line in prod--->
-
 With the {{site.data.keyword.compliance_short}}, you can:
-
 * Define rules for {{site.data.keyword.keymanagementserviceshort}} that can help
   to standardize resource configuration.
 
-<!---Eliminate #monitor-kp and #kp-available-goals sections in prod--->
+
+
 
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
@@ -42,7 +40,6 @@ As a security or compliance focal, you can use the
 for the {{site.data.keyword.keymanagementserviceshort}} instances that you
 create.
 
-<!--Uncomment "this service only supports" following back in in prod-->
 
 This service only supports the ability to view the results of your configuration scans in the Security and Compliance Center. It is not necessary to set up a collector to use configuration rules.
 {: note}

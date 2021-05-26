@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-11"
+  years: 2017, 2021
+lastupdated: "2021-05-24"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -59,25 +59,13 @@ Layer Security (TLS) 1.2 protocol to encrypt data in transit.
 ### Data deletion
 {: #data-deletion}
 
-When you delete a key, the service marks the key as deleted, and the key
-transitions to the _Destroyed_ state. Keys in this state are no longer
-recoverable, and the cloud services that use the key can no longer decrypt data
-that is associated with the key. Your data remains in those services in its
-encrypted form. Metadata that is associated with a key, such as the key's
-transition history and name, is kept in the
-{{site.data.keyword.keymanagementserviceshort}} database.
+When you delete a key, the service marks the key as deleted, and the key transitions to the _Destroyed_ state. Keys in this state can no longer decrypt data that is associated with the key. Therefore, before you delete a key, review the data that is associated with the key and ensure that you no longer require access to it. Do not delete a key that is actively protecting data in your production environments.
 
-Deleting a key in {{site.data.keyword.keymanagementserviceshort}} is a
-destructive operation. Keep in mind that after you delete a key, the action
-cannot be reversed, and any data that is associated with the key is immediately
-lost at the moment the key is deleted. Before you delete a key, review the data
-that is associated with the key and ensure that you no longer require access to
-it. Do not delete a key that is actively protecting data in your production
-environments.
+If a key is deleted in error, it is possible to restore the key within 30 days of the key being deleted. After 30 days, the key can no longer be restored. For more information, check out [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
-To help you determine what data is protected by a key, you can use
-{{site.data.keyword.keymanagementserviceshort}} APIs to
-[view associations between a key and your cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
+Note that even if the key is not restored, your data remains in those services in its encrypted form. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database.
+
+To help you determine what data is protected by a key, you can use {{site.data.keyword.keymanagementserviceshort}} APIs to [view associations between a key and your cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 {: note}
 
 ## Compliance readiness

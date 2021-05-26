@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-03-20"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -59,7 +59,7 @@ following **storage** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.block_storage_is_short}}](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-getting-started-gen1){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances (instances) in your VPC. | [View docs](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-block-storage-encryption){: external} |
+| [{{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances in your VPC. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} | You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-kp){: external} |
 {: caption="Table 2. Supported storage services." caption-side="bottom"}
 
@@ -73,8 +73,7 @@ following **compute** services.
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.cloud_notm}} image templates](/docs/image-templates?topic=image-templates-getting-started-with-image-templates#getting-started-with-image-templates){: external} | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance#using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance){: external} |
 | [KMIP for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} |
-| [{{site.data.keyword.vsi_is_short}}](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-virtual-private-cloud){: external} | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-creating-instances-byok){: external} |
-| [{{site.data.keyword.cncshort}}](/docs/compare-comply?topic=compare-comply-about) | You can use {{site.data.keyword.cncshort}} to automate,analyze, and convert business documents. | [View docs](/docs/compare-comply?topic=watson-keyservice){: external} |
+| [{{site.data.keyword.vsi_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external} |
 | [{{site.data.keyword.discoveryshort}}](/docs/discovery?topic=discovery-getting-started){: external} | You can use {{site.data.keyword.discoveryshort}} to build cognitive, cloud-based exploration applications that analyze and provide new insights within your data. | [View docs](/docs/discovery?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.languagetranslationshort}}](/docs/language-translator?topic=language-translator-gettingstarted){: external} | You can use {{site.data.keyword.languagetranslationshort}} to identify the language in text and convert it into other languages. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.speechtotextshort}}](/docs/speech-to-text?topic=speech-to-text-gettingStarted){: external} | You can use {{site.data.keyword.speechtotextshort}} to create customizable speech recognition for optimal text transcription in your application. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
@@ -125,7 +124,7 @@ For example, you can create a root key, manage the key in
 {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect
 the data that is stored across different cloud services.
 
-![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](images/kp-integrations.svg)
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg)
 {: caption="Figure 1. Contextual view of {{site.data.keyword.keymanagementserviceshort}} integration." caption-side="bottom"}
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods

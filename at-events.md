@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-05-26"
 
 keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
 
@@ -112,6 +112,8 @@ The following table lists the registration actions that generate an event:
 | `kms.registrations.default`             | Invalid registration request event                       |
 {: caption="Table 4. Registration actions" caption-side="top"}
 
+
+
 ## Viewing events
 {: #at-ui}
 
@@ -205,6 +207,9 @@ The following fields include extra information:
 - The `responseData.keyState` field includes the integer that correlates to the
   state of the key.
 
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
+
 #### Delete Key
 {: #delete-key-success}
 
@@ -239,6 +244,9 @@ The following field includes extra information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
   current key version used to wrap input ciphertext on wrap requests.
+
+- The `responseData.expirationDate` includes the date that the key will expire
+  on.
 
 #### Rewrap key
 {: #rewrap-key-success}
@@ -464,6 +472,8 @@ The following fields include extra information:
 - The `responseData.remainingRetrievals` field includes the number of times the
   import token can be retrieved within its expiration time before it is no
   longer accessible.
+
+
 
 #### Completed action of a key rotation
 {: #rotate-key-registrations-success}
