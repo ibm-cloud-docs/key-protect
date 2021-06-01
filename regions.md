@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-06-01"
 
 keywords: Key Protect API endpoints, available regions
 
@@ -35,8 +35,11 @@ Review region and connectivity options for interacting with
 {{site.data.keyword.keymanagementserviceshort}} is available in the following
 regions:
 
+
+
 ![The image shows the regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg)
 {: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
+
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one
 of the supported {{site.data.keyword.cloud_notm}} regions, which represent the
@@ -83,6 +86,7 @@ resources programmatically, see the following table to determine the API
 endpoints to use when you connect to the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
+
 | Region        | Public endpoints             |
 | ------------- | ---------------------------- |
 | Dallas        | `us-south.kms.cloud.ibm.com` |
@@ -114,6 +118,8 @@ endpoints to use when you connect to the
 {: tab-title="Private"}
 {: class="comparison-tab-table"}
 {: row-headers}
+
+
 
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
