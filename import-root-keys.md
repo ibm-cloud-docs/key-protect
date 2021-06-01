@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-06-01"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -142,15 +142,13 @@ $ curl -X GET \
 ```
 {: codeblock}
 
-### Base64-encoding your key material
+## Base64-encoding your key material
 {: #how-to-encode-root-key-material}
-{: api}
 
 When importing an existing root key, it is required to include the encrypted key material that you want to store and manage in the service.
 
-#### Using OpenSSL to encrypt existing key material
+### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-root-import}
-{: api}
 
 Use this process to encrypt the contents of a key material in a file.
 
@@ -174,9 +172,8 @@ Use this process to encrypt the contents of a key material in a file.
 If you want to output the base64 material in the command line directly rather than a file, issue `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
 {: note}
 
-#### Using OpenSSL to create and encode new key material
-{: #open-ssl-encoding-root-new-key-material}
-{: api}
+### Using OpenSSL to create and encode new key material
+{: #open-ssl-encoding-root-encode}
 
 Use this process to create a random base64-encoded key material with a specific byte length. 32 bytes (256 bits) is recommended.
 
