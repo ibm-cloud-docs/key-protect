@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="key-protect" category="security" audience="service" href="/docs/key-protect?topic=key-protect-getting-started-tutorial" console-page="/catalog/services/key-protect" product-page="https://www.ibm.com/cloud/key-protect" path="key-protect"}
+{: .toc subcollection="key-protect" category="security" audience="service" href="/docs/key-protect" console-page="/catalog/services/key-protect" product-page="https://www.ibm.com/cloud/key-protect" path="key-protect"}
 Key Protect
 
     {: .navgroup id="learn"}
