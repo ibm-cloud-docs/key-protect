@@ -1,17 +1,17 @@
 {
     "title": "IBM Key Protect docs",
     "lastupdated": "2021-06-04",
-    "introduction": "IBM® Key Protect helps you provision or import encrypted keys for applications for many IBM Cloud™ services that can be managed from a central location.",
+    "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques. Encryption keys can be provisioned or imported for use with applications for many IBM Cloud™ services and then managed from a central location.",
     "section_devtools": {
       "api": "/apidocs/key-protect",
-      "cli": "/docs/key-protect?topic=key-protect-cli-reference",
+      "cli": "/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
     },
     "section_recommended": [
       {
         "title": "Getting started with Key Protect",
         "description": "Learn how to create or import existing cryptographic keys using the Key Potect dashboard.",
-        "href": "/docs/key-protect?topic=key-protect-index"
+        "href": "/docs/key-protect?topic=key-protect-getting-started-tutorial"
       },
       {
         "title": "Protecting data with envelope encryption",
@@ -21,7 +21,7 @@
       {
         "title": "Grouping keys together using key rings",
         "description": "Learn how to use use Key Protect to create a group of keys for a target group of users that require the same IAM access permissions.",
-        "href": "/docs/key-protect?topic=key-protect-key-rings"
+        "href": "/docs/key-protect?topic=key-protect-grouping-keys"
       }
     ],
     "section_learn": {
