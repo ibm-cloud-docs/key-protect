@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-06-02"
 
-keywords: create standard encryption key, create secret, persist secret, create encryption key, standard encryption key API examples
+keywords: create standard encryption key, create secret, standard encryption key API examples
 
 subcollection: key-protect
 
@@ -121,7 +121,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |key_ring_ID|**Optional**. The unique identifier of the target key ring that you would like the newly create key to be a part of. If unspecified, the header is automatically set to 'default' and the key will sit in the default key ring in the specified {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |return_preference|A header that alters server behavior for POST and DELETE operations. When you set the `return_preference` variable to `return=minimal`, the service returns only the key metadata, such as the key name and ID value, in the response `entity-body`. When you set the variable to `return=representation`, the service returns both the key material and the key metadata.|
-|key_name|**Required**. A human-readable name for easy identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
+|key_name|**Required**. A human-readable name for convenient identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
 |alias_list|**Optional**.One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than `-` or `_`. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 - 90 characters (inclusive).|
 |key_description|**Optional**.An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
 |YYYY-MM-DD HH:MM:SS.SS|**Optional**.The date and time that the key expires in the system, in RFC 3339 format. If the expirationDate attribute is omitted, the key does not expire.|

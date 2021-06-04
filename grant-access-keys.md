@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-06-04"
 
-keywords: grant access to keys
+keywords: grant user access, IAM permissions, IAM roles
 
 subcollection: key-protect
 
@@ -145,8 +145,7 @@ Use the retrieved key ID to create a access policy:
 10. Continue to add platform and service access roles as needed and when you are
     finished, click **Assign**.
 
-![The image shows an example of how to grant user access to a key.](images/fine-grain-key-policy.png)
-{: caption="Figure 2. Shows how to grant user access to a key." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key.](images/fine-grain-key-policy.png){: caption="Figure 2. Shows how to grant user access to a key." caption-side="bottom"}
 
 ## Granting access to key rings in an instance
 {: #grant-access-key-ring-level}
@@ -201,8 +200,18 @@ To assign access to a key ring via the console:
 10. Continue to add platform and service access roles as needed and when you are
     finished, click **Assign**.
 
-![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 2. Shows how to grant user access to an instance." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 3. Shows how to select specific targets, including Key Rings." caption-side="bottom"}
 
-You can also create an access policy via [API](/apidocs/iam-policy-management#create-policy){: external}
-or [CLI](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.
-{: note}
+## Granting access for specific functions
+{: #grant-access-keys-specific-functions}
+
+In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge feature](/docs/key-protect?topic=key-protect-delete-purge-keys), a specific permission called `KeyPurge` must be granted as that permission is not enabled by default, even to the account owner. This permission can be granted to either a user or an [IAM role](/docs/key-protect?topic=key-protect-manage-access). Once you've followed the steps listed in the other sections of this topic for either granting access to this permission for all keys, or a specific key, choose the `KeyPurge` permission as shown in the graphic.
+
+![The image shows an example of how to grant permission to use the Key Purge Feature.](images/key-purge-permission.jpg){: caption="Figure 1. Shows how to grant permission to use the Key Purge Feature." caption-side="bottom"}
+
+## Next Steps
+{: #grant-access-keys-next-steps}
+
+You can also create an access policy via the {{site.data.keyword.keymanagementserviceshort}} [API](/apidocs/iam-policy-management#create-policy){: external}
+or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.
+

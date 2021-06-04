@@ -1,0 +1,53 @@
+{
+    "title": "IBM Key Protect docs",
+    "lastupdated": "2021-06-04",
+    "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques. Encryption keys can be provisioned or imported for use with applications for many IBM Cloud™ services and then managed from a central location.",
+    "section_devtools": {
+      "api": "/apidocs/key-protect",
+      "cli": "/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference",
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
+    },
+    "section_recommended": [
+      {
+        "title": "Getting started with Key Protect",
+        "description": "Learn how to create or import existing cryptographic keys using the Key Potect dashboard.",
+        "href": "/docs/key-protect?topic=key-protect-getting-started-tutorial"
+      },
+      {
+        "title": "Protecting data with envelope encryption",
+        "description": "Learn how envelope encryption, which forms the backbone of Key Protect, works to secure your data.",
+        "href": "/docs/key-protect?topic=key-protect-envelope-encryption"
+      },
+      {
+        "title": "Grouping keys together using key rings",
+        "description": "Learn how to use use Key Protect to create a group of keys for a target group of users that require the same IAM access permissions.",
+        "href": "/docs/key-protect?topic=key-protect-grouping-keys"
+      }
+    ],
+    "section_learn": {
+      "developer": "https://developer.ibm.com/depmodels/cloud/",
+      "architecture": "https://www.ibm.com/cloud/architecture",
+      "training": "https://www.ibm.com/training/cloud",
+      "community": "https://community.ibm.com/community/user/publiccloud/home"
+    },
+    "section_updates": {
+      "view_more": "/docs/key-protect?topic=key-protect-releases",
+      "tiles": [
+        {
+          "date": "22 April 2021",
+          "title": "Updates to Key Protect console and Key purge feature",
+          "description": "Many of the panels and actions you can take in the console have been modified to accommodate the addition of key rings. This includes a new Key rings panel where key rings can be managed and a Key ring ID column in the Keys panel. Also, the ability to purge keys four hours after they have been moved to the Destroyed state has been added."
+        },
+        {
+          "date": "12 March 2021",
+          "title": "Transfer a key to a different key ring",
+          "description": "You can now transfer a key from one key ring to another key ring. Also, there have been significant changes to the Key Protect CLI plug-in."
+        },
+        {
+          "date": "25 February 2021",
+          "title": "Changes to key restore",
+          "description": "Deleted keys can now be restored up to 30 days after deletion. After 30 days, it is no longer possible to restore a key. Furthermore, it is no longer required to pass in key material when restoring a key."
+        }
+      ]
+    }
+  }
