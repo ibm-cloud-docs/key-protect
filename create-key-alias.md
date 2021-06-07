@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-04-28"
 
 keywords: Create key alias, key alias, view encryption key, retrieve encryption key by alias, create alias API examples
 
@@ -172,8 +172,7 @@ A successful `DELETE api/v2/keys/<key_ID>/aliases/<key_alias>` request
 returns an HTTP `204 No Content` response, which indicates that the alias
 associated with your key was deleted.
 
-It takes up to 10 minutes for an alias to be completely deleted from the
-service.
+It takes up to five minutes for an alias to be completely deleted from the service.
 {: important}
 
 ## Key Alias FAQ
@@ -189,7 +188,7 @@ Below are additional details about key aliases:
 - **An alias can only be associated with one key at a time.**
   An alias can only be associated with one key that is located in the same
   instance and region. If you would like to change the key that the alias is
-  associated with, you will need to delete the alias, wait up to 10 minutes,
+  associated with, you will need to delete the alias, wait up to five minutes,
   then recreate the alias and map it to necessary key.
 
 - **You can create an alias with the same name in a different instance or region.**
