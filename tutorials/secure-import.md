@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-06-07"
 
-keywords: Key Protect tutorial, secure import
+keywords: tutorial, Key Protect tutorial, secure import
 
 subcollection: key-protect
 
@@ -113,8 +113,8 @@ installed locally on your computer.
 
 4. Download and install [jq](https://stedolan.github.io/jq/){: external}.
 
-    `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and
-    use specific data that's returned when you call the
+    `jq` helps you slice up JSON data. You use `jq` in this tutorial to capture 
+    specific data that's returned when you call the 
     {{site.data.keyword.keymanagementserviceshort}} API.
 
 ## Step 1. Create a {{site.data.keyword.keymanagementserviceshort}} instance
@@ -204,8 +204,14 @@ variables in your terminal.
     ```
     {: pre}
 
-2. Generate an {{site.data.keyword.cloud_notm}} access token, and then set the
-   value as an environment variable.
+2. Generate an {{site.data.keyword.cloud_notm}} access token using the 
+   {{site.data.keyword.keymanagementserviceshort}} CLI Plugin, and set it as an 
+   environment variable.
+
+    The environment variable should begin with the authorization type, 
+    **`Bearer`**. The CLI command, as shown in the example, will automatically 
+    include the correct type.
+   {: note}
 
     ```sh
     export ACCESS_TOKEN=`ibmcloud iam oauth-tokens | grep IAM | cut -d \: -f 2 | sed 's/^ *//'`
@@ -275,7 +281,7 @@ security for your encryption key while it's in flight to the service.
     $ curl -X POST \
         "$KP_API_URL/api/v2/import_token" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "authorization: $ACCESS_TOKEN" \
         -H "bluemix-instance: $INSTANCE_ID" \
         -H "content-type: application/json" \
         -d '{
@@ -342,7 +348,7 @@ To retrieve the import token contents:
     $ curl -X GET \
         "$KP_API_URL/api/v2/import_token" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "authorization: $ACCESS_TOKEN" \
         -H "bluemix-instance: $INSTANCE_ID" > getImportTokenResponse.json
     ```
     {: codeblock}
@@ -569,7 +575,7 @@ To import the key:
     $ curl -X POST \
         "$KP_API_URL/api/v2/keys" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "authorization: $ACCESS_TOKEN" \
         -H "bluemix-instance: $INSTANCE_ID" \
         -H "content-type: application/json" \
         -d '{
@@ -681,7 +687,7 @@ To import the key:
     $ curl -X DELETE \
         "$KP_API_URL/api/v2/keys/$ROOT_KEY_ID" \
         -H "accept: application/vnd.ibm.collection+json" \
-        -H "authorization: Bearer $ACCESS_TOKEN" \
+        -H "authorization: $ACCESS_TOKEN" \
         -H "bluemix-instance: $INSTANCE_ID" | jq .
     ```
     {: codeblock}
