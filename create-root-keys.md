@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-09"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -111,7 +111,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                          "name": "<key_name>",
                          "aliases": [alias_list],
                          "description": "<key_description>",
-                         "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
+                         "expirationDate": "<expiration_date>",
                          "extractable": <key_type>
                     }
                 ]
@@ -132,7 +132,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |key_name|**Required**. A human-readable name for convenient identification of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
 |alias_list|One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than dashes (-) or underscores (_). The alias cannot be a version 4 UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 - 90 characters (inclusive).|
 |key_description|An extended description of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
-|YYYY-MM-DD HH:MM:SS.SS|The date and time that the key expires in the system, in RFC 3339 format. The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
+|expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service creates a root key that you can use for wrap or unwrap operations.|
 {: caption="Table 1. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
 
