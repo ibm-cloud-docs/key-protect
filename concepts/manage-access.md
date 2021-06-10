@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2020-06-10"
+lastupdated: "2021-06-10"
 
 keywords: user permissions, manage access, IAM roles, roles
 
