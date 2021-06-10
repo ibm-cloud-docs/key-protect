@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-06-10"
 
 keywords: Key Protect, error messages, error codes
 
@@ -57,65 +57,67 @@ included at the end of the error message.
   	[details](#error-messages-bad-body-err)
 5. 	Invalid field error...
 	  [details](#error-messages-invalid-field-err)
-6.	Key has already been deleted...
+6.	Key could not be deleted...
+	 [details](#error-messages-key-delete-err)
+7. Key has already been deleted...
     [details](#error-messages-key-deleted-err)
-7. Key is not in a valid state (409)
+8. Key is not in a valid state (409)
   	[details](#error-messages-key-action-invalid-state-err)
-8. Key is not in a valid state (422)
+9. Key is not in a valid state (422)
   	[details](#error-messages-key-invalid-state-err)
-9. Key is protecting one or more cloud...
+10. Key is protecting one or more cloud...
 	  [details](#error-messages-protected-resource-err)
-10. Key metadata became corrupted...
+11. Key metadata became corrupted...
     [details](#error-messages-incomplete-metadata-err)
-11. Key restoration has expired
+12. Key restoration has expired
     [details](#error-messages-key-restore-expired)
-12. KeyCreateImportAccess instance policy...
+13. KeyCreateImportAccess instance policy...
     [details](#error-messages-key-create-import-access-err)
-13. Missing body in request
+14. Missing body in request
     [details](#error-messages-no-body-err)
-14. Number of authorizations required to...
+15. Number of authorizations required to...
     [details](#error-messages-authorizations-not-met)
-15. Only a single instance policy may be...
+16. Only a single instance policy may be...
     [details](#error-messages-num-collection-resource-err)
-16. Only imported keys may be restored
+17. Only imported keys may be restored
     [details](#error-messages-key-impt-req-err)
-17. Requested action can only be completed with a root key (400)
+18. Requested action can only be completed with a root key (400)
     [details](#error-messages-key-root-req-err)
-18. Requested action can only be completed with a root key (422)
+19. Requested action can only be completed with a root key (422)
     [details](#error-messages-key-root-req-reg-err)
-19. Requested change is not compliant with configuration rules
+20. Requested change is not compliant with configuration rules
     [details](#error-config_rule_conflict_err)
-20. Signature is invalid
+21. Signature is invalid
     [details](#error-invalid_sig_exp_err)
-21. The action could not be performed on...
+22. The action could not be performed on...
     [details](#error-messages-key-expired-err)
-22. The encrypted nonce given does not match...
+23. The encrypted nonce given does not match...
     [details](#error-messages-incorrect-nonce-err)
-23. The import token has expired
+24. The import token has expired
     [details](#error-messages-import-token-expired-err)
-24. The key cannot be deleted because it's...
+25. The key cannot be deleted because it's...
     [details](#error-messages-prev-key-del-err)
-25. The key is not dual auth enabled and...
+26. The key is not dual auth enabled and...
     [details](#error-messages-not-dual-auth-err)
-26. The key was updated recently
+27. The key was updated recently
     [details](#error-messages-req-too-early-err)
-27. The provided ciphertext is invalid or...
+28. The provided ciphertext is invalid or...
     [details](#error-messages-unprocessable-ciphertext-err)
-28. The provided encrypted nonce was not...
+29. The provided encrypted nonce was not...
     [details](#error-messages-incorrect-nonce-iv-err)
-29. The resource(s) queried does not belong to the service.
+30. The resource(s) queried does not belong to the service.
     [details](#error-messages-resource-owner-err)
-30. This action can only be done by a service...
+31. This action can only be done by a service...
     [details](#error-messages-service-only-err)
-31. This action is not permitted on this...
+32. This action is not permitted on this...
     [details](#error-messages-feature-restricted-err)
-32. This request requires that the key version...
+33. This request requires that the key version...
     [details](#error-messages-key-version-invalid)
-33. This root key has been rotated within...
+34. This root key has been rotated within...
     [details](#error-messages-key-rotation-not-permitted)
-34. This root key was created with user-supplied...
+35. This root key was created with user-supplied...
     [details](#error-messages-key-payload-req-err)
-35. Unauthorized: The user does not have...
+36. Unauthorized: The user does not have...
 	  [details](#error-messages-unauthorized-err)
 
 ## 1 - Collection total does not match number...
@@ -329,7 +331,7 @@ using this format:
 Depending on which platform (Linux, Mac, Windows) or shell (bash, sh, zsh) you
 are using, you need to be aware of using single versus double quotes. Some
 systems will **not** interpret variables inside single quotes. For example,
-('Bearer $ACCESS_TOKEN') may not replace `$ACCESS_TOKEN` with the value.
+('Bearer `$ACCESS_TOKEN`') may not replace `$ACCESS_TOKEN` with the value.
 {: note}
 
 Make sure you specify a valid IAM token. You may need to login (again) if your
@@ -672,7 +674,112 @@ The response:
 ```
 {: screen}
 
-## 6 - Key has already been deleted...
+## 6 - Key could not be deleted...
+{: #error-messages-key-delete-err}
+
+### HTTP status code
+{: #error-messages-key-delete-err-http}
+
+409 - Conflict 
+
+The HTTP `409 Conflict` client error response code indicates that an error in the client request can be resolved per the specified reason code returned. 
+
+### Context
+{: #error-messages-key-delete-err-context}
+
+The message returns a reason in the message that provides the specific context.
+
+### Message
+{: #error-messages-key-delete-err-message}
+
+Reason code: AUTHORIZATIONS_NOT_MET 
+
+The key cannot be deleted because it failed the dual authorization request. Before you delete this key, make sure dual authorization procedures are followed. See the topic, [Deleting keys using dual authorization](https://cloud.ibm.com/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
+
+Reason code: PROTECTED_RESOURCE_ERR
+
+The key cannot be deleted because the key has one or more associated resources. See the topic, [Considerations before deleting and purging a key](https://cloud.ibm.com/docs/key-protect?topic=key-protect-delete-purge-keys#delete-purge-keys-considerations).
+
+Reason code: PREV_KEY_DEL_ERR
+
+The key cannot be deleted because it's protecting a cloud resource that has a retention policy. Before you delete this key, contact an account owner to remove the retention policy on each resource that is associated with the key. See the topic, [Considerations before deleting and purging a key](https://cloud.ibm.com/docs/key-protect?topic=key-protect-delete-purge-keys#delete-purge-keys-considerations).
+
+#### Example Response 1
+{: #error-messages-key-delete-err-example-1}
+
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Key could not be deleted. Please 'reasons' for more details.",
+            "reasons": [
+                {
+                    "code": "AUTHORIZATIONS_NOT_MET",
+                    "message": "The key cannot be deleted because it failed the dual authorization request.",
+                    "status": 409,
+                    "moreInfo":"https://cloud.ibm.com/apidocs/key-protect"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Example Response 2
+{: #error-messages-key-delete-err-example-2}
+
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Key could not be deleted. Please 'reasons' for more details.",
+            "reasons": [
+                {
+                    "code": "PROTECTED_RESOURCE_ERR",
+                    "message": "The key cannot be deleted because the key has one or more associated resources.",
+                    "status": 409,
+                    "moreInfo":"https://cloud.ibm.com/apidocs/key-protect"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Example Response 3
+{: #error-messages-key-delete-err-example-3}
+
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.error+json",
+        "collectionTotal": 1
+    },
+    "resources": [
+        {
+            "errorMsg": "Key could not be deleted. Please 'reasons' for more details.",
+            "reasons": [
+                {
+                    "code": "PREV_KEY_DEL_ERR",
+                    "message": "The key cannot be deleted because it's protecting a cloud resource that has a retention policy.",
+                    "status": 409,
+                    "moreInfo":"https://cloud.ibm.com/apidocs/key-protect"
+                }
+            ]
+        }
+    ]
+}
+```
+
+## 7 - Key has already been deleted...
 {: #error-messages-key-deleted-err}
 
 ### Message
