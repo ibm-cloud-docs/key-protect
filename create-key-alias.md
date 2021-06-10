@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-06-10"
 
-keywords: Create key alias, key alias, view encryption key, retrieve encryption key by alias, create alias API examples
+keywords: key alias, alias, key reference
 
 subcollection: key-protect
 
