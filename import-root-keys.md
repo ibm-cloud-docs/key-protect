@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-09"
 
 keywords: import symmetric key, upload symmetric key, import root key, upload root key, import key-wrapping key, upload key-wrapping key, import CRK, import CMK, upload CRK, upload CMK, import customer key, upload customer key, key-wrapping key, root key API examples
 
@@ -99,7 +99,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                         "name": "<key_name>",
                         "aliases": [alias_list],
                         "description": "<key_description>",
-                        "expirationDate": "<YYYY-MM-DDTHH:MM:SS.SSZ>",
+                        "expirationDate": "<expiration_date>",
                         "payload": "<key_material>",
                         "extractable": <key_type>
                     }
@@ -119,10 +119,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |correlation_ID|The unique identifier that is used to track and correlate transactions.|
 |return_preference|A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns only the key metadata, such as the key name and ID value, in the response entity-body. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
 |key_name|**Required**. A unique, human-readable name for easy identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
-|alias_list|**Optional**.One or more unique, human-readable aliases assigned to your key.<br><br>Important: To protect your privacy, do not store your personal data as metadata for your key.<br><br>Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than - or _. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies. registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions.|
-|key_description|**Optional**.An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
-|YYYY-MM-DD HH:MM:SS.SS|**Optional**.The date and time that the key expires in the system, in RFC 3339 format. If the expirationDate attribute is omitted, the key does not expire.|
-|key_material|**Required**.The base64-encoded key material, an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-standard-key-material).<br><br>Ensure that the key material meets the following requirements:<br>A standard key can be up to 7,500 bytes in size. The key must be base64-encoded.|
+|alias_list|**Optional**. One or more unique, human-readable aliases assigned to your key.<br><br>Important: To protect your privacy, do not store your personal data as metadata for your key.<br><br>Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than - or _. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies. registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions.|
+|key_description|**Optional**. An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
+|expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
+|key_material|**Required**. The base64-encoded key material, an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-standard-key-material).<br><br>Ensure that the key material meets the following requirements:<br>A standard key can be up to 7,500 bytes in size. The key must be base64-encoded.|
 |key_type|A boolean value that determines whether the key material can leave the service.<br><br>When you set the extractable attribute to `false`, the service designates the key as a root key that you can use for wrap or unwrap operations.|
 {: caption="Table 2. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 

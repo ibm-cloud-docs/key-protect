@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-06-10" 
 
-keywords: Create key alias, key alias, view encryption key, retrieve encryption key by alias, create alias API examples
+keywords: key alias, alias, key reference
 
 subcollection: key-protect
 
@@ -34,7 +34,7 @@ You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias
 {: shortdesc}
 {: ui}
 
-Key aliases are unique human-readable names that are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Aliases enable your service to refer to a key by recognizable custom names, rather than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} service. For example, if you create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and it is aliased as `US-South-Test-Key`, you can use `US-South-Test-Key` to refer to your key when you make calls to the {{site.data.keyword.keymanagementserviceshort}} api to [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata). The alias can also be used to organize keys in the {{site.data.keyword.keymanagementserviceshort}} console.
+Key aliases are unique human-readable names that are references to a key that allows it to be identified and grouped beyond the limits of a display name. Aliases enable your service to refer to a key by recognizable custom names, rather than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} service. For example, if you create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and it is aliased as `US-South-Test-Key`, you can use the `US-South-Test-Key` alias to refer to your key when you make calls to the {{site.data.keyword.keymanagementserviceshort}} api to [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata). The alias can also be used to organize keys in the {{site.data.keyword.keymanagementserviceshort}} console.
 
 ## Creating and editing key aliases with the console
 {: #create-key-alias-ui}
@@ -172,8 +172,7 @@ A successful `DELETE api/v2/keys/<key_ID>/aliases/<key_alias>` request
 returns an HTTP `204 No Content` response, which indicates that the alias
 associated with your key was deleted.
 
-It takes up to 10 minutes for an alias to be completely deleted from the
-service.
+It takes up to five minutes for an alias to be completely deleted from the service.
 {: important}
 
 ## Key Alias FAQ
@@ -189,7 +188,7 @@ Below are additional details about key aliases:
 - **An alias can only be associated with one key at a time.**
   An alias can only be associated with one key that is located in the same
   instance and region. If you would like to change the key that the alias is
-  associated with, you will need to delete the alias, wait up to 10 minutes,
+  associated with, you will need to delete the alias, wait up to five minutes,
   then recreate the alias and map it to necessary key.
 
 - **You can create an alias with the same name in a different instance or region.**

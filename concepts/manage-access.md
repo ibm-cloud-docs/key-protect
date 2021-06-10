@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-06-10"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -114,6 +114,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Patch a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: #table-2}
 {: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
 {: tab-title="Keys"}
