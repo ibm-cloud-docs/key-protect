@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-06-17"
 
 keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
 
@@ -34,37 +34,58 @@ With the {{site.data.keyword.compliance_short}}, you can:
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
 
-As a security or compliance focal, you can use the
-{{site.data.keyword.compliance_short}} to
-[define configuration rules](/docs/security-compliance?topic=security-compliance-rules){: external}
-for the {{site.data.keyword.keymanagementserviceshort}} instances that you
-create.
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to [define configuration rules](/docs/security-compliance?topic=security-compliance-rules){: external} for the {{site.data.keyword.keymanagementserviceshort}} instances that you create.
 
 
 This service only supports the ability to view the results of your configuration scans in the Security and Compliance Center. It is not necessary to set up a collector to use configuration rules.
 {: note}
 
-[Config rules](#x3084914){: term}
-are used to monitor and optionally enforce the configuration standards that you
-want to implement across your accounts. To learn more about the
-available properties that you can use to create a rule for
-{{site.data.keyword.keymanagementserviceshort}}, review the following table.
+[Config rules](#x3084914){: term} are used to monitor and optionally enforce the configuration standards that you want to implement across your accounts.
 
-| Resource Kind | Property Name | Operator | Value | Description |
-| ------------- | ------------- | -------- | ----- | ----------- |
-| `instance` | `allowed_network`| `string_equals` | public-and-private<br>private-only | Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to <br>[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information. |
-| `instance` | `dual_auth_delete`| `is_true`<br>`is_false` | n/a | Require/Disallow enablement of dual authorization to delete keys in the {{site.data.keyword.keymanagementserviceshort}} instance. Requirement applies to subsequently created keys and will not apply to pre-existing keys. Refer to [Managing dual authorization](/docs/key-protect?topic=key-protect-manage-dual-auth) for more information. |
-| `instance` | `key_create_and_import.create_root_key` | `is_true`<br>`is_false` | n/a | Allow/Disallow root keys to be created in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information. |
-| `instance` | `key_create_and_import.import_root_key`| `is_true`<br>`is_false` | n/a | Allow/Disallow root keys to be imported into the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information. |
-| `instance` | `key_create_and_import.create_standard_key` | `is_true`<br>`is_false` | n/a | Allow/Disallow standard keys to be created in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information. |
-| `instance` | `key_create_and_import.import_standard_key` | `is_true`<br>`is_false` | n/a | Allow/Disallow standard keys to be imported into the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information. |
-| `instance` | `key_create_and_import.enforce_token` | `is_true`<br>`is_false` | n/a | Restrict/Allow the import of key material into the {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information. |
-| `instance` | `metrics` | `is_true`<br>`is_false` | n/a | Require/Restrict {{site.data.keyword.keymanagementserviceshort}} instance metrics to be forwarded to instance owner's {{site.data.keyword.monitoringfull}}. Refer to [Managing metrics](/docs/key-protect?topic=key-protect-manage-monitor-metrics) for more information. |
-| `key` | `dual_auth_delete`| `is_true`<br>`is_false` | n/a | Require/Disallow dual authorization to delete the given key in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy) for more information.|
-| `key` | `rotation.enabled` | `is_true`<br>`is_false` | n/a | Require/Disallow active rotation policy on specified key(s). Refer to [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for more information. |
-| `key` | `rotation.interval_month`| `num_equals`<br>`num_not_equals`<br>`num_less_than`<br>`num_less_than_equals`<br>`num_greater_than`<br>`num_greater_than_equals` | 1 ≤ Value ≤ 12 | Specifies the given key's rotation interval (in months). Automatic rotation policies can only be applied to root keys with non-imported material. Refer to [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for more information. |
+To learn more about the available properties that you can use to create a rule for {{site.data.keyword.keymanagementserviceshort}}, check out [Instance resources](#govern-kp-instances) and [Key resources](#govern-kp-keys).
 
-{: caption="Table 1. Config rule properties and target attributes for {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
+### Instance resources
+{: #govern-kp-instances}
+
+* `allowed_network`
+  - operator is `string_equals`
+  - value is `public-and-private` or `private-only`
+  - Specifies the type of endpoint the {{site.data.keyword.keymanagementserviceshort}} instance can be accessed from. Refer to [Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies) for more information.
+* `dual_auth_delete`
+  - operator is either `is_true` or `is_false`
+  - Require/Disallow enablement of dual authorization to delete keys in the {{site.data.keyword.keymanagementserviceshort}} instance. Requirement applies to subsequently created keys and will not apply to pre-existing keys. Refer to [Managing dual authorization](/docs/key-protect?topic=key-protect-manage-dual-auth) for more information.
+* `key_create_and_import.create_root_key`
+  - operator is either `is_true` or `is_false`
+  - Allow/Disallow root keys to be created in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information.
+* `key_create_and_import.import_root_key`
+  - operator is either `is_true` or `is_false`
+  - Allow/Disallow root keys to be imported into the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information.
+* `key_create_and_import.create_standard_key`
+  - operator is either `is_true` or `is_false`
+  - Allow/Disallow standard keys to be created in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information.
+* `key_create_and_import.import_standard_key`
+  - operator is either `is_true` or `is_false`
+  - Allow/Disallow standard keys to be imported into the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information.
+* `key_create_and_import.enforce_token`
+  - operator is either `is_true` or `is_false`
+  - Restrict/Allow the import of key material into the {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Refer to [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess) for more information.
+* `metrics`
+  - operator is either `is_true` or `is_false`
+  - Restrict {{site.data.keyword.keymanagementserviceshort}} instance metrics to be forwarded to instance owner's {{site.data.keyword.monitoringfull}}. Refer to [Managing metrics](/docs/key-protect?topic=key-protect-manage-monitor-metrics) for more information.
+
+### Key resources
+{: #govern-kp-keys}
+
+* `dual_auth_delete`
+  - operator is either `is_true` or `is_false`
+  - Require/Disallow dual authorization to delete the given key in the {{site.data.keyword.keymanagementserviceshort}} instance. Refer to [Setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy) for more information.
+* `rotation.enabled`
+  - operator is either `is_true` or `is_false`
+  - Require/Disallow active rotation policy on specified key(s). Refer to [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for more information.
+* `rotation.interval_month`
+  - operator is either `num_equals`, `num_not_equals`, `num_less_than`, `num_less_than_equals`, `num_greater_than` or `num_greater_than_equals`.
+  - value is 1 ≤ Value ≤ 12
+  - Specifies the given key's rotation interval (in months). Automatic rotation policies can only be applied to root keys with non-imported material. Refer to [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for more information.
 
 To learn more about config rule capabilities, see
 [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule){: external}.
