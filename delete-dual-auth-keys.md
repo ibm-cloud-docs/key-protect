@@ -40,7 +40,7 @@ Deleting a key that has a
 requires an authorization from two users. With the
 {{site.data.keyword.keymanagementservicelong_notm}} API, you can provide the
 first authorization by
-[setting the key for deletion](#set-key-deletion-api).
+[setting the key for deletion](#delete-dual-auth-keys-set-key-deletion-api).
 Then, a different user provides a second authorization by using the
 {{site.data.keyword.keymanagementserviceshort}} GUI or API to delete the key.
 
@@ -171,7 +171,7 @@ seven-day period, the key remains in the
 [_Active_ state](/docs/key-protect?topic=key-protect-key-states)
 and all key operations are allowed on the key. If no action is taken by the
 second user and the seven-day period expires, you must
-[restart the dual authorization process](#set-key-deletion-api)
+[restart the dual authorization process](#delete-dual-auth-keys-set-key-deletion-api)
  to delete the key.
 {: note}
 
@@ -338,4 +338,4 @@ A successful request returns an HTTP `204 No Content` response, which
 indicates that your key is no longer authorized for deletion. If you need to
 restart the dual authorization process, you can issue another authorization
 to
-[set the key for deletion](#set-key-deletion-api).
+[set the key for deletion](#delete-dual-auth-keys-set-key-deletion-api).

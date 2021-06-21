@@ -78,12 +78,7 @@ authorization to delete a key. You can delete a key and its contents by making a
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 ```
 
-This action won't succeed if the key is actively protecting one or more cloud
-resources. You can
-[review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
-that are associated with the key, or
-[use the `force` parameter](#delete-key-force)
-at query time to delete the key.
+This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](#delete-keys-force-delete) at query time to delete the key.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).

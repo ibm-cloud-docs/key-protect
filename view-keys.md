@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-22"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -60,7 +60,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 | Name   | The display name you gave to your key. |
 | ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
 | Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
-| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-key-rings) the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
+| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
 | Last updated | The date the last time the key was updated. This field can be particularly helpful when assessing whether a _Destroyed_ key can be restored, since restorations can only take place within 30 days of a key being placed in the _Destroyed_ state. |
 | Created | The date the key was created. |
 | Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
