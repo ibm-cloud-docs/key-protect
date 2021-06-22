@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-22"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -108,5 +108,5 @@ You are responsible for the recovery of the workloads that run
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
-| Applications | Continuously back up keys in the region that the service operates in, and automatically recover and restart service components after any disaster event. | When available, copy keys into a backup instance of {{site.data.keyword.keymanagementserviceshort}} on a periodic basis. |
+| Applications | Continuously back up keys in the region that the service operates in, and automatically recover and restart service components after any disaster event. | None. {{site.data.keyword.IBM_notm}} and {{site.data.keyword.keymanagementserviceshort}} are fully responsible for managing disaster recovery. |
 {: caption="Table 5. Responsibilities for disaster recovery" caption-side="top"}
