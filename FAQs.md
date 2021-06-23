@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-01"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -209,7 +209,7 @@ to delete a key that's registered with a cloud resource, the action won't
 succeed.
 
 If needed, you can
-[force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
+[force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete)
 by using the {{site.data.keyword.keymanagementserviceshort}} APIs.
 [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources)
 and verify with the owner of the resources to ensure you no longer require

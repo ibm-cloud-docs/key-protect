@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-06-21"
 
 keywords: release notes, service updates, service bulletin
 
@@ -567,7 +567,7 @@ to protect against the accidental or malicious deletion of keys.
   that are associated with the key.
 
 - You can now
-  [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force)
+  [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete)
   that's protecting a cloud resource.
 
 ### Added: ReaderPlus service access role

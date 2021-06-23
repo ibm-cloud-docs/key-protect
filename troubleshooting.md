@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-21"
 
 keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
 
@@ -241,7 +241,7 @@ access to that data.
 To delete the key, you can:
 
 - Use the {{site.data.keyword.keymanagementserviceshort}} API to
-  [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-force).
+  [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete).
 
 - First, delete the resources that are associated with the key, and then delete
   the key.

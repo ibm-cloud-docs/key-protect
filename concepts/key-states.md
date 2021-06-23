@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-15"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -40,7 +40,7 @@ Although this diagram shows keys in a "pre-activation" state, a state defined in
 ![Key states diagram.](../images/key-states.svg)
 {: caption="Figure 1. Key states and transitions." caption-side="bottom"}
 
-| State       | Integer Mapping | Description |
+| State       | Integer mapping | Description |
 | ----------- | --------------- | ----------- |
 | Active      |       1         | Keys move immediately into the _Active_ state on the activation date. This transition marks the beginning of a key's cryptoperiod. Keys with no activation date become active immediately and remain active until they expire or are destroyed. |
 | Suspended   |       2         | A key moves into the _Suspended_ state when it is [disabled for encrypt and decrypt operations](/docs/key-protect?topic=key-protect-disable-keys). In this state, the key is unable to cryptographically protect data and can only be moved to the _Active_ or _Destroyed_ states. |
