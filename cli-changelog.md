@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-06-25"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -33,6 +33,18 @@ Be sure to keep your CLI up-to-date so that you can use the commands and flags
 that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in.
 {: tip}
+
+## CLI version 0.6.3
+{: #cli-changelog-063}
+
+Release date: 2021-06-25
+
+### Changes
+{: #cli-changelog-063-changes}
+
+There are minor changes in this latest [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+
+Support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-rotate).
 
 ## CLI version 0.6.2
 {: #cli-changelog-062}
