@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-07-01"
 
 keywords: envelope encryption, key name, create key in different region, delete service instance
 
@@ -33,13 +33,9 @@ You can use the following FAQs to help you with
 {: #how-does-pricing-work}
 {: faq}
 
-{{site.data.keyword.keymanagementserviceshort}} offers a
-[graduated tier plan](/catalog/services/key-protect){: external}
-with no-charge pricing for users who require 20 or fewer keys. You can have 20
-free keys per {{site.data.keyword.cloud_notm}} account. If your team requires
-multiple instances of {{site.data.keyword.keymanagementserviceshort}},
-{{site.data.keyword.cloud_notm}} adds your active keys across all instances
-within the account and then applies pricing.
+{{site.data.keyword.keymanagementserviceshort}} offers a [graduated tier plan](/catalog/services/key-protect){: external} with no-charge pricing for users who require 20 or fewer keys per {{site.data.keyword.cloud_notm}} account.
+
+Because {{site.data.keyword.keymanagementserviceshort}} pricing is done per key, there is no additional charge to creating additional instances (for example, in different regions). If you have 100 keys associated with your account, you are only charged for 100 keys, regardless of the instances where they were created or imported.
 
 ## What is an active encryption key?
 {: #what-is-active-encryption-key}
