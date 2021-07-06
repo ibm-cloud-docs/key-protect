@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-07-06"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -131,7 +131,7 @@ a hardware security module (HSM) that is tamper-resistant and FIPS-140-2 level 3
 certified.
 
 If you or your company is a covered entity as defined by HIPAA, you can enable
-the HIPPA Supported setting for your {{site.data.keyword.cloud_notm}} account.
+the HIPAA Supported setting for your {{site.data.keyword.cloud_notm}} account.
 To find out more, see
 [Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa){: external}.
 
