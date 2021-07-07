@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-07-07"
 
 keywords: release notes, service updates, service bulletin
 
@@ -28,6 +28,16 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## June 2021
+{: #june-2021}
+
+### Added: Updates to the Key Protect console and Key purge feature
+{: #added-ui-updates-june-2021}
+
+New as of: 2021-06-30
+
+The {{site.data.keyword.keymanagementserviceshort}} CLI plugin has been updated to version 0.6.3. Minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-rotate).
 
 ## April 2021
 {: #april-2021}
