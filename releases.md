@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-07"
+lastupdated: "2021-07-08"
 
 keywords: release notes, service updates, service bulletin
 
@@ -32,7 +32,7 @@ Stay up-to-date with the new features that are available for
 ## June 2021
 {: #june-2021}
 
-### Added: Updates to the Key Protect console and Key purge feature
+### Added: Updates to the Key Protect CLI plugin
 {: #added-ui-updates-june-2021}
 
 New as of: 2021-06-30
