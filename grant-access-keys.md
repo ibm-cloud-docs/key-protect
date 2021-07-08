@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-07-08"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -207,7 +207,7 @@ To assign access to a key ring via the console:
 
 In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge feature](/docs/key-protect?topic=key-protect-delete-purge-keys), a specific permission called `KeyPurge` must be granted as that permission is not enabled by default, even to the account owner. This permission can be granted to either a user or an [IAM role](/docs/key-protect?topic=key-protect-manage-access). Once you've followed the steps listed in the other sections of this topic for either granting access to this permission for all keys, or a specific key, choose the `KeyPurge` permission as shown in the graphic.
 
-![The image shows an example of how to grant permission to use the Key Purge Feature.](images/key-purge-permission.jpg){: caption="Figure 1. Shows how to grant permission to use the Key Purge Feature." caption-side="bottom"}
+![The image shows an example of how to grant permission to use the Key Purge Feature.](images/key-purge-permission.jpg){: caption="Figure 4. Shows how to grant permission to use the Key Purge Feature." caption-side="bottom"}
 
 ## Next Steps
 {: #grant-access-keys-next-steps}

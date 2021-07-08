@@ -10,12 +10,10 @@ Key Protect
 
     {: .topicgroup}
     Key concepts
-        concepts/basics.md
         concepts/importing-keys.md
         concepts/envelope-encryption.md
         concepts/key-states.md
         concepts/key-rotation.md
-        concepts/importing-keys.md
         concepts/quantum-safe-cryptography.md
         concepts/manage-access.md
 
