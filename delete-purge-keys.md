@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-07-14"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -28,7 +28,7 @@ You can use {{site.data.keyword.keymanagementservicefull}} to delete an encrypti
 
 In the event that a key is no longer needed or should be removed, {{site.data.keyword.keymanagementserviceshort}} allows you to delete and ultimately purge keys, an action that shreds the key material and makes any of the data encrypted with it inaccessible.
 
-Deleting a key moves it into a _Destroyed_ state, a "soft" deletion in which the key can still be seen and restored for 30 days. After 90 days, the key will be automatically [purged](#delete-keys-key-purge), or "hard deleted", and its associated data will be permanently shredded and removed from the {{site.data.keyword.keymanagementserviceshort}} service. If it is desirable that a key be purged sooner than 90 days, it is also possible to hard delete a key four hours after it has been moved into the _Destroyed_ state.
+Deleting a key moves it into a _Destroyed_ state, a "soft" deletion in which the key can still be seen and restored for 30 days. After 90 days, the key will be automatically purged, or "hard deleted", and its associated data will be permanently shredded and removed from the {{site.data.keyword.keymanagementserviceshort}} service. If it is desirable that a key be purged sooner than 90 days, it is also possible to hard delete a key four hours after it has been moved into the _Destroyed_ state.
 
 After a key has been deleted, any data that is encrypted by the key becomes inaccessible, though this can be reversed if the key is restored within the 30-day time frame. After 30 days, key metadata, registrations, and policies are available for up to 90 days, at which point the key becomes eligible to be purged. Note that once a key is no longer restorable and has been purged, its associated data can no longer be accessed. As a result, [destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments unless absolutely necessary.
 {: important}
@@ -57,7 +57,7 @@ Once a key has been purged, any API calls that use the Key ID of a purged key wi
 2. Verify whether a key has a retention policy by checking the `preventKeyDeletion` field of the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact an account owner to remove the retention policy on each resource that is associated with the key before you can delete the key.
 3. Verify the key's deletion authorization policy. By default, keys in {{site.data.keyword.keymanagementserviceshort}} only require a single deletion authorization by a user with the _Manager_ role However, if a [dual authorization policy has been set](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy), two users with the _Manager_ role will have to approve the deletion.
 
-{{site.data.keyword.keymanagementserviceshort}} restricts the ability to use the Key Purge feature to users and roles with the [`KeyPurge` permission](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), which must be specifically set for a user or role as it is not enabled by default, not even for the instance owner.
+{{site.data.keyword.keymanagementserviceshort}} restricts the ability to purge keys after only four hours to users with the [_KeyPurge_ role](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), which must be specifically set for a user as it is not enabled by default, even for the instance owner. This ability is restricted precisely because purged keys cannot be restored. If there is any doubt whether a key should be purged four hours after it has been deleted, **do not purge it**.
 {: important}
 
 ## API Example
@@ -90,6 +90,6 @@ For a detailed description of the request, see the {{site.data.keyword.keymanage
 ## What's next
 {: #delete-purge-keys-whats-next}
 
-To learn how to delete keys that hold a single authorization policy, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys).
+To learn how to delete and purge a key using the UI, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
 
-To learn how to delete keys that hold a dual authorization policy, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
+To learn how to delete and purge a key that holds a dual-authorization deletion policy using the UI, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.

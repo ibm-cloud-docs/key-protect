@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-07-14"
 
 keywords: release notes, service updates, service bulletin
 
@@ -29,6 +29,8 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+
+
 ## June 2021
 {: #june-2021}
 
@@ -51,7 +53,9 @@ Many of the panels and actions you can take in the console have been modified to
 
 Note that as part of this change, the **Instance policies** and **Manage keys** panels in the console have been renamed **Instance policies** and **Keys** respectively.
 
-This release also adds the ability to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
+This release also adds the ability to use the API to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
+
+
 
 ## March 2021
 {: #march-2021}

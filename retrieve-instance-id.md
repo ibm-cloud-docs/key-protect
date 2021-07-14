@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-07-14"
 
 keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
 
@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+
 
 # Retrieving your instance ID
 {: #retrieve-instance-ID}
@@ -127,3 +128,5 @@ and then pipe the JSON output to `jq` to extract this value.
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
+
+

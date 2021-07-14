@@ -35,44 +35,35 @@ Before deleting keys, make sure to review the [Considerations before deleting an
 {: #delete-keys-gui}
 {: ui}
 
-By default, {{site.data.keyword.keymanagementserviceshort}} requires one
-authorization to delete a key. If you prefer to delete your encryption keys by
-using a graphical interface, you can use the {{site.data.keyword.cloud_notm}}
-console.
+By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. If you prefer to delete your encryption keys by using a graphical interface, you can use the {{site.data.keyword.cloud_notm}} console.
 
-[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
-complete the following steps to delete a key:
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to delete a key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
-3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the application details page, use the **Keys** table to browse the keys in
-   your service.
+4. On the application details page, use the **Keys** table to browse the keys in your service.
 
-5. Click the ⋯ icon to open a list of options for the key that you want to
-   delete.
+5. Click the ⋯ icon to open a list of options for the key that you want to delete.
 
-6. From the options menu, click **Delete key** and confirm the key deletion in the next screen by ensuring the key has no associated resources.
+6. From the options menu, click **Delete key** and confirm the key deletion in the next screen by ensuring the key has no associated resources. Note that you will not be able to delete the key if it is protecting a registered {{site.data.keyword.cloud_notm}} resource that's non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy).
 
-After you delete a key, the key transitions to the _Destroyed_
-state. The data encrypted by keys in this state are no longer
-accessible. Metadata that is associated with the key, such as the
-key's deletion date, is kept in the
-{{site.data.keyword.keymanagementserviceshort}} database. Destroyed
-keys can be recovered after up to 30 days or their expiration date,
-whichever is sooner.
+After you delete a key, the key transitions to the _Destroyed_ state. Any data encrypted by keys in this state is no longer accessible. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. Destroyed keys can be recovered after up to 30 days or their expiration date, whichever is sooner. After 30 days, keys can no longer be recovered, and become eligible to be purged after 90 days, a process that shreds the key material and makes its metadata inaccessible.
+
+
+
+
 
 ## Deleting keys with the API
 {: #delete-keys-api}
 {: api}
 
-By default, {{site.data.keyword.keymanagementserviceshort}} requires one
-authorization to delete a key. You can delete a key and its contents by making a
-`DELETE` call to the following endpoint.
+If a user [has the _KeyPurge_ role](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), they can purge a key after four hours.
+
+By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. You can delete a key and its contents by making a `DELETE` call to the following endpoint.
 
 ```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
@@ -117,14 +108,9 @@ This action won't succeed if the key is actively protecting one or more cloud re
 {: caption="Table 1.  Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
-If the `return_preference` variable is set to `return=representation`, the
-details of the `DELETE` request are returned in the response entity-body.
+If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body.
 
-After you delete a key, it transitions to the `Deactivated` key
-state. After 24 hours, if a key is not reinstated, the key
-transitions to the `Destroyed` state. Destroyed keys are recoverable
-for up to 30 days or until their expiration date, after which
-the key contents are permanently erased and no longer accessible.
+After you delete a key, it transitions to the _Deactivated_ key state. After 24 hours, if a key is not reinstated, the key transitions to the _Destroyed_ state. Deleted keys are recoverable for up to 30 days or until their expiration date, after which the key contents are shredded and its metadata becomes inaccessible.
 
 The following JSON object shows an example returned value.
 
@@ -169,18 +155,13 @@ The following JSON object shows an example returned value.
 ```
 {: screen}
 
-For a detailed description of the available parameters, see the
-{{site.data.keyword.keymanagementserviceshort}}
-[REST API reference doc](/apidocs/key-protect){: external}.
+For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](/apidocs/key-protect){: external}.
 
 ### Using the `force` query parameter
 {: #delete-keys-force-delete}
 {: api}
 
-{{site.data.keyword.keymanagementserviceshort}} blocks the deletion of a key
-that's protecting a cloud resource, such as a Cloud Object Storage bucket. You
-can force delete a key and its contents by making a `DELETE` call to the
-following endpoint.
+{{site.data.keyword.keymanagementserviceshort}} blocks the deletion of a key that's protecting a cloud resource, such as a Cloud Object Storage bucket. You can force delete a key and its contents by making a `DELETE` call to the following endpoint.
 
 ```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
@@ -189,15 +170,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
 When you delete a key that has registrations associated with it, you immediately deactivate its key material and the data encrypted by the key. Any data that is encrypted by the key becomes inaccessible. Thirty days after a key is deleted, the key can no longer be restored and the key material will be destroyed after 90 days.
 {: note}
 
-Force deletion on a key won't succeed if the key is protecting a registered IBM
-Cloud resource that's non-erasable due to a
-[retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy),
-which is a Write Once Read Many (WORM) policy set on the your IBM cloud resource. You can verify whether a key is
-associated with a non-erasable resource by
-checking the 'preventKeyDeletion" field in the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources)
-for the key. Then, you must contact an account owner to remove the retention
-policy on each registered IBM Cloud resource that is associated with the key before you can delete
-the key.
+Force deletion on a key won't succeed if the key is protecting a registered {{site.data.keyword.cloud_notm}} resource that's non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy), which is a Write Once Read Many (WORM) policy set on the your {{site.data.keyword.cloud_notm}} resource. You can verify whether a key is associated with a non-erasable resource by checking the 'preventKeyDeletion" field in the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources) for the key. Then, you must contact an account owner to remove the retention policy on each registered {{site.data.keyword.cloud_notm}} resource that is associated with the key before you can delete the key.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -232,15 +205,9 @@ the key.
 {: caption="Table 2. Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
-If the `return_preference` variable is set to `return=representation`, the
-details of the `DELETE` request are returned in the response entity-body.
+If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body.
 
-After you delete a key, it transitions to the `Deactivated` key
-state. After 24 hours, if a key is not reinstated, the key
-transitions to the `Destroyed` state. Destroyed keys can be recovered
-after up to 30 days or their expiration date, whichever is sooner.
-After this the key contents are permanently erased and no longer
-accessible.
+After you delete a key, it transitions to the _Deactivated_ key state. After 24 hours, if a key is not reinstated, the key transitions to the _Destroyed_ state. Deleted keys can be recovered after up to 30 days or their expiration date, whichever is sooner. After this the key contents are permanently shredded and its metadata is no longer accessible.
 
 The following JSON object shows an example returned value.
 
@@ -277,12 +244,11 @@ The following JSON object shows an example returned value.
 ```
 {: screen}
 
-For a detailed description of the available parameters, see the
-{{site.data.keyword.keymanagementserviceshort}}
-[REST API reference doc](/apidocs/key-protect){: external}.
+For a detailed description of the available parameters, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](/apidocs/key-protect){: external}.
 
 ## Key purge
 {: #delete-keys-key-purge}
+{: api}
 
 When you delete a key, you immediately deactivate its key material and move it to a backstore in the {{site.data.keyword.keymanagementserviceshort}} service. Four hours after a key is deleted, the key becomes available to be manually purged. Thirty days after a key is deleted, the key becomes non-restorable and the key material is destroyed. After a key has been deleted for 90 days, if not manually purged, the key becomes eligible to be automatically purged and all its associated data will be permanently removed, or "hard deleted", from the {{site.data.keyword.keymanagementserviceshort}} service.
 
