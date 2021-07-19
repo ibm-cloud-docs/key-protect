@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-08"
+lastupdated: "2021-07-19"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data at rest, protect data encryption keys, getting started
 
@@ -26,6 +26,11 @@ subcollection: key-protect
 
 {{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 {: shortdesc}
+
+For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
+
+To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About key protect](/docs/key-protect?topic=key-protect-about).
+{: tip}
 
 ## Getting started with encryption keys
 {: #get-started-keys}
@@ -107,13 +112,50 @@ For more information about importing root keys, check out [Importing root keys](
 
 For more information about importing standard keys, check out [Importing standard keys](/docs/key-protect?topic=key-protect-import-standard-keys).
 
-## What's next
+## Using Key Protect
 {: #get-started-next-steps}
 
-Now you can use your keys to encrypt your apps and services. If you added a root key to the service, learn more about using the root key to protect the keys that encrypt your at rest data by checking out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
-
-- To find out more about managing and protecting your encryption keys with a root key, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+- If you added a root key to the service, learn more about using the root key to protect the keys that encrypt your data at rest by checking out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
 - To find out more about integrating the {{site.data.keyword.keymanagementserviceshort}} service with other cloud data solutions, check out the [Integrations](/docs/key-protect?topic=key-protect-integrate-services) documentation.
 
 - To find out more about programmatically managing your keys, check out the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect){: external} documentation.
+
+### Best practices for using Key Protect
+{: #get-started-next-steps-best-practices}
+
+While the best way to use {{site.data.keyword.keymanagementserviceshort}} ultimately depends on the needs of your use case, there are a number of best practices to keep in mind that are specific to {{site.data.keyword.keymanagementserviceshort}}. These recommendations are in addition to the general best practices that should be observed when using any IBM Cloud or IBM Cloud Object Storage service.
+
+### Using a secure backup
+{: #get-started-next-steps-best-practices-secure-backup}
+
+If you import a root key into {{site.data.keyword.keymanagementserviceshort}}, you are encouraged to maintain a secure backup of the key material. This key material will allow you to generate an equivalent key in the event that, for example, you accidentally delete your key. This equivalent key can unwrap any data encryption keys (DEKs) created by either of root key.
+
+Similarly, you can also securely backup your root keys by using the key material to create a duplicate key in a {{site.data.keyword.keymanagementserviceshort}} region that is different from the original key.
+
+Every time a root key is rotated, new key material is added to the key, which creates a new version of the key. As a result, your equivalent keys (duplicate keys created using the same key material) should be kept up to date with the new material.
+{: note}
+
+### Using key aliases with duplicate keys
+{: #get-started-next-steps-best-practices-key-aliases}
+
+Because keys created with the same material are functionally identical (that is, both can be used to wrap and unwrap the same data), users have the option of creating these keys in different regions and using them as backups in the event a data center is temporarily unavailable. While these duplicates will have different key IDs, they can be given the same [key alias](/docs/key-protect?topic=key-protect-create-key-alias), which is used by applications to identify the key. Users who want duplicate keys should design their applications to look for this key alias in all of the regions where the keys with that alias exist. If one key is temporarily unavailable, the application can simply move on to a duplicate, ensuring that there is no downtime.
+
+### Using key rings
+{: #get-started-next-steps-best-practices-key-rings}
+
+[Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are a way to create a group of keys for a target group of users that require the same IAM access permissions. This allows an account admin to easily tailor the keys they own to the users who manage them and is therefore less error prone than manually updating the permissions of each key and user.
+
+### Rotating your keys
+{: #get-started-next-steps-best-practices-key-rotate}
+
+You should [rotate your root keys](/docs/key-protect?topic=key-protect-key-rotation) (that is, to create a new version of the key) on a regular basis. Regular rotations reduce what is known as the "cryptoperiod" of the key, and can also be used in specific cases such as personnel turnover, process malfunctions, or the detection of a security issue.
+
+Root keys can be rotated manually or on a schedule set by the owner of the key. The [option you choose](/docs/key-protect?topic=key-protect-set-rotation-policy) depends on your preferences and the needs of your use case.
+
+### Creating your own key material
+{: #get-started-next-steps-best-practices-key-material}
+
+While it is comparatively simple to [Base64-encode key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material), it is important to follow [NIST guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: external} when creating your own key material. Improperly created key material can make your keys more susceptible to being compromised. Unless you feel confident in creating the appropriate key material yourself, the best practice is to let {{site.data.keyword.keymanagementserviceshort}} create your key material for you as part of the key creation process, which follows the latest NIST guidelines.
+
+Because this key material can be used to [create a duplicate key](#get-started-next-steps-best-practices-key-aliases), whether you have created the key material yourself or exported a {{site.data.keyword.keymanagementserviceshort}} created key, make sure you keep this key material secure.
