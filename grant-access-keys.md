@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-07-20"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -213,4 +213,4 @@ In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge f
 {: #grant-access-keys-next-steps}
 
 You can also create an access policy via the {{site.data.keyword.keymanagementserviceshort}} [API](/apidocs/iam-policy-management#create-policy){: external}
-or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){ :external}.
+or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){: external}.

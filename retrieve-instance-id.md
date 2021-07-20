@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-07-20"
 
-keywords: instance ID, instance GUID, get instance ID, get instance GUID, instance ID API, instance ID CLI
+keywords: get instance ID, get instance GUID, service instance
 
 subcollection: key-protect
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2021
+lastupdated: "2021-07-20"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 

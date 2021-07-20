@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-07-20"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -106,47 +106,47 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following `curl` command.
 
-    ```sh
-    curl -X  PUT \
-     "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
-     -H "accept: application/vnd.ibm.kms.policy+json" \
-     -H "authorization: Bearer <IAM_token>" \
-     -H "bluemix-instance: <instance_ID>" \
-     -H "content-type: application/vnd.ibm.kms.policy+json" \
-     -d '{
-             "metadata": {
-                 "collectionType": "application/vnd.ibm.kms.policy+json",
-                 "collectionTotal": 1
-             },
-             "resources": [
-                 {
-                     "policy_type": "metrics",
-                     "policy_data": {
-                         "enabled": false
-                     }
-                 }
-             ]
-         }'
-    ```
-    {: codeblock}
+   ```sh
+   curl -X  PUT \
+   "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+   -H "accept: application/vnd.ibm.kms.policy+json" \
+   -H "authorization: Bearer <IAM_token>" \
+   -H "bluemix-instance: <instance_ID>" \
+   -H "content-type: application/vnd.ibm.kms.policy+json" \
+   -d '{
+           "metadata": {
+               "collectionType": "application/vnd.ibm.kms.policy+json",
+               "collectionTotal": 1
+           },
+           "resources": [
+               {
+                   "policy_type": "metrics",
+                   "policy_data": {
+                       "enabled": false
+                   }
+               }
+           ]
+     }'
+   ```
+   {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+   Replace the variables in the example request according to the following
+   table.
 
-    |Variable|Description|
-    |--- |--- |
-    |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-    |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-    |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-    {: caption="Table 1. Describes the variables that are needed to enable a metrics policy." caption-side="top"}
+   |Variable|Description|
+   |--- |--- |
+   |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+   |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+   |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+   {: caption="Table 1. Describes the variables that are needed to enable a metrics policy." caption-side="top"}
 
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
-    is now enabled for reporting operational metrics.
+   A successful request returns an HTTP `204 No Content` response, which
+   indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+   is now enabled for reporting operational metrics.
 
-    This new policy only reports on operations that occur after the policy is
-    enabled.
-    {: note}
+   This new policy only reports on operations that occur after the policy is
+   enabled.
+   {: note}
 
 3. Optional: Verify that the metrics policy was created by browsing
    the policies that are available for your
@@ -187,7 +187,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
    {{site.data.keyword.keymanagementserviceshort}} instance by running the
    following `curl` command.
 
-    ```sh
+   ```sh
     $ curl -X PUT \
         "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
@@ -208,22 +208,22 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
                     }
                 ]
             }'
-    ```
-    {: codeblock}
+   ```
+   {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+   Replace the variables in the example request according to the following
+   table.
 
-    |Variable|Description|
-    |--- |--- |
-    |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-    |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-    |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-    {: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
+   |Variable|Description|
+   |--- |--- |
+   |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+   |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+   |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+   {: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
 
-    A successful request returns an HTTP `204 No Content` response, which
-    indicates that the metrics policy was updated for your service
-    instance.
+   A successful request returns an HTTP `204 No Content` response, which
+   indicates that the metrics policy was updated for your service
+   instance.
 
 3. Optional: Verify that the metrics policy was updated by browsing
    the policies that are available for your
