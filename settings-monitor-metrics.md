@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-07-22"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -213,19 +213,19 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 
    Replace the variables in the example request according to the following
    table.
-
-   |Variable|Description|
-   |--- |--- |
-   |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-   |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-   |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-   {: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
+   
+|Variable|Description|
+|--- |--- |
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+{: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
 
    A successful request returns an HTTP `204 No Content` response, which
    indicates that the metrics policy was updated for your service
    instance.
 
-3. Optional: Verify that the metrics policy was updated by browsing
+Optional: Verify that the metrics policy was updated by browsing
    the policies that are available for your
    {{site.data.keyword.keymanagementserviceshort}} instance.
 
