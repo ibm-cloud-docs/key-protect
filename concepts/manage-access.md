@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-07-14"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -89,37 +89,43 @@ Service roles can be assigned per-instance or for all instances in an account.
     Can use the object (for example, key readers can wrap and unwrap a key), but neither create, delete, or modify the object.
   * **ReaderPlus**  
     Have the same rights as a reader, with the additional ability to retrieve a standard key's payload.
+  * **KeyPurge**  
+    Have the ability to [purge keys after four hours](/docs/key-protect?topic=key-protect-delete-purge-keys).
 
-These permissions are **additive**. An instance manager will always be the manager of all of the keys and key rings in the instance. Similarly, a key ring manager will always be a manager of all of the keys in that key ring.
+Note that the permissions included in roles are **additive**. A _Manager_, for example, has all of the permissions that a _Reader_ has and more. The exception is the _KeyPurge_ role, which includes the `kms.secrets.purge` action that is not a part of any other role and must therefore be set explicitly.
 {: note}
 
 The following table shows how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions.
 
-| Action | Reader | ReaderPlus | Writer | Manager |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge
 | ------ | ------ | ---------- | ------ | ------- |
-| Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve key metadata | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Retrieve key total | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| List keys | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Wrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Unwrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Rewrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Rotate a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Disable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Enable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Schedule deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Cancel deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Patch a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-| Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Retrieve key metadata | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Retrieve key total | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| List keys | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Wrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Unwrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Rewrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Rotate a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Disable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Enable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Schedule deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Cancel deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Patch a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Purge keys after four hours | | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: #table-2}
 {: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
 {: tab-title="Keys"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
+
+The _KeyPurge_ role only confers the ability to purge keys and should be considered additive to other service access roles, such as _Manager_.
+{: note}
 
 | Action | Reader | ReaderPlus | Writer | Manager |
 | ------ | ------ | ---------- | ------ | ------- |

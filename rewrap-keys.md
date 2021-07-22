@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-07-16"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -75,8 +75,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 4. Rewrap the key with the latest root key material by running the following
    `curl` command.
 
-    ```sh
-    $ curl -X POST \
+   ```sh
+   $ curl -X POST \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
@@ -91,11 +91,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
                     "<additional_data>"
                 ]
             }'
-    ```
-    {: codeblock}
+   ```
+   {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+   Replace the variables in the example request according to the following
+   table.
 
 |Variable|Description|
 |--- |--- |
@@ -131,31 +131,27 @@ returned value.
 Store and use the new `ciphertext` value for future envelope encryption
 operations so that your data is protected by the latest root key.
 
+### Optional Validation
+{: #rewrap-keys-optional-validation}
 
-
-5. Optional. Verify that the key was successfully rewrapped by base64 decoding
+Verify that the key was successfully rewrapped by base64 decoding
    the `ciphertext` value.
 
-    ```sh
-    $ echo <ciphertext> | base64 --decode ; echo
-    ```
-    {: codeblock}
+```sh
+$ echo <ciphertext> | base64 --decode 
+```
+{: codeblock}
 
-    Replace `<ciphertext>` with the base64 encoded value that was returned in
-    the previous step. The following JSON object shows an example CLI output.
+Replace `<ciphertext>` with the base64 encoded value that was returned in
+the previous step. The following JSON object shows an example CLI output.
 
-    ```json
-    {
-      "ciphertext": "mIzRrwZAA8+WqRckG6gt1ji8HlEEJPSiV+TRBSR4GVr+FlAZlC5KvRriRF0=",
-      "iv": "lbwxXlAW2DS7+5jGz5Y1Kg==",
-      "version": "4.0.0",
-      "handle": "8e309bae-b3ec-4270-9b87-89f8697fe54f"
-    }
-    ```
-    {: screen}
-
-    QUESTION: How do I know that the wDEK has been rewrapped? Does the version
-    number change, or just the ciphertext value? What do the iv, version, and
-    handle values represent (internal security parameters?)
-
+```json
+{
+	"ciphertext": "mIzRrwZAA8+WqRckG6gt1ji8HlEEJPSiV+TRBSR4GVr+FlAZlC5KvRriRF0=",
+	"iv": "lbwxXlAW2DS7+5jGz5Y1Kg==",
+	"version": "4.0.0",
+	"handle": "8e309bae-b3ec-4270-9b87-89f8697fe54f"
+}
+```
+{: screen}
 

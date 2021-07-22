@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-07-20"
 
 keywords: key versions, get key versions, list key versions
 
@@ -63,33 +63,33 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 3. Get a list of versions that are associated with the root key by running the
    following `curl` command.
 
-    ```sh
+   ```sh
     $ curl -X GET \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/versions" \
         -H "accept: application/vnd.ibm.kms.key.version+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "x-kms-key-ring: <key_ring_ID>" \
         -H "bluemix-instance: <instance_ID>"
-    ```
-    {: codeblock}
+   ```
+   {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+   Replace the variables in the example request according to the following
+   table.
 
-    |Variable|Description|
-    |--- |--- |
-    |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-    |key_ID|**Required**. The unique identifier for the key that you want to inspect.|
-    |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-    |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-    |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. <br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-    {: caption="Table 1. Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+   |Variable|Description|
+   |--- |--- |
+   |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+   |key_ID|**Required**. The unique identifier for the key that you want to inspect.|
+   |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+   |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+   |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. <br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+   {: caption="Table 1. Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-    A successful `GET api/v2/keys/<key_ID>/versions` response returns the list
-    of versions that are associated with the root key. The following JSON object
-    shows an example returned value.
+   A successful `GET api/v2/keys/<key_ID>/versions` response returns the list
+   of versions that are associated with the root key. The following JSON object
+   shows an example returned value.
 
-    ```json
+   ```json
     {
         "metadata": {
             "collectionType": "application/vnd.ibm.kms.key.version+json",
@@ -106,8 +106,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
             }
         ]
     }
-    ```
-    {: screen}
+   ```
+   {: screen}
 
-    The `resources` object lists each key version, along with its ID and
-    creation date, in reverse chronological order.
+   The `resources` object lists each key version, along with its ID and
+   creation date, in reverse chronological order.

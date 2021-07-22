@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-07-16"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key
 
@@ -167,22 +167,22 @@ encoding. You will need to decode the key before encrypting it.
 2. Decode your base64 encoded key material string by running the following
    command:
 
-    ```sh
-    openssl base64 -d -in <infile> -out <outfile>
-    ```
-    {: pre}
+   ```sh
+   openssl base64 -d -in <infile> -out <outfile>
+   ```
+   {: pre}
 
-    Replace the variables in the example request according to the following
-    table.
+Replace the variables in the example request according to the following
+table.
 
-    |Variable|Description|
-    |--- |--- |
-    |infile|The name of the file where your base64 encoded key material string resides.|
-    |outfile|The name of the file where your decoded key material will be be outputted once the command has ran.|
-    {: caption="Table 2. Describes the variables that are needed to decode your key material." caption-side="top"}
+|Variable|Description|
+|--- |--- |
+|infile|The name of the file where your base64 encoded key material string resides.|
+|outfile|The name of the file where your decoded key material will be be outputted once the command has ran.|
+{: caption="Table 2. Describes the variables that are needed to decode your key material." caption-side="top"}
 
-  If you want to output the decoded material in the command line directly rather
-  than a file, run the command
-  `openssl enc -base64 -d <<< '<key_material_string>'`, where
-  key_material_string is the returned plaintext from your unwrap request.
-  {: note}
+If you want to output the decoded material in the command line directly rather
+than a file, run the command
+`openssl enc -base64 -d <<< '<key_material_string>'`, where
+key_material_string is the returned plaintext from your unwrap request.
+{: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-07-20"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -225,15 +225,7 @@ Replace the `limit` and `offset` variables in your request according to the foll
 |--- |--- |
 |offset|The number of keys to skip. For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use `../keys?offset=25`. You can also pair offset with limit to page through your available resources.|
 |limit|The number of keys to retrieve. For example, if you have 100 keys in your instance, and you want to list only 10 keys, use `../keys?limit=10`. The maximum value for limit is 5000.|
-{: caption="Table 2. Table 2. Describes the `limit` and `offset` variables." caption-side="top"}
-
-For usage notes, check out the following examples for setting your `limit` and `offset` query parameters.
-
-|Variable|Description|
-|--- |--- |
-|offset|The number of keys to skip. For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use `../keys?offset=25`. You can also pair offset with limit to page through your available resources.|
-|limit|The number of keys to retrieve. For example, if you have 100 keys in your instance, and you want to list only 10 keys, use `../keys?limit=10`. The maximum value for limit is 5000.|
-{: caption="Table 3. Provides usage notes for the `limit` and `offset` query parameters." caption-side="top"}
+{: caption="Table 2. Table 2. Describes usage of the `limit` and `offset` variables." caption-side="top"}
 
 Offset is the location of a particular key in a data set. The `offset` value is zero-based, which means that the 10th encryption key in a data set is at offset 9.
 {: tip}
@@ -265,7 +257,7 @@ Replace the `state` variable in your request according to the following table.
 |Variable|Description|
 |--- |--- |
 |state|The states of the keys to be retrieved. States are integers, where Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5 values. For example, if you want to only list keys in the active state in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?state=1`. You can also pair states with offsets and limits to page through your available resources.|
-{: caption="Table 4. Describes the `state` variable." caption-side="top"}
+{: caption="Table 3. Describes the `state` variable." caption-side="top"}
 
 For usage notes, check out the following examples for setting your `state` query parameter.
 
@@ -274,7 +266,7 @@ For usage notes, check out the following examples for setting your `state` query
 |`.../keys`|Lists all of your available resources, up to the first 200 keys.|
 |`.../keys?state=5`|Lists keys in the deleted state.|
 |`.../keys?state=2,3`|Lists keys in the suspended and deactivated state.|
-{: caption="Table 5. Provides usage notes for the stage query parameter." caption-side="top"}
+{: caption="Table 4. Provides usage notes for the stage query parameter." caption-side="top"}
 
 ### Retrieving keys by Extractable value
 {: #filter-keys-extractable-state-api}
@@ -291,7 +283,7 @@ You can use the following example request to retrieve a different set of keys.
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys?state=<state_integers>" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?extractable=<extractable>" \
     -H "accept: application/vnd.ibm.collection+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
@@ -303,13 +295,13 @@ Replace the `extractable` variable in your request according to the following ta
 |Variable|Description|
 |--- |--- |
 |extractable|The type of keys to be retrieved. Filters keys based on the extractable property. You can use this query parameter to search for keys whose material can leave the service. If set to true, standard keys will be retrieved. If set to false, root keys will be retrieved. If omitted, both root and standard keys will be retrieved. For example, if you want to only list keys with extractable material in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?extractable=true`. You can also pair extractable with `offset`, `limit`, and `state` to page through your available resources.|
-{: caption="Table 6. Describes the `extractable` variable." caption-side="top"}
+{: caption="Table 5. Describes the `extractable` variable." caption-side="top"}
 
 For usage notes, check out the following examples for setting your `extractable` query parameter.
 
 |URL|Description|
 |--- |--- |
-|`.../keys`|Lists all of your available resources, up to the first 200 keys.|
+|`../keys`|Lists all of your available resources, up to the first 200 keys.|
 |`../keys?extractable=true`|Lists standard keys.|
 |`../keys?extractable=false`|Lists root keys.|
-{: caption="Table 7. Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
+{: caption="Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
