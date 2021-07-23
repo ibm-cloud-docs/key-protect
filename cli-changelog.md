@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-25"
+lastupdated: "2021-07-23"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -33,6 +33,20 @@ Be sure to keep your CLI up-to-date so that you can use the commands and flags
 that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
 plug-in.
 {: tip}
+
+## CLI version 0.6.4
+{: #cli-changelog-064}
+
+Release date: 2021-07-23
+
+### Changes
+{: #cli-changelog-064-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- Error messages have been formatted to make them easier for users to understand.
+
+- Additional validation for sha1 encryption ensures that requests are only made to the correct endpoint.
 
 ## CLI version 0.6.3
 {: #cli-changelog-063}
