@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-05"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -71,7 +71,13 @@ Before you delete a key by using dual authorization:
 The other user must have _Manager_ access policy for the instance or key in order to authorize the key for deletion.
 {: note}
 
+## Purging a key that holds dual authorization in the console
+{: #delete-dual-auth-keys-set-key-deletion-console-purge}
+{: ui}
 
+Four hours after the other user with a _Manager_ access policy has authorized the key for deletion, it can be purged by one of the users as long as they hold [the _KeyPurge_ attribute](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions).
+
+This can be done by clicking the ⋯ icon to open a list of options for the key that you want to purge and then clicking **Purge**. If you cannot delete the key, make sure it has been at least four hours since the key was authorized for deleting by another user and that you hold the _KeyPurge_ attribute.
 
 ## Authorize deletion for a key with the API
 {: #delete-dual-auth-keys-set-key-deletion-api}
