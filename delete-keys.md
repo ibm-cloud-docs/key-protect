@@ -53,9 +53,24 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 
 After you delete a key, the key transitions to the _Destroyed_ state. Any data encrypted by keys in this state is no longer accessible. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. Destroyed keys can be recovered after up to 30 days or their expiration date, whichever is sooner. After 30 days, keys can no longer be recovered, and become eligible to be purged after 90 days, a process that shreds the key material and makes its metadata inaccessible.
 
+If a user [has the _KeyPurge_ attribute](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), they can purge a key after four hours. Check out [Purging keys in the console](#delete-keys-gui-purge) for more information.
+{: tip}
 
+## Purging keys in the console
+{: #delete-keys-gui-purge}
+{: ui}
 
+If it is important to your use case to purge a key sooner than 90 days (the soonest a key can be purged after a normal deletion), the key can be purged after four hours if a user [has the _KeyPurge_ role](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions).
 
+Because a purged key has its key material permanently shredded and metadata inaccessible, a purged key cannot be restored. It is therefore even more important to ensure that the key has no vital associated resources.
+
+To purge a key:
+
+1. Follow the instructions to [Delete a key](#delete-keys-gui).
+
+2. After waiting at least four hours, once again navigate to the key and click the ⋯ icon.
+
+3. From the options, select **Purge** from the options below and confirm the key deletion in the next screen by ensuring the key has no associated resources and that you have the necessary `KeyPurge` user attribute.
 
 ## Deleting keys with the API
 {: #delete-keys-api}

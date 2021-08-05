@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-05"
 
 keywords: get instance ID, get instance GUID, service instance
 
@@ -20,38 +20,35 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
 
-
-# Retrieving your instance ID
+# Retrieving your instance ID and cloud resource name (CRN)
 {: #retrieve-instance-ID}
 
-You can target an individual {{site.data.keyword.keymanagementservicelong}}
-instance for operations by including its unique identifier, or instance
-ID, in API requests to the service.
+You can target an individual {{site.data.keyword.keymanagementservicelong}} instance for operations by including its unique identifier, or instance ID, in API requests to the service. Similarly, it can also be helpful to know your relevant [cloud resource name (CRN)](/docs/account?topic=account-crn).
 {: shortdesc}
 
-## Viewing your instance ID in the {{site.data.keyword.cloud_notm}} console
+## Viewing your instance ID and CRN in the {{site.data.keyword.cloud_notm}} console
 {: #view-instance-ID}
+{: ui}
 
-You can view the instance ID that is associated with your
-{{site.data.keyword.keymanagementserviceshort}} instance by navigating
-to your {{site.data.keyword.cloud_notm}} resource list.
+You can view the instance ID that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance by navigating to your {{site.data.keyword.cloud_notm}} resource list.
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
-2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse
-   a list of your cloud services.
+2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse a list of your cloud services.
 
-3. Click the table row that describes your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+3. Click the table row. This opens the resources table side panel, where you can see the CRN and instance GUID.
 
-4. From the service details view, copy the **GUID** value.
+4. Click on the instance name link. This will open your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-    This **GUID** value represents the instance ID that uniquely identifies your
-    {{site.data.keyword.keymanagementserviceshort}} instance.
+4. From the **Keys** page, click the **Details** box to open a side panel. Your instance ID and CRN are listed here as code snippets.
 
-## Retrieving an instance ID with the CLI
+## Retrieving an instance ID and CRN with the CLI
 {: #retrieve-instance-ID-cli}
+{: cli}
 
 You can also retrieve the instance ID for your
 {{site.data.keyword.keymanagementserviceshort}} instance by using the
@@ -98,6 +95,7 @@ You can also retrieve the instance ID for your
 
 ## Retrieving an instance ID with the API
 {: #retrieve-instance-ID-api}
+{: api}
 
 You might want to retrieve the instance ID programmatically to help you build
 and connect your application. You can call the
@@ -128,5 +126,3 @@ and then pipe the JSON output to `jq` to extract this value.
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
-
-

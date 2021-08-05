@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-08-05"
 
 keywords: release notes, service updates, service bulletin
 
@@ -29,7 +29,17 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## August 2021
+{: #august-2021}
 
+### Added: Updates to the Key Protect console and Key purge feature
+{: #key-purge-august-2021}
+
+New as of: 2021-08-05
+
+The ability to purge keys that have been deleted after four hours using the UI has been added. For more information, check out [About purging and deleting keys](/docs/key-protect?topic=key-protect-delete-purge-keys#delete-purge-keys-considerations).
+
+Also, the ability to view your instance ID and cloud resource name (CRN) has been made easier. For more information, check out [Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## June 2021
 {: #june-2021}
@@ -55,7 +65,7 @@ Note that as part of this change, the **Instance policies** and **Manage keys** 
 
 This release also adds the ability to use the API to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
 
-
+The ability to purge keys using the UI was added in the [August, 2021 release](#key-purge-august-2021).
 
 ## March 2021
 {: #march-2021}
