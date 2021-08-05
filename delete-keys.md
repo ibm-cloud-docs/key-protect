@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-04-28"
+  years: 2021
+lastupdated: "2021-08-05"
 
 keywords: delete key, delete key API examples, purge key
 
