@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-22"
 
 keywords: disable key, enable key, suspend key, suspend operations on a key
 
@@ -24,7 +24,7 @@ subcollection: key-protect
 {:ui: .ph data-hd-interface='ui'}
 {:api: .ph data-hd-interface='api'}
 
-# Disabling root keys
+# Disabling and enabling root keys
 {: #disable-keys}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to disable or enable

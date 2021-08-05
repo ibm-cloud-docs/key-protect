@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-04"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -37,12 +37,12 @@ The high availability of {{site.data.keyword.keymanagementserviceshort}} and the
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and
 processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/cloud/blog/announcements/expansion-availability-zones-global-regions){: external} to meet local access, low latency, and security requirements for the region.
 
-One region, `us-south`, also has cross-regional high availability, which is achieved using data replication to another region. If `us-south` as a whole or {{site.data.keyword.keymanagementserviceshort}} in that region is disrupted, requests are routed to another region where your data has already been replicated. Because your requests are routed automatically, you can continue to call the same endpoint. Initially, read-only operations are all that will be available. However, if there is reason to believe the disruption will last for an extended period, write operations will be enabled as soon as possible. Otherwise, read-only operations are all that will be available for up to six hours before write operations will be enabled.
+Two regions, `us-south` (located in Dallas, Texas, United States) and `jp-tok` (located in Tokyo, Japan), also have cross-regional high availability, which is achieved using data replication to another region. If service in either of these regions or {{site.data.keyword.keymanagementserviceshort}} in the region is disrupted, requests are routed to another region where your data has already been replicated. Because your requests are routed automatically, you can continue to call the same endpoint. Initially, read-only operations are all that will be available. However, if there is reason to believe the disruption will last for an extended period, write operations will be enabled as soon as possible. Otherwise, read-only operations are all that will be available for up to six hours before write operations will be enabled.
 
 {{site.data.keyword.keymanagementserviceshort}} will be adding cross-regional high availability to selected regions in different geographical locations.
 {: tip}
 
-As you plan your encryption strategy with {{site.data.keyword.cloud_notm}}, remember that provisioning {{site.data.keyword.keymanagementserviceshort}} in a region that is nearest to you is more likely to result in faster, more reliable connections when you interact with the {{site.data.keyword.keymanagementserviceshort}} APIs. Furthermore, regulatory requirements might influence which region or regions to use. Note that {{site.data.keyword.keymanagementserviceshort}} does not restrict using keys across regions and geographical locations. For example, a user might use keys from `us-south` to encrypt storage in Tokyo. **Choose the region that is best for your use case overall**.
+As you plan your encryption strategy with {{site.data.keyword.cloud_notm}}, remember that provisioning {{site.data.keyword.keymanagementserviceshort}} in a region that is nearest to you is more likely to result in faster, more reliable connections when you interact with the {{site.data.keyword.keymanagementserviceshort}} APIs. Furthermore, regulatory requirements might influence which region or regions to use. Note that {{site.data.keyword.keymanagementserviceshort}} does not restrict using keys across regions and geographical locations. For example, a user might use keys from `us-south` to encrypt storage in Frankfurt. **Choose the region that is best for your use case overall**.
 
 ## Application-level high availability
 {: #application-level-high-availability}
