@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-12"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -258,7 +258,7 @@ For more information about deleting and purging keys, check out [About deleting 
 
 The following table lists which APIs you can use to retrieve data related to a deleted key.
 
-| API               | Description                                                   |                                                          |
+| API                                                                               | Description                                              |
 |-----------------------------------------------------------------------------------|----------------------------------------------------------|
 | [Get key](/docs/key-protect?topic=key-protect-retrieve-key)                       | Retrieve key details                                     |
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
