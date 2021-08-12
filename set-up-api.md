@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-22"
+  years: 2017, 2021
+lastupdated: "2021-08-12"
 
-keywords: set up API, use Key Protect API, use KMS API, access Key Protect API, access KMS API
+keywords: set up Key Protect, Key Protect API methods, configure Key Protect 
 
 subcollection: key-protect
 

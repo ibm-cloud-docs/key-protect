@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-08-12"
 
-keywords: automatic key rotation, set rotation policy, policy-based, key rotation
+keywords: automatic key rotation, set rotation policy, retrieve key policy
 
 subcollection: key-protect
 

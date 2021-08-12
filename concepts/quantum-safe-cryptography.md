@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-08-12"
 
-keywords: quantum safe cryptography, quantum cryptography, post quantum cryptography, quantum resistant, quantum safe TLS
+keywords: quantum safe cryptography, quantum cryptography, quantum safe TLS
 
 subcollection: key-protect
 

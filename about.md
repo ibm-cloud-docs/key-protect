@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-08-12"
 
-keywords: key management service, KMS, about Key Protect, about KMS, Key Protect use cases, KMS use cases
+keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
 subcollection: key-protect
 

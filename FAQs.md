@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-08-12"
 
-keywords: envelope encryption, key name, create key in different region, delete service instance
+keywords: FAQ, key protect frequently asked questions, key protect answers
 
 subcollection: key-protect
 

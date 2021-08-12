@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-08-12"
 
-keywords: key management service, kms, manage encryption keys, data encryption, data at rest, protect data encryption keys, getting started
+keywords: key management service, manage encryption keys, data encryption, getting started
 
 subcollection: key-protect
 

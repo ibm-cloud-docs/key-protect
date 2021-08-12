@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-08-12"
 
-keywords: disable key, enable key, suspend key, suspend operations on a key
+keywords: disable key, enable key, suspend operations on a key
 
 subcollection: key-protect
 

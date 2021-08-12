@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2021-01-28"
+  years: 2017, 2021
+lastupdated: "2021-08-12"
 
-keywords: service instance, create service instance, KMS service instance, Key Protect service instance
+keywords: service instance, create service instance, Key Protect service instance
 
 subcollection: key-protect
 

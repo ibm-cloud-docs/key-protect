@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-12"
 
-keywords: sync resources, sync registrations, internal, key registration, KYOK, BYOK
+keywords: sync resources, sync registrations, key registration, KYOK, BYOK
 
 subcollection: key-protect
 

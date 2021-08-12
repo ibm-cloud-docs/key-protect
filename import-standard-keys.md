@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-12"
 
-keywords: import standard encryption key, upload standard encryption key, import secret, persist secret, store secret, upload secret, store encryption key, standard key API examples
+keywords: import standard encryption key, import secret, upload secret
 
 subcollection: key-protect
 

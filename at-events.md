@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-08-12"
 
-keywords: IBM, activity tracker, event, security, KMS API calls, monitor KMS events
+keywords: key protect event, kp activity tracker, monitor kp events
 
 subcollection: key-protect
 

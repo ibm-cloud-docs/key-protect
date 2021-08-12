@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-12"
 
-keywords: can't delete service, can't use Key Protect, can't create key, can't delete key
+keywords: delete service, use Key Protect, failed to create key, failed to delete key
 
 subcollection: key-protect
 
