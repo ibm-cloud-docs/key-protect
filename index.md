@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-08-12"
 
 keywords: key management service, kms, manage encryption keys, data encryption, data at rest, protect data encryption keys, getting started
 
@@ -129,7 +129,10 @@ While the best way to use {{site.data.keyword.keymanagementserviceshort}} ultima
 ### Using a secure backup
 {: #get-started-next-steps-best-practices-secure-backup}
 
-If you import a root key into {{site.data.keyword.keymanagementserviceshort}}, you are encouraged to maintain a secure backup of the key material. This key material will allow you to generate an equivalent key in the event that, for example, you accidentally delete your key. This equivalent key can unwrap any data encryption keys (DEKs) created by either of root key.
+If you import a root key into {{site.data.keyword.keymanagementserviceshort}}, you are encouraged to maintain a secure backup of the key material. This key material will allow you to generate an equivalent key in the event that, for example, you accidentally delete your key. Deleted keys can be [restored within 30 days](/docs/key-protect?topic=key-protect-delete-purge-keys) of being deleted, but if 30 days have passed, you can use stored key material to create a functionally identical key (it will be able to unwrap data encryption keys created by the deleted root key, for example). You will need to update your application to use the unique key ID given for this functionally identical key and to change the endpoint (if the new key is created in a different region).
+
+Because any key that uses the same material during key creation is functionally equivalent, you are encouraged to keep your backed up key material secure.
+{: tip}
 
 Similarly, you can also securely backup your root keys by using the key material to create a duplicate key in a {{site.data.keyword.keymanagementserviceshort}} region that is different from the original key.
 
@@ -139,7 +142,7 @@ Every time a root key is rotated, new key material is added to the key, which cr
 ### Using key aliases with duplicate keys
 {: #get-started-next-steps-best-practices-key-aliases}
 
-Because keys created with the same material are functionally identical (that is, both can be used to wrap and unwrap the same data), users have the option of creating these keys in different regions and using them as backups in the event a data center is temporarily unavailable. While these duplicates will have different key IDs, they can be given the same [key alias](/docs/key-protect?topic=key-protect-create-key-alias), which is used by applications to identify the key. Users who want duplicate keys should design their applications to look for this key alias in all of the regions where the keys with that alias exist. If one key is temporarily unavailable, the application can simply move on to a duplicate, ensuring that there is no downtime.
+Because keys created with the same material are functionally identical (that is, both can be used to wrap and unwrap the same data), users have the option of creating these keys in different regions and using them as backups in the event a data center is temporarily unavailable. While these duplicates will have different key IDs, they can be given the same [key alias](/docs/key-protect?topic=key-protect-create-key-alias). This alias can serve to organize functionally identical keys together, making it easier to update an application to point to these backup keys.
 
 ### Using key rings
 {: #get-started-next-steps-best-practices-key-rings}
@@ -151,11 +154,13 @@ Because keys created with the same material are functionally identical (that is,
 
 You should [rotate your root keys](/docs/key-protect?topic=key-protect-key-rotation) (that is, to create a new version of the key) on a regular basis. Regular rotations reduce what is known as the "cryptoperiod" of the key, and can also be used in specific cases such as personnel turnover, process malfunctions, or the detection of a security issue.
 
-Root keys can be rotated manually or on a schedule set by the owner of the key. The [option you choose](/docs/key-protect?topic=key-protect-set-rotation-policy) depends on your preferences and the needs of your use case.
+Root keys can be rotated manually or, if the key was created using {{site.data.keyword.keymanagementserviceshort}}, on a schedule set by the owner of the key. The [option you choose](/docs/key-protect?topic=key-protect-set-rotation-policy) depends on your preferences and the needs of your use case.
+
+For more information about rotating keys, check out [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
 ### Creating your own key material
 {: #get-started-next-steps-best-practices-key-material}
 
 While it is comparatively simple to [Base64-encode key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material), it is important to follow [NIST guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: external} when creating your own key material. Improperly created key material can make your keys more susceptible to being compromised. Unless you feel confident in creating the appropriate key material yourself, the best practice is to let {{site.data.keyword.keymanagementserviceshort}} create your key material for you as part of the key creation process, which follows the latest NIST guidelines.
 
-Because this key material can be used to [create a duplicate key](#get-started-next-steps-best-practices-key-aliases), whether you have created the key material yourself or exported a {{site.data.keyword.keymanagementserviceshort}} created key, make sure you keep this key material secure.
+Because this key material can be used to [create a functionally duplicate key](#get-started-next-steps-best-practices-key-aliases), whether you have created the key material yourself or exported a {{site.data.keyword.keymanagementserviceshort}} created key, make sure you keep this key material secure.
