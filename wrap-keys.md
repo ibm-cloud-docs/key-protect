@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-08-12"
 
-keywords: wrap key, encrypt data encryption key, protect data encryption key, envelope encryption API examples
+keywords: wrap key, encrypt data encryption key, envelope encryption API examples
 
 subcollection: key-protect
 

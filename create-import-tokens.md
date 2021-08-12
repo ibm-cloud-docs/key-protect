@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-12"
 
-keywords: create import token, secure import, key-wrapping key, import token API examples
+keywords: create import token, secure import, key-wrapping key
 
 subcollection: key-protect
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-12"
 
-keywords: instance settings, service settings, allowed ip, ip allowlist, ip whitelist
+keywords: instance settings, service settings, allowed ip, ip allowlist
 
 subcollection: key-protect
 

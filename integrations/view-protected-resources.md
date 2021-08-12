@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-08-12"
 
-keywords: view protected data
+keywords: view protected data, view encrypted resources, registrations
 
 subcollection: key-protect
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-08-12"
 
-keywords: get key, get encryption key, view encryption key, retrieve encryption key, API examples
+keywords: get key, get encryption key, view encryption key, retrieve encryption key
 
 subcollection: key-protect
 

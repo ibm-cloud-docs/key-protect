@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-03-19"
+  years: 2017, 2021
+lastupdated: "2021-08-12"
 
-keywords: import encryption key, upload encryption key, Bring Your Own Key, BYOK, secure import, import tokens
+keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
 subcollection: key-protect
 

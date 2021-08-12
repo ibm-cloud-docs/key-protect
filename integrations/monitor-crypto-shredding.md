@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-08-12"
 
-keywords: monitor data deletion, monitor key deletion, delete keys, how do I see what data is associated with my key, how do I monitor when data is being deleted
+keywords: monitor deletion, data associated with key, monitor data deletion
 
 subcollection: key-protect
 
@@ -21,8 +21,6 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 {:term: .term}
-
-
 
 # Monitoring the crypto-shredding of data
 {: #monitor-crypto-shredding}
@@ -303,5 +301,4 @@ To configure an alert for monitoring cryptoerasure activity:
 
 3. [Attach an alert to your custom view](/docs/activity-tracker?topic=activity-tracker-alerts#alerts_step3_view){: external}
    by specifying an alert notification channel.
-
 

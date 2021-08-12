@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-08-12"
 
-keywords: Managing security and compliance with Key Protect, security for Key Protect, compliance for Key Protect, security, compliance
+keywords: managing security, managing compliance, best practices
 
 subcollection: key-protect
 

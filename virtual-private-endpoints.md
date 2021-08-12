@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-02-25"
+  years: 2020, 2021
+lastupdated: "2021-08-12"
 
-keywords: instance settings, service settings, network access policies, virtual private endpoints, private gateway, VPE
+keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
 
 subcollection: key-protect
 

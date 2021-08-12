@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-12"
 
-keywords: create standard encryption key, create secret, standard encryption key API examples
+keywords: create standard encryption key, create secret, standard encryption key examples
 
 subcollection: key-protect
 
