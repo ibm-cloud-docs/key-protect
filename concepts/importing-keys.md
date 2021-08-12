@@ -44,6 +44,9 @@ the cloud by importing keys into
 | Secure import of root key material | When you export your keys to the cloud, you want assurance that the key material is protected while it's in flight. Mitigate against man-in-the-middle attacks by [using an import token](#using-import-tokens) to securely import root key material into your {{site.data.keyword.keymanagementserviceshort}} instance. |
 {: caption="Table 1. Describes the benefits of importing key material" caption-side="top"}
 
+Imported keys cannot be [scheduled for automatic rotation](/docs/key-protect?topic=key-protect-key-rotation). They must be rotated manually.
+{: note}
+
 ## Planning ahead for importing key material
 {: #plan-ahead}
 
