@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: monitor deletion, data associated with key, monitor data deletion
 
@@ -111,12 +111,12 @@ more about viewing {{site.data.keyword.at_full_notm}} events, see
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
 2. Go to **Menu** &gt; **Observability** to access your
-   [Observability dashboard](/observe){: external}.
+    [Observability dashboard](/observe){: external}.
 
 3. Select the `Activity Tracker` link to gain insight into your services.
 
 4. Select an {{site.data.keyword.at_full_notm}} instance, and click **View {{site.data.keyword.la_full_notm}}** to launch the
-   web UI.
+    web UI.
 
 5. Search for successful crypto-shredding events by using the following query.
 
@@ -201,12 +201,12 @@ more about viewing {{site.data.keyword.at_full_notm}} events, see
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
 
 2. Go to **Menu** &gt; **Observability** to access your
-   [Observability dashboard](/observe){: external}.
+    [Observability dashboard](/observe){: external}.
 
 3. Select the `Activity Tracker` link to gain insight into your services.
 
 4. Select an {{site.data.keyword.at_full_notm}} instance, and click **View {{site.data.keyword.la_full_notm}}** to launch the
-   web UI.
+    web UI.
 
 5. Search for unsuccessful crypto-shredding events by using the following query.
 
@@ -294,11 +294,13 @@ To learn more, see
 To configure an alert for monitoring cryptoerasure activity:
 
 1. Ensure that you have an {{site.data.keyword.at_full_notm}} instance provisioned in the same
-   region as your {{site.data.keyword.keymanagementserviceshort}} instance.
+    region as your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 2. [Create a custom view](/docs/activity-tracker?topic=activity-tracker-views#views_step3){: external}
-   that searches for `kms.secrets.endtoenddelete` actions in your account.
+    that searches for `kms.secrets.endtoenddelete` actions in your account.
 
 3. [Attach an alert to your custom view](/docs/activity-tracker?topic=activity-tracker-alerts#alerts_step3_view){: external}
-   by specifying an alert notification channel.
+    by specifying an alert notification channel.
+
+
 

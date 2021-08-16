@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-03-02"
+  years: 2017, 2020
+lastupdated: "2020-11-10"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.3.9
 
@@ -108,9 +108,9 @@ specify.
 
 ```sh
 ibmcloud kp create KEY_NAME -i $INSTANCE_ID
-                           [-k, --key-material KEY_MATERIAL]
-                           [-s, --standard-key]
-                           [--output FORMAT]
+[-k, --key-material KEY_MATERIAL]
+[-s, --standard-key]
+[--output FORMAT]
 ```
 {: pre}
 
@@ -118,94 +118,94 @@ ibmcloud kp create KEY_NAME -i $INSTANCE_ID
 {: #create-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_NAME</code>
-  </dt>
-  <dd>
-    A unique, human-readable alias to assign to your key.
-  </dd>
+    <dt>
+        <code>KEY_NAME</code>
+    </dt>
+    <dd>
+        A unique, human-readable alias to assign to your key.
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #create-opt-params}
 
 <dl>
-  <dt>
-    <code>-k, --key-material</code>
-  </dt>
-  <dd>
-    The base64 encoded key material that you want to store and manage in the
+    <dt>
+        <code>-k, --key-material</code>
+    </dt>
+    <dd>
+        The base64 encoded key material that you want to store and manage in the
     service. To import an existing key, provide a 256-bit key. To generate a new
     key, omit the <code>--key-material</code> parameter.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-n, --encrypted-nonce</code>
-  </dt>
-  <dd>
-    <p>
-      <b>Used with import tokens.</b> The encrypted nonce value that verifies
-      your request to import a key to
-      {{site.data.keyword.keymanagementserviceshort}}. This value must be
-      encrypted by using the key material that you want to import to the
-      service.
+    <dt>
+        <code>-n, --encrypted-nonce</code>
+    </dt>
+    <dd>
+        <p>
+        <b>Used with import tokens.</b> The encrypted nonce value that verifies
+        your request to import a key to
+        {{site.data.keyword.keymanagementserviceshort}}. This value must be
+        encrypted by using the key material that you want to import to the
+        service.
     </p>
     <p>
-      To retrieve a nonce, use <code>ibmcloud kp import-token get</code>. Then,
-      encrypt the value by running
-      <code>ibmcloud kp import-token encrypt-nonce</code>.
+        To retrieve a nonce, use <code>ibmcloud kp import-token get</code>. Then,
+        encrypt the value by running
+        <code>ibmcloud kp import-token encrypt-nonce</code>.
     </p>
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-v, --iv</code>
-  </dt>
-  <dd>
-    <p>
-      <b>Used with import tokens.</b> The initialization vector (IV) that is
-      generated when you encrypt a nonce. The IV value is required to decrypt
-      the encrypted nonce value that you provide when you make a key import
-      request to the service.
+    <dt>
+        <code>-v, --iv</code>
+    </dt>
+    <dd>
+        <p>
+        <b>Used with import tokens.</b> The initialization vector (IV) that is
+        generated when you encrypt a nonce. The IV value is required to decrypt
+        the encrypted nonce value that you provide when you make a key import
+        request to the service.
     </p>
     <p>
-      To generate an IV, encrypt the nonce by running
-      <code>ibmcloud kp import-token encrypt-nonce</code>.
+        To generate an IV, encrypt the nonce by running
+        <code>ibmcloud kp import-token encrypt-nonce</code>.
     </p>
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-s, --standard-key</code>
-  </dt>
-  <dd>
-    Set the parameter only if you want to create a
+    <dt>
+        <code>-s, --standard-key</code>
+    </dt>
+    <dd>
+        Set the parameter only if you want to create a
     [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types).
     To create a root key, omit the <code>--standard-key</code> parameter.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ### Usage examples
@@ -280,35 +280,35 @@ Key ID                                 Key Name
 {: #list-req-params}
 
 <dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #list-opt-params}
 
 <dl>
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp get
@@ -339,45 +339,45 @@ Key ID                                 Key Name          Description     Creatio
 {: #get-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the key that you want to retrieve. To retrieve a list of your
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the key that you want to retrieve. To retrieve a list of your
     available keys, run the
     [kp list](#kp-list-039)
     command.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #get-opt-params}
 
 <dl>
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp wrap
@@ -390,8 +390,8 @@ specify.
 
 ```sh
 ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
-                       [-a, --aad ADDITIONAL_DATA]
-                       [-p, --plaintext DATA_KEY]
+[-a, --aad ADDITIONAL_DATA]
+[-p, --plaintext DATA_KEY]
 ```
 {: pre}
 
@@ -399,59 +399,59 @@ ibmcloud kp wrap KEY_ID -i $INSTANCE_ID
 {: #wrap-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the root key that you want to use for wrapping.
-  </dd>
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the root key that you want to use for wrapping.
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #wrap-opt-params}
 
 <dl>
-  <dt>
-    <code>-a, --aad</code>
-  </dt>
-  <dd>
-    The additional authentication data (AAD) that is used to further secure a
+    <dt>
+        <code>-a, --aad</code>
+    </dt>
+    <dd>
+        The additional authentication data (AAD) that is used to further secure a
     key. If provided on wrap must be provided on unwrap.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-p, --plaintext</code>
-  </dt>
-  <dd>
-    The base64 encoded data encryption key (DEK) that you want to manage and
+    <dt>
+        <code>-p, --plaintext</code>
+    </dt>
+    <dd>
+        The base64 encoded data encryption key (DEK) that you want to manage and
     protect. To import an existing key, provide a 256-bit key. To generate and
     wrap a new DEK, omit the <code>--plaintext</code> parameter.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp unwrap
@@ -463,7 +463,7 @@ by using a root key that is stored in your
 
 ```sh
 ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
-                          [-a, --aad ADDITIONAL_DATA, ..]
+[-a, --aad ADDITIONAL_DATA, ..]
 ```
 {: pre}
 
@@ -471,65 +471,65 @@ ibmcloud kp unwrap KEY_ID CIPHERTEXT_FROM_WRAP -i $INSTANCE_ID
 {: #unwrap-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the root key that you used for the initial wrap request.
-  </dd>
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the root key that you used for the initial wrap request.
+    </dd>
 
-  <dt>
-    <code>CIPHERTEXT_FROM_WRAP</code></dt>
-  <dd>
-    The encrypted data key that was returned during the initial wrap operation.
-  </dd>
+    <dt>
+        <code>CIPHERTEXT_FROM_WRAP</code></dt>
+    <dd>
+        The encrypted data key that was returned during the initial wrap operation.
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #unwrap-opt-params}
 
 <dl>
-  <dt>
-    <code>-a, --aad</code>
-  </dt>
-  <dd>
-    <p>
-      The additional authentication data (AAD) that was used to further secure a
-      key. You can provide up to 255 strings, each delimited by a comma. If you
-      supplied AAD on wrap, you must specify the same AAD on unwrap.
+    <dt>
+        <code>-a, --aad</code>
+    </dt>
+    <dd>
+        <p>
+        The additional authentication data (AAD) that was used to further secure a
+        key. You can provide up to 255 strings, each delimited by a comma. If you
+        supplied AAD on wrap, you must specify the same AAD on unwrap.
     </p>
     <p>
-      <b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}}
-      service does not save additional authentication data. If you supply AAD,
-      save the data to a secure location to ensure that you can access and
-      provide the same AAD during subsequent unwrap requests.
+        <b>Important:</b> The {{site.data.keyword.keymanagementserviceshort}}
+        service does not save additional authentication data. If you supply AAD,
+        save the data to a secure location to ensure that you can access and
+        provide the same AAD during subsequent unwrap requests.
     </p>
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp rotate
@@ -540,7 +540,7 @@ stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```sh
 ibmcloud kp rotate KEY_ID -i $INSTANCE_ID
-                         [-k, --key-material KEY_MATERIAL]
+[-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
 
@@ -556,53 +556,53 @@ SUCCESS
 {: #rotate-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the root key that you want to rotate.
-  </dd>
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the root key that you want to rotate.
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #rotate-opt-params}
 
 <dl>
-  <dt>
-    <code>-k, --key-material</code>
-  </dt>
-  <dd>
-    The base64 encoded key material that you want to use for rotating an
+    <dt>
+        <code>-k, --key-material</code>
+    </dt>
+    <dd>
+        The base64 encoded key material that you want to use for rotating an
     existing root key. To rotate a key that was initially imported into the
     service, provide a new 256-bit key. To rotate a key that was initially
     generated in {{site.data.keyword.keymanagementserviceshort}}, omit the
     <code>--key-material</code> parameter.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp delete
@@ -631,32 +631,32 @@ Deleted Key
 {: #delete-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the key that you want to delete. To retrieve a list of your
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the key that you want to delete. To retrieve a list of your
     available keys, run the
     [kp list](#kp-list-039)
     command.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ## kp policy set
@@ -667,7 +667,7 @@ specify.
 
 ```sh
 ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
-                             [-p --policy INTERVAL]
+[-p --policy INTERVAL]
 ```
 {: pre}
 
@@ -675,61 +675,61 @@ ibmcloud kp policy set KEY_ID -i $INSTANCE_ID --set-type POLICY_TYPE
 {: #policy-set-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the key that you want to query. To retrieve a list of your
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the key that you want to query. To retrieve a list of your
     available keys, run the
     [kp list](#kp-list-039)
     command.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 
-  <dt>
-    <code>--set-type</code>
-  </dt>
-  <dd>
-    Specify the type of policy that you want to set. To set a rotation policy,
+    <dt>
+        <code>--set-type</code>
+    </dt>
+    <dd>
+        Specify the type of policy that you want to set. To set a rotation policy,
     use <code>--set-type rotation</code>.
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #policy-set-opt-params}
 
 <dl>
-  <dt>
-    <code>-p, --policy</code>
-  </dt>
-  <dd>
-    Specify the rotation time interval (in months) for a key. The default value
+    <dt>
+        <code>-p, --policy</code>
+    </dt>
+    <dd>
+        Specify the rotation time interval (in months) for a key. The default value
     is 1.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp policy get
@@ -747,45 +747,45 @@ ibmcloud kp policy get KEY_ID -i $INSTANCE_ID
 {: #policy-get-req-params}
 
 <dl>
-  <dt>
-    <code>KEY_ID</code>
-  </dt>
-  <dd>
-    The ID of the key that you want to query. To retrieve a list of your
+    <dt>
+        <code>KEY_ID</code>
+    </dt>
+    <dd>
+        The ID of the key that you want to query. To retrieve a list of your
     available keys, run the
     [kp list](#kp-list-039)
     command.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #policy-get-opt-params}
 
 <dl>
-  <dt>
-    <code>-o, --output</code>
-  </dt>
-  <dd>
-    Set the CLI output format. By default, all commands print in table format.
+    <dt>
+        <code>-o, --output</code>
+    </dt>
+    <dd>
+        Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use <code>--output json</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp import-token create
@@ -797,8 +797,8 @@ specify.
 
 ```sh
 ibmcloud kp import-token create -i $INSTANCE_ID
-                               [-e, --expiration=TIME_IN_SECONDS]
-                               [-m, --max-retrievals=USE_COUNT]
+[-e, --expiration=TIME_IN_SECONDS]
+[-m, --max-retrievals=USE_COUNT]
 ```
 {: pre}
 
@@ -815,52 +815,52 @@ Created                         Expires                         Max Retrievals  
 {: #import-token-create-req-params}
 
 <dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #import-token-create-opt-params}
 
 <dl>
-  <dt>
-    <code>-e, --expiration</code>
-  </dt>
-  <dd>
-    <p>
-      Specify an expiration time (in seconds) for an import token. This value
-      determines how long the import token and its associated public key remain
-      valid for operations.
+    <dt>
+        <code>-e, --expiration</code>
+    </dt>
+    <dd>
+        <p>
+        Specify an expiration time (in seconds) for an import token. This value
+        determines how long the import token and its associated public key remain
+        valid for operations.
     </p>
     <p>
-      The minimum value is <code>300</code> seconds (5 minutes), and the
-      maximum value is <code>86400</code> seconds (24 hours). The default value
-      is <code>600</code> seconds (10 minutes).
+        The minimum value is <code>300</code> seconds (5 minutes), and the
+        maximum value is <code>86400</code> seconds (24 hours). The default value
+        is <code>600</code> seconds (10 minutes).
     </p>
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-m, --max-retrievals</code>
-  </dt>
-  <dd>
-    Set the use count for the import token. This value determines the number of
+    <dt>
+        <code>-m, --max-retrievals</code>
+    </dt>
+    <dd>
+        Set the use count for the import token. This value determines the number of
     times that the import token can be retrieved within its expiration time
     before it is no longer accessible. The default value is <code>1</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp import-token get
@@ -885,8 +885,8 @@ $ ibmcloud kp import-token get -i $INSTANCE_ID
 SUCCESS
 
 {
-  "nonce": "EE1sUNE4BZCTU3q/",
-  "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv"
+    "nonce": "EE1sUNE4BZCTU3q/",
+    "payload": "Rm91ciBzY29yZSBhbmQgc2V2ZW4geWVhcnMgYWdv"
 }
 ```
 {: screen}
@@ -895,22 +895,22 @@ SUCCESS
 {: #import-token-get-req-params}
 
 <dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ## kp import-token encrypt-nonce
@@ -941,44 +941,44 @@ sw2Bdq2NT9yEjkf6H+4JHtDhciZMJKhxoH9jeA==   OLro3ZmEbaFTCpT+
 {: #encrypt-nonce-req-params}
 
 <dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #encrypt-nonce-opt-params}
 
 <dl>
-  <dt>
-    <code>-k, --key</code>
-  </dt>
-  <dd>
-    The base64 encoded key material that you want to store and manage in the
+    <dt>
+        <code>-k, --key</code>
+    </dt>
+    <dd>
+        The base64 encoded key material that you want to store and manage in the
     service.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-n, --nonce</code>
-  </dt>
-  <dd>
-    The nonce that was distributed by
+    <dt>
+        <code>-n, --nonce</code>
+    </dt>
+    <dd>
+        The nonce that was distributed by
     {{site.data.keyword.keymanagementserviceshort}}. The value is base64
     encoded. To retrieve a nonce, use <code>ibmcloud kp import-token get</code>.
-  </dd>
+    </dd>
 </dl>
 
 ## kp import-token encrypt-key
@@ -1010,42 +1010,44 @@ Ic6OH8dhjnqoMzBvItxS3wlyiziIs2C9U+...
 {: #encrypt-key-req-params}
 
 <dl>
-  <dt>
-    <code>-i, --instance-id</code>
-  </dt>
-  <dd>
-    <p>
-      The {{site.data.keyword.cloud_notm}} instance ID that identifies your
-      {{site.data.keyword.keymanagementserviceshort}} instance.
+    <dt>
+        <code>-i, --instance-id</code>
+    </dt>
+    <dd>
+        <p>
+        The {{site.data.keyword.cloud_notm}} instance ID that identifies your
+        {{site.data.keyword.keymanagementserviceshort}} instance.
     </p>
     <p>
-      You can set an environment variable instead of specifying <code>-i</code>
-      with the following command.
+        You can set an environment variable instead of specifying <code>-i</code>
+        with the following command.
     </p>
     <p>
-      <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
+        <code>$ export KP_INSTANCE_ID=INSTANCE_ID</code>
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Optional parameters
 {: #encrypt-key-opt-params}
 
 <dl>
-  <dt>
-    <code>-k, --key</code>
-  </dt>
-  <dd>
-    The base64 encoded key material that you want to store and manage in the
+    <dt>
+        <code>-k, --key</code>
+    </dt>
+    <dd>
+        The base64 encoded key material that you want to store and manage in the
     service.
-  </dd>
+    </dd>
 
-  <dt>
-    <code>-p, --pubkey</code>
-  </dt>
-  <dd>
-    The base64 encoded public encryption key that was distributed by
+    <dt>
+        <code>-p, --pubkey</code>
+    </dt>
+    <dd>
+        The base64 encoded public encryption key that was distributed by
     {{site.data.keyword.keymanagementserviceshort}}. To retrieve a public key,
     use <code>ibmcloud kp import-token get</code>.
-  </dd>
+    </dd>
 </dl>
+
+

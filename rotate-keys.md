@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-08-16"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -54,7 +54,7 @@ options in {{site.data.keyword.keymanagementserviceshort}}, check out
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the application details page, use the **Keys** table to browse the keys in your service. If you have many keys, you can narrow your search by using the search bars to only search for enabled keys (since other kinds of keys cannot be rotated), keys in a particular key ring, and keys with a particular alias.
 
@@ -91,7 +91,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
     dashboard.
 
 3. Replace the key with new key material by running the following `curl`
-   command.
+    command.
 
     ```sh
     $ curl -X POST \
@@ -220,13 +220,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rotate
 3. [Create and retrieve an import token](/docs/key-protect?topic=key-protect-create-import-tokens).
 
 4. Use the import token to encrypt the key material that you want to use to
-   rotate the existing key.
+    rotate the existing key.
 
     To learn how to use an import token, check out
     [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 5. Replace the existing key with new key material by running the following
-   `curl` command.
+    `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -290,3 +290,5 @@ You can also list the versions that are available for the key by using the
 {{site.data.keyword.keymanagementserviceshort}} API. To learn more, see
 [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
 {: tip}
+
+

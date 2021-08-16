@@ -80,20 +80,20 @@ for each secion.
 
 - Request
 
-  - **API parameter:** where the parameter is specified (path, query parameter,
-    head, or body) and the parameter name
-  - **API required:** `req`, if the API requires the parameter
-  - **CLI parameter:** the CLI parameter or the optional parameter
-  - **CLI required:** `req`, if the CLI requires the parameter
+    - **API parameter:** where the parameter is specified (path, query parameter,
+        head, or body) and the parameter name
+    - **API required:** `req`, if the API requires the parameter
+    - **CLI parameter:** the CLI parameter or the optional parameter
+    - **CLI required:** `req`, if the CLI requires the parameter
 
 - Response
 
-  - **API JSON:** the key name in the API JSON response
-  - **API opt:** `opt`, if the element is optional, or maybe, if the state is
-    unknown
-  - **CLI text:** an identifiable label in the text response
-  - **CLI JSON:** the key name in the CLI JSON response
-  - **CLI opt:** `opt`, if the element is optional
+    - **API JSON:** the key name in the API JSON response
+    - **API opt:** `opt`, if the element is optional, or maybe, if the state is
+        unknown
+    - **CLI text:** an identifiable label in the text response
+    - **CLI JSON:** the key name in the CLI JSON response
+    - **CLI opt:** `opt`, if the element is optional
 
 ## Import tokens
 {: #api-cli-import-tokens}
@@ -321,11 +321,11 @@ specified.
 Extractable determines whether the key material can leave the service.
 
 - If set to false, {{site.data.keyword.keymanagementserviceshort}} designates
-  the key as a nonextractable root key used for wrap and unwrap actions.
+    the key as a nonextractable root key used for wrap and unwrap actions.
 
 - If set to true, {{site.data.keyword.keymanagementserviceshort}} designates the
-  key as a standard key that you can store in your apps and services. Once set
-  to false it cannot be changed to true.
+    key as a standard key that you can store in your apps and services. Once set
+    to false it cannot be changed to true.
 
 A successful POST /keys operation adds the key to the service and returns the
 details of the request in the response entity-body, if the `prefer` header is
@@ -343,7 +343,7 @@ CLI: `kp key create`
 There are three variations for creating a key.
 
 1. Allow {{site.data.keyword.keymanagementserviceshort}} to create a key
-   material on your behalf
+    material on your behalf
 2. Specify a base64-encoded key material
 3. Specify a base64-encoded encrypted key material; this uses an `import token`
 
@@ -681,7 +681,7 @@ There are two forms of restore:
 1. Use the key material that was used to create the key
 
 2. Use an import token for keys that were imported into
-   {{site.data.keyword.keymanagementserviceshort}}
+    {{site.data.keyword.keymanagementserviceshort}}
 
 API: `POST /api/v2/keys/{id}/restore`
 
@@ -1531,3 +1531,5 @@ CLI: `kp registrations`
 | registrationMetadata    |         |          |                         |         |
 | resourceCrn             |         |          | resourceCrn             |         |
 | updatedBy               |         |          |                         |         |
+
+

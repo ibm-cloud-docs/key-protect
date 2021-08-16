@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect integration, integrate COS with Key Protect, encrypt COS bucket
 
@@ -112,16 +112,16 @@ exists between your {{site.data.keyword.cos_full_notm}} and
 To add envelope encryption to your storage bucket:
 
 1. From your {{site.data.keyword.cos_full_notm}} dashboard, click
-   **Create bucket**.
+    **Create bucket**.
 
 2. Specify the bucket's details.
 
 3. In the **Advanced Configuration** section, select
-   **Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
+    **Add {{site.data.keyword.keymanagementserviceshort}} Keys**.
 
 4. From the list of {{site.data.keyword.keymanagementserviceshort}} service
-   instances, select the instance that contains the root key that you want to
-   use for key wrapping.
+    instances, select the instance that contains the root key that you want to
+    use for key wrapping.
 
 5. For **Key Name**, select the alias of the root key.
 
@@ -137,3 +137,5 @@ key.
 - For more information about associating your storage buckets with
 {{site.data.keyword.keymanagementserviceshort}} keys, see
 [Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.
+
+

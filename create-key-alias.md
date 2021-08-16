@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: key alias, alias, key reference
 
@@ -28,10 +28,12 @@ subcollection: key-protect
 
 You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
+
 {: api}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} console.
 {: shortdesc}
+
 {: ui}
 
 Key aliases are unique human-readable names that are references to a key that allows it to be identified and grouped beyond the limits of a display name. Aliases enable your service to refer to a key by recognizable custom names, rather than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} service. For example, if you create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and it is aliased as `US-South-Test-Key`, you can use the `US-South-Test-Key` alias to refer to your key when you make calls to the {{site.data.keyword.keymanagementserviceshort}} api to [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata). The alias can also be used to organize keys in the {{site.data.keyword.keymanagementserviceshort}} console.
@@ -63,11 +65,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-   To create a key alias, you must be assigned a _Manager_ or _Writer_
-   service access role. To learn how IAM roles map to
-   {{site.data.keyword.keymanagementserviceshort}} service actions, check out
-   [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
-   {: note}
+    To create a key alias, you must be assigned a _Manager_ or _Writer_
+    service access role. To learn how IAM roles map to
+    {{site.data.keyword.keymanagementserviceshort}} service actions, check out
+    [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
+    {: note}
 
 2. Create a key alias by running the following `curl` command.
 
@@ -184,22 +186,22 @@ It takes up to five minutes for an alias to be completely deleted from the servi
 Below are additional details about key aliases:
 
 - **An alias is independent from a key.**
-  An alias is it's own resource and any actions taken on it will not affect the
-  associated key. For example, deleting an alias will not delete the associated
-  key.
+    An alias is it's own resource and any actions taken on it will not affect the
+    associated key. For example, deleting an alias will not delete the associated
+    key.
 
 - **An alias can only be associated with one key at a time.**
-  An alias can only be associated with one key that is located in the same
-  instance and region. If you would like to change the key that the alias is
-  associated with, you will need to delete the alias, wait up to five minutes,
-  then recreate the alias and map it to necessary key.
+    An alias can only be associated with one key that is located in the same
+    instance and region. If you would like to change the key that the alias is
+    associated with, you will need to delete the alias, wait up to five minutes,
+    then recreate the alias and map it to necessary key.
 
 - **You can create an alias with the same name in a different instance or region.**
-  Each alias will be associated with a different key in each instance or region.
-  This enables your service's application code to be reusable in different
-  instances or regions. For example, if you have an alias named
-  `Application Key` in both the US-South and US-East regions, with each linked
-  to a different key.
+    Each alias will be associated with a different key in each instance or region.
+    This enables your service's application code to be reusable in different
+    instances or regions. For example, if you have an alias named
+    `Application Key` in both the US-South and US-East regions, with each linked
+    to a different key.
 
 ## APIs that use key alias
 {: #key-alias-apis}
@@ -215,3 +217,5 @@ alias.
 | [Retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) | You can retrieve a key by ID or alias. |
 | [View key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata) | You can retrieve the metadata of a key by ID or alias. |
 {: caption="Table 3. Describes the variables that are APIs that use key alias." caption-side="top"}
+
+

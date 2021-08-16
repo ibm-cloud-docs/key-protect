@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -28,10 +28,12 @@ subcollection: key-protect
 
 You can add your existing encryption keys by using the {{site.data.keyword.cloud_notm}} console.
 {: shortdesc}
+
 {: ui}
 
 You can add your existing encryption keys programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
+
 {: api}
 
 ## Importing standard keys with the console
@@ -50,7 +52,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. To import a new key, click **Add key** and select the **Import your own key**
-   window.
+    window.
 
     Specify the key's details:
 
@@ -168,7 +170,7 @@ When importing an existing standard key, it is required to include the encrypted
 Use this process to encrypt the contents of a file. For example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}.
 
 1. Download and install
-   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Base64-encode your key material string by running the following command:
 
@@ -201,7 +203,7 @@ You would create a 16-, 24-, or 32-byte key material, for use as a standard key,
 {: note}
 
 1. Download and install
-   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Base64-encode your key material string by running the following command:
 
@@ -231,3 +233,5 @@ You would create a 16-, 24-, or 32-byte key material, for use as a standard key,
 {: #import-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

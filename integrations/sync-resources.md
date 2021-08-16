@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: sync resources, sync registrations, key registration, KYOK, BYOK
 
@@ -68,7 +68,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
 1. [Retrieve your authentication credentials to work with the API](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Initiate a manual data synchronization request by running the
-   following `curl` command.
+    following `curl` command.
 
     ```sh
     $ curl -X POST \
@@ -99,3 +99,5 @@ notification to the associated cloud services of the key. If you send a request 
 the key has been synced or a key lifecycle action has been taken within the past hour,
 the API will return a `409 Conflict` response.
 {: note}
+
+

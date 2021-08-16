@@ -34,16 +34,16 @@ they are there for your awareness. The important thing to know is that if your
 service addresses each concept, you will have enabled BYOK appropriately.
 
 - You must have a basic understanding of IAM concepts, such as
-  [granting service to service access](/docs/get-coding?topic=get-coding-servicetoservice){: external}.
+    [granting service to service access](/docs/get-coding?topic=get-coding-servicetoservice){: external}.
 
 - You must have a basic understanding of the
-  [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) process.
+    [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) process.
 
 - You must have a basic understanding of how the platform uses
-  [Global Search and Tagging (GhoST)](/docs/get-coding?topic=get-coding-ghost_overview){: external}.
+    [Global Search and Tagging (GhoST)](/docs/get-coding?topic=get-coding-ghost_overview){: external}.
 
 - You must have a basic understanding of
-  [key registration](/docs/key-protect?topic=key-protect-register-protected-resources).
+    [key registration](/docs/key-protect?topic=key-protect-register-protected-resources).
 
 ## Required actions
 {: #byok-required-actions}
@@ -55,10 +55,10 @@ BYOK ready.
 
 | Actions                                                                                                                                        | Steps |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| [Onboard your service to {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-onboard-service)                 | <ol><li>[Submit a request to onboard your service](/docs/key-protect?topic=key-protect-onboard-service#submit-request)</li><li>[Create a CRN token](/docs/key-protect?topic=key-protect-onboard-service#submit-request)</li><li>[Discover KMS instances](/docs/key-protect?topic=key-protect-onboard-service#discover-kms-instances)</li></ol> |
-| [Set up the {{site.data.keyword.keymanagementserviceshort}} APIs](/docs/key-protect?topic=key-protect-configure-api)                           | <ol><li>[Create a test instance](/docs/key-protect?topic=key-protect-configure-api#configure-provision-service)</li><li>[Create a root key](/docs/key-protect?topic=key-protect-configure-api#create-root)</li><li>[Wrap a data encryption key](/docs/key-protect?topic=key-protect-configure-api#wrap-key)</li><li>[Unwrap the data encryption key](/docs/key-protect?topic=key-protect-configure-api#unwrap-key)</li></ol> |
-| [Map cloud resources to a root key](/docs/key-protect?topic=key-protect-register-protected-resources)                                          | <ol><li>[Register cloud resources](/docs/key-protect?topic=key-protect-register-protected-resources#create-registration)</li><li>[De-register cloud resources](/docs/key-protect?topic=key-protect-register-protected-resources#delete-registration)</li></ol> |
-| [Onboard your service to Hyperwarp](https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md){: external} | <ol><li>[Submit a request to BSS to onboard your service](https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md#details){: external}</li><li>[Determine if your service will need a regional or global subscription](https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md#regional-vs-global-subscription){: external}</li><li>[Submit a Hyperwarp Integration request with {{site.data.keyword.keymanagementserviceshort}}](https://github.ibm.com/kms/customer-issues/blob/master/.github/ISSUE_TEMPLATE/hyperwarp-integration-onboard-request.md){: external}</li></ol> |
+| [Onboard your service to {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-onboard-service)                 | <ol><li><a href="/docs/key-protect?topic=key-protect-onboard-service#submit-request">Submit a request to onboard your service</a></li><li><a href="/docs/key-protect?topic=key-protect-onboard-service#submit-request">Create a CRN token</a></li><li><a href="/docs/key-protect?topic=key-protect-onboard-service#discover-kms-instances">Discover KMS instances</a></li></ol> |
+| [Set up the {{site.data.keyword.keymanagementserviceshort}} APIs](/docs/key-protect?topic=key-protect-configure-api)                           | <ol><li><a href="/docs/key-protect?topic=key-protect-configure-api#configure-provision-service">Create a test instance</a></li><li><a href="/docs/key-protect?topic=key-protect-configure-api#create-root">Create a root key</a></li><li><a href="/docs/key-protect?topic=key-protect-configure-api#wrap-key">Wrap a data encryption key</a></li><li><a href="/docs/key-protect?topic=key-protect-configure-api#unwrap-key">Unwrap the data encryption key</a></li></ol> |
+| [Map cloud resources to a root key](/docs/key-protect?topic=key-protect-register-protected-resources)                                          | <ol><li><a href="/docs/key-protect?topic=key-protect-register-protected-resources#create-registration">Register cloud resources</a></li><li><a href="/docs/key-protect?topic=key-protect-register-protected-resources#delete-registration">De-register cloud resources</a></li></ol> |
+| [Onboard your service to Hyperwarp](https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md){: external} | <ol><li><a href="https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md#details">Submit a request to BSS to onboard your service</a> <img src="../icons/launch-glyph.svg" alt="External link icon"></li><li><a href="https://github.ibm.com/kms/BYOK_Adopter_services/blob/master/How_to_subscribe_to_hyperwarp.md#regional-vs-global-subscription">Determine if your service will need a regional or global subscription</a> <img src="../icons/launch-glyph.svg" alt="External link icon"></li><li><a href="https://github.ibm.com/kms/customer-issues/blob/master/.github/ISSUE_TEMPLATE/hyperwarp-integration-onboard-request.md">Submit a Hyperwarp Integration request with {{site.data.keyword.keymanagementserviceshort}}</a> <img src="../icons/launch-glyph.svg" alt="External link icon"></li></ol> |
 
 ## Features
 {: #byok-features}
@@ -171,3 +171,5 @@ encryption key and you have the key cached, you can continue using the DEK up to
 4 hours after it was last refreshed (unwrapped via the KMS). If after 4 hours,
 you still cannot contact {{site.data.keyword.keymanagementserviceshort}}, your
 service MUST throw away the cached DEK and refuse to decrypt customer data.
+
+

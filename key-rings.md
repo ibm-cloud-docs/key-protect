@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: key rings, group keys, manage key groups
 
@@ -60,16 +60,16 @@ Before you create a key ring for your
 following considerations:
 
 - **Every {{site.data.keyword.keymanagementserviceshort}} instance comes with a default key ring.**
-  Each newly created {{site.data.keyword.keymanagementserviceshort}} instance comes with
-  a generated key ring with an ID of `default`. All keys that are not associated
-  with an otherwise specified key ring exists within the default key ring.
+    Each newly created {{site.data.keyword.keymanagementserviceshort}} instance comes with
+    a generated key ring with an ID of `default`. All keys that are not associated
+    with an otherwise specified key ring exists within the default key ring.
 
 - **Key rings can hold standard and root keys.**
-  Key rings can contain both standard and root keys. There is not a limit on how
-  many keys can exist within a key ring.
+    Key rings can contain both standard and root keys. There is not a limit on how
+    many keys can exist within a key ring.
 
 - **A key can only be a part of one key ring at a time.**
-  A key can only be a part of one key ring. Key ring assignment happens upon key creation. If a key ring id is not passed in upon creation, the key will be a part of the `default` key ring.
+    A key can only be a part of one key ring. Key ring assignment happens upon key creation. If a key ring id is not passed in upon creation, the key will be a part of the `default` key ring.
 
 The maximum amount of key rings is 50 per service instance.
 {: note}
@@ -176,16 +176,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     ```sh
     $ curl -X PATCH \
-      https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
-      -H 'accept: application/vnd.ibm.kms.key+json' \
-      -H 'authorization: Bearer <IAM_token>' \
-      -H 'bluemix-instance: <instance_ID>' \
-      -H 'content-type: application/vnd.ibm.kms.key+json' \
-      -H "x-kms-key-ring: <original_key_ring_ID>" \
-      -H "correlation-id: <correlation_ID>" \
-      -d '{
+        https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
+        -H 'accept: application/vnd.ibm.kms.key+json' \
+        -H 'authorization: Bearer <IAM_token>' \
+        -H 'bluemix-instance: <instance_ID>' \
+        -H 'content-type: application/vnd.ibm.kms.key+json' \
+        -H "x-kms-key-ring: <original_key_ring_ID>" \
+        -H "correlation-id: <correlation_ID>" \
+        -d '{
         "keyRingID": "<new_key_ring_ID>"
-      }'
+        }'
     ```
     {: codeblock}
 
@@ -260,10 +260,10 @@ Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access
 To assign access to a key ring with the console:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-   **Users** to browse the existing users in your account.
+    **Users** to browse the existing users in your account.
 
 2. Select a table row, and click the ⋯ icon to open a list of options for that
-   user.
+    user.
 
 3. From the options menu, click **Assign access**.
 
@@ -272,18 +272,18 @@ To assign access to a key ring with the console:
 5. Click the **IAM services** button.
 
 6. From the list of services, select
-   **{{site.data.keyword.keymanagementserviceshort}}**.
+    **{{site.data.keyword.keymanagementserviceshort}}**.
 
 7. Select **Services based on attributes**.
 
 8. Select the **Instance ID** attribute and select the instance in which the key
-   ring resides.
+    ring resides.
 
 9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-   to assign access for the user.
+    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
+    to assign access for the user.
 
 9. Click **Add**.
 
@@ -310,7 +310,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. View general characteristics about your key rings by running the following
-   `curl` command.
+    `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -403,3 +403,5 @@ of key state (including keys in the _Destroyed_ state).
 
 A successful request returns an HTTP `204 No Content` response, which
 indicates that the key ring was successfully deleted.
+
+

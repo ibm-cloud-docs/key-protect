@@ -129,12 +129,12 @@ $ curl -X POST \
             },
             "resources": [
                 {
-                      "eventId": "<event_ID>",
-                      "adopterKeyState": "<key_state>",
-                      "timestamp": "<time_stamp>",
-                      "keyStateData": {
-                          "rewrappedKeyVersion": "<key_version>"
-                      }
+"eventId": "<event_ID>",
+"adopterKeyState": "<key_state>",
+"timestamp": "<time_stamp>",
+"keyStateData": {
+"rewrappedKeyVersion": "<key_version>"
+}
                 }
             ]
         }'
@@ -168,4 +168,6 @@ For audit purposes, you can monitor the activity trail of a deleted root key. Th
 Congratulations! Your service is Crypto Erasure ready! 
 
 - Validate that your service is
-  [BYOK ready](/docs/key-protect?topic=key-protect-byok-cheatsheet#byok-required-actions)
+    [BYOK ready](/docs/key-protect?topic=key-protect-byok-cheatsheet#byok-required-actions)
+
+

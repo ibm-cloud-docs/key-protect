@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -91,7 +91,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Retrieve the rotation policy for a specified key by running the following
-   `curl` command.
+    `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -158,7 +158,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Create a rotation policy for a specified key by running the following `curl`
-   command.
+    command.
 
     ```sh
     $ curl -X PUT \
@@ -238,7 +238,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 1. [Retrieve your service and authentication credentials](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Replace the rotation policy for a specified key by running the following
-   `curl` command.
+    `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -307,3 +307,5 @@ The `interval_month` and `updatedat` values are updated in the policy
 details for the key. If a different user updates a policy for a key that you
 created initially, the `updatedby` value also changes to show the identifier
 for the person who sent the request.
+
+

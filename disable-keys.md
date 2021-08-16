@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -110,16 +110,16 @@ complete the following steps to disable a key:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the application details page, use the **Keys** table to browse the keys in
-   your {{site.data.keyword.keymanagementserviceshort}} instance.
+    your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 5. Click the ⋯ icon to open a list of options for the key that you want to
-   disable.
+    disable.
 
 6. From the options menu, click **Disable key** and confirm the key was disabled
-   in the updated **Keys** table.
+    in the updated **Keys** table.
 
 ### Enabling a root key in the console
 {: #enable-ui}
@@ -133,13 +133,13 @@ complete the following steps to enable the key:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the application details page, use the **Keys** table to browse the keys in
-   your service.
+    your service.
 
 5. Click the ⋯ icon to open a list of options for the key that you want to
-   enable.
+    enable.
 
 6. From the options menu, click **Enable key** and confirm the key was enabled in the updated **Keys** table.
 
@@ -177,7 +177,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following `curl` command to disable the root key and suspend its
-   encrypt and decrypt operations.
+    encrypt and decrypt operations.
 
     ```sh
     $ curl -X POST \
@@ -299,7 +299,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following `curl` command to enable the root key and restore its
-   encrypt and decrypt operations.
+    encrypt and decrypt operations.
 
     You must wait 30 seconds after disabling a root key before you are able to
     enable it again.
@@ -398,3 +398,5 @@ NIST SP 800-57.
 }
 ```
 {: screen}
+
+

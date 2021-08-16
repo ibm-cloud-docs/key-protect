@@ -47,30 +47,30 @@ When you register cloud resources with
 {: #plan-for-registration}
 
 <dl>
-  <dt>
-    Registering new resources
-  </dt>
-  <dd>
-    When your customers create a new resource, such as a Cloud Object Storage
+    <dt>
+        Registering new resources
+    </dt>
+    <dd>
+        When your customers create a new resource, such as a Cloud Object Storage
     bucket, they can choose to encrypt the resource with an existing BYOK key.
     At resource creation, your service must
     [create a registration](#create-registration)
     between the new
     resource and the {{site.data.keyword.keymanagementserviceshort}} key.
-  </dd>
+    </dd>
 
-  <dt>
-    Registering existing resources
-  </dt>
-  <dd>
-    If your service is already integrated with
+    <dt>
+        Registering existing resources
+    </dt>
+    <dd>
+        If your service is already integrated with
     {{site.data.keyword.keymanagementserviceshort}} for Bring Your Own Key
     (BYOK), your service must
     [register existing resources](#register-existing-resources)
     retroactively. When your service registers all existing resources, customers
     can see a full view of the cloud resources that are already protected by
     {{site.data.keyword.keymanagementserviceshort}} keys.
-  </dd>
+    </dd>
 </dl>
 
 ## Registering resources
@@ -231,18 +231,18 @@ associates your resource to the data. Identify all the affected resources, and
 gather the following information:
 
 - The Cloud Resource Name (CRN) of the resource that is protected (for example,
-  a Cloud Object Storage bucket, or a Kubernetes Service cluster).
+    a Cloud Object Storage bucket, or a Kubernetes Service cluster).
 
 - The description of the protected resource using a string provided by the
-  customer that is meaningful in the context of your service. Maybe that's the
-  description, the name, or an ID, but provide that string so that when your
-  customer sees it, they can quickly understand what it means.
+    customer that is meaningful in the context of your service. Maybe that's the
+    description, the name, or an ID, but provide that string so that when your
+    customer sees it, they can quickly understand what it means.
 
 - Information about the root key, which can be found in the root key's CRN
-  - The {{site.data.keyword.keymanagementserviceshort}} instance GUID that
-    contains the root key
+    - The {{site.data.keyword.keymanagementserviceshort}} instance GUID that
+        contains the root key
 
-  - The root key ID
+    - The root key ID
 
 ### Step 2. Create a registration for each protected resource
 {: #create-registration-existing-resource}
@@ -315,4 +315,6 @@ key state.
 You've added a foundational capability that we can now build upon!
 
 - Head over to
-  [DEK rewrapping](/docs/key-protect?topic=key-protect-dek-rewrap)
+    [DEK rewrapping](/docs/key-protect?topic=key-protect-dek-rewrap)
+
+

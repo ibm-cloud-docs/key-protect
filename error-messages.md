@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect, error messages, error codes
 
@@ -39,34 +39,34 @@ message is passed from another system, such as IAM, to
 The table of contents is sorted by the error message.
 
 - This list
-  [sorts the error messages by HTTP status code](#error-messages-sorted-by-http-status-code)
+    [sorts the error messages by HTTP status code](#error-messages-sorted-by-http-status-code)
 
 - This list
-  [sorts the error messages by reason code](#error-messages-sorted-by-reason-code)
+    [sorts the error messages by reason code](#error-messages-sorted-by-reason-code)
 
 Some error messages occur more than once, in those cases the HTTP status code is
 included at the end of the error message.
 
-1. 	Collection total does not match number...
-  	[details](#error-messages-collection-total-mismatch-err)
-2. 	Data in body does not match data required...
-  	[details](#error-messages-body-query-param-mismatch-err)
-3. 	Extracting the subject from the bearer...
-  	[details](#error-messages-bearer-sub-extraction-err)
-4. 	Invalid body data was passed...
-  	[details](#error-messages-bad-body-err)
-5. 	Invalid field error...
-	  [details](#error-messages-invalid-field-err)
-6.	Key could not be deleted...
-	 [details](#error-messages-key-delete-err)
+1.    Collection total does not match number...
+        [details](#error-messages-collection-total-mismatch-err)
+2.    Data in body does not match data required...
+        [details](#error-messages-body-query-param-mismatch-err)
+3.    Extracting the subject from the bearer...
+        [details](#error-messages-bearer-sub-extraction-err)
+4.    Invalid body data was passed...
+        [details](#error-messages-bad-body-err)
+5.    Invalid field error...
+        [details](#error-messages-invalid-field-err)
+6.   Key could not be deleted...
+        [details](#error-messages-key-delete-err)
 7. Key has already been deleted...
     [details](#error-messages-key-deleted-err)
 8. Key is not in a valid state (409)
-  	[details](#error-messages-key-action-invalid-state-err)
+        [details](#error-messages-key-action-invalid-state-err)
 9. Key is not in a valid state (422)
-  	[details](#error-messages-key-invalid-state-err)
+        [details](#error-messages-key-invalid-state-err)
 10. Key is protecting one or more cloud...
-	  [details](#error-messages-protected-resource-err)
+        [details](#error-messages-protected-resource-err)
 11. Key metadata became corrupted...
     [details](#error-messages-incomplete-metadata-err)
 12. Key restoration has expired
@@ -118,7 +118,7 @@ included at the end of the error message.
 35. This root key was created with user-supplied...
     [details](#error-messages-key-payload-req-err)
 36. Unauthorized: The user does not have...
-	  [details](#error-messages-unauthorized-err)
+        [details](#error-messages-unauthorized-err)
 
 ## 1 - Collection total does not match number...
 {: #error-messages-collection-total-mismatch-err}
@@ -389,14 +389,14 @@ The client should not repeat this request without modification.
 Some examples of this error are:
 
 - Create an instance policy
-  - Only one of each policy can be created
-  - No `resources` section was provided
-  - Extraneous fields in the `resources` section (see example 1)
+    - Only one of each policy can be created
+    - No `resources` section was provided
+    - Extraneous fields in the `resources` section (see example 1)
 
 - Create a key
-  - One resource is required (see example 2)
-  - Metadata is empty (see example 3)
-  - Key has zero value or it's empty
+    - One resource is required (see example 2)
+    - Metadata is empty (see example 3)
+    - Key has zero value or it's empty
 
 #### Example 1
 {: #error-messages-bad-body-err-context-example-1}
@@ -888,11 +888,11 @@ is not valid.
 Some actions to consider:
 
 - The key state must be active (state value is 1) to wrap, unwrap, rotate, set
-  key for deletion (dual auth), unset key for deleteion (dual auth), or disable
-  the key
+    key for deletion (dual auth), unset key for deleteion (dual auth), or disable
+    the key
 
 - This error occurs when you try to enable an expired key (state value is 3) or
-  restore a key that has been destroyed (state value is 5)
+    restore a key that has been destroyed (state value is 5)
 
 #### Example 1
 {: #error-messages-key-action-invalid-state-err-context-example-1}
@@ -1500,10 +1500,10 @@ The following steps return a `missing body in request` error.
 3. Wrap the DEK with the root key, this creates a `ciphertext`
 
 4. Request **fails** to unwrap the new ciphertext to reveal the original DEK
-   (plaintext) because of a missing body
+    (plaintext) because of a missing body
 
 5. Request **succeeds** to unwrap the new ciphertext to reveal the original DEK
-   (plaintext) because the body is specified
+    (plaintext) because the body is specified
 
 ```sh
 # step 1 - create a root key
@@ -1571,7 +1571,7 @@ $ curl -X POST \
     -H "bluemix-instance: $KP_INSTANCE_ID" \
     -H "content-type: application/vnd.ibm.kms.key_action+json" \
     -d '{
-           "ciphertext": "'$CIPHERTEXT'"
+            "ciphertext": "'$CIPHERTEXT'"
         }'
 ```
 {: codeblock}
@@ -1629,7 +1629,7 @@ These steps illustrate how to create the error message.
 3. List the policies (verify dual authorization is enabled)
 
 4. Delete the key, which **fails** because not enough authorizations are met to
-   delete the key
+    delete the key
 
 ```sh
 # step 1 - create a root key
@@ -2172,7 +2172,7 @@ The following steps will create this error.
 5. Delete the key
 
 6. Restore the key, which **fails** because you cannot restore a deleted key
-   after the expiration date
+    after the expiration date
 
 ```sh
 # step 1 - create a key material (payload) and an expiration date
@@ -3364,7 +3364,7 @@ $ curl -X PUT \
                         "enabled": true,
                         "attributes": {
                             "allowed_ip": [
-                                "65.128.226.252/24"
+"65.128.226.252/24"
                             ]
                         }
                     }
@@ -3411,142 +3411,142 @@ These are the error messages, sorted the the HTTP status code.
 {: #error-messages-http-400}
 
 - Collection total does not match number of resources -
-  [details](#error-messages-collection-total-mismatch-err)
+    [details](#error-messages-collection-total-mismatch-err)
 
 - Data in body does not match data required by query parameter -
-  [details](#error-messages-body-query-param-mismatch-err)
+    [details](#error-messages-body-query-param-mismatch-err)
 
 - Extracting the subject from the bearer token failed: Make sure the bearer
-  token passed is the correct one (and correct format) and is allowed to perform
-  requested actions -
-  [details](#error-messages-bearer-sub-extraction-err)
+    token passed is the correct one (and correct format) and is allowed to perform
+    requested actions -
+    [details](#error-messages-bearer-sub-extraction-err)
 
 - Invalid body data was passed: Please ensure the data passed had valid
-  formatting with no invalid characters -
-  [details](#error-messages-bad-body-err)
+    formatting with no invalid characters -
+    [details](#error-messages-bad-body-err)
 
 - Invalid field error: for wrap `The field 'plaintext' must be: a base64
-	encoded key material` if invalid plaintext is passed in the request; and `The
-	field 'ciphertext' must be: the original base64 encoded ciphertext from the
-	wrap operation` for unwrap if invalid ciphertext is passed. -
-  [details](#error-messages-invalid-field-err)
+    encoded key material` if invalid plaintext is passed in the request; and `The
+    field 'ciphertext' must be: the original base64 encoded ciphertext from the
+    wrap operation` for unwrap if invalid ciphertext is passed. -
+    [details](#error-messages-invalid-field-err)
 
 - Key restoration has expired -
-  [details](#error-messages-key-restore-expired)
+    [details](#error-messages-key-restore-expired)
 
 - Missing body in request -
-  [details](#error-messages-no-body-err)
+    [details](#error-messages-no-body-err)
 
 - Only a single instance policy may be created per query parameter: Please pass
-  single resource object -
-  [details](#error-messages-num-collection-resource-err)
+    single resource object -
+    [details](#error-messages-num-collection-resource-err)
 
 - Only imported keys may be restored -
-  [details](#error-messages-key-impt-req-err)
+    [details](#error-messages-key-impt-req-err)
 
 - Requested action can only be completed with a root key -
-  [details](#error-messages-key-root-req-err)
+    [details](#error-messages-key-root-req-err)
 
 - The action could not be performed on the key because the key is expired -
-  [details](#error-messages-key-expired-err)
+    [details](#error-messages-key-expired-err)
 
 - The encrypted nonce given does not match existing record: Please ensure the
-  correct nonce was given in the request -
-  [details](#error-messages-incorrect-nonce-err)
+    correct nonce was given in the request -
+    [details](#error-messages-incorrect-nonce-err)
 
 - The provided encrypted nonce was not encrypted with the key material given OR
-  the provided IV does not match the encrypted nonce -
-  [details](#error-messages-incorrect-nonce-iv-err)
+    the provided IV does not match the encrypted nonce -
+    [details](#error-messages-incorrect-nonce-iv-err)
 
 - This root key was created with user-supplied key material: Key material is
-  required to perform a 'rotate' action -
-  [details](#error-messages-key-payload-req-err)
+    required to perform a 'rotate' action -
+    [details](#error-messages-key-payload-req-err)
 
 ### HTTP 401 - Unauthorized
 {: #error-messages-http-401}
 
 - Unauthorized: The user does not have access to the specified resource -
-  [details](#error-messages-unauthorized-err)
+    [details](#error-messages-unauthorized-err)
 
 ### HTTP 403 - Forbidden
 {: #error-messages-http-403}
 
 - Requested change is not compliant with configuration rules -
-  [details](#error-config_rule_conflict_err)
+    [details](#error-config_rule_conflict_err)
 
 - The resource(s) queried does not belong to the service -
-  [details](#error-messages-resource-owner-err)
+    [details](#error-messages-resource-owner-err)
 
 - This action can only be done by a service (service to service) -
-  [details](#error-messages-service-only-err)
+    [details](#error-messages-service-only-err)
 
 - This action is not permitted on this resource: Please contact IBM Key Protect
-  or open a service ticket to enable this feature -
-  [details](#error-messages-feature-restricted-err)
+    or open a service ticket to enable this feature -
+    [details](#error-messages-feature-restricted-err)
 
 ### HTTP 409 - Conflict
 {: #error-messages-http-409}
 
 - Key is not in a valid state -
-  [details](#error-messages-key-action-invalid-state-err)
+    [details](#error-messages-key-action-invalid-state-err)
 
 - Key is protecting one or more cloud resources -
-  [details](#error-messages-protected-resource-err)
+    [details](#error-messages-protected-resource-err)
 
 - KeyCreateImportAccess instance policy does not allow this action -
-  [details](#error-messages-key-create-import-access-err)
+    [details](#error-messages-key-create-import-access-err)
 
 - Number of authorizations required to delete is not met -
-  [details](#error-messages-authorizations-not-met)
+    [details](#error-messages-authorizations-not-met)
 
 - The import token has expired -
-  [details](#error-messages-import-token-expired-err)
+    [details](#error-messages-import-token-expired-err)
 
 - The key cannot be deleted because it's protecting a cloud resource that has a
-  retention policy: Before you delete this key, contact an account owner to
-  remove the retention policy on each resource that is associated with the key -
-  [details](#error-messages-prev-key-del-err)
+    retention policy: Before you delete this key, contact an account owner to
+    remove the retention policy on each resource that is associated with the key -
+    [details](#error-messages-prev-key-del-err)
 
 - The key is not dual auth enabled and cannot be set for deletion -
-  [details](#error-messages-not-dual-auth-err)
+    [details](#error-messages-not-dual-auth-err)
 
 - The key was updated recently: Please wait and try again -
-  [details](#error-messages-req-too-early-err)
+    [details](#error-messages-req-too-early-err)
 
 - This root key has been rotated within the last hour: Only one 'rotate' action
-  per hour is permitted -
-  [details](#error-messages-key-rotation-not-permitted)
+    per hour is permitted -
+    [details](#error-messages-key-rotation-not-permitted)
 
 ### HTTP 410 - Gone
 {: #error-messages-http-410}
 
 - Key has already been deleted: Please delete references to this key -
-  [details](#error-messages-key-deleted-err)
+    [details](#error-messages-key-deleted-err)
 
 ### HTTP 422 - Unprocessable Entity
 {: #error-messages-http-422}
 
 - Key is not in a valid state -
-  [details](#error-messages-key-invalid-state-err)
+    [details](#error-messages-key-invalid-state-err)
 
 - Requested action can only be completed with a root key -
-  [details](#error-messages-key-root-req-reg-err)
+    [details](#error-messages-key-root-req-reg-err)
 
 - Signature is invalid
-  [details](#error-invalid-sig-exp-err-message)
+    [details](#error-invalid-sig-exp-err-message)
 
 - The provided ciphertext is invalid or corrupted -
-  [details](#error-messages-unprocessable-ciphertext-err)
+    [details](#error-messages-unprocessable-ciphertext-err)
 
 - This request requires that the key version is later than current registration
-  key version -
-  [details](#error-messages-key-version-invalid)
+    key version -
+    [details](#error-messages-key-version-invalid)
 
 ### HTTP 500 - Internal Server Error
 {: #error-messages-http-500}
 
 - Key metadata became corrupted: Please delete this key -
-  [details](#error-messages-incomplete-metadata-err)
+    [details](#error-messages-incomplete-metadata-err)
 
 ## Sorted by reason code
 {: #error-messages-sorted-by-reason-code}
@@ -3554,72 +3554,74 @@ These are the error messages, sorted the the HTTP status code.
 This section sorts error messages by the reason code.
 
 - AUTHORIZATIONS_NOT_MET -
-  [details](#error-messages-authorizations-not-met)
+    [details](#error-messages-authorizations-not-met)
 - BAD_BODY_ERR -
-  [details](#error-messages-bad-body-err)
+    [details](#error-messages-bad-body-err)
 - BEARER_SUB_EXTRACTION_ERR -
-  [details](#error-messages-bearer-sub-extraction-err)
+    [details](#error-messages-bearer-sub-extraction-err)
 - BODY_QUERY_PARAM_MISMATCH_ERR -
-  [details](#error-messages-body-query-param-mismatch-err)
+    [details](#error-messages-body-query-param-mismatch-err)
 - COLLECTION_TOTAL_MISMATCH_ERR -
-  [details](#error-messages-collection-total-mismatch-err)
+    [details](#error-messages-collection-total-mismatch-err)
 - CONFIG_RULE_CONFLICT_ERR
-  [details](#error-config_rule_conflict_err)
+    [details](#error-config_rule_conflict_err)
 - FEATURE_RESTRICTED_ERR -
-  [details](#error-messages-feature-restricted-err)
+    [details](#error-messages-feature-restricted-err)
 - IMPORT_TOKEN_EXPIRED_ERR -
-  [details](#error-messages-import-token-expired-err)
+    [details](#error-messages-import-token-expired-err)
 - INCOMPLETE_METADATA_ERR -
-  [details](#error-messages-incomplete-metadata-err)
+    [details](#error-messages-incomplete-metadata-err)
 - INCORRECT_NONCE_ERR -
-  [details](#error-messages-incorrect-nonce-err)
+    [details](#error-messages-incorrect-nonce-err)
 - INCORRECT_NONCE_IV_ERR -
-  [details](#error-messages-incorrect-nonce-iv-err)
+    [details](#error-messages-incorrect-nonce-iv-err)
 - INVALID_FIELD_ERR -
-	[details](#error-messages-invalid-field-err)
+    [details](#error-messages-invalid-field-err)
 - INVALID_SIG_EXP_ERR
-  [details](#error-invalid_sig_exp_err)
+    [details](#error-invalid_sig_exp_err)
 - KEY_ACTION_INVALID_STATE_ERR -
-  [details](#error-messages-key-action-invalid-state-err)
+    [details](#error-messages-key-action-invalid-state-err)
 - KEY_CREATE_IMPORT_ACCESS_ERR -
-  [details](#error-messages-key-create-import-access-err)
+    [details](#error-messages-key-create-import-access-err)
 - KEY_DELETED_ERR -
-  [details](#error-messages-key-deleted-err)
+    [details](#error-messages-key-deleted-err)
 - KEY_EXPIRED_ERR -
-  [details](#error-messages-key-expired-err)
+    [details](#error-messages-key-expired-err)
 - KEY_IMPT_REQ_ERR -
-  [details](#error-messages-key-impt-req-err)
+    [details](#error-messages-key-impt-req-err)
 - KEY_INVALID_STATE_ERR -
-  [details](#error-messages-key-invalid-state-err)
+    [details](#error-messages-key-invalid-state-err)
 - KEY_PAYLOAD_REQ_ERR -
-  [details](#error-messages-key-payload-req-err-message)
+    [details](#error-messages-key-payload-req-err-message)
 - KEY_RESTORE_EXPIRED -
-  [details](#error-messages-key-restore-expired)
+    [details](#error-messages-key-restore-expired)
 - KEY_ROOT_REQ_ERR -
-  [details](#error-messages-key-root-req-err)
+    [details](#error-messages-key-root-req-err)
 - KEY_ROOT_REQ_REG_ERR -
-  [details](#error-messages-key-root-req-reg-err)
+    [details](#error-messages-key-root-req-reg-err)
 - KEY_ROTATION_NOT_PERMITTED -
-  [details](#error-messages-key-rotation-not-permitted)
+    [details](#error-messages-key-rotation-not-permitted)
 - KEY_VERSION_INVALID -
-  [details](#error-messages-key-version-invalid)
+    [details](#error-messages-key-version-invalid)
 - NO_BODY_ERR -
-  [details](#error-messages-no-body-err)
+    [details](#error-messages-no-body-err)
 - NOT_DUAL_AUTH_ERR -
-  [details](#error-messages-not-dual-auth-err)
+    [details](#error-messages-not-dual-auth-err)
 - NUM_COLLECTION_RESOURCE_ERR -
-  [details](#error-messages-num-collection-resource-err)
+    [details](#error-messages-num-collection-resource-err)
 - PREV_KEY_DEL_ERR -
-  [details](#error-messages-prev-key-del-err)
+    [details](#error-messages-prev-key-del-err)
 - PROTECTED_RESOURCE_ERR -
-  [details](#error-messages-protected-resource-err)
+    [details](#error-messages-protected-resource-err)
 - REQ_TOO_EARLY_ERR -
-  [details](#error-messages-req-too-early-err)
+    [details](#error-messages-req-too-early-err)
 - RESOURCE_OWNER_ERR -
-  [details](#error-messages-resource-owner-err)
+    [details](#error-messages-resource-owner-err)
 - SERVICE_ONLY_ERR -
-  [details](#error-messages-service-only-err)
+    [details](#error-messages-service-only-err)
 - UNAUTHORIZED_ERR -
-  [details](#error-messages-unauthorized-err)
+    [details](#error-messages-unauthorized-err)
 - UNPROCESSABLE_CIPHERTEXT_ERR -
-  [details](#error-messages-unprocessable-ciphertext-err)
+    [details](#error-messages-unprocessable-ciphertext-err)
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -54,19 +54,19 @@ Before you enable a keyCreateImportAccess policy for your
 following considerations:
 
 - **KeyCreateImportAccess policies do not affect keys that existed prior to policy creation.**
-  KeyCreateImportAccess policies only affect
-  {{site.data.keyword.keymanagementserviceshort}} requests that are sent after
-  the policy is set. You will still have access to all keys that existed in your
-  {{site.data.keyword.keymanagementserviceshort}} instance prior to policy
-  creation.
+    KeyCreateImportAccess policies only affect
+    {{site.data.keyword.keymanagementserviceshort}} requests that are sent after
+    the policy is set. You will still have access to all keys that existed in your
+    {{site.data.keyword.keymanagementserviceshort}} instance prior to policy
+    creation.
 
 - **KeyCreateImportAccess policies can affect your keys across various key actions.**
-  The `enforce_token` attribute will affect imported keys during creation,
-  rotation, and restoration. The `create_root_key`, `import_root_key`,
-  `create_standard_key`, and `import_standard_key` attributes will only affect
-  keys at creation time. All other
-  {{site.data.keyword.keymanagementserviceshort}} actions (wrap, unwrap, etc.)
-  are unaffected and can be invoked on the key as usual.
+    The `enforce_token` attribute will affect imported keys during creation,
+    rotation, and restoration. The `create_root_key`, `import_root_key`,
+    `create_standard_key`, and `import_standard_key` attributes will only affect
+    keys at creation time. All other
+    {{site.data.keyword.keymanagementserviceshort}} actions (wrap, unwrap, etc.)
+    are unaffected and can be invoked on the key as usual.
 
 ### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enable-keyCreateImportAccess-policy-console}
@@ -90,17 +90,17 @@ complete the following steps to enable a keyCreateImportAccess policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. Click the **Instance policies** link on the left side of the page.
 
-   - Find the `Create and import access` panel (at the top of the page).
+    - Find the `Create and import access` panel (at the top of the page).
 
-   - Enable or disable any keyCreateImportAccess settings you desire. Note that
-     any create or import key actions that have been disabled will no longer be
-     available via the "Add Key" modal.
+    - Enable or disable any keyCreateImportAccess settings you desire. Note that
+        any create or import key actions that have been disabled will no longer be
+        available via the "Add Key" modal.
 
-   - Click `Save` or `Cancel` (whichever is appropriate).
+    - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling and updating a keyCreateImportAccess policy for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-keyCreateImportAccess-policy-api}
@@ -130,8 +130,8 @@ existing value for the omitted field will be overwritten with the default value.
     {: note}
 
 2. Enable or update a keyCreateImportAccess policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -151,7 +151,7 @@ existing value for the omitted field will be overwritten with the default value.
                         "policy_data": {
                             "enabled": true,
                             "attributes": {
-                                "create_root_key": <true/false>,
+"create_root_key": <true/false>,
                                 "create_standard_key": <true/false>,
                                 "import_root_key": <true/false>,
                                 "import_standard_key": <true/false>,
@@ -228,8 +228,8 @@ keyCreateImportAccess policy.
     {: note}
 
 2. Disable an existing keyCreateImportAccess policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -284,3 +284,5 @@ $ curl -X GET \
 {: codeblock}
 
 Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
+
+

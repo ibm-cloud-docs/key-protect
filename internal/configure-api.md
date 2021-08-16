@@ -272,3 +272,5 @@ capabilities needed. Now, you can map your protected resources to the root key.
 
 - Head over to start
 [key registration](/docs/key-protect?topic=key-protect-register-protected-resources)
+
+

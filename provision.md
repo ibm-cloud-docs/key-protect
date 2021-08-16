@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -39,9 +39,9 @@ A namespace organizes keys into logical groups and provides isolation and
 protection between namespaces.
 
 - For example, you may choose to have two
-  {{site.data.keyword.keymanagementserviceshort}} instances - one for the
-  finance department and one for manufacturing. Two instances provides isolation
-  so keys in one business unit are not accessible from other business units.
+    {{site.data.keyword.keymanagementserviceshort}} instances - one for the
+    finance department and one for manufacturing. Two instances provides isolation
+    so keys in one business unit are not accessible from other business units.
 
 The term `instance` is sometimes used to describe compute resources, such as
 [virtual servers](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial){: external}
@@ -60,13 +60,13 @@ the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
 
 2. Click **Catalog** to view the list of services that are available on
-   {{site.data.keyword.cloud_notm}}.
+    {{site.data.keyword.cloud_notm}}.
 
 3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
 4. Select a service plan, and click **Create** to provision an instance of
-   {{site.data.keyword.keymanagementserviceshort}} in the account, region, and
-   resource group where you are logged in.
+    {{site.data.keyword.keymanagementserviceshort}} in the account, region, and
+    resource group where you are logged in.
 
 ## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} CLI
 {: #provision-cli}
@@ -332,8 +332,8 @@ Created at:            2020-05-31T15:10:23Z
 Created by:            <email address>
 Updated at:            2020-05-31T15:10:23Z
 Last Operation:
-                       Status    create succeeded
-                       Message   Completed create instance operation
+Status    create succeeded
+Message   Completed create instance operation
 
 # list keys in the private service instance
 $ ibmcloud kp keys -i a152eee4-262e-4a39-ae13-a71b9882dcb6
@@ -375,3 +375,5 @@ Message: [409, Conflict] Conflict: Instance contains 2 active keys. Remove all k
 
 To find out more about programmatically managing your keys,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

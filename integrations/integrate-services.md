@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -167,7 +167,7 @@ When you're ready to integrate a service, use the following steps to create an
 authorization:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-   **Authorizations**.
+    **Authorizations**.
 
 2. Click **Create**.
 
@@ -197,9 +197,11 @@ Add a new resource to a supported cloud data service, and then select the root
 key that you want to use for advanced encryption.
 
 - To find out more about creating root keys with the
-  {{site.data.keyword.keymanagementserviceshort}} service, see
-  [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
+    {{site.data.keyword.keymanagementserviceshort}} service, see
+    [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys).
 
 - To find out more about bringing your own root keys to the
-  {{site.data.keyword.keymanagementserviceshort}} service, see
-  [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+    {{site.data.keyword.keymanagementserviceshort}} service, see
+    [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+
+

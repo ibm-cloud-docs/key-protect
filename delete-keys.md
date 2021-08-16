@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-16"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -91,11 +91,11 @@ This action won't succeed if the key is actively protecting one or more cloud re
 
 2. Retrieve the ID of the key that you want to delete.
 
-   You can find the ID for a key in your
-   {{site.data.keyword.keymanagementserviceshort}} instance by
-   [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
-   or by accessing the {{site.data.keyword.keymanagementserviceshort}}
-   dashboard.
+    You can find the ID for a key in your
+    {{site.data.keyword.keymanagementserviceshort}} instance by
+    [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
+    or by accessing the {{site.data.keyword.keymanagementserviceshort}}
+    dashboard.
 
 3. Run the following `curl` command to delete the key and its contents.
 
@@ -192,9 +192,9 @@ Force deletion on a key won't succeed if the key is protecting a registered {{si
 
 2. Retrieve the ID of the key that you want to force delete.
 
-   You can retrieve the ID for a specified key by making a `GET /v2/keys/`
-   request, or by viewing your keys in the
-   {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    You can retrieve the ID for a specified key by making a `GET /v2/keys/`
+    request, or by viewing your keys in the
+    {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Run the following `curl` command to force delete the key and its contents.
 
@@ -207,8 +207,8 @@ Force deletion on a key won't succeed if the key is protecting a registered {{si
     ```
     {: codeblock}
 
-   Replace the variables in the example request according to the following
-   table.
+    Replace the variables in the example request according to the following
+    table.
 
 |Variable|Description|
 |--- |--- |
@@ -277,3 +277,5 @@ The following table lists which APIs you can use to retrieve data related to a d
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
 | [Get registrations](/docs/key-protect?topic=key-protect-view-protected-resources) | Retrieve a list of registrations associated with the key |
 {: caption="Table 4. Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
+
+

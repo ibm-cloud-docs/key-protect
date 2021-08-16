@@ -196,3 +196,5 @@ capabilities needed. Next, you can map your protected resource to the root key.
 
 - Head over to implement
 [crypto-erasure](/docs/key-protect?topic=key-protect-key-erasure)
+
+

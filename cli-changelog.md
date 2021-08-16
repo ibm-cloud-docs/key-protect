@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-23"
+lastupdated: "2021-08-16"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -111,7 +111,7 @@ Release date: 2020-09-21
 {: #cli-changelog-052-changes}
 
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
-  structure if there is no output.
+    structure if there is no output.
 
 ## CLI version 0.5.1 (deprecated)
 {: #cli-changelog-051}
@@ -126,7 +126,7 @@ Release date: 2020-07-21
 - Remove additional line breaks in the response.
 
 - For Windows, `OK` and `FAILED` messages are the same color as the `ibmcloud`
-  command colors.
+    command colors.
 
 ## CLI version 0.5.0 (deprecated)
 {: #cli-changelog-050}
@@ -143,61 +143,61 @@ Documentation:
 {: #cli-changelog-050-add-kp-instance}
 
 - kp instance
-  [policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies)
-  : list policies associated with an instance
+    [policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies)
+    : list policies associated with an instance
 
 - kp instance
-  [policy-update allowed-network](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-allowed)
-  : update the instance policy and set the "allowed network" to
-  public-and-private or private-only
+    [policy-update allowed-network](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-allowed)
+    : update the instance policy and set the "allowed network" to
+    public-and-private or private-only
 
 - kp instance
-  [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-dual)
-  : update the instance policy and enable or disable the
-  "dual authorization delete" policy
+    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-dual)
+    : update the instance policy and enable or disable the
+    "dual authorization delete" policy
 
 #### kp key
 {: #cli-changelog-050-add-kp-key}
 
 - kp key
-  [cancel-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-cancel-delete)
-  : cancel a previously scheduled request to delete a key
+    [cancel-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-cancel-delete)
+    : cancel a previously scheduled request to delete a key
 
 - kp key
-  [disable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-disable)
-  : disable a root key and temporarily revoke access to the key's associated
-  data in the cloud
+    [disable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-disable)
+    : disable a root key and temporarily revoke access to the key's associated
+    data in the cloud
 
 - kp key
-  [enable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-enable)
-  : enable a root key that was previously disabled; this action restores the
-  key's encrypt and decrypt operations
+    [enable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-enable)
+    : enable a root key that was previously disabled; this action restores the
+    key's encrypt and decrypt operations
 
 - kp key
-  [restore](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-restore)
-  : restore a previously deleted root key, which restores access to its
-  associated data in the cloud
+    [restore](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-restore)
+    : restore a previously deleted root key, which restores access to its
+    associated data in the cloud
 
 - kp key
-  [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-dual)
-  : update the "dual authorization delete" policy associated with a key
+    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-dual)
+    : update the "dual authorization delete" policy associated with a key
 
 - kp key
-  [policy-update rotation](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-rotation)
-  : update the "rotation" policy associated with a key
+    [policy-update rotation](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-rotation)
+    : update the "rotation" policy associated with a key
 
 - kp key
-  [schedule-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-schedule-delete)
-  : authorize a key, with a "dual-auth-delete" policy, to be deleted
+    [schedule-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-schedule-delete)
+    : authorize a key, with a "dual-auth-delete" policy, to be deleted
 
 #### kp registrations
 {: #cli-changelog-050-add-kp-registrations}
 
 - kp
-  [registrations](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-registrations)
-  : list registrations, which are associations between keys and other cloud
-  resources such as Cloud Object Storage (COS) buckets or Cloud Databases
-  deployments
+    [registrations](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-registrations)
+    : list registrations, which are associations between keys and other cloud
+    resources such as Cloud Object Storage (COS) buckets or Cloud Databases
+    deployments
 
 ### Update these commands
 {: #cli-changelog-050-update}
@@ -206,30 +206,30 @@ Documentation:
 {: #cli-changelog-050-update-kp-import-token}
 
 - kp import-token
-  [key-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-key-encrypt)
-  : add the `-a` (--hash) option; encrypt keys using the SHA-1 algorithm for
-  Hyper Protect Crypto Services (HPCS)
+    [key-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-key-encrypt)
+    : add the `-a` (--hash) option; encrypt keys using the SHA-1 algorithm for
+    Hyper Protect Crypto Services (HPCS)
 
 - kp import-token
-  [nonce-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-nonce-encrypt)
-  : add the `-c` (--cbc) option; encrypt the nonce using the AES-CBC encryption
-  algorithm; only supported for HPCS
+    [nonce-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-nonce-encrypt)
+    : add the `-c` (--cbc) option; encrypt the nonce using the AES-CBC encryption
+    algorithm; only supported for HPCS
 
 #### kp key
 {: #cli-changelog-050-update-kp-key}
 
 - kp key
-  [delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-delete)
-  : add the `-f` (--force) option to delete a key, with force, which is used to
-  delete a key that has existing "registrations"
+    [delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-delete)
+    : add the `-f` (--force) option to delete a key, with force, which is used to
+    delete a key that has existing "registrations"
 
 #### kp keys
 {: #cli-changelog-050-update-kp-keys}
 
 - kp
-  [keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
-  : add the `-n` (--number-of-keys) and `-s` (--starting-offset) options to
-  retrieve a subset of keys
+    [keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
+    : add the `-n` (--number-of-keys) and `-s` (--starting-offset) options to
+    retrieve a subset of keys
 
 ## CLI version 0.4.0 (deprecated)
 {: #cli-changelog-040}
@@ -247,17 +247,17 @@ Major changes were made to the `ibmcloud kp` command structure.
 - `kp import-token create` : create an import token
 
 - `kp import-token key-encrypt` : encrypt the key that you want to import to the
-  service
+    service
 
 - `kp import-token nonce-encrypt` : encrypt the nonce that is generated by
-  {{site.data.keyword.keymanagementserviceshort}}
+    {{site.data.keyword.keymanagementserviceshort}}
 
 - `kp import-token show` : retrieve an import token
 
 - `kp key` : perform operations on keys
 
 - `kp keys` : list the keys that are available in your
-  {{site.data.keyword.keymanagementserviceshort}} instance
+    {{site.data.keyword.keymanagementserviceshort}} instance
 
 - `kp region-set` : target a different
 {{site.data.keyword.keymanagementserviceshort}} regional endpoint
@@ -312,4 +312,6 @@ Documentation:
 - Update usage information for all `ibmcloud kp` commands and sub-commands
 
 - Fix bug in the JSON output format option (`--output json`) for all commands
-  that support JSON output
+    that support JSON output
+
+

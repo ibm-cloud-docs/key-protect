@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -97,3 +97,5 @@ Access to the {{site.data.keyword.keymanagementserviceshort}} service takes plac
 | Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
 | Fine-grained access control | {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} IAM roles to ensure that users can be assigned appropriate access at the instance, key, and key ring level. |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}
+
+

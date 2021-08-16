@@ -46,8 +46,10 @@ events.
 As an integrated service, be sure to log the actions that are taken for the
 resources that are impacted by root key actions, such as key deletion or
 rotation. This will allow customers to track key lifecycle events and all the
- actions that are triggered by an event, including successes and failures.
+    actions that are triggered by an event, including successes and failures.
 
 - To view of a list of {{site.data.keyword.keymanagementserviceshort}} actions
 that generate an event, see
 [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
+
+

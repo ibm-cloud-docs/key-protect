@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: create standard encryption key, create secret, standard encryption key examples
 
@@ -28,10 +28,12 @@ subcollection: key-protect
 
 You can create a standard encryption key with the {{site.data.keyword.keymanagementserviceshort}} console.
 {: shortdesc}
+
 {: ui}
 
 You can create a standard encryption key programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
+
 {: api}
 
 ## Creating standard keys in the console
@@ -48,7 +50,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. To create a new key, click **Add** and leave the **Create a key** option selected.
 
@@ -148,3 +150,5 @@ $ curl -X GET \
 {: #create-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

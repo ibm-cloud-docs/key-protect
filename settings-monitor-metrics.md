@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-22"
+lastupdated: "2021-08-16"
 
 keywords: instance settings, service settings, operational metrics, metrics
 
@@ -49,19 +49,19 @@ Before you enable operational metrics for your
 following considerations:
 
 - **When you enable metrics for your {{site.data.keyword.keymanagementserviceshort}} instance, metrics are only reported after the time that the policy is enabled.**
-  Once your metrics policy is enabled, you will see operational metrics for all
-  API requests that occur in your instance after the the policy is activated.
-  You will not be able to view any metrics prior to the time that the policy is
-  enabled.
+    Once your metrics policy is enabled, you will see operational metrics for all
+    API requests that occur in your instance after the the policy is activated.
+    You will not be able to view any metrics prior to the time that the policy is
+    enabled.
 
 - **You will need to provision a {{site.data.keyword.mon_short}} instance for your policy in order to see the metrics.**
-  You will need to
-  [provision a {{site.data.keyword.mon_short}} instance](/docs/monitoring?topic=monitoring-provision){: external}
-  that is located in the same region as the
-  {{site.data.keyword.keymanagementserviceshort}} instance that you would like
-  to receive operational metrics for. Once you provision the
-  {{site.data.keyword.mon_short}} instance, you will need to
-  [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-monitor).
+    You will need to
+    [provision a {{site.data.keyword.mon_short}} instance](/docs/monitoring?topic=monitoring-provision){: external}
+    that is located in the same region as the
+    {{site.data.keyword.keymanagementserviceshort}} instance that you would like
+    to receive operational metrics for. Once you provision the
+    {{site.data.keyword.mon_short}} instance, you will need to
+    [enable platform metrics](/docs/key-protect?topic=key-protect-operational-metrics#configure-monitor).
 
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the Console
 {: #enable-metrics-instance-policy-ui}
@@ -75,7 +75,7 @@ complete the following steps to enable a metrics policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the **Instance policies** page, click the **Enable** button
     in the metrics policy section.
@@ -103,35 +103,35 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     {: note}
 
 2. Enable a metrics policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
-   ```sh
-   curl -X  PUT \
-   "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
-   -H "accept: application/vnd.ibm.kms.policy+json" \
-   -H "authorization: Bearer <IAM_token>" \
-   -H "bluemix-instance: <instance_ID>" \
-   -H "content-type: application/vnd.ibm.kms.policy+json" \
-   -d '{
-           "metadata": {
-               "collectionType": "application/vnd.ibm.kms.policy+json",
-               "collectionTotal": 1
-           },
-           "resources": [
-               {
-                   "policy_type": "metrics",
-                   "policy_data": {
-                       "enabled": false
-                   }
-               }
-           ]
-     }'
-   ```
-   {: codeblock}
+    ```sh
+    curl -X  PUT \
+    "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+    -H "accept: application/vnd.ibm.kms.policy+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>" \
+    -H "content-type: application/vnd.ibm.kms.policy+json" \
+    -d '{
+            "metadata": {
+                "collectionType": "application/vnd.ibm.kms.policy+json",
+                "collectionTotal": 1
+            },
+            "resources": [
+                {
+"policy_type": "metrics",
+"policy_data": {
+"enabled": false
+}
+                }
+            ]
+        }'
+    ```
+    {: codeblock}
 
-   Replace the variables in the example request according to the following
-   table.
+    Replace the variables in the example request according to the following
+    table.
 
 |Variable|Description|
 |--- |--- |
@@ -140,17 +140,17 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 1. Describes the variables that are needed to enable a metrics policy." caption-side="top"}
 
-   A successful request returns an HTTP `204 No Content` response, which
-   indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
-   is now enabled for reporting operational metrics.
+    A successful request returns an HTTP `204 No Content` response, which
+    indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
+    is now enabled for reporting operational metrics.
 
-   This new policy only reports on operations that occur after the policy is
-   enabled.
-   {: note}
+    This new policy only reports on operations that occur after the policy is
+    enabled.
+    {: note}
 
 3. Optional: Verify that the metrics policy was created by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+    the policies that are available for your
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     $ curl -X GET \
@@ -184,10 +184,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
     {: note}
 
 2. Disable an existing metrics policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
-   ```sh
+    ```sh
     $ curl -X PUT \
         "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
         -H "accept: application/vnd.ibm.kms.policy+json" \
@@ -208,12 +208,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
                     }
                 ]
             }'
-   ```
-   {: codeblock}
+    ```
+    {: codeblock}
 
-   Replace the variables in the example request according to the following
-   table.
-   
+    Replace the variables in the example request according to the following
+    table.
+
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
@@ -221,13 +221,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
 
-   A successful request returns an HTTP `204 No Content` response, which
-   indicates that the metrics policy was updated for your service
-   instance.
+    A successful request returns an HTTP `204 No Content` response, which
+    indicates that the metrics policy was updated for your service
+    instance.
 
 Optional: Verify that the metrics policy was updated by browsing
-   the policies that are available for your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+    the policies that are available for your
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     $ curl -X GET \
@@ -242,6 +242,8 @@ Optional: Verify that the metrics policy was updated by browsing
 {: #monitor-metrics-next-steps}
 
 - To find out more about configuring your
-  {{site.data.keyword.keymanagementserviceshort}} instance with
-  {{site.data.keyword.mon_short}}, check out
-  [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
+    {{site.data.keyword.keymanagementserviceshort}} instance with
+    {{site.data.keyword.mon_short}}, check out
+    [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
+
+

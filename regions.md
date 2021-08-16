@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -124,3 +124,5 @@ endpoints to use when you connect to the
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
 [Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).
+
+

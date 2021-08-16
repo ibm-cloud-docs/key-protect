@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-16"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -28,10 +28,12 @@ subcollection: key-protect
 
 Use {{site.data.keyword.keymanagementservicefull}} to create root keys with the {{site.data.keyword.cloud_notm}} console.
 {: shortdesc}
+
 {: ui}
 
 Use {{site.data.keyword.keymanagementservicefull}} to create root keys programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
+
 {: api}
 
 Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
@@ -56,7 +58,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. To create a new key, click **Add**. A side panel will open. Make sure the **Create a key** option is selected.
 
@@ -108,11 +110,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-                         "name": "<key_name>",
-                         "aliases": [alias_list],
-                         "description": "<key_description>",
-                         "expirationDate": "<expiration_date>",
-                         "extractable": <key_type>
+"name": "<key_name>",
+"aliases": [alias_list],
+"description": "<key_description>",
+"expirationDate": "<expiration_date>",
+"extractable": <key_type>
                     }
                 ]
             }'
@@ -197,3 +199,5 @@ For a detailed description of the response parameters, see the {{site.data.keywo
 - To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-08-16"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -48,19 +48,19 @@ Before you enable dual authorization for your
 following considerations:
 
 - **When you enable dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance, the policy is applicable only for new keys.**
-  By enabling dual authorization at the instance level, any new keys that you
-  add to the instance will automatically inherit a dual authorization policy.
-  Your existing keys are not affected by the policy change and will still
-  require a single authorization for deletion.
+    By enabling dual authorization at the instance level, any new keys that you
+    add to the instance will automatically inherit a dual authorization policy.
+    Your existing keys are not affected by the policy change and will still
+    require a single authorization for deletion.
 
 - **You can always disable a dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
-  If you want to
-  [disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
-  to allow for single authorization, keep in mind that the change is applicable
-  only for future keys that you add to the instance. Any existing keys that were
-  created under a dual authorization policy will continue to require actions
-  from two users before the keys can be deleted. After a key inherits a dual
-  authorization policy, the policy cannot be reverted.
+    If you want to
+    [disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui)
+    to allow for single authorization, keep in mind that the change is applicable
+    only for future keys that you add to the instance. Any existing keys that were
+    created under a dual authorization policy will continue to require actions
+    from two users before the keys can be deleted. After a key inherits a dual
+    authorization policy, the policy cannot be reverted.
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enable-dual-auth-instance-policy-ui}
@@ -76,16 +76,16 @@ complete the following steps to create a dual authorization policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. Click the **Instance policies** link on the left side of the page.
 
-   - Find the `Dual authorization delete` panel (on the top-left side of the
-     page).
+    - Find the `Dual authorization delete` panel (on the top-left side of the
+        page).
 
-   - Toggle `Dual authorization deletion` to enable or disable the policy.
+    - Toggle `Dual authorization deletion` to enable or disable the policy.
 
-   - Click `Save` or `Cancel` (whichever is appropriate).
+    - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-dual-auth-instance-policy-api}
@@ -110,8 +110,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {: note}
 
 2. Enable a dual authorization policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -166,7 +166,7 @@ to enable dual authorization for an existing key, see
 
 You can verify that a dual auth policy key has been enabled by issuing a list policies request:
 
- ```sh
+    ```sh
 $ curl -X GET \
     "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
@@ -191,17 +191,17 @@ complete the following steps to create a dual authorization policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the **Instance policies** page, use the **Policies** table to
-   browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
-   instance.
+    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
+    instance.
 
 5. Click the ⋯ icon to open a list of options for the policy that you want to
-   disable.
+    disable.
 
 6. From the options menu, click **Disable policy** and confirm the policy was
-   disabled in the updated **Policies** table.
+    disabled in the updated **Policies** table.
 
 ### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #disable-dual-auth-instance-policy-api}
@@ -226,8 +226,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
     {: note}
 
 2. Disable an existing dual authorization policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -276,7 +276,7 @@ authorization before they can be deleted. For more information, see
 
 You can verify that a dual auth policy key has been disabled by issuing a list policies request:
 
- ```sh
+    ```sh
 $ curl -X GET \
     "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
@@ -286,3 +286,5 @@ $ curl -X GET \
 {: codeblock}
 
 Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
+
+
