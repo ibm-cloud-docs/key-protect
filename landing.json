@@ -5,7 +5,7 @@
     "section_devtools": {
       "api": "/apidocs/key-protect",
       "cli": "/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference",
-      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group"
+      "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/kms/ibm/latest/submodules/key-protect"
     },
     "section_recommended": [
       {
@@ -34,19 +34,19 @@
       "view_more": "/docs/key-protect?topic=key-protect-releases",
       "tiles": [
         {
+          "date": "5 August 2021",
+          "title": "Updates to the Key Protect console and Key purge feature",
+          "description": "The ability to purge keys that have been deleted after four hours using the UI has been added. Also, the ability to view your instance ID and cloud resource name (CRN) has been made easier."
+        },
+        {
+          "date": "30 June 2021",
+          "title": "Updates to the Key Protect CLI plugin",
+          "description": "The IBM Cloud Key Protect CLI plugin has been updated to version 0.6.3. Minor changes include support for HPCS and Key rotate."
+        },
+        {
           "date": "22 April 2021",
           "title": "Updates to Key Protect console and Key purge feature",
           "description": "Many of the panels and actions you can take in the console have been modified to accommodate the addition of key rings. This includes a new Key rings panel where key rings can be managed and a Key ring ID column in the Keys panel. Also, the ability to purge keys four hours after they have been moved to the Destroyed state has been added."
-        },
-        {
-          "date": "12 March 2021",
-          "title": "Transfer a key to a different key ring",
-          "description": "You can now transfer a key from one key ring to another key ring. Also, there have been significant changes to the Key Protect CLI plug-in."
-        },
-        {
-          "date": "25 February 2021",
-          "title": "Changes to key restore",
-          "description": "Deleted keys can now be restored up to 30 days after deletion. After 30 days, it is no longer possible to restore a key. Furthermore, it is no longer required to pass in key material when restoring a key."
         }
       ]
     }
