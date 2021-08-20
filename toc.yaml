@@ -7,7 +7,7 @@ toc:
     console-page: /catalog/services/key-protect
     product-page: https://ibm.com/cloud/key-protect
     path: key-protect
-    label: Docs subcollection title
+    label: Key Protect
   entries: 
     - navgroup: 
       id: learn
