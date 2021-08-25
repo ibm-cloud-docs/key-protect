@@ -9,128 +9,128 @@ toc:
     path: key-protect
     label: Key Protect
   entries: 
-    - navgroup: 
+  - navgroup: 
       id: learn
       topics:
       - index.md
       - about.md
       - topicgroup: 
-        label: Key concepts
-        topics: 
-        - concepts/importing-keys.md
-        - concepts/envelope-encryption.md
-        - concepts/key-states.md
-        - concepts/key-rotation.md
-        - concepts/quantum-safe-cryptography.md
-        - concepts/manage-access.md
-      - topicgroup: 
-        label: Tutorials
-        topics: 
-        - tutorials/secure-import.md
-        - link: 
-          label: Apply end to end security to a cloud application
-          href: https://{Domainlabel}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
-        - link: 
-          label: Enhance security of your deployed application
-          href: https://{Domainlabel}/docs/tutorials?topic=solution-tutorials-extended-app-security
-        - topicgroup: 
-          label: Integrations
+          label: Key concepts
           topics: 
-          - integrations/integrate-services.md
-          - integrations/integrate-cos.md
-          - integrations/view-protected-resources.md
-          - integrations/sync-resources.md
+          - concepts/importing-keys.md
+          - concepts/envelope-encryption.md
+          - concepts/key-states.md
+          - concepts/key-rotation.md
+          - concepts/quantum-safe-cryptography.md
+          - concepts/manage-access.md
+      - topicgroup: 
+          label: Tutorials
+          topics: 
+          - tutorials/secure-import.md
+          - link: 
+            label: Apply end to end security to a cloud application
+            href: https://{Domainlabel}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
+          - link: 
+            label: Enhance security of your deployed application
+            href: https://{Domainlabel}/docs/tutorials?topic=solution-tutorials-extended-app-security
+          - topicgroup: 
+              label: Integrations
+              topics: 
+              - integrations/integrate-services.md
+              - integrations/integrate-cos.md
+              - integrations/view-protected-resources.md
+              - integrations/sync-resources.md
       - releases.md
-    - navgroup: 
+  - navgroup: 
       id: howto
       topics:
       - topicgroup: 
-        label: Setting up the service
-        topics: 
-        - provision.md
-        - settings-dual-auth.md
-        - settings-network-policy.md
-        - settings-allowed-ip.md
-        - settings-key-create-import-access.md
-        - settings-monitor-metrics.md
+          label: Setting up the service
+          topics: 
+          - provision.md
+          - settings-dual-auth.md
+          - settings-network-policy.md
+          - settings-allowed-ip.md
+          - settings-key-create-import-access.md
+          - settings-monitor-metrics.md
       - topicgroup: 
-        label: Accessing the API
-        topics: 
-        - set-up-api.md
-        - retrieve-access-token.md
-        - retrieve-instance-id.md
-        - private-network.md
-        - virtual-private-endpoints.md
+          label: Accessing the API
+          topics: 
+          - set-up-api.md
+          - retrieve-access-token.md
+          - retrieve-instance-id.md
+          - private-network.md
+          - virtual-private-endpoints.md
       - set-up-cli.md
       - grant-access-keys.md
       - topicgroup: 
-        label: Creating keys
-        topics: 
-        - create-root-keys.md
-        - create-standard-keys.md
-        - create-key-alias.md
+          label: Creating keys
+          topics: 
+          - create-root-keys.md
+          - create-standard-keys.md
+          - create-key-alias.md
       - topicgroup: 
-        label: Importing keys
-        topics: 
-        - import-root-keys.md
-        - import-standard-keys.md
-        - create-import-tokens.md
+          label: Importing keys
+          topics: 
+          - import-root-keys.md
+          - import-standard-keys.md
+          - create-import-tokens.md
       - topicgroup: 
-        label: Viewing keys
-        topics: 
-        - view-keys.md
-        - view-key-details.md
-        - retrieve-key.md
+          label: Viewing keys
+          topics: 
+          - view-keys.md
+          - view-key-details.md
+          - retrieve-key.md
       - topicgroup: 
-        label: Protecting keys
-        topics: 
-        - wrap-keys.md
-        - unwrap-keys.md
-        - rewrap-keys.md
+          label: Protecting keys
+          topics: 
+          - wrap-keys.md
+          - unwrap-keys.md
+          - rewrap-keys.md
       - topicgroup: 
-        label: Rotating keys
-        topics: 
-        - rotate-keys.md
-        - set-rotation-policy.md
-        - view-key-versions.md
+          label: Rotating keys
+          topics: 
+          - rotate-keys.md
+          - set-rotation-policy.md
+          - view-key-versions.md
       - disable-keys.md
       - topicgroup: 
-        label: Deleting and purging keys
-        topics: 
-        - delete-purge-keys.md
-        - delete-keys.md
-        - delete-dual-auth-keys.md
-        - set-dual-auth-policy.md
+          label: Deleting and purging keys
+          topics: 
+          - delete-purge-keys.md
+          - delete-keys.md
+          - delete-dual-auth-keys.md
+          - set-dual-auth-policy.md
       - restore-keys.md
       - key-rings.md
       - topicgroup: 
-        label: Enhancing security
-        topics: 
-        - data-security.md
-        - manage-scc.md
-    - navgroup:
+          label: Enhancing security
+          topics: 
+          - data-security.md
+          - manage-scc.md
+  - navgroup:
       id: reference
       topics: 
       - link: 
         label: Key Protect API Reference
         href: https://{Domainlabel}/apidocs/key-protect
       - topicgroup:
-        label: Key Protect CLI Reference
-        topics:
-        - /key-protect-cli-plugin/key-protect-cli-plugin-key-protect-cli-reference
-        - cli-reference-052.md
-        - cli-reference-039.md
-        - cli-changelog.md
+          label: Key Protect CLI Reference
+          topics:
+          - /key-protect-cli-plugin/key-protect-cli-plugin-key-protect-cli-reference
+          - cli-reference-052.md
+          - cli-reference-039.md
+          - cli-changelog.md
       - regions.md
       - at-events.md
       - monitor-metrics.md
       - topicgroup:
-        label: Standards and compliance
-        topics:
-        - shared-responsibilities.md
-        - ha-dr.md
+          label: Standards and compliance
+          topics:
+          - shared-responsibilities.md
+          - ha-dr.md
       - related-links.md
-    - navgroup:
+  - navgroup:
       id: help
       topics: 
       - FAQs.md
