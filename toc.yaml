@@ -33,13 +33,13 @@ toc:
           - link: 
             label: Enhance security of your deployed application
             href: https://{Domainlabel}/docs/tutorials?topic=solution-tutorials-extended-app-security
-          - topicgroup: 
-              label: Integrations
-              topics: 
-              - integrations/integrate-services.md
-              - integrations/integrate-cos.md
-              - integrations/view-protected-resources.md
-              - integrations/sync-resources.md
+      - topicgroup: 
+          label: Integrations
+          topics: 
+          - integrations/integrate-services.md
+          - integrations/integrate-cos.md
+          - integrations/view-protected-resources.md
+          - integrations/sync-resources.md
       - releases.md
   - navgroup: 
       id: howto
