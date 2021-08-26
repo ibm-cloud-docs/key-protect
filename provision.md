@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-08-26"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -332,8 +332,8 @@ Created at:            2020-05-31T15:10:23Z
 Created by:            <email address>
 Updated at:            2020-05-31T15:10:23Z
 Last Operation:
-Status    create succeeded
-Message   Completed create instance operation
+                  Status    create succeeded
+                  Message   Completed create instance operation
 
 # list keys in the private service instance
 $ ibmcloud kp keys -i a152eee4-262e-4a39-ae13-a71b9882dcb6
