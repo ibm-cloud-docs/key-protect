@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -61,56 +61,56 @@ Before you enable and allowed IP policy for your
 following considerations:
 
 - **If you are using a private endpoint, your private environment should be set up prior to enabling an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
-  Before you create an instance policy for your
-  {{site.data.keyword.keymanagementserviceshort}} instance, ensure that you have
-  [configured](/docs/key-protect?topic=key-protect-private-endpoints#configure-private-network)
-  the private network on your server so that you will be able to assign the
-  correct IP addresses to the policy.
+    Before you create an instance policy for your
+    {{site.data.keyword.keymanagementserviceshort}} instance, ensure that you have
+    [configured](/docs/key-protect?topic=key-protect-private-endpoints#configure-private-network)
+    the private network on your server so that you will be able to assign the
+    correct IP addresses to the policy.
 
 - **Allowed IP policies only support traffic from IPv4 addresses through private endpoint.**
-  Keep in mind that while both IPv4 and IPv6 subnets can be added to an allowed
-  IP policy, an active allowed IP policy can only allow IPv4 private network
-  gateway addresses to access
-  {{site.data.keyword.keymanagementserviceshort}} instances via a private
-  endpoint.
+    Keep in mind that while both IPv4 and IPv6 subnets can be added to an allowed
+    IP policy, an active allowed IP policy can only allow IPv4 private network
+    gateway addresses to access
+    {{site.data.keyword.keymanagementserviceshort}} instances via a private
+    endpoint.
 
 - **You will need to need to use a private port to access your {{site.data.keyword.keymanagementserviceshort}} instance via private network.**
-  Once you create an allowed IP policy, your
-  {{site.data.keyword.keymanagementserviceshort}} instance will be assigned a
-  private endpoint port. You will need to
-  [retrieve](#retrieve-allowed-ip-port)
-  the port and
-  [specify](#send-private-allowed-ip-traffic)
-  the port number during each request via a private endpoint.
+    Once you create an allowed IP policy, your
+    {{site.data.keyword.keymanagementserviceshort}} instance will be assigned a
+    private endpoint port. You will need to
+    [retrieve](#retrieve-allowed-ip-port)
+    the port and
+    [specify](#send-private-allowed-ip-traffic)
+    the port number during each request via a private endpoint.
 
 - **There is limited allowed IP policy support for {{site.data.keyword.keymanagementserviceshort}} instances that are integrated with other {{site.data.keyword.Bluemix_notm}} services.**
-  Service to service calls will bypass allowed IP policy enforcement. To find
-  out more information
-  about how allowed IP policies affect
-  {{site.data.keyword.keymanagementserviceshort}} instances that are integrated
-  with other {{site.data.keyword.Bluemix_notm}} services, see
-  [Using an allowed IP policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services](#allowed-ip-s2s).
+    Service to service calls will bypass allowed IP policy enforcement. To find
+    out more information
+    about how allowed IP policies affect
+    {{site.data.keyword.keymanagementserviceshort}} instances that are integrated
+    with other {{site.data.keyword.Bluemix_notm}} services, see
+    [Using an allowed IP policy on an instance that is integrated with other {{site.data.keyword.Bluemix_notm}} services](#allowed-ip-s2s).
 
 - **When you enable an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance, the resources in your instance will not be displayed in the UI.**
-  After enabling an allowed IP policy, you will only be able to view and access
-  the keys and associated resources in your
-  {{site.data.keyword.keymanagementserviceshort}} instance through the
-  {{site.data.keyword.keymanagementserviceshort}} API. Before making a request,
-  make sure that you are assigned the correct access policy for your
-  {{site.data.keyword.keymanagementserviceshort}} instance and use the correct
-  endpoints and port (for private endpoints).
+    After enabling an allowed IP policy, you will only be able to view and access
+    the keys and associated resources in your
+    {{site.data.keyword.keymanagementserviceshort}} instance through the
+    {{site.data.keyword.keymanagementserviceshort}} API. Before making a request,
+    make sure that you are assigned the correct access policy for your
+    {{site.data.keyword.keymanagementserviceshort}} instance and use the correct
+    endpoints and port (for private endpoints).
 
 - **If both a network policy and an allowed IP policy are enabled at the same time, only traffic aligning with both policies will be allowed.**
-  When assigning an allowed IP policy to a
-  {{site.data.keyword.keymanagementserviceshort}} instance that has an existing
-  allowed network policy, the IP addresses that are listed on the policy must
-  access the instance from the network specified in the allowed network policy.
+    When assigning an allowed IP policy to a
+    {{site.data.keyword.keymanagementserviceshort}} instance that has an existing
+    allowed network policy, the IP addresses that are listed on the policy must
+    access the instance from the network specified in the allowed network policy.
 
 - **`ipWhitelist` has been deprecated and replaced with `allowedIP`.**
-  Due to the deprecation of the previous `ipWhitelist` term, if you don't
-  specify a query param while making a `GET` instance policies request, you will
-  receive a duplicate allowed IP record when you retrieving your list of
-  instance policies.
+    Due to the deprecation of the previous `ipWhitelist` term, if you don't
+    specify a query param while making a `GET` instance policies request, you will
+    receive a duplicate allowed IP record when you retrieving your list of
+    instance policies.
 
 ### Enabling and updating an allowed IP policy for your {{site.data.keyword.keymanagementserviceshort}} instance
 {: #enable-allowed-ip-instance-policy}
@@ -140,8 +140,8 @@ existing policy.
     {: note}
 
 2. Enable or update an allowed IP policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -161,7 +161,7 @@ existing policy.
                         "policy_data": {
                             "enabled": <true|false>,
                             "attributes": {
-                                "allowed_ip": [<ip_address_list>]
+"allowed_ip": [<ip_address_list>]
                             }
                         }
                     }
@@ -231,8 +231,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedIP
     {: note}
 
 2. Disable an existing allowed IP policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -384,7 +384,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/allowed_ip_port
     {: note}
 
 2. Retrieve the private endpoint port assigned to your allowed IP policy by
-   running the following `curl` command.
+    running the following `curl` command.
 
     ```sh
     $ curl -X GET \
@@ -461,17 +461,19 @@ that is integrated with another service, keep in mind the following
 considerations before creating an allowed IP policy:
 
 - {{site.data.keyword.keymanagementserviceshort}} does not currently have
-  allowed IP policy support for instances integrated with
-  {{site.data.keyword.containerlong_notm}}.
+    allowed IP policy support for instances integrated with
+    {{site.data.keyword.containerlong_notm}}.
 
 - If your {{site.data.keyword.keymanagementserviceshort}} instance has an
-  enabled allowed IP policy, you will not be able to integrate
-  {{site.data.keyword.keymanagementserviceshort}} with another service via the
-  UI. You will need to integrate your service via the
-  {{site.data.keyword.keymanagementserviceshort}} API.
+    enabled allowed IP policy, you will not be able to integrate
+    {{site.data.keyword.keymanagementserviceshort}} with another service via the
+    UI. You will need to integrate your service via the
+    {{site.data.keyword.keymanagementserviceshort}} API.
 
 - Service to service calls will bypass allowed IP policy enforcement.
 
 - If your integrated {{site.data.keyword.keymanagementserviceshort}} instance
-  has an active allowed IP policy, you will not be able to view the resources in
-  your {{site.data.keyword.keymanagementserviceshort}} instance via the UI.
+    has an active allowed IP policy, you will not be able to view the resources in
+    your {{site.data.keyword.keymanagementserviceshort}} instance via the UI.
+
+

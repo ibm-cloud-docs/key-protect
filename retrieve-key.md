@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key
 
@@ -56,7 +56,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
     {{site.data.keyword.keymanagementserviceshort}} GUI.
 
 3. Run the following `curl` command to get details about your key and the key
-   material.
+    material.
 
     ```sh
     $ curl -X GET \
@@ -180,3 +180,5 @@ hardware security module and cannot be retrieved.
 For a detailed description of the response parameters, see the
 {{site.data.keyword.keymanagementserviceshort}}
 [REST API reference doc](/apidocs/key-protect){: external}.
+
+

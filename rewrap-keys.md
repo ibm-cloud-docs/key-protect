@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-16"
+lastupdated: "2021-08-16"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -64,7 +64,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Copy the ID of the rotated root key that you used to perform the initial wrap
-   request.
+    request.
 
     You can retrieve the ID for a key by making a `GET api/v2/keys` request, or
     by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}}
@@ -73,10 +73,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 3. Copy the `ciphertext` value that was returned during the latest wrap request.
 
 4. Rewrap the key with the latest root key material by running the following
-   `curl` command.
+    `curl` command.
 
-   ```sh
-   $ curl -X POST \
+    ```sh
+    $ curl -X POST \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
@@ -91,11 +91,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
                     "<additional_data>"
                 ]
             }'
-   ```
-   {: codeblock}
+    ```
+    {: codeblock}
 
-   Replace the variables in the example request according to the following
-   table.
+    Replace the variables in the example request according to the following
+    table.
 
 |Variable|Description|
 |--- |--- |
@@ -135,7 +135,7 @@ operations so that your data is protected by the latest root key.
 {: #rewrap-keys-optional-validation}
 
 Verify that the key was successfully rewrapped by base64 decoding
-   the `ciphertext` value.
+    the `ciphertext` value.
 
 ```sh
 $ echo <ciphertext> | base64 --decode 
@@ -147,11 +147,13 @@ the previous step. The following JSON object shows an example CLI output.
 
 ```json
 {
-	"ciphertext": "mIzRrwZAA8+WqRckG6gt1ji8HlEEJPSiV+TRBSR4GVr+FlAZlC5KvRriRF0=",
-	"iv": "lbwxXlAW2DS7+5jGz5Y1Kg==",
-	"version": "4.0.0",
-	"handle": "8e309bae-b3ec-4270-9b87-89f8697fe54f"
+    "ciphertext": "mIzRrwZAA8+WqRckG6gt1ji8HlEEJPSiV+TRBSR4GVr+FlAZlC5KvRriRF0=",
+    "iv": "lbwxXlAW2DS7+5jGz5Y1Kg==",
+    "version": "4.0.0",
+    "handle": "8e309bae-b3ec-4270-9b87-89f8697fe54f"
 }
 ```
 {: screen}
+
+
 

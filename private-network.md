@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -54,8 +54,8 @@ Before you target a private endpoint for
 {{site.data.keyword.keymanagementserviceshort}}:
 
 1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
-   enabled for
-   [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf){: external}.
+    enabled for
+    [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf){: external}.
 
     When you enable VRF, a separate routing table is created for your account,
     and connections to and from your account's resources are routed separately
@@ -69,8 +69,8 @@ Before you target a private endpoint for
     {: important}
 
 2. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
-   enabled for
-   [service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
+    enabled for
+    [service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
 
     After you enable VRF and service endpoints for your account, all existing
     and future {{site.data.keyword.keymanagementserviceshort}} resources and
@@ -85,7 +85,7 @@ Prepare your VSI or test machine by configuring your routing table for the
 {{site.data.keyword.cloud_notm}} private network.
 
 1. To route traffic to the {{site.data.keyword.cloud_notm}} private network,
-   run the following command on your VSI:
+    run the following command on your VSI:
 
     ```sh
     route add -net 166.9.0.0/16 gw <gateway> dev <gateway_interface>
@@ -96,7 +96,7 @@ Prepare your VSI or test machine by configuring your routing table for the
     (for example, `eth10`) with the appropriate values.
 
 2. Optional: Verify that the route was added successfully by displaying your new
-   routing table.
+    routing table.
 
     ```sh
     route -n
@@ -153,7 +153,7 @@ network traffic, you can target the private endpoint for
     {: tip}
 
 3. Set an environment variable to target a
-   {{site.data.keyword.keymanagementserviceshort}} private endpoint.
+    {{site.data.keyword.keymanagementserviceshort}} private endpoint.
 
     ```sh
     export KP_PRIVATE_ADDR=https://private.<region>.kms.cloud.ibm.com
@@ -172,7 +172,7 @@ Test your private network connection by using the
 [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli).
 
 1. Create a [root key](/docs/key-protect?topic=key-protect-create-root-keys) by
-   targeting the private endpoint.
+    targeting the private endpoint.
 
     ```sh
     ibmcloud kp create <key_name> -i <instance_ID>
@@ -185,8 +185,8 @@ Test your private network connection by using the
     {{site.data.keyword.keymanagementserviceshort}} instance.
 
 2. Optional: Verify that the key was created successfully by listing the keys
-   that are available in your {{site.data.keyword.keymanagementserviceshort}}
-   instance.
+    that are available in your {{site.data.keyword.keymanagementserviceshort}}
+    instance.
 
     ```sh
     ibmcloud kp list -i <instance_ID>
@@ -204,5 +204,7 @@ You're now set to interact with {{site.data.keyword.keymanagementserviceshort}}
 through a private endpoint.
 
 - To find out more about managing keys with
-  {{site.data.keyword.keymanagementserviceshort}},
-  [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+    {{site.data.keyword.keymanagementserviceshort}},
+    [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+
+

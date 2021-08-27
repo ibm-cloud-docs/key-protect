@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-08-16"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -165,3 +165,5 @@ Card Industry (PCI) data security standards to protect cardholder data. For
 information about requesting an attestation of compliance, see
 [Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}
 or contact an IBM representative.
+
+

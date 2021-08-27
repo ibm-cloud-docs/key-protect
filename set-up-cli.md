@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect CLI plugin, KMS plug-in, KMS plugin
 
@@ -44,62 +44,62 @@ To install the CLIs:
 1. Install the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
-   After you install the CLI, you can run `ibmcloud` commands to interact with your cloud services.
+    After you install the CLI, you can run `ibmcloud` commands to interact with your cloud services.
 
 1. Log in to {{site.data.keyword.cloud_notm}}.
 
-   ```sh
-   ibmcloud login
-   ```
-   {: pre}
+    ```sh
+    ibmcloud login
+    ```
+    {: pre}
 
-   If the login fails, run the `ibmcloud login --sso` command to try again. The
-   `--sso` parameter is required when you log in with a federated ID. If this
-   option is used, go to the link listed in the CLI output to generate a
-   one-time passcode.
-   {: note}
+    If the login fails, run the `ibmcloud login --sso` command to try again. The
+    `--sso` parameter is required when you log in with a federated ID. If this
+    option is used, go to the link listed in the CLI output to generate a
+    one-time passcode.
+    {: note}
 
 1. To start managing encryption keys, install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 
-   ```sh
-   ibmcloud plugin install key-protect -r "IBM Cloud"
-   ```
-   {: pre}
+    ```sh
+    ibmcloud plugin install key-protect -r "IBM Cloud"
+    ```
+    {: pre}
 
 1. Set the region to target a specific {{site.data.keyword.keymanagementserviceshort}} endpoint.
 
-   ```sh
-   ibmcloud kp region-set -i <INSTANCE_ID>
-   ```
-   {: pre}
+    ```sh
+    ibmcloud kp region-set -i <INSTANCE_ID>
+    ```
+    {: pre}
 
-   Replace `<INSTANCE_ID>` with the instance ID representing your {{site.data.keyword.keymanagementserviceshort}}. Learn more about your instance, including choosing regions, at [Provisioning the Key Protect service](/docs/key-protect?topic=key-protect-provision).
+    Replace `<INSTANCE_ID>` with the instance ID representing your {{site.data.keyword.keymanagementserviceshort}}. Learn more about your instance, including choosing regions, at [Provisioning the Key Protect service](/docs/key-protect?topic=key-protect-provision).
 
-   You will be prompted to choose from a list as shown in the results.
+    You will be prompted to choose from a list as shown in the results.
 
-   ```
+    ```
     Select a Region:
-		1. au-syd
-		2. eu-de
-		3. eu-fr2 (available by request)
-		4. eu-gb
-		5. jp-osa
-		6. jp-tok
-		7. us-east
-		8. us-south
-		9. staging (us-south)
-		Enter a number:
-   ```
-   {: screen}
+        1. au-syd
+        2. eu-de
+        3. eu-fr2 (available by request)
+        4. eu-gb
+        5. jp-osa
+        6. jp-tok
+        7. us-east
+        8. us-south
+        9. staging (us-south)
+        Enter a number:
+    ```
+    {: screen}
 
-   After you select your region, you can start working with your instance.
+    After you select your region, you can start working with your instance.
 
 1. Optional: Verify that the plug-in was installed successfully.
 
-   ```sh
-   ibmcloud plugin list
-   ```
-   {: pre}
+    ```sh
+    ibmcloud plugin list
+    ```
+    {: pre}
 
 ## Updating the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #update-cli}
@@ -166,3 +166,5 @@ To update the CLI:
     ibmcloud plugin list
     ```
     {: pre}
+
+

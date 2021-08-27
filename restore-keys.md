@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-22"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -96,27 +96,27 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
-   To restore a key, you must have the _Manager_ role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
+    To restore a key, you must have the _Manager_ role for the instance or key. To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 2. Retrieve the ID of the key that you want to restore.
 
-   You can retrieve the ID for a specified key by making a [list keys request](/apidocs/key-protect#list-keys){: external} request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard. For more information, check out [Viewing a list of keys](/docs/key-protect?topic=key-protect-view-keys).
+    You can retrieve the ID for a specified key by making a [list keys request](/apidocs/key-protect#list-keys){: external} request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard. For more information, check out [Viewing a list of keys](/docs/key-protect?topic=key-protect-view-keys).
 
 3. Run the following `curl` command to restore the key and regain access to its associated data. Note that you must wait 30 seconds after deleting a key before you are able to restore it.
 
-   You cannot restore a key that has an expiration date that is current or in the past.
-   {: important}
+    You cannot restore a key that has an expiration date that is current or in the past.
+    {: important}
 
-   ```sh
-   $ curl -X POST \
+    ```sh
+    $ curl -X POST \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>"
-   ```
-   {: codeblock}
+    ```
+    {: codeblock}
 
-   Replace the variables in the example request according to Table 2.
+    Replace the variables in the example request according to Table 2.
 
 | Variable    | Description                                                                                               |
 |-------------|-----------------------------------------------------------------------------------------------------------|
@@ -127,10 +127,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 | key_ring_ID | **Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request.  Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.  For more information, check out [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
 {: caption="Table 2. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
-   A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
+    A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
 
-   You will have access to data associated with the key as soon as the key is restored.
-   {: note}
+    You will have access to data associated with the key as soon as the key is restored.
+    {: note}
 
 ### Optional: Verify key restoration
 {: #restore-api-verify}
@@ -196,3 +196,5 @@ Review the `state` field in the response body to verify that the key transitione
 
 The integer mapping for the _Active_ key state is `1`.
 {: note}
+
+

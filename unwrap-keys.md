@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-16"
+lastupdated: "2021-08-16"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key
 
@@ -80,18 +80,18 @@ key (WDEK).
 1. [Retrieve your service and authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
 
 2. Copy the ID of the root key that you used to perform the initial wrap
-   request.
+    request.
 
-  You can find the ID for a key in your
-  {{site.data.keyword.keymanagementserviceshort}} instance by
-  [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
-  or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    You can find the ID for a key in your
+    {{site.data.keyword.keymanagementserviceshort}} instance by
+    [retrieving a list of your keys](/docs/key-protect?topic=key-protect-view-keys),
+    or by accessing the {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 3. Copy the `ciphertext` value that was returned during the initial wrap
-   request.
+    request.
 
 4. Run the following `curl` command to decrypt and authenticate the key
-   material.
+    material.
 
     ```sh
     $ curl -X POST \
@@ -162,15 +162,15 @@ encoding. You will need to decode the key before encrypting it.
 {: #open-ssl-encoding-root-unwrap}
 
 1. Download and install
-   [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
+    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
 2. Decode your base64 encoded key material string by running the following
-   command:
+    command:
 
-   ```sh
-   openssl base64 -d -in <infile> -out <outfile>
-   ```
-   {: pre}
+    ```sh
+    openssl base64 -d -in <infile> -out <outfile>
+    ```
+    {: pre}
 
 Replace the variables in the example request according to the following
 table.
@@ -186,3 +186,5 @@ than a file, run the command
 `openssl enc -base64 -d <<< '<key_material_string>'`, where
 key_material_string is the returned plaintext from your unwrap request.
 {: note}
+
+

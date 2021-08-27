@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-08-16"
 
 keywords: IBM, monitoring, metrics, operational metrics
 
@@ -50,7 +50,7 @@ The following contains examples of metrics that can be measured
 in your {{site.data.keyword.mon_short}} dashboard:
 
 - Total requests being made in your
-  {{site.data.keyword.keymanagementserviceshort}} instance
+    {{site.data.keyword.keymanagementserviceshort}} instance
 
 - Successful vs failed API requests categorized by API type
 
@@ -71,15 +71,15 @@ Before you provision an instance of {{site.data.keyword.mon_short}}, consider
 the following guidance:
 
 - You will need to enable a
-  [metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics)
-  in the {{site.data.keyword.keymanagementserviceshort}} instance in order to
-  retrieve operational metrics.
+    [metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics)
+    in the {{site.data.keyword.keymanagementserviceshort}} instance in order to
+    retrieve operational metrics.
 
 - Other {{site.data.keyword.cloud_notm}} users with `administrator` or `editor`
-  permissions can manage the {{site.data.keyword.mon_short}} service in the
-  {{site.data.keyword.cloud_notm}}. These users must also have platform
-  permissions to create resources within the context of the resource group where
-  they plan to provision the instance.
+    permissions can manage the {{site.data.keyword.mon_short}} service in the
+    {{site.data.keyword.cloud_notm}}. These users must also have platform
+    permissions to create resources within the context of the resource group where
+    they plan to provision the instance.
 
 ## Connecting {{site.data.keyword.mon_short}} with {{site.data.keyword.keymanagementserviceshort}}
 {: #connect-monitor-keyprotect}
@@ -95,23 +95,23 @@ metrics policy.
 To enable platform metrics in a region, complete the following steps:
 
 1. [Provision an instance of {{site.data.keyword.mon_short}}](/docs/monitoring?topic=monitoring-provision){: external}
-   in the region of the Key Protect instance that contains an
-   [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics).
+    in the region of the Key Protect instance that contains an
+    [enabled metrics policy](/docs/key-protect?topic=key-protect-manage-monitor-metrics).
 
 2. Go to the [monitoring dashboard](/observe/monitoring).
 
 3. Click on "Configure platform metrics."
 
 4. Select the region where the {{site.data.keyword.keymanagementserviceshort}}
-   instance was created.
+    instance was created.
 
 5. Select the {{site.data.keyword.keymanagementserviceshort}} instance in which
-   you would like to receive metrics.
+    you would like to receive metrics.
 
 6. Click "Configure."
 
 7. Your {{site.data.keyword.keymanagementserviceshort}} instance is now set for
-   platform metrics.
+    platform metrics.
 
 ## {{site.data.keyword.keymanagementserviceshort}} Metrics Details
 {: #kp-metrics}
@@ -213,14 +213,14 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive
 platform metrics, follow the below steps:
 
 1. Go to the
-   [Provision service instance](/docs/key-protect?topic=key-protect-provision#provision-gui)
-   and create your {{site.data.keyword.keymanagementserviceshort}} service
-   instance.
+    [Provision service instance](/docs/key-protect?topic=key-protect-provision#provision-gui)
+    and create your {{site.data.keyword.keymanagementserviceshort}} service
+    instance.
 
 2. Click on the `Actions` dropdown.
 
 3. Select `Monitoring`. This will take you to the
-   {{site.data.keyword.keymanagementserviceshort}} dashboard.
+    {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
 ![The image shows an example of the console monitoring button.](images/kp-ui-monitoring-button.png)
 {: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
@@ -232,20 +232,20 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive
 platform metrics, follow the below steps:
 
 1. Go to the
-   [monitoring dashboard](/observe/monitoring){: external} and find your monitoring
-   instance that is configured to receive platform metrics.
+    [monitoring dashboard](/observe/monitoring){: external} and find your monitoring
+    instance that is configured to receive platform metrics.
 
 2. Click on the `View {{site.data.keyword.mon_short}}` button that is in the
-   `View Dashboard` column of the monitoring instance.
+    `View Dashboard` column of the monitoring instance.
 
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click
-   `Dashboards` to open up the side menu.
+    `Dashboards` to open up the side menu.
 
 4. Select `IBM` under the Dashboard Templates section.
 
 5. Select `{{site.data.keyword.keymanagementserviceshort}} - Overview` to view
-   the dashboard for your {{site.data.keyword.keymanagementserviceshort}}
-   service instance.
+    the dashboard for your {{site.data.keyword.keymanagementserviceshort}}
+    service instance.
 
 ![The image shows an example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png)
 {: caption="Figure 1. Shows the dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
@@ -295,3 +295,5 @@ span.
 
 ![The image shows an example of a 401 and 403 configuration.](images/monitor-401-alert.png)
 {: caption="Figure 4=5. Shows the configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+
+

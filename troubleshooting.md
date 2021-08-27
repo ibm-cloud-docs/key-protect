@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: delete service, use Key Protect, failed to create key, failed to delete key
 
@@ -241,10 +241,10 @@ access to that data.
 To delete the key, you can:
 
 - Use the {{site.data.keyword.keymanagementserviceshort}} API to
-  [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete).
+    [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete).
 
 - First, delete the resources that are associated with the key, and then delete
-  the key.
+    the key.
 
 ## Getting help and support
 {: #getting-help}
@@ -264,13 +264,13 @@ When you are using the forums to ask a question, tag your question so that it is
 seen by the {{site.data.keyword.cloud_notm}} development teams.
 
 - If you have technical questions about
-  {{site.data.keyword.keymanagementserviceshort}}, post your question on
-  [Stack Overflow](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: external}
-  and tag your question with "ibm-cloud" and "key-protect".
+    {{site.data.keyword.keymanagementserviceshort}}, post your question on
+    [Stack Overflow](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: external}
+    and tag your question with "ibm-cloud" and "key-protect".
 
 - For questions about the service and getting started instructions, use the
-  [IBM developerWorks dW Answers](https://developer.ibm.com/answers/topics/key-protect/){: external}
-  forum. Include the "ibm-cloud" and "key-protect" tags.
+    [IBM developerWorks dW Answers](https://developer.ibm.com/answers/topics/key-protect/){: external}
+    forum. Include the "ibm-cloud" and "key-protect" tags.
 
 See
 [Asking a question](/docs/get-support?topic=get-support-using-avatar#asking-a-question){: external}
@@ -279,3 +279,5 @@ for more details about using the forums.
 For more information about opening an {{site.data.keyword.IBM_notm}} support
 ticket, or about support levels and ticket severities, see
 [Contacting support](/docs/get-support){: external}.
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -54,15 +54,15 @@ Before you delete a key by using dual authorization:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the application details page, use the **Keys** table to browse the keys in
-   your service.
+    your service.
 
 5. Click the ⋯ icon to open a list of options for the key that you want to delete.
 
 6. From the options menu, click **Schedule key deletion** and review the key's
-   associated resources.
+    associated resources.
 
 7. Click the `Next` button, enter the key name, and click `Schedule deletion`.
 
@@ -150,7 +150,7 @@ seven-day period, the key remains in the
 [_Active_ state](/docs/key-protect?topic=key-protect-key-states)
 and all key operations are allowed on the key. If no action is taken by another user and the seven-day period expires, you must
 [restart the dual authorization process](#delete-dual-auth-keys-set-key-deletion-api)
- to delete the key.
+    to delete the key.
 {: note}
 
 Delete a key and its contents by making a `DELETE` call to the following
@@ -317,3 +317,5 @@ indicates that your key is no longer authorized for deletion. If you need to
 restart the dual authorization process, you can issue another authorization
 to
 [set the key for deletion](#delete-dual-auth-keys-set-key-deletion-api).
+
+

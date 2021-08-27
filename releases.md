@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-16"
 
 keywords: release notes, service updates, service bulletin
 
@@ -152,13 +152,13 @@ purged key will result in a 404 HTTP Not Found error.
 Note: A key purge can be reversed by restoring the hard deleted key.
 
 - **How will the changes impact my environment?**
-  The majority of users will not notice an impact. Please note that any data
-  related to a purged key (key metadata, registrations, policies, etc) will no
-  longer be available via the {{site.data.keyword.keymanagementserviceshort}}
-  service. If you are required to retain any data related to a purged key
-  (key metadata, registrations, policies, etc) for an extended period of time,
-  it is recommended to perform the necessary API or CLI calls to retrieve and
-  store that data in your own storage device.
+    The majority of users will not notice an impact. Please note that any data
+    related to a purged key (key metadata, registrations, policies, etc) will no
+    longer be available via the {{site.data.keyword.keymanagementserviceshort}}
+    service. If you are required to retain any data related to a purged key
+    (key metadata, registrations, policies, etc) for an extended period of time,
+    it is recommended to perform the necessary API or CLI calls to retrieve and
+    store that data in your own storage device.
 
 ### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
 {: #february-2021-ui-updates}
@@ -317,9 +317,9 @@ The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following feature:
 
 - List keys by key state: You can now use the
-  {{site.data.keyword.keymanagementserviceshort}} UI to filter and retrieve keys
-  that are in a specified state. For more information, see
-  [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys#filter-key-state-gui).
+    {{site.data.keyword.keymanagementserviceshort}} UI to filter and retrieve keys
+    that are in a specified state. For more information, see
+    [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys#filter-key-state-gui).
 
 If you have _Manager_ access permissions, you can filter for keys in the
 **Destroyed** state and restore an imported root key via the ⋯ icon on the
@@ -335,7 +335,7 @@ The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
 was updated with these changes:
 
 - Commands that specify JSON outout (`--output json`) now return an empty JSON
-  structure if there is no output.
+    structure if there is no output.
 
 The
 [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog)
@@ -370,25 +370,25 @@ The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following features:
 
 - Enable/disable key: If you have _Manager_ access permissions, you can now use
-  the {{site.data.keyword.keymanagementserviceshort}} UI to suspend or restore a
-  key's encrypt and decrypt operations. For more information, see
-  [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys#disable-enable-ui)
+    the {{site.data.keyword.keymanagementserviceshort}} UI to suspend or restore a
+    key's encrypt and decrypt operations. For more information, see
+    [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys#disable-enable-ui)
 
 - Restore key: If you have _Manager_ access permissions, you can now use the the
-  {{site.data.keyword.keymanagementserviceshort}} UI to restore a previously
-  imported root key that was deleted. For more information, see
-  [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
+    {{site.data.keyword.keymanagementserviceshort}} UI to restore a previously
+    imported root key that was deleted. For more information, see
+    [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 - Set an instance level dual authorization policy: You can now use the
-  {{site.data.keyword.keymanagementserviceshort}} UI to require two users to
-  safely delete a key from your {{site.data.keyword.keymanagementserviceshort}}
-  instance. For more information, see
-  [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
+    {{site.data.keyword.keymanagementserviceshort}} UI to require two users to
+    safely delete a key from your {{site.data.keyword.keymanagementserviceshort}}
+    instance. For more information, see
+    [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
 
 - Set an instance level network policy: You can now use the
-  {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to
-  public or private networks. For more information, see
-  [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
+    {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to
+    public or private networks. For more information, see
+    [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
 
 ### Update: CLI plug-in Version 0.5.0 is now available
 {: #june-2020-cli-plugin-050-available}
@@ -419,24 +419,24 @@ logs. These updates will be available across all supported regions by 29 May
 2020.
 
 - Successful replace registration, update registration, and unwrap key events
-  will change from severity level `warning` to `normal`.
+    will change from severity level `warning` to `normal`.
 
 - The `rewrapedKeyVersionId` field will change to `rewrappedKeyVersionId`.
 
 - The `TotalResources` field will change to `totalResources`.
 
 - **Why are we making these changes?**
-  These changes are required to remove deprecated event fields and support
-  upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+    These changes are required to remove deprecated event fields and support
+    upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 
 - **How will the changes impact my environment?**
-  This change impacts the event fields that are returned in
-  [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
-  audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
-  actions. The change does not impact
-  {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
-  compliance admin, ensure that the removed and changed event fields do not
-  affect your audit operations.
+    This change impacts the event fields that are returned in
+    [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
+    audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
+    actions. The change does not impact
+    {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
+    compliance admin, ensure that the removed and changed event fields do not
+    affect your audit operations.
 
 ### Added: Use an import token to rotate a key
 {: #added-secure-rotate}
@@ -533,8 +533,8 @@ logs. These updates will be available across all supported regions by 15 April
 2020.
 
 - **What's changing?**
-  This change impacts the following {{site.data.keyword.at_full_notm}} event
-  fields.
+    This change impacts the following {{site.data.keyword.at_full_notm}} event
+    fields.
 
 |Type of change|Affected event fields|
 |--- |--- |
@@ -544,17 +544,17 @@ logs. These updates will be available across all supported regions by 15 April
 {: caption="Describes upcoming {{site.data.keyword.at_full_notm}} event field changes." caption-side="top"}
 
 - **Why are we making these changes?**
-  These changes are required to remove deprecated event fields and support
-  upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
+    These changes are required to remove deprecated event fields and support
+    upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
 
 - **How will the changes impact my environment?**
-  This change impacts the event fields that are returned in
- [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
-  audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
-  actions. The change does not impact
-  {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
-  compliance admin, ensure that the removed and changed event fields do not
-  affect your audit operations.
+    This change impacts the event fields that are returned in
+    [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external}
+    audit logs when you perform {{site.data.keyword.keymanagementserviceshort}}
+    actions. The change does not impact
+    {{site.data.keyword.keymanagementserviceshort}} operations. As a security or
+    compliance admin, ensure that the removed and changed event fields do not
+    affect your audit operations.
 
 ### Added: View associations between root keys and IBM Cloud resources
 {: #added-registrations}
@@ -585,14 +585,14 @@ New as of: 2020-02-25
 to protect against the accidental or malicious deletion of keys.
 
 - {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a
-  root key that's actively protecting a cloud resource. To learn if a key is
-  registered to cloud resource, you can
-  [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
-  that are associated with the key.
+    root key that's actively protecting a cloud resource. To learn if a key is
+    registered to cloud resource, you can
+    [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources)
+    that are associated with the key.
 
 - You can now
-  [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete)
-  that's protecting a cloud resource.
+    [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete)
+    that's protecting a cloud resource.
 
 ### Added: ReaderPlus service access role
 {: #added-readerplus}
@@ -615,14 +615,14 @@ return additional fields in the response bodies of some
 {{site.data.keyword.keymanagementserviceshort}} REST APIs.
 
 - **Why are we making these changes?**
-  The extra response fields are required to support upcoming features and
-  service enhancements.
+    The extra response fields are required to support upcoming features and
+    service enhancements.
 
 - **How will the changes impact my environment?**
-  These changes are backwards-compatible and affect only the response details
-  for some API calls, including the create key, retrieve key, wrap key, unwrap
-  key, and rewrap key actions. Customers and integrated services must ensure
-  that the additional fields do not affect their operations.
+    These changes are backwards-compatible and affect only the response details
+    for some API calls, including the create key, retrieve key, wrap key, unwrap
+    key, and rewrap key actions. Customers and integrated services must ensure
+    that the additional fields do not affect their operations.
 
 ## January 2020
 {: #jan-2020}
@@ -1015,12 +1015,12 @@ New as of: 2017-12-15
 (BYOK) and customer-managed encryption.
 
 - Introduced
-  [root keys](/docs/key-protect?topic=key-protect-envelope-encryption#key-types),
-  also called Customer Root Keys (CRKs), as primary resources in the service.
+    [root keys](/docs/key-protect?topic=key-protect-envelope-encryption#key-types),
+    also called Customer Root Keys (CRKs), as primary resources in the service.
 
 - Enabled
-  [envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how)
-  for {{site.data.keyword.cos_full_notm}} buckets.
+    [envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how)
+    for {{site.data.keyword.cos_full_notm}} buckets.
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
 {: #added-london-region}
@@ -1062,3 +1062,5 @@ for your {{site.data.keyword.keymanagementserviceshort}} resources.
 
 For more information, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
+
+

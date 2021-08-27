@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -296,3 +296,5 @@ for any {{site.data.keyword.keymanagementserviceshort}} actions.
 Keys in a `private-only` instance will not be shown in the UI and any
 {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an
 unauthorized error (HTTP status code 401).
+
+

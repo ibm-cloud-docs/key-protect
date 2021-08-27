@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 
@@ -58,7 +58,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
 
 3. Get details about the key by running the following `curl` command.
 
-   ```sh
+    ```sh
     $ curl -X GET \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata" \
         -H "accept: application/vnd.ibm.kms.key+json" \
@@ -66,11 +66,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>" \
         -H "correlation-id: <correlation_ID>"
-   ```
-   {: codeblock}
+    ```
+    {: codeblock}
 
-   Replace the variables in the example request according to the following
-   table.
+    Replace the variables in the example request according to the following
+    table.
 
 |Variable|Description|
 |--- |--- |
@@ -83,11 +83,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
 {: caption="Table 1. Describes the variables that are needed to view a details about  a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
-   A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns
-   details about your key. The following JSON object shows an example returned
-   value for a standard key.
+    A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns
+    details about your key. The following JSON object shows an example returned
+    value for a standard key.
 
-   ```json
+    ```json
     {
         "metadata": {
             "collectionType": "application/vnd.ibm.kms.key+json",
@@ -124,16 +124,18 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
             }
         ]
     }
-   ```
-   {: screen}
+    ```
+    {: screen}
 
 ## Next steps
 {: #retrieve-key-metadata-next-steps}
 
-   Need to retrieve the `payload` value for a standard key? To learn more, see
-   [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key).
-   {: tip}
+    Need to retrieve the `payload` value for a standard key? To learn more, see
+    [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key).
+    {: tip}
 
-   For a detailed description of the response parameters, see the
-   {{site.data.keyword.keymanagementserviceshort}}
-   [REST API reference doc](/apidocs/key-protect){: external}.
+    For a detailed description of the response parameters, see the
+    {{site.data.keyword.keymanagementserviceshort}}
+    [REST API reference doc](/apidocs/key-protect){: external}.
+
+

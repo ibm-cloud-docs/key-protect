@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: set up Key Protect, Key Protect API methods, configure Key Protect 
 
@@ -46,7 +46,7 @@ To gather your credentials:
 
 When you make an API call to the service, structure your API request according
 to how you initially provisioned your instance of
- {{site.data.keyword.keymanagementserviceshort}}.
+    {{site.data.keyword.keymanagementserviceshort}}.
 
 To build your request, pair a
 [service endpoint](/docs/key-protect?topic=key-protect-regions#service-endpoints)
@@ -80,3 +80,5 @@ You're all set to start managing your encryption keys in
 {{site.data.keyword.keymanagementserviceshort}}. To find out more about
 programmatically managing your keys,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

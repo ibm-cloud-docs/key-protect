@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: instance settings, service settings, network access policies
 
@@ -131,17 +131,17 @@ complete the following steps to create a network access policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. Click the **Instance policies** link on the left side of the page.
 
-   - Find the `Network access allowed` panel (on the top-right side of the
-     page).
+    - Find the `Network access allowed` panel (on the top-right side of the
+        page).
 
-   - Change the policy by selecting either `Public and private (default)` or
-     `Private only` from the dropdown.
+    - Change the policy by selecting either `Public and private (default)` or
+        `Private only` from the dropdown.
 
-   - Click `Save` or `Cancel` (whichever is appropriate).
+    - Click `Save` or `Cancel` (whichever is appropriate).
 
 ### Enabling network access to your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enabling-network-access-to-your-service-instance-api}
@@ -169,8 +169,8 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
     {: note}
 
 2. Enable a network access policy for your
-   {{site.data.keyword.keymanagementserviceshort}} instance by running the
-   following `curl` command.
+    {{site.data.keyword.keymanagementserviceshort}} instance by running the
+    following `curl` command.
 
     ```sh
     $ curl -X PUT \
@@ -190,7 +190,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
                         "policy_data": {
                             "enabled": <enabled>,
                             "attributes": {
-                                "allowed_network": "<access_type>"
+"allowed_network": "<access_type>"
                             }
                         }
                     }
@@ -245,17 +245,17 @@ a network access policy:
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. On the **Instance policies** page, use the **Policies** table to
-   browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
-   instance.
+    browse the policies in your {{site.data.keyword.keymanagementserviceshort}}
+    instance.
 
 5. Click the ⋯ icon to open a list of options for the policy that you want to
-   disable.
+    disable.
 
 6. From the options menu, click **Disable policy** and confirm the policy was
-   disabled in the updated **Policies** table.
+    disabled in the updated **Policies** table.
 
 ## What's next
 {: #managing-network-access-policies-next-steps}
@@ -265,3 +265,5 @@ These are API references to set and list instance policies.
 - [Set instance policies](/apidocs/key-protect#set-instance-policies){: external}
 
 - [List instance policies](/apidocs/key-protect#list-instance-policies){: external}
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
 
@@ -52,13 +52,13 @@ Before you target a virtual private endpoint for
 
 - Ensure that you have [provisioned a Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started){: external}.
 - Ensure that you have conducted [planning for Virtual Private Endpoints](/docs/vpc?topic=vpc-planning-considerations){: external}.
-- Ensure that [correct access controls](/docs/vpc?topic=vpc-vpe-configuring-acls){:external} 
-  are set for your virtual private endpoint.
+- Ensure that [correct access controls](/docs/vpc?topic=vpc-vpe-configuring-acls){: external} 
+    are set for your virtual private endpoint.
 - Understand the [limitations](/docs/vpc?topic=vpc-limitations-vpe){: external} of having a virtual private endpoint.
 - Ensure that you have [created](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external} and understand how to 
-  [access](/docs/vpc?topic=vpc-accessing-vpe-after-setup){: external} a VPE gateway.
+    [access](/docs/vpc?topic=vpc-accessing-vpe-after-setup){: external} a VPE gateway.
 - Understand how to [view details](/docs/vpc?topic=vpc-vpe-viewing-details-of-an-endpoint-gateway){: external} of 
-  a Virtual Private Endpoint.
+    a Virtual Private Endpoint.
 
 
 ## Virtual Private Service Endpoints
@@ -122,3 +122,5 @@ of the target region.
 |            | `private.au-syd.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`     |  |
 |            | `private.jp-tok.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`     |  |
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
+
+

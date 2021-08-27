@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-05"
+lastupdated: "2021-08-16"
 
 keywords: get instance ID, get instance GUID, service instance
 
@@ -55,7 +55,7 @@ You can also retrieve the instance ID for your
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
 1. Log in to {{site.data.keyword.cloud_notm}} with the
-   [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
+    [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}.
 
     ```sh
     ibmcloud login
@@ -69,10 +69,10 @@ You can also retrieve the instance ID for your
     {: note}
 
 2. Select the account, region, and resource group that contain your provisioned
-   instance of {{site.data.keyword.keymanagementserviceshort}}.
+    instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Retrieve the Cloud Resource Name (CRN) that uniquely identifies your
-   {{site.data.keyword.keymanagementserviceshort}} instance.
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
     ```sh
     ibmcloud resource service-instance <instance_name> --id
@@ -105,8 +105,8 @@ and then pipe the JSON output to `jq` to extract this value.
 1. [Retrieve an {{site.data.keyword.cloud_notm}} IAM access token](/docs/key-protect?topic=key-protect-retrieve-access-token).
 
 2. Call the
-   [Resource Controller API](/apidocs/resource-controller){: external}
-   to retrieve your instance ID.
+    [Resource Controller API](/apidocs/resource-controller){: external}
+    to retrieve your instance ID.
 
     ```sh
     $ curl -X GET \
@@ -126,3 +126,5 @@ and then pipe the JSON output to `jq` to extract this value.
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
+
+

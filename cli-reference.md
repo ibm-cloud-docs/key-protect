@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -178,7 +178,7 @@ the import token expires after 10 minutes (600 seconds).
 
 ```sh
 ibmcloud kp import-token create
-     -i, --instance-id    INSTANCE_ID
+        -i, --instance-id    INSTANCE_ID
     [-e, --expiration     EXPIRATION_TIME_SECONDS]
     [-m, --max-retrievals MAX_RETRIEVALS]
 ```
@@ -204,9 +204,9 @@ Created                         Expires                         Max Retrievals  
 $ ibmcloud kp import-token show
 
 {
-  "nonce": "8rf2ldP/zWm1Tjrb",
-  "payload":
-    "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
+    "nonce": "8rf2ldP/zWm1Tjrb",
+    "payload":
+        "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
 }
 ```
 {: screen}
@@ -216,22 +216,22 @@ $ ibmcloud kp import-token show
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-import-token-create-opt-params}
 
 * **`-e, --expiration`**
 
-   Specify an expiration time (in seconds) for an import token. This value determines how long the import token and its associated public key remain valid for operations.
+    Specify an expiration time (in seconds) for an import token. This value determines how long the import token and its associated public key remain valid for operations.
 
-   The minimum value is `300` seconds (5 minutes), and the maximum value is `86400` seconds (24 hours). The default value is `600` seconds (10 minutes).
+    The minimum value is `300` seconds (5 minutes), and the maximum value is `86400` seconds (24 hours). The default value is `600` seconds (10 minutes).
 
 * **`-m, --max-retrievals`**
 
-   Set the use count for the import token. This value determines the number of times that the import token can be retrieved within its expiration time before it is no longer accessible. The default value is `1`.
+    Set the use count for the import token. This value determines the number of times that the import token can be retrieved within its expiration time before it is no longer accessible. The default value is `1`.
 
 ## kp import-token key-encrypt
 {: #kp-import-token-key-encrypt}
@@ -245,9 +245,9 @@ to import the key to the service.
 
 ```sh
 ibmcloud kp import-token key-encrypt
-     -i, --instance-id INSTANCE_ID
-     -k, --key         KEY_MATERIAL
-     -p, --pubkey      PUBLIC_KEY
+        -i, --instance-id INSTANCE_ID
+        -k, --key         KEY_MATERIAL
+        -p, --pubkey      PUBLIC_KEY
     [-a, --hash        HASH_ALGORITHM]
 ```
 {: pre}
@@ -281,28 +281,28 @@ Ela33aTdDiKVUNryLeM/xwUEaKWvzY+u ...<redacted>... Asv7bZxvyZn9KNU=
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 * **`-k, --key`**
 
-   The base64-encoded key material that you store and manage in the service.
+    The base64-encoded key material that you store and manage in the service.
 
-   `-p, --pubkey`
+    `-p, --pubkey`
 
-   The base64-encoded public encryption key that was distributed by {{site.data.keyword.keymanagementserviceshort}}. To create new public key, use `ibmcloud kp import-token create`. To retrieve a public key, use `ibmcloud kp import-token show`.
+    The base64-encoded public encryption key that was distributed by {{site.data.keyword.keymanagementserviceshort}}. To create new public key, use `ibmcloud kp import-token create`. To retrieve a public key, use `ibmcloud kp import-token show`.
 
 ### Optional parameters
 {: #kp-import-token-key-encrypt-optional}
 
 * **`-a, --hash`**
 
-   The hash algorithm used to wrap the key. SHA1 and SHA256 are supported. The default is SHA256. SHA1 is only supported by HPCS.
+    The hash algorithm used to wrap the key. SHA1 and SHA256 are supported. The default is SHA256. SHA1 is only supported by HPCS.
 
-   This option is used to generate an encrypted key that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
+    This option is used to generate an encrypted key that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
 
-   Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
+    Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
 
 ### Notes
 {: #kp-import-token-key-encrypt-notes}
@@ -322,9 +322,9 @@ Then, provide the retrieved encrypted nonce and IV values when you run
 
 ```sh
 ibmcloud kp import-token nonce-encrypt
-     -i, --instance-id INSTANCE_ID
-     -k, --key         KEY_MATERIAL
-     -n, --nonce       NONCE
+        -i, --instance-id INSTANCE_ID
+        -k, --key         KEY_MATERIAL
+        -n, --nonce       NONCE
     [-c, --cbc]
 ```
 {: pre}
@@ -360,28 +360,28 @@ mWQad1RHdWoFXFw/D9h8z43t/+0vIZc55VBBQg==   6nvOwUvQdowoD+3v
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 * **`-k, --key`**
 
-   The base64-encoded key material that you store and manage in the service.
+    The base64-encoded key material that you store and manage in the service.
 
-   `-n, --nonce`
+    `-n, --nonce`
 
-   The nonce that is used to verify a request to import a key. The value is base64-encoded. To retrieve a nonce, use `ibmcloud kp import-token show`.
+    The nonce that is used to verify a request to import a key. The value is base64-encoded. To retrieve a nonce, use `ibmcloud kp import-token show`.
 
 ### Optional parameters
 {: #kp-import-token-nonce-encrypt-optional}
 
 * **`-c, --cbc`**
 
-   Encrypt the nonce using the AES-CBC encryption algorithm. This algorithm method is only supported for HPCS. The default encryption algorithm is AES-GCM.
+    Encrypt the nonce using the AES-CBC encryption algorithm. This algorithm method is only supported for HPCS. The default encryption algorithm is AES-GCM.
 
-   This option is used to generate an encrypted nonce that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
+    This option is used to generate an encrypted nonce that can only be used in a request with the HPCS API. **Do not use this option to create {{site.data.keyword.keymanagementserviceshort}} root keys.**
 
-   Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
+    Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM). HPCS integrates with {{site.data.keyword.keymanagementserviceshort}} to generate and encrypt keys. The Keep Your Own Key (KYOK) function is also enabled by HPCS.
 
 ### Notes
 {: #kp-import-token-nonce-encrypt-notes}
@@ -420,9 +420,9 @@ $ ibmcloud kp import-token create -e 300 -m 10
 $ ibmcloud kp import-token show
 
 {
-  "nonce": "8rf2ldP/zWm1Tjrb",
-  "payload":
-    "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
+    "nonce": "8rf2ldP/zWm1Tjrb",
+    "payload":
+        "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo="
 }
 
 # extract the nonce that was created by the "kp import-token create" command
@@ -442,9 +442,9 @@ LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0t ...<redacted>... QyBLRVktLS0tLQo=
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ## kp instance policies
 {: #kp-instance-policies}
@@ -455,7 +455,7 @@ key requires an authorization from two users).
 
 ```sh
 ibmcloud kp instance policies
-     -i, --instance-id     INSTANCE_ID
+        -i, --instance-id     INSTANCE_ID
     [-a, --allowed-network]
     [-d, --dual-auth-delete]
     [-o, --output          OUTPUT]
@@ -528,24 +528,24 @@ $ ibmcloud kp instance policies --output json
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-instance-policies-optional}
 
 * **`-a, --allowed-network`**
 
-   Show the instance policy for "allowed network".
+    Show the instance policy for "allowed network".
 
 * **`-d, --dual-auth-delete`**
 
-   Show the instance policy for "dual authorization delete".
+    Show the instance policy for "dual authorization delete".
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 ## kp instance policy-update allowed-network
 {: #kp-instance-policy-update-allowed}
@@ -604,17 +604,17 @@ Network Allowed   public-and-private
 
 * **`-e, --enable`**
 
-   Disable or enable the network access policy. One option is required.
+    Disable or enable the network access policy. One option is required.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 * **`-t, --network-type`**
 
-   Specify the type of network access allowed. Options are `public-and-private` or `private-only`.
+    Specify the type of network access allowed. Options are `public-and-private` or `private-only`.
 
 ## kp instance policy-update dual-auth-delete
 {: #kp-instance-policy-update-dual}
@@ -759,10 +759,10 @@ $ ibmcloud kp key delete 6a8a129b-0cd4-4667-ba57-b355a125a7ca
 Deleting key: 6a8a129b-0cd4-4667-ba57-b355a125a7ca, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
 FAILED
 kp.Error:
-  correlation_id='8ad33eb2-7bbf-4b7a-a02e-221959920342',
-  msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
-  reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
-    FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+    correlation_id='8ad33eb2-7bbf-4b7a-a02e-221959920342',
+    msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
+    reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
 
 # disable the instance dual authorization policy
 $ ibmcloud kp instance policy-update dual-auth-delete --disable
@@ -777,10 +777,10 @@ $ ibmcloud kp key delete 6a8a129b-0cd4-4667-ba57-b355a125a7ca
 Deleting key: 6a8a129b-0cd4-4667-ba57-b355a125a7ca, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
 FAILED
 kp.Error:
-  correlation_id='cbc0d18b-a816-45ab-af6a-b8e18dc3e628',
-  msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
-  reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
-  FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+    correlation_id='cbc0d18b-a816-45ab-af6a-b8e18dc3e628',
+    msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted. Please see "reasons" for more details.',
+    reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
+    FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
 ```
 {: screen}
 
@@ -791,13 +791,13 @@ kp.Error:
 
 * **`-e, --enable`**
 
-   Disable or enable the dual authorization policy. One option is required.
+    Disable or enable the dual authorization policy. One option is required.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ## kp key cancel-delete
 {: #kp-key-cancel-delete}
@@ -817,22 +817,22 @@ Follow this process to delete a key with a `dual-auth-delete` policy.
 1. Create a key and enable the `dual-auth-delete` policy
 
 2. User 1 schedules (authorizes) a key deletion with the
-   `kp key schedule-delete` command
+    `kp key schedule-delete` command
 
 3. User 2 schedules (authorizes) a key deletion
 
 4. The key is deleted after the second `schedule-delete` is performed, which is
-   supported in the user interface, API, and CLI
+    supported in the user interface, API, and CLI
 
 5. If a second authorization does not occur within 7 days, the key returns to
-   its default status
+    its default status
 
 There are two ways to enable the `dual-auth-delete` policy:
 
 - Set the policy for a single key using `kp key policy-update dual-auth-delete`
 - Set the policy for the instance using
-  `kp instance policy-update dual-auth-delete`; all keys created after the
-  instance policy is enabled inherit the instance policy setting
+    `kp instance policy-update dual-auth-delete`; all keys created after the
+    instance policy is enabled inherit the instance policy setting
 
 ```sh
 ibmcloud kp key cancel-delete KEY_ID
@@ -874,7 +874,7 @@ OK
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to delete. To retrieve a list of your available keys, run the [kp keys](#kp-keys) command.
+    The ID of the key that you want to delete. To retrieve a list of your available keys, run the [kp keys](#kp-keys) command.
 
 ## kp key create
 {: #kp-key-create}
@@ -890,8 +890,8 @@ bits.
 
 ```sh
 ibmcloud kp key create KEY_NAME
-     -i, --instance-id     INSTANCE_ID
-    [--key-ring				KEY_RING_ID]
+        -i, --instance-id     INSTANCE_ID
+    [--key-ring                KEY_RING_ID]
     [-k, --key-material    KEY_MATERIAL]
     [-n, --encrypted-nonce NONCE]
     [-o, --output          OUTPUT]
@@ -931,12 +931,12 @@ Create a root key and show the JSON output.
 $ ibmcloud kp key create my-root-key --output json
 
 {
-  "id": "24203f96-b134-440e-981a-a24f2d432256",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:24203f96-b134-440e-981a-a24f2d432256"
+    "id": "24203f96-b134-440e-981a-a24f2d432256",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:24203f96-b134-440e-981a-a24f2d432256"
 }
 ```
 {: screen}
@@ -1039,10 +1039,10 @@ Standard keys can be up to 7,500 bytes in size before base64-encoding.
 $ cat credentials.json
 
 {
-  "host": "localhost",
-  "database": "dev-backup",
-  "username": "my-username",
-  "password": "my-password"
+    "host": "localhost",
+    "database": "dev-backup",
+    "username": "my-username",
+    "password": "my-password"
 }
 
 # encode the credentials (or any string) to a base64 string
@@ -1059,13 +1059,13 @@ $ ibmcloud kp key create credentials-key -i $KP_INSTANCE_ID --key-material $ENCO
 $ KEY_ID=$(ibmcloud kp key create credentials-key -i $KP_INSTANCE_ID --key-material $ENCODED --standard-key --output json | jq -r '.["id"]')
 
 {
-  "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
-  "name": "credentials-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": true,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
-  "deleted": false
+    "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
+    "name": "credentials-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": true,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
+    "deleted": false
 }
 
 # retrieve the base64-encoded payload
@@ -1075,31 +1075,31 @@ $ ibmcloud kp key show $KEY_ID --output json
 $ PAYLOAD=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["payload"]')
 
 {
-  "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
-  "name": "credentials-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-08-18T16:13:08Z",
-  "lastUpdateDate": "2020-08-18T16:13:08Z",
-  "extractable": true,
-  "payload": "ewoJImhvc3QiOiAibG9jYWxob3N0IiwKCSJkYXRhYmFzZSI6ICJkZXYtYmFja3VwIiwKCSJ1c2VybmFtZSI6ICJteS11c2VybmFtZSIsCgkicGFzc3dvcmQiOiAibXktcGFzc3dvcmQiCn0=",
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
-  "deleted": false,
-  "dualAuthDelete": {
-    "enabled": false
-  }
+    "id": "8480e26f-3add-4fff-bca7-8cf908894b7c",
+    "name": "credentials-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-08-18T16:13:08Z",
+    "lastUpdateDate": "2020-08-18T16:13:08Z",
+    "extractable": true,
+    "payload": "ewoJImhvc3QiOiAibG9jYWxob3N0IiwKCSJkYXRhYmFzZSI6ICJkZXYtYmFja3VwIiwKCSJ1c2VybmFtZSI6ICJteS11c2VybmFtZSIsCgkicGFzc3dvcmQiOiAibXktcGFzc3dvcmQiCn0=",
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:8480e26f-3add-4fff-bca7-8cf908894b7c",
+    "deleted": false,
+    "dualAuthDelete": {
+        "enabled": false
+      }
 }
 
 # decode the payload to get the original string (credentials)
 $ echo $PAYLOAD | base64 -d
 
 {
-  "host": "localhost",
-  "database": "dev-backup",
-  "username": "my-username",
-  "password": "my-password"
+    "host": "localhost",
+    "database": "dev-backup",
+    "username": "my-username",
+    "password": "my-password"
 }
 ```
 {: screen}
@@ -1109,52 +1109,52 @@ $ echo $PAYLOAD | base64 -d
 
 * **`KEY_NAME`**
 
-   A unique, human-readable alias to assign to your key.
+    A unique, human-readable alias to assign to your key.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-create-optional}
 
 * **`-k, --key-material`**
 
-   If you generated a key then this is the base64-encoded key material that you store and manage in the service.
+    If you generated a key then this is the base64-encoded key material that you store and manage in the service.
 
-   Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256 bits. The key must be base64-encoded.
+    Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256 bits. The key must be base64-encoded.
 
-   Standard keys can be up to 7,500 bytes in size. The key must be base64-encoded.
+    Standard keys can be up to 7,500 bytes in size. The key must be base64-encoded.
 
-   If you are creating a key using an import token then this is the encrypted key from the `kp import-token key-encrypt` process.
+    If you are creating a key using an import token then this is the encrypted key from the `kp import-token key-encrypt` process.
 
-   To generate a new key, omit the `-k, --key-material` parameter.
+    To generate a new key, omit the `-k, --key-material` parameter.
 
 * **`-n, --encrypted-nonce`**
 
-   **Used with import tokens.** The encrypted nonce value that verifies your request to import a key to {{site.data.keyword.keymanagementserviceshort}}. This value must be encrypted by using the key material that you import into the service. See `ibmcloud kp import-token --help`.
+    **Used with import tokens.** The encrypted nonce value that verifies your request to import a key to {{site.data.keyword.keymanagementserviceshort}}. This value must be encrypted by using the key material that you import into the service. See `ibmcloud kp import-token --help`.
 
-   To retrieve a nonce, use `ibmcloud kp import-token show`. Then, encrypt the value by running `ibmcloud kp import-token nonce-encrypt`.
+    To retrieve a nonce, use `ibmcloud kp import-token show`. Then, encrypt the value by running `ibmcloud kp import-token nonce-encrypt`.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`-s, --standard-key`**
 
-   Set the parameter only if you want to create a [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types). To create a root key, omit the `--standard-key` parameter.
+    Set the parameter only if you want to create a [standard key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types). To create a root key, omit the `--standard-key` parameter.
 
 * **`-v, --iv`**
 
-   **Used with import tokens.** The initialization vector (IV) that is generated when you encrypt a nonce. The IV value is required to decrypt the encrypted nonce value that you provide when you make a key import request to the service.
+    **Used with import tokens.** The initialization vector (IV) that is generated when you encrypt a nonce. The IV value is required to decrypt the encrypted nonce value that you provide when you make a key import request to the service.
 
-   To generate an IV, encrypt the nonce by running `ibmcloud kp import-token nonce-encrypt`.
+    To generate an IV, encrypt the nonce by running `ibmcloud kp import-token nonce-encrypt`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key delete
 {: #kp-key-delete}
@@ -1164,8 +1164,8 @@ is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```sh
 ibmcloud kp key delete KEY_ID
-     -i, --instance-id INSTANCE_ID
-    [--key-ring		  KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+    [--key-ring          KEY_RING_ID]
     [-f, --force]
     [-o, --output      OUTPUT]
 ```
@@ -1218,35 +1218,35 @@ Delete a root key and show the JSON output.
 $ ibmcloud kp key create my-root-key --output json
 
 {
-  "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+    "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
 }
 
 # show key details
 $ ibmcloud kp key show 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
 
 {
-  "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-05-05T20:03:00Z",
-  "lastUpdateDate": "2020-05-05T20:03:00Z",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+    "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-05-05T20:03:00Z",
+    "lastUpdateDate": "2020-05-05T20:03:00Z",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb145:390086ac-76fa-4094-8cf3-c0829bd69526:key:9cca88c9-019e-4f0a-9e76-8e657c6b9720"
 }
 
 # delete the key
 $ ibmcloud kp key delete 9cca88c9-019e-4f0a-9e76-8e657c6b9720 --output json
 
 {
-  "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720"
+    "id": "9cca88c9-019e-4f0a-9e76-8e657c6b9720"
 }
 ```
 {: screen}
@@ -1287,12 +1287,12 @@ $ COS_KMS_AUTHORIZATION=79375168-2d74-49df-98aa-3e727410fa71
 $ ibmcloud kp key create my-cos-key --output json
 
 {
-  "id": "52a9d772-8982-4620-bfb4-b070dd812a0c",
-  "name": "my-cos-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:b0d84b32-09d0-4314-8049-da78e3b9ab6f:key:52a9d772-8982-4620-bfb4-b070dd812a0c"
+    "id": "52a9d772-8982-4620-bfb4-b070dd812a0c",
+    "name": "my-cos-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:b0d84b32-09d0-4314-8049-da78e3b9ab6f:key:52a9d772-8982-4620-bfb4-b070dd812a0c"
 }
 
 # capture the KP root key id
@@ -1329,16 +1329,16 @@ $ ibmcloud kp key delete $MY_COS_KEY_ID
 Deleting key: 52a9d772-8982-4620-bfb4-b070dd812a0c, from instance: b0d84b32-09d0-4314-8049-da78e3b9ab6f...
 FAILED
 kp.Error:
-  correlation_id='c27b7948-4a1f-4cbd-8770-cb3616888e27',
-  msg='Conflict: Key could not be deleted. Please see "reasons" for more details.',
-  reasons='[PROTECTED_RESOURCE_ERR: Key is protecting one or more cloud resources -
-    FOR_MORE_INFO_REFER: https://cloud.ibm.com/docs/key-protect?topic=key-protect-troubleshooting#unable-to-delete-keys]'
+    correlation_id='c27b7948-4a1f-4cbd-8770-cb3616888e27',
+    msg='Conflict: Key could not be deleted. Please see "reasons" for more details.',
+    reasons='[PROTECTED_RESOURCE_ERR: Key is protecting one or more cloud resources -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/docs/key-protect?topic=key-protect-troubleshooting#unable-to-delete-keys]'
 
 # delete the KP root key; use --force because the registration between COS and KMS still exists
 $ ibmcloud kp key delete $MY_COS_KEY_ID --force --output json
 
 {
-  "id": "52a9d772-8982-4620-bfb4-b070dd812a0c"
+    "id": "52a9d772-8982-4620-bfb4-b070dd812a0c"
 }
 
 # delete the KMS instance
@@ -1361,31 +1361,31 @@ No service instance found.
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to delete. To retrieve a list of your
+    The ID of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-delete-optional}
 
 * **`-f, --force`**
 
-   Delete a key, with force, which is used to delete a key that has "registrations." Registrations are associations between root keys and other cloud resources, such as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
+    Delete a key, with force, which is used to delete a key that has "registrations." Registrations are associations between root keys and other cloud resources, such as Cloud Object Storage (COS) buckets or Cloud Databases deployments.
 
-   For more information, see [kp registrations](#kp-registrations)
+    For more information, see [kp registrations](#kp-registrations)
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key disable
 {: #kp-key-disable}
@@ -1422,7 +1422,7 @@ encrypt and decrypt operations.
 ```sh
 ibmcloud kp key disable KEY_ID
     -i, --instance-id INSTANCE_ID
-    [--key-ring		 KEY_RING_ID]
+    [--key-ring         KEY_RING_ID]
 ```
 {: pre}
 
@@ -1442,32 +1442,32 @@ key, and verify the key state (active).
 $ ibmcloud kp key create my-root-key --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 
 # show key details - a state of "1" is "active"
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-09T21:21:55Z",
-  "lastUpdateDate": "2020-06-09T21:21:55Z",
-  "keyVersion": {
     "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:21:55Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
     "creationDate": "2020-06-09T21:21:55Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 
 # disable the root key
@@ -1480,20 +1480,20 @@ OK
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-09T21:21:55Z",
-  "lastUpdateDate": "2020-06-09T21:23:26Z",
-  "keyVersion": {
     "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:23:26Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
     "creationDate": "2020-06-09T21:21:55Z"
-  },
-  "extractable": false,
-  "state": 2,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    },
+    "extractable": false,
+    "state": 2,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 ```
 {: screen}
@@ -1531,10 +1531,10 @@ $ ibmcloud kp key wrap $KEY_ID -p $PLAINTEXT --output json
 
 FAILED
 kp.Error:
-  correlation_id='c2edbdad-7e62-4690-8fcc-10515ade9913',
-  msg='Conflict: Action could not be performed on key. Please see "reasons" for more details.',
-  reasons='[KEY_ACTION_INVALID_STATE_ERR: Key is not in a valid state -
-    FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+    correlation_id='c2edbdad-7e62-4690-8fcc-10515ade9913',
+    msg='Conflict: Action could not be performed on key. Please see "reasons" for more details.',
+    reasons='[KEY_ACTION_INVALID_STATE_ERR: Key is not in a valid state -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
 ```
 {: screen}
 
@@ -1543,21 +1543,21 @@ kp.Error:
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to delete. To retrieve a list of your
+    The ID of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-disable-optional}
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key enable
 {: #kp-key-enable}
@@ -1590,32 +1590,32 @@ This is an example of `kp key enable`.
 $ ibmcloud kp key create my-root-key --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 
 # show key details - a state of "1" is "active"
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-09T21:21:55Z",
-  "lastUpdateDate": "2020-06-09T21:21:55Z",
-  "keyVersion": {
     "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:21:55Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
     "creationDate": "2020-06-09T21:21:55Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 
 # disable the root key
@@ -1628,20 +1628,20 @@ OK
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-09T21:21:55Z",
-  "lastUpdateDate": "2020-06-09T21:23:26Z",
-  "keyVersion": {
     "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:23:26Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
     "creationDate": "2020-06-09T21:21:55Z"
-  },
-  "extractable": false,
-  "state": 2,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    },
+    "extractable": false,
+    "state": 2,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 
 # enable the key
@@ -1654,20 +1654,20 @@ OK
 $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 {
-  "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-09T21:21:55Z",
-  "lastUpdateDate": "2020-06-09T21:31:44Z",
-  "keyVersion": {
     "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:31:44Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
     "creationDate": "2020-06-09T21:21:55Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
 }
 ```
 {: screen}
@@ -1677,21 +1677,21 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to delete. To retrieve a list of your
+    The ID of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-enable-optional}
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key policies
 {: #kp-key-policies}
@@ -1701,8 +1701,8 @@ interval.
 
 ```sh
 ibmcloud kp key policies KEY_ID
-     -i, --instance-id INSTANCE_ID
-    [--key-ring		  KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+    [--key-ring          KEY_RING_ID]
     [-d, --dual-auth]
     [-o, --output      OUTPUT]
     [-r, --rotation]
@@ -1731,34 +1731,34 @@ c024c2b3-2093-46e5-aabb-fdf8cbc14e44
 $ ibmcloud kp key show $KEY_ID --output json
 
 {
-  "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-18T20:34:39Z",
-  "lastUpdateDate": "2020-06-18T20:34:39Z",
-  "keyVersion": {
     "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-18T20:34:39Z",
+    "lastUpdateDate": "2020-06-18T20:34:39Z",
+    "keyVersion": {
+        "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
     "creationDate": "2020-06-18T20:34:39Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c024c2b3-2093-46e5-aabb-fdf8cbc14e44"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c024c2b3-2093-46e5-aabb-fdf8cbc14e44"
 }
 
 # update the policy and rotate the key every 2 months
 $ ibmcloud kp key policy-update rotation $KEY_ID -m 2 --output json
 
 {
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-18T20:35:41Z",
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:06a40fd6-6fd7-460a-87d7-8388fc1be057",
-  "lastUpdateDate": "2020-06-18T20:35:41Z",
-  "updatedBy": "user id ...<redacted>...",
-  "rotation": {
-    "interval_month": 2
-  }
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-18T20:35:41Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:06a40fd6-6fd7-460a-87d7-8388fc1be057",
+    "lastUpdateDate": "2020-06-18T20:35:41Z",
+    "updatedBy": "user id ...<redacted>...",
+    "rotation": {
+        "interval_month": 2
+      }
 }
 
 # list the policies
@@ -1783,34 +1783,34 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to query. To retrieve a list of your
+    The ID of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-  You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-policies-optional}
 
 * **`-d, --dual-auth`**
 
-   Show policies that have a `dual-auth-delete` policy.
+    Show policies that have a `dual-auth-delete` policy.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format.
+    Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use `--output json`.
 
 * **`-r, --rotation`**
 
-   Show policies that have a `rotation` policy.
+    Show policies that have a `rotation` policy.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key policy-update dual-auth-delete
 {: #kp-key-policy-update-dual}
@@ -1834,9 +1834,9 @@ to delete the key.
 
 ```sh
 ibmcloud kp key policy-update dual-auth-delete KEY_ID
-     -i, --instance-id INSTANCE_ID
-     -e, --enable
-    [--key-ring		  KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+        -e, --enable
+    [--key-ring          KEY_RING_ID]
     [-o, --output      OUTPUT]
 ```
 {: pre}
@@ -1858,34 +1858,34 @@ d887bfe8-5166-4dad-af32-7e3055ca1873
 $ ibmcloud kp key show $KEY_ID --output json
 
 {
-  "id": "d887bfe8-5166-4dad-af32-7e3055ca1873",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-19T16:07:50Z",
-  "lastUpdateDate": "2020-06-19T16:07:50Z",
-  "keyVersion": {
     "id": "d887bfe8-5166-4dad-af32-7e3055ca1873",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-19T16:07:50Z",
+    "lastUpdateDate": "2020-06-19T16:07:50Z",
+    "keyVersion": {
+        "id": "d887bfe8-5166-4dad-af32-7e3055ca1873",
     "creationDate": "2020-06-19T16:07:50Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:d887bfe8-5166-4dad-af32-7e3055ca1873"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:d887bfe8-5166-4dad-af32-7e3055ca1873"
 }
 
 # enable the dual authorization policy
 $ ibmcloud kp key policy-update dual-auth-delete $KEY_ID --enable --output json
 
 {
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-19T16:08:59Z",
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:0aab763d-b650-43a2-86ad-bdfe2c35c94c",
-  "lastUpdateDate": "2020-06-19T16:08:59Z",
-  "updatedBy": "user id ...<redacted>...",
-  "dualAuthDelete": {
-    "enabled": true
-  }
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-19T16:08:59Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:0aab763d-b650-43a2-86ad-bdfe2c35c94c",
+    "lastUpdateDate": "2020-06-19T16:08:59Z",
+    "updatedBy": "user id ...<redacted>...",
+    "dualAuthDelete": {
+        "enabled": true
+      }
 }
 
 # list the policies
@@ -1909,11 +1909,11 @@ $ ibmcloud kp key delete $KEY_ID
 Deleting key: d887bfe8-5166-4dad-af32-7e3055ca1873, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
 FAILED
 kp.Error:
-  correlation_id='fe0db627-1726-4827-a9d2-c21d728e1c92',
-  msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted.
-    Please see "reasons" for more details.',
-  reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
-    FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+    correlation_id='fe0db627-1726-4827-a9d2-c21d728e1c92',
+    msg='Conflict: 1 prior authorization(s) are required for deletion: Key could not be deleted.
+        Please see "reasons" for more details.',
+    reasons='[AUTHORIZATIONS_NOT_MET: Number of authorizations required to delete is not met -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
 ```
 {: screen}
 
@@ -1922,27 +1922,27 @@ kp.Error:
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to query. To retrieve a list of your
+    The ID of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-e, --enable`**
 
-   Once you enable the dual-auth-delete policy you cannot disable it. You **cannot** delete a key without two (dual) authorizations. The process must be completed within 7 days, otherwise the dual authorization policy is automatically canceled, which means the key can be deleted by anyone that has authorization (two authorizations are not needed).
+    Once you enable the dual-auth-delete policy you cannot disable it. You **cannot** delete a key without two (dual) authorizations. The process must be completed within 7 days, otherwise the dual authorization policy is automatically canceled, which means the key can be deleted by anyone that has authorization (two authorizations are not needed).
 
-   If you enabled the dual authorization policy accidentally and you want to delete the key, you can `disable` the key (using the `kp key disable` command) and wait 7 days for the dual authorization policy to expire. At which time you can delete the key.
+    If you enabled the dual authorization policy accidentally and you want to delete the key, you can `disable` the key (using the `kp key disable` command) and wait 7 days for the dual authorization policy to expire. At which time you can delete the key.
 
-   You **cannot** delete the {{site.data.keyword.keymanagementserviceshort}} instance as long as their active keys. A key with a dual authorization policy is an active key.
+    You **cannot** delete the {{site.data.keyword.keymanagementserviceshort}} instance as long as their active keys. A key with a dual authorization policy is an active key.
 
 ### Optional parameters
 {: #kp-key-policy-update-dual-optional}
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key policy-update rotation
 {: #kp-key-policy-update-rotation}
@@ -1960,7 +1960,7 @@ For more information, see
 
 ```sh
 ibmcloud kp key policy-update rotation KEY_ID
-     -i, --instance-id      INSTANCE_ID
+        -i, --instance-id      INSTANCE_ID
     [-m, --monthly-interval MONTHS]
     [-o, --output           OUTPUT]
 ```
@@ -1983,34 +1983,34 @@ c024c2b3-2093-46e5-aabb-fdf8cbc14e44
 $ ibmcloud kp key show $KEY_ID --output json
 
 {
-  "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-18T20:34:39Z",
-  "lastUpdateDate": "2020-06-18T20:34:39Z",
-  "keyVersion": {
     "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-18T20:34:39Z",
+    "lastUpdateDate": "2020-06-18T20:34:39Z",
+    "keyVersion": {
+        "id": "c024c2b3-2093-46e5-aabb-fdf8cbc14e44",
     "creationDate": "2020-06-18T20:34:39Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c024c2b3-2093-46e5-aabb-fdf8cbc14e44"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c024c2b3-2093-46e5-aabb-fdf8cbc14e44"
 }
 
 # update the policy and rotate the key every 2 months
 $ ibmcloud kp key policy-update rotation $KEY_ID -m 2 --output json
 
 {
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-18T20:35:41Z",
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:06a40fd6-6fd7-460a-87d7-8388fc1be057",
-  "lastUpdateDate": "2020-06-18T20:35:41Z",
-  "updatedBy": "user id ...<redacted>...",
-  "rotation": {
-    "interval_month": 2
-  }
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-18T20:35:41Z",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:policy:06a40fd6-6fd7-460a-87d7-8388fc1be057",
+    "lastUpdateDate": "2020-06-18T20:35:41Z",
+    "updatedBy": "user id ...<redacted>...",
+    "rotation": {
+        "interval_month": 2
+      }
 }
 
 # list the policies
@@ -2035,7 +2035,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to query. To retrieve a list of your
+    The ID of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 ### Optional parameters
@@ -2043,17 +2043,17 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 * **`-m, --monthly-interval`**
 
-   Set the key rotation interval in months. The deault is 1 (one) month. The
+    Set the key rotation interval in months. The deault is 1 (one) month. The
     rotation interval must be 1 to 12 months.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format.
+    Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use `--output json`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key restore
 {: #kp-key-restore}
@@ -2085,9 +2085,9 @@ deleted key without provided the original `key material`.
 
 ```sh
 ibmcloud kp key restore KEY_ID
-     -i, --instance-id     INSTANCE_ID
-     -k, --key-material    KEY_MATERIAL
-    [--key-ring		  KEY_RING_ID]
+        -i, --instance-id     INSTANCE_ID
+        -k, --key-material    KEY_MATERIAL
+    [--key-ring          KEY_RING_ID]
     [-n, --encrypted-nonce ENCRYPTED_NONCE]
     [-v, --iv              IV]
 ```
@@ -2138,12 +2138,12 @@ Key ID   Key Name
 $ ibmcloud kp key restore $KEY_ID -k $KEY_MATERIAL --output json
 
 {
-  "id": "62ad0cd5-70a4-4c4d-9d87-5f4db620b120",
-  "name": "my-base64-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:62ad0cd5-70a4-4c4d-9d87-5f4db620b120"
+    "id": "62ad0cd5-70a4-4c4d-9d87-5f4db620b120",
+    "name": "my-base64-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:62ad0cd5-70a4-4c4d-9d87-5f4db620b120"
 }
 
 # list keys - verify the key was restored
@@ -2167,7 +2167,7 @@ This is a two-step process.
 1. Create a root key using an import token and then delete the key
 
 2. Create an import token, which is required to restore the key, and restore the
-   key
+    key
 
 Creating a root key using an import token has a time limit (the
 `-e, --expiration` option). When you restore a key you need an import token.
@@ -2307,12 +2307,12 @@ $ IV=N6oLJnUqaKF3v5Sd
 $ ibmcloud kp key restore $KEY_ID -k $ENCRYPTED_KEY -n $ENCRYPTED_NONCE -v $IV --output json
 
 {
-  "id": "c42c6f2c-8b67-4016-b2c3-99fba9490f5d",
-  "name": "my-imported-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c42c6f2c-8b67-4016-b2c3-99fba9490f5d"
+    "id": "c42c6f2c-8b67-4016-b2c3-99fba9490f5d",
+    "name": "my-imported-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:a192d603-0b8d-452f-aac3-f9e1f95e7411:key:c42c6f2c-8b67-4016-b2c3-99fba9490f5d"
 }
 
 # list keys - verify the key was restored
@@ -2330,43 +2330,43 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to restore.
+    The ID of the key that you want to restore.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-restore-optional}
 
 * **`-k, --key-material`**
 
-   **`Deprecated`** The key material from a previously imported base64-encoded key.
+    **`Deprecated`** The key material from a previously imported base64-encoded key.
 
-   If you created the root key using an `import token`, then the value of the `-k, --key-material` option is the **encrypted material key**. See example 2, which uses an import token to create the root key and it uses an import token to restore the root key.
+    If you created the root key using an `import token`, then the value of the `-k, --key-material` option is the **encrypted material key**. See example 2, which uses an import token to create the root key and it uses an import token to restore the root key.
 
 * **`-n, --encrypted-nonce`**
 
-   **`Deprecated`** Verify a request to import a key by providing an encrypted nonce.
+    **`Deprecated`** Verify a request to import a key by providing an encrypted nonce.
 
-   For more information, see [kp import-token nonce-encrypt](#kp-import-token-nonce-encrypt).
+    For more information, see [kp import-token nonce-encrypt](#kp-import-token-nonce-encrypt).
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format.
+    Set the CLI output format. By default, all commands print in table format.
     To change the output format to JSON, use `--output json`.
 
 * **`-v, --iv`**
 
-   **`Deprecated`** Provide the initialization vector (IV) that is generated after you encrypt a nonce.
+    **`Deprecated`** Provide the initialization vector (IV) that is generated after you encrypt a nonce.
 
-   For more information, see [kp import-token nonce-encrypt](#kp-import-token-nonce-encrypt).
+    For more information, see [kp import-token nonce-encrypt](#kp-import-token-nonce-encrypt).
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key-rings
 {: #kp-key-rings}
@@ -2388,9 +2388,9 @@ ibmcloud kp key-rings -i <INSTANCE_ID>
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ## kp key-ring create
 {: #kp-key-ring-create}
@@ -2412,13 +2412,13 @@ ibmcloud kp key-ring create KEY_RING_ID -i <INSTANCE_ID>
 
 * **`KEY_RING_ID`**
 
-   The alphanumeric reference longer than or equal to 2 characters and fewer than or equal to 100 for the key ring.
+    The alphanumeric reference longer than or equal to 2 characters and fewer than or equal to 100 for the key ring.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ## kp key-ring delete
 {: #kp-key-ring-delete}
@@ -2440,13 +2440,13 @@ ibmcloud kp key-ring delete KEY_RING_ID -i <INSTANCE_ID>
 
 * **`KEY_RING_ID`**
 
-   The alphanumeric reference longer than or equal to 2 characters and fewer than or equal to 100 for the key ring.
+    The alphanumeric reference longer than or equal to 2 characters and fewer than or equal to 100 for the key ring.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ## kp key rotate
 {: #kp-key-rotate}
@@ -2472,8 +2472,8 @@ You cannot rotate a `standard` key, that is, a key created using the
 
 ```sh
 ibmcloud kp key rotate KEY_ID
-     -i, --instance-id  INSTANCE_ID
-    [--key-ring		   KEY_RING_ID]
+        -i, --instance-id  INSTANCE_ID
+    [--key-ring           KEY_RING_ID]
     [-k, --key-material KEY_MATERIAL]
 ```
 {: pre}
@@ -2575,8 +2575,8 @@ This examples shows how to...
 4. Rotate the root key
 
 5. Unwrap the ciphertext to reveal the original DEK (plaintext) and a new
-   ciphertext (the new ciphertext is the plaintext wrapped with the new rotated
-   root key)
+    ciphertext (the new ciphertext is the plaintext wrapped with the new rotated
+    root key)
 
 6. Unwrap the new ciphertext to reveal the original DEK (plaintext)
 
@@ -2612,21 +2612,21 @@ OK
 $ ibmcloud kp key show $KEY_ID --output json
 
 {
-  "id": "5b976173-7804-4f82-acfa-bb98098bc528",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-06-10T18:09:27Z",
-  "lastUpdateDate": "2020-06-10T18:13:31Z",
-  "lastRotateDate": "2020-06-10T18:13:31Z",
-  "keyVersion": {
-    "id": "4330715a-918b-4718-b5ca-9475a214067e",
+    "id": "5b976173-7804-4f82-acfa-bb98098bc528",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-10T18:09:27Z",
+    "lastUpdateDate": "2020-06-10T18:13:31Z",
+    "lastRotateDate": "2020-06-10T18:13:31Z",
+    "keyVersion": {
+        "id": "4330715a-918b-4718-b5ca-9475a214067e",
     "creationDate": "2020-06-10T18:13:31Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5b976173-7804-4f82-acfa-bb98098bc528"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5b976173-7804-4f82-acfa-bb98098bc528"
 }
 
 # unwrap the ciphertext, reveal the original DEK (plaintext),
@@ -2634,8 +2634,8 @@ $ ibmcloud kp key show $KEY_ID --output json
 $ ibmcloud kp key unwrap $KEY_ID $CIPHERTEXT --output json
 
 {
-  "Plaintext": "UPJ4YDwbQMjQG/aqlHsPhHV1CBkpIXngLHFS5+i4UZ4=",
-  "Rewrapped Plaintext": "eyJjaXBoZXJ0ZXh0IjoiS0FITEFRWjdh ...<redacted>... NWEyMTQwNjdlIn0="
+    "Plaintext": "UPJ4YDwbQMjQG/aqlHsPhHV1CBkpIXngLHFS5+i4UZ4=",
+    "Rewrapped Plaintext": "eyJjaXBoZXJ0ZXh0IjoiS0FITEFRWjdh ...<redacted>... NWEyMTQwNjdlIn0="
 }
 
 # capture the new (rewrapped) plaintext
@@ -2645,8 +2645,8 @@ $ NEWCIPHERTEXT=eyJjaXBoZXJ0ZXh0IjoiS0FITEFRWjdh ...<redacted>... NWEyMTQwNjdlIn
 $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
 
 {
-  "Plaintext": "UPJ4YDwbQMjQG/aqlHsPhHV1CBkpIXngLHFS5+i4UZ4=",
-  "Rewrapped Plaintext": ""
+    "Plaintext": "UPJ4YDwbQMjQG/aqlHsPhHV1CBkpIXngLHFS5+i4UZ4=",
+    "Rewrapped Plaintext": ""
 }
 ```
 {: screen}
@@ -2656,28 +2656,28 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
 
 * **`KEY_ID`**
 
-   The ID of the root key that you want to rotate.
+    The ID of the root key that you want to rotate.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-rotate-optional}
 
 * **`-k, --key-material`**
 
-   To rotate a key that was initially generated without a `--key-material` parameter, that is `kp key create my-key`, omit the `--key-material` parameter.
+    To rotate a key that was initially generated without a `--key-material` parameter, that is `kp key create my-key`, omit the `--key-material` parameter.
 
-   If a key was created with the `--key-material` parameter then specify the new base64-encoded key material that you use for rotating an existing root key.
+    If a key was created with the `--key-material` parameter then specify the new base64-encoded key material that you use for rotating an existing root key.
 
-   To rotate a key that was initially imported into the service, provide a new 32-byte (256-bit) key.
+    To rotate a key that was initially imported into the service, provide a new 32-byte (256-bit) key.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key schedule-delete
 {: #kp-key-schedule-delete}
@@ -2690,22 +2690,22 @@ Follow this process to delete a key with a `dual-auth-delete` policy.
 1. Create a key and enable the `dual-auth-delete` policy
 
 2. User 1 schedules (authorizes) a key deletion with the
-   `kp key schedule-delete` command
+    `kp key schedule-delete` command
 
 3. User 2 schedules (authorizes) a key deletion
 
 4. The key is deleted after the second `schedule-delete` is performed, which is
-   supported in the user interface, API, and CLI
+    supported in the user interface, API, and CLI
 
 5. If a second authorization does not occur within 7 days, the key returns to
-   its default status
+    its default status
 
 There are two ways to enable the `dual-auth-delete` policy:
 
 - Set the policy for a single key using `kp key policy-update dual-auth-delete`
 - Set the policy for the instance using
-  `kp instance policy-update dual-auth-delete`; all keys created after the
-  instance policy is enabled inherit the instance policy setting
+    `kp instance policy-update dual-auth-delete`; all keys created after the
+    instance policy is enabled inherit the instance policy setting
 
 The
 [kp key cancel-delete](#kp-key-cancel-delete)
@@ -2714,7 +2714,7 @@ command cancels, or removes, a prior authorization.
 ```sh
 ibmcloud kp key schedule-delete KEY_ID
     -i, --instance-id INSTANCE_ID
-    [--key-ring		 KEY_RING_ID]
+    [--key-ring         KEY_RING_ID]
 ```
 {: pre}
 
@@ -2752,7 +2752,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 * **`KEY_ID`**
 
-   The ID of the key that you want to delete. To retrieve a list of your
+    The ID of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 ### Optional parameters
@@ -2760,7 +2760,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key show
 {: #kp-key-show}
@@ -2772,8 +2772,8 @@ material for that key.
 
 ```sh
 ibmcloud kp key show KEY_ID|KEY_ALIAS
-     -i, --instance-id INSTANCE_ID
-    [--key-ring		  KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+    [--key-ring          KEY_RING_ID]
     [-o, --output      OUTPUT]
 ```
 {: pre}
@@ -2818,21 +2818,21 @@ are shown.
 $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 
 {
-  "id": "8635b804-9966-4918-a16b-d561fdbf181f",
-  "name": "my-root-key",
-  "type": "application/vnd.ibm.kms.key+json",
-  "algorithmType": "AES",
-  "createdBy": "user id ...<redacted>...",
-  "creationDate": "2020-05-05T19:58:02Z",
-  "lastUpdateDate": "2020-05-05T19:58:24Z",
-  "lastRotateDate": "2020-05-05T19:58:24Z",
-  "keyVersion": {
-    "id": "85b65b20-4165-4da3-8ba9-880e72390461",
+    "id": "8635b804-9966-4918-a16b-d561fdbf181f",
+    "name": "my-root-key",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-05-05T19:58:02Z",
+    "lastUpdateDate": "2020-05-05T19:58:24Z",
+    "lastRotateDate": "2020-05-05T19:58:24Z",
+    "keyVersion": {
+        "id": "85b65b20-4165-4da3-8ba9-880e72390461",
     "creationDate": "2020-05-05T19:58:24Z"
-  },
-  "extractable": false,
-  "state": 1,
-  "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:8635b804-9966-4918-a16b-d561fdbf181f"
+    },
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:8635b804-9966-4918-a16b-d561fdbf181f"
 }
 ```
 {: screen}
@@ -2858,24 +2858,24 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 
 * **`KEY_ID`**
 
-   The ID of the root key that you want to show.
+    The ID of the root key that you want to show.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-show-optional}
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key update
 {: #kp-key-update}
@@ -2886,9 +2886,9 @@ with an existing key ring or a new key ring in your
 
 ```sh
 ibmcloud kp key update KEY_ID
-     -i, --instance-id 		INSTANCE_ID
-     -r, --new-key-ring		KEY_RING_ID
-    [-o, --output      		OUTPUT]
+        -i, --instance-id         INSTANCE_ID
+        -r, --new-key-ring        KEY_RING_ID
+    [-o, --output              OUTPUT]
 ```
 {: pre}
 
@@ -2897,24 +2897,24 @@ ibmcloud kp key update KEY_ID
 
 * **`KEY_ID`**
 
-   The ID of the root key that you want to show.
+    The ID of the root key that you want to show.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 * **`-r, --new-key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ### Optional parameters
 {: #kp-key-update-optional}
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 ### Examples
 {: #kp-key-update-examples}
@@ -2935,7 +2935,7 @@ Executing the command has a typical result:
 Updating key...
 OK
 Key ID                                 Key Name             Key Ring ID   
-5f2cc155-fe16-492c-845c-4d1f0688c7ba   TestKey   						TestRing   
+5f2cc155-fe16-492c-845c-4d1f0688c7ba   TestKey                           TestRing   
 ```
 {: screen}
 
@@ -2948,9 +2948,9 @@ using a root key that is stored in your
 
 ```sh
 ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
-     -i, --instance-id INSTANCE_ID
+        -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
-    [--key-ring		   KEY_RING_ID]
+    [--key-ring           KEY_RING_ID]
     [-o, --output      OUTPUT]
 ```
 {: pre}
@@ -3059,35 +3059,35 @@ FAILED
 
 * **`KEY_ID`**
 
-   The ID of the root key that you used for the initial wrap request.
+    The ID of the root key that you used for the initial wrap request.
 
 * **`CIPHERTEXT_FROM_WRAP`**
 
-   The encrypted data key that was returned during the initial wrap operation.
+    The encrypted data key that was returned during the initial wrap operation.
 
 * **`-i, --instance-ID`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-unwrap-optional}
 
 * **`-a, --aad`**
 
-   The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD, in the same order, on unwrap.
+    The additional authentication data (AAD) that was used to further secure a key. You can provide up to 255 strings, each delimited by a comma. If you supplied AAD on wrap, you must specify the same AAD, in the same order, on unwrap.
 
-   The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.
-   {: important}
+    The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.
+    {: important}
 
 `-o, --output`
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp key wrap
 {: #kp-key-wrap}
@@ -3108,8 +3108,8 @@ parameter (`ibmcloud kp key create my-key-name -s`).
 
 ```sh
 ibmcloud kp key wrap KEY_ID
-     -i, --instance-id INSTANCE_ID
-    [--key-ring		   KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+    [--key-ring           KEY_RING_ID]
     [-a, --aad         ADDITIONAL_DATA]
     [-o, --output      OUTPUT]
     [-p, --plaintext   DATA_KEY]
@@ -3271,39 +3271,39 @@ FAILED
 
 * **`KEY_ID`**
 
-   The ID of the root key that you want to use for wrapping. You cannot wrap a
+    The ID of the root key that you want to use for wrapping. You cannot wrap a
     standard key.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-key-wrap-optional}
 
 * **`-a, --aad`**
 
-   The additional authentication data (AAD) that is used to further secure a key. The AAD is an array of strings that checks the integrity of the key contents. Each string can hold up to 255 characters.
+    The additional authentication data (AAD) that is used to further secure a key. The AAD is an array of strings that checks the integrity of the key contents. Each string can hold up to 255 characters.
 
-   If you supply AAD during a wrap request, you must specify the same AAD, in the same order, during the subsequent unwrap request.
+    If you supply AAD during a wrap request, you must specify the same AAD, in the same order, during the subsequent unwrap request.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
 * **`-p, --plaintext`**
 
-   The `plaintext` specifies a base64-encoded data encryption key (DEK) that is wrapped by the root key (the `KEY_ID` parameter).
+    The `plaintext` specifies a base64-encoded data encryption key (DEK) that is wrapped by the root key (the `KEY_ID` parameter).
 
-   The base64-encoded data encryption key (DEK) that you want to manage and protect. To import an existing key, provide a 32-byte (256-bit) key.
+    The base64-encoded data encryption key (DEK) that you want to manage and protect. To import an existing key, provide a 32-byte (256-bit) key.
 
-   To generate and wrap a new DEK, omit the `--plaintext` parameter.
+    To generate and wrap a new DEK, omit the `--plaintext` parameter.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp keys
 {: #kp-keys}
@@ -3317,8 +3317,8 @@ Keys are listed in `key id` order; see
 
 ```sh
 ibmcloud kp keys
-     -i, --instance-id     INSTANCE_ID
-		[--key-ring				KEY_RING_ID]
+        -i, --instance-id     INSTANCE_ID
+        [--key-ring                KEY_RING_ID]
     [-c, --crn]
     [-n, --number-of-keys  NUMBER_OF_KEYS]
     [-o, --output          OUTPUT]
@@ -3390,9 +3390,9 @@ $ ibmcloud kp keys --output json
     "extractable": false,
     "state": 1,
     "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:5f2cc155-fe16-492c-845c-4d1f0688c7ba"
-  },
-  {
-    "id": "c36e9f3a-feaf-4033-8603-687784dc7e51",
+    },
+    {
+        "id": "c36e9f3a-feaf-4033-8603-687784dc7e51",
     "name": "my-root-key",
     "type": "application/vnd.ibm.kms.key+json",
     "algorithmType": "AES",
@@ -3417,7 +3417,7 @@ List all keys and iterate over them, showing details.
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
 
 $ for key in $(echo "${KEYS}"); do
-  ibmcloud kp key show ${key}
+    ibmcloud kp key show ${key}
 done
 
 Grabbing info for key id: 5f2cc155-fe16-492c-845c-4d1f0688c7ba...
@@ -3440,9 +3440,9 @@ Create 20 keys and show them in groups of 5 using the `kp keys -n -s` options.
 ```sh
 # create 20 test keys
 $ for I in {1..20}; do
-  KEY_ID=$(ibmcloud kp key create my-test-key-$I --output json | jq -r '.["id"]')
-  KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
-  echo $KEY_ID $KEY_NAME
+    KEY_ID=$(ibmcloud kp key create my-test-key-$I --output json | jq -r '.["id"]')
+    KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
+    echo $KEY_ID $KEY_NAME
 done
 
 b70f62a1-4d52-4526-91a9-ce47bf14c2a5 my-test-key-1
@@ -3495,14 +3495,14 @@ f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
 
 # define a function for listing keys
 $ list_keys () {
-  N=$1
-  S=$2
-  KEYS=$(ibmcloud kp keys --number-of-keys $N --starting-offset $S --output json | jq -r '.[] | .id')
-  for KEY_ID in $(echo "${KEYS}"); do
-    KEY_ID=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["id"]')
+    N=$1
+    S=$2
+    KEYS=$(ibmcloud kp keys --number-of-keys $N --starting-offset $S --output json | jq -r '.[] | .id')
+    for KEY_ID in $(echo "${KEYS}"); do
+        KEY_ID=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["id"]')
     KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
     echo $KEY_ID $KEY_NAME
-  done
+    done
 }
 
 # list the first group of keys
@@ -3545,11 +3545,11 @@ f141be88-5a34-4290-8513-4f01d934e75a my-test-key-5
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
 
 $ for KEY_ID in $(echo "${KEYS}"); do
-  KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
-  if [[ $KEY_NAME == *"my-test-key-"* ]]; then
-    echo "Deleting... $KEY_NAME $KEY_ID"
+    KEY_NAME=$(ibmcloud kp key show $KEY_ID --output json | jq -r '.["name"]')
+    if [[ $KEY_NAME == *"my-test-key-"* ]]; then
+        echo "Deleting... $KEY_NAME $KEY_ID"
     ibmcloud kp key delete $KEY_ID
-  fi
+    fi
 done
 
 (output not shown)
@@ -3561,34 +3561,34 @@ done
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-keys-optional}
 
 * **`-c, --crn`**
 
-   Include the cloud resource name (CRN) in the output.
+    Include the cloud resource name (CRN) in the output.
 
 * **`-n, --number-of-keys`**
 
-   Restricts the number of keys retrieved. The default is 200 if no value is provided.
+    Restricts the number of keys retrieved. The default is 200 if no value is provided.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
-   Setting the output to JSON (`--output json`) includes the cloud resource name (CRN) in the output.
+    Setting the output to JSON (`--output json`) includes the cloud resource name (CRN) in the output.
 
 * **`-s, --starting-offset`**
 
-   Retrieves keys starting at the offset specified. The offset is zero-based, meaning offset 0 (zero) is the first key.
+    Retrieves keys starting at the offset specified. The offset is zero-based, meaning offset 0 (zero) is the first key.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
 
 ## kp region-set
 {: #kp-region-set}
@@ -3598,7 +3598,7 @@ endpoint.
 
 ```sh
 ibmcloud kp region-set REGION
-     -i, --instance-id INSTANCE_ID
+        -i, --instance-id INSTANCE_ID
     [-u, --unset]
 ```
 {: pre}
@@ -3673,20 +3673,20 @@ OK
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-region-set-optional}
 
 * **`REGION`**
 
-   Specify a regional endpoint. This parameter is optional and if not specified, you are prompted to select a regional endpoint from a list.
+    Specify a regional endpoint. This parameter is optional and if not specified, you are prompted to select a regional endpoint from a list.
 
 * **`-u, --unset`**
 
-   Unset (remove) the regional endpoiont.
+    Unset (remove) the regional endpoiont.
 
 ## kp registrations
 {: #kp-registrations}
@@ -3708,8 +3708,8 @@ recovery from this action.
 
 ```sh
 ibmcloud kp registrations
-     -i, --instance-id INSTANCE_ID
-    [--key-ring			 KEY_RING_ID]
+        -i, --instance-id INSTANCE_ID
+    [--key-ring             KEY_RING_ID]
     [-c, --crn-query   CRN_PATTERN]
     [-k, --key-id      KEY_ID]
     [-o, --output      OUTPUT]
@@ -4065,7 +4065,7 @@ $ ibmcloud cos get-object --bucket $COS_BUCKET --key '/cos-file.txt' cos-file-do
 
 FAILED
 ServiceNotAuthorized: The specified COS Service Instance does not have sufficient
-  permissions to access the resource provided in the ibm-sse-kp-customer-root-key-crn request header
+    permissions to access the resource provided in the ibm-sse-kp-customer-root-key-crn request header
 status code: 401,
 request id: a51e1da3-9bf7-4cc9-9eb0-0d074c7f9093,
 host id:
@@ -4081,10 +4081,10 @@ $ ibmcloud kp key delete $MY_COS_KEY_ID --output json
 
 FAILED
 kp.Error:
-  correlation_id='fffdd8a9-405a-4a91-a5a7-52c30d11424d',
-  msg='Conflict: Key could not be deleted. Please see "reasons" for more details.',
-  reasons='[PROTECTED_RESOURCE_ERR: Key is protecting one or more cloud resources -
-    FOR_MORE_INFO_REFER: https://cloud.ibm.com/docs/key-protect?topic=key-protect-troubleshooting#unable-to-delete-keys]'
+    correlation_id='fffdd8a9-405a-4a91-a5a7-52c30d11424d',
+    msg='Conflict: Key could not be deleted. Please see "reasons" for more details.',
+    reasons='[PROTECTED_RESOURCE_ERR: Key is protecting one or more cloud resources -
+        FOR_MORE_INFO_REFER: https://cloud.ibm.com/docs/key-protect?topic=key-protect-troubleshooting#unable-to-delete-keys]'
 
 # delete the KP root key; use --force because the registration between COS and KMS still exists
 $ ibmcloud kp key delete $MY_COS_KEY_ID --force --output json
@@ -4109,32 +4109,34 @@ No service instance found.
 
 * **`-i, --instance-id`**
 
-   The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-   You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
 {: #kp-registrations-optional}
 
 * **`-c, --crn-query`**
 
-   Specify the crn query whose registrations need to be listed
+    Specify the crn query whose registrations need to be listed
 
 * **`-k, --key-id`**
 
-   Specify the key id whose registrations need to be listed.
+    Specify the key id whose registrations need to be listed.
 
 * **`-o, --output`**
 
-   Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
 
-   Setting the output to JSON (`--output json`) includes the cloud resource name (CRN) in the output.
+    Setting the output to JSON (`--output json`) includes the cloud resource name (CRN) in the output.
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required to show registrations on the given key ring.
+    A unique, human readable name for the key-ring. Required to show registrations on the given key ring.
 
 ## Next Steps
 {: #cli-reference-next-steps}
 
 Look for related operations in the [API documentation](/apidocs/key-protect).
+
+

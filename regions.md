@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-26"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -87,32 +87,34 @@ endpoints to use when you connect to the
 [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
 
-| Region        | Public endpoints             |
-| ------------- | ---------------------------- |
-| Dallas        | `us-south.kms.cloud.ibm.com` |
-| Washington DC | `us-east.kms.cloud.ibm.com`  |
-| London        | `eu-gb.kms.cloud.ibm.com`    |
-| Frankfurt     | `eu-de.kms.cloud.ibm.com`    |
-| Sydney        | `au-syd.kms.cloud.ibm.com`   |
-| Tokyo         | `jp-tok.kms.cloud.ibm.com`   |
-| Osaka         | `jp-osa.kms.cloud.ibm.com`   |
-| Toronto       | `ca-tor.kms.cloud.ibm.com`   |
+| Region           | Public endpoints             |
+| ---------------- | ---------------------------- |
+| Dallas           | `us-south.kms.cloud.ibm.com` |
+| Washington DC    | `us-east.kms.cloud.ibm.com`  |
+| London           | `eu-gb.kms.cloud.ibm.com`    |
+| Frankfurt        | `eu-de.kms.cloud.ibm.com`    |
+| Sydney           | `au-syd.kms.cloud.ibm.com`   |
+| Tokyo            | `jp-tok.kms.cloud.ibm.com`   |
+| Osaka            | `jp-osa.kms.cloud.ibm.com`   |
+| Toronto          | `ca-tor.kms.cloud.ibm.com`   |
+| S&atilde;o-Paulo | `br-sao.kms.cloud.ibm.com`   |
 {: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
 {: class="comparison-tab-table"}
 {: row-headers}
 
-| Region        | Private endpoints                            |
-| ------------- | -------------------------------------------- |
-| Dallas        | `private.us-south.kms.cloud.ibm.com`         |
-| Washington DC | `private.us-east.kms.cloud.ibm.com`          |
-| London        | `private.eu-gb.kms.cloud.ibm.com`            |
-| Frankfurt     | `private.eu-de.kms.cloud.ibm.com`            |
-| Sydney        | `private.au-syd.kms.cloud.ibm.com`           |
-| Tokyo         | `private.jp-tok.kms.cloud.ibm.com`           |
-| Osaka         | `private.jp-osa.kms.cloud.ibm.com`           |
-| Toronto       | `private.ca-tor.kms.cloud.ibm.com`           |
+| Region           | Private endpoints                            |
+| ---------------- | -------------------------------------------- |
+| Dallas           | `private.us-south.kms.cloud.ibm.com`         |
+| Washington DC    | `private.us-east.kms.cloud.ibm.com`          |
+| London           | `private.eu-gb.kms.cloud.ibm.com`            |
+| Frankfurt        | `private.eu-de.kms.cloud.ibm.com`            |
+| Sydney           | `private.au-syd.kms.cloud.ibm.com`           |
+| Tokyo            | `private.jp-tok.kms.cloud.ibm.com`           |
+| Osaka            | `private.jp-osa.kms.cloud.ibm.com`           |
+| Toronto          | `private.ca-tor.kms.cloud.ibm.com`           |
+| S&atilde;o-Paulo | `private.br-sao.kms.cloud.ibm.com`           |
 {: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
@@ -124,3 +126,5 @@ endpoints to use when you connect to the
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
 [Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).
+
+

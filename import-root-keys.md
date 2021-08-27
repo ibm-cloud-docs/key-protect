@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: import symmetric key, upload root key, upload CRK or CMK, import customer key
 
@@ -51,7 +51,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 
 4. To import a key, click **Add** and select the **Import your own key** window.
 
-   Specify the key's details:
+    Specify the key's details:
 
 |Setting|Description|
 | --- | --- |
@@ -209,3 +209,5 @@ Use this process to create a random base64-encoded key material with a specific 
 - To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+

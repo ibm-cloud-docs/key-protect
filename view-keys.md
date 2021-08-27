@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-16"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -305,3 +305,5 @@ For usage notes, check out the following examples for setting your `extractable`
 |`../keys?extractable=true`|Lists standard keys.|
 |`../keys?extractable=false`|Lists root keys.|
 {: caption="Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
+
+

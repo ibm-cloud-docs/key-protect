@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-16"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -57,10 +57,10 @@ to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
 To assign access:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-   **Users** to browse the existing users in your account.
+    **Users** to browse the existing users in your account.
 
 2. Select a table row, and click the ⋯ icon to open a list of options for that
-   user.
+    user.
 
 3. From the options menu, click **Assign access**.
 
@@ -69,15 +69,15 @@ To assign access:
 5. Click the **IAM services** button.
 
 6. From the list of services, select
-   **{{site.data.keyword.keymanagementserviceshort}}**.
+    **{{site.data.keyword.keymanagementserviceshort}}**.
 
 7. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
-   select a {{site.data.keyword.keymanagementserviceshort}} instance that you
-   want to grant access to.
+    select a {{site.data.keyword.keymanagementserviceshort}} instance that you
+    want to grant access to.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-   to assign access for the user.
+    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
+    to assign access for the user.
 
 9. Click **Add**.
 
@@ -101,11 +101,11 @@ grant someone access to.
 To get the ID for a specific key, you can:
 
 - [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
-  to browse the keys that are stored in your
-  {{site.data.keyword.keymanagementserviceshort}} instance.
+    to browse the keys that are stored in your
+    {{site.data.keyword.keymanagementserviceshort}} instance.
 
 - [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api)
-  to retrieve a list of your keys, along with metadata about the keys.
+    to retrieve a list of your keys, along with metadata about the keys.
 
 ### Step 2. Create an access policy
 {: #access-key-create-policy}
@@ -113,32 +113,32 @@ To get the ID for a specific key, you can:
 Use the retrieved key ID to create a access policy:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-   **Users** to browse the existing users in your account.
+    **Users** to browse the existing users in your account.
 
 2. Select a table row, and click the ⋯ icon to open a list of options for that
-   user.
+    user.
 
 3. From the options menu, click **Assign access**.
 
 4. Click **Assign users additional access**.
 
 5. From the list of services, select
-   **{{site.data.keyword.keymanagementserviceshort}}**.
+    **{{site.data.keyword.keymanagementserviceshort}}**.
 
 6. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
-   select the {{site.data.keyword.keymanagementserviceshort}} instance that
-   contains the key that you want to grant access to.
+    select the {{site.data.keyword.keymanagementserviceshort}} instance that
+    contains the key that you want to grant access to.
 
 7. Enter identifying information about the key.
 
-   1. For **Resource type**, enter the word "key".
+    1. For **Resource type**, enter the word "key".
 
-   2. For **Resource ID**, enter the ID that was assigned to your key by the
-      {{site.data.keyword.keymanagementserviceshort}} service.
+    2. For **Resource ID**, enter the ID that was assigned to your key by the
+        {{site.data.keyword.keymanagementserviceshort}} service.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-   to assign access for the user.
+    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
+    to assign access for the user.
 
 9. Click **Add**.
 
@@ -170,10 +170,10 @@ to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
 To assign access to a key ring via the console:
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-   **Users** to browse the existing users in your account.
+    **Users** to browse the existing users in your account.
 
 2. Select a table row, and click the ⋯ icon to open a list of options for that
-   user.
+    user.
 
 3. From the options menu, click **Assign access**.
 
@@ -182,18 +182,18 @@ To assign access to a key ring via the console:
 5. Click the **IAM services** button.
 
 6. From the list of services, select
-   **{{site.data.keyword.keymanagementserviceshort}}**.
+    **{{site.data.keyword.keymanagementserviceshort}}**.
 
 7. Select **Services based on attributes**.
 
 8. Select the **Instance ID** attribute and select the instance in which the key
-   ring resides.
+    ring resides.
 
 9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
 
 8. Choose a combination of
-   [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-   to assign access for the user.
+    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
+    to assign access for the user.
 
 9. Click **Add**.
 
@@ -214,3 +214,5 @@ In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge f
 
 You can also create an access policy via the {{site.data.keyword.keymanagementserviceshort}} [API](/apidocs/iam-policy-management#create-policy){: external}
 or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){: external}.
+
+

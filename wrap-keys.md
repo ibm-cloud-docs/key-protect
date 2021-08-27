@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: wrap key, encrypt data encryption key, envelope encryption API examples
 
@@ -54,7 +54,7 @@ complete the following steps to wrap your data using the key:
 2. From the **Menu**, choose the **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-   provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 4. Choose the Root key from the list of your keys that you want to use to wrap your data.
 
@@ -166,3 +166,5 @@ body on a wrap request. Your generated DEK, containing the base64 encoded
 key material, is returned in the response entity-body, along with the
 wrapped DEK.
 {: tip}
+
+

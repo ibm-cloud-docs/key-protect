@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-12"
+lastupdated: "2021-08-16"
 
 keywords: key protect event, kp activity tracker, monitor kp events
 
@@ -196,19 +196,19 @@ The following fields include extra information:
 - The `requestData.keyType` field includes the type of key that was created.
 
 - The `responseData.keyId` field includes the unique identifier associated with
-  the key.
+    the key.
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
-  current key version used to wrap input ciphertext on wrap requests.
+    current key version used to wrap input ciphertext on wrap requests.
 
 - The `responseData.keyVersionCreationDate` field includes the date that the
-  current version of the key was created.
+    current version of the key was created.
 
 - The `responseData.keyState` field includes the integer that correlates to the
-  state of the key.
+    state of the key.
 
 - The `responseData.expirationDate` includes the date that the key will expire
-  on.
+    on.
 
 #### Delete Key
 {: #delete-key-success}
@@ -216,7 +216,7 @@ The following fields include extra information:
 The following field includes extra information:
 
 - The `responseData.keyState` field includes the integer that correlates to the
-  state of the key.
+    state of the key.
 
 #### Expire Key
 {: #expire-key-success}
@@ -226,16 +226,16 @@ The following field includes extra information:
 - The `requestData.keyType` field includes the type of key that was created.
 
 - The `responseData.keyId` field includes the unique identifier associated with
-  the key.
+    the key.
 
 - The `requestData.expirationDate` field includes the date that the key expired
-  on.
+    on.
 
 - The `responseData.initialValue.keyState` field includes the integer that
-  correlates to the previous state of the key.
+    correlates to the previous state of the key.
 
 - The `responseData.newValue.keyState` field includes the integer that
-  correlates to the current state of the key.
+    correlates to the current state of the key.
 
 #### Wrap or unwrap key
 {: #wrap-unwrap-key-success}
@@ -243,10 +243,10 @@ The following field includes extra information:
 The following field includes extra information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
-  current key version used to wrap input ciphertext on wrap requests.
+    current key version used to wrap input ciphertext on wrap requests.
 
 - The `responseData.expirationDate` includes the date that the key will expire
-  on.
+    on.
 
 #### Rewrap key
 {: #rewrap-key-success}
@@ -254,10 +254,10 @@ The following field includes extra information:
 The following field includes extra information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
-  current key version used to wrap input ciphertext on wrap requests.
+    current key version used to wrap input ciphertext on wrap requests.
 
 - The `responseData.rewrappedKeyVersionId` field includes the unique identifier
-  of the new key version used to wrap input ciphertext on wrap requests.
+    of the new key version used to wrap input ciphertext on wrap requests.
 
 #### Restore key
 {: #restore-key-success}
@@ -265,7 +265,7 @@ The following field includes extra information:
 The following field includes extra information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
-  current key version used to wrap input ciphertext on wrap requests.
+    current key version used to wrap input ciphertext on wrap requests.
 
 #### Rotate key
 {: #rotate-key-success}
@@ -281,10 +281,10 @@ section
 The following fields include extra information:
 
 - The `requestData.initialValue.keyRingId` field includes the ID of the key ring that
-  the key previously was a part of.
+    the key previously was a part of.
 
 - The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
-  key is currently a part of.
+    key is currently a part of.
 
 #### Get key total
 {: #list-head-success}
@@ -292,7 +292,7 @@ The following fields include extra information:
 The following field includes extra information:
 
 - The `responseData.totalResources` field includes the total amount of keys
-  within the {{site.data.keyword.keymanagementserviceshort}} instance.
+    within the {{site.data.keyword.keymanagementserviceshort}} instance.
 
 #### List keys
 {: #list-keys-success}
@@ -300,7 +300,7 @@ The following field includes extra information:
 The following field includes extra information:
 
 - The `responseData.totalResources` field includes the total amount of keys
-  returned in the response.
+    returned in the response.
 
 #### Get key or key metadata
 {: #get-key-success}
@@ -310,16 +310,16 @@ The following fields include extra information:
 - The `requestData.keyType` field includes the type of key that was retrieved.
 
 - The `responseData.keyState` field includes the integer that correlates to the
-  state of the key.
+    state of the key.
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
-  key version used to wrap input ciphertext on wrap requests.
+    key version used to wrap input ciphertext on wrap requests.
 
 - The `responseData.keyVersionCreationDate` field includes the date that the
-  current version of the key was created.
+    current version of the key was created.
 
 - The `responseData.expirationDate` includes the date that the key will expire
-  on.
+    on.
 
 #### List key versions
 {: #list-key-versions-success}
@@ -327,7 +327,7 @@ The following fields include extra information:
 The following field includes extra information:
 
 - The `responseData.totalResources` field includes the total amount of key
-  versions returned in the response.
+    versions returned in the response.
 
 #### Set or Unset key for deletion
 {: #dual-auth-set-success}
@@ -335,16 +335,16 @@ The following field includes extra information:
 The following fields include extra information:
 
 - The `responseData.initialValue.authID` field includes the initiator ID of the
-  person who set the dual authorization policy.
+    person who set the dual authorization policy.
 
 - The `responseData.initialValue.authExpiration` field includes the expiration
-  date for the dual authorization policy.
+    date for the dual authorization policy.
 
 - The `responseData.newValue.authID` field includes the initiator ID of the
-  person who set the dual authorization policy.
+    person who set the dual authorization policy.
 
 - The `responseData.newValue.authExpiration` field includes the expiration date
-  for the dual authorization policy.
+    for the dual authorization policy.
 
 `initialValue` is the initiatorID of the person who last set the dual
 authorization policy and `newValue` is the new initiatorID of the person who set
@@ -363,18 +363,18 @@ the dual authorization policy.
 The following fields include extra information:
 
 - The `requestData.initialValue.policyAllowedNetworkEnabled` field includes if
-  your allowed network policy was previously enabled or disabled.
+    your allowed network policy was previously enabled or disabled.
 
 - The `requestData.initialValue.policyAllowedNetworkAttribute` field includes if
-  your allowed network policy was previously only for public networks or both
-  public and private networks.
+    your allowed network policy was previously only for public networks or both
+    public and private networks.
 
 - The `requestData.newValue.policyAllowedNetworkEnabled` field includes if your
-  allowed network policy is currently enabled or disabled.
+    allowed network policy is currently enabled or disabled.
 
 - The `requestData.newValue.policyAllowedNetworkAttribute` field includes if
-  your allowed network policy is currently only for public networks or both
-  public and private networks.
+    your allowed network policy is currently only for public networks or both
+    public and private networks.
 
 ##### Dual Auth Delete Policies
 {: #dual-auth-event}
@@ -382,10 +382,10 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `requestData.initialValue.policyDualAuthDeleteEnabled` field includes if
-  your dual auth delete policy was previously enabled or disabled.
+    your dual auth delete policy was previously enabled or disabled.
 
 - The `requestData.newValue.policyDualAuthDeleteEnabled` field includes if your
-  dual auth delete policy is currently enabled or disabled.
+    dual auth delete policy is currently enabled or disabled.
 
 ##### Allowed IP Policies
 {: #allowed-ip-event}
@@ -393,10 +393,10 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `requestData.initialValue.policyAllowedIPAttribute` field includes if
-  your allowed IP policy was previously enabled or disabled.
+    your allowed IP policy was previously enabled or disabled.
 
 - The `requestData.newValue.policyAllowedIPAttribute` field includes if
-  your allowed IP policy is currently enabled or disabled.
+    your allowed IP policy is currently enabled or disabled.
 
 ##### Key Creation and Importation Access Policies
 {: #allowed-key-creation-policy}
@@ -404,46 +404,46 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `requestData.initialValue.PolicyKCIAEnabled` field includes if
-  your key creation and importation policy was previously enabled or disabled.
+    your key creation and importation policy was previously enabled or disabled.
 
 - The `requestData.newValue.PolicyKCIAEnabled` field includes if
-  your key creation and importation policy is currently enabled or disabled.
+    your key creation and importation policy is currently enabled or disabled.
 
 - The `requestData.initialValue.PolicyKCIAAttrCRK` field includes if
-  your key creation and importation policy previously allowed the creation of
-  root keys.
+    your key creation and importation policy previously allowed the creation of
+    root keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCRK` field includes if
-  your key creation and importation policy allows the creation of root keys.
+    your key creation and importation policy allows the creation of root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrCSK` field includes if
-  your key creation and importation policy previously allowed the creation of
-  standard keys.
+    your key creation and importation policy previously allowed the creation of
+    standard keys.
 
 - The `requestData.newValue.PolicyKCIAAttrCSK` field includes if
-  your key creation and importation policy allows the creation of standard keys.
+    your key creation and importation policy allows the creation of standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrIRK` field includes if
-  your key creation and importation policy previously allowed imported root
-  keys.
+    your key creation and importation policy previously allowed imported root
+    keys.
 
 - The `requestData.newValue.PolicyKCIAAttrIRK` field includes if
-  your key creation and importation policy allows imported root keys.
+    your key creation and importation policy allows imported root keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrISK` field includes if
-  your key creation and importation policy previously allowed imported standard
-  keys.
+    your key creation and importation policy previously allowed imported standard
+    keys.
 
 - The `requestData.newValue.PolicyKCIAAttrISK` field includes if
-  your key creation and importation policy allows imported standard keys.
+    your key creation and importation policy allows imported standard keys.
 
 - The `requestData.initialValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy previously required keys to be
-  imported via import token.
+    your key creation and importation policy previously required keys to be
+    imported via import token.
 
 - The `requestData.newValue.PolicyKCIAAttrET` field includes if
-  your key creation and importation policy requires keys to be imported via
-  import token.
+    your key creation and importation policy requires keys to be imported via
+    import token.
 
 ### Import token events
 {: #import-token-events}
@@ -454,11 +454,11 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.expirationDate` field includes the expiration date of the
-  import token.
+    import token.
 
 - The `responseData.maxAllowedRetrievals` field includes the maximum amount of
-  times the import token can be retrieved within its expiration time before it
-  is no longer accessible.
+    times the import token can be retrieved within its expiration time before it
+    is no longer accessible.
 
 #### Retrieve import token
 {: #retrieve-import-token-success}
@@ -466,12 +466,12 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.maxAllowedRetrievals` field includes the maximum amount of
-  times the import token can be retrieved within its expiration time before it
-  is no longer accessible.
+    times the import token can be retrieved within its expiration time before it
+    is no longer accessible.
 
 - The `responseData.remainingRetrievals` field includes the number of times the
-  import token can be retrieved within its expiration time before it is no
-  longer accessible.
+    import token can be retrieved within its expiration time before it is no
+    longer accessible.
 
 
 
@@ -481,24 +481,24 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
-  that is associated with the event.
+    that is associated with the event.
 
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle
-  action that is associated with the event.
+    action that is associated with the event.
 
 - The `responseData.eventAckData.newKeyVersionId` field includes the unique
-  identifier of the latest key version used to wrap input ciphertext on wrap
-  requests.
+    identifier of the latest key version used to wrap input ciphertext on wrap
+    requests.
 
 - The `responseData.eventAckData.newKeyVersionCreationDate` field includes the
-  date that the latest key version was created.
+    date that the latest key version was created.
 
 - The `responseData.eventAckData.oldKeyVersionId` field includes the unique
-  identifier of the previous key version used to wrap input ciphertext on wrap
-  requests.
+    identifier of the previous key version used to wrap input ciphertext on wrap
+    requests.
 
 - The `responseData.eventAckData.oldKeyVersionCreationDate` field includes the
-  date that the previous key version was created.
+    date that the previous key version was created.
 
 #### Completed action of key restoration
 {: #restore-key-registrations-success}
@@ -506,16 +506,16 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
-  that is associated with the event.
+    that is associated with the event.
 
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle
-  action that is associated with the event.
+    action that is associated with the event.
 
 - The `responseData.eventAckData.keyState` field includes the integer that
-  correlates to the state of the key associated with the event.
+    correlates to the state of the key associated with the event.
 
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
-  time that the event was acknowledged.
+    time that the event was acknowledged.
 
 #### Completed action of an enabled key
 {: #enable-key-registrations-success}
@@ -523,16 +523,16 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
-  that is associated with the event.
+    that is associated with the event.
 
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle
-  action that is associated with the event.
+    action that is associated with the event.
 
 - The `responseData.eventAckData.keyState` field includes the integer that
-  correlates to the state of the key associated with the event.
+    correlates to the state of the key associated with the event.
 
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
-  time that the event was acknowledged.
+    time that the event was acknowledged.
 
 #### Completed action of a disabled key
 {: #disable-key-registration-success}
@@ -540,16 +540,16 @@ The following fields include extra information:
 The following fields include extra information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
-  that is associated with the event.
+    that is associated with the event.
 
 - The `responseData.eventAckData.eventType` field includes the type of lifecycle
-  action that is associated with the event.
+    action that is associated with the event.
 
 - The `responseData.eventAckData.keyState` field includes the integer that
-  correlates to the state of the key associated with the event.
+    correlates to the state of the key associated with the event.
 
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
-  time that the event was acknowledged.
+    time that the event was acknowledged.
 
 ## Analyzing failed events
 {: #at-events-analyze-failed}
@@ -641,3 +641,5 @@ The following table lists the status codes associated with each severity level:
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
 {: caption="Table 9. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
+
+
