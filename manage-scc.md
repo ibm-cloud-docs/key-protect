@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-08-30"
 
 keywords: managing security, managing compliance, best practices
 
@@ -87,7 +87,7 @@ To learn more about the available properties that you can use to create a rule f
     - Value is 1 ≤ Value ≤ 12
     - Specifies the given key's rotation interval (in months). Automatic rotation policies can only be applied to root keys with non-imported material. Refer to [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for more information.
 
-To learn more about config rule capabilities, see
-[What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule){: external}.
+To learn more about constructing **config rules**, see
+ [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 
 
