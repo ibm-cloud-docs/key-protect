@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-08-30"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -29,10 +29,22 @@ When you log in to the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external},
 you're notified when updates are available.
 
-Be sure to keep your CLI up-to-date so that you can use the commands and flags
-that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI
-plug-in.
+Be sure to keep your CLI up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.6.5
+{: #cli-changelog-065}
+
+Release date: 2021-08-30
+
+### Changes
+{: #cli-changelog-065-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- The JSON response for the retrieval of multiple objects like listing keys, policies, and registrations is set as an empty array: **`[]`**  when there are no objects returned by the service.
+
+- The JSON response for the retrieval of a single object, like a key policy, is set as an empty object: **`{}`** when there is no policy returned by the service.
 
 ## CLI version 0.6.4
 {: #cli-changelog-064}
