@@ -37,7 +37,7 @@ Stay up-to-date with the new features that are available for
 ### Deprecated: API fields
 {: #api-field-deprecation-september-2021}
 
-As part of continued migration and improvement, the `algorithmBitSize`, `algorithmMode`, `algorithmType` and `algorithmMetadata` fields will be removed from the Key Protect [API](https://cloud.ibm.com/apidocs/key-protect){: external}.
+As part of continued migration and improvement, the `algorithmBitSize`, `algorithmMode`, `algorithmType` and `algorithmMetadata` fields will no longer be operational within the Key Protect [API](https://cloud.ibm.com/apidocs/key-protect){: external}.
 
 ### Added: Updates to the Key Protect Terraform Plugin
 {: #terraform-september-2021}
