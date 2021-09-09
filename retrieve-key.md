@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key
 
@@ -109,13 +109,13 @@ example returned value for a standard key.
             "imported": false,
             "creationDate": "2020-03-12T03:50:12Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 256,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-12T03:50:12Z",
             "dualAuthDelete": {
                 "enabled": false
@@ -151,13 +151,13 @@ The following JSON object shows an example returned value for a root key.
             "imported": false,
             "creationDate": "2020-03-05T16:28:38Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 256,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-05T16:39:25Z",
             "keyVersion": {
                 "id": "436901cb-f4e4-45f4-bd65-91a7f6d13461",

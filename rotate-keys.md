@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -160,13 +160,13 @@ entity-body to inspect the date and time that your key was last rotated.
             "imported": false,
             "creationDate": "2020-03-12T03:50:12Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 256,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-12T03:50:12Z",
             "lastRotateDate": "2020-03-12T03:49:01Z",
             "keyVersion": {

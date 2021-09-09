@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -250,13 +250,13 @@ on NIST SP 800-57.
             "imported": true,
             "creationDate": "2020-03-10T20:41:27Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "128",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 128,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-16T20:41:27Z",
             "keyVersion": {
                 "id": "30372f20-d9f1-40b3-b486-a709e1932c9c",

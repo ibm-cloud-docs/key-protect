@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: key rings, group keys, manage key groups
 
@@ -227,13 +227,13 @@ A successful `PATCH api/v2/keys/key_ID` request returns the key's metadata, incl
             "imported": false,
             "creationDate": "2020-03-12T03:37:32Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 256,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-12T03:37:32Z",
             "keyVersion": {
                 "id": "2291e4ae-a14c-4af9-88f0-27c0cb2739e2",

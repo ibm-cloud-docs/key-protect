@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -150,13 +150,13 @@ The following JSON object shows an example returned value.
             "imported": false,
             "creationDate": "2020-03-10T20:41:27Z",
             "createdBy": "...",
-            "algorithmType": "AES",
+            "algorithmType": "Deprecated",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "algorithmBitSize": 256,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "lastUpdateDate": "2020-03-16T20:41:27Z",
             "dualAuthDelete": {
                 "enabled": false
