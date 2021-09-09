@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -158,11 +158,11 @@ A successful `GET api/v2/keys` request returns a collection of keys that are ava
             "lastUpdateDate": "2020-03-11T16:30:06Z",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "extractable": false,
             "imported": true,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "algorithmBitSize": 256,
             "dualAuthDelete": {
                 "enabled": false
@@ -180,11 +180,11 @@ A successful `GET api/v2/keys` request returns a collection of keys that are ava
             "lastUpdateDate": "2020-03-12T03:50:12Z",
             "algorithmMetadata": {
                 "bitLength": "256",
-                "mode": "CBC_PAD"
+                "mode": "Deprecated"
             },
             "extractable": true,
             "imported": false,
-            "algorithmMode": "CBC_PAD",
+            "algorithmMode": "Deprecated",
             "algorithmBitSize": 256,
             "dualAuthDelete": {
                 "enabled": false

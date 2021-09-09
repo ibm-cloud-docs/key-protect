@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 
@@ -109,13 +109,13 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
                 "imported": false,
                 "creationDate": "2020-03-12T03:50:12Z",
                 "createdBy": "...",
-                "algorithmType": "AES",
+                "algorithmType": "Deprecated",
                 "algorithmMetadata": {
                     "bitLength": "256",
-                    "mode": "CBC_PAD"
+                    "mode": "Deprecated"
                 },
                 "algorithmBitSize": 256,
-                "algorithmMode": "CBC_PAD",
+                "algorithmMode": "Deprecated",
                 "lastUpdateDate": "2020-03-12T03:50:12Z",
                 "dualAuthDelete": {
                     "enabled": false

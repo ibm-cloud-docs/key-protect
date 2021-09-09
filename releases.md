@@ -2,15 +2,16 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-09"
 
-keywords: release notes, service updates, service bulletin
+keywords: key protect, release notes, service updates
 
 subcollection: key-protect
 
 ---
 
 {:shortdesc: .shortdesc}
+{:release-note: data-hd-content-type='release-note'}
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
@@ -22,15 +23,39 @@ subcollection: key-protect
 {:preview: .preview}
 {:term: .term}
 
-# What's new
+# Release notes for {{site.data.keyword.keymanagementserviceshort}}
 {: #releases}
 
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## September 2021
+{: #september-2021}
+{: release-note}
+
+### Deprecated: API fields
+{: #api-field-deprecation-september-2021}
+
+As part of continued migration and improvement, the `algorithmBitSize`, `algorithmMode`, `algorithmType` and `algorithmMetadata` fields will no longer be operational within the Key Protect [API](https://cloud.ibm.com/apidocs/key-protect){: external}.
+
+### Added: Updates to the Key Protect Terraform Plugin
+{: #terraform-september-2021}
+
+New as of: 2021-09-08
+
+[{{site.data.keyword.terraform-provider_full}}](/docs/schematics) now supports creating and retrieving [Key Policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies) when creating and retrieving keys through {{site.data.keyword.terraform-provider_full_notm}} as a separate resource.
+
+### Added: Updates to the Key Protect CLI Plugin
+{: #cli-september-2021}
+
+New as of: 2021-09-04
+
+The [release of {{site.data.keyword.keymanagementserviceshort}} CLI version 0.6.5](/docs/key-protect?topic=key-protect-cli-changelog) introduces new structures for empty results when querying. Learn more at [the CLI reference](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+
 ## August 2021
 {: #august-2021}
+{: release-note}
 
 ### Added: Updates to the Key Protect console and Key purge feature
 {: #key-purge-august-2021}
@@ -43,6 +68,7 @@ Also, the ability to view your instance ID and cloud resource name (CRN) has bee
 
 ## June 2021
 {: #june-2021}
+{: release-note}
 
 ### Added: Updates to the Key Protect CLI plugin
 {: #added-ui-updates-june-2021}
@@ -53,6 +79,7 @@ The {{site.data.keyword.keymanagementserviceshort}} CLI plugin has been updated 
 
 ## April 2021
 {: #april-2021}
+{: release-note}
 
 ### Added: Updates to the Key Protect console and Key purge feature
 {: #added-ui-updates-april-2021}
@@ -69,6 +96,7 @@ The ability to purge keys using the UI was added in the [August, 2021 release](#
 
 ## March 2021
 {: #march-2021}
+{: release-note}
 
 ### Added: Transfer a key to a different key ring
 {: #added-transfer-key-key-ring}
@@ -90,6 +118,7 @@ Added support for aliases and key-rings bring best practices to using the [{{sit
 
 ## February 2021
 {: #february-2021}
+{: release-note}
 
 ### Added: Functionality to key restoration
 {: 2021-02-25-key-restore}
@@ -130,7 +159,7 @@ The Key Protect UI now has support for the following feature:
 Wrap/Unwrap (Envelope Encryption)
 You can now use the Key Protect UI to wrap/unwrap active root keys. For more information, see Protecting data with envelope encryption for an overview, or check the documentation for how to wrap and unwrap your keys.
 
-### Coming soon: Updates to key deletion functionality
+### Updates to key deletion functionality
 {: #upcoming-key-deletion-changes}
 
 Release Date: 2021-03-15
@@ -189,6 +218,7 @@ and create a [VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: exte
 
 ## January 2021
 {: #january-2021}
+{: release-note}
 
 ### Added: Create a key ring
 {: #added-key-ring}
@@ -237,6 +267,7 @@ more information.
 
 ## December 2020
 {: #december-2020}
+{: release-note}
 
 ### Added: Create a metrics policy
 {: #added-metrics-policy}
@@ -266,6 +297,7 @@ To find out more, see
 
 ## October 2020
 {: #october-2020}
+{: release-note}
 
 ### Added: Quantum Safe Cryptography in TLS Connections
 {: #added-quantum-safe-cryptography}
@@ -294,6 +326,7 @@ See the updated "Instance policies" pane in the
 
 ## September 2020
 {: #september-2020}
+{: release-note}
 
 ### Added: Manage key creation and importation policies in the API
 {: #added-key-creation-importation-policies-api}
@@ -343,6 +376,7 @@ has all CLI updates.
 
 ## July 2020
 {: #july-2020}
+{: release-note}
 
 ### Update: CLI plug-in Version 0.5.1 is now available
 {: #july-2020-cli-plugin-051-available}
@@ -360,6 +394,7 @@ For a detailed explanation of changes in version 0.5.1, see the
 
 ## June 2020
 {: #june-2020}
+{: release-note}
 
 ### Added: Feature updates to the {{site.data.keyword.keymanagementserviceshort}} UI
 {: #june-2020-ui-updates}
@@ -406,6 +441,7 @@ For a detailed explanation of changes in version 0.5.0, see the
 
 ## May 2020
 {: #may-2020}
+{: release-note}
 
 ### Coming soon: Updates to activity tracker fields
 {: #upcoming-activity-tracker-changes}
@@ -476,6 +512,7 @@ To find out more, see
 
 ## April 2020
 {: #apr-2020}
+{: release-note}
 
 ### Added: Manage network access policies
 {: #added-network-access-policies}
@@ -491,6 +528,7 @@ To find out more, see
 
 ## March 2020
 {: #mar-2020}
+{: release-note}
 
 ### Added: View details about a key
 {: #added-key-metadata}
@@ -520,6 +558,7 @@ To find out more, see
 
 ## February 2020
 {: #feb-2020}
+{: release-note}
 
 ### Changed: {{site.data.keyword.at_full_notm}} event fields
 {: #changed-at-events}
@@ -626,6 +665,7 @@ return additional fields in the response bodies of some
 
 ## January 2020
 {: #jan-2020}
+{: release-note}
 
 ### Added: Dual authorization policies for {{site.data.keyword.keymanagementserviceshort}} instances and keys
 {: #added-dual-authorization}
@@ -644,6 +684,7 @@ enable dual authorization, you require an action from two users to delete a key.
 
 ## November 2019
 {: #nov-2019}
+{: release-note}
 
 ### Changed: Platform and service access roles
 {: #changed-access-roles}
@@ -680,6 +721,7 @@ permissions, see
 
 ## September 2019
 {: #sept-2019}
+{: release-note}
 
 ### Added: Fine-grained access to {{site.data.keyword.keymanagementserviceshort}} resources
 {: #added-fine-grain-access}
@@ -724,6 +766,7 @@ For a guided tutorial, see
 
 ## July 2019
 {: #jul-2019}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for private endpoints
 {: #added-private-endpoints}
@@ -741,6 +784,7 @@ for your infrastructure account. For more information, see
 
 ## June 2019
 {: #june-2019}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for {{site.data.keyword.at_full_notm}}
 {: #added-at-log-support}
@@ -757,6 +801,7 @@ activity, see
 
 ## May 2019
 {: #may-2019}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} upgrades HSMs to FIPS 140-2 Level 3
 {: #upgraded-hsms}
@@ -799,6 +844,7 @@ by submitting a request to remove the entry from your console view.
 
 ## March 2019
 {: #mar-2019}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for policy-based key rotation
 {: #added-support-policy-key-rotation}
@@ -833,6 +879,7 @@ latest version.
 
 ## February 2019
 {: #feb-2019}
+{: release-note}
 
 ### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} instances
 {: #changed-legacy-service-instances}
@@ -872,6 +919,7 @@ check out the
 
 ## December 2018
 {: #dec-2018}
+{: release-note}
 
 ### Changed: {{site.data.keyword.keymanagementserviceshort}} API endpoints
 {: #changed-api-endpoints}
@@ -896,6 +944,7 @@ Both URLs for each regional service endpoint are supported at this time.
 
 ## October 2018
 {: #oct-2018}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Tokyo region
 {: #added-tokyo-region}
@@ -924,6 +973,7 @@ To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI,
 
 ## September 2018
 {: #sept-2018}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for on-demand key rotation
 {: #added-key-rotation}
@@ -964,6 +1014,7 @@ For more information, see
 
 ## August 2018
 {: #aug-2018}
+{: release-note}
 
 ### Changed: {{site.data.keyword.keymanagementserviceshort}} API documentation URL
 {: #changed-api-doc-url}
@@ -977,6 +1028,7 @@ You can now access the API documentation at
 
 ## March 2018
 {: #mar-2018}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Frankfurt region
 {: #added-frankfurt-region}
@@ -991,6 +1043,7 @@ For more information, see
 
 ## January 2018
 {: #jan-2018}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} expands into Sydney region
 {: #added-sydney-region}
@@ -1005,6 +1058,7 @@ For more information, see
 
 ## December 2017
 {: #dec-2017}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Bring Your Own Key (BYOK)
 {: #added-byok-support}
@@ -1051,6 +1105,7 @@ For more information, see
 
 ## September 2017
 {: #sept-2017}
+{: release-note}
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Cloud IAM
 {: #added-iam-support}
