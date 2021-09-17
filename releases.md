@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-09"
+lastupdated: "2021-09-17"
 
 keywords: key protect, release notes, service updates
 
@@ -33,6 +33,15 @@ Stay up-to-date with the new features that are available for
 ## September 2021
 {: #september-2021}
 {: release-note}
+
+### Deprecated: Key Protect Terraform Plugin resources
+{: #terraform-deprecation-september-2021}
+
+Announced: 2021-09-15
+
+This announcement begins the deprecation of the [`ibm_kms_key` resource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key){: external} used with {{site.data.keyword.terraform-provider_full}}.
+
+While migrating your code to use the new [Key Policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies){: external}, please refrain from using the existing resource unless setting the [Lifecycle "ignore" policies block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#lifecycle-ignore-block-example){: external}.
 
 ### Deprecated: API fields
 {: #api-field-deprecation-september-2021}
