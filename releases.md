@@ -39,7 +39,7 @@ Stay up-to-date with the new features that are available for
 
 Announced: 2021-09-15
 
-This announcement begins the deprecation of the [`ibm_kms_key` resource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key){: external} used with {{site.data.keyword.terraform-provider_full}}.
+This announcement begins the deprecation of creating policies using the [`ibm_kms_key` resource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key){: external} used with {{site.data.keyword.terraform-provider_full}}.
 
 While migrating your code to use the new [Key Policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies){: external}, please refrain from using the existing resource unless setting the [Lifecycle "ignore" policies block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#lifecycle-ignore-block-example){: external}.
 
