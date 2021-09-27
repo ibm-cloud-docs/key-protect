@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-27"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -175,7 +175,7 @@ Test your private network connection by using the
     targeting the private endpoint.
 
     ```sh
-    ibmcloud kp create <key_name> -i <instance_ID>
+    ibmcloud kp key create <key_name> -i <instance_ID>
     ```
     {: pre}
 
@@ -189,7 +189,7 @@ Test your private network connection by using the
     instance.
 
     ```sh
-    ibmcloud kp list -i <instance_ID>
+    ibmcloud kp keys -i <instance_ID>
     ```
     {: pre}
 
