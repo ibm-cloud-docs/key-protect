@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-10-11"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -31,6 +31,20 @@ you're notified when updates are available.
 
 Be sure to keep your CLI up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.6.6
+{: #cli-changelog-066}
+
+Release date: 2021-10-11
+
+### Changes
+{: #cli-changelog-066-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- Added feature for [key synchronizing](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-sync) as a new subcommand under **`key`**.
+
+- Updated the "Internal server error" response message to return the actual error message.
 
 ## CLI version 0.6.5
 {: #cli-changelog-065}
