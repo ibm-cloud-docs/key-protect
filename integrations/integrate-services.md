@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-10-13"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -39,7 +39,9 @@ following **database** services.
 | Service | Description | Links |
 | ------- | ----------- | ----- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=Cloudant-ibm-cloud-dedicated){: external} | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant?topic=Cloudant-securing-your-data-in-cloudant){: external} |
+| [{{site.data.keyword.databases-for-cassandra_full_notm}}](/docs/databases-for-cassandra?topic=databases-for-cassandra-getting-started){: external} | {{site.data.keyword.databases-for-cassandra_full_notm}}, an enterprise-grade Apache Cassandra cloud solution with high performance, workload flexibility, and proven reliability. | [View docs](/docs/databases-for-cassandra?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch){: external} | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect){: external} |
+| [{{site.data.keyword.databases-for-enterprisedb_full_notm}}](/docs/databases-for-enterprisedb?topic=databases-for-enterprisedb-getting-started){: external} | {{site.data.keyword.databases-for-enterprisedb_full_notm}} offers a single source for purchase, deployment and support of EDB Postgres Enterprise and Standard editions based on PostgreSQL. | [View docs](/docs/databases-for-enterprisedb?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-etcd?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-mongodb?topic=cloud-databases-key-protect){: external} |
 | [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql){: external} | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/databases-for-postgresql?topic=cloud-databases-key-protect){: external} |
