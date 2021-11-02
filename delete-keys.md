@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-09"
+lastupdated: "2021-11-02"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -271,7 +271,7 @@ For more information about deleting and purging keys, check out [About deleting 
 
 The following table lists which APIs you can use to retrieve data related to a deleted key.
 
-| API               | Description                                                   |                                                          |
+| API                                                                               | Description                                              |
 |-----------------------------------------------------------------------------------|----------------------------------------------------------|
 | [Get key](/docs/key-protect?topic=key-protect-retrieve-key)                       | Retrieve key details                                     |
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
