@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: quantum safe cryptography, quantum cryptography, quantum safe TLS
 
@@ -166,6 +166,7 @@ associated key sizes, see
 endpoints for 2 regions; `US-South` and `EU-GB`. See the following
 table to determine which quantum safe enabled endpoints to use when sending
 requests to the {{site.data.keyword.keymanagementservicefull}} service.
+
 
 
 | Region        | Public endpoints                         |
@@ -427,8 +428,7 @@ required when making a quantum safe `curl` request.
 |--curves|This flag will specify which quantum safe algorithm should be used in the
 TLSv1.3 key exchange mechanism. If you do not specify an algorithm, the
 flag will default to the p384_kyber768 algorithm.|
-{: caption="Table 3. Describes the flags needed to make <code>curl</code> requests to
-    the {{site.data.keyword.keymanagementserviceshort}} service." caption-side="top"}
+{: caption="Table 3. Describes the flags needed to make curl requests to the {{site.data.keyword.keymanagementserviceshort}} service." caption-side="top"}
 
 You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a quantum safe

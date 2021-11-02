@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: key versions, get key versions, list key versions
 
@@ -85,31 +85,31 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/{id}/versions
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. <br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 {: caption="Table 1. Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-    A successful `GET api/v2/keys/<key_ID>/versions` response returns the list
-    of versions that are associated with the root key. The following JSON object
-    shows an example returned value.
+A successful `GET api/v2/keys/<key_ID>/versions` response returns the list
+of versions that are associated with the root key. The following JSON object
+shows an example returned value.
 
-    ```json
-    {
-        "metadata": {
-            "collectionType": "application/vnd.ibm.kms.key.version+json",
-            "collectionTotal": 2
+```json
+{
+    "metadata": {
+        "collectionType": "application/vnd.ibm.kms.key.version+json",
+        "collectionTotal": 2
+    },
+    "resources": [
+        {
+            "id": "02fd6835-6001-4482-a892-13bd2085f75d",
+            "creationDate": "2020-03-05T16:39:25Z"
         },
-        "resources": [
-            {
-                "id": "02fd6835-6001-4482-a892-13bd2085f75d",
-                "creationDate": "2020-03-05T16:39:25Z"
-            },
-            {
-                "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
-                "creationDate": "2020-03-02T16:28:38Z"
-            }
-        ]
-    }
-    ```
-    {: screen}
+        {
+            "id": "12e8c9c2-a162-472d-b7d6-8b9a86b815a6",
+            "creationDate": "2020-03-02T16:28:38Z"
+        }
+    ]
+}
+```
+{: screen}
 
-    The `resources` object lists each key version, along with its ID and
-    creation date, in reverse chronological order.
+The `resources` object lists each key version, along with its ID and
+creation date, in reverse chronological order.
 
 

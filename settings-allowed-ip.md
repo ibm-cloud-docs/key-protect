@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -161,7 +161,7 @@ existing policy.
                         "policy_data": {
                             "enabled": <true|false>,
                             "attributes": {
-"allowed_ip": [<ip_address_list>]
+                                "allowed_ip": [<ip_address_list>]
                             }
                         }
                     }

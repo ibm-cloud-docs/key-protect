@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -65,7 +65,7 @@ Once a key has been purged, any API calls that use the Key ID of a purged key wi
 
 Please refer to the prerequisites and configuration settings associated with the [API reference](/apidocs/key-protect#purgekey), before using this example.
 
-    ```sh
+```sh
 curl -X DELETE
     https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/purge
     -H 'accept: application/vnd.ibm.kms.key+json'

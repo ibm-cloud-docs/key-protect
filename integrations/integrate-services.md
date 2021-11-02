@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-13"
+lastupdated: "2021-11-02"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -86,6 +86,7 @@ following **compute** services.
 | [{{site.data.keyword.conversationfull}}](/docs/assistant?topic=assistant-getting-started#getting-started){: external} | You can use {{site.data.keyword.conversationfull}} to to build your own branded live chatbot into any device, application, or channel. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.nlufull}}](/docs/natural-language-understanding?topic=natural-language-understanding-getting-started#getting-started){: external} | You can use {{site.data.keyword.nlufull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.personalityinsightsfull}}](/docs/natural-language-understanding?topic=natural-language-understanding-about){: external} | You can use {{site.data.keyword.personalityinsightsfull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
+{: caption="Table 3. Supported compute services." caption-side="bottom"}
 
 ## Container service integrations
 {: #container-integrations}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: key protect event, kp activity tracker, monitor kp events
 
@@ -137,7 +137,7 @@ information, see
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
-{: caption="Table 6. {{site.data.keyword.at_full_notm}} regions" caption-side="top"}
+{: caption="Table 5. {{site.data.keyword.at_full_notm}} regions" caption-side="top"}
 
 ## Analyzing successful events
 {: #at-events-analyze}
@@ -161,7 +161,7 @@ model to provide more insight into your data.
 |requestData.requestURI|The URI of the API request that was made.|
 |requestData.instanceID|The unique identifier of your {{site.data.keyword.keymanagementserviceshort}} instance.|
 |correlationId|The unique identifier of the API request that generated the event.|
-{: caption="Table 7. Describes the common fields in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="top"}
+{: caption="Table 6. Describes the common fields in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="top"}
 
 
 For more information on the event fields in the Cloud Auditing Data Federation
@@ -632,7 +632,7 @@ The following table lists the actions associated with each severity level:
 |Critical|kms.secrets.delete<br>kms.registrations.delete|
 |Warning|kms.secrets.rotate, kms.secrets.restore<br>kms.secrets.enable, kms.secrets.disable<br>kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion<br>kms.policies.write, kms.instancepolicies.write|
 |Normal|kms.secrets.create, kms.secrets.read<br>kms.secrets.readmetadata, kms.secrets.head<br>kms.secrets.list, kms.secrets.wrap<br>kms.secrets.unwrap, kms.secrets.rewrap<br>kms.secrets.listkeyversions, kms.secrets.eventack<br>kms.policies.read, kms.instancepolicies.read<br>kms.importtoken.create, kms.importtoken.read<br>kms.registrations.create, kms.registrations.write<br>kms.registrations.merge, kms.registrations.list<br>kms.secrets.ack-delete, kms.secrets.ack-restore<br>kms.secrets.ack-rotate, kms.secrets.ack-enable<br>kms.secrets.ack-disable|
-{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Table 7. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 The following table lists the status codes associated with each severity level:
 
@@ -640,6 +640,6 @@ The following table lists the status codes associated with each severity level:
 | -------- | ---------------------------- |
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
-{: caption="Table 9. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
+{: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
 
 

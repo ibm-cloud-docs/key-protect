@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: instance settings, service settings, network access policies
 
@@ -190,7 +190,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=allowedNetwor
                         "policy_data": {
                             "enabled": <enabled>,
                             "attributes": {
-"allowed_network": "<access_type>"
+                                "allowed_network": "<access_type>"
                             }
                         }
                     }

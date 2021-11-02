@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -151,7 +151,7 @@ existing value for the omitted field will be overwritten with the default value.
                         "policy_data": {
                             "enabled": true,
                             "attributes": {
-"create_root_key": <true/false>,
+                                "create_root_key": <true/false>,
                                 "create_standard_key": <true/false>,
                                 "import_root_key": <true/false>,
                                 "import_standard_key": <true/false>,
