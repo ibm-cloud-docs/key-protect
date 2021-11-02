@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -166,7 +166,7 @@ to enable dual authorization for an existing key, see
 
 You can verify that a dual auth policy key has been enabled by issuing a list policies request:
 
-    ```sh
+```sh
 $ curl -X GET \
     "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
@@ -276,7 +276,7 @@ authorization before they can be deleted. For more information, see
 
 You can verify that a dual auth policy key has been disabled by issuing a list policies request:
 
-    ```sh
+```sh
 $ curl -X GET \
     "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
