@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
 keywords: view protected data, view encrypted resources, registrations
 
@@ -269,7 +269,7 @@ your request according to the following table.
 |--- |--- |
 |preventKeyDeletion|A boolean that filters registrations based on if a registered resource  has a retention policy.<br><br>For example, if you have multiple registrations in your instance, and you want to list only registrations where preventKeyDeletion is `true`, use `../registrations?preventKeyDeletion=true`.<br><br>You can also pair preventKeyDeletion with offest, limit, and urlEncodedResourceCRNQuery to search through your available resources.|
 |urlEncodedResourceCRNQuery|The resource CRN that you want to filter registrations by.<br><br>For example, if you have multiple registrations in your instance, and you want to only view registrations that are associated with a specific Cloud Resource Name (CRN), use `../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"`.<br><br> For more information, see [CRN query examples](#crn-query-examples).<br><br>You can also pair urlEncodedResourceCRNQuery with offest, limit, and preventKeyDeletion to search through your available resources.|
-{: caption="Table 4. Describes the `preventKeyDeletion` and `urlEncodedResourceCRNQuery` variables." caption-side="top"}
+{: caption="Table 4. Describes the preventKeyDeletion and  urlEncodedResourceCRNQuery variables." caption-side="top"}
 
 You can also filter for a subset of registrations by specifying the `limit` and
 `offset` parameters at query time.
@@ -293,7 +293,7 @@ following table.
 |--- |--- |
 |offset|The number of registrations to skip.<br><br>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, use `../registrations?offset=25`.<br><br>You can also pair offset with limit to page through your available resources.|
 |limit|The number of registrations to retrieve.<br><br>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, use `../registrations?limit=10`. The maximum value for limit is 5000.<br><br>You can also pair offset with limit to page through your available resources.|
-{: caption="Table 5. Describes the `limit` and `offset` variables." caption-side="top"}
+{: caption="Table 5. Describes the limit and offset variables." caption-side="top"}
 
 ### Listing registrations for any root key
 {: #view-protected-resources-any-key}
@@ -362,8 +362,7 @@ your request according to the following table.
 |--- |--- |
 |preventKeyDeletion|A boolean that filters registrations based on if a registered resource has a retention policy.<br><br>For example, if you have multiple registrations in your instance, and you want to list only registrations where preventKeyDeletion is `true`, use `../registrations?preventKeyDeletion=true`.<br><br>You can also pair preventKeyDeletion with offest, limit, and urlEncodedResourceCRNQuery to search through your available resources.|
 |urlEncodedResourceCRNQuery|The resource CRN that you want to filter registrations by.<br><br>For example, if you have multiple registrations in your instance, and you want to only view registrations that are associated with a specific Cloud Resource Name (CRN), use `../registrations?urlEncodedResourceCRNQuery="url_encoded_CRN"`.<br><br>For more information, see [CRN query examples](#crn-query-examples).<br><br>You can also pair urlEncodedResourceCRNQuery with offest, limit, and preventKeyDeletion to search through your available resources.|
-{: caption="Table 7. Describes the `preventKeyDeletion` and
-    `urlEncodedResourceCRNQuery` variables." caption-side="top"}
+{: caption="Table 7. Describes the preventKeyDeletion and urlEncodedResourceCRNQuery variables." caption-side="top"}
 
 You can also filter for a subset of registrations by specifying the `limit` and
 `offset` parameters at query time.
@@ -387,7 +386,7 @@ following table.
 |--- |--- |
 |offset|The number of registrations to skip.<br><br>For example, if you have 50 registrations in your instance, and you want to list registrations 26 - 50, use `../registrations?offset=25`.<br><br>You can also pair offset with limit to page through your available resources.|
 |limit|The number of registrations to retrieve.<br><br>For example, if you have 100 registrations in your instance, and you want to list only 10 registrations, use `../registrations?limit=10`. The maximum value for limit is 5000.<br><br>You can also pair offset with limit to page through your available resources.|
-{: caption="Table 8. Describes the `limit` and `offset` variables." caption-side="top"}
+{: caption="Table 8. Describes the limit and offset variables." caption-side="top"}
 
 ### CRN query examples
 {: #crn-query-examples}

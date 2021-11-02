@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
-keywords: instance settings, service settings, operational metrics, metrics
+keywords: metrics settings, operational metrics, metrics
 
 subcollection: key-protect
 
@@ -120,10 +120,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
             },
             "resources": [
                 {
-"policy_type": "metrics",
-"policy_data": {
-"enabled": false
-}
+										"policy_type": "metrics",
+										"policy_data": {
+												"enabled": false
+										}
                 }
             ]
         }'

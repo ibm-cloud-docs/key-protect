@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-09"
+lastupdated: "2021-11-02"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -110,11 +110,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
                 "resources": [
                     {
                         "type": "application/vnd.ibm.kms.key+json",
-"name": "<key_name>",
-"aliases": [alias_list],
-"description": "<key_description>",
-"expirationDate": "<expiration_date>",
-"extractable": <key_type>
+                        "name": "<key_name>",
+                        "aliases": [alias_list],
+                        "description": "<key_description>",
+                        "expirationDate": "<expiration_date>",
+                        "extractable": <key_type>
                     }
                 ]
             }'

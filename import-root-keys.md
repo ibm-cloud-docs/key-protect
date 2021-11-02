@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
-keywords: import symmetric key, upload root key, upload CRK or CMK, import customer key
+keywords: import symmetric key, upload root key, upload CRK or CMK
 
 subcollection: key-protect
 
@@ -124,7 +124,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_material|**Required**. The base64-encoded key material, an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).<br><br>Ensure that the key material meets the following requirements:<br>A standard key can be up to 7,500 bytes in size. The key must be base64-encoded.|
 |key_type|A boolean value that determines whether the key material can leave the service.<br><br>When you set the extractable attribute to `false`, the service designates the key as a root key that you can use for wrap or unwrap operations.|
-{: caption="Table 2. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
+{: caption="Table 1. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
 To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: important}

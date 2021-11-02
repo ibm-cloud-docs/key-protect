@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-02"
 
-keywords: IBM, monitoring, metrics, operational metrics
+keywords: monitoring, metrics, operational metrics
 
 subcollection: key-protect
 
@@ -190,7 +190,7 @@ These filters are more granular than the segmentation filters.
 |ibmScope|The account, organization, or space GUID associated with the metric.|
 |ibmServiceInstanceName|The service instance associated with the metric.|
 |ibmKmsApi|The {{site.data.keyword.keymanagementserviceshort}} API call associated with the metric.|
-{: caption="Table 3. Table 4. Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics." caption-side="bottom"}
+{: caption="Table 4. Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics." caption-side="bottom"}
 
 Due to {{site.data.keyword.mon_short}} limitations, you will only be able to see
 the values in the dropdown filters for up to 6 hours at a time. You can manually

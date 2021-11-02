@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-01"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -88,7 +88,7 @@ Key's associated resources are synchronized successfully
 
 * **`--key-ring`**
 
-   A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+   A unique, human readable name for the key-ring. This is required if the user doesn't have permissions on the default key ring.
 
 
 
@@ -96,7 +96,7 @@ Key's associated resources are synchronized successfully
 {: #sync-associated-resources-api}
 {: api}
 
-You can renotify associated IBM cloud services of your
+You can notify associated IBM cloud services of your
 {{site.data.keyword.keymanagementserviceshort}} root key's lifecycle event by
 using the {{site.data.keyword.keymanagementserviceshort}} API.
 
@@ -130,12 +130,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/sync
 |key_ID|**Required**. The identifier for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 1. Describes the variables that are needed to initiate a renotification of a key lifecycle event" caption-side="top"}
+{: caption="Table 1. Describes the variables that are needed to initiate a re-notification of a key lifecycle event" caption-side="top"}
 
 
 A successful `GET api/v2/keys/<key_ID>/actions/sync` request returns an HTTP `204 No Content`
 response, which indicates that the IBM cloud service that is associated with the specified key
 has been notified.
+
+## Synchronization considerations
+{: #kp-key-sync-considerations}
 
 The sync API can only be initialized if it has been longer than an hour since the last
 notification to the associated cloud services of the key. If you send a request to this API and
@@ -143,4 +146,4 @@ the key has been synced or a key lifecycle action has been taken within the past
 the API will return a `409 Conflict` response.
 {: note}
 
-
+You can [view associated resources](/docs/key-protect?topic=key-protect-view-protected-resources) to determine which services are relevant to synchronization. 
