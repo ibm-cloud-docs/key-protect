@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-25"
+lastupdated: "2021-11-03"
 
 keywords: envelope encryption, wrap data encryption key, unwrap data encryption key
 
@@ -75,6 +75,9 @@ Envelope encryption offers several benefits for protecting your data:
 - Data Key Protection
     Since your DEKs are wrapped by a root key, you do not have to worry about how to store the encrypted data key. Due to this, you
     can store the wDEK with alongside the associated encrypted data.
+
+{{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard algorithm in Galois/Counter Mode (AES GCM) to wrap and unwrap DEKs. CRKs that are not imported are created with 256-bit key material. Imported CRKs can be have 128, 192, or 256-bit key material.
+{: note}
 
 ## How envelope encryption works
 {: #envelope-encryption-overview}
@@ -184,5 +187,3 @@ at rest while having management control of the root key.
 For more information on the services that offer integration with
 {{site.data.keyword.keymanagementserviceshort}}, see
 [Integrating Services](/docs/key-protect?topic=key-protect-integrate-services).
-
-
