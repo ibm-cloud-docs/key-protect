@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-03"
 
 keywords: instance settings, service settings, network access policies
 
@@ -262,8 +262,6 @@ a network access policy:
 
 These are API references to set and list instance policies.
 
-- [Set instance policies](/apidocs/key-protect#set-instance-policies){: external}
+- [Set instance policies](/apidocs/key-protect#putinstancepolicy){: external}
 
-- [List instance policies](/apidocs/key-protect#list-instance-policies){: external}
-
-
+- [List instance policies](/apidocs/key-protect#getinstancepolicy){: external}
