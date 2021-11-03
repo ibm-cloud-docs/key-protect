@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-11"
+lastupdated: "2021-11-03"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -31,6 +31,18 @@ you're notified when updates are available.
 
 Be sure to keep your CLI up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.6.7
+{: #cli-changelog-067}
+
+Release date: 2021-11-02
+
+### Changes
+{: #cli-changelog-067-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- Added support for [KP private endpoint](/docs/key-protect?topic=key-protect-private-endpoints#target-private-endpoint)
 
 ## CLI version 0.6.6
 {: #cli-changelog-066}
