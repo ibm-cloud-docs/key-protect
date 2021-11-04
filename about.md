@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-03"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -81,6 +81,9 @@ While a particular user can be assigned specific roles over specific resources (
 ### Architecture overview
 {: #about-architecture-overview}
 
+{{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard algorithm in Galois/Counter Mode (AES GCM) to wrap and unwrap DEKs. CRKs that are not imported are created with 256-bit key material. Imported CRKs can be have 128, 192, or 256-bit key material.
+{: note}
+
 The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}} components work to protect your sensitive data and keys.
 
 ![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg)
@@ -97,5 +100,3 @@ Access to the {{site.data.keyword.keymanagementserviceshort}} service takes plac
 | Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
 | Fine-grained access control | {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} IAM roles to ensure that users can be assigned appropriate access at the instance, key, and key ring level. |
 {: caption="Table 1. {{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}
-
-
