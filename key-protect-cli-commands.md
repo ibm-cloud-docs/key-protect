@@ -2909,6 +2909,7 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 | extractable | A boolean that determines whether the key material can leave the service. If set to false, {{site.data.keyword.keymanagementserviceshort}} designates the key as a nonextractable root key used for wrap and unwrap actions. If set to true, {{site.data.keyword.keymanagementserviceshort}} designates the key as a standard key that you can store in your apps and services. Once set to false it cannot be changed to true. |
 | state | 1 - the key is active; 2 - the key is suspended; see [key states](/docs/key-protect?topic=key-protect-key-states) |
 | crn | The cloud resource name (CRN) |
+{: caption="Table 6. Commands for showing key metadata." caption-side="bottom"}
 
 ### Required parameters
 {: #kp-key-show-required}
@@ -3885,7 +3886,7 @@ A summary of the steps is:
 
 | Step | Where      | Description |
 | ---- | ---------- | ----------- |
-| 1    | CLI        | Create cloud object storage (COS) and {{site.data.keyword.keymanagementserviceshort}} (KP) instances |
+| 1    | CLI        | Create Cloud Object Storage (COS) and {{site.data.keyword.keymanagementserviceshort}} (KP) instances |
 | 2    | CLI        | Create a policy for COS to access KP encryption keys |
 | 3    | CLI        | Create a KP root key that COS uses to encrypt data |
 | 4    | Console UI | Create a COS bucket and specify KP encryption; this is done in the console user interface (UI) because there is no API or CLI support at this time |
@@ -3894,6 +3895,7 @@ A summary of the steps is:
 | 7    | CLI        | Delete the COS bucket and the KP root key |
 | 8    | CLI        | Delete the authorization policy between COS and KP |
 | 9    | CLI        | Delete the COS and KP instances |
+{: caption="Table 7. Overview of process for registering resources." caption-side="bottom"}
 
 These commands show COS and {{site.data.keyword.keymanagementserviceshort}}
 service plans. The `ibmcloud resource service-instance-create` command requires
