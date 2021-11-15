@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-11"
+lastupdated: "2021-11-15"
 
-keywords: Key Protect CLI plug-in, CLI reference, version 0.6.6
+keywords: Key Protect CLI plug-in, CLI reference, version 0.6.8
 
 subcollection: key-protect
 
@@ -28,7 +28,7 @@ subcollection: key-protect
 The latest version of the {{site.data.keyword.keymanagementservicefull}} CLI plug-in provides a safe and efficient way to manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-To install version 0.6.6 of the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
+To install version 0.6.8 of the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
 [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
 
 When you log in to the
@@ -47,7 +47,7 @@ The example showing how to use [**`region-set`**](#kp-region-set-examples) outli
 ### Previous versions
 {: #cli-reference-previous}
 
-This documentation for version 0.6.6 does not include deprecated commands.
+This documentation for version 0.6.8 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -85,7 +85,7 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 The **`kp import-token`** command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.6.6 | Description |
+| Sub-command                                     | Status v0.6.8 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     |         | Encrypt the key that you import into the service |
@@ -99,7 +99,7 @@ The **`kp import-token`** command prepares a root key for secure import.
 The **`kp instance`** command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.6.6 | Description |
+| Sub-command                                                         | Status v0.6.8 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   |            | List policies associated with an instance |
 | policy-update [allowed-network](#kp-instance-policy-update-allowed) |            | Update the instance policy for "allowed network" |
@@ -111,7 +111,7 @@ The **`kp instance`** command manages policies for a
 
 The **`kp key`** command manages individual keys.
 
-| Sub-command                                                  | Status v0.6.6 | Description |
+| Sub-command                                                  | Status v0.6.8 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
@@ -126,7 +126,7 @@ The **`kp key`** command manages individual keys.
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   |            | Authorize a key, with a dual-auth-delete policy, to be deleted |
 | [show](#kp-key-show)                                         |         | Retrieve a key |
-| [sync](#kp-key-sync)                                         | new           | Synchronize a key's associated resources |
+| [sync](#kp-key-sync)                                         |               | Synchronize a key's associated resources |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [update](#kp-key-update)                                     |            | Update a key, transferring it to a new key ring |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
@@ -137,7 +137,7 @@ The **`kp key`** command manages individual keys.
 
 Key Ring support allows for managing groups of keys for best practices using **`kp key-ring`**.
 
-| Sub-command                                                  | Status v0.6.6 | Description |
+| Sub-command                                                  | Status v0.6.8 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [create](#kp-key-ring-create)                       |     | Creates a key ring within a kp instance |
 | [delete](#kp-key-ring-delete)                       |     | Deletes a key ring within a kp instance |
@@ -149,7 +149,7 @@ Key Ring support allows for managing groups of keys for best practices using **`
 More commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources could support best practices.
 
-| Command                               | Status v0.6.6 | Description |
+| Command                               | Status v0.6.8 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
