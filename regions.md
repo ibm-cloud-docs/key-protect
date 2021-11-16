@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-11-16"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -56,9 +56,7 @@ for interacting with its service APIs.
 ### Public endpoints
 {: #connectivity-options-public}
 
-By default, you can connect to resources in your account over the
-{{site.data.keyword.cloud_notm}} public network. Your data is encrypted in
-transit by using the Transport Security Layer (TLS) 1.2 protocol.
+By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using supported ciphers of the Transport Security Layer (TLS) 1.2 and 1.3 protocol. For more information about TLS and these ciphers, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-security).
 
 ### Private endpoints
 {: #connectivity-options-private}
@@ -126,5 +124,3 @@ endpoints to use when you connect to the
 For more information about authenticating with
 {{site.data.keyword.keymanagementserviceshort}}, see
 [Accessing the API](/docs/key-protect?topic=key-protect-set-up-api).
-
-

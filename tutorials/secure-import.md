@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-16"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -113,8 +113,8 @@ installed locally on your computer.
 
 4. Download and install [jq](https://stedolan.github.io/jq/){: external}.
 
-    `jq` helps you slice up JSON data. You use `jq` in this tutorial to capture 
-    specific data that's returned when you call the 
+    `jq` helps you slice up JSON data. You use `jq` in this tutorial to capture
+    specific data that's returned when you call the
     {{site.data.keyword.keymanagementserviceshort}} API.
 
 ## Step 1. Create a {{site.data.keyword.keymanagementserviceshort}} instance
@@ -204,12 +204,12 @@ variables in your terminal.
     ```
     {: pre}
 
-2. Generate an {{site.data.keyword.cloud_notm}} access token using the 
-    {{site.data.keyword.keymanagementserviceshort}} CLI Plugin, and set it as an 
+2. Generate an {{site.data.keyword.cloud_notm}} access token using the
+    {{site.data.keyword.keymanagementserviceshort}} CLI Plugin, and set it as an
     environment variable.
 
-    The environment variable should begin with the authorization type, 
-    **`Bearer`**. The CLI command, as shown in the example, will automatically 
+    The environment variable should begin with the authorization type,
+    **`Bearer`**. The CLI command, as shown in the example, will automatically
     include the correct type.
     {: note}
 
@@ -604,8 +604,8 @@ To import the key:
     `false` designates your new key as a root key in the service that you can
     use for envelope encryption.
 
-    Behind the scenes, {{site.data.keyword.keymanagementserviceshort}} receives
-    your encrypted packet over a TLS 1.2 connection. Within a hardware security
+    {{site.data.keyword.keymanagementserviceshort}} receives
+    your encrypted packet over the TLS 1.2 or 1.3 protocol. Within a hardware security
     module, the system uses the private key to decrypt the symmetric key.
     Finally, the system uses the symmetric key and the IV to decrypt the nonce
     and verify the request.
@@ -736,5 +736,3 @@ and securely import an encrypted key into your
 
 - Learn more about the
     [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
-
-

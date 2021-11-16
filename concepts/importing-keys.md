@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-16"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -75,9 +75,7 @@ to generate key material that you can import into
 Choose from two options for importing root keys based on the level of
 security that's required for your environment or workload.
 
-By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key
-material while it's in transit by using the Transport Layer Security (TLS) 1.2
-protocol.
+By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key material while it's in transit by using supported ciphers of the Transport Layer Security (TLS) 1.2 and 1.3 protocols. For more information about those ciphers, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-security).
 
 If you're building a proof of concept or trying out the service for the
 first time, you can import root key material into
@@ -239,5 +237,3 @@ To find out more about programmatically managing your keys in
 
 - To find out more about importing keys to the service, see
     [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
-
-
