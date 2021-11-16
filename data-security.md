@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-16"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -44,17 +44,33 @@ see
 ### Data encryption
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} uses
-[{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://ibm.com/cloud/hardware-security-module){: external}
-to generate provider-managed key material and perform
-[envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
-operations. HSMs are tamper-resistant hardware devices that store and use
-cryptographic key material without exposing keys outside of a cryptographic
-boundary.
+{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://ibm.com/cloud/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
 
-Access to the service takes place over HTTPS, and internal
-{{site.data.keyword.keymanagementserviceshort}} communication uses the Transport
-Layer Security (TLS) 1.2 protocol to encrypt data in transit.
+Access to {{site.data.keyword.keymanagementserviceshort}} takes place over HTTPS and uses Transport Layer Security (TLS) to encrypt data in transit.
+
+Note that only the following TLS 1.2 and TLS 1.3 ciphers are supported:
+
+* **TLS 1.2**:
+  * `ECDHE-ECDSA-AES128-GCM-SHA256`
+  * `ECDHE-ECDSA-AES256-GCM-SHA384`
+  * `ECDHE-RSA-AES128-GCM-SHA256`
+  * `ECDHE-RSA-AES256-GCM-SHA384`
+  * `ECDHE-ECDSA-AES128-SHA256`
+  * `ECDHE-ECDSA-AES256-SHA384`
+  * `ECDHE-RSA-AES128-SHA256`
+  * `ECDHE-RSA-AES256-SHA384`
+  * `DHE-RSA-AES128-GCM-SHA256`
+  * `DHE-RSA-AES256-GCM-SHA384`
+  * `DHE-RSA-AES128-SHA256`
+  * `DHE-RSA-AES256-SHA256`
+
+* **TLS 1.3**:
+  * `TLS_AES_256_GCM_SHA384`
+  * `TLS_AES_128_GCM_SHA256`
+  * `TLS_CHACHA20_POLY1305_SHA256`
+
+If you attempt to use a cipher that is not on this list, you may experience connectivity issues. Update your client to use one of the supported ciphers. If you are using `openssl`, you can issue `openssl ciphers -s -v` to see what ciphers your client supports.
+{: tip}
 
 ### Data deletion
 {: #data-deletion}
@@ -165,5 +181,3 @@ Card Industry (PCI) data security standards to protect cardholder data. For
 information about requesting an attestation of compliance, see
 [Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}
 or contact an IBM representative.
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-03"
+lastupdated: "2021-11-16"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -89,7 +89,7 @@ The following architecture diagram shows how {{site.data.keyword.keymanagementse
 ![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg)
 {: caption="Figure 1. {{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
 
-Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) protocol to encrypt data in transit. For more information about TLS, check out [Introduction to Quantum-safe Cryptography in TLS](/docs/key-protect?topic=key-protect-quantum-safe-cryptography-tls-introduction).
+Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) protocol to encrypt data in transit. For more information about TLS and the ciphers supported by {{site.data.keyword.keymanagementserviceshort}}, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-security).
 {: note}
 
 | Components | Description |
