@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-16"
 
-keywords: Key Protect CLI plugin, KMS plug-in, KMS plugin
+keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 
 subcollection: key-protect
 
@@ -125,7 +125,7 @@ To update the CLI:
 2. Install the update from the plug-in repository.
 
     ```sh
-    ibmcloud plugin update key-protect -r "IBM Cloud"
+    ibmcloud plugin update key-protect 
     ```
     {: pre}
 
@@ -135,6 +135,20 @@ To update the CLI:
     ibmcloud plugin list
     ```
     {: pre}
+    
+    The results should show the version and the status of the plugins, as well as properties about the plugins, like whether ["Private endpoints" are supported](/docs/key-protect?topic=key-protect-private-endpoints).
+    
+    ```sh
+    
+    Plugin Name                             Version   Status             Private endpoints supported   
+    cloud-functions[wsk/functions/fn]       1.0.49    Update Available   false   
+    cloud-object-storage                    1.2.4     Update Available   false   
+    container-registry                      0.1.541   Update Available   true   
+    container-service[kubernetes-service]   1.0.233   Update Available   false   
+    key-protect                             0.6.8                        true   
+    sdk-gen                                 0.1.12                       false   
+    ```
+    {: screen}
 
 ## Uninstalling the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 {: #uninstall-cli}
