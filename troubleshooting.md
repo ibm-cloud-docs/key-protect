@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-11-17"
 
-keywords: delete service, use Key Protect, failed to create key, failed to delete key
+keywords: failed to create key, failed to delete key, delete service
 
 subcollection: key-protect
 
@@ -226,8 +226,7 @@ following error message.
 ```
 {: screen}
 
-This key is actively protecting one or more cloud resources, such as a Cloud
-Object Storage bucket or a Cloud Databases deployment.
+This key is actively protecting one or more cloud resources, such as a {{site.data.keyword.cos_full}} bucket or a {{site.data.keyword.databases-for}} deployment.
 {: tsCauses}
 
 For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents
@@ -238,13 +237,16 @@ and verify with the owner of the resources to ensure you no longer require
 access to that data.
 {: tsResolve}
 
-To delete the key, you can:
+You can get the current list of resources associated with your key by first [synchronizing the key](/docs/key-protect?topic=key-protect-sync-associated-resources), which might take up to 4 hours. Then, proceed to [viewing associations between root keys and encrypted {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
-- Use the {{site.data.keyword.keymanagementserviceshort}} API to
+After using **`Sync`**, associations between the key and other resources will be current and up to date. If there are no associations after using **`Sync`**, the key can be deleted normally.
+
+If the associations are still there after **`Sync`**:
+
+- You can use the {{site.data.keyword.keymanagementserviceshort}} API to
     [force deletion on the key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete).
 
-- First, delete the resources that are associated with the key, and then delete
-    the key.
+- You can delete the resources associated with the key, and then delete the key normally.
 
 ## Getting help and support
 {: #getting-help}

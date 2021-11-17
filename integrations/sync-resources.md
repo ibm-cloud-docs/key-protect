@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-01"
+lastupdated: "2021-11-17"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -38,6 +38,9 @@ lifecycle event and are encouraged to respond accordingly. In the case that
 the cloud services do not respond to the key lifecycle notification, you can
 use the sync API to initiate of a renotification of the key lifecycle event
 to those associated cloud services.
+
+It can take up to four hours for services to respond to events and sync requests.
+{: note}
 
 For example, you might delete a root key that has an association with {{site.data.keyword.cos_full_notm}} (COS). After waiting 4 hours for changes to take
 effect, you notice that you are still able to access the key's resources
