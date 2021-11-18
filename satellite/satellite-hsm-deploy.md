@@ -1,4 +1,5 @@
-<staging-satellite>---
+<staging-satellite>
+---
 
 copyright:
   years: 2021
