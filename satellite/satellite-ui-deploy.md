@@ -50,7 +50,7 @@ Because the HSM information is not verified until after {{site.data.keyword.keym
 * **Secure import key label prefix**: {{site.data.keyword.keymanagementserviceshort}} supports a secure mechanism to Bring Your Own Key (BYOK) into an HSM. The prefix used by the HSM for these keys must be known to {{site.data.keyword.keymanagementserviceshort}}.
 * **Activity Tracker ingestions key**: To receive audit logs, you must create an {{site.data.keyword.at_full_notm}} instance and an ingestion key.
 
-## Provisioning {{site.data.keyword.keymanagementserviceshort}
+## Provisioning {{site.data.keyword.keymanagementserviceshort}}
 {: #satellite-ui-deploy-catalog}
 
 To provision the {{site.data.keyword.keymanagementserviceshort}} service, complete the following steps:
