@@ -8,26 +8,26 @@ toc:
     product-page: https://ibm.com/cloud/key-protect
     path: key-protect
     label: Key Protect
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - index.md
       - about.md
-      - topicgroup: 
+      - topicgroup:
           label: Key concepts
-          topics: 
+          topics:
           - concepts/importing-keys.md
           - concepts/envelope-encryption.md
           - concepts/key-states.md
           - concepts/key-rotation.md
           - concepts/quantum-safe-cryptography.md
           - concepts/manage-access.md
-      - topicgroup: 
+      - topicgroup:
           label: Tutorials
-          topics: 
+          topics:
           - tutorials/secure-import.md
-          - link: 
+          - link:
             label: Apply end to end security to a cloud application
             href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
           - link: 
@@ -35,27 +35,27 @@ toc:
             href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security
       - topicgroup: 
           label: Integrations
-          topics: 
+          topics:
           - integrations/integrate-services.md
           - integrations/integrate-cos.md
           - integrations/view-protected-resources.md
           - integrations/sync-resources.md
       - releases.md
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: Setting up the service
-          topics: 
+          topics:
           - provision.md
           - settings-dual-auth.md
           - settings-network-policy.md
           - settings-allowed-ip.md
           - settings-key-create-import-access.md
           - settings-monitor-metrics.md
-      - topicgroup: 
+      - topicgroup:
           label: Accessing the API
-          topics: 
+          topics:
           - set-up-api.md
           - retrieve-access-token.md
           - retrieve-instance-id.md
@@ -63,55 +63,55 @@ toc:
           - virtual-private-endpoints.md
       - set-up-cli.md
       - grant-access-keys.md
-      - topicgroup: 
+      - topicgroup:
           label: Creating keys
-          topics: 
+          topics:
           - create-root-keys.md
           - create-standard-keys.md
           - create-key-alias.md
-      - topicgroup: 
+      - topicgroup:
           label: Importing keys
-          topics: 
+          topics:
           - import-root-keys.md
           - import-standard-keys.md
           - create-import-tokens.md
-      - topicgroup: 
+      - topicgroup:
           label: Viewing keys
-          topics: 
+          topics:
           - view-keys.md
           - view-key-details.md
           - retrieve-key.md
-      - topicgroup: 
+      - topicgroup:
           label: Protecting keys
-          topics: 
+          topics:
           - wrap-keys.md
           - unwrap-keys.md
           - rewrap-keys.md
-      - topicgroup: 
+      - topicgroup:
           label: Rotating keys
-          topics: 
+          topics:
           - rotate-keys.md
           - set-rotation-policy.md
           - view-key-versions.md
       - disable-keys.md
-      - topicgroup: 
+      - topicgroup:
           label: Deleting and purging keys
-          topics: 
+          topics:
           - delete-purge-keys.md
           - delete-keys.md
           - delete-dual-auth-keys.md
           - set-dual-auth-policy.md
       - restore-keys.md
       - key-rings.md
-      - topicgroup: 
+      - topicgroup:
           label: Enhancing security
-          topics: 
+          topics:
           - data-security.md
           - manage-scc.md
   - navgroup:
       id: reference
-      topics: 
-      - link: 
+      topics:
+      - link:
         label: Key Protect API Reference
         href: https://{DomainName}/apidocs/key-protect
       - topicgroup:
@@ -132,7 +132,7 @@ toc:
       - related-links.md
   - navgroup:
       id: help
-      topics: 
+      topics:
       - FAQs.md
       - error-messages.md
       - troubleshooting.md
