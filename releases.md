@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-17"
+lastupdated: "2021-12-01"
 
 keywords: key protect, release notes, service updates
 
@@ -159,7 +159,7 @@ Note that "Associated Resources" are now accessible within the context of each k
 Also, the list of endpoints in the console has grown with the addition of Osaka. You can now update your applications to reference the new endpoint.
 
 ### Added: Feature updates to the Key Protect UI
-{: #upcoming-key-encrypt-ui}
+{: #upcoming-wrap-unwrap}
 
 New as of: 2021-02-15
 
@@ -211,7 +211,7 @@ process for restoring the key.
 For more information, see [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
-{: #added-private-endpoints}
+{: #added-vpe}
 
 New as of: 2021-02-05
 
