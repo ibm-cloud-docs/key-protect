@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-15"
+lastupdated: "2021-12-13"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -18,8 +18,8 @@ subcollection: key-protect
 # CLI changelog
 {: #cli-changelog}
 
-Learn about updates to the {{site.data.keyword.keymanagementserviceshort}} CLI
-plug-in.
+Learn about updates to the {{site.data.keyword.keymanagementserviceshort}}
+Command Line Interface (CLI) plug-in.
 {: shortdesc}
 
 To update your {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
@@ -29,8 +29,20 @@ When you log in to the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external},
 you're notified when updates are available.
 
-Be sure to keep your CLI up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
+Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.6.9
+{: #cli-changelog-069}
+
+Release date: 2021-12-14
+
+### Changes
+{: #cli-changelog-069-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- Added support for [S&atilde;o-Paulo region](/docs/key-protect?topic=key-protect-regions).
 
 ## CLI version 0.6.8
 {: #cli-changelog-068}
