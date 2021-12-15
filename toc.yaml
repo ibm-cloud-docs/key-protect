@@ -54,6 +54,12 @@ toc:
           - settings-key-create-import-access.md
           - settings-monitor-metrics.md
       - topicgroup:
+          label: Deploying Key Protect on Satellite
+          topics:
+          - satellite/satellite-about.md
+          - satellite/satellite-hsm-deploy.md
+          - satellite/satellite-ui-deploy.md
+      - topicgroup:
           label: Accessing the API
           topics:
           - set-up-api.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-16"
+lastupdated: "2021-12-01"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -383,7 +383,7 @@ To retrieve the import token contents:
 3. Decode and save the public key to a file called `PublicKey.pem`.
 
     ```sh
-    jq -r '.payload' getImportTokenResponse.json | openssl enc -base64 -A -d -out PublicKey.pem
+    jq -r '.payload' getImportTokenResponse.json | base64 -o PublicKey.pem
     ```
     {: pre}
 
@@ -439,7 +439,7 @@ To encrypt the nonce value:
     value as an environment variable.
 
     ```sh
-    KEY_MATERIAL=$(openssl enc -base64 -A -in PlainTextKey.bin)
+    KEY_MATERIAL=$(base64 PlainTextKey.bin)
     ```
     {: pre}
 
@@ -450,24 +450,7 @@ To encrypt the nonce value:
     ```
     {: pre}
 
-3. [Download the sample `kms-encrypt-nonce` binary](https://github.com/IBM-Cloud/kms-samples/tree/master/secure-import){: external}
-    that is compatible with your operating system. Untar the file, and then move
-    the binary to the `key-protect-test` directory.
-
-    The binary contains a script that you can use to run AES-GCM encryption on
-    the nonce value by using the key that you generated in step 5. To learn more
-    about the script,
-    [check out the source file on GitHub](https://github.com/IBM-Cloud/kms-samples/blob/master/secure-import/encrypt.go){: external}.
-    {: note}
-
-4. Mark the file as executable by running the following `chmod` command.
-
-    ```sh
-    chmod +x ./kms-encrypt-nonce
-    ```
-    {: pre}
-
-5. Run the script to encrypt the nonce value with the encryption key that you
+3. Execute the following to encrypt the nonce value with the encryption key that you
     generated in step 5. Then, save the response to a file called
     `EncryptedValues.json`.
 

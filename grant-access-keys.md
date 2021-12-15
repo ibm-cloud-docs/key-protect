@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-12-14"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -91,6 +91,9 @@ To assign access:
 
 You can also assign access to a single key in a
 {{site.data.keyword.keymanagementserviceshort}} instance.
+
+While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys).
+{: important}
 
 ### Step 1. Retrieve the key ID
 {: #access-key-retrieve-ID}

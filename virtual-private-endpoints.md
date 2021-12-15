@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-12-01"
 
 keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
 
@@ -45,7 +45,7 @@ through public network from your VPC.
 {: note}
 
 ## Before you begin
-{: #private-network-prereqs}
+{: #vpe-prereqs}
 
 Before you target a virtual private endpoint for
 {{site.data.keyword.keymanagementserviceshort}}:

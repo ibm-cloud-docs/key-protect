@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-17"
+lastupdated: "2021-12-14"
 
 keywords: key protect, release notes, service updates
 
@@ -29,6 +29,19 @@ subcollection: key-protect
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## December 2021
+{: #december-2021}
+{: release-note}
+
+### Added: Satellite support
+{: #satellite-december-2021}
+
+Announced: 2021-12-15
+
+{{site.data.keyword.keymanagementservicefull}} now supports [{{site.data.keyword.satellitelong_notm}}](/docs/satellite?topic=satellite-getting-started) where you use your own compute infrastructure that is in your on-premises data center, other cloud providers, or edge networks to more fully control your own encryption keys by creating your own instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+For more information, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite][(/docs/key-protect?topic=key-protect-satellite-about)
 
 ## September 2021
 {: #september-2021}
@@ -159,7 +172,7 @@ Note that "Associated Resources" are now accessible within the context of each k
 Also, the list of endpoints in the console has grown with the addition of Osaka. You can now update your applications to reference the new endpoint.
 
 ### Added: Feature updates to the Key Protect UI
-{: #upcoming-key-encrypt-ui}
+{: #upcoming-wrap-unwrap}
 
 New as of: 2021-02-15
 
@@ -211,7 +224,7 @@ process for restoring the key.
 For more information, see [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
 ### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
-{: #added-private-endpoints}
+{: #added-vpe}
 
 New as of: 2021-02-05
 

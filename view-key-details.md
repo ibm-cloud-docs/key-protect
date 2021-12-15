@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-12-14"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 
@@ -27,6 +27,9 @@ subcollection: key-protect
 You can retrieve the general characteristics of a single encryption key by using
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys) to view the key through IAM or by using the API to pass the specific key ID.
+{: important}
 
 Retrieving a key requires a _Writer_ or _Manager_ access policy, but you might
 need a way to view only the details about a key, such as its transition history
