@@ -51,6 +51,7 @@ toc:
           - settings-dual-auth.md
           - settings-network-policy.md
           - settings-allowed-ip.md
+          - cbr-controlled-access.md
           - settings-key-create-import-access.md
           - settings-monitor-metrics.md
       - topicgroup:
