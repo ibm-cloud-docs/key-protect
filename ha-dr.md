@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-12-16"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -91,6 +91,9 @@ with details regarding your request.
 {: #dr}
 
 {{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery){: external}.
+
+Private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
+{: important}
 
 To find out more about the responsibilities that you and {{site.data.keyword.IBM_notm}} share in the maintenance of your keys and workloads, see [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
 

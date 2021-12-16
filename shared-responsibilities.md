@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-12-16"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -109,6 +109,8 @@ You are responsible for the recovery of the workloads that run
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
 | Applications | Continuously back up keys in the region that the service operates in, and automatically recover and restart service components after any disaster event. | None. {{site.data.keyword.IBM_notm}} and {{site.data.keyword.keymanagementserviceshort}} are fully responsible for managing disaster recovery. |
+| Virtual Private Endpoints (VPE) | VPE does not support automatically switching to backup during failover at this time. | VPE settings, specifically the Internet Protocol (IP) address, need to be manually updated during disaster recovery procedures. |
+| Private Endpoint (PE) | PE will not support allowed IP settings during disaster recovery at this time, but an announcement on this topic will be made soon. | PE settings, specifically the Internet Protocol (IP) address, need to be manually updated during disaster recovery procedures. |
 {: caption="Table 5. Responsibilities for disaster recovery" caption-side="top"}
 
 

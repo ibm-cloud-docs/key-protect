@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-01"
+lastupdated: "2021-12-16"
 
 keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
 
@@ -60,6 +60,8 @@ Before you target a virtual private endpoint for
 - Understand how to [view details](/docs/vpc?topic=vpc-vpe-viewing-details-of-an-endpoint-gateway){: external} of 
     a Virtual Private Endpoint.
 
+Virtual private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
+{: important}
 
 ## Virtual Private Service Endpoints
 {: #vpe-endpoints}
