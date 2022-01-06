@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-01"
+  years: 2017, 2022
+lastupdated: "2022-01-06"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -455,11 +455,11 @@ To encrypt the nonce value:
     `EncryptedValues.json`.
 
     ```sh
-    ./kms-encrypt-nonce -key $KEY_MATERIAL -nonce $NONCE > EncryptedValues.json
+    ibmcloud kp import-token nonce-encrypt -k $KEY_MATERIAL -n $NONCE --output json > EncryptedValues.json
     ```
     {: pre}
 
-6. Optional: Inspect the contents of the JSON file.
+6. Optional: Inspect the contents of the JSON file by using `jq` as shown.
 
     ```sh
     jq '.' EncryptedValues.json
