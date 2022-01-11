@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-01-11"
 
-keywords: key protect event, kp activity tracker, monitor kp events
+keywords: kp event monitoring, key actions, monitor kp events
 
 subcollection: key-protect
 
@@ -23,7 +23,7 @@ subcollection: key-protect
 # {{site.data.keyword.at_full_notm}} events
 {: #at-events}
 
-As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full_notm}}
+As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}}
 service to track how users and applications interact with
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
@@ -50,28 +50,28 @@ The following table lists the key actions that generate an event:
 | Action                            | Description                                                  |
 | --------------------------------- | ------------------------------------------------------------ |
 | `kms.secrets.create`              | Create a key                                                 |
-| `kms.secrets.delete`              | Delete a key                                                 |
-| `kms.secrets.patch`               | Patch a key                                                  |
 | `kms.secrets.createalias`         | Create a key alias                                           |
+| `kms.secrets.default`             | Invalid key request event                                    |
+| `kms.secrets.delete`              | Delete a key                                                 |
 | `kms.secrets.deletealias`         | Delete a key alias                                           |
+| `kms.secrets.disable`             | Disable operations for a key                                 |
+| `kms.secrets.enable`              | Enable operations for a key                                  |
+| `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
 | `kms.secrets.expire`              | Expire a key                                                 |
-| `kms.secrets.read`                | Retrieve all key information                                 |
-| `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
 | `kms.secrets.head`                | Retrieve key total                                           |
 | `kms.secrets.list`                | List keys                                                    |
+| `kms.secrets.listkeyversions`     | List all the versions of a key                               |
 | `kms.secrets.wrap`                | Wrap a key                                                   |
-| `kms.secrets.unwrap`              | Unwrap a key                                                 |
+| `kms.secrets.patch`               | Patch a key                                                  |
+| `kms.secrets.purge`               | Purge a key                                                  |
+| `kms.secrets.read`                | Retrieve all key information                                 |
+| `kms.secrets.readmetadata`        | Retrieve key metadata (excluding key payload, if applicable) |
+| `kms.secrets.restore`             | Restore a key                                                |
 | `kms.secrets.rewrap`              | Rewrap a key                                                 |
 | `kms.secrets.rotate`              | Rotate a key                                                 |
 | `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key with Dual Authorization policy  |
 | `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key with Dual Authorization policy     |
-| `kms.secrets.restore`             | Restore a key                                                |
-| `kms.secrets.listkeyversions`     | List all the versions of a key                               |
-| `kms.secrets.enable`              | Enable operations for a key                                  |
-| `kms.secrets.disable`             | Disable operations for a key                                 |
-| `kms.secrets.eventack`            | Acknowledge a lifecycle action on a key                      |
-| `kms.secrets.expire`              |                                                              |
-| `kms.secrets.default`             | Invalid key request event                                    |
+| `kms.secrets.unwrap`              | Unwrap a key                                                 |
 {: caption="Table 1. Lifecycle Key Actions" caption-side="top"}
 
 ## Policy events
@@ -285,6 +285,17 @@ The following fields include extra information:
 
 - The `requestData.newValue.keyRingId` field includes the ID of the key ring that the
     key is currently a part of.
+
+#### Purge key
+{: #purge-key}
+
+The following fields include extra information:
+
+- The `responseData.deletionDate` field represents the date the key was deleted.
+
+- The `responseData.purgeAllowedFrom` field represents the date from which the purge action was allowed.
+
+- The `responseData.purgeEligibleOn` field represents the date on which the key metadata is eligible to be permanently removed from the system by {{site.data.keyword.keymanagementserviceshort}}.
 
 #### Get key total
 {: #list-head-success}
@@ -641,5 +652,4 @@ The following table lists the status codes associated with each severity level:
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
 {: caption="Table 8. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
-
 

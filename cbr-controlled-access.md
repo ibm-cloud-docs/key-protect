@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-16"
+  years: 2022
+lastupdated: "2022-01-11"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 {:preview: .preview}
 
 # Access control with context-based restrictions
-{: #manage-allowed-ip}
+{: #access-control-with-cbr}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
 instance, you can manage access by using the
