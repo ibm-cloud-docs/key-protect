@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-01-20"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -132,8 +132,11 @@ information, see
 | Deployment Region | {{site.data.keyword.at_full_notm}} Region |
 | ----------------- | ----------------------- |
 | `au-syd`          | `au-syd`                |
+| `br-sao`          | `br-sao`                |
+| `ca-tor`          | `ca-tor`                |
 | `eu-de`           | `eu-de`                 |
 | `eu-gb`           | `eu-gb`                 |
+| `jp-osa`          | `jp-osa`                |
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
