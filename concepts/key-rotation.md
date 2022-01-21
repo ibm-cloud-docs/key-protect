@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-01-21"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -61,13 +61,16 @@ Manually rotating a root key does not disturb any rotation policy that might cur
 ### How often should keys be rotated?
 {: #rotation-frequency}
 
-After you generate a root key in {{site.data.keyword.keymanagementserviceshort}}, you decide how often it is rotated. The best practice is to rotate your keys regularly. The default rotation period is once a month.
+After you generate a root key in {{site.data.keyword.keymanagementserviceshort}}, you decide how often it is rotated. The best practice is to rotate your keys regularly. The default rotation period is once a month (every 30 days).
 
 | Rotation type | Frequency | Description |
 | ------------- | --------- | ----------- |
-| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Intervals of 30 days (in other words, every 30 days, or 60 days, or 90 days, etc) | Choose a rotation interval between one and 12 months for your root key based on your security needs. After you set an rotation policy for a root key, the clock starts immediately based on the initial creation date for the key. For example, if you set a monthly rotation policy for a key that you created on `2019/02/01`, {{site.data.keyword.keymanagementserviceshort}} automatically rotates the key on `2019/03/01`. |
+| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Intervals of 30 days (in other words, every 30 days, or 60 days, or 90 days, etc) | Choose a rotation interval between one and 12 months for your root key based on your security needs. After you set a rotation policy for a root key, the clock starts immediately based on the initial creation date for the key. |
 | [Manual key rotation](/docs/key-protect?topic=key-protect-rotate-keys) | Up to one rotation per hour | {{site.data.keyword.keymanagementserviceshort}} allows no more than one rotation per hour for each key. |
 {: caption="Table 2. Rotation frequency options for rotating keys in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
+
+It is possible to learn the last date a key was rotated by using the `lastRotateDate` field available in APIs such as [`getkey`](/apidocs/key-protect#getkey), [`getkeymetadata`](/apidocs/key-protect#getkeymetadata), and [`getkeys`](/apidocs/key-protect#getkeys).
+{: tip}
 
 ## How key rotation works
 {: #how-key-rotation-works}
@@ -108,7 +111,7 @@ To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to r
 ### Understanding the key rotation process
 {: #understand-key-rotation-process}
 
-Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process.
+Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process. To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 The following diagram shows a contextual view of how keys are rotated.
 ![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
@@ -119,8 +122,8 @@ With each rotation request, {{site.data.keyword.keymanagementserviceshort}} crea
 ![The diagram shows a micro view the key stack.](../images/root-key-stack.svg)
 {: caption="Figure 2. Micro view of a key stack." caption-side="bottom"}
 
-To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
-{: tip}
+Keys do not rotate at precisely the same time of the day the key was created. That is, if a key was originally created at 8 a.m., it will not necessarily be rotated at 8 a.m. on the day the rotation is scheduled. Instead, the rotation can happen at any point during a 24-hour window.
+{: note}
 
 ## What's next
 {: #rotation-next-steps}
@@ -131,5 +134,3 @@ To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to r
 - For more information about manually rotating root keys, check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 - For more information about viewing the key versions that are available for a root key, check out [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
-
-
