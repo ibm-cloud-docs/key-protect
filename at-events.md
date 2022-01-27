@@ -199,11 +199,8 @@ These fields will appear when using key rings in specific conditions.
 
 | Field                  | Description                                         |
 | ---------------------- | --------------------------------------------------- |
-| requestData.keyRingId  | The ID of the key ring if a key ring is specified in 
-the header (`X-Kms-Key-Ring`) of the request. |
-| responseData.keyRingId | The ID of the key ring if a key ring is specified in 
-the request or in API methods where the key ID (or alias) is in the path of 
-the request [URI](#x2116436){: term}. |
+| requestData.keyRingId  | The ID of the key ring if a key ring is specified in the header (`X-Kms-Key-Ring`) of the request. |
+| responseData.keyRingId | The ID of the key ring if a key ring is specified in the request or in API methods where the key ID (or alias) is in the path of the request [URI](#x2116436){: term}. |
 {: caption="Table 8. Describes conditional fields for use with key rings in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="top"}
 
 ### Key action events
