@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-15"
+  years: 2022
+lastupdated: "2022-01-28"
 
 keywords: satellite, hsm, deploy
 
@@ -62,7 +62,7 @@ After you have created a Satellite location, an {{site.data.keyword.at_full_notm
 The first release of the {{site.data.keyword.keymanagementserviceshort}} on Satellite service will provide the basic functions to allow for secure handling of the encryption keys for the key services available in Satellite, such as {{site.data.keyword.cloud_notm}} Public (ROKS) and Cloud Object Storage (COS).  Future releases will expand scope and locations as adoption increases.
 
 * At present, the only locations supported in this offering are in user-owned [on-prem](#x6969434){: term} Satellite locations associated with the {{site.data.keyword.cloud_notm}} `us-east` host Multi-Zone Region (MZR), though eventually it will be available in Satellite locations associated with all {{site.data.keyword.cloud_notm}} MZRs that Satellite supports. Note that each {{site.data.keyword.cloud_notm}} MZR can host multiple Satellite locations that are in close proximity to that MZR. While it is possible for a user to have their HSMs in another location as long as there is network connectivity (preferably on a private network) between the worker nodes hosting {{site.data.keyword.keymanagementserviceshort}} and your HSMs, the preferred method is a close physical proximity between HSMs and worker nodes.
-* While the {{site.data.keyword.cloud_notm}} Console is used to create the {{site.data.keyword.keymanagementserviceshort}} service on Satellite, the UI itself cannot currently be used to access the {{site.data.keyword.keymanagementserviceshort}} APIs that are used to create keys or perform other key actions (such as rotating keys, deleting keys, editing keys, and so on). Those key actions initially must be performed through direct calls to the [{{site.data.keyword.keymanagementserviceshort}} APIs](/apidocs/key-protect) through the {{site.data.keyword.keymanagementserviceshort}} endpoint. For more information about how to obtain the {{site.data.keyword.keymanagementserviceshort}} endpoint from GhoST, check out [Obtaining the {{site.data.keyword.keymanagementserviceshort}} endpoint](#satellite-about-before-begin-endpoint). Note that keys you create using the API will not show up in the UI.
+* While the {{site.data.keyword.cloud_notm}} Console is used to create the {{site.data.keyword.keymanagementserviceshort}} service on Satellite, the UI itself cannot currently be used to access the {{site.data.keyword.keymanagementserviceshort}} APIs that are used to create keys or perform other key actions (such as rotating keys, deleting keys, editing keys, and so on). Those key actions must be performed using the [{{site.data.keyword.keymanagementserviceshort}} CLI](/docs/key-protect?topic=key-protect-set-up-cli) (note that you must set the [`KP_PRIVATE_ADDR` environment variable](/docs/key-protect?topic=key-protect-private-endpoints) to the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint for the CLI to work) or through direct calls to the [{{site.data.keyword.keymanagementserviceshort}} APIs](/apidocs/key-protect), also through the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint. For more information about how to obtain the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint from GhoST, check out [Obtaining the {{site.data.keyword.keymanagementserviceshort}} endpoint](#satellite-about-before-begin-endpoint). Note that keys you create using the CLI or API will not show up in the {{site.data.keyword.keymanagementserviceshort}} UI.
 * All of the metrics that are typically available through {{site.data.keyword.cloud_notm}} Monitoring and are not available in the initial {{site.data.keyword.keymanagementserviceshort}} on Satellite release, but will be added in a future release. Because {{site.data.keyword.keymanagementserviceshort}} does not have the ability to receive logs from an HSM, the security monitoring of an HSM is responsibility of the owner of the HSM. To receive auditing logs, you must create an {{site.data.keyword.at_full_notm}} instance before provisioning {{site.data.keyword.keymanagementserviceshort}} on Satellite using the process described in [Using {{site.data.keyword.at_full_notm}} with {{site.data.keyword.keymanagementserviceshort}}](#satellite-about-before-begin-activity). Check out [Responsibilities](#satellite-about-before-begin-responsibilities) for more information about the responsibilities taken on by {{site.data.keyword.IBM_notm}} and those you must cover.
 * {{site.data.keyword.keymanagementserviceshort}} only supports Satellite locations in `us-east`. Expansion is being considered to all MZR regions.
 * Hyperwarp events are not available in Satellite. Typically, when a Hyperwarp event is not acknowledged, it is written as an event in {site.data.keyword.at_full_notm}}. However, this is disabled in {{site.data.keyword.keymanagementserviceshort}} on Satellite because these Hyperwarp events are never sent in the first place.
@@ -132,9 +132,21 @@ This will output a lot of information. You will need six specific values:
 ### Obtaining the {{site.data.keyword.keymanagementserviceshort}} endpoint
 {: #satellite-about-before-begin-endpoint}
 
-To use the APIs to perform key actions against {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must target the endpoint for your service. This endpoint is created dynamically during the creation process and is added to GhoST Using cURL, you can get the endpoint by passing the {{site.data.keyword.keymanagementserviceshort}} instance as a string.
+To use the APIs to perform key actions against {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must set the [`KP_PRIVATE_ADDR` environment variable](/docs/key-protect?topic=key-protect-private-endpoints) to the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint and target the endpoint for your service. This endpoint is created dynamically during the creation process.
 
-For more information about how to use GhoST to get your endpoint, check out [Global Search](/apidocs/search).
+To get the endpoint of your service:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+
+2. Go to **Menu** &gt; **Satellite** &gt; **Clusters**.
+
+3. Find the name of the Satellite location from the list and copy the `location` value.
+
+You can then set your Satellite location using a command similar to:
+
+`export KP_PRIVATE_ADDR="https://<your-satellite-location>.kms.cloud.ibm.com"`
+
+Where <your-satellite-location> is the location you want to set.
 
 ### High availability and fault tolerance
 {: #satellite-about-before-begin-ha}
