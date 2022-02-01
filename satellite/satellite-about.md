@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-02-01"
 
 keywords: satellite, hsm, deploy
 
@@ -136,7 +136,7 @@ To use the APIs to perform key actions against {{site.data.keyword.keymanagement
 
 To get the endpoint of your service:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Satellite** &gt; **Clusters**.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-03"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: instance settings, service settings, network access policies
 
@@ -126,7 +126,7 @@ unauthorized error (HTTP status code 401).
 After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a network access policy:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
@@ -240,7 +240,7 @@ graphical interface, you can use the IBM Cloud console.
 After creating a network access policy, complete the following steps to disable
 a network access policy:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

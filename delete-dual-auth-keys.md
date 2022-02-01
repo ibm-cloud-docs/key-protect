@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-09"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -49,7 +49,7 @@ Before you delete a key by using dual authorization:
 
 [After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-dual-auth), you can provide the first authorization to delete a key by using the {{site.data.keyword.keymanagementserviceshort}} {{site.data.keyword.cloud_notm}} console.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

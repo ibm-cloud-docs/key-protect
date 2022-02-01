@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-02"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -85,7 +85,7 @@ in the {{site.data.keyword.keymanagementserviceshort}} CLI or API.
 After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to enable a keyCreateImportAccess policy:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

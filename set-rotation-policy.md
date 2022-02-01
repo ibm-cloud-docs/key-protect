@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -51,7 +51,7 @@ For more information, see
 {: #manage-policies-gui}
 {: ui}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** > **Resource List** to view a list of your resources.
 

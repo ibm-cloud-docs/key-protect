@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -50,7 +50,7 @@ While many of the topics in this documentation show how to accomplish tasks in b
 
 [After you create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision), you're ready to create keys in the service. In this example, we'll create a root key.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
@@ -83,7 +83,7 @@ You can enable the security benefits of Bring Your Own Key (BYOK) by importing y
 
 Complete the following steps to add an existing key.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

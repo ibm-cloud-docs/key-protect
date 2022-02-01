@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: monitor deletion, data associated with key, monitor data deletion
 
@@ -108,7 +108,7 @@ more about viewing {{site.data.keyword.at_full_notm}} events, see
 [Viewing events](/docs/activity-tracker?topic=activity-tracker-view_events){: external}.
 {: note}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Observability** to access your
     [Observability dashboard](/observe){: external}.
@@ -198,7 +198,7 @@ more about viewing {{site.data.keyword.at_full_notm}} events, see
 [Viewing events](/docs/activity-tracker?topic=activity-tracker-view_events){: external}.
 {: note}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Observability** to access your
     [Observability dashboard](/observe){: external}.

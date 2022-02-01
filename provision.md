@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-26"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -57,7 +57,7 @@ be equated with compute resources. A
 To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from
 the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
-1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+1. [Log in to your {{site.data.keyword.cloud_notm}} account](/login/){: external}.
 
 2. Click **Catalog** to view the list of services that are available on
     {{site.data.keyword.cloud_notm}}.

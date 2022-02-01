@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-14"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -50,7 +50,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** > **Resource List** to view a list of your resources.
 
@@ -86,7 +86,7 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

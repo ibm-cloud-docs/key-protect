@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-15"
+  years: 2022
+lastupdated: "2022-02-01"
 
 keywords: satellite, ui, deploy
 
@@ -55,7 +55,7 @@ Because the HSM information is not verified until after {{site.data.keyword.keym
 
 To provision the {{site.data.keyword.keymanagementserviceshort}} service, complete the following steps:
 
-1. [Log in to your {{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+1. [Log in to your {{site.data.keyword.cloud_notm}} account](/login/){: external}.
 
 2. Click **Catalog** to view the list of services that are available on {{site.data.keyword.cloud_notm}}.
 

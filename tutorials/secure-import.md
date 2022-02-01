@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-06"
+lastupdated: "2022-02-01"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -90,7 +90,7 @@ can interact with services that you provision on
 installed locally on your computer.
 
 1. Create an
-    [{{site.data.keyword.cloud_notm}} account](https://{DomainName}/){: external}.
+    [{{site.data.keyword.cloud_notm}} account](/login/){: external}.
 
 2. Download and install the
     [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
