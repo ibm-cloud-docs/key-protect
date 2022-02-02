@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-14"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: key protect, release notes, service updates
 
@@ -339,7 +339,7 @@ To find out more, see
 New as of: 2020-10-12
 
 You can set a key creation and importation policy, in the
-[user interface (UI)](https://{DomainName}/){: external},
+[user interface (UI)](/login/){: external},
 to restrict how keys are created and imported into your
 {{site.data.keyword.keymanagementserviceshort}} service instance.
 
@@ -922,7 +922,7 @@ If you have active production keys in an older
 you migrate the keys to a new instance by 15 May 2019 to avoid losing
 access to your encrypted data. You can check to see whether you're using a
 legacy instance by navigating to your resource list from the
-[{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+[{{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 If your {{site.data.keyword.keymanagementserviceshort}} instance is
 listed in the **Cloud Foundry Services** section of the

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-09"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -49,7 +49,7 @@ options in {{site.data.keyword.keymanagementserviceshort}}, check out
 
 [After you create a root key](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to rotate the key:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

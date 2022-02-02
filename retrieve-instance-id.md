@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: get instance ID, get instance GUID, service instance
 
@@ -36,7 +36,7 @@ You can target an individual {{site.data.keyword.keymanagementservicelong}} inst
 
 You can view the instance ID that is associated with your {{site.data.keyword.keymanagementserviceshort}} instance by navigating to your {{site.data.keyword.cloud_notm}} resource list.
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List**, and then click **Services** to browse a list of your cloud services.
 

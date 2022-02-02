@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-09"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -105,7 +105,7 @@ interface, you can use the IBM Cloud console.
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys),
 complete the following steps to disable a key:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
@@ -128,7 +128,7 @@ complete the following steps to disable a key:
 [After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](#disable-ui) a root key,
 complete the following steps to enable the key:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

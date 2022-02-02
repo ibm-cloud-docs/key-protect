@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: wrap key, encrypt data encryption key, envelope encryption API examples
 
@@ -49,7 +49,7 @@ If you already have an instance of {{site.data.keyword.keymanagementserviceshort
 After you import or create your [own keys](/docs/key-protect?topic=key-protect-create-root-keys),
 complete the following steps to wrap your data using the key:
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. From the **Menu**, choose the **Resource List** to view a list of your resources.
 

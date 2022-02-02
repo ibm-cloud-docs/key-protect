@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-02-01"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key
 
@@ -44,7 +44,7 @@ you can use the {{site.data.keyword.cloud_notm}} console.
 After you import or create your [own keys](/docs/key-protect?topic=key-protect-create-root-keys),
 complete the following steps to wrap your data using the key:
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 1. From the **Menu**, choose the **Resource List** to view a list of your resources.
 

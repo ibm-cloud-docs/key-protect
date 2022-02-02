@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-02"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -71,7 +71,7 @@ graphical interface, you can use the IBM Cloud console.
 After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
@@ -186,7 +186,7 @@ graphical interface, you can use the IBM Cloud console.
 After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

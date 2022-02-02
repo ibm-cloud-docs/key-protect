@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-02"
+  years: 2020, 2022
+lastupdated: "2022-02-01"
 
 keywords: view protected data, view encrypted resources, registrations
 
@@ -62,7 +62,7 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 ### Viewing protected resources in your instance
 {: #view-protected-resources-console-instance}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
@@ -83,7 +83,7 @@ using the {{site.data.keyword.keymanagementserviceshort}} IBM Cloud console.
 ### Viewing protected resources associated with your key
 {: #view-protected-resources-console-key}
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 

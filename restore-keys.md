@@ -67,7 +67,7 @@ If you prefer to restore your key by using a graphical interface, you can use th
 
 [After you import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [delete](/docs/key-protect?topic=key-protect-delete-keys) a key, complete the following steps to restore the key:
 
-1. [Log in to the {{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: external}.
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
 2. Go to **Menu** > **Resource List** to view a list of your resources.
 
