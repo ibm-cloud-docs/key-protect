@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-02-03"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -24,9 +24,7 @@ subcollection: key-protect
 # Access control with context-based restrictions
 {: #access-control-with-cbr}
 
-After you set up your {{site.data.keyword.keymanagementservicelong}} service
-instance, you can manage access by using the
-{{site.data.keyword.keymanagementserviceshort}} support for context-based restrictions (CBR).
+After you set up your {{site.data.keyword.keymanagementservicelong}} service instance, you can manage access by using the {{site.data.keyword.keymanagementserviceshort}} support for [Context-based restrictions (CBR)](https://cloud.ibm.com/context-based-restrictions).
 {: shortdesc}
 
 ## Managing CBR settings
@@ -40,7 +38,7 @@ You must be the account owner or have an access policy with the administrator ro
 ## Overview
 {: #cbr-overview}
 
-There are two parts in the instructions to restrict access, [Creating Zones](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-create#network-zones-create), and [Creating Rules](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-create#context-restrictions-create-rules), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](https://cloud.ibm.com/apidocs/context-based-restrictions), or the [IBM Cloud Console](https://cloud.ibm.com/login).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
+There are two parts in the instructions to restrict access, [Creating Zones](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-create#network-zones-create), and [Creating Rules](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-create#context-restrictions-create-rules), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](https://cloud.ibm.com/apidocs/context-based-restrictions), or with [Context-based restrictions](https://cloud.ibm.com/context-based-restrictions).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
 
 CBR rules do not apply to provisioning or deprovision processes.
 {: note}
@@ -59,7 +57,7 @@ PB: BNPP is only private endpoint so should not mention about public endpoints
 
 Using the path: "/v1/zones" with the GET method will list the zones. Using POST, you can create a new zone with the appropriate information using the following request body format example as a guide:
 
-```json 
+```json
 {
   "name": "an example of a zone",
   "description": "this is an example of a zone",
