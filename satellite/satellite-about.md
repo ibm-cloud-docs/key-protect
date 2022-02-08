@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-08"
 
 keywords: satellite, hsm, deploy
 
@@ -132,7 +132,7 @@ This will output a lot of information. You will need six specific values:
 ### Obtaining the {{site.data.keyword.keymanagementserviceshort}} endpoint
 {: #satellite-about-before-begin-endpoint}
 
-To use the APIs to perform key actions against {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must set the [`KP_PRIVATE_ADDR` environment variable](/docs/key-protect?topic=key-protect-private-endpoints) to the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint and target the endpoint for your service. This endpoint is created dynamically during the creation process.
+To use the CLI or the APIs to perform key actions against {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must set the [`KP_PRIVATE_ADDR` environment variable](/docs/key-protect?topic=key-protect-private-endpoints) to the {{site.data.keyword.keymanagementserviceshort}} on Satellite endpoint and target the endpoint for your service. This endpoint is created dynamically during the creation process.
 
 To get the endpoint of your service:
 
