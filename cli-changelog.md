@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-13"
+  years: 2017, 2022
+lastupdated: "2022-02-11"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -13,6 +13,7 @@ subcollection: key-protect
 {:external: target="_blank" .external}
 {:important: .important}
 {:shortdesc: .shortdesc}
+{:note: .note}
 {:tip: .tip}
 
 # CLI changelog
@@ -31,6 +32,7 @@ you're notified when updates are available.
 
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
 
 ## CLI version 0.6.9
 {: #cli-changelog-069}

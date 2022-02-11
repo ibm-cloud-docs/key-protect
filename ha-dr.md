@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-16"
+  years: 2017, 2022
+lastupdated: "2022-02-11"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -37,7 +37,9 @@ The high availability of {{site.data.keyword.keymanagementserviceshort}} and the
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and
 processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/cloud/blog/announcements/expansion-availability-zones-global-regions){: external} to meet local access, low latency, and security requirements for the region.
 
-Two regions, `us-south` (located in Dallas, Texas, United States) and `jp-tok` (located in Tokyo, Japan), also have cross-regional high availability, which is achieved using data replication to another region. If service in either of these regions or {{site.data.keyword.keymanagementserviceshort}} in the region is disrupted, requests are routed to another region where your data has already been replicated. Because your requests are routed automatically, you can continue to call the same endpoint. Initially, read-only operations are all that will be available. However, if there is reason to believe the disruption will last for an extended period, write operations will be enabled as soon as possible. Otherwise, read-only operations are all that will be available for up to six hours before write operations will be enabled.
+There are two regions, `us-south` (located in Dallas, Texas, United States) and `jp-tok` (located in Tokyo, Japan), where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure. The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), while `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan). This means that if service in either `us-south` or `jp-tok` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. Note that the standby infrastructure in the region with failover support is completely separate from the {{site.data.keyword.keymanagementserviceshort}} service available in that region, and that failover only goes in one direction. Your data in `us-east`, for example, is not currently replicated to `us-south`.
+
+Because your requests are routed automatically, you can continue to call your original endpoint. Initially, read-only operations are all that will be available. However, if there is reason to believe the disruption will last for an extended period, write operations will be enabled as soon as possible. Otherwise, read-only operations are all that will be available for up to six hours before write operations will be enabled.
 
 {{site.data.keyword.keymanagementserviceshort}} will be adding cross-regional high availability to selected regions in different geographical locations.
 {: tip}
@@ -92,9 +94,7 @@ with details regarding your request.
 
 {{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery){: external}.
 
-Private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
+Private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
 {: important}
 
 To find out more about the responsibilities that you and {{site.data.keyword.IBM_notm}} share in the maintenance of your keys and workloads, see [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
-
-
