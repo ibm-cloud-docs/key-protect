@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-02-11"
 
 keywords: quantum safe cryptography, quantum cryptography, quantum safe TLS
 
