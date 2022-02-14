@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-11"
+lastupdated: "2022-02-14"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -33,6 +33,19 @@ you're notified when updates are available.
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
+## CLI version 0.6.10
+{: #cli-changelog-0610}
+
+Release date: 2022-02-08
+
+### Changes
+{: #cli-changelog-0610-changes}
+
+Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+
+- The environment variable **`KP_PRIVATE_ADDR`** is no longer required when authenticating to `private.cloud.ibm.com`. More information is available about using the CLI with [private endpoints](/docs/cli?topic=cli-cli-private-endpoints).
+- The environment variable **`IBMCLOUD_TRACE`** gives you more visibility into your diagnostics. Learn more at the [CLI documentation](/docs/cli?topic=cli-ibmcloud_env_var#IBMCLOUD_TRACE).
+- Updated help text and messages.
 
 ## CLI version 0.6.9
 {: #cli-changelog-069}
