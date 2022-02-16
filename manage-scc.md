@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-11"
+lastupdated: "2022-02-16"
 
 keywords: managing security, managing compliance, best practices
 
@@ -30,11 +30,10 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 
 
-
 ## Governing {{site.data.keyword.keymanagementserviceshort}} resource configuration with config rules
 {: #govern-kp}
 
-As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to [define configuration rules](/docs/security-compliance?topic=security-compliance-rules){: external} for the {{site.data.keyword.keymanagementserviceshort}} instances that you create.
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to [define configuration rules](/docs/security-compliance?topic=security-compliance-what-is-governance){: external} for the {{site.data.keyword.keymanagementserviceshort}} instances that you create.
 
 
 This service only supports the ability to view the results of your configuration scans in the Security and Compliance Center. It is not necessary to set up a collector to use configuration rules.
