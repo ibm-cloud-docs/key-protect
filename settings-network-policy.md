@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-02-17"
 
 keywords: instance settings, service settings, network access policies
 
@@ -76,6 +76,9 @@ instances during this phase of the project.
 The {{site.data.keyword.keymanagementserviceshort}} instance accepts API
 requests from only `private` endpoints.
 
+To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private network connection, you must use the {{site.data.keyword.keymanagementserviceshort}} API or the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in. This capability is not available from the {{site.data.keyword.keymanagementserviceshort}} GUI.
+{: note}
+
 For example, development and testing is complete and the solution that uses
 {{site.data.keyword.keymanagementserviceshort}} instances is in production. You
 want to limit API requests to private networks for security reasons. All
@@ -91,7 +94,7 @@ network, including the API to change the policy. Make sure the private
 environment is set up before setting the network access policy to
 `private-only`. See
 [using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
-{: note}
+{: important}
 
 #### Delete or deprovision a {{site.data.keyword.keymanagementserviceshort}} instance
 {: #delete-a-service-instance}
