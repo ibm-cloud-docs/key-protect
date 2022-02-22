@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-02-14"
 
-keywords: Key Protect CLI plug-in, CLI reference, version 0.6.5
+keywords: Key Protect CLI plug-in, CLI reference, version 0.6.10
 
 subcollection: key-protect
 
@@ -18,7 +18,7 @@ subcollection: key-protect
 {:shortdesc: .shortdesc}
 {:tip: .tip}
 
-# CLI - 0.6.1
+# CLI - 0.6.10
 {: #cli-reference}
 
 You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
@@ -44,7 +44,7 @@ The example showing how to use [**`region-set`**](#kp-region-set-examples) outli
 ### Previous versions
 {: #cli-reference-previous}
 
-This documentation for version 0.6.1 does not include deprecated commands.
+This documentation for version 0.6.10 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -82,7 +82,7 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 The **`kp import-token`** command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.6.5 | Description |
+| Sub-command                                     | Status v0.6.10 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     |         | Encrypt the key that you import into the service |
@@ -96,7 +96,7 @@ The **`kp import-token`** command prepares a root key for secure import.
 The **`kp instance`** command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.6.5 | Description |
+| Sub-command                                                         | Status v0.6.10 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   |            | List policies associated with an instance |
 | policy-update [allowed-network](#kp-instance-policy-update-allowed) |            | Update the instance policy for "allowed network" |
@@ -108,7 +108,7 @@ The **`kp instance`** command manages policies for a
 
 The **`kp key`** command manages individual keys.
 
-| Sub-command                                                  | Status v0.6.5 | Description |
+| Sub-command                                                  | Status v0.6.10 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
@@ -132,7 +132,7 @@ The **`kp key`** command manages individual keys.
 
 Key Ring support allows for managing groups of keys for best practices using **`kp key-ring`**.
 
-| Sub-command                                                  | Status v0.6.5 | Description |
+| Sub-command                                                  | Status v0.6.10 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [create](#kp-key-ring-create)                       |     | Creates a key ring within a kp instance |
 | [delete](#kp-key-ring-delete)                       |     | Deletes a key ring within a kp instance |
@@ -144,7 +144,7 @@ Key Ring support allows for managing groups of keys for best practices using **`
 More commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources could support best practices.
 
-| Command                               | Status v0.6.5 | Description |
+| Command                               | Status v0.6.10 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
@@ -248,7 +248,7 @@ ibmcloud kp import-token key-encrypt
         -i, --instance-id INSTANCE_ID
         -k, --key         KEY_MATERIAL
         -p, --pubkey      PUBLIC_KEY
-    [-a, --hash        HASH_ALGORITHM]
+       [-a, --hash        HASH_ALGORITHM]
 ```
 {: pre}
 
