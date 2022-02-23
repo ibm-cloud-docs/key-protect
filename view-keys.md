@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-02-23"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -29,7 +29,7 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to keys to ensure the security of your resources.
 {: shortdesc}
 
-While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys) to view the key through IAM or by using the API to pass the specific key ID.
+While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Viewing fine-grain access keys through IAM](#filter-key-state-gui-iams) to view the key through IAM or by using the API to pass the specific key ID.
 {: important}
 
 It is a good practice to audit your key configuration regularly:
@@ -84,7 +84,11 @@ For example, you might have keys in your {{site.data.keyword.keymanagementservic
 For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 {: note}
 
-[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), complete the following steps to view your keys.
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), you have two options to view your keys. The first option, [View keys through the resource list](#filter-key-state-gui-resource-list), will work for all keys except those you have assigned [fine-grained access to](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). For information about how to view keys with fine-grain access, check out [Viewing fine-grain access keys IAM](#filter-key-state-gui-iam).
+
+#### Viewing keys through the resource list
+{: #filter-key-state-gui-resource-list}
+{: ui}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
@@ -97,6 +101,18 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 5. Select the key state of the keys that you would like to retrieve.
 
 6. Click the **Apply** button.
+
+#### Viewing fine-grain access keys through IAM
+{: #filter-key-state-gui-iam}
+{: ui}
+
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
+
+2. Click the name of the user whose fine-grain access you want to see.
+
+3. Click **Access policies**.
+
+Here you will see all of the policies assigned to this user, including any fine-grained access over keys.
 
 ## Viewing keys with the API
 {: #view-keys-api}
@@ -308,5 +324,3 @@ For usage notes, check out the following examples for setting your `extractable`
 |`../keys?extractable=true`|Lists standard keys.|
 |`../keys?extractable=false`|Lists root keys.|
 {: caption="Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
-
-
