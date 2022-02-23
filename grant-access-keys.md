@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-14"
+  years: 2017, 2022
+lastupdated: "2022-02-23"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -25,185 +25,138 @@ subcollection: key-protect
 # Granting access to keys
 {: #grant-access-keys}
 
-You can enable different levels of access to
-{{site.data.keyword.keymanagementservicelong}} resources in your
-{{site.data.keyword.cloud_notm}} account by creating and modifying
-{{site.data.keyword.cloud_notm}} IAM access policies.
+You can enable different levels of access to {{site.data.keyword.keymanagementservicelong}} resources in your {{site.data.keyword.cloud_notm}} account by creating and modifying {{site.data.keyword.cloud_notm}} IAM access policies.
 {: shortdesc}
 
-As an account admin, determine an
-[access policy type](/docs/account?topic=account-userroles#policytypes){: external}
-for users, service IDs, and
-[access groups](#x2160811){: term}
-based on your internal access control requirements. For example, if you want to
-grant user access to {{site.data.keyword.keymanagementserviceshort}} at the
-smallest scope available, you can
-[assign access to a single key](#grant-access-key-level)
-in an instance.
+Account admins should determine an [access policy type](/docs/account?topic=account-userroles#policytypes){: external} for users, service IDs, and [access groups](#x2160811){: term} based on internal access control requirements. These access controls can be assigned at multiple levels, from instances down to individual keys. For example, if you want to grant user access to {{site.data.keyword.keymanagementserviceshort}} at the smallest scope available, you can [assign access to a single key](#grant-access-key-level) in an instance.
 
 ## Granting access to all keys in an instance
 {: #grant-access-instance-level}
 
-You can grant access to keys within a
-{{site.data.keyword.keymanagementserviceshort}} instance by using the
-{{site.data.keyword.cloud_notm}} console.
-
-Review
-[roles and permissions](/docs/key-protect?topic=key-protect-manage-access)
-to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
-{{site.data.keyword.keymanagementserviceshort}} actions.
+Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access) to learn how {{site.data.keyword.cloud_notm}} IAM roles map to {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tip}
 
-To assign access:
+To grant access to keys within a {{site.data.keyword.keymanagementserviceshort}} instance by using the {{site.data.keyword.cloud_notm}} console:
 
-1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-    **Users** to browse the existing users in your account.
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 
-2. Select a table row, and click the ⋯ icon to open a list of options for that
-    user.
+2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 
 3. From the options menu, click **Assign access**.
 
-4. Click **Assign users additional access**.
+4. Click **Assign access to the users**.
 
-5. Click the **IAM services** button.
+5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 
-6. From the list of services, select
-    **{{site.data.keyword.keymanagementserviceshort}}**.
+6. Click the **Resources based on selected attributes** button.
 
-7. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
-    select a {{site.data.keyword.keymanagementserviceshort}} instance that you
-    want to grant access to.
+7. Click the **Instance ID** box and select the {site.data.keyword.keymanagementserviceshort}} instance that you want to grant access to.
 
-8. Choose a combination of
-    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-    to assign access for the user.
+8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) to assign access for the user.
 
 9. Click **Add**.
 
-10. Continue to add platform and service access roles as needed and when you are
-    finished, click **Assign**.
+10. Continue to add platform and service access roles as needed. When you are finished, click **Assign**.
 
-![The image shows an example of how to grant user access to an instance.](images/fine-grain-instance-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
+![The image shows an example of how to grant user access to an instance.](images/grant-access-instance.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
 
 ## Granting access to a single key in an instance
 {: #grant-access-key-level}
 
-You can also assign access to a single key in a
-{{site.data.keyword.keymanagementserviceshort}} instance.
+Calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that **only you** can access, in other words, even if you have the access over those keys and you are the one making the call). Calling this API will, however, return the keys in key rings you have access to.
+{: note}
 
-While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys).
-{: important}
+If you need to assign access beyond the instance level, you can choose to assign access to a particular key or to a [key ring](#grant-access-key-ring-console).
+
+To create an access policy for a particular key, you need to:
+
+1. [Retrieve the key ID](#access-key-retrieve-ID).
+2. [Create an access policy](#access-key-create-policy).
 
 ### Step 1. Retrieve the key ID
 {: #access-key-retrieve-ID}
 
-Retrieve the unique identifer that's associated with the key that you want to
-grant someone access to.
+Retrieve the unique identifier that's associated with the key that you want to grant someone access to.
 
 To get the ID for a specific key, you can:
 
-- [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui)
-    to browse the keys that are stored in your
-    {{site.data.keyword.keymanagementserviceshort}} instance.
+- [Access the {{site.data.keyword.keymanagementserviceshort}} GUI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) to browse the keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-- [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api)
-    to retrieve a list of your keys, along with metadata about the keys.
+- [Use the {{site.data.keyword.keymanagementserviceshort}} API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api) to retrieve a list of your keys, along with metadata about the keys.
 
 ### Step 2. Create an access policy
 {: #access-key-create-policy}
 
-Use the retrieved key ID to create a access policy:
+You can create an access policy for a key by targeting the instance and the key by:
 
-1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-    **Users** to browse the existing users in your account.
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 
-2. Select a table row, and click the ⋯ icon to open a list of options for that
-    user.
+2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 
 3. From the options menu, click **Assign access**.
 
-4. Click **Assign users additional access**.
+4. Click **Assign access to the users**.
 
-5. From the list of services, select
-    **{{site.data.keyword.keymanagementserviceshort}}**.
+5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 
-6. From the list of {{site.data.keyword.keymanagementserviceshort}} instances,
-    select the {{site.data.keyword.keymanagementserviceshort}} instance that
-    contains the key that you want to grant access to.
+6. From the list of {{site.data.keyword.keymanagementserviceshort}} instances, select the {{site.data.keyword.keymanagementserviceshort}} instance that contains the key that you want to grant access to.
 
-7. Enter identifying information about the key.
+7. Select **Resources based on selected attributes**.
 
-    1. For **Resource type**, enter the word "key".
+8. Click the **Instance ID** box and select the instance in which the key ring resides from the drop-down list.
 
-    2. For **Resource ID**, enter the ID that was assigned to your key by the
-        {{site.data.keyword.keymanagementserviceshort}} service.
+9. Click the **Resource type** box and enter `key`.
 
-8. Choose a combination of
-    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-    to assign access for the user.
+10. Click the **Resource ID** box enter the ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service.
 
-9. Click **Add**.
+11. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) to assign access for the user.
 
-10. Continue to add platform and service access roles as needed and when you are
-    finished, click **Assign**.
+12. Click **Add**.
 
-![The image shows an example of how to grant user access to a key.](images/fine-grain-key-policy.png){: caption="Figure 2. Shows how to grant user access to a key." caption-side="bottom"}
+13. Continue to add platform and service access roles as needed. When you are finished, click **Assign**.
+
+![The image shows an example of how to grant user access to a key.](images/grant-access-key.png){: caption="Figure 1. Shows how to grant user access to a specific key." caption-side="bottom"}
 
 ## Granting access to key rings in an instance
 {: #grant-access-key-ring-level}
 
-A key ring is a collection of keys located within your service instance, in which you can
-restrict access to via IAM access policy. For information on key rings,
-see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
+A key ring is a collection of keys located within your service instance, in which you can restrict access to via IAM access policy. For information on key rings, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
 
-You can grant access to key rings within a
-{{site.data.keyword.keymanagementserviceshort}} instance by using the
-{{site.data.keyword.cloud_notm}} console, IAM API, or IAM CLI.
+You can grant access to key rings within a {{site.data.keyword.keymanagementserviceshort}} instance by using the {{site.data.keyword.cloud_notm}} console, IAM API, or IAM CLI.
 
-Review
-[roles and permissions](/docs/key-protect?topic=key-protect-manage-access)
-to learn how {{site.data.keyword.cloud_notm}} IAM roles map to
-{{site.data.keyword.keymanagementserviceshort}} actions.
+Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access) to learn how {{site.data.keyword.cloud_notm}} IAM roles map to {{site.data.keyword.keymanagementserviceshort}} actions.
 {: tip}
 
-### Granting access to key rings in an instance via console
+### Granting access to key rings in an instance using the console
 {: #grant-access-key-ring-console}
 
 To assign access to a key ring via the console:
 
-1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select
-    **Users** to browse the existing users in your account.
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 
-2. Select a table row, and click the ⋯ icon to open a list of options for that
-    user.
+2. Select a table row, and click the ⋯ icon to open a list of options for that user.
 
 3. From the options menu, click **Assign access**.
 
-4. Click **Assign users additional access**.
+4. Click **Assign access to the users**.
 
-5. Click the **IAM services** button.
+5. Click the **IAM services** tile.
 
-6. From the list of services, select
-    **{{site.data.keyword.keymanagementserviceshort}}**.
+6. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
 
-7. Select **Services based on attributes**.
+7. Select **Resources based on selected attributes**.
 
-8. Select the **Instance ID** attribute and select the instance in which the key
-    ring resides.
+8. Click the **Instance ID** box and select the instance in which the key ring resides from the drop-down list.
 
-9. Select the **Key Ring ID** attribute and enter the ID associated with the key ring.
+9. Click the **Key Ring ID** box and enter the name of the key ring. Note that the key ring ID is case sensitive and must be exact.
 
-8. Choose a combination of
-    [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles)
-    to assign access for the user.
+8. Choose the combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) you want this user to have.
 
 9. Click **Add**.
 
-10. Continue to add platform and service access roles as needed and when you are
-    finished, click **Assign**.
+10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**. Note that the user must be assigned at least _Reader_ access to the entire instance in order for them to list, create and delete key rings within the instance.
 
-![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 3. Shows how to select specific targets, including Key Rings." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to a key ring." caption-side="bottom"}
 
 ## Granting access for specific functions
 {: #grant-access-keys-specific-functions}
@@ -215,7 +168,4 @@ In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge f
 ## Next Steps
 {: #grant-access-keys-next-steps}
 
-You can also create an access policy via the {{site.data.keyword.keymanagementserviceshort}} [API](/apidocs/iam-policy-management#create-policy){: external}
-or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){: external}.
-
-
+You can also create an access policy via the {{site.data.keyword.keymanagementserviceshort}} [API](/apidocs/iam-policy-management#create-policy){: external} or the {{site.data.keyword.keymanagementserviceshort}} [CLI plugin](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create){: external}.
