@@ -28,11 +28,11 @@ toc:
           topics:
           - tutorials/secure-import.md
           - link:
-            label: Apply end to end security to a cloud application
-            href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
+              label: Apply end to end security to a cloud application
+              href: /docs/tutorials?topic=solution-tutorials-cloud-e2e-security
           - link: 
-            label: Enhance security of your deployed application
-            href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security
+              label: Enhance security of your deployed application
+              href: /docs/tutorials?topic=solution-tutorials-extended-app-security
       - topicgroup: 
           label: Integrations
           topics:
@@ -119,8 +119,8 @@ toc:
       id: reference
       topics:
       - link:
-        label: Key Protect API Reference
-        href: https://{DomainName}/apidocs/key-protect
+          label: Key Protect API Reference
+          href: /apidocs/key-protect
       - topicgroup:
           label: Key Protect CLI Reference
           topics:
