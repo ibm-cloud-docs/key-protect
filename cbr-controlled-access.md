@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-24"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -52,8 +52,6 @@ By creating network zones, you can create a list of allowed locations where an a
 {: #cbr-create-zones-api}
 
 The API supports defining [network zones](https://cloud.ibm.com/apidocs/context-based-restrictions#network-zones) by calling on both public (https://cbr.cloud.ibm.com), and private (https://private.cbr.cloud.ibm.com), endpoints.
-
-PB: BNPP is only private endpoint so should not mention about public endpoints
 
 Using the path: "/v1/zones" with the GET method will list the zones. Using POST, you can create a new zone with the appropriate information using the following request body format example as a guide:
 
