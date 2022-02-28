@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-16"
+  years: 2017, 2022
+lastupdated: "2022-02-28"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -69,8 +69,7 @@ An IT or security admin might need advanced permissions to your instance, keys, 
 
 The following diagram shows how the default IAM roles of manager, reader, and writer can interact with keys that are managed in the service.
 
-![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg)
-{: caption="Figure 1. Shows how different access roles interact with keys." caption-side="bottom"}
+![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg){: caption="Figure 1. Shows how different access roles interact with keys." caption-side="bottom"}
 
 While a particular user can be assigned specific roles over specific resources (a user with a "Reader" role at the instance level might be a "Manager" of a particular key or key ring), in general:
 
@@ -86,8 +85,7 @@ While a particular user can be assigned specific roles over specific resources (
 
 The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}} components work to protect your sensitive data and keys.
 
-![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg)
-{: caption="Figure 1. {{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
+![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg){: caption="Figure 2. {{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
 
 Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) protocol to encrypt data in transit. For more information about TLS and the ciphers supported by {{site.data.keyword.keymanagementserviceshort}}, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-security).
 {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-02"
+  years: 2020, 2022
+lastupdated: "2022-02-28"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -222,8 +222,7 @@ platform metrics, follow the below steps:
 3. Select `Monitoring`. This will take you to the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-![The image shows an example of the console monitoring button.](images/kp-ui-monitoring-button.png)
-{: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
+![An example of the console monitoring button.](images/kp-ui-monitoring-button.png){: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
 
 ### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance using observability page
 {: #find-observability}
@@ -247,17 +246,14 @@ platform metrics, follow the below steps:
     the dashboard for your {{site.data.keyword.keymanagementserviceshort}}
     service instance.
 
-![The image shows an example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png)
-{: caption="Figure 1. Shows the dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
+![An example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png){: caption="Figure 2. The dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
 
 Below are figures that show the metric views available to you on the default
 dashboard.
 
-![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png)
-{: caption="Figure 2. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png){: caption="Figure 3. Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
-![The image shows an example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-view2.png)
-{: caption="Figure 3. Shows some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a {{site.data.keyword.keymanagementserviceshort}} dashboard view.](images/monitor-operation-view2.png){: caption="Figure 4. Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
 You will not be able to see any metrics in your {{site.data.keyword.mon_short}}
 instance until you enable a metrics policy for your
@@ -289,11 +285,10 @@ To setup a metric, complete the follow steps.
 
 8. Click the `CREATE` button.
 
-The following figure shows an example of how to configure an alert when your
+The figure as shown provides an example of how to configure an alert when your
 service instance receives multiple 401 and 403 errors within a 10 minute time
 span.
 
-![The image shows an example of a 401 and 403 configuration.](images/monitor-401-alert.png)
-{: caption="Figure 4=5. Shows the configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a 401 and 403 configuration.](images/monitor-401-alert.png){: caption="Figure 5. The configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
 
