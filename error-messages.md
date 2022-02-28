@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2021
-lastupdated: "2021-08-16"
+years: 2020, 2022
+lastupdated: "2022-02-28"
 
 keywords: Key Protect, error messages, error codes
 
@@ -10,12 +10,16 @@ subcollection: key-protect
 
 ---
 
-{:codeblock: .codeblock}
-{:external: target="_blank" .external}
-{:note: .note}
+{:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:term: .term}
 
 # Error messages
 {: #error-messages}
@@ -23,6 +27,7 @@ subcollection: key-protect
 These error messages are created by
 {{site.data.keyword.keymanagementserviceshort}} and shown in the user interface
 (UI).
+{: shortdesc}
 
 Most error messages have one or more examples, usually `curl`, that show the
 request and response.
@@ -38,10 +43,10 @@ message is passed from another system, such as IAM, to
 
 The table of contents is sorted by the error message.
 
-- This list
+- The first list
     [sorts the error messages by HTTP status code](#error-messages-sorted-by-http-status-code)
 
-- This list
+- Another list
     [sorts the error messages by reason code](#error-messages-sorted-by-reason-code)
 
 Some error messages occur more than once, in those cases the HTTP status code is
@@ -181,7 +186,7 @@ $ curl -X PUT \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-collection-total-mismatch-err-context-json}
+{: #error-messages-collection-total-mismatch-err-cxt-json}
 
 ```json
 {
@@ -229,7 +234,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-body-query-param-mismatch-err-context}
+{: #error-messages-body-query-param-mismatch-err-cxt}
 
 This error occurs when an
 [instance policy](/apidocs/key-protect#set-instance-policies){: external}
@@ -267,7 +272,7 @@ $ curl -X PUT \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-body-query-param-mismatch-err-context-json}
+{: #error-messages-body-query-param-mismatch-err-cxt-json}
 
 ```json
 {
@@ -317,7 +322,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-bearer-sub-extraction-err-context}
+{: #error-messages-bearer-sub-extraction-err-cxt}
 
 The identify and access management (IAM) access token, or format, was invalid.
 If this is a **curl** request then the **authorization** header needs to be set
@@ -384,7 +389,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-bad-body-err-context}
+{: #error-messages-bad-body-err-cxt}
 
 Some examples of this error are:
 
@@ -399,7 +404,7 @@ Some examples of this error are:
     - Key has zero value or it's empty
 
 #### Example 1
-{: #error-messages-bad-body-err-context-example-1}
+{: #error-messages-bad-body-err-cxt-ex-1}
 
 The `create instance policy` request fails because the resource contains an
 extra field (`extra_field`).
@@ -430,7 +435,7 @@ $ curl -X PUT \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-bad-body-err-context-example-1-json}
+{: #error-messages-bad-body-err-cxt-ex-1-json}
 
 ```json
 {
@@ -456,7 +461,7 @@ $ curl -X PUT \
 {: screen}
 
 #### Example 2
-{: #error-messages-bad-body-err-context-example-2}
+{: #error-messages-bad-body-err-cxt-ex-2}
 
 The `create key` request fails because there is more than 1 (one) resource.
 
@@ -491,7 +496,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-bad-body-err-context-example-2-json}
+{: #error-messages-bad-body-err-cxt-ex-2-json}
 
 ```json
 {
@@ -517,7 +522,7 @@ $ curl -X POST \
 {: screen}
 
 #### Example 3
-{: #error-messages-bad-body-err-context-example-3}
+{: #error-messages-bad-body-err-cxt-ex-3}
 
 This create key request fails because the `metadata` is empty.
 
@@ -543,7 +548,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-bad-body-err-context-example-3-json}
+{: #error-messages-bad-body-err-cxt-ex-3-json}
 
 ```json
 {
@@ -584,7 +589,7 @@ When unwrapping a key, the message, `The field 'ciphertext' must be: the origina
 400
 
 ### Context
-{: #error-messages-invalid-field-err-context}
+{: #error-messages-invalid-field-err-cxt}
 
 A sample request to wrap a key that fails:
 
@@ -685,7 +690,7 @@ The response:
 The HTTP `409 Conflict` client error response code indicates that an error in the client request can be resolved per the specified reason code returned. 
 
 ### Context
-{: #error-messages-key-delete-err-context}
+{: #error-messages-key-delete-err-cxt}
 
 The message returns a reason in the message that provides the specific context.
 
@@ -804,13 +809,13 @@ code should be used instead.
 A `410` response is cacheable by default.
 
 ### Context
-{: #error-messages-key-deleted-err-context}
+{: #error-messages-key-deleted-err-cxt}
 
 The `delete key` request fails because the key was previously deleted. You
 cannot delete a key more than once.
 
 #### Example
-{: #error-messages-key-deleted-err-context-example}
+{: #error-messages-key-deleted-err-cxt-ex}
 
 ```sh
 # delete an existing key
@@ -831,7 +836,7 @@ $ curl -X DELETE \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-deleted-err-context-example-json}
+{: #error-messages-key-deleted-err-cxt-ex-json}
 
 ```json
 {
@@ -879,7 +884,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-key-action-invalid-state-err-context}
+{: #error-messages-key-action-invalid-state-err-cxt}
 
 This error occurs when an "action" is performed on a key and the
 [key state](/docs/key-protect?topic=key-protect-key-states)
@@ -895,7 +900,7 @@ Some actions to consider:
     restore a key that has been destroyed (state value is 5)
 
 #### Example 1
-{: #error-messages-key-action-invalid-state-err-context-example-1}
+{: #error-messages-key-action-invalid-state-err-cxt-ex-1}
 
 The `key disable` request fails because you cannot disable a key that was
 previously disabled.
@@ -932,7 +937,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-context-example-1-json}
+{: #error-messages-key-action-invalid-state-err-cxt-ex-1-json}
 
 ```json
 {
@@ -958,7 +963,7 @@ $ curl -X POST \
 {: screen}
 
 #### Example 2
-{: #error-messages-key-action-invalid-state-err-context-example-2}
+{: #error-messages-key-action-invalid-state-err-cxt-ex-2}
 
 The `key disable` request fails because the key has expired and you are
 attempting to change the key state from disabled (state value is 3) to enabled
@@ -1003,7 +1008,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-context-example-2-json-1}
+{: #error-messages-key-action-invalid-state-err-cxt-ex-2-json-1}
 
 ```json
 {
@@ -1046,7 +1051,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-context-example-2-json-2}
+{: #error-messages-key-action-invalid-state-err-cxt-ex-2-json-2}
 
 ```json
 {
@@ -1094,7 +1099,7 @@ instructions.
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-invalid-state-err-context}
+{: #error-messages-key-invalid-state-err-cxt}
 
 This error applies to keys used for "Registrations."
 
@@ -1130,7 +1135,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-protected-resource-err-context}
+{: #error-messages-protected-resource-err-cxt}
 
 This error applies to keys used for "Registrations."
 
@@ -1200,7 +1205,7 @@ administrators log error responses like the 500 status code with more details
 about the request to prevent the error from happening again in the future.
 
 ### Context
-{: #error-messages-incomplete-metadata-err-context}
+{: #error-messages-incomplete-metadata-err-cxt}
 
 This error is returned when there is an internal error.
 
@@ -1258,7 +1263,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-key-create-import-access-err-context}
+{: #error-messages-key-create-import-access-err-cxt}
 
 The `KeyCreateImportAccess` instance policy was enabled and a request to create
 or import a key was not allowed.
@@ -1484,12 +1489,12 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-no-body-err-context}
+{: #error-messages-no-body-err-cxt}
 
 This error occurs when you "rewrap" or "unwrap" a key and there is no body.
 
 #### Example
-{: #error-messages-no-body-err-context-example}
+{: #error-messages-no-body-err-cxt-ex}
 
 The following steps return a `missing body in request` error.
 
@@ -1538,7 +1543,7 @@ $ curl -X POST \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-no-body-err-context-example-json-1}
+{: #error-messages-no-body-err-cxt-ex-json-1}
 
 ```json
 {
@@ -1577,7 +1582,7 @@ $ curl -X POST \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-no-body-err-context-example-json-2}
+{: #error-messages-no-body-err-cxt-ex-json-2}
 
 ```json
 {
@@ -1727,7 +1732,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-num-collection-resource-err-context}
+{: #error-messages-num-collection-resource-err-cxt}
 
 The `create instance policy` request fails because the same policy was
 specified more than once.
@@ -1737,7 +1742,7 @@ unique. For example, you could create instance policies for `dualAuthDelete` and
 `allowedIP` in the same request.
 
 #### Example
-{: #error-messages-num-collection-resource-err-context-example}
+{: #error-messages-num-collection-resource-err-cxt-ex}
 
 This request fails because more than one instance policy was provided.
 
@@ -1772,7 +1777,7 @@ $ curl -X PUT \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-num-collection-resource-err-context-example-json}
+{: #error-messages-num-collection-resource-err-cxt-ex-json}
 
 ```json
 {
@@ -1820,7 +1825,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-impt-req-err-context}
+{: #error-messages-key-impt-req-err-cxt}
 
 {{site.data.keyword.keymanagementserviceshort}} can restore a previously deleted
 root key, which restores access to its associated data in the cloud.
@@ -1846,7 +1851,7 @@ If you want to restore a deleted root key then you **must** save the
 deleted key without provided the original `key material`.
 
 #### Example
-{: #error-messages-key-impt-req-err-context-example}
+{: #error-messages-key-impt-req-err-cxt-ex}
 
 Follow these steps to create the `only imported keys may be restored` error.
 
@@ -1923,7 +1928,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-impt-req-err-context-example-json}
+{: #error-messages-key-impt-req-err-cxt-ex-json}
 
 ```json
 {
@@ -1971,7 +1976,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-root-req-err-context}
+{: #error-messages-key-root-req-err-cxt}
 
 Many key "actions" can only be performed on "root" keys. This is a list of
 commands that can only be performed on root keys.
@@ -1984,7 +1989,7 @@ commands that can only be performed on root keys.
 - wrap key
 
 #### Example
-{: #error-messages-key-root-req-err-context-example}
+{: #error-messages-key-root-req-err-cxt-ex}
 
 This example creates a "standard" key then attempts to disable it. This fails
 because only "root" keys can be disabled.
@@ -2007,7 +2012,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-root-req-err-context-example-json}
+{: #error-messages-key-root-req-err-cxt-ex-json}
 
 ```json
 {
@@ -2055,7 +2060,7 @@ instructions.
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-root-req-reg-err-context}
+{: #error-messages-key-root-req-reg-err-cxt}
 
 This error applies to keys used for "Registrations." A "root" key is required to
 create a registration. This error is returned when a
@@ -2091,7 +2096,7 @@ no difference. The access is permanently forbidden and tied to the application
 logic, such as insufficient rights to a resource.
 
 ### Context
-{: #error-config-rule-conflict-err-context}
+{: #error-config-rule-conflict-err-cxt}
 
 This error message occurs when an instance policy prevents access to a resource.
 For example, if the request originated from a public IP address and the instance
@@ -2119,8 +2124,9 @@ request entity is correct, but it was unable to process the contained
 instructions.
 
 The client should not repeat this request without modification.
+
 ### Context
-{: #error-invalid-sig-exp-err-context}
+{: #error-invalid-sig-exp-err-cxt}
 
 An error occurred when a key was rewrapped.
 
@@ -2150,12 +2156,12 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-expired-err-context}
+{: #error-messages-key-expired-err-cxt}
 
 This error occurs when restoring a deleted key after the key has expired.
 
 #### Example
-{: #error-messages-key-expired-err-context-example}
+{: #error-messages-key-expired-err-cxt-ex}
 
 A `key restore` request fails because the key is delete and the key has expired.
 
@@ -2206,7 +2212,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-expired-err-context-example-json-1}
+{: #error-messages-key-expired-err-cxt-ex-json-1}
 
 ```json
 {
@@ -2268,7 +2274,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-expired-err-context-example-json-2}
+{: #error-messages-key-expired-err-cxt-ex-json-2}
 
 ```json
 {
@@ -2317,7 +2323,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-incorrect-nonce-err-context}
+{: #error-messages-incorrect-nonce-err-cxt}
 
 This error message is applicable to the `restore` and `rotate` key interfaces.
 
@@ -2489,10 +2495,10 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-import-token-expired-err-context}
+{: #error-messages-import-token-expired-err-cxt}
 
 #### Example 1
-{: #error-messages-import-token-expired-err-context-example-1}
+{: #error-messages-import-token-expired-err-cxt-ex-1}
 
 Using the API, create an import token, allow it to expire, then attempt to
 retrieve it.
@@ -2512,7 +2518,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-import-token-expired-err-context-example-1-json-1}
+{: #error-messages-import-token-expired-err-cxt-ex-1-json-1}
 
 ```json
 {
@@ -2535,7 +2541,7 @@ $ curl -X GET \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-import-token-expired-err-context-example-1-json-2}
+{: #error-messages-import-token-expired-err-cxt-ex-1-json-2}
 
 ```json
 {
@@ -2561,7 +2567,7 @@ $ curl -X GET \
 {: screen}
 
 #### Example 2
-{: #error-messages-import-token-expired-err-context-example-2}
+{: #error-messages-import-token-expired-err-cxt-ex-2}
 
 Using the CLI, create an import token, allow it to expire, then attempt to
 retrieve it.
@@ -2616,7 +2622,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-prev-key-del-err-context}
+{: #error-messages-prev-key-del-err-cxt}
 
 This error occurs when a key, used for "Registrations", is deleted.
 
@@ -2657,7 +2663,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-not-dual-auth-err-context}
+{: #error-messages-not-dual-auth-err-cxt}
 
 This error occurs when you try to authorize a deletion or remove an
 authorization and the key **does not** have a `dual authorization` policy.
@@ -2665,7 +2671,7 @@ authorization and the key **does not** have a `dual authorization` policy.
 These examples show the error using the API and the CLI.
 
 #### Example 1
-{: #error-messages-not-dual-auth-err-context-example-1}
+{: #error-messages-not-dual-auth-err-cxt-ex-1}
 
 This example attempts to authorize a deletion and remove an authorization using
 the API.
@@ -2695,7 +2701,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-not-dual-auth-err-context-example-1-json-1}
+{: #error-messages-not-dual-auth-err-cxt-ex-1-json-1}
 
 ```json
 {
@@ -2736,7 +2742,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-not-dual-auth-err-context-example-1-json-2}
+{: #error-messages-not-dual-auth-err-cxt-ex-1-json-2}
 
 ```json
 {
@@ -2774,7 +2780,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-not-dual-auth-err-context-example-1-json-3}
+{: #error-messages-not-dual-auth-err-cxt-ex-1-json-3}
 
 ```json
 {
@@ -2800,7 +2806,7 @@ $ curl -X POST \
 {: screen}
 
 #### Example 2
-{: #error-messages-not-dual-auth-err-context-example-2}
+{: #error-messages-not-dual-auth-err-cxt-ex-2}
 
 This example attempts to authorize a deletion and remove an authorization using
 the CLI.
@@ -2861,7 +2867,7 @@ you may get a `409` response when uploading a file which is older than the one
 already on the server resulting in a version control conflict.
 
 ### Context
-{: #error-messages-req-too-early-err-context}
+{: #error-messages-req-too-early-err-cxt}
 
 This error occurs when you `enable` or `restore` a key within 30 seconds of the
 last action.
@@ -2931,7 +2937,7 @@ instructions.
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-unprocessable-ciphertext-err-context}
+{: #error-messages-unprocessable-ciphertext-err-cxt}
 
 This typically means the hardware security module (HSM) could not process the
 data because the input was invalid.
@@ -2965,7 +2971,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-incorrect-nonce-iv-err-context}
+{: #error-messages-incorrect-nonce-iv-err-cxt}
 
 This typically means the hardware security module (HSM) could not process the
 data because the input was invalid.
@@ -2998,7 +3004,7 @@ no difference. The access is permanently forbidden and tied to the application
 logic, such as insufficient rights to a resource.
 
 ### Context
-{: #error-messages-resource-owner-err-context}
+{: #error-messages-resource-owner-err-cxt}
 
 This error message occurs in a service-to-service request. The service attempts
 to delete a key, which is not allowed. That is, another service cannot delete a
@@ -3033,7 +3039,7 @@ no difference. The access is permanently forbidden and tied to the application
 logic, such as insufficient rights to a resource.
 
 ### Context
-{: #error-messages-service-only-err-context}
+{: #error-messages-service-only-err-cxt}
 
 Some actions, such as creating a "registration", can only be performed by
 another service, in what is known as a service-to-service request.
@@ -3073,7 +3079,7 @@ no difference. The access is permanently forbidden and tied to the application
 logic, such as insufficient rights to a resource.
 
 ### Context
-{: #error-messages-feature-restricted-err-context}
+{: #error-messages-feature-restricted-err-cxt}
 
 You are attempting to create, update, or use an instance policy with a feature
 that is not supported.
@@ -3254,7 +3260,7 @@ or deceptive request routing).
 The client should not repeat this request without modification.
 
 ### Context
-{: #error-messages-key-payload-req-err-context}
+{: #error-messages-key-payload-req-err-cxt}
 
 If a root key was created with a key material (payload), then a key material
 must be specified to rotate the key.
@@ -3283,7 +3289,7 @@ $ curl -X POST \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-key-payload-req-err-context-json}
+{: #error-messages-key-payload-req-err-cxt-json}
 
 ```json
 {
@@ -3337,7 +3343,7 @@ on how to authorize correctly.
 This status is similar to `403`, but in this case, authentication is possible.
 
 ### Context
-{: #error-messages-unauthorized-err-context}
+{: #error-messages-unauthorized-err-cxt}
 
 This error message is returned when the user does not have access to a resource.
 
@@ -3385,8 +3391,8 @@ $ curl -X GET \
 ```
 {: codeblock}
 
-##### JSON response
-{: #error-messages-unauthorized-err-context-json}
+#### JSON response
+{: #error-messages-unauthorized-err-cxt-json}
 
 ```json
 {
