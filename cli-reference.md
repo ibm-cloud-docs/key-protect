@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-02-28"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.10
 
@@ -10,19 +10,23 @@ subcollection: key-protect
 
 ---
 
+{:codeblock: .codeblock}
 {:external: target="_blank" .external}
 {:important: .important}
 {:note: .note}
 {:pre: .pre}
 {:screen: .screen}
+{:table: .aria-labeledby="caption"}
 {:shortdesc: .shortdesc}
 {:tip: .tip}
+{:deprecated: .deprecated}
 
-# CLI - 0.6.10
+# {{site.data.keyword.keymanagementserviceshort}} CLI Command Reference
 {: #cli-reference}
 
-You can use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to
-manage keys in your instance of {{site.data.keyword.keymanagementserviceshort}}.
+The latest version of the {{site.data.keyword.keymanagementservicefull}} 
+CLI plug-in provides a safe and efficient way to manage keys in your instance 
+of {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
 To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
@@ -64,7 +68,7 @@ and
 [jq](https://stedolan.github.io/jq/){: external}
 installed.
 
-Many examples take advantage of an environment variable set for the session regarding the {{site.data.keyword.keymanagementserviceshort}} instance instead of the `-i` parameter.
+Many examples take advantage of an environment variable set for the session regarding the {{site.data.keyword.keymanagementserviceshort}} Instance ID instead of the `-i` parameter. Variables set in this manner will be automatically used by the plug-in where appropriate and when needed.
 
 ```sh
 # export the Key Protect instance id in the command line
@@ -112,16 +116,18 @@ The **`kp key`** command manages individual keys.
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
-| [delete](#kp-key-delete)                                     |               | Delete a key permanently |
+| [delete](#kp-key-delete)                                     |               | Delete a key |
 | [disable](#kp-key-disable)                                   |            | Disable a key |
 | [enable](#kp-key-enable)                                     |            | Enable a key |
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
 | policy-update [dual-auth-delete](#kp-key-policy-update-dual) |         | Update the key policy for "dual auth delete" |
 | policy-update [rotation](#kp-key-policy-update-rotation)     |         | Update the key polcy for "rotation" |
+| [purge](#kp-key-purge)                                       |         | Purge a deleted key |
 | [restore](#kp-key-restore)                                   |            | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   |            | Authorize a key, with a dual-auth-delete policy, to be deleted |
 | [show](#kp-key-show)                                         |         | Retrieve a key |
+| [sync](#kp-key-sync)                                         |               | Synchronize a key's associated resources |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [update](#kp-key-update)                                     |               | Update a key, transferring it to a new key ring |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
@@ -178,7 +184,7 @@ the import token expires after 10 minutes (600 seconds).
 
 ```sh
 ibmcloud kp import-token create
-        -i, --instance-id    INSTANCE_ID
+     -i, --instance-id    INSTANCE_ID
     [-e, --expiration     EXPIRATION_TIME_SECONDS]
     [-m, --max-retrievals MAX_RETRIEVALS]
 ```
