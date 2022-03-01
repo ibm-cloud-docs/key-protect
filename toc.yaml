@@ -30,10 +30,10 @@ toc:
           - link:
               label: Apply end to end security to a cloud application
               href: /docs/tutorials?topic=solution-tutorials-cloud-e2e-security
-          - link: 
+          - link:
               label: Enhance security of your deployed application
               href: /docs/tutorials?topic=solution-tutorials-extended-app-security
-      - topicgroup: 
+      - topicgroup:
           label: Integrations
           topics:
           - integrations/integrate-services.md
