@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-02"
+  years: 2017, 2022
+lastupdated: "2022-03-03"
 
 keywords: key versions, get key versions, list key versions
 
@@ -21,25 +21,26 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 {:term: .term}
+{:ui: .ph data-hd-interface='ui'}
+{:api: .ph data-hd-interface='api'}
 
 # Viewing key versions
 {: #view-key-versions}
 
-View the versions that are associated with a root key by using
-{{site.data.keyword.keymanagementservicefull}}.
+View the versions that are associated with a root key by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}}
-creates a new version of the key. As a security admin, you can audit the
+When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} creates a new version of the key. As a security admin, you can audit the
 rotation history of a root key by viewing its key version history.
 
-Key versions are available only for root keys. To learn more about how key
-rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out
-[Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
+Key versions are available only for root keys. To learn more about how key rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
+
+
 
 ## Viewing key versions with the API
 {: #view-key-versions-api}
+{: api}
 
 For a high-level view, you can list the versions that are associated with a root
 key by making a `GET` call to the following endpoint.
