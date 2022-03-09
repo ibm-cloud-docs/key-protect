@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -88,7 +88,7 @@ you can provide the first authorization to delete a key by making a `POST` call
 to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/setKeyForDeletion
 ```
 {: codeblock}
 
@@ -106,7 +106,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletio
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/setKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -120,7 +120,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/setKeyForDeletio
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}}instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the root key that you want to rotate.|
+|key_ID_or_alias|**Required**. The unique identifier or alias for the root key that you want to rotate.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 1. Describes the variables that are needed to set a key for deletion." caption-side="top"}
@@ -133,7 +133,7 @@ by using the {{site.data.keyword.keymanagementserviceshort}} GUI or API.
 
 If you need to prevent the deletion of a key that's already authorized for
 deletion, you can remove the existing authorization by calling
-`POST /api/v2/keys/<key_ID>/actions/unsetKeyForDeletion`.
+`POST /api/v2/keys/<keyID_or_alias>/actions/unsetKeyForDeletion`.
 {: tip}
 
 ### Delete the key
@@ -157,7 +157,7 @@ Delete a key and its contents by making a `DELETE` call to the following
 endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 ```
 {: codeblock}
 
@@ -173,7 +173,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     ```sh
     $ curl -X DELETE \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "prefer: <return_preference>"
@@ -186,7 +186,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the key that you would like to delete.|
+|key_ID_or_alias|**Required**. The unique identifier or alias for the key that you would like to delete.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |return_preference|**Optional**. A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns a successful deletion response. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
@@ -274,7 +274,7 @@ expires, you can remove the existing authorization by making a `POST` call to
 the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/unsetKeyForDeletion
 ```
 {: codeblock}
 
@@ -293,7 +293,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDelet
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDeletion" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/unsetKeyForDeletion" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -307,7 +307,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/unsetKeyForDelet
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south`or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the root key that you want to rotate.|
+|key_ID_or_alias |**Required**. The unique identifier or alias for the root key that you want to rotate.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 5. Describes the variables that are needed to unset a key for deletion." caption-side="top"}

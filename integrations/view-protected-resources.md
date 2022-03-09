@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: view protected data, view encrypted resources, registrations
 
@@ -157,7 +157,7 @@ You can retrieve the registration details that are associated with a specific
 root key by making a `GET` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/registrations
 ```
 {: codeblock}
 
@@ -168,7 +168,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 
     ```sh
     $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/registrations" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>"
     ```
@@ -180,12 +180,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The identifier for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
+|keyID_or_alias|**Required**. The identifier or alias for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 3. Describes the variables that are needed to list all registrations that are associated with a root key." caption-side="top"}
 
-A successful `GET api/v2/keys/<key_ID>/registrations` request returns a
+A successful `GET api/v2/keys/<keyID_or_alias>/registrations` request returns a
 collection of registrations that are mapped to the specified key ID.
 
 ```json
@@ -255,7 +255,7 @@ registrations.
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/registrations?preventKeyDeletion=<true|false>&urlEncodedResourceCRNQuery=<url_encoded_CRN>" \
     -H "accept: application/vnd.ibm.collection+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
@@ -279,7 +279,7 @@ registrations.
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/registrations?offset=<offset>&limit=<limit>" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/registrations?offset=<offset>&limit=<limit>" \
     -H "accept: application/vnd.ibm.collection+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"

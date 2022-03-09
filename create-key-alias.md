@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-16"
+  years: 2020, 2022
+lastupdated: "2022-03-09"
 
 keywords: key alias, alias, key reference
 
@@ -59,7 +59,7 @@ To edit a key alias, click ⋯ and select **Edit key alias**. In the tab, you wi
 Create a key alias by making a `POST` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/aliases/<alias>
 ```
 {: codeblock}
 
@@ -75,7 +75,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<key_alias>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/aliases/<key_alias>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.key+json" \
@@ -89,7 +89,7 @@ table.
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south`or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The identifier for the key that you would like to associate with an alias. To retrieve a key ID, see the [list keys API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
+|keyID_or_alias|**Required**. The identifier or alias for the key that you would like to associate with an alias. To retrieve a key ID, see the [list keys API](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
 |key_alias|**Required**. A unique, human-readable name for easy identification of your key.<br><br>Alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than dashes (-) or underscores (_). The alias cannot be a version 4 UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings,rotate, wrap, unwrap, rewrap, version, versions.Alias size can be between 2 - 90 characters (inclusive).<br><br>Note You cannot have duplicate alias names in your {{site.data.keyword.keymanagementserviceshort}} instance.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see[Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
@@ -103,7 +103,7 @@ of the
 [NIST Special Publication 800-122](https://www.nist.gov/publications/guide-protecting-confidentiality-personally-identifiable-information-pii){: external}.
 {: important}
 
-A successful `POST api/v2/keys/<key_ID>/aliases/<key_alias>` response
+A successful `POST api/v2/keys/<keyID_or_alias>/aliases/<key_alias>` response
 returns the alias for your key, along with other metadata. The alias is a
 unique name that is assigned to your key and can be used for to retrieve
 more information about the associated key.
@@ -142,7 +142,7 @@ instance.
 Delete a key alias by making a `DELETE` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/aliases/<alias>
 ```
 {: codeblock}
 
@@ -152,7 +152,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<alias>
 
     ```sh
     $ curl -X DELETE \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/aliases/<key_alias>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/aliases/<key_alias>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.key+json" \
@@ -166,14 +166,14 @@ table.
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south`or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The identifier for the key that you retrieved in [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
+|keyID_or_alias|**Required**. The identifier or alias for the key that you retrieved in [step 1](/docs/key-protect?topic=key-protect-view-keys#retrieve-keys-api).|
 |key_alias|**Required**. The unique, human-readable name that identifies your key.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 {: caption="Table 2. Describes the variables that are needed to delete a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
-A successful `DELETE api/v2/keys/<key_ID>/aliases/<key_alias>` request
+A successful `DELETE api/v2/keys/<keyID_or_alias>/aliases/<key_alias>` request
 returns an HTTP `204 No Content` response, which indicates that the alias
 associated with your key was deleted.
 

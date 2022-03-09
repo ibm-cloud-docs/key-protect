@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2022
+lastupdated: "2022-03-09"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -67,7 +67,7 @@ Please refer to the prerequisites and configuration settings associated with the
 
 ```sh
 curl -X DELETE
-    https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/purge
+    https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/purge
     -H 'accept: application/vnd.ibm.kms.key+json'
     -H 'authorization: Bearer <IAM_token>'
     -H 'bluemix-instance: <instance_ID>'
@@ -80,6 +80,7 @@ Replace the variables in the example request according to the following table.
 | Variable | Description |
 | --- | --- |
 |region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|keyID_or_alias|**Required**. The unique identifier or alias for the key that you would like to purge.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 2. Describes the variables that are needed to purge a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}

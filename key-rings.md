@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-09"
+  years: 2020, 2022
+lastupdated: "2022-03-09"
 
 keywords: key rings, group keys, manage key groups
 
@@ -161,7 +161,7 @@ From the **Keys** panel:
 Transfer a key to a different key ring by making a `PATCH` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 ```
 {: codeblock}
 
@@ -176,7 +176,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 
     ```sh
     $ curl -X PATCH \
-        https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID> \
+        https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias> \
         -H 'accept: application/vnd.ibm.kms.key+json' \
         -H 'authorization: Bearer <IAM_token>' \
         -H 'bluemix-instance: <instance_ID>' \
@@ -195,6 +195,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your{{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|keyID_or_alias|**Required**. The unique identifier or alias for the key that you would like to update.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |original_key_ring_ID|**Optional**. The unique identifier of the key ring that the key is currently a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.|
@@ -202,7 +203,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
 |new_key_ring_ID|**Required**. The unique identifier for the target key ring that you would like to move the key to.|
 {: caption="Table 2. Describes the variables that are needed to update a key's key ring with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-A successful `PATCH api/v2/keys/key_ID` request returns the key's metadata, including the id of the key ring that the key is a part of.
+A successful `PATCH api/v2/keys/keyID_or_alias` request returns the key's metadata, including the id of the key ring that the key is a part of.
 
 ``` json
 {
@@ -311,10 +312,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
 
 2. View general characteristics about your key rings by running the following
     `curl` command.
+    {: #view-key-rings-params}
 
     ```sh
-    $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/key_rings" \
+    $ curl -X GET \ "https://<region>.kms.cloud.ibm.com/api/v2/key_rings?totalCount=<show_total>&offset=<offset_value>&limit=<offset_limit>" \
         -H "accept: application/vnd.ibm.kms.key_ring+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -322,15 +323,21 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
     ```
     {: codeblock}
 
+    Query parameters following the question mark **`?`** are optional, but included here to document their use.
+    (: :note)
+    
     Replace the variables in the example request according to the following
-    table.
+    table. 
 
 |Variable|Description|
 |--- |--- |
-|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
+| region | **Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints). |
+| IAM_token | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
+| instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
+| correlation_ID | **Optional**. The unique identifier that is used to track and correlate transactions. |
+| offset_limit | **Optional**. By default, `GET /key_rings` returns a sequence of 51 keyRings including the default keyRing. To retrieve a different set of key rings, use `limit` with `offset` to paginate through your available resources. The maximum value for `limit` is '5,000.' |
+| offset_value | **Optional**. By specifying `offset`, you retrieve a subset of key rings that starts at the `offset` value. |
+| show_total   | **Optional**. If set to `true`, the response metadata returns a value for `totalCount` in use with pagination.  |
 {: caption="Table 3. Describes the variables that are needed to view key rings with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/key_rings` request returns a collection of key
