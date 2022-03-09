@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -81,7 +81,7 @@ If a user [has the _KeyPurge_ role](/docs/key-protect?topic=key-protect-grant-ac
 By default, {{site.data.keyword.keymanagementserviceshort}} requires one authorization to delete a key. You can delete a key and its contents by making a `DELETE` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 ```
 
 This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](#delete-keys-force-delete) at query time to delete the key.
@@ -101,7 +101,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
 
     ```sh
     $ curl -X DELETE \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>" \
@@ -115,7 +115,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the key that you would like to delete.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the key that you would like to delete.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
@@ -179,7 +179,7 @@ For a detailed description of the available parameters, see the {{site.data.keyw
 {{site.data.keyword.keymanagementserviceshort}} blocks the deletion of a key that's protecting a cloud resource, such as a Cloud Object Storage bucket. You can force delete a key and its contents by making a `DELETE` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>?force=true
 ```
 
 When you delete a key that has registrations associated with it, you immediately deactivate its key material and the data encrypted by the key. Any data that is encrypted by the key becomes inaccessible. Thirty days after a key is deleted, the key can no longer be restored and the key material will be destroyed after 90 days.
@@ -200,7 +200,7 @@ Force deletion on a key won't succeed if the key is protecting a registered {{si
 
     ```sh
     $ curl -X DELETE \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>?force=true" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>?force=true" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "prefer: <return_preference>"
@@ -213,7 +213,7 @@ Force deletion on a key won't succeed if the key is protecting a registered {{si
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the key that you would like to delete.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the key that you would like to delete.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see[Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |return_preference|**Optional**. A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns a successful deletion response. When you set the variable to return=representation, the service returns both the key material and the key metadata.|

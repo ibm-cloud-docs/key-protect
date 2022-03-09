@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-16"
+  years: 2017, 2022
+lastupdated: "2022-03-09"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -57,7 +57,7 @@ rewrap a data encryption key that is associated with the root key by making a
 `POST` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/rewrap
 ```
 {: codeblock}
 
@@ -77,7 +77,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/rewrap" \
         -H "accept: application/vnd.ibm.kms.key_action+json" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -100,7 +100,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/rewrap
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the root key that you used for the initial wrap request.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that you used for the initial wrap request.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|Optional. The unique identifier of the key ring that the key belongs to. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|

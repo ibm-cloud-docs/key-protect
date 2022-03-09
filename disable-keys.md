@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -158,7 +158,7 @@ You can disable a root key that's in the _Active_ key state by making a `POST`
 call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/disable
 ```
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api#retrieve-credentials).
@@ -181,7 +181,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/disable" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>"
@@ -194,7 +194,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/disable
 |Variable|Description|
 |--- |--- |
 |region|****Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the root key that you want to disable.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that you want to disable.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
@@ -212,14 +212,14 @@ You can verify that a key has been disabled by issuing a get key metadata reques
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/metadata" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
-Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
+Where the `<keyID_or_alias>` is the ID or alias of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
 Review the `state` field in the response body to verify that the key
 transitioned to the _Suspended_ key state. The following JSON output shows
@@ -280,7 +280,7 @@ You can enable a root key that's in the _Suspended_ key state by making a `POST`
 call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/enable
 ```
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -307,7 +307,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/actions/enable" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/enable" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>"
@@ -320,7 +320,7 @@ table.
 |Variable|Description|
 |--- |--- |
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|key_ID|**Required**. The unique identifier for the root key that you want to enable.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that you want to enable.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
@@ -338,14 +338,14 @@ You can verify that a key has been enabled by issuing a get key metadata request
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/metadata" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
-Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
+Where the `<keyID_or_alias>` is the ID or alias of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
 Review the `state` field in the response body to verify that the root key
 transitioned to the _Active_ key state. The following JSON output shows the

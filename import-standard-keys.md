@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-09"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -157,7 +157,7 @@ $ curl -X GET \
 ```
 {: codeblock}
 
-Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
+Where the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
 ## Base64-encoding your key material
 {: #how-to-encode-standard-key-material}

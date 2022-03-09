@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,31 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## March 2022
+{: #march-2022}
+{: release-note}
+
+### Added: Key Versions Total Count
+{: #version-count-march-2022}
+
+Announced: 2022-03-08
+
+Added support for querying the total count of [versions of a key](/docs/key-protect?topic=key-protect-view-key-versions) using the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#getkeyversions).
+
+### Added: API path support for Key Alias 
+{: #api-alias-march-2022}
+
+Announced: 2022-03-08
+
+As part of a continuing program of improvement to the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect), [key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are now supported as key identifiers in place of key IDs in addition to [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key&interface=api#get-key-api). Multiple API methods, like `POST`, `PATCH`, and `DELETE`, and features like [key purge](/apidocs/key-protect#purgekey), and [key restore](/apidocs/key-protect#restorekey) are now supported by this enhancement.
+
+### Added: Key Ring Pagination
+{: #version-count-march-2022}
+
+Announced: 2022-03-08
+
+As an enhancement to the [{{site.data.keyword.keymanagementserviceshort}} Key Ring API](/apidocs/key-protect#listkeyrings), optional query parameters have been added to the listing of key rings to support [pagination](/docs/key-protect?topic=key-protect-grouping-keys&interface=api#list-key-ring-api).
+
 ## December 2021
 {: #december-2021}
 {: release-note}
@@ -41,7 +66,7 @@ Announced: 2021-12-15
 
 {{site.data.keyword.keymanagementservicefull}} now supports [{{site.data.keyword.satellitelong_notm}}](/docs/satellite?topic=satellite-getting-started) where you use your own compute infrastructure that is in your on-premises data center, other cloud providers, or edge networks to more fully control your own encryption keys by creating your own instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-For more information, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite][(/docs/key-protect?topic=key-protect-satellite-about)
+For more information, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
 
 ## September 2021
 {: #september-2021}

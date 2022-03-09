@@ -90,7 +90,7 @@ If you prefer to restore your key by using a graphical interface, you can use th
 Restore a previously imported key by making a `POST` call to the following endpoint:
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/restore
 ```
 {: codeblock}
 
@@ -109,7 +109,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 
     ```sh
     $ curl -X POST \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/restore" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "x-kms-key-ring: <key_ring_ID>"
@@ -121,7 +121,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/restore
 | Variable    | Description                                                                                               |
 |-------------|-----------------------------------------------------------------------------------------------------------|
 | region      | **Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, check out [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints). |
-| key_ID      | **Required**. The unique identifier for the key that you want to restore.                                 |
+| keyID_or_alias      | **Required**. The unique identifier or alias for the key that you want to restore.                                 |
 | IAM_token   | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the `IAM` token, including the `Bearer` value, in the `curl` request. For more information, check out [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
 | instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, check out [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
 | key_ring_ID | **Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request.  Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.  For more information, check out [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
@@ -140,14 +140,14 @@ You can verify that the key has been restored by getting details about the key b
 
 ```sh
 $ curl -X GET \
-    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/metadata" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/metadata" \
     -H "accept: application/vnd.ibm.kms.key+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
 ```
 {: codeblock}
 
-Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
+Where the `<keyID_or_alias>` is the ID or alias of the key, the `<instance_ID>` is the name of your instance, and your `<IAM_token>` is your IAM token.
 
 Review the `state` field in the response body to verify that the key transitioned to the _Active_ key state. The following JSON output shows example metadata details for an _Active_ key.
 

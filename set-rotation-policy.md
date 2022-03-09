@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-09"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -84,7 +84,7 @@ For a high-level view, you can browse the rotation policies that are associated
 with a root key by making a `GET` call to the following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies
 ```
 {: codeblock}
 
@@ -95,7 +95,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     ```sh
     $ curl -X GET \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.policy+json" \
@@ -108,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 |Variable|Description|
 |--- |--- |
-|key_ID|**Required**. The unique identifier for the root key that has an existing rotation policy.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that has an existing rotation policy.|
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
@@ -151,7 +151,7 @@ Create a rotation policy for your root key by making a `PUT` call to the
 following endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies
 ```
 {: codeblock}
 
@@ -162,7 +162,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     ```sh
     $ curl -X PUT \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.policy+json" \
@@ -189,7 +189,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 |Variable|Description|
 |--- |--- |
-|key_ID|**Required**. The unique identifier for the root key that you want to create a rotation policy for.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that you want to create a rotation policy for.|
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
@@ -231,7 +231,7 @@ Update an existing policy for a root key by making a `PUT` call to the following
 endpoint.
 
 ```plaintext
-https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
+https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies
 ```
 {: codeblock}
 
@@ -242,7 +242,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
     ```sh
     $ curl -X PUT \
-        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies" \
+        "https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "content-type: application/vnd.ibm.kms.policy+json" \
@@ -269,7 +269,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID>/policies
 
 |Variable|Description|
 |--- |--- |
-|key_ID|**Required**. The unique identifier for the root key that you want to replace a rotation policy for.|
+|keyID_or_alias|**Required**. The unique identifier or alias for the root key that you want to replace a rotation policy for.|
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
