@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-08"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -164,7 +164,7 @@ Where the `<key_id>` is the ID of the key, the `<instance_ID>` is the name of yo
 
 When importing an existing standard key, it is required to include the encrypted key material that you want to store and manage in the service.
 
-#### Using OpenSSL to encrypt existing key material
+### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-standard-existing-key-material}
 
 Use this process to encrypt the contents of a file. For example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}.

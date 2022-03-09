@@ -2,7 +2,7 @@
 
 copyright:
 years: 2020, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-03-08"
 
 keywords: Key Protect, error messages, error codes
 
@@ -900,7 +900,7 @@ Some actions to consider:
     restore a key that has been destroyed (state value is 5)
 
 #### Example 1
-{: #error-messages-key-action-invalid-state-err-cxt-ex-1}
+{: #act-invld-state-err-cxt-ex-1}
 
 The `key disable` request fails because you cannot disable a key that was
 previously disabled.
@@ -937,7 +937,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-cxt-ex-1-json}
+{: #act-invld-state-err-cxt-ex-1-json}
 
 ```json
 {
@@ -963,7 +963,7 @@ $ curl -X POST \
 {: screen}
 
 #### Example 2
-{: #error-messages-key-action-invalid-state-err-cxt-ex-2}
+{: #act-invld-state-err-cxt-ex-2}
 
 The `key disable` request fails because the key has expired and you are
 attempting to change the key state from disabled (state value is 3) to enabled
@@ -1008,7 +1008,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-cxt-ex-2-json-1}
+{: #act-invld-state-err-cxt-ex-2-json-1}
 
 ```json
 {
@@ -1051,7 +1051,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-action-invalid-state-err-cxt-ex-2-json-2}
+{: #act-invld-state-err-cxt-ex-2-json-2}
 
 ```json
 {
@@ -1441,7 +1441,7 @@ curl -X POST \
 {: codeblock}
 
 #### JSON response from ibmcloud API
-{: #error-messages-key-create-import-access-err-example-json-2}
+{: #key-create-import-access-err-ex-json-2}
 
 ```json
 {
@@ -1582,7 +1582,7 @@ $ curl -X POST \
 {: codeblock}
 
 #### JSON response
-{: #error-messages-no-body-err-cxt-ex-json-2}
+{: #no-body-err-cxt-ex-json-2}
 
 ```json
 {
@@ -2274,7 +2274,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-key-expired-err-cxt-ex-json-2}
+{: #key-expired-err-cxt-ex-json-2}
 
 ```json
 {
@@ -2541,7 +2541,7 @@ $ curl -X GET \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-import-token-expired-err-cxt-ex-1-json-2}
+{: #token-expired-err-cxt-ex-1-json-2}
 
 ```json
 {
@@ -2567,7 +2567,7 @@ $ curl -X GET \
 {: screen}
 
 #### Example 2
-{: #error-messages-import-token-expired-err-cxt-ex-2}
+{: #import-token-expired-err-cxt-ex-2}
 
 Using the CLI, create an import token, allow it to expire, then attempt to
 retrieve it.
@@ -2742,7 +2742,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-not-dual-auth-err-cxt-ex-1-json-2}
+{: #not-dual-auth-err-cxt-ex-1-json-2}
 
 ```json
 {
@@ -2780,7 +2780,7 @@ $ curl -X POST \
 {: codeblock}
 
 ##### JSON response
-{: #error-messages-not-dual-auth-err-cxt-ex-1-json-3}
+{: #not-dual-auth-err-cxt-ex-1-json-3}
 
 ```json
 {
