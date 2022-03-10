@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-10"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -49,9 +49,9 @@ When you import encryption keys into {{site.data.keyword.keymanagementservicesho
 {: faq}
 {: support}
 
-From a pricing standpoint, the best way to use {{site.data.keyword.keymanagementserviceshort}} is to create a limited number of root keys, and then use those root keys to encrypt the data encryption keys that are created by an external app or cloud data service.
+You can use {{site.data.keyword.keymanagementservicefull}} to create a group of keys for a target group of users that require the same IAM access permissions by bundling your keys in your {{site.data.keyword.keymanagementserviceshort}} service instance into groups called "key rings". A key ring is a collection of keys, within your service instance, that all require the same IAM access permissions. For example, if you have a group of team members who will need a particular type of access to a specific group of keys, you can create a key ring for those keys and assign the appropriate IAM access policy to the target user group. The users that are assigned access to the key ring can create and manage the resources that exist within the key ring.
 
-To find out more about using root keys to protect data encryption keys, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+To find out more about grouping keys, check out [Grouping keys together using key rings](/docs/key-protect?topic=key-protect-grouping-keys).
 
 ## What is a root key?
 {: #what-is-root-key}
@@ -67,7 +67,7 @@ With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and
 {: faq}
 {: support}
 
-Envelope encryption is the practice of encrypting data with a _data encryption key_, and then encrypting the data encryption key with a highly secure _key-wrapping key_. Your data is protected at rest by applying multiple layers of encryption. To learn how to enable envelope encryption for your {{site.data.keyword.cloud_notm}} resources, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
+Envelope encryption is the practice of encrypting data with a _data encryption key_, and then encrypting the data encryption key with a highly secure _key-wrapping key_. Your data is protected at rest by applying multiple layers of encryption. To learn more about envelope encryption check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## How long can a key name be?
 {: #key-names}
@@ -132,9 +132,11 @@ You can [browse the registrations](/docs/key-protect?topic=key-protect-view-prot
 {: faq}
 {: support}
 
-When you delete a key, the service marks the key as deleted, and the key transitions to the _Destroyed_ state. Keys in this state are no longer recoverable, and the cloud services that use the key can no longer decrypt data that is associated with the key. Your data remains in those services in its encrypted form. Metadata that is associated with a key, such as the key's transition history and name, is kept in the {{site.data.keyword.keymanagementserviceshort}} database.
+In the event that a key is no longer needed or should be removed, {{site.data.keyword.keymanagementserviceshort}} allows you to delete and ultimately purge keys, an action that shreds the key material and makes any of the data encrypted with it inaccessible.
 
-Before you delete a key, ensure that you no longer require access to any data that is associated with the key. This action cannot be reversed.
+Deleting a key moves it into a _Destroyed_ state, a "soft" deletion in which the key can still be seen and restored for 30 days. After 90 days, the key will be automatically purged, or "hard deleted", and its associated data will be permanently shredded and removed from the {{site.data.keyword.keymanagementserviceshort}} service. If it is desirable that a key be purged sooner than 90 days, it is also possible to hard delete a key four hours after it has been moved into the _Destroyed_ state.
+
+After a key has been deleted, any data that is encrypted by the key becomes inaccessible, though this can be reversed if the key is restored within the 30-day time frame. After 30 days, key metadata, registrations, and policies are available for up to 90 days, at which point the key becomes eligible to be purged. Note that once a key is no longer restorable and has been purged, its associated data can no longer be accessed. As a result, [destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments unless absolutely necessary.
 
 ## What happens if I try to delete a key that's actively encrypting data?
 {: #delete-registered-key}
