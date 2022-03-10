@@ -1,0 +1,169 @@
+{
+    "how-does-pricing-work": [
+        "What does Key Protect cost",
+        "What is the price of Key Protect",
+        "Key Protect pricing",
+        "get Key Protect cost",
+        "How much does Key Protect cost",
+        "Is Key Protect free"
+    ],
+    "what-is-envelope-encryption": [
+        "What encryption does Key Protect use",
+        "encrypting Key Protect",
+        "What is envelope encryption",
+        "What is encryption",
+        "Which version of encryption is Key Protect using",
+        "Does Key Protect have encryption",
+        "How is Key Protect encrypted",
+        "Data encryption key",
+        "DEK"
+    ],
+    "how-to-group-keys": [
+        "How are keys grouped in Key Protect",
+        "grouping keys",
+        "What are key rings",
+        "How are keys organized",
+        "organize my keys",
+        "organizing my keys",
+        "How can I group keys in key rings"
+    ],
+    "what-is-root-key": [
+        "What is a root key",
+        "What is a root of trust",
+        "Root of trust for Key Protect",
+        "keys that wrap other keys",
+        "How are root keys created"
+    ],
+    "what-is-active-encryption-key": [
+        "What is an active key",
+        "When do keys become active",
+        "activate a key",
+        "activating a key",
+        "make a key active",
+        "When can I use a key"
+    ],
+    "key-names": [
+        "How long can a key name be",
+        "key name length",
+        "key name length max",
+        "longest key name",
+        "key name characters"
+    ],
+    "personal-data": [
+        "Can I store personal information as metadata for my keys",
+        "personal information in keys",
+        "pii metadata",
+        "email key metadata",
+        "phone number metadata",
+        "my name metadata",
+        "customer name metadata",
+        "address metadata",
+        "secure metadata",
+        "confidential information in keys"
+    ],
+    "access-control": [
+        "How to control who has access to keys",
+        "access control for keys",
+        "get access control",
+        "manage user access to keys",
+        "How is access controlled",
+        "IAM roles for users",
+        "grant access to users",
+        "granting access to users",
+        "controlling access",
+        "managing access control",
+        "managing user access"
+    ],
+    "monitor-api-calls": [
+        "monitor api calls",
+        "monitoring apis",
+        "monitoring events",
+        "get monitoring",
+        "monitor events",
+        "How are events generated",
+        "track users and applications"
+    ],
+    "check-protected-data": [
+        "associated resources",
+        "registration between the key and the resource that it protects",
+        "resources protected by keys",
+        "data protected by keys",
+        "get data for keys",
+        "data associated with keys"
+    ],
+    "key-destruction": [
+        "What happens when I delete a key",
+        "when are keys deleted",
+        "who deletes a key",
+        "deleted key lifecycle",
+        "get key delete policy",
+        "deleting a key",
+        "can deleted key be recovered"
+    ],
+    "delete-registered-key": [
+        "delete key with resources",
+        "deleting a key with resources",
+        "delete key with data",
+        "deleting a key with data",
+        "delete key encrypting data",
+        "deleting key encrypting data",
+        "delete key with a retention policy",
+        "deleting key with a retention policy"
+    ],
+    "key-disable": [
+        "What happens when you disable a key",
+        "What is a suspended key",
+        "suspending a key",
+        "disable a key",
+        "suspend a key",
+        "What is the difference between a disabled key and a suspended key",
+        "Is disabling a key reversible",
+        "Is suspending a key reversible"
+    ],
+    "dual-auth": [
+        "What is a dual authorization policy",
+        "What is a dual auth policy"
+        "authorization for deleting a key",
+        "authorize a key deletion",
+        "permission for deleting a key",
+        "require two users to delete a key",
+        "two-step process for deleting a key"
+    ],
+    "enable-dual-auth": [
+        "dual authorization for deletion at an instance level",
+        "revert dual authorization policy",
+        "reverting a dual authorization policy",
+        "single versus dual authorization",
+        "enabling dual authorization",
+        "What happens after I enable a dual authorization policy"
+    ],
+    "disable-dual-auth": [
+        "Can I disable a dual authorization settings for my Key Protect instance",
+        "disable dual auth",
+        "disable dual authorization policy for Key Protect",
+        "disabling dual auth",
+        "disabling dual authorization",
+        "removing dual authorization policy",
+        "remove dual authorization policy",
+        "disabling dual authorization policy",
+        "remove dual authorization policy"
+    ],
+    "deprovision-service": [
+        "What happens when I need to delete or deprovision my Key Protect instance",
+        "delete Key Protect instance",
+        "deleting Key Protect instance",
+        "how to delete Key Protect",
+        "crypto-shred data encrypted by Key Protect"
+    ],
+    "user-interface-unauthorized": [
+        "Why does the UI show unauthorized access",
+        "setting network access policy through UI",
+        "setting network access policy through API",
+        "set network access policy through UI",
+        "set network access policy through API",
+        "private-only keys",
+        "retrieving network access policy",
+        "get network access policy",
+        "retrieve network access policy"
+    ]
+}
