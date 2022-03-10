@@ -122,7 +122,7 @@
     ],
     "dual-auth": [
         "What is a dual authorization policy",
-        "What is a dual auth policy"
+        "What is a dual auth policy",
         "authorization for deleting a key",
         "authorize a key deletion",
         "permission for deleting a key",
