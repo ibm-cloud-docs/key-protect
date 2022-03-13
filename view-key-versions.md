@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-03-13"
 
 keywords: key versions, get key versions, list key versions
 
@@ -36,7 +36,21 @@ rotation history of a root key by viewing its key version history.
 Key versions are available only for root keys. To learn more about how key rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
+## How many key versions do you have?
+{: #view-key-versions-ui}
+{: ui}
 
+To see how many versions you have of each key you have deployed:
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
+
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+4. On the **Keys** panel, click the ⋯ icon and select **Key details**. This opens a side panel that shows, among other things, the number of versions of this key you have.
+
+5. If you want to know how many key versions you have in your instance, you must repeat this process for every key in your instance. Note that because only root keys can be rotated, all of your standard keys have only one version.
 
 ## Viewing key versions with the API
 {: #view-key-versions-api}
