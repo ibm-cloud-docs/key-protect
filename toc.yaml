@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: key-protect
+    service-name: kms
     category: security
     audience: service
     href: /docs/key-protect
