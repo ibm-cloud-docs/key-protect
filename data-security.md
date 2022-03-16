@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-16"
+  years: 2017, 2022
+lastupdated: "2022-03-16"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -28,6 +28,11 @@ subcollection: key-protect
 place to meet your compliance needs and ensure that your data remains secure and
 protected in the cloud.
 {: shortdesc}
+
+## Secrets management
+{: #security-and-compliance-secrets}
+
+Secrets required for deployment are managed with automation using a HashiCorp Vault and are not stored in charts, GitHub, or deployment scripts.
 
 ## Security readiness
 {: #security-ready}
