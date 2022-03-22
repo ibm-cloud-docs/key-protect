@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-08"
+lastupdated: "2022-03-22"
 
 keywords: satellite, hsm, deploy
 
@@ -151,7 +151,7 @@ Where <your-satellite-location> is the location you want to set.
 ### High availability and fault tolerance
 {: #satellite-about-before-begin-ha}
 
-Because your Satellite location is an extension of the host {{site.data.keyword.cloud_notm}} MZR, it it maintains periodic communication to the host MZR using [{{site.data.keyword.cloud_notm}} Satellite Link connectivity](/docs/satellite?topic=satellite-link-location-cloud). To avoid {{site.data.keyword.keymanagementserviceshort}} availability impacts due to possible communication disruptions, it is important to follow high availability best practices.
+Because your Satellite location is an extension of the host {{site.data.keyword.cloud_notm}} MZR, it maintains periodic communication to the host MZR using [{{site.data.keyword.cloud_notm}} Satellite Link connectivity](/docs/satellite?topic=satellite-link-location-cloud). To avoid {{site.data.keyword.keymanagementserviceshort}} availability impacts due to possible communication disruptions, it is important to follow high availability best practices.
 
 {{site.data.keyword.keymanagementserviceshort}} caches authorization requests for up to 30 minutes to maintain availability to existing active users. As a result, if the link goes down for less than 30 minutes, existing active users will not be affected, since their authorizations can be verified from the cache. However, new policy changes (for example, to revoke access from a user) made during the down time will not be effective and {{site.data.keyword.keymanagementserviceshort}} will continue to allow access based on the previous policy. Similarly, users added during the down time will remain unknown to {{site.data.keyword.keymanagementserviceshort}} and will be denied access until communication is restored.
 
