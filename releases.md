@@ -2,11 +2,13 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-03-25"
 
 keywords: key protect, release notes, service updates
 
 subcollection: key-protect
+
+content-type: release-notes
 
 ---
 
@@ -24,114 +26,100 @@ subcollection: key-protect
 {:term: .term}
 
 # Release notes for {{site.data.keyword.keymanagementserviceshort}}
-{: #releases}
+{: #key-protect-key-protect-relnotes}
 
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
 ## March 2022
-{: #march-2022}
+{: #key-protect-mar22}
 {: release-note}
 
-### Added: Key Versions Total Count
-{: #version-count-march-2022}
 
-Announced: 2022-03-08
+### 08 March 2022
+{: #key-protect-mar0822}
 
 Added support for querying the total count of [versions of a key](/docs/key-protect?topic=key-protect-view-key-versions) using the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect#getkeyversions).
 
-### Added: API path support for Key Alias 
-{: #api-alias-march-2022}
 
-Announced: 2022-03-08
+### 08 March 2022
+{: #key-protect-mar0822}
 
 As part of a continuing program of improvement to the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect), [key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are now supported as key identifiers in place of key IDs in addition to [Retrieving a key](/docs/key-protect?topic=key-protect-retrieve-key&interface=api#get-key-api). Multiple API methods, like `POST`, `PATCH`, and `DELETE`, and features like [key purge](/apidocs/key-protect#purgekey), and [key restore](/apidocs/key-protect#restorekey) are now supported by this enhancement.
 
-### Added: Key Ring Pagination
-{: #version-count-march-2022}
 
-Announced: 2022-03-08
+### 08 March 2022
+{: #key-protect-mar0822}
 
 As an enhancement to the [{{site.data.keyword.keymanagementserviceshort}} Key Ring API](/apidocs/key-protect#listkeyrings), optional query parameters have been added to the listing of key rings to support [pagination](/docs/key-protect?topic=key-protect-grouping-keys&interface=api#list-key-ring-api).
 
 ## December 2021
-{: #december-2021}
+{: #key-protect-dec21}
 {: release-note}
 
-### Added: Satellite support
-{: #satellite-december-2021}
-
-Announced: 2021-12-15
+### 15 December 2021
+{: #key-protect-dec1521}
 
 {{site.data.keyword.keymanagementservicefull}} now supports [{{site.data.keyword.satellitelong_notm}}](/docs/satellite?topic=satellite-getting-started) where you use your own compute infrastructure that is in your on-premises data center, other cloud providers, or edge networks to more fully control your own encryption keys by creating your own instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 For more information, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
 
 ## September 2021
-{: #september-2021}
+{: #key-protect-sep21}
 {: release-note}
 
-### Deprecated: Key Protect Terraform Plugin resources
-{: #terraform-deprecation-september-2021}
 
-Announced: 2021-09-15
+### 15 September 2021
+{: #key-protect-sep1521}
 
 This announcement begins the deprecation of creating policies using the [`ibm_kms_key` resource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key){: external} used with {{site.data.keyword.terraform-provider_full}}.
 
 While migrating your code to use the new [Key Policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies){: external}, please refrain from using the existing resource unless setting the [Lifecycle "ignore" policies block](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#lifecycle-ignore-block-example){: external}.
 
-### Deprecated: API fields
-{: #api-field-deprecation-september-2021}
 
 As part of continued migration and improvement, the `algorithmBitSize`, `algorithmMode`, `algorithmType` and `algorithmMetadata` fields will no longer be operational within the Key Protect [API](https://cloud.ibm.com/apidocs/key-protect){: external}.
 
-### Added: Updates to the Key Protect Terraform Plugin
-{: #terraform-september-2021}
 
-New as of: 2021-09-08
+### 08 September 2021
+{: #key-protect-sep0821}
 
 [{{site.data.keyword.terraform-provider_full}}](/docs/schematics) now supports creating and retrieving [Key Policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies) when creating and retrieving keys through {{site.data.keyword.terraform-provider_full_notm}} as a separate resource.
 
-### Added: Updates to the Key Protect CLI Plugin
-{: #cli-september-2021}
 
-New as of: 2021-09-04
+### 04 September 2021
+{: #key-protect-sep0421}
 
 The [release of {{site.data.keyword.keymanagementserviceshort}} CLI version 0.6.5](/docs/key-protect?topic=key-protect-cli-changelog) introduces new structures for empty results when querying. Learn more at [the CLI reference](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 
 ## August 2021
-{: #august-2021}
+{: #key-protect-aug21}
 {: release-note}
 
-### Added: Updates to the Key Protect console and Key purge feature
-{: #key-purge-august-2021}
 
-New as of: 2021-08-05
+### 05 August 2021
+{: #key-protect-aug0521}
 
 The ability to purge keys that have been deleted after four hours using the UI has been added. For more information, check out [About purging and deleting keys](/docs/key-protect?topic=key-protect-delete-purge-keys#delete-purge-keys-considerations).
 
 Also, the ability to view your instance ID and cloud resource name (CRN) has been made easier. For more information, check out [Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 
 ## June 2021
-{: #june-2021}
+{: #key-protect-jun21}
 {: release-note}
 
-### Added: Updates to the Key Protect CLI plugin
-{: #added-ui-updates-june-2021}
 
-New as of: 2021-06-30
+### 30 June 2021
+{: #key-protect-jun3021}
 
 The {{site.data.keyword.keymanagementserviceshort}} CLI plugin has been updated to version 0.6.3. Minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-rotate).
 
 ## April 2021
-{: #april-2021}
+{: #key-protect-apr21}
 {: release-note}
 
-### Added: Updates to the Key Protect console and Key purge feature
-{: #added-ui-updates-april-2021}
-
-New as of: 2021-04-22
+### 22 April 2021
+{: #key-protect-apr2221}
 
 Many of the panels and actions you can take in the console have been modified to accommodate the addition of key rings and add other functionality to the console that previously was only possible using the APIs. This includes a new **Key rings** panel where key rings can be managed and a **Key ring ID** column in the **Keys** panel.
 
@@ -139,16 +127,15 @@ Note that as part of this change, the **Instance policies** and **Manage keys** 
 
 This release also adds the ability to use the API to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
 
-The ability to purge keys using the UI was added in the [August, 2021 release](#key-purge-august-2021).
+The ability to purge keys using the UI was added in the [August, 2021 release](#key-purge-aug-2021).
 
 ## March 2021
-{: #march-2021}
+{: #key-protect-mar21}
 {: release-note}
 
-### Added: Transfer a key to a different key ring
-{: #added-transfer-key-key-ring}
 
-New as of: 2021-03-12
+### 12 March 2021
+{: #key-protect-mar1221}
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} API to transfer
 a key from one key ring to another key ring. In order to move a key, you must have
@@ -158,19 +145,16 @@ key ring that you would like the key to be transferred to.
 To find out more, see
 [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys#transfer-key-key-ring-api).
 
-### Added: Major Changes to the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
-{: #added-cli-changes}
 
 Added support for aliases and key-rings bring best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
 ## February 2021
-{: #february-2021}
+{: #key-protect-feb21}
 {: release-note}
 
-### Added: Functionality to key restoration
-{: 2021-02-25-key-restore}
 
-New as of: 2021-02-25
+### 25 February 2021
+{: #key-protect-feb2521}
 
 The process to restore keys has been enhanced:
 
@@ -180,15 +164,12 @@ The process to restore keys has been enhanced:
 
 For more information, check out [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
-### Added: Updates to search by extractable content
-{: #added-search-extractable}
 
 Rotating keys and re-wrapping encrypted content with a new DEK is fundamental to security. Quickly retrieve keys having extractable content with [this search feature](/docs/key-protect?topic=key-protect-view-keys#filter-keys-extractable-state-api).
 
-### Added: Updates to the Key Protect UI
-{: #upcoming-key-encrypt-ui}
 
-New as of: 2021-02-15
+### 15 February 2021
+{: #key-protect-feb1521}
 
 Managing keys through the UI interface has been enhanced with new options presented in a simple and convenient selectable option menu within the context of each managed key. Simply click on the "overflow" icon  at the end of each row to access common features and UI enhancements.
 
@@ -196,20 +177,19 @@ Note that "Associated Resources" are now accessible within the context of each k
 
 Also, the list of endpoints in the console has grown with the addition of Osaka. You can now update your applications to reference the new endpoint.
 
-### Added: Feature updates to the Key Protect UI
-{: #upcoming-wrap-unwrap}
 
-New as of: 2021-02-15
+
+### 15 February 2021
+{: #key-protect-feb1521}
 
 The Key Protect UI now has support for the following feature:
 
 Wrap/Unwrap (Envelope Encryption)
 You can now use the Key Protect UI to wrap/unwrap active root keys. For more information, see Protecting data with envelope encryption for an overview, or check the documentation for how to wrap and unwrap your keys.
 
-### Updates to key deletion functionality
-{: #upcoming-key-deletion-changes}
 
-Release Date: 2021-03-15
+### 15 March 2021
+{: #key-protect-mar1521}
 
 Beginning in April 2021, {{site.data.keyword.keymanagementserviceshort}}
 will implement a key purge feature that will automatically purge any keys that
@@ -236,10 +216,9 @@ Note: A key purge can be reversed by restoring the hard deleted key.
     it is recommended to perform the necessary API or CLI calls to retrieve and
     store that data in your own storage device.
 
-### Added: Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
-{: #february-2021-ui-updates}
 
-New as of: 2021-02-05
+### 05 February 2021
+{: #key-protect-feb0521}
 
 If you have _Manager_ access permissions, you can filter for keys in the
 **Destroyed** state and restore an imported root key via the ⋯ icon on the
@@ -248,10 +227,9 @@ process for restoring the key.
 
 For more information, see [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for virtual private clouds
-{: #added-vpe}
 
-New as of: 2021-02-05
+### 05 February 2021
+{: #key-protect-feb0521}
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} from your
 virtual private cloud(VPC) via virtual private endpoint. VPEs are bound to a
@@ -264,13 +242,12 @@ and create a [VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: exte
 [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 
 ## January 2021
-{: #january-2021}
+{: #key-protect-jan21}
 {: release-note}
 
-### Added: Create a key ring
-{: #added-key-ring}
 
-New as of: 2021-01-27
+### 27 January 2021
+{: #key-protect-jan2721}
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API
 to manage access to a specific set of keys that are bundle a collection
@@ -280,10 +257,9 @@ IAM policies.
 To find out more, see
 [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).
 
-### Updated: Restore a deleted key
-{: #updated-restore-key}
 
-New as of: 2021-01-06
+### 06 January 2021
+{: #key-protect-jan0621}
 
 Restore key improved: If you have _Manager_ access permissions, you can
 now use the the {{site.data.keyword.keymanagementserviceshort}} UI to restore all
@@ -292,8 +268,6 @@ unexpired-deleted keys.
 For more information, see [Restoring
 keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
-### Added: Manual Data Synchronization
-{: #added-manual-data-synchronization}
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} REST API
 to initiate a manual data synchronization request to to synchronize your service's
@@ -313,13 +287,11 @@ more information.
 {: preview}
 
 ## December 2020
-{: #december-2020}
+{: #key-protect-dec20}
 {: release-note}
 
-### Added: Create a metrics policy
-{: #added-metrics-policy}
-
-New as of: 2020-12-11
+### 11 December 2020
+{: #key-protect-dec1120}
 
 If you have _Manager_ IAM access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} UI to create a metrics policy
@@ -329,10 +301,9 @@ that allows you to view the operational metrics for your
 To find out more, see
 [Managing metrics](/docs/key-protect?topic=key-protect-manage-monitor-metrics#enable-metrics-instance-policy-ui).
 
-### Added: Create a key alias
-{: #added-key-alias}
 
-New as of: 2020-12-01
+### 01 December 2020
+{: #key-protect-dec0120}
 
 If you have _Writer_ or _Manager_ access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} REST API to create a key alias.
@@ -343,13 +314,12 @@ To find out more, see
 [Creating key aliases](/docs/key-protect?topic=key-protect-create-key-alias).
 
 ## October 2020
-{: #october-2020}
+{: #key-protect-oct20}
 {: release-note}
 
-### Added: Quantum Safe Cryptography in TLS Connections
-{: #added-quantum-safe-cryptography}
 
-New as of: 2020-10-20
+### 20 October 2020
+{: #key-protect-oct2020}
 
 In preparation for the post-quantum era, you can use a quantum safe enabled TLS
 connection to secure your communication to the
@@ -358,10 +328,9 @@ connection to secure your communication to the
 To find out more, see
 [Using Quantum Safe Cryptography](/docs/key-protect?topic=key-protect-quantum-safe-cryptography-tls-introduction).
 
-### Added: Manage key creation and importation policies in the UI
-{: #added-key-creation-importation-policies-ui}
 
-New as of: 2020-10-12
+### 12 October 2020
+{: #key-protect-oct1220}
 
 You can set a key creation and importation policy, in the
 [user interface (UI)](/login/){: external},
@@ -372,13 +341,12 @@ See the updated "Instance policies" pane in the
 {{site.data.keyword.keymanagementserviceshort}} UI.
 
 ## September 2020
-{: #september-2020}
+{: #key-protect-sep20}
 {: release-note}
 
-### Added: Manage key creation and importation policies in the API
-{: #added-key-creation-importation-policies-api}
 
-New as of: 2020-09-17
+### 17 September 2020
+{: #key-protect-sep1720}
 
 You can set a key creation and importation policy, using the
 [API](/apidocs/key-protect){: external},
@@ -388,10 +356,9 @@ to restrict how keys are created and imported into your
 To find out more, see
 [Managing a key create and import access policy](/docs/key-protect?topic=key-protect-manage-keyCreateImportAccess).
 
-### Added: Feature updates to the {{site.data.keyword.keymanagementserviceshort}} UI
-{: #september-2020-ui-updates}
 
-New as of: 2020-09-22
+### 22 September 2020
+{: #key-protect-sep2220}
 
 The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following feature:
@@ -406,10 +373,9 @@ If you have _Manager_ access permissions, you can filter for keys in the
 **Keys** table. Note: you must include the original Key Material to restore the
 key.
 
-### Update: CLI plug-in Version 0.5.2 is now available
-{: #september-2020-cli-plugin-052-available}
 
-New as of: 2020-09-09
+### 09 September 2020
+{: #key-protect-sep0920}
 
 The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
 was updated with these changes:
@@ -422,13 +388,11 @@ The
 has all CLI updates.
 
 ## July 2020
-{: #july-2020}
+{: #key-protect-jul20}
 {: release-note}
 
-### Update: CLI plug-in Version 0.5.1 is now available
-{: #july-2020-cli-plugin-051-available}
-
-New as of: 2020-07-21
+### 21 July 2020
+{: #key-protect-jul2120}
 
 The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in is used to
 manage keys in your instance.
@@ -440,13 +404,11 @@ For a detailed explanation of changes in version 0.5.1, see the
 [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
 ## June 2020
-{: #june-2020}
+{: #key-protect-jun20}
 {: release-note}
 
-### Added: Feature updates to the {{site.data.keyword.keymanagementserviceshort}} UI
-{: #june-2020-ui-updates}
-
-New as of: 2020-06-24
+### 24 June 2020
+{: #key-protect-jun2420}
 
 The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
 following features:
@@ -472,10 +434,9 @@ following features:
     public or private networks. For more information, see
     [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
 
-### Update: CLI plug-in Version 0.5.0 is now available
-{: #june-2020-cli-plugin-050-available}
 
-New as of: 2020-06-19
+### 19 June 2020
+{: #key-protect-jun1920}
 
 The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in is used to
 manage keys in your instance.
@@ -487,13 +448,12 @@ For a detailed explanation of changes in version 0.5.0, see the
 [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
 ## May 2020
-{: #may-2020}
+{: #key-protect-may20}
 {: release-note}
 
-### Coming soon: Updates to activity tracker fields
-{: #upcoming-activity-tracker-changes}
 
-Release Date: 2020-05-29
+### 29 May 2020
+{: #key-protect-may2920}
 
 Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
@@ -521,10 +481,9 @@ logs. These updates will be available across all supported regions by 29 May
     compliance admin, ensure that the removed and changed event fields do not
     affect your audit operations.
 
-### Added: Use an import token to rotate a key
-{: #added-secure-rotate}
 
-New as of: 2020-05-01
+### 01 May 2020
+{: #key-protect-may0120}
 
 If you have _Writer_ or _Manager_ access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} REST API to rotate an root key
@@ -533,10 +492,9 @@ that was initially imported with an import token.
 To find out more, see
 [Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
 
-### Added: Restore a deleted key
-{: #added-restore-key}
 
-New as of: 2020-05-01
+### 01 May 2020
+{: #key-protect-may0120}
 
 If you have _Manager_ access permissions, you can now use the the
 {{site.data.keyword.keymanagementserviceshort}} REST API to restore a previously
@@ -545,10 +503,9 @@ imported root key.
 To find out more, see
 [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
-### Added: Enable or disable a key
-{: #added-enable-disable-key}
 
-New as of: 2020-05-01
+### 01 May 2020
+{: #key-protect-may0120}
 
 If you have _Manager_ access permissions, you can now use the the
 {{site.data.keyword.keymanagementserviceshort}} REST API to suspend or restore a
@@ -558,13 +515,11 @@ To find out more, see
 [Disabling keys](/docs/key-protect?topic=key-protect-disable-keys).
 
 ## April 2020
-{: #apr-2020}
+{: #key-protect-apr20}
 {: release-note}
 
-### Added: Manage network access policies
-{: #added-network-access-policies}
-
-New as of: 2020-04-16
+### 16 April 2020
+{: #key-protect-apr1620}
 
 You can set a network access policy to allow API requests to a
 {{site.data.keyword.keymanagementserviceshort}} instance from public or private
@@ -574,13 +529,12 @@ To find out more, see
 [Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies).
 
 ## March 2020
-{: #mar-2020}
+{: #key-protect-mar20}
 {: release-note}
 
-### Added: View details about a key
-{: #added-key-metadata}
 
-New as of: 2020-03-14
+### 14 March 2020
+{: #key-protect-mar1420}
 
 If you have _Reader_ access permissions, you can now use the
 {{site.data.keyword.keymanagementserviceshort}} REST API to view only details
@@ -589,10 +543,9 @@ about a specific standard key without retrieving the key itself.
 To find out more, see
 [Viewing details about a key](/docs/key-protect?topic=key-protect-retrieve-key-metadata).
 
-### Added: View versions for a root key
-{: #added-key-versions}
 
-New as of: 2020-03-14
+### 14 March 2020
+{: #key-protect-mar1420}
 
 You can now audit the rotation history of a root key by viewing its key
 versions. After you rotate a root key, the ID of the root key does not change,
@@ -604,13 +557,12 @@ To find out more, see
 [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
 
 ## February 2020
-{: #feb-2020}
+{: #key-protect-feb20}
 {: release-note}
 
-### Changed: {{site.data.keyword.at_full_notm}} event fields
-{: #changed-at-events}
 
-New as of: 2020-02-28
+### 28 February 2020
+{: #key-protect-feb2820}
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will
 return updated event fields in
@@ -642,10 +594,9 @@ logs. These updates will be available across all supported regions by 15 April
     compliance admin, ensure that the removed and changed event fields do not
     affect your audit operations.
 
-### Added: View associations between root keys and IBM Cloud resources
-{: #added-registrations}
 
-New as of: 2020-02-25
+### 25 February 2020
+{: #key-protect-feb2520}
 
 You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to
 examine which root keys are actively protecting what data so that you can
@@ -662,10 +613,9 @@ supports key registration, refer to its service documentation for more
 information.
 {: preview}
 
-### Added: Prevent accidental or malicious deletion of keys
-{: #added-prevent-key-deletion}
 
-New as of: 2020-02-25
+### 25 February 2020
+{: #key-protect-feb2520}
 
 {{site.data.keyword.keymanagementserviceshort}} enabled extra security measures
 to protect against the accidental or malicious deletion of keys.
@@ -680,10 +630,10 @@ to protect against the accidental or malicious deletion of keys.
     [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete)
     that's protecting a cloud resource.
 
-### Added: ReaderPlus service access role
-{: #added-readerplus}
 
-New as of: 2020-02-17
+
+### 17 February 2020
+{: #key-protect-feb1720}
 
 Need to grant read-only access to keys? You can now choose between the _Reader_
 and _ReaderPlus_ IAM roles for better control over access to key material.
@@ -691,10 +641,9 @@ and _ReaderPlus_ IAM roles for better control over access to key material.
 To learn more about service access roles, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
-### Changed: Extra response fields in existing APIs
-{: #changed-extra-response-fields}
 
-New as of: 2020-02-17
+### 17 February 2020
+{: #key-protect-feb1720}
 
 Effective 2020 February 24, {{site.data.keyword.keymanagementserviceshort}} will
 return additional fields in the response bodies of some
@@ -711,13 +660,12 @@ return additional fields in the response bodies of some
     that the additional fields do not affect their operations.
 
 ## January 2020
-{: #jan-2020}
+{: #key-protect-jan20}
 {: release-note}
 
-### Added: Dual authorization policies for {{site.data.keyword.keymanagementserviceshort}} instances and keys
-{: #added-dual-authorization}
 
-New as of: 2020-01-15
+### 15 January 2020
+{: #key-protect-jan1520}
 
 You can now enable dual authorization policies to safely delete keys from your
 {{site.data.keyword.keymanagementserviceshort}} instance. When you
@@ -730,13 +678,12 @@ enable dual authorization, you require an action from two users to delete a key.
 [Enabling a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
 
 ## November 2019
-{: #nov-2019}
+{: #key-protect-nov19}
 {: release-note}
 
-### Changed: Platform and service access roles
-{: #changed-access-roles}
 
-New as of: 2019-11-04
+### 04 November 2019
+{: #key-protect-110419}
 
 {{site.data.keyword.keymanagementserviceshort}} is updating its user access
 roles and how they correspond to {{site.data.keyword.keymanagementserviceshort}}
@@ -767,13 +714,13 @@ permissions, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 
 ## September 2019
-{: #sept-2019}
+{: #key-protect-sept19}
 {: release-note}
 
-### Added: Fine-grained access to {{site.data.keyword.keymanagementserviceshort}} resources
-{: #added-fine-grain-access}
 
-New as of: 2019-09-27
+
+### 27 September 2019
+{: #key-protect-sep2719}
 
 As an account admin, you can now assign fine-grained access to individual keys
 within a {{site.data.keyword.keymanagementserviceshort}} instance.
@@ -781,10 +728,9 @@ within a {{site.data.keyword.keymanagementserviceshort}} instance.
 To learn more about granting access, see
 [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys).
 
-### Changed: Using import tokens to securely upload keys to {{site.data.keyword.keymanagementserviceshort}}
-{: #added-import-tokens}
 
-New as of: 2019-09-16
+### 16 September 2019
+{: #key-protect-sep1619}
 
 On 20 March 2019,
 [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta)
@@ -812,13 +758,12 @@ For a guided tutorial, see
 {: tip}
 
 ## July 2019
-{: #jul-2019}
+{: #key-protect-jul19}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for private endpoints
-{: #added-private-endpoints}
 
-New as of: 2019-07-31
+### 31 July 2019
+{: #key-protect-jul3119}
 
 You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the
 {{site.data.keyword.cloud_notm}} private network by targeting a private endpoint
@@ -830,13 +775,13 @@ for your infrastructure account. For more information, see
 [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
 
 ## June 2019
-{: #june-2019}
+{: #key-protect-jun19}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for {{site.data.keyword.at_full_notm}}
-{: #added-at-log-support}
 
-New as of: 2019-06-22
+
+### 22 June 2019
+{: #key-protect-jun2219}
 
 You can now monitor API calls to the
 {{site.data.keyword.keymanagementserviceshort}} service by using
@@ -847,13 +792,12 @@ activity, see
 [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## May 2019
-{: #may-2019}
+{: #key-protect-may19}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} upgrades HSMs to FIPS 140-2 Level 3
-{: #upgraded-hsms}
 
-New as of: 2019-05-22
+### 22 May 2019
+{: #key-protect-052219}
 
 {{site.data.keyword.keymanagementserviceshort}} now uses
 {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 for cryptographic
@@ -865,10 +809,8 @@ To learn more about the features and benefits of
 {{site.data.keyword.cloud_notm}} HSM 7.0, check out the
 [product page](/cloud/hardware-security-module){: external}.
 
-### End of support: Cloud Foundry-based {{site.data.keyword.keymanagementserviceshort}} instances
-{: #legacy-service-eol}
-
-New as of: 2019-05-15
+### 15 May 2019
+{: #key-protect-051519}
 
 The legacy {{site.data.keyword.keymanagementserviceshort}} service, based on
 Cloud Foundry, reached its end of support on 15 May 2019. Cloud Foundry-managed
@@ -890,13 +832,13 @@ by submitting a request to remove the entry from your console view.
 {: tip}
 
 ## March 2019
-{: #mar-2019}
+{: #key-protect-mar19}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for policy-based key rotation
-{: #added-support-policy-key-rotation}
 
-New as of: 2019-03-22
+
+### 22 March 2019
+{: #key-protect-mar2219}
 
 You can now use {{site.data.keyword.keymanagementserviceshort}} to associate a
 rotation policy for your root keys.
@@ -907,10 +849,9 @@ To find out more about your key rotation options in
 {{site.data.keyword.keymanagementserviceshort}}, check out
 [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds beta support for transport keys
-{: #added-transport-keys-beta}
 
-New as of: 2019-03-20
+### 20 March 2019
+{: #key-protect-mar2019}
 
 Enable the secure import of encryption keys to the cloud by creating transport
 encryption keys for your {{site.data.keyword.keymanagementserviceshort}}
@@ -925,22 +866,18 @@ latest version.
 {: important}
 
 ## February 2019
-{: #feb-2019}
+{: #key-protect-feb19}
 {: release-note}
 
-### Changed: Legacy {{site.data.keyword.keymanagementserviceshort}} instances
-{: #changed-legacy-service-instances}
 
-New as of: 2019-02-13
+### 13 February 2019
+{: #key-protect-feb1319}
 
 {{site.data.keyword.keymanagementserviceshort}} instances that were
 provisioned before 15 December 2017 are running on a legacy infrastructure that
 is based on Cloud Foundry. This legacy
 {{site.data.keyword.keymanagementserviceshort}} service will be decommissioned
 on 15 May 2019.
-
-#### What this means to you
-{: #feb-2019-what-this-means}
 
 If you have active production keys in an older
 {{site.data.keyword.keymanagementserviceshort}} instance, ensure that
@@ -965,13 +902,11 @@ check out the
 {: tip}
 
 ## December 2018
-{: #dec-2018}
+{: #key-protect-dec18}
 {: release-note}
 
-### Changed: {{site.data.keyword.keymanagementserviceshort}} API endpoints
-{: #changed-api-endpoints}
-
-New as of: 2018-12-19
+### 19 December 2018
+{: #key-protect-dec1918}
 
 To align with {{site.data.keyword.cloud_notm}}'s new unified experience,
 {{site.data.keyword.keymanagementserviceshort}} has updated the base URLs for
@@ -990,13 +925,12 @@ endpoints.
 Both URLs for each regional service endpoint are supported at this time.
 
 ## October 2018
-{: #oct-2018}
+{: #key-protect-oct18}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Tokyo region
-{: #added-tokyo-region}
 
-New as of: 2018-10-31
+### 31 October 2018
+{: #key-protect-oct3118}
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in
 the Tokyo region.
@@ -1004,10 +938,8 @@ the Tokyo region.
 For more information, see
 [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
-{: #added-cli-plugin}
-
-New as of: 2018-10-02
+### 02 October 2018
+{: #key-protect-oct0218}
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
 to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service
@@ -1019,13 +951,12 @@ To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI,
 [check out the CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 
 ## September 2018
-{: #sept-2018}
+{: #key-protect-sept18}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for on-demand key rotation
-{: #added-key-rotation}
 
-New as of: 2018-09-28
+### 28 September 2018
+{: #key-protect-sep2818}
 
 You can now use the {{site.data.keyword.keymanagementserviceshort}} to rotate
 your root keys on-demand.
@@ -1033,10 +964,9 @@ your root keys on-demand.
 For more information, see
 [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
-### Added: End to end security tutorial for your cloud app
-{: #added-security-tutorial}
 
-New as of: 2018-09-14
+### 14 September 2018
+{: #key-protect-sep1418}
 
 Looking for code samples to help you encrypt storage bucket content with your
 own encryption keys?
@@ -1048,10 +978,9 @@ following
 For more information, see
 [check out the sample app in GitHub](https://github.com/IBM-Cloud/secure-file-storage){: external}.
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Washington DC region
-{: #added-wdc-region}
 
-New as of: 2018-09-10
+### 10 September 2018
+{: #key-protect-sep1018}
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in
 the Washington DC region.
@@ -1060,13 +989,12 @@ For more information, see
 [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## August 2018
-{: #aug-2018}
+{: #key-protect-aug18}
 {: release-note}
 
-### Changed: {{site.data.keyword.keymanagementserviceshort}} API documentation URL
-{: #changed-api-doc-url}
 
-New as of: 2018-08-28
+### 28 August 2018
+{: #key-protect-aug2818}
 
 The {{site.data.keyword.keymanagementserviceshort}} API Reference has moved!
 
@@ -1074,13 +1002,11 @@ You can now access the API documentation at
 [/apidocs/key-protect](/apidocs/key-protect){: external}.
 
 ## March 2018
-{: #mar-2018}
+{: #key-protect-mar18}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the Frankfurt region
-{: #added-frankfurt-region}
-
-New as of: 2018-03-21
+### 21 March 2018
+{: #key-protect-mar2118}
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in
 the Frankfurt region.
@@ -1089,13 +1015,12 @@ For more information, see
 [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## January 2018
-{: #jan-2018}
+{: #key-protect-jan18}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into Sydney region
-{: #added-sydney-region}
 
-New as of: 2018-01-31
+### 31 January 2018
+{: #key-protect-jan3118}
 
 You can now create {{site.data.keyword.keymanagementserviceshort}} resources in
 the Sydney region.
@@ -1104,13 +1029,12 @@ For more information, see
 [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
 ## December 2017
-{: #dec-2017}
+{: #key-protect-dec17}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Bring Your Own Key (BYOK)
-{: #added-byok-support}
 
-New as of: 2017-12-15
+### 15 December 2017
+{: #key-protect-dec1517}
 
 {{site.data.keyword.keymanagementserviceshort}} now supports Bring Your Own Key
 (BYOK) and customer-managed encryption.
@@ -1123,10 +1047,8 @@ New as of: 2017-12-15
     [envelope encryption](/docs/key-protect?topic=key-protect-integrate-cos#kp-cos-how)
     for {{site.data.keyword.cos_full_notm}} buckets.
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} expands into the London region
-{: #added-london-region}
-
-New as of: 2017-12-15
+### 15 December 2017
+{: #key-protect-dec1517}
 
 {{site.data.keyword.keymanagementserviceshort}} is now available in the London
 region.
@@ -1134,10 +1056,8 @@ region.
 For more information, see
 [Regions and locations](/docs/key-protect?topic=key-protect-regions).
 
-### Changed: {{site.data.keyword.iamshort}} roles
-{: #changed-iam-roles}
-
-New as of: 2017-12-15
+### 15 December 2017
+{: #key-protect-dec1517}
 
 {{site.data.keyword.iamshort}} roles, which determine the actions that you can
 perform on {{site.data.keyword.keymanagementserviceshort}} resources, have
@@ -1151,13 +1071,11 @@ For more information, see
 [Managing user access](/docs/key-protect?topic=key-protect-manage-access).
 
 ## September 2017
-{: #sept-2017}
+{: #key-protect-sept17}
 {: release-note}
 
-### Added: {{site.data.keyword.keymanagementserviceshort}} adds support for Cloud IAM
-{: #added-iam-support}
-
-New as of: 2017-09-19
+### 19 September 2017
+{: #key-protect-sep1917}
 
 You can now use {{site.data.keyword.iamshort}} to set and manage access policies
 for your {{site.data.keyword.keymanagementserviceshort}} resources.
