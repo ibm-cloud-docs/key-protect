@@ -271,10 +271,10 @@ Added:
 {: #key-protect-sep0920}
 {: release-note}
 
-The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
+Updated:
+: The {{site.data.keyword.keymanagementserviceshort}} CLI plug-in version 0.5.2
 was updated with these changes:
-:   Commands that specify JSON outout (`--output json`) now return an empty JSON
-    structure if there is no output. The [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog) has all CLI updates.
+  - Commands that specify JSON outout (`--output json`) now return an empty JSON structure if there is no output. The [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog) has all CLI updates.
 
 ## July 2020
 {: #key-protect-jul20}
@@ -293,25 +293,25 @@ Updated:
 {: #key-protect-jun2420}
 {: release-note}
 
-The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the
-following features:
-:   Enable/disable key: If you have _Manager_ access permissions, you can now use
+Updated:
+:   The {{site.data.keyword.keymanagementserviceshort}} UI now has support for the following features:
+ -  Enable/disable key: If you have _Manager_ access permissions, you can now use
     the {{site.data.keyword.keymanagementserviceshort}} UI to suspend or restore a
     key's encrypt and decrypt operations. For more information, see
     [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys#disable-enable-ui)
 
-:   Restore key: If you have _Manager_ access permissions, you can now use the the
+ -   Restore key: If you have _Manager_ access permissions, you can now use the the
     {{site.data.keyword.keymanagementserviceshort}} UI to restore a previously
     imported root key that was deleted. For more information, see
     [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
 
-:   Set an instance level dual authorization policy: You can now use the
+ -   Set an instance level dual authorization policy: You can now use the
     {{site.data.keyword.keymanagementserviceshort}} UI to require two users to
     safely delete a key from your {{site.data.keyword.keymanagementserviceshort}}
     instance. For more information, see
     [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
 
-:   Set an instance level network policy: You can now use the
+-   Set an instance level network policy: You can now use the
     {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to
     public or private networks. For more information, see
     [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
@@ -503,7 +503,8 @@ Added:
 {: #key-protect-sep1619}
 {: release-note}
 
-On 20 March 2019,
+Updated:
+:   On 20 March 2019,
 [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta)
 as a beta feature for importing encryption keys to the cloud with an extra layer
 of security. We're happy to announce that the feature has now reached its end of
@@ -511,9 +512,7 @@ beta period.
 :   The following API methods have changed:
 
 	- `POST api/v2/lockers` is now `POST api/v2/import_token`
-
 	- `GET api/v2/lockers` is now `GET api/v2/import_token`
-
 	- `GET api/v2/lockers/{id}` is no longer supported
 
 :   You can now create
@@ -546,6 +545,7 @@ for the service.
 
 ## June 2019
 {: #key-protect-jun19}
+
 ### 22 June 2019
 {: #key-protect-jun2219}
 {: release-note}
@@ -586,12 +586,12 @@ service.
 instance after 15 December 2017, your instance is IAM-managed and it is
 not affected by this change.
 
-	Need to remove a {{site.data.keyword.keymanagementserviceshort}} service
+	- Need to remove a {{site.data.keyword.keymanagementserviceshort}} service
 	instance from the **Cloud Foundry Services** section of your
 	{{site.data.keyword.cloud_notm}} resource list? You can reach out to us in the
 	[Support Center](/unifiedsupport/cases/add){: external}
 	by submitting a request to remove the entry from your console view.
-	{: tip}
+	
 
 ## March 2019
 {: #key-protect-mar19}
