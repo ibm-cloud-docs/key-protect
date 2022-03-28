@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-25"
+lastupdated: "2022-03-28"
 
 keywords: key protect, release notes, service updates
 
 subcollection: key-protect
 
-content-type: release-notes
+content-type: release-note
 
 ---
 
