@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-23"
+lastupdated: "2022-03-31"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -50,7 +50,7 @@ To grant access to keys within a {{site.data.keyword.keymanagementserviceshort}}
 
 6. Click the **Resources based on selected attributes** button.
 
-7. Click the **Instance ID** box and select the {site.data.keyword.keymanagementserviceshort}} instance that you want to grant access to.
+7. Click the **Instance ID** box and select the {{site.data.keyword.keymanagementserviceshort}} instance that you want to grant access to.
 
 8. Choose a combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) to assign access for the user.
 
