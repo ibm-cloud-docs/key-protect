@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-16"
+lastupdated: "2022-04-20"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -84,6 +84,11 @@ Note that even if the key is not restored, your data remains in those services i
 
 To help you determine what data is protected by a key, you can use {{site.data.keyword.keymanagementserviceshort}} APIs to [view associations between a key and your cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 {: note}
+
+### Account cancelation and data deletion
+{: #account-cancelation}
+
+If a user wishes to cancel their [{{site.data.keyword.cloud_notm}} account](/docs/account?topic=account-account_settings), it is their responsibility to first delete all keys before cancelation. With all the keys in the account deleted, or if the user wishes, also purged in addition to being (soft) deleted, the account cancelation will proceed and any data encrypted using those keys will be inaccessible. Data already present in security or audit logs, support records, or business transaction records, may be retained for those purposes. Any other data will be deleted after 30 days by {{site.data.keyword.keymanagementserviceshort}}, and all logs and backups of associated data will be deleted in 365 days. However, due to the possibility of crypto erasure where the contents of one account or instance are encrypted by keys belonging to an account that is in the process of being canceled, the user may request deletion via the creation of a support case.
 
 ## Compliance readiness
 {: #compliance-ready}
