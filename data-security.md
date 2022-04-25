@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-16"
+lastupdated: "2022-04-25"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -84,6 +84,7 @@ Note that even if the key is not restored, your data remains in those services i
 
 To help you determine what data is protected by a key, you can use {{site.data.keyword.keymanagementserviceshort}} APIs to [view associations between a key and your cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 {: note}
+
 
 ## Compliance readiness
 {: #compliance-ready}

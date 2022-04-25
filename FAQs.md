@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-04-21"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -38,6 +38,18 @@ Because {{site.data.keyword.keymanagementserviceshort}} pricing is done per key,
 
 
 
+## How is one user's information partitioned from other users' data?
+{: #faq-partition-data}
+{: faq}
+
+{{site.data.keyword.keymanagementserviceshort}} allows you to have one or more instances which are only accessible to you. Access within these instances (or at the account level), can be controlled by the account owner or a designated admin of that account, allowing the application of the principle of least privilege. One way this is possible is by grouping keys into "key rings", allowing an account owner to assign access to a particular group of keys to a particular group of users. For more information, check out [Grouping keys together using key rings](/docs/key-protect?topic=key-protect-grouping-keys).
+
+## How are instance keys secured?
+{: #faq-instance-secured}
+{: faq}
+
+Each {{site.data.keyword.keymanagementserviceshort}} instance gets a randomly-generated "instance key-encrypted-key" (IKEK) which is wrapped by the HSM master key, producing a wrapped instance key (WIKEK). No user has access to the WIKEK or the IKEK, and even {{site.data.keyword.IBM_notm}} does not have access to the IKEK. There is no direct or explicit access to the WIKEK by {{site.data.keyword.IBM_notm}}, and it is encrypted by the master key.
+
 ## What is an active encryption key?
 {: #what-is-active-encryption-key}
 {: faq}
@@ -60,7 +72,17 @@ To find out more about grouping keys, check out [Grouping keys together using ke
 
 Root keys are primary resources in {{site.data.keyword.keymanagementserviceshort}}. They are symmetric key-wrapping keys that are used as roots of trust for protecting other keys that are stored in a data service with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
-With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, andmanage the lifecycle of root keys to achieve full control of other keys stored in the cloud.
+With {{site.data.keyword.keymanagementserviceshort}}, you can create, store, and manage the lifecycle of root keys to achieve full control of other keys stored in the cloud.
+
+After a root key has been created, neither a user nor {{site.data.keyword.IBM_notm}} can see its key material.
+
+## What is a data encryption key (DEK)?
+{: #what-is-dek}
+{: faq}
+
+A DEK is a key used by services like {{site.data.keyword.cloud_notm}} Object Storage service to perform IBM-managed AES256 encryption of the data stored in the cloud object storage. The DEK keys are randomly generated and stored securely with the cloud object storage service near the resources they encrypt. The DEK is used for default encryption in all cases regardless of whether the customer wants to manage the encryption keys or not. The ICOS DEK is not managed by clients nor do they need to rotate it. For cases where clients do want to manage the encryption, they indirectly control the DEK by wrapping the DEK with their own "root key" stored in their {{site.data.keyword.keymanagementserviceshort}} instance. A root key can be generated or imported, and managed by you in your {{site.data.keyword.keymanagementserviceshort}} instance (for example, by rotating keys).
+
+{{site.data.keyword.keymanagementserviceshort}} can generate DEKs (which wraps keys without passing plaintext) through its HSM.
 
 ## What is envelope encryption?
 {: #what-is-envelope-encryption}
@@ -91,14 +113,16 @@ For more examples of personal data, see section 2.2 of the [NIST Special Publica
 {: faq}
 {: support}
 
-Your encryption keys can be used to encrypt data stores located anywhere within IBM Cloud.
+Your encryption keys can be used to encrypt data stores located anywhere within {{site.data.keyword.cloud_notm}}.
 
 ## How do I control who has access to keys?
 {: #access-control}
 {: faq}
 {: support}
 
-{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys. If you are a security admin for your service, you can assign [Cloud IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) you want to grant to members of your team.
+{{site.data.keyword.keymanagementserviceshort}} supports a centralized access control system, governed by {{site.data.keyword.iamlong}}, to help you manage users and access for your encryption keys and allow the principle of least privilege. If you are a security admin for your service, you can assign [{{site.data.keyword.cloud_notm}} IAM roles that correspond to the specific {{site.data.keyword.keymanagementserviceshort}} permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) you want to grant to members of your team.
+
+One way this is possible is by grouping keys into "key rings", allowing an account owner to assign access to a particular group of keys to a particular group of users. For more information, check out [Grouping keys together using key rings](/docs/key-protect?topic=key-protect-grouping-keys).
 
 ## What are differences between the Reader and ReaderPlus roles?
 {: #reader-readerplus}
@@ -123,7 +147,7 @@ To find out more, check out [{{site.data.keyword.at_full}} events](/docs/key-pro
 {: faq}
 {: support}
 
-When you use a root key to protect at rest data with envelope encryption, the cloud services that use the key can create a registration between the key and the resource that it protects. Registrations are associations between keys and cloud resources that help you get a full view of which encryption keys protect what data on IBM Cloud.
+When you use a root key to protect at rest data with envelope encryption, the cloud services that use the key can create a registration between the key and the resource that it protects. Registrations are associations between keys and cloud resources that help you get a full view of which encryption keys protect what data on {{site.data.keyword.cloud_notm}}.
 
 You can [browse the registrations](/docs/key-protect?topic=key-protect-view-protected-resources) that are available for your keys and cloud resources by using the {{site.data.keyword.keymanagementserviceshort}} APIs.
 
@@ -143,7 +167,7 @@ After a key has been deleted, any data that is encrypted by the key becomes inac
 {: faq}
 {: support}
 
-For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. If you try to delete a key that's registered with a cloud resource, the action won'tsucceed.
+For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. If you try to delete a key that's registered with a cloud resource, the action won't succeed.
 
 If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete) by using the {{site.data.keyword.keymanagementserviceshort}} APIs. [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources)and verify with the owner of the resources to ensure you no longer require access to that data.
 
