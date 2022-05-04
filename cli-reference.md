@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-05-04"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.10
 
@@ -114,6 +114,7 @@ The **`kp key`** command manages individual keys.
 
 | Sub-command                                                  | Status v0.6.10 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
+| [alias-create](#kp-key-alias-create)                             |               | Create an alias for a unique and convenient reference to a key |
 | [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
 | [delete](#kp-key-delete)                                     |               | Delete a key |
@@ -805,6 +806,68 @@ kp.Error:
 
     You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
+## kp key alias-create
+{: #kp-key-alias-create}
+
+Creates an alias name for a key and displays the output in JSON format. Each alias is unique only within the given instance and is not reserved across the Key Protect service. Each key can have up to five aliases. There is no limit to the number of aliases per instance. The length of the alias can be between 2 - 90 characters, inclusive. 
+
+An alias must be alphanumeric and cannot contain spaces or special characters other than '-' or '_'. Also, the alias cannot be a version 4 UUID and must not be a Key Protect reserved name: `allowed_ip`, `key`, `keys`, `metadata`, `policy`, `policies`, `registration`, `registrations`, `ring`, `rings`, `rotate`, `wrap`, `unwrap`, `rewrap`, `version`, `versions`. 
+
+```sh
+ibmcloud kp key alias-create KEY_ID -a KEY_ALIAS
+    -i, --instance-id     INSTANCE_ID
+    -a, --alias           KEY_ALIAS
+    [-o, --output         OUTPUT]
+```
+{: pre}
+
+### Examples
+{: #kp-key-alias-create-examples}
+
+This is an example of `kp key alias-create`.
+
+#### Example
+{: #kp-key-alias-create-example-1}
+
+Create a key alias.
+
+```sh
+# create a key alias
+$ ibmcloud kp key alias-create 24203f96-b134-440e-981a-a24f2d432256 my-alias
+
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+Key ID                                 Key Alias
+24203f96-b134-440e-981a-a24f2d432256   my-alias
+
+```
+{: screen}
+
+### Required parameters
+{: #kp-key-alias-create-required}
+
+* **`KEY_ID`**
+
+    The ID of the key that you want to modify. To retrieve a list of your
+    available keys, run the [kp keys](#kp-keys) command.
+    
+* **`KEY_ALIAS`**
+
+    The alias, or alternate identifier, of the key that you want to modify. The identifier must be: alphanumeric, and no spaces or special characters other than '-' or '_', and can not be a version 4 UUID.
+    
+* **`-i, --instance-ID`**
+
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+
+### Optional parameters
+{: #kp-key-alias-create-optional}
+
+* **`-o, --output`**
+
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+
 ## kp key cancel-delete
 {: #kp-key-cancel-delete}
 
@@ -1115,7 +1178,7 @@ $ echo $PAYLOAD | base64 -d
 
 * **`KEY_NAME`**
 
-    A unique, human-readable alias to assign to your key.
+    A unique, human-readable identifier to assign to your key.
 
 * **`-i, --instance-ID`**
 
