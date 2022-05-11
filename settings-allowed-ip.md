@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-02"
+  years: 2020, 2022
+lastupdated: "2022-05-11"
 
 keywords: instance settings, service settings, allowed ip, ip allowlist
 
@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:deprecated: .deprecated}
 
 # Managing an allowed IP policy
 {: #manage-allowed-ip}
@@ -28,6 +29,9 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service
 instance, you can manage allowed IP policies by using the
 {{site.data.keyword.keymanagementserviceshort}} service API.
 {: shortdesc}
+
+For the best results now available, use [context-based restrictions (CBR)](/docs/account?topic=account-context-restrictions-whatis) instead of an allowed IP policy to define and enforce access restrictions for {{site.data.keyword.cloud_notm}} resources based on the network location of access requests.
+{: deprecated}
 
 ## Managing allowed IP settings
 {: #manage-allowed-ip-instance-policy}

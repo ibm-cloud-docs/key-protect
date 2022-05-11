@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-05-11"
 
 keywords: instance settings, service settings, network access policies
 
@@ -20,6 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:deprecated: .deprecated}
 
 # Setting and editing network access policies
 {: #managing-network-access-policies}
@@ -30,6 +31,9 @@ instance, you manage network access policies by using the service API.
 
 ## Managing network access policy settings
 {: #managing-network-access-policy-settings}
+
+For the best results now available, use [context-based restrictions (CBR)](/docs/account?topic=account-context-restrictions-whatis) instead of an [allowed IP policy](/docs/key-protect?topic=key-protect-manage-allowed-ip) to define and enforce access policies for {{site.data.keyword.cloud_notm}} resources based on the network location of access requests.
+{: deprecated}
 
 A network access policy for {{site.data.keyword.keymanagementserviceshort}}
 instances is an extra policy that customers can use to block a
