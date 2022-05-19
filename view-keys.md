@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-05-19"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -58,7 +58,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name (it will not return words found in a key alias or a key ring). The fields found in the table can be customized using the **Settings** button. By default you will see:
 
-4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name, key ID, and alias. The fields found in the table can be customized using the **Settings** button. By default you will see:
+4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you will see:
 
 | Column | Description |
 | ------ | ----------- |
