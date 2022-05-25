@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-12-16"
+  years: 2019, 2022
+lastupdated: "2022-05-25"
 
 keywords: shared responsibilities, disaster recovery, incident management
 

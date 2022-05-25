@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-03"
+  years: 2017, 2022
+lastupdated: "2022-05-25"
 
 keywords: envelope encryption, wrap data encryption key, unwrap data encryption key
 

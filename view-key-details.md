@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-14"
+  years: 2017, 2022
+lastupdated: "2022-05-25"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 

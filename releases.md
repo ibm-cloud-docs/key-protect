@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-31"
+lastupdated: "2022-05-25"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,19 @@ content-type: release-note
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## May 2022
+{: #key-protect-may22}
+
+### 05 May 2022
+{: #key-protect-may0522}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces new features
+:   Added support for managing a list of keys returned by the service. 
+
+   The new features will have a limited release. Look for future notifications relating to their availability and supported environments for more information. 
+   {: preview}
 
 ## March 2022
 {: #key-protect-mar22}
