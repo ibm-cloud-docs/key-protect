@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-05-26"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -55,7 +55,8 @@ If you prefer to inspect the keys in your service by using a graphical interface
 2. Go to **Menu** > **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
-4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name (it will not return words found in a key alias or a key ring). The fields found in the table can be customized using the **Settings** button. By default you will see:
+
+4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you will see:
 
 | Column | Description |
 | ------ | ----------- |
@@ -69,7 +70,21 @@ If you prefer to inspect the keys in your service by using a graphical interface
 | Key states | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
 {: caption="Table 1. Describes the Keys table." caption-side="bottom"}
 
+If you have more than 5,000 keys, and you cannot filter the number of keys that will be searched to less than 5,000 (for example, by filtering by key state to only look for `Enabled` keys), your search will fail unless it exactly matches a key ID or alias. For more information about the API spec for key search, check out [GET /keys](/apidocs/key-protect#getkeys).
+{: tip}
 
+If you want to narrow the number of results returned by a search, try using one or a combination of the following parameters:
+
+* `not:` when specified, inverts the logic the search uses (for example, `not:foo` will search for keys that have aliases or names that do not contain `foo`).
+* `escape:` everything after this option is take as plaintext (example: `escape:not:` will search for keys that have an alias or name containing the substring `not:`).
+* `exact:` only looks for exact matches.
+* `alias:` only looks for key aliases.
+* `name:` only looks for key names.
+
+Note that `not:exact:foobar` will look for keys where key name or alias is *not* exactly `foobar`, while `exact:not:foobar` will look for keys where key name or alias is exactly `not:foobar`
+
+Search scopes behave in an *OR* manner. This means when using more than one search scope, a match in at least one of the scopes will result in the key being returned. By default (if no scopes are provided), the search is performed in both `name` and `alias` scopes.
+{: important}
 
 **Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance?** Verify with your administrator that you are assigned the correct role for the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
@@ -146,7 +161,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following table.
+    Replace the variables in the example request according to the information in Table 1. For more information about optional parameters available when viewing collections of keys, including the ability to search your keys, see the [API documentation regarding the `List keys` method](/apidocs/key-protect#getkeys).
 
 |Variable|Description|
 |--- |--- |
@@ -157,7 +172,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 {: caption="Table 1. Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
-A successful `GET api/v2/keys` request returns a collection of keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance.
+A successful `GET api/v2/keys` request returns a collection of keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance. 
 
 ```json
 {
