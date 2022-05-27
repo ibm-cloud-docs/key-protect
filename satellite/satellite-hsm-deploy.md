@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-15"
+  years: 2022
+lastupdated: "2022-05-25"
 
 keywords: satellite, hsm, deploy
 

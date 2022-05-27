@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-09"
+  years: 2017, 2022
+lastupdated: "2022-05-25"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key
 
