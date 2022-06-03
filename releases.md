@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-25"
+lastupdated: "2022-06-02"
 
 keywords: key protect, release notes, service updates
 
@@ -32,18 +32,16 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+
 ## May 2022
 {: #key-protect-may22}
 
-### 05 May 2022
-{: #key-protect-may0522}
+### 25 May 2022
+{: #key-protect-may2522}
 {: release-note}
 
 {{site.data.keyword.keymanagementservicefull}} announces new features
-:   Added support for managing a list of keys returned by the service. 
-
-   The new features will have a limited release. Look for future notifications relating to their availability and supported environments for more information. 
-   {: preview}
+:   Added support for searching a list of keys returned by the service, limiting the number of keys returned. Searching keys will first be available in the [UI](/login) as well as from the [API](/apidocs/key-protect). For more information, see [Viewing keys in the console](/docs/key-protect?topic=key-protect-view-keys&interface=ui#view-keys-gui).
 
 ## March 2022
 {: #key-protect-mar22}
