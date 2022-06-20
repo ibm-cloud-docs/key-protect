@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-06-20"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -123,11 +123,11 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 
 1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
 
-2. Click the name of the user whose fine-grain access you want to see.
+2. Select a table row, and click the ⋯ icon to open a list of options for that user. Then select **Manage Access** from the drop down list.
 
-3. Click **Access policies**.
+3. Here you can see all of the IAM information for this user, including the Access groups they belong to. To specifically see the access policies for this user, click the **Access policies** tab.
 
-Here you will see all of the policies assigned to this user, including any fine-grained access over keys.
+An account owner or user with the appropriate privileges can see all of the policies assigned to this user, including any fine-grained access over keys.
 
 ## Viewing keys with the API
 {: #view-keys-api}
