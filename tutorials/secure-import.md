@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-06-20"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -68,7 +68,7 @@ intended for users who are new to
 familiarity with key management systems. The following steps should take about
 20 minutes to complete.
 
-- Setting up the {{site.data.keyword.keymanagementserviceshort}} API
+- Setting up the {{site.data.keyword.keymanagementserviceshort}} CLI
 
 - Preparing your {{site.data.keyword.keymanagementserviceshort}} service
     instance to begin importing keys
@@ -93,10 +93,12 @@ installed locally on your computer.
     [{{site.data.keyword.cloud_notm}} account](/login/){: external}.
 
 2. Download and install the
-    [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external}
+    [{{site.data.keyword.cloud_notm}} base CLI](/docs/cli?topic=cli-getting-started){: external}
     for your operating system.
 
-3. Download and install the
+3. Complete the [configuration of the {{site.data.keyword.keymanagementserviceshort}} plugin](/docs/key-protect?topic=key-protect-set-up-cli).
+
+4. Download and install the
     [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
 
     You can use `openssl` commands to generate encryption keys on your local
@@ -111,7 +113,7 @@ installed locally on your computer.
     latest version.
     {: tip}
 
-4. Download and install [jq](https://stedolan.github.io/jq/){: external}.
+5. Download and install [jq](https://stedolan.github.io/jq/){: external}.
 
     `jq` helps you slice up JSON data. You use `jq` in this tutorial to capture
     specific data that's returned when you call the
