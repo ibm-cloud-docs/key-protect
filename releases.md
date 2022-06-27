@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-02"
+lastupdated: "2022-06-27"
 
 keywords: key protect, release notes, service updates
 
@@ -32,6 +32,15 @@ Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## June 2022
+{: #key-protect-jun22}
+
+### 22 June 2022
+{: #key-protect-jun2222}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces new features
+:   Added support for sorting a list of keys returned by the service based on one or more key properties. Sorting keys will first be available in the [API](/apidocs/key-protect). For more information, see [the parameter for sorting keys using the `GET /keys` method from the API](/apidocs/key-protect#getkeys).
 
 ## May 2022
 {: #key-protect-may22}

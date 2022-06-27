@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-06-27"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -116,6 +116,8 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 5. Select the key state of the keys that you would like to retrieve.
 
 6. Click the **Apply** button.
+
+7. Further, in the table row headings, you can click on **`Last Updated`** to sort the list by the date that the keys in the table were updated most recently, or click on **`Type`** to list all of the root keys and standard keys as groups.
 
 #### Viewing fine-grain access keys through IAM
 {: #filter-key-state-gui-iam}
