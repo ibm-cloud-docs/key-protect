@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-27"
+lastupdated: "2022-06-28"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -341,3 +341,24 @@ For usage notes, check out the following examples for setting your `extractable`
 |`../keys?extractable=true`|Lists standard keys.|
 |`../keys?extractable=false`|Lists root keys.|
 {: caption="Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
+
+### Sorting a list of keys
+{: #filter-keys-sort-api}
+{: api}
+
+Using the **`sort`** parameter in the query string [sorts the list of keys](/apidocs/key-protect#kp-get-key-sort-api) returned based on one or more key properties. To sort on a property in descending order, prefix the term with "-". To sort on multiple key properties, use a comma to separate each properties. The first property in the comma-separated list will be evaluated before the next. 
+
+```sh
+$ curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys?sort=<sort-value>" \
+    -H "accept: application/vnd.ibm.collection+json" \
+    -H "authorization: Bearer <IAM_token>" \
+    -H "bluemix-instance: <instance_ID>"
+```
+{: codeblock}
+
+|Variable|Description|
+|--- |--- |
+| sort-value | The list of properties for sorting. The key properties that can be sorted at this time are:  \n \n- id \n- state \n- extractable \n- imported \n- creationDate \n- lastUpdateDate \n- lastRotateDate \n- deletionDate \n- expirationDate |
+{: caption="Table 7. Usage notes for the sort query parameter." caption-side="top"}
+
