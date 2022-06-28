@@ -360,14 +360,14 @@ $ curl -X GET \
 |Variable|Description|
 |--- |--- |
 | sort-value | The list of properties for sorting. The key properties that can be sorted at this time are:
-- id
-- state
-- extractable
-- imported
-- creationDate
-- lastUpdateDate
-- lastRotateDate
-- deletionDate
-- expirationDate |
+   - id
+   - state
+   - extractable
+   - imported
+   - creationDate
+   - lastUpdateDate
+   - lastRotateDate
+   - deletionDate
+   - expirationDate |
 {: caption="Table 7. Usage notes for the sort query parameter." caption-side="top"}
 
