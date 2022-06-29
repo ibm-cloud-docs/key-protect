@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-25"
+lastupdated: "2022-06-29"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -62,7 +62,7 @@ following **storage** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances in your VPC. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} |
+| [{{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances in your VPC. | [View docs](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption){: external} |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} | You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-kp){: external} |
 {: caption="Table 2. Supported storage services." caption-side="bottom"}
 
