@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-04"
+lastupdated: "2022-07-08"
 
-keywords: Key Protect CLI plug-in, CLI reference, version 0.6.10
+keywords: Key Protect CLI plug-in, CLI reference, version 0.6.11
 
 subcollection: key-protect
 
@@ -29,9 +29,6 @@ CLI plug-in provides a safe and efficient way to manage keys in your instance
 of {{site.data.keyword.keymanagementserviceshort}}.
 {: shortdesc}
 
-To install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see
-[Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
-
 When you log in to the
 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started){: external},
 you're notified when updates are available. Be sure to keep your CLI up-to-date
@@ -42,13 +39,15 @@ so that you can use the commands and flags that are available for the
 ## Notes
 {: #cli-reference-notes}
 
+To install and configure the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, see the topic on [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli).
+
 The example showing how to use [**`region-set`**](#kp-region-set-examples) outlines a critical step in configuration.
 {: important}
 
 ### Previous versions
 {: #cli-reference-previous}
 
-This documentation for version 0.6.10 does not include deprecated commands.
+This documentation for version 0.6.11 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -809,7 +808,7 @@ kp.Error:
 ## kp key alias-create
 {: #kp-key-alias-create}
 
-Creates an alias name for a key and displays the output in JSON format. Each alias is unique only within the given instance and is not reserved across the Key Protect service. Each key can have up to five aliases. There is no limit to the number of aliases per instance. The length of the alias can be between 2 - 90 characters, inclusive. 
+Creates an alias for a key and displays the output in JSON format. Aliases can be used as reference in methods that accept a key `ID`.  Each alias is unique only within the given instance and is not reserved across the {{site.data.keyword.keymanagementserviceshort}} service. Each key can have up to five aliases. There is no limit to the number of aliases per instance. The length of the alias can be between 2 - 90 characters, inclusive. 
 
 An alias must be alphanumeric and cannot contain spaces or special characters other than '-' or '_'. Also, the alias cannot be a version 4 UUID and must not be a Key Protect reserved name: `allowed_ip`, `key`, `keys`, `metadata`, `policy`, `policies`, `registration`, `registrations`, `ring`, `rings`, `rotate`, `wrap`, `unwrap`, `rewrap`, `version`, `versions`. 
 
@@ -904,7 +903,7 @@ There are two ways to enable the `dual-auth-delete` policy:
     instance policy is enabled inherit the instance policy setting
 
 ```sh
-ibmcloud kp key cancel-delete KEY_ID
+ibmcloud kp key cancel-delete KEY_ID_OR_ALIAS
     -i, --instance-id INSTANCE_ID
 ```
 {: pre}
@@ -941,9 +940,9 @@ OK
 ### Required parameters
 {: #kp-key-cancel-delete-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to delete. To retrieve a list of your available keys, run the [kp keys](#kp-keys) command.
+    The v4 UUID or alias of the key that you want to delete. To retrieve a list of your available keys, run the [kp keys](#kp-keys) command.
 
 ## kp key create
 {: #kp-key-create}
@@ -1232,7 +1231,7 @@ $ echo $PAYLOAD | base64 -d
 is stored in your {{site.data.keyword.keymanagementserviceshort}} service.
 
 ```sh
-ibmcloud kp key delete KEY_ID
+ibmcloud kp key delete KEY_ID_OR_ALIAS
         -i, --instance-id INSTANCE_ID
     [--key-ring          KEY_RING_ID]
     [-f, --force]
@@ -1428,9 +1427,9 @@ No service instance found.
 ### Required parameters
 {: #kp-key-delete-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to delete. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
@@ -1489,7 +1488,7 @@ key has been revoked (and is now disabled) and the key can **not** be used for
 encrypt and decrypt operations.
 
 ```sh
-ibmcloud kp key disable KEY_ID
+ibmcloud kp key disable KEY_ID_OR_ALIAS
     -i, --instance-id INSTANCE_ID
     [--key-ring         KEY_RING_ID]
 ```
@@ -1610,9 +1609,9 @@ kp.Error:
 ### Required parameters
 {: #kp-key-disable-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to delete. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
@@ -1645,7 +1644,7 @@ key has been restored (and is now enabled) and the key can be used for encrypt
 and decrypt operations, such as wrap, unwrap, and rewrap.
 
 ```sh
-ibmcloud kp key enable <KEY_ID> -i <INSTANCE_ID> [ --key-ring KEY_RING_ID]
+ibmcloud kp key enable <KEY_ID_OR_ALIAS> -i <INSTANCE_ID> [ --key-ring KEY_RING_ID]
 ```
 {: pre}
 
@@ -1744,9 +1743,9 @@ $ ibmcloud kp key show 264fadc3-7667-4b25-916e-5825fe70de0b --output json
 ### Required parameters
 {: #kp-key-enable-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to delete. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
@@ -1769,7 +1768,7 @@ Retrieve details about a key policy, such as the key's automatic rotation
 interval.
 
 ```sh
-ibmcloud kp key policies KEY_ID
+ibmcloud kp key policies KEY_ID_OR_ALIAS
         -i, --instance-id INSTANCE_ID
     [--key-ring          KEY_RING_ID]
     [-d, --dual-auth]
@@ -1850,9 +1849,9 @@ $ ibmcloud kp key policies $KEY_ID --output json
 ### Required parameters
 {: #kp-key-policies-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to query. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-i, --instance-id`**
@@ -1902,7 +1901,7 @@ or
 to delete the key.
 
 ```sh
-ibmcloud kp key policy-update dual-auth-delete KEY_ID
+ibmcloud kp key policy-update dual-auth-delete KEY_ID_OR_ALIAS
         -i, --instance-id INSTANCE_ID
         -e, --enable
     [--key-ring          KEY_RING_ID]
@@ -1973,7 +1972,7 @@ $ ibmcloud kp key policies $KEY_ID --output json
 ]
 
 # this should fail (the key has a dual authorization policy)
-$ ibmcloud kp key delete $KEY_ID
+$ ibmcloud kp key delete $KEY_ID_OR_ALIAS
 
 Deleting key: d887bfe8-5166-4dad-af32-7e3055ca1873, from instance: a192d603-0b8d-452f-aac3-f9e1f95e7411...
 FAILED
@@ -1989,9 +1988,9 @@ kp.Error:
 ### Required parameters
 {: #kp-key-policy-update-dual-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to query. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 * **`-e, --enable`**
@@ -2028,7 +2027,7 @@ For more information, see
 {: note}
 
 ```sh
-ibmcloud kp key policy-update rotation KEY_ID
+ibmcloud kp key policy-update rotation KEY_ID_OR_ALIAS
         -i, --instance-id      INSTANCE_ID
     [-m, --monthly-interval MONTHS]
     [-o, --output           OUTPUT]
@@ -2102,9 +2101,9 @@ $ ibmcloud kp key policies $KEY_ID --output json
 ### Required parameters
 {: #kp-key-policy-update-rotation-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to query. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to query. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 ### Optional parameters
@@ -2153,7 +2152,7 @@ deleted key without provided the original `key material`.
 {: important}
 
 ```sh
-ibmcloud kp key restore KEY_ID
+ibmcloud kp key restore KEY_ID_OR_ALIAS
         -i, --instance-id     INSTANCE_ID
         -k, --key-material    KEY_MATERIAL
     [--key-ring          KEY_RING_ID]
@@ -2397,9 +2396,9 @@ c42c6f2c-8b67-4016-b2c3-99fba9490f5d   my-imported-root-key
 ### Required parameters
 {: #kp-key-restore-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to restore.
+    The v4 UUID or alias of the key that you want to restore.
 
 * **`-i, --instance-ID`**
 
@@ -2533,14 +2532,14 @@ parameter.
 
 If you created a key and provided the key material
 (`kp key create key-name -k $KEY_MATERIAL`) then you must provide a new key
-material when you rotate the key (`kp key rotate $KEY_ID -k $NEW_KEY_MATERIAL`)
+material when you rotate the key (`kp key rotate $KEY_ID_OR_ALIAS -k $NEW_KEY_MATERIAL`)
 
 You cannot rotate a `standard` key, that is, a key created using the
 `kp create key-name --standard-key` command.
 {: note}
 
 ```sh
-ibmcloud kp key rotate KEY_ID
+ibmcloud kp key rotate KEY_ID_OR_ALIAS
         -i, --instance-id  INSTANCE_ID
     [--key-ring           KEY_RING_ID]
     [-k, --key-material KEY_MATERIAL]
@@ -2723,9 +2722,9 @@ $ ibmcloud kp key unwrap $KEY_ID $NEWCIPHERTEXT --output json
 ### Required parameters
 {: #kp-key-rotate-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the root key that you want to rotate.
+    The v4 UUID or alias of the root key that you want to rotate.
 
 * **`-i, --instance-id`**
 
@@ -2781,7 +2780,7 @@ The
 command cancels, or removes, a prior authorization.
 
 ```sh
-ibmcloud kp key schedule-delete KEY_ID
+ibmcloud kp key schedule-delete KEY_ID_OR_ALIAS
     -i, --instance-id INSTANCE_ID
     [--key-ring         KEY_RING_ID]
 ```
@@ -2794,13 +2793,13 @@ This is an example of scheduleing a key to be deleted.
 
 ```sh
 # schedule this key to be deleted
-$ ibmcloud kp key schedule-delete $KEY_ID
+$ ibmcloud kp key schedule-delete $KEY_ID_OR_ALIAS
 
 Scheduling key for deletion...
 OK
 
 # this key has a dual-auth-delete policy
-$ ibmcloud kp key policies $KEY_ID --output json
+$ ibmcloud kp key policies $KEY_ID_OR_ALIAS --output json
 
 [
   {
@@ -2819,9 +2818,9 @@ $ ibmcloud kp key policies $KEY_ID --output json
 ### Required parameters
 {: #kp-key-schedule-delete-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the key that you want to delete. To retrieve a list of your
+    The v4 UUID or alias of the key that you want to delete. To retrieve a list of your
     available keys, run the [kp keys](#kp-keys) command.
 
 ### Optional parameters
@@ -2840,7 +2839,7 @@ If the key was designated as a root key, the system cannot return the key
 material for that key.
 
 ```sh
-ibmcloud kp key show KEY_ID|KEY_ALIAS
+ibmcloud kp key show KEY_ID_OR_ALIAS
         -i, --instance-id INSTANCE_ID
     [--key-ring          KEY_RING_ID]
     [-o, --output      OUTPUT]
@@ -2897,7 +2896,7 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
     "lastRotateDate": "2020-05-05T19:58:24Z",
     "keyVersion": {
         "id": "85b65b20-4165-4da3-8ba9-880e72390461",
-    "creationDate": "2020-05-05T19:58:24Z"
+        "creationDate": "2020-05-05T19:58:24Z"
     },
     "extractable": false,
     "state": 1,
@@ -2925,9 +2924,9 @@ $ ibmcloud kp key show 8635b804-9966-4918-a16b-d561fdbf181f --output json
 ### Required parameters
 {: #kp-key-show-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the root key that you want to show.
+    The v4 UUID or alias of the root key that you want to show.
 
 * **`-i, --instance-id`**
 
@@ -2954,7 +2953,7 @@ with an existing key ring or a new key ring in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```sh
-ibmcloud kp key update KEY_ID
+ibmcloud kp key update KEY_ID_OR_ALIAS
         -i, --instance-id         INSTANCE_ID
         -r, --new-key-ring        KEY_RING_ID
     [-o, --output              OUTPUT]
@@ -2964,9 +2963,9 @@ ibmcloud kp key update KEY_ID
 ### Required parameters
 {: #kp-key-update-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the root key that you want to show.
+    The v4 UUID or alias of the root key that you want to show.
 
 * **`-i, --instance-id`**
 
@@ -3016,7 +3015,7 @@ using a root key that is stored in your
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```sh
-ibmcloud kp key unwrap KEY_ID CIPHERTEXT_FROM_WRAP
+ibmcloud kp key unwrap KEY_ID_OR_ALIAS CIPHERTEXT_FROM_WRAP
         -i, --instance-id INSTANCE_ID
     [-a, --aad         ADDITIONAL_DATA]
     [--key-ring           KEY_RING_ID]
@@ -3126,9 +3125,9 @@ FAILED
 ### Required parameters
 {: #kp-key-unwrap-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the root key that you used for the initial wrap request.
+    The v4 UUID or alias of the root key that you used for the initial wrap request.
 
 * **`CIPHERTEXT_FROM_WRAP`**
 
@@ -3176,7 +3175,7 @@ parameter (`ibmcloud kp key create my-key-name -s`).
 {: note}
 
 ```sh
-ibmcloud kp key wrap KEY_ID
+ibmcloud kp key wrap KEY_ID_OR_ALIAS
         -i, --instance-id INSTANCE_ID
     [--key-ring           KEY_RING_ID]
     [-a, --aad         ADDITIONAL_DATA]
@@ -3338,9 +3337,9 @@ FAILED
 ### Required parameters
 {: #kp-key-wrap-required}
 
-* **`KEY_ID`**
+* **`KEY_ID_OR_ALIAS`**
 
-    The ID of the root key that you want to use for wrapping. You cannot wrap a
+    The v4 UUID or alias of the root key that you want to use for wrapping. You cannot wrap a
     standard key.
 
 * **`-i, --instance-id`**
@@ -3364,7 +3363,7 @@ FAILED
 
 * **`-p, --plaintext`**
 
-    The `plaintext` specifies a base64-encoded data encryption key (DEK) that is wrapped by the root key (the `KEY_ID` parameter).
+    The `plaintext` specifies a base64-encoded data encryption key (DEK) that is wrapped by the root key (identified by the `KEY_ID` or `ALIAS` parameters).
 
     The base64-encoded data encryption key (DEK) that you want to manage and protect. To import an existing key, provide a 32-byte (256-bit) key.
 
@@ -3780,7 +3779,7 @@ ibmcloud kp registrations
         -i, --instance-id INSTANCE_ID
     [--key-ring             KEY_RING_ID]
     [-c, --crn-query   CRN_PATTERN]
-    [-k, --key-id      KEY_ID]
+    [-k, --key-id      KEY_ID_OR_ALIAS]
     [-o, --output      OUTPUT]
 ```
 {: pre}
@@ -4176,6 +4175,11 @@ No service instance found.
 ### Required parameters
 {: #kp-registrations-required}
 
+
+* **`KEY_ID_OR_ALIAS`**
+
+    The v4 UUID or alias of the key that you want to query.
+
 * **`-i, --instance-id`**
 
     The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
@@ -4207,5 +4211,3 @@ No service instance found.
 {: #cli-reference-next-steps}
 
 Look for related operations in the [API documentation](/apidocs/key-protect).
-
-
