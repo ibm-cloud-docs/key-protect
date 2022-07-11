@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-07-11"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.11
 
@@ -85,7 +85,7 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 The **`kp import-token`** command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.6.10 | Description |
+| Sub-command                                     | Status v0.6.11 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     |         | Encrypt the key that you import into the service |
@@ -99,11 +99,11 @@ The **`kp import-token`** command prepares a root key for secure import.
 The **`kp instance`** command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.6.10 | Description |
+| Sub-command                                                         | Status v0.6.11 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
-| [policies](#kp-instance-policies)                                   |            | List policies associated with an instance |
-| policy-update [allowed-network](#kp-instance-policy-update-allowed) |            | Update the instance policy for "allowed network" |
-| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   |            | Update the instance policy for "dual auth delete" |
+| [policies](#kp-instance-policies)                                   |               | List policies associated with an instance |
+| policy-update [allowed-network](#kp-instance-policy-update-allowed) |               | Update the instance policy for "allowed network" |
+| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   |               | Update the instance policy for "dual auth delete" |
 {: caption="Table 2. Sub-commands for managing keys" caption-side="bottom"}
 
 ### kp key command
@@ -111,25 +111,26 @@ The **`kp instance`** command manages policies for a
 
 The **`kp key`** command manages individual keys.
 
-| Sub-command                                                  | Status v0.6.10 | Description |
+| Sub-command                                                  | Status v0.6.11 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
-| [alias-create](#kp-key-alias-create)                             |               | Create an alias for a unique and convenient reference to a key |
-| [cancel-delete](#kp-key-cancel-delete)                       |            | Cancel a previously scheduled request to delete a key |
+| [alias-create](#kp-key-alias-create)                         |               | Create an alias for a unique and convenient reference to a key |
+| [cancel-delete](#kp-key-cancel-delete)                       |               | Cancel a previously scheduled request to delete a key |
 | [create](#kp-key-create)                                     |               | Create a key or import your own key |
 | [delete](#kp-key-delete)                                     |               | Delete a key |
-| [disable](#kp-key-disable)                                   |            | Disable a key |
-| [enable](#kp-key-enable)                                     |            | Enable a key |
+| [disable](#kp-key-disable)                                   |               | Disable a key |
+| [enable](#kp-key-enable)                                     |               | Enable a key |
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
-| policy-update [dual-auth-delete](#kp-key-policy-update-dual) |         | Update the key policy for "dual auth delete" |
-| policy-update [rotation](#kp-key-policy-update-rotation)     |         | Update the key polcy for "rotation" |
-| [purge](#kp-key-purge)                                       |         | Purge a deleted key |
-| [restore](#kp-key-restore)                                   |            | Restore a root key that was previously deleted |
+| policy-update [dual-auth-delete](#kp-key-policy-update-dual) |               | Update the key policy for "dual auth delete" |
+| policy-update [rotation](#kp-key-policy-update-rotation)     |               | Update the key polcy for "rotation" |
+| [purge](#kp-key-purge)                                       |               | Purge a deleted key |
+| [restore](#kp-key-restore)                                   |               | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
-| [schedule-delete](#kp-key-schedule-delete)                   |            | Authorize a key, with a dual-auth-delete policy, to be deleted |
-| [show](#kp-key-show)                                         |         | Retrieve a key |
+| [schedule-delete](#kp-key-schedule-delete)                   |               | Authorize a key, with a dual-auth-delete policy, to be deleted |
+| [show](#kp-key-show)                                         |               | Retrieve a key |
 | [sync](#kp-key-sync)                                         |               | Synchronize a key's associated resources |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [update](#kp-key-update)                                     |               | Update a key, transferring it to a new key ring |
+| [versions](#kp-key-versions)                                 |      new      | List all key versions  |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
 {: caption="Table 3. Sub-commands for managing keys" caption-side="bottom"}
 
@@ -138,7 +139,7 @@ The **`kp key`** command manages individual keys.
 
 Key Ring support allows for managing groups of keys for best practices using **`kp key-ring`**.
 
-| Sub-command                                                  | Status v0.6.10 | Description |
+| Sub-command                                                  | Status v0.6.11 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [create](#kp-key-ring-create)                       |     | Creates a key ring within a kp instance |
 | [delete](#kp-key-ring-delete)                       |     | Deletes a key ring within a kp instance |
@@ -150,7 +151,7 @@ Key Ring support allows for managing groups of keys for best practices using **`
 More commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources could support best practices.
 
-| Command                               | Status v0.6.10 | Description |
+| Command                               | Status v0.6.11 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |               | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
@@ -3156,6 +3157,215 @@ FAILED
 * **`--key-ring`**
 
     A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+
+## kp key versions
+{: #kp-key-versions}
+
+When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} creates a new version of the key. [List all key versions](/docs/key-protect?topic=key-protect-view-key-versions) that are available for a KeyID or Key Alias in your {{site.data.keyword.keymanagementserviceshort}} instance.
+
+```sh
+ibmcloud kp key versions KEY_ID_OR_ALIAS
+        -i, --instance-id INSTANCE_ID
+    [-r, --key-ring                KEY_RING_ID]
+    [-n, --number-of-key-versions  VERSION_LIMIT]
+    [-o, --output                  OUTPUT]
+    [-s, --starting-offset         OFFSET]
+    [-t, --total-count             TOTAL_COUNT]
+
+```
+{: pre}
+
+#### Example 1
+{: #kp-key-versions-example-1}
+
+One use case is auditing the rotation history of a root key as a security admin, by viewing its key version history.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# rotate the root key
+$ ibmcloud kp key rotate 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+
+Rotating root key...
+OK
+
+# Inspect the versions
+$ ibmcloud kp key versions 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+
+Retrieving key Versions...
+OK
+Key Version ID                         Creation Date   
+21562e93-8882-420e-90a7-912c70023373   2022-07-08T17:02:10Z
+390086ac-76fa-4094-8cf3-c0829bd69526   2022-07-08T17:02:40Z
+```
+
+#### Example 2
+{: #kp-key-versions-example-2}
+
+The same use case for auditing a root key as a security admin and viewing the history, with its total count in JSON output.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# rotate the root key
+$ ibmcloud kp key rotate 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+
+Rotating root key...
+OK
+
+# Inspect the versions
+$ ibmcloud kp key versions 807eb0a6-cc10-4bfe-8331-41a6f712c4ea -t -o json
+{
+        "metadata": {
+                "collectionType": "application/vnd.ibm.kms.key.version+json",
+                "collectionTotal": 2,
+                "totalCount": 2
+        },
+        "resources": [
+                {
+                        "id": "21562e93-8882-420e-90a7-912c70023373",
+                        "creationDate": "2022-07-08T17:02:10Z"
+                },
+                {
+                        "id": "390086ac-76fa-4094-8cf3-c0829bd69526",
+                        "creationDate": "2022-07-08T17:02:40Z"
+                }
+        ]
+}
+
+```
+
+#### Example 3
+{: #kp-key-versions-example-3}
+
+Another use case lists the first 12 key versions for a key set on a monthly rotation for the past year.
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# rotate the root key
+$ ibmcloud kp key rotate 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+
+Rotating root key...
+OK
+
+# Inspect the versions
+$ ibmcloud kp key versions 807eb0a6-cc10-4bfe-8331-41a6f712c4ea -n 12 -o json
+{
+        "metadata": {
+                "collectionType": "application/vnd.ibm.kms.key.version+json",
+                "collectionTotal": 12
+        },
+        "resources": [
+                {
+                        "id": "21562e93-8882-420e-90a7-912c70023373",
+                        "creationDate": "2021-07-08T17:02:10Z"
+                },
+                {
+                        "id": "390086ac-76fa-4094-8cf3-c0829bd69526",
+                        "creationDate": "2021-08-08T17:02:40Z"
+                },[...10x]
+        ]
+}
+
+```
+
+#### Example 4
+{: #kp-key-versions-example-4}
+
+Another use case lists the second 12 key versions for a key set on a monthly rotation for the past two years.
+
+ibmcloud kp key versions $KEY_ID_OR_ALIAS -n 12 -s 12
+
+```sh
+# create a root key
+$ ibmcloud kp key create my-root-key
+
+Creating key: 'my-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+Key ID                                 Key Name
+807eb0a6-cc10-4bfe-8331-41a6f712c4ea   my-root-key
+
+# rotate the root key
+$ ibmcloud kp key rotate 807eb0a6-cc10-4bfe-8331-41a6f712c4ea
+
+Rotating root key...
+OK
+
+# Inspect the versions
+$ ibmcloud kp key versions 807eb0a6-cc10-4bfe-8331-41a6f712c4ea -n 12 -s 12 -o json
+{
+        "metadata": {
+                "collectionType": "application/vnd.ibm.kms.key.version+json",
+                "collectionTotal": 12
+        },
+        "resources": [
+                {
+                        "id": "21562e93-8882-420e-90a7-912c70023373",
+                        "creationDate": "2021-07-08T17:02:10Z"
+                },
+                {
+                        "id": "390086ac-76fa-4094-8cf3-c0829bd69526",
+                        "creationDate": "2021-08-08T17:02:40Z"
+                },[...10x]
+        ]
+}
+
+```
+
+### Required parameters
+{: #kp-key-versions-required}
+
+* **`KEY_ID_OR_ALIAS`**
+
+    The v4 UUID or alias of the root key that you used for the initial wrap request.
+
+* **`-i, --instance-ID`**
+
+    The {{site.data.keyword.cloud_notm}} instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} instance.
+
+    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
+
+### Optional parameters
+{: #kp-key-versions-optional}
+
+* **`--key-ring`**
+
+    A unique, human readable name for the key-ring. Required if the user doesn't have permissions on the default key ring.
+
+* **`-n --number-of-key-versions`**
+
+    Restricts the number of key versions to be retrieved by the supplied integer value (default: 200).
+
+* **`-o, --output`**
+
+    Set the CLI output format. By default, all commands print in table format. To change the output format to JSON, use `--output json`.
+
+* **`-s --starting-offset`**
+
+    Retrievies the key versions from the offset as specified by the supplied integer value.
+
+* **`-t --total-count`**
+
+    Used to retrieve total number of key versions for a key by the supplied integer value.
 
 ## kp key wrap
 {: #kp-key-wrap}
