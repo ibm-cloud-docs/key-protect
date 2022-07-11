@@ -21,7 +21,7 @@ subcollection: key-protect
 {:tip: .tip}
 {:deprecated: .deprecated}
 
-# {{site.data.keyword.keymanagementserviceshort}} CLI Command Reference
+# {{site.data.keyword.keymanagementserviceshort}} CLI Reference
 {: #cli-reference}
 
 The latest version of the {{site.data.keyword.keymanagementservicefull}} 
@@ -3175,6 +3175,11 @@ ibmcloud kp key versions KEY_ID_OR_ALIAS
 ```
 {: pre}
 
+### Examples
+{: #kp-key-versions-examples}
+
+These are examples of `kp key versions`.
+
 #### Example 1
 {: #kp-key-versions-example-1}
 
@@ -3365,7 +3370,7 @@ $ ibmcloud kp key versions 807eb0a6-cc10-4bfe-8331-41a6f712c4ea -n 12 -s 12 -o j
 
 * **`-t --total-count`**
 
-    Used to retrieve total number of key versions for a key by the supplied integer value.
+    Used to reterieve total number of key versions for a key by the supplied integer value.
 
 ## kp key wrap
 {: #kp-key-wrap}
