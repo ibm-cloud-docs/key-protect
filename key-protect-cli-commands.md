@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-14"
+lastupdated: "2022-07-15"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.11
 
@@ -158,6 +158,9 @@ More commands for managing
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
 | [kp registrations](#kp-registrations) |            | List associations between root keys and other cloud resources |
 {: caption="Table 5. Commands for managing other resources" caption-side="bottom"}
+
+[Key aliases](#kp-key-alias-create) can be used as identifiers for methods as shown in examples for [key create](#kp-key-create-example-7), [key disable](#kp-key-disable-example-3), and anywhere you see 'Key ID or Alias' supported here.
+{: note}
 
 ## Viewing help
 {: #kp-help}
@@ -1173,6 +1176,59 @@ $ echo $PAYLOAD | base64 -d
 ```
 {: screen}
 
+#### Example 7
+{: #kp-key-create-example-7}
+
+Create a root key with an alias, then use that alias to identify the key to show the key details.
+
+```sh
+# create a root key with an alias
+$ ibmcloud kp key create root-key-with-alias -a example-alias --output json
+
+{
+    "id": "b3660416-4186-4587-b528-484886a4731b",
+    "name": "root-key-with-alias",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "aliases": [
+		"example-alias"
+	],
+	"keyRingID": "default",
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:b3660416-4186-4587-b528-484886a4731b",
+    "deleted": false
+}
+
+# show key details using the alias as identifier
+$ ibmcloud kp key show example-alias --output json
+
+{
+    "id": "b3660416-4186-4587-b528-484886a4731b",
+    "name": "root-key-with-alias",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2022-06-09T21:21:55Z",
+    "lastUpdateDate": "2022-06-09T21:21:55Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "creationDate": "2022-06-09T21:21:55Z"
+    },
+    "aliases": [
+		"example-alias"
+	],
+	"keyRingID": "default",
+    "extractable": false,
+    "state": 1,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:b3660416-4186-4587-b528-484886a4731b",
+    "deleted": false,
+    "dualAuthDelete": {
+		"enabled": false
+	}
+}
+```
+{: screen}
+
 ### Required parameters
 {: #kp-key-create-required}
 
@@ -1604,6 +1660,78 @@ kp.Error:
     msg='Conflict: Action could not be performed on key. Please see "reasons" for more details.',
     reasons='[KEY_ACTION_INVALID_STATE_ERR: Key is not in a valid state -
         FOR_MORE_INFO_REFER: https://cloud.ibm.com/apidocs/key-protect]'
+```
+{: screen}
+
+#### Example 3
+{: #kp-key-disable-example-3}
+
+Create a root key with an alias, use that alias to identify the key to be disabled, verify the key state (suspended), and enable the root
+key, and verify the key state (active).
+
+```sh
+# create a root key
+$ ibmcloud kp key create root-key-with-alias -a example-alias-1 --output json
+
+{
+    "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "root-key-with-alias",
+    "type": "application/vnd.ibm.kms.key+json",
+    "extractable": false,
+    "state": 1,
+    "aliases": [
+		"example-alias"
+    ],
+    "deleted": false,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+}
+
+# show key details using the alias as identifier - a state of "1" is "active"
+$ ibmcloud kp key show example-alias-1 --output json
+
+{
+    "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "root-key-with-alias",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:21:55Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "creationDate": "2020-06-09T21:21:55Z"
+    },
+    "extractable": false,
+    "state": 1,
+    ...
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+}
+
+# disable the root key identified by alias
+$ ibmcloud kp key disable example-alias-1
+
+Disabling key: '264fadc3-7667-4b25-916e-5825fe70de0b', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
+OK
+
+# show key details - a state of "2" is "suspended"
+$ ibmcloud kp key show example-alias-1 --output json
+
+{
+    "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "name": "root-key-with-alias",
+    "type": "application/vnd.ibm.kms.key+json",
+    "algorithmType": "AES",
+    "createdBy": "user id ...<redacted>...",
+    "creationDate": "2020-06-09T21:21:55Z",
+    "lastUpdateDate": "2020-06-09T21:23:26Z",
+    "keyVersion": {
+        "id": "264fadc3-7667-4b25-916e-5825fe70de0b",
+    "creationDate": "2020-06-09T21:21:55Z"
+    },
+    "extractable": false,
+    "state": 2,
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
+}
 ```
 {: screen}
 
@@ -3660,7 +3788,7 @@ ibmcloud kp keys
         -i, --instance-id      INSTANCE_ID
         [--key-ring            KEY_RING_ID]
         [-c, --crn]
-        [-e, --key-states      STATES]
+        [--key-states          STATES]
         [-n, --number-of-keys  NUMBER_OF_KEYS]
         [-o, --output          OUTPUT]
         [-s, --starting-offset STARTING_OFFSET]
@@ -3951,7 +4079,7 @@ Key ID                                 Key Name
 
     Retrieves keys starting at the offset specified. The offset is zero-based, meaning offset 0 (zero) is the first key.
 
-* **`-e, --key-states`**
+* **`--key-states`**
 
     The state of the keys to be retrieved. List of strings containing valid states - `Active`, `Suspended`, `Deactivated`, `Destroyed`. (default: `active,suspended,deactivated`).
 
