@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-15"
+lastupdated: "2022-07-18"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.11
 
@@ -1666,8 +1666,8 @@ kp.Error:
 #### Example 3
 {: #kp-key-disable-example-3}
 
-Create a root key with an alias, use that alias to identify the key to be disabled, verify the key state (suspended), and enable the root
-key, and verify the key state (active).
+Create a root key with an alias, use that alias to identify the key to be disabled, verify the key state (suspended), then enable the root
+key and verify the new key state (active).
 
 ```sh
 # create a root key
