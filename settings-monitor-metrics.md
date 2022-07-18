@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-07-18"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -108,7 +108,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 
     ```sh
     curl -X  PUT \
-    "https://<region>.kms.test.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
+    "https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics" \
     -H "accept: application/vnd.ibm.kms.policy+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>" \
@@ -120,10 +120,10 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
             },
             "resources": [
                 {
-										"policy_type": "metrics",
-										"policy_data": {
-												"enabled": false
-										}
+                    "policy_type": "metrics",
+                    "policy_data": {
+                            "enabled": false
+                    }
                 }
             ]
         }'
