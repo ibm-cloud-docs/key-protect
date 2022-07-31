@@ -41,6 +41,7 @@ toc:
           - integrations/integrate-cos.md
           - integrations/view-protected-resources.md
           - integrations/sync-resources.md
+      - pricing-plan.md
       - releases.md
   - navgroup:
       id: howto
