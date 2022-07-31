@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-04-21"
+lastupdated: "2022-07-31"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -32,11 +32,7 @@ You can use the following FAQs to help you with {{site.data.keyword.keymanagemen
 {: #how-does-pricing-work}
 {: faq}
 
-{{site.data.keyword.keymanagementserviceshort}} offers a [graduated tier plan](/catalog/services/key-protect){: external} with no-charge pricing for users who require 20 or fewer keys per {{site.data.keyword.cloud_notm}} account.
-
-Because {{site.data.keyword.keymanagementserviceshort}} pricing is done per key, there is no additional charge to creating additional instances (for example, in different regions). If you have 100 keys associated with your account, you are only charged for 100 keys, regardless of the instances where they were created or imported.
-
-
+{{site.data.keyword.keymanagementserviceshort}} has a value-based pricing model that counts the total number of **key versions** in your account, whether keys are created or imported, root or standard. In this plan the first five key versions are free, after which the price is $1 per key version per month. Only non-deleted keys, which include all active and disabled keys, are counted for pricing purposes. This price model covers the value {{site.data.keyword.keymanagementserviceshort}} provides by managing all versions of the key so they can be used to decrypt older ciphertexts.
 
 ## How is one user's information partitioned from other users' data?
 {: #faq-partition-data}
