@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-25"
+lastupdated: "2022-07-22"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -70,7 +70,7 @@ Note that only the following TLS 1.2 and TLS 1.3 ciphers are supported:
   * `TLS_AES_128_GCM_SHA256`
   * `TLS_CHACHA20_POLY1305_SHA256`
 
-If you attempt to use a cipher that is not on this list, you may experience connectivity issues. Update your client to use one of the supported ciphers. If you are using `openssl`, you can issue `openssl ciphers -s -v` to see what ciphers your client supports.
+If you attempt to use a cipher that is not on this list, you may experience connectivity issues. Update your client to use one of the supported ciphers. If you are using `openssl`, you can use the command `openssl ciphers -v` at the command line (or, for some installations of `openssl`, use the `-s -v` options) to show a verbose list of what ciphers your client supports.
 {: tip}
 
 ### Data deletion

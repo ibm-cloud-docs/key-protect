@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-07-31"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -42,7 +42,7 @@ For more information about envelope encryption works, check out [Protecting data
 * **Integration with IBM products**: {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of IBM database, storage, container, and ingestion services. For more information, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services). Chief among these is the native integration with IBM Cloud Object Storage (COS). For more information about this integration, check out [Server-Side Encryption with IBM Key Protect (SSE-KP)](/docs/cloud-object-storage?topic=cloud-object-storage-kp) in the COS documentation.
 * **Security, compliance, and auditing**: In addition to the FIPS 140-2 Level 3 certified cloud-based hardware security modules (HSMs), {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
 * **Monitoring**: Use the {{site.data.keyword.mon_full_notm}} service and {{site.data.keyword.at_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [Monitoring operational metrics](/docs/key-protect?topic=key-protect-operational-metrics) and [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
-* **Low cost**: Your first 20 keys are free, with a graduated pay system of less than USD1 per key after that (depending on the number of keys created). For more information, check out the [Key Protect catalog page](https://cloud.ibm.com/catalog/services/key-protect).
+* **Low cost**: Your first five key versions are free, with a graduated pay system of USD1 per key version per month after that. For more information, check out [Pricing](/docs/key-protect?topic=key-protect-pricing).
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
 {: #use-cases}
