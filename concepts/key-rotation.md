@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-08-06"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -32,10 +32,6 @@ It is a best practice to rotate your root keys (that is, to create a new version
 Recall that root keys are not just used to create data encryption keys (DEKs), they are also used in conjunction with a master key (secured by IBM using a Hardware Security Module) to create a "wrap" of a DEK. The resulting "wrapped data encryption key" (WDEK) protects the DEK, which is used to encrypt data. If a user has a DEK they want to use, that key can be passed when creating a WDEK using the `wrap` call. If no DEK is specified, {{site.data.keyword.keymanagementserviceshort}} creates the DEK for you.
 
 Rotating to a new version of the root key does not immediately create a new WDEK, but it does mean that on the next wrap and re-wrap initiated by the user that the new root key will be used to create the new WDEK. Note that the new WDEK can also be unwrapped and used to read data encrypted with older versions of the DEK, and that old versions of the WDEK can still be unwrapped to obtain the DEK.
-
-When you rotate a root key in {{site.data.keyword.keymanagementserviceshort}}, you're not charged additional fees. You can continue to unwrap your WDEKs with retired key material at no extra cost. For more information about our pricing options, see the
-[{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect){: external}.
-{: tip}
 
 ## Rotating manually or automatically
 {: #compare-key-rotation-options}
