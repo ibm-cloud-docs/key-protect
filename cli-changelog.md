@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-27"
+lastupdated: "2022-08-12"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -32,6 +32,19 @@ you're notified when updates are available.
 
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.6.12
+{: #cli-changelog-0612}
+
+Release date: 2022-08-12
+
+### Changes
+{: #cli-changelog-0612-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
+
+- Support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
+- Support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
 
 ## CLI version 0.6.11
 {: #cli-changelog-0611}
