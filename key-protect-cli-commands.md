@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-18"
+lastupdated: "2022-08-17"
 
-keywords: Key Protect CLI plug-in, CLI reference, version 0.6.11
+keywords: Key Protect CLI plug-in, CLI reference, version 0.6.12
 
 subcollection: key-protect
 
@@ -47,7 +47,7 @@ The example showing how to use [**`region-set`**](#kp-region-set-examples) outli
 ### Previous versions
 {: #cli-reference-previous}
 
-This documentation for version 0.6.11 does not include deprecated commands.
+This documentation for version 0.6.12 does not include deprecated commands.
 
 [Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 has documentation for deprecated commands.
@@ -85,7 +85,7 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 The **`kp import-token`** command prepares a root key for secure import.
 
-| Sub-command                                     | Status v0.6.11 | Description |
+| Sub-command                                     | Status v0.6.12 | Description |
 | ----------------------------------------------- | ------------- | ----------- |
 | [create](#kp-import-token-create)               |               | Create an import token |
 | [key-encrypt](#kp-import-token-key-encrypt)     |         | Encrypt the key that you import into the service |
@@ -99,7 +99,7 @@ The **`kp import-token`** command prepares a root key for secure import.
 The **`kp instance`** command manages policies for a
 {{site.data.keyword.keymanagementserviceshort}} instance.
 
-| Sub-command                                                         | Status v0.6.11 | Description |
+| Sub-command                                                         | Status v0.6.12 | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   |               | List policies associated with an instance |
 | policy-update [allowed-network](#kp-instance-policy-update-allowed) |               | Update the instance policy for "allowed network" |
@@ -111,7 +111,7 @@ The **`kp instance`** command manages policies for a
 
 The **`kp key`** command manages individual keys.
 
-| Sub-command                                                  | Status v0.6.11 | Description |
+| Sub-command                                                  | Status v0.6.12 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [alias-create](#kp-key-alias-create)                         |               | Create an alias for a unique and convenient reference to a key |
 | [cancel-delete](#kp-key-cancel-delete)                       |               | Cancel a previously scheduled request to delete a key |
@@ -130,7 +130,7 @@ The **`kp key`** command manages individual keys.
 | [sync](#kp-key-sync)                                         |               | Synchronize a key's associated resources |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [update](#kp-key-update)                                     |               | Update a key, transferring it to a new key ring |
-| [versions](#kp-key-versions)                                 |      new      | List all key versions  |
+| [versions](#kp-key-versions)                                 |               | List all key versions  |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
 {: caption="Table 3. Sub-commands for managing keys" caption-side="bottom"}
 
@@ -139,7 +139,7 @@ The **`kp key`** command manages individual keys.
 
 Key Ring support allows for managing groups of keys for best practices using **`kp key-ring`**.
 
-| Sub-command                                                  | Status v0.6.11 | Description |
+| Sub-command                                                  | Status v0.6.12 | Description |
 | ------------------------------------------------------------ | ------------- | ----------- |
 | [create](#kp-key-ring-create)                       |     | Creates a key ring within a kp instance |
 | [delete](#kp-key-ring-delete)                       |     | Deletes a key ring within a kp instance |
@@ -151,7 +151,7 @@ Key Ring support allows for managing groups of keys for best practices using **`
 More commands for managing
 {{site.data.keyword.keymanagementserviceshort}} resources could support best practices.
 
-| Command                               | Status v0.6.11 | Description |
+| Command                               | Status v0.6.12 | Description |
 | ------------------------------------- | ------------- | ----------- |
 | [kp keys](#kp-keys)                   |    updated    | List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance |
 | [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
@@ -1192,9 +1192,9 @@ $ ibmcloud kp key create root-key-with-alias -a example-alias --output json
     "extractable": false,
     "state": 1,
     "aliases": [
-		"example-alias"
-	],
-	"keyRingID": "default",
+        "example-alias"
+    ],
+    "keyRingID": "default",
     "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:b3660416-4186-4587-b528-484886a4731b",
     "deleted": false
 }
@@ -1215,16 +1215,16 @@ $ ibmcloud kp key show example-alias --output json
     "creationDate": "2022-06-09T21:21:55Z"
     },
     "aliases": [
-		"example-alias"
-	],
-	"keyRingID": "default",
+        "example-alias"
+    ],
+    "keyRingID": "default",
     "extractable": false,
     "state": 1,
     "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:b3660416-4186-4587-b528-484886a4731b",
     "deleted": false,
     "dualAuthDelete": {
-		"enabled": false
-	}
+        "enabled": false
+    }
 }
 ```
 {: screen}
@@ -1680,7 +1680,7 @@ $ ibmcloud kp key create root-key-with-alias -a example-alias-1 --output json
     "extractable": false,
     "state": 1,
     "aliases": [
-		"example-alias"
+        "example-alias"
     ],
     "deleted": false,
     "crn": "crn:v1:bluemix:public:kms:us-south:a/ea998d3389c3473aa0987652b46fb146:390086ac-76fa-4094-8cf3-c0829bd69526:key:264fadc3-7667-4b25-916e-5825fe70de0b"
@@ -3082,7 +3082,7 @@ This subcommand synchronizes the associated resources for a key.
 ```sh
 ibmcloud kp key sync KEY_ID
      -i, --instance-id INSTANCE_ID
-    [--key-ring		     KEY_RING_ID]
+    [--key-ring             KEY_RING_ID]
     [-o, --output      FORMAT]
 ```
 {: pre}
@@ -3787,8 +3787,10 @@ Keys are listed in `key id` order; see
 ibmcloud kp keys
         -i, --instance-id      INSTANCE_ID
         [--key-ring            KEY_RING_ID]
+        [-b --sort-by          SORT_BY] 
         [-c, --crn]
         [--key-states          STATES]
+        [-l --key-search       KEY_SEARCH] 
         [-n, --number-of-keys  NUMBER_OF_KEYS]
         [-o, --output          OUTPUT]
         [-s, --starting-offset STARTING_OFFSET]
@@ -4033,7 +4035,7 @@ Lists the keys based on key states (`Active`, `Suspended`) in the {{site.data.ke
 
 ```sh
 # list all active and suspended keys
-$ ibmcloud kp keys -e active,suspended
+$ ibmcloud kp keys --key-states active,suspended
 
 Retrieving keys...
 OK
@@ -4059,6 +4061,41 @@ Key ID                                 Key Name
 ```
 {: screen}
 
+#### Example 8
+{: #kp-keys-example-8}
+
+Lists the keys in the {{site.data.keyword.keymanagementserviceshort}} instance with the key name or alias exactly matching the characters in the string "TEST" without quotation marks.
+
+```sh
+# list all keys with identifiers exactly matching TEST
+$ ibmcloud kp keys -l exact:TEST
+
+Retrieving keys...
+OK
+Key ID                                 Key Name
+636e9f3a-feaf-4033-8603-687754dc7e51   TEST
+```
+{: screen}
+
+#### Example 9
+{: #kp-keys-example-9}
+
+Lists the keys in the {{site.data.keyword.keymanagementserviceshort}} instance and sort the keys based on their id and the date the key was created starting with the newest (the hyphen, '-', indicates sort by descending order).
+
+```sh
+# sort all keys by id and descending creationDate 
+$ ibmcloud kp keys -b id,-creationDate
+
+Retrieving keys...
+OK
+Key ID                                 Key Name
+ef2cc155-fe56-492c-845c-4d1f0688c7ba   my-last-key
+2f1cb135-fa16-40dc-815c-4d1f0ee8c7ba   my-first-key
+```
+{: screen}
+
+
+
 ### Required parameters
 {: #kp-keys-required}
 
@@ -4071,6 +4108,20 @@ Key ID                                 Key Name
 ### Optional parameters
 {: #kp-keys-optional}
 
+* **`-b, --sort-by`**
+
+    Sort the keys based on the parameters. The default property for sorting results is "id." '-' before the parameter indicates sort by descending order. The supported sort parameters at this time are 
+
+    - id
+    - state
+    - extractable
+    - imported
+    - creationDate
+    - lastUpdateDate 
+    - lastRotateDate
+    - deletionDate
+    - expirationDate 
+
 * **`-c, --crn`**
 
     Include the cloud resource name (CRN) in the output.
@@ -4082,6 +4133,10 @@ Key ID                                 Key Name
 * **`--key-states`**
 
     The state of the keys to be retrieved. List of strings containing valid states - `Active`, `Suspended`, `Deactivated`, `Destroyed`. (default: `active,suspended,deactivated`).
+
+* **`-l, --key-search`**
+
+    List keys based on search string with prepended qualifiers (e.g. `exact`, `not`, `alias`, `name`). For more details, see the [API Documentation](/apidocs/key-protect#kp-get-key-search-api).
 
 * **`-o, --output`**
 
