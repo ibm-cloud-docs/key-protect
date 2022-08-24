@@ -699,9 +699,9 @@ The following table lists the actions associated with each severity level:
 
 | Severity | Actions |
 |--------- |-------- |
-| Critical | - kms.secrets.delete  \n  - kms.registrations.delete|
-| Warning  | - kms.secrets.rotate, kms.secrets.restore  \n  - kms.secrets.enable, kms.secrets.disable  \n  - kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion  \n  - kms.policies.write, kms.instance-policies.write|
-| Normal   | - kms.secrets.create, kms.secrets.read  \n  - kms.secrets-metadata.read, kms.secrets.head  \n  - kms.secrets.list, kms.secrets.wrap  \n  - kms.secrets.unwrap, kms.secrets.rewrap  \n  - kms.secrets-key-versions.list, kms.secrets-event.ack  \n  - kms.policies.read, kms.instance-policies.read  \n  - kms.import-token.create, kms.import-token.read  \n  - kms.registrations.create, kms.registrations.write  \n  - kms.registrations.merge, kms.registrations.list  \n  - kms.secrets.ack-delete, kms.secrets.ack-restore  \n  - kms.secrets.ack-rotate, kms.secrets.ack-enable  \n  - kms.secrets.ack-disable |
+| Critical |   \n - kms.secrets.delete  \n  - kms.registrations.delete|
+| Warning  |   \n - kms.secrets.rotate, kms.secrets.restore  \n  - kms.secrets.enable, kms.secrets.disable  \n  - kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion  \n  - kms.policies.write, kms.instance-policies.write|
+| Normal   |   \n - kms.secrets.create, kms.secrets.read  \n  - kms.secrets-metadata.read, kms.secrets.head  \n  - kms.secrets.list, kms.secrets.wrap  \n  - kms.secrets.unwrap, kms.secrets.rewrap  \n  - kms.secrets-key-versions.list, kms.secrets-event.ack  \n  - kms.policies.read, kms.instance-policies.read  \n  - kms.import-token.create, kms.import-token.read  \n  - kms.registrations.create, kms.registrations.write  \n  - kms.registrations.merge, kms.registrations.list  \n  - kms.secrets.ack-delete, kms.secrets.ack-restore  \n  - kms.secrets.ack-rotate, kms.secrets.ack-enable  \n  - kms.secrets.ack-disable |
 {: caption="Table 10. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 The following table lists the status codes associated with each severity level:
