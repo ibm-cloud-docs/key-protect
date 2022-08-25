@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-27"
+lastupdated: "2022-08-24"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,16 @@ content-type: release-note
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## August 2022
+{: #key-protect-aug22}
+
+### 24 August 2022
+{: #key-protect-aug2422}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces a new release of the CLI plugin
+:   The new version supersedes the old version and upgrading your installation is recommended. New features include support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys) and support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
 
 ## June 2022
 {: #key-protect-jun22}
