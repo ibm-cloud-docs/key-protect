@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-09-02"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -39,10 +39,10 @@ There are two main areas of administration for almost all {{site.data.keyword.cl
 After you set up and organize resource groups in your account, you can take advantage of a couple of strategies to streamline the access management process:
 
 **Access groups**  
-* You can minimally manage the number of assigned policies by giving the same access to all identities in an access group instead of assigning the same access multiple times per individual user, service ID, or trusted profile. Users must be invited to your account before you can add them to an access group. If a user qualifies for a trusted profile that is a member of the access group, you don't need to invite them to your account.
+:   You can minimally manage the number of assigned policies by giving the same access to all identities in an access group instead of assigning the same access multiple times per individual user, service ID, or trusted profile. Users must be invited to your account before you can add them to an access group. If a user qualifies for a trusted profile that is a member of the access group, you don't need to invite them to your account.
 
 **Trusted profiles**  
-* If your organization has an enterprise directory, trusted profiles can reduce the time and effort to manage access. It simplifies the login process to your {{site.data.keyword.cloud_notm}} account for federated users in your enterprise. You can automatically grant federated users or compute resources access to your account by creating trusted profiles. For federated users, add conditions based on SAML attributes to define which federated users can apply a profile. For compute resources, specify specific resources, or add conditions based on resource attributes to define which compute resources can apply a profile. For both entity types, the level of access that is granted is determined by the access policies that are specified within each trusted profile, or the access groups that the trusted profile is a member of. However, trusted profiles don't require federated users to be invited to an account, and only users that are federated by an external identity provider (IdP) can apply a trusted profile.
+:   If your organization has an enterprise directory, trusted profiles can reduce the time and effort to manage access. It simplifies the login process to your {{site.data.keyword.cloud_notm}} account for federated users in your enterprise. You can automatically grant federated users or compute resources access to your account by creating trusted profiles. For federated users, add conditions based on SAML attributes to define which federated users can apply a profile. For compute resources, specify specific resources, or add conditions based on resource attributes to define which compute resources can apply a profile. For both entity types, the level of access that is granted is determined by the access policies that are specified within each trusted profile, or the access groups that the trusted profile is a member of. However, trusted profiles don't require federated users to be invited to an account, and only users that are federated by an external identity provider (IdP) can apply a trusted profile.
 
 When you're a member of multiple access groups, all policies apply at once when you access an account. As a federated user, you might have the option to apply different trusted profiles, but you select just one profile to apply when you log in. For example, if you want to complete developer-related tasks, select the `Developer` profile when logging in. If you want to complete an administrator-related task, you select the `Admin` profile that has privileged permissions. This way, you reduce the risk of taking privileged actions by mistake.
 {: tip}
@@ -104,7 +104,7 @@ Platform roles be assigned over an entire account, over particular service insta
 | Create {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Invite new users and manage access policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
+{: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
 
 While an account-level role gives a user particular permissions over service instances by default, roles can also be assigned over a particular service instance. For example, an account _Editor_ (who has the ability to view, create, and delete instances, but not the ability to assign roles) can be made an _Administrator_ of a particular service instance, allowing them to assign roles within that service instance.
 
@@ -149,7 +149,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 | Purge keys after four hours | | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: #table-2}
-{: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="top"}
+{: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
 {: tab-title="Keys"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -160,7 +160,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | List key rings | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 | Delete a key ring | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 {: #table-3}
-{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="top"}
+{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="bottom"}
 {: tab-title="Key Rings"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -172,7 +172,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 | List instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 {: #table-4}
-{: caption="Table 4. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="top"}
+{: caption="Table 4. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="bottom"}
 {: tab-title="Policies"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -182,7 +182,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 | Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 {: #table-5}
-{: caption="Table 5. Lists service access roles as they apply to import token resources" caption-side="top"}
+{: caption="Table 5. Lists service access roles as they apply to import token resources" caption-side="bottom"}
 {: tab-title="Import tokens"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -218,7 +218,7 @@ While the {{site.data.keyword.keymanagementserviceshort}} console allows users f
 
 Here is an example of a policy returned by the IAM API:
 
-```
+```json
 "resources": [
     {
         "attributes": [
