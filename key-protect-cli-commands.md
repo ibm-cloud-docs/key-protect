@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-17"
+lastupdated: "2022-09-05"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.12
 
@@ -4126,10 +4126,6 @@ ef2cc155-fe56-492c-845c-4d1f0688c7ba   my-last-key
 
     Include the cloud resource name (CRN) in the output.
 
-* **`-s, --starting-offset`**
-
-    Retrieves keys starting at the offset specified. The offset is zero-based, meaning offset 0 (zero) is the first key.
-
 * **`--key-states`**
 
     The state of the keys to be retrieved. List of strings containing valid states - `Active`, `Suspended`, `Deactivated`, `Destroyed`. (default: `active,suspended,deactivated`).
@@ -4137,6 +4133,10 @@ ef2cc155-fe56-492c-845c-4d1f0688c7ba   my-last-key
 * **`-l, --key-search`**
 
     List keys based on search string with prepended qualifiers (e.g. `exact`, `not`, `alias`, `name`). For more details, see the [API Documentation](/apidocs/key-protect#kp-get-key-search-api).
+
+* **`-n, --number-of-keys`**
+
+    Restricts the number of keys to be retrieved. The default is 200 and the maximum is 5000.
 
 * **`-o, --output`**
 
