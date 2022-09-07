@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-05"
+lastupdated: "2022-09-07"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.12
 
@@ -3776,8 +3776,7 @@ FAILED
 ## kp keys
 {: #kp-keys}
 
-List the keys that are available in your
-{{site.data.keyword.keymanagementserviceshort}} instance.
+List the keys that are available in your {{site.data.keyword.keymanagementserviceshort}} instance.
 
 Keys are listed in `key id` order; see
 [example 5](#kp-keys-example-5).
@@ -3806,10 +3805,10 @@ These are examples of `kp keys`.
 #### Example 1
 {: #kp-keys-example-1}
 
-List all keys.
+List keys. Note that this will only list the first 200 keys in your instance by default. To show a greater or fewer number of keys, provide a value for the `--number-of-keys` parameter.
 
 ```sh
-# list all keys
+# list keys
 $ ibmcloud kp keys
 
 Retrieving keys...
@@ -3823,11 +3822,11 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key
 #### Example 2
 {: #kp-keys-example-2}
 
-List all keys and show the cloud resource name (CRN) using the `--crn`
+List keys and show the cloud resource name (CRN) using the `--crn`
 parameter.
 
 ```sh
-# list all keys and show the cloud resource name (CRN)
+# list keys and show the cloud resource name (CRN)
 $ ibmcloud kp keys -c
 
 Retrieving keys...
@@ -3841,13 +3840,13 @@ c36e9f3a-feaf-4033-8603-687784dc7e51   my-root-key   crn:v1:bluemix:public:kms:u
 #### Example 3
 {: #kp-keys-example-3}
 
-List all keys in JSON format.
+List keys in JSON format.
 
 The `--output json` parameter implies the `--crn` (cloud resource name)
 parameter.
 
 ```sh
-# list all keys
+# list keys
 $ ibmcloud kp keys --output json
 
 [
@@ -3882,10 +3881,10 @@ $ ibmcloud kp keys --output json
 #### Example 4
 {: #kp-keys-example-4}
 
-List all keys and iterate over them, showing details.
+List keys and iterate over them, showing details.
 
 ```sh
-# list all keys and convert to a list
+# list keys and convert to a list
 $ KEYS=$(ibmcloud kp keys --output json | jq -r '.[] | .id')
 
 $ for key in $(echo "${KEYS}"); do
@@ -4034,7 +4033,7 @@ done
 Lists the keys based on key states (`Active`, `Suspended`) in the {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```sh
-# list all active and suspended keys
+# list active and suspended keys
 $ ibmcloud kp keys --key-states active,suspended
 
 Retrieving keys...
@@ -4051,7 +4050,7 @@ ef2cc155-fe56-492c-845c-4d1f0688c7ba   my-active-key
 Lists the keys based on key type (root) in the {{site.data.keyword.keymanagementserviceshort}} instance.
 
 ```sh
-# list all root keys
+# list root keys
 $ ibmcloud kp keys -t root
 
 Retrieving keys...
@@ -4067,7 +4066,7 @@ Key ID                                 Key Name
 Lists the keys in the {{site.data.keyword.keymanagementserviceshort}} instance with the key name or alias exactly matching the characters in the string "TEST" without quotation marks.
 
 ```sh
-# list all keys with identifiers exactly matching TEST
+# list keys with identifiers exactly matching TEST
 $ ibmcloud kp keys -l exact:TEST
 
 Retrieving keys...
@@ -4083,7 +4082,7 @@ Key ID                                 Key Name
 Lists the keys in the {{site.data.keyword.keymanagementserviceshort}} instance and sort the keys based on their id and the date the key was created starting with the newest (the hyphen, '-', indicates sort by descending order).
 
 ```sh
-# sort all keys by id and descending creationDate 
+# sort keys by id and descending creationDate 
 $ ibmcloud kp keys -b id,-creationDate
 
 Retrieving keys...
