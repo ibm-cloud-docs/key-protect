@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-31"
+lastupdated: "2022-09-07"
 
 keywords: pricing plan, billing, cost
 
@@ -66,6 +66,7 @@ You do not need to perform any migration steps to switch to the new pricing plan
   - **Pricing:** Your charge is $20 per month.
 
 You are charged for all versions of all non-deleted keys that exist in your instances during the billing period (minus the five free key versions). This includes keys you create (or import) and delete before the month is over. If for example you create and delete a key the same day, you are charged $1 that month for the key (if you have more than five key versions in your instances). However, you will not be charged the following month for that key if it remains deleted. If you restore the key at any point, you will be charged for all of the versions of that key for that month. For more information about deleting keys, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
+{: important}
 
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}
