@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-31"
+lastupdated: "2022-09-12"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -165,7 +165,7 @@ After a key has been deleted, any data that is encrypted by the key becomes inac
 
 For your protection, {{site.data.keyword.keymanagementserviceshort}} prevents the deletion of a key that's actively encrypting data in the cloud. If you try to delete a key that's registered with a cloud resource, the action won't succeed.
 
-If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete) by using the {{site.data.keyword.keymanagementserviceshort}} APIs. [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources)and verify with the owner of the resources to ensure you no longer require access to that data.
+If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete) by using the {{site.data.keyword.keymanagementserviceshort}} APIs. [Review which resources are encrypted by the key](/docs/key-protect?topic=key-protect-view-protected-resources) and verify with the owner of the resources to ensure you no longer require access to that data.
 
 If you can't delete a key because a retention policy exists on the associated resource, contact the account owner to remove the retention policy on that resource.
 {: note}
