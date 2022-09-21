@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-06"
+lastupdated: "2022-09-21"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -110,13 +110,11 @@ To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to r
 Behind the scenes, the {{site.data.keyword.keymanagementserviceshort}} API drives the key rotation process. To learn how to use the {{site.data.keyword.keymanagementserviceshort}} API to rotate your keys, see [Rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 The following diagram shows a contextual view of how keys are rotated.
-![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg)
-{: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
+![The diagram shows a contextual view of key rotation.](../images/key-rotation.svg){: caption="Figure 1. Contextual view of key rotation." caption-side="bottom"}
 
 With each rotation request, {{site.data.keyword.keymanagementserviceshort}} creates a new root key version by associating new key material with your key.
 
-![The diagram shows a micro view the key stack.](../images/root-key-stack.svg)
-{: caption="Figure 2. Micro view of a key stack." caption-side="bottom"}
+![The diagram shows a micro view the key stack.](../images/root-key-stack.svg){: caption="Figure 2. Micro view of a key stack." caption-side="bottom"}
 
 Keys do not rotate at precisely the same time of the day the key was created. That is, if a key was originally created at 8 a.m., it will not necessarily be rotated at 8 a.m. on the day the rotation is scheduled. Instead, the rotation can happen at any point during a 24-hour window.
 {: note}

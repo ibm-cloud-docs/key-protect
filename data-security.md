@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-22"
+lastupdated: "2022-09-21"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -55,20 +55,19 @@ Access to {{site.data.keyword.keymanagementserviceshort}} takes place over HTTPS
 
 Note that only the following TLS 1.2 and TLS 1.3 ciphers are supported:
 
-* **TLS 1.2**:
-  * `ECDHE-ECDSA-AES128-GCM-SHA256`
-  * `ECDHE-ECDSA-AES256-GCM-SHA384`
-  * `ECDHE-RSA-AES128-GCM-SHA256`
-  * `ECDHE-RSA-AES256-GCM-SHA384`
-  * `ECDHE-ECDSA-AES128-SHA256`
-  * `ECDHE-ECDSA-AES256-SHA384`
-  * `ECDHE-RSA-AES128-SHA256`
-  * `ECDHE-RSA-AES256-SHA384`
-
-* **TLS 1.3**:
-  * `TLS_AES_256_GCM_SHA384`
-  * `TLS_AES_128_GCM_SHA256`
-  * `TLS_CHACHA20_POLY1305_SHA256`
+- **TLS 1.2**:
+    * `ECDHE-ECDSA-AES128-GCM-SHA256`
+    * `ECDHE-ECDSA-AES256-GCM-SHA384`
+    * `ECDHE-RSA-AES128-GCM-SHA256`
+    * `ECDHE-RSA-AES256-GCM-SHA384`
+    * `ECDHE-ECDSA-AES128-SHA256`
+    * `ECDHE-ECDSA-AES256-SHA384`
+    * `ECDHE-RSA-AES128-SHA256`
+    * `ECDHE-RSA-AES256-SHA384`
+- **TLS 1.3**:
+    * `TLS_AES_256_GCM_SHA384`
+    * `TLS_AES_128_GCM_SHA256`
+    * `TLS_CHACHA20_POLY1305_SHA256`
 
 If you attempt to use a cipher that is not on this list, you may experience connectivity issues. Update your client to use one of the supported ciphers. If you are using `openssl`, you can use the command `openssl ciphers -v` at the command line (or, for some installations of `openssl`, use the `-s -v` options) to show a verbose list of what ciphers your client supports.
 {: tip}
