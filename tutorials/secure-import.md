@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-09-21"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -95,8 +95,11 @@ installed locally on your computer.
 2. Download and install the
     [{{site.data.keyword.cloud_notm}} base CLI](/docs/cli?topic=cli-getting-started){: external}
     for your operating system.
-
-3. Complete the [configuration of the {{site.data.keyword.keymanagementserviceshort}} plugin](/docs/key-protect?topic=key-protect-set-up-cli).
+    
+3. Configure and [setup the {{site.data.keyword.keymanagementserviceshort}} CLI
+    Plugin](/docs/key-protect?topic=key-protect-set-up-cli) to start managing keys. 
+    If you've already completed the first two steps listed previously, start with step 
+    number 3 at the link before returning to this tutorial.
 
 4. Download and install the
     [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
