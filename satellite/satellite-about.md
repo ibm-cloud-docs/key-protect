@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-31"
+lastupdated: "2022-09-22"
 
 keywords: satellite, hsm, deploy
 
@@ -158,7 +158,7 @@ Because your Satellite location is an extension of the host {{site.data.keyword.
 Auditing logs cannot be sent to your [{{site.data.keyword.at_full_notm}} instance](#satellite-about-before-begin-activity) during the down time. However, these logs are stored and when the link has been restored will resume at the interruption point
 {: important}
 
-If the distruption between the Satellite location and {{site.data.keyword.cloud_notm}} lasts longer than 30 minutes, the authorization cache will expire and {{site.data.keyword.keymanagementserviceshort}} on Satellite will be unavailable. Similarly, if the storage limit for auditing logs is reached, additional logs can no longer be stored. At this point, only the logs that have already been stored will be sent when service is resumed.
+If the disruption between the Satellite location and {{site.data.keyword.cloud_notm}} lasts longer than 30 minutes, the authorization cache will expire and {{site.data.keyword.keymanagementserviceshort}} on Satellite will be unavailable. Similarly, if the storage limit for auditing logs is reached, additional logs can no longer be stored. At this point, only the logs that have already been stored will be sent when service is resumed.
 
 ## Deploying or modifying an HSM to work with {{site.data.keyword.keymanagementserviceshort}}
 {: #satellite-about-HSM}
