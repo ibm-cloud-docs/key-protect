@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-10-04"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -66,6 +66,7 @@ While many of the topics in this documentation show how to accomplish tasks in b
 | Key name | A human-readable display name for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
+|Rotation policy| **Optional**. If you hold the [_Manager_ role](/docs/key-protect?topic=key-protect-manage-access), you can set a rotation policy for the key at key-creation time. If an [instance policy](/docs/key-protect?topic=key-protect-manage-policies-instance) exists to create rotation policies on keys by default, you can also overwrite that policy at key-creation time to a different interval. Note: if you do not posses the _Manager_ role on this instance (or an equivalent level of permissions), this field is not visible.|
 {: caption="Table 1. Describes the Create a key settings." caption-side="bottom"}
 
 When you are finished filling out the key's details, click **Create key** to confirm.
@@ -101,6 +102,8 @@ Complete the following steps to add an existing key.
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
 {: caption="Table 1. Describes the Import your own key settings." caption-side="top"}
+
+Rotation policies cannot be applied to a key when importing a key. Imported keys must be [rotated manually](/docs/key-protect?topic=key-protect-rotate-keys).
 
 When you are finished filling out the key's details, click **Import key** to confirm.
 
