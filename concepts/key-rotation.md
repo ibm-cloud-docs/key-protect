@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-21"
+lastupdated: "2022-10-04"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -57,11 +57,11 @@ Manually rotating a root key does not disturb any rotation policy that might cur
 ### How often should keys be rotated?
 {: #rotation-frequency}
 
-After you generate a root key in {{site.data.keyword.keymanagementserviceshort}}, you decide how often it is rotated. The best practice is to rotate your keys regularly. The default rotation period is once a month (every 30 days).
+After you generate a root key in {{site.data.keyword.keymanagementserviceshort}}, you decide how often it is rotated. The best practice is to rotate your keys regularly.
 
 | Rotation type | Frequency | Description |
 | ------------- | --------- | ----------- |
-| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Intervals of 30 days (in other words, every 30 days, or 60 days, or 90 days, etc) | Choose a rotation interval between one and 12 months for your root key based on your security needs. After you set a rotation policy for a root key, the clock starts immediately based on the initial creation date for the key. |
+| [Policy-based key rotation](/docs/key-protect?topic=key-protect-set-rotation-policy) | Intervals of 30 days (in other words, every 30 days, or 60 days, or 90 days, etc) | Choose a rotation interval between one and 12 months for your root key based on your security needs. After you set a rotation policy for a root key, the clock starts immediately based on the initial creation date for the key. If you choose at any time to manually rotate this key, the rotation period resets based on that rotation. |
 | [Manual key rotation](/docs/key-protect?topic=key-protect-rotate-keys) | Up to one rotation per hour | {{site.data.keyword.keymanagementserviceshort}} allows no more than one rotation per hour for each key. |
 {: caption="Table 2. Rotation frequency options for rotating keys in {{site.data.keyword.keymanagementserviceshort}}" caption-side="top"}
 

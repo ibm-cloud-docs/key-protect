@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-10-04"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -26,21 +26,14 @@ subcollection: key-protect
 # Manually rotating keys
 {: #rotate-keys}
 
-You can rotate your root keys manually by using
-{{site.data.keyword.keymanagementservicefull}}.
+You can rotate your root keys manually by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-When you rotate your root key, you replace the key with new key material. This
-process creates a new key version that you can use for
-[rewrapping or reencrypting your data](/docs/key-protect?topic=key-protect-rewrap-keys).
+When you rotate your root key, you add new key material to the key. This process creates a new key version that you can use for [rewrapping or reencrypting your data](/docs/key-protect?topic=key-protect-rewrap-keys).
 
-To learn how key rotation helps you meet industry standards and cryptographic
-best practices, see
-[Rotating your encryption keys](/docs/key-protect?topic=key-protect-key-rotation).
+To learn how key rotation helps you meet industry standards and cryptographic best practices, see [Rotating your encryption keys](/docs/key-protect?topic=key-protect-key-rotation).
 
-Rotation is available only for root keys. To learn more about your key rotation
-options in {{site.data.keyword.keymanagementserviceshort}}, check out
-[Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
+Rotation is available only for root keys. To learn more about your key rotation options in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
 
 ## Rotating root keys in the console

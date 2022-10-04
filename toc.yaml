@@ -99,8 +99,8 @@ toc:
       - topicgroup:
           label: Rotating keys
           topics:
-          - rotate-keys.md
           - set-rotation-policy.md
+          - rotate-keys.md
           - view-key-versions.md
       - disable-keys.md
       - topicgroup:
