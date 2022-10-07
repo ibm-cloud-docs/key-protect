@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-24"
+lastupdated: "2022-10-07"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,16 @@ content-type: release-note
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## October 2022
+{: #key-protect-oct22}
+
+### 7 October 2022
+{: #key-protect-oct0722}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces new features for the API
+:   A [new `Create Key with Policy Overrides`](/apidocs/key-protect#createkeywithpoliciesoverrides) method and [`filter` parameter used in the `GET keys` method](/apidocs/key-protect#getkeys) highlight the ease of setting security policies on user-specified targets. In addition, you can now [set instance policies on multiple options](/apidocs/key-protect#putinstancepolicy), like authorizing dual deletion and rotation, with the ability to enable and disable specific policies.
 
 ## August 2022
 {: #key-protect-aug22}
