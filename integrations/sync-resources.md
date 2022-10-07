@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-10-07"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -21,13 +21,12 @@ subcollection: key-protect
 {:preview: .preview}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Sync associated resources
 {: #sync-associated-resources}
 
-You can initiate a manual data synchronization request between root keys
-and other cloud resources, such as {{site.data.keyword.cos_full_notm}} buckets or deployments of {{site.data.keyword.databases-for}}, by using the
-[{{site.data.keyword.keymanagementservicelong}} API](/apidocs/key-protect) or [{{site.data.keyword.keymanagementserviceshort}} CLI plugin](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+You can initiate a manual data synchronization request between root keys and other cloud resources, such as {{site.data.keyword.cos_full_notm}} buckets or deployments of {{site.data.keyword.databases-for}}, by using the [{{site.data.keyword.keymanagementservicelong}} API](/apidocs/key-protect), [{{site.data.keyword.cloud_notm}} console](/login), or the  [{{site.data.keyword.keymanagementserviceshort}} CLI plugin](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
 {: shortdesc}
 
 
@@ -52,6 +51,23 @@ The sync API only initiates a request for synchronization. The {{site.data.keywo
 associated with the key are responsible for managing all related associated
 resources and ensuring that the key state and key versions are up to date.
 {: important}
+
+## Syncing associated resources with the {{site.data.keyword.keymanagementserviceshort}} console
+{: #sync-associated-resources-ui}
+{: ui}
+
+1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
+
+2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your
+    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+
+4. Click on the **Associated Resources** tab to see the list of resources.
+
+5. Click on the **Manually sync** resource icon (e.g. ![sync icon](../images/resource-icon.svg)).
+
+6. In the **Manually sync associated resource** dialog box, click on the button labeled, **Manually sync** to perform the synchronization.
 
 ## Syncing associated resources with the {{site.data.keyword.keymanagementserviceshort}} CLI plugin
 {: #sync-associated-resources-cli}
