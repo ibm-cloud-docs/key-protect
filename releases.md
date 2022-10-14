@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-07"
+lastupdated: "2022-10-14"
 
 keywords: key protect, release notes, service updates
 
@@ -34,6 +34,13 @@ Stay up-to-date with the new features that are available for
 
 ## October 2022
 {: #key-protect-oct22}
+
+### 14 October 2022
+{: #key-protect-oct1422}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces new features for the CLI Plugin
+:   New features include support for creating [instance rotation policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to [enable and disable rotation policies for an individual key](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). Also, the latest release includes the ability to create keys with policy overrides and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
 
 ### 7 October 2022
 {: #key-protect-oct0722}
