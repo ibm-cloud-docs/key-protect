@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-21"
+lastupdated: "2022-10-24"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -123,7 +123,7 @@ following **developer tools** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.contdelivery_short}}](docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started){: external} | The {{site.data.keyword.contdelivery_short}} service provides a suite of tools that support DevOps best practices. You can use the service to manage toolchains, operate delivery pipelines, gain insights into code quality and vulnerabilities, integrate third party tools, and more. | [Creating a Continuous Delivery service instance](docs/ContinuousDelivery?topic=ContinuousDelivery-create_cd_service){: external} [Protecting your personal data when you use the Professional plan](docs/ContinuousDelivery?topic=ContinuousDelivery-cd_data_security#cd_professional_plan){: external} |
+| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.contdelivery_short}}](/docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started){: external} | The {{site.data.keyword.contdelivery_short}} service provides a suite of tools that support DevOps best practices. You can use the service to manage toolchains, operate delivery pipelines, gain insights into code quality and vulnerabilities, integrate third party tools, and more. | [Creating a Continuous Delivery service instance](/docs/ContinuousDelivery?topic=ContinuousDelivery-create_cd_service){: external} [Protecting your personal data when you use the Professional plan](/docs/ContinuousDelivery?topic=ContinuousDelivery-cd_data_security#cd_professional_plan){: external} |
 {: caption="Table 6. Supported developer tools services." caption-side="bottom"}
 
 ## Understanding your integration
