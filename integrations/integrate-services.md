@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-10-25"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -109,7 +109,6 @@ following **integration** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.mobilepushfull}}](/docs/mobilepush?topic=mobilepush-getting-started){: external} | The {{site.data.keyword.mobilepushfull}} provides a unified push capability to send personalized and segmented real-time notifications to mobile and web applications | [View docs](/docs/mobilepush?topic=mobilepush-push_key_protect_integration){: external} |
 | [{{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external} | The {{site.data.keyword.mon_full_notm}} service is a container-intelligence management system. You can use it to gain operational visibility into the performance and health of your applications, services, and platforms. | [View docs](/docs/monitoring?topic=monitoring-mng-data){: external} |
 | [{{site.data.keyword.bpfull_notm}}](/docs/schematics?topic=schematics-getting-started){: external} | The {{site.data.keyword.bpfull_notm}} service delivers Terraform-as-a-Service. You can use it to organize your {{site.data.keyword.cloud_notm}} resources across environments by using workspaces. | [View docs](/docs/schematics?topic=schematics-secure-data#pi-encrypt) |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting_started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
