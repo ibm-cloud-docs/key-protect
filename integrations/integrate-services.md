@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-21"
+lastupdated: "2022-10-25"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -109,11 +109,21 @@ following **integration** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
-| [{{site.data.keyword.mobilepushfull}}](/docs/mobilepush?topic=mobilepush-getting-started){: external} | The {{site.data.keyword.mobilepushfull}} provides a unified push capability to send personalized and segmented real-time notifications to mobile and web applications | [View docs](/docs/mobilepush?topic=mobilepush-push_key_protect_integration){: external} |
 | [{{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external} | The {{site.data.keyword.mon_full_notm}} service is a container-intelligence management system. You can use it to gain operational visibility into the performance and health of your applications, services, and platforms. | [View docs](/docs/monitoring?topic=monitoring-mng-data){: external} |
 | [{{site.data.keyword.bpfull_notm}}](/docs/schematics?topic=schematics-getting-started){: external} | The {{site.data.keyword.bpfull_notm}} service delivers Terraform-as-a-Service. You can use it to organize your {{site.data.keyword.cloud_notm}} resources across environments by using workspaces. | [View docs](/docs/schematics?topic=schematics-secure-data#pi-encrypt) |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting_started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
 {: caption="Table 5. Supported integration services." caption-side="bottom"}
+
+## Developer tools service integrations
+{: #integration-devtools-integrations}
+
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
+following **developer tools** services.
+
+| Service | Description | Integration docs |
+| ------- | ----------- | ---------------- |
+| [{{site.data.keyword.cloud_notm}} {{site.data.keyword.contdelivery_short}}](/docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started){: external} | The {{site.data.keyword.contdelivery_short}} service provides a suite of tools that support DevOps best practices. You can use the service to manage toolchains, operate delivery pipelines, gain insights into code quality and vulnerabilities, integrate third party tools, and more. | [Creating a Continuous Delivery service instance](/docs/ContinuousDelivery?topic=ContinuousDelivery-create_cd_service){: external} [Protecting your personal data when you use the Professional plan](/docs/ContinuousDelivery?topic=ContinuousDelivery-cd_data_security#cd_professional_plan){: external} |
+{: caption="Table 6. Supported developer tools services." caption-side="bottom"}
 
 ## Understanding your integration
 {: #understand-integration}
@@ -206,5 +216,3 @@ key that you want to use for advanced encryption.
 - To find out more about bringing your own root keys to the
     {{site.data.keyword.keymanagementserviceshort}} service, see
     [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
-
-
