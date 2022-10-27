@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-14"
+lastupdated: "2022-10-27"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -45,7 +45,7 @@ Release date: 2022-10-14
 Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
 
 - Support for creating [instance rotation policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to [enable and disable rotation policies for an individual key](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). 
-- Support also for the ability to create keys with policy overrides and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
+- Support also for the ability to [create keys with policy overrides](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create-override) and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
 
 ## CLI version 0.6.12
 {: #cli-changelog-0612}
