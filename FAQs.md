@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-11-08"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -60,6 +60,18 @@ When you import encryption keys into {{site.data.keyword.keymanagementservicesho
 You can use {{site.data.keyword.keymanagementservicefull}} to create a group of keys for a target group of users that require the same IAM access permissions by bundling your keys in your {{site.data.keyword.keymanagementserviceshort}} service instance into groups called "key rings". A key ring is a collection of keys, within your service instance, that all require the same IAM access permissions. For example, if you have a group of team members who will need a particular type of access to a specific group of keys, you can create a key ring for those keys and assign the appropriate IAM access policy to the target user group. The users that are assigned access to the key ring can create and manage the resources that exist within the key ring.
 
 To find out more about grouping keys, check out [Grouping keys together using key rings](/docs/key-protect?topic=key-protect-grouping-keys).
+
+## I am trying to delete an instance am getting a 409 error. How can I delete my instance?
+{: #how-delete-instance}
+{: faq}
+{: support}
+
+This error indicates that keys are still in this instance. Before you can delete an instance, you must delete every key in that instance.
+
+Because the **Keys** table in the console shows only `Enabled` keys by default, use the filters to show keys in all states. This can reveal keys that must be deleted to delete the instance which are not being displayed in the table.
+{: tip}
+
+After all keys have been deleted, you can proceed with deletion of the instance.
 
 ## What is a root key?
 {: #what-is-root-key}

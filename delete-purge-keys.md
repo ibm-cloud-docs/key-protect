@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-11-08"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -26,12 +26,14 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its key material if you are a manager for your {{site.data.keyword.keymanagementserviceshort}} instance.
 {: shortdesc}
 
+Before you can delete an instance, you must delete every key in that instance. Similarly, you cannot delete an account until all keys in all instances have been deleted. Check out [Account cancelation and data deletion](/docs/key-protect?topic=key-protect-security-and-compliance#account-cancelation) for more information.
+{: important}
+
 In the event that a key is no longer needed or should be removed, {{site.data.keyword.keymanagementserviceshort}} allows you to delete and ultimately purge keys, an action that shreds the key material and makes any of the data encrypted with it inaccessible.
 
 Deleting a key moves it into a _Destroyed_ state, a "soft" deletion in which the key can still be seen and restored for 30 days. After 90 days, the key will be automatically purged, or "hard deleted", and its associated data will be permanently shredded and removed from the {{site.data.keyword.keymanagementserviceshort}} service. If it is desirable that a key be purged sooner than 90 days, it is also possible to hard delete a key four hours after it has been moved into the _Destroyed_ state.
 
 After a key has been deleted, any data that is encrypted by the key becomes inaccessible, though this can be reversed if the key is restored within the 30-day time frame. After 30 days, key metadata, registrations, and policies are available for up to 90 days, at which point the key becomes eligible to be purged. Note that once a key is no longer restorable and has been purged, its associated data can no longer be accessed. As a result, [destroying resources](/docs/key-protect?topic=key-protect-security-and-compliance#data-deletion) is not recommended for production environments unless absolutely necessary.
-{: important}
 
 The following table lists the time frames in which you can view, restore, and purge a key after it has been deleted.
 
