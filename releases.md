@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-10-14"
+lastupdated: "2022-12-16"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,16 @@ content-type: release-note
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## December 2022
+{: #key-protect-dec22}
+
+### 2 December 2022
+{: #key-protect-dec222}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces new features for the Terraform plugin as part of v1.48.0
+:  New features include support of instance policies (for example, to set a default key rotation period), the ability to create a key and override any instance rotation policies that might exist, and the ability to enable or disable a rotation policy on a key. Also, a known bug with the endpoint URL was fixed via the environment variable.
 
 ## October 2022
 {: #key-protect-oct22}
