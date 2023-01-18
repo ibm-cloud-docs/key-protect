@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-06-28"
+  years: 2017, 2023
+lastupdated: "2023-01-18"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -56,19 +56,27 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you will see:
+4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. Additionally, the individual values (such as **Last rotated date**), can be sorted. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you will see:
 
 | Column | Description |
 | ------ | ----------- |
-| Name   | The display name you gave to your key. |
-| ID     | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
-| Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
+| Name | The display name you gave to your key. |
+| Key ID | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
 | Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
-| Last updated | The date the last time the key was updated. This field can be particularly helpful when assessing whether a _Destroyed_ key can be restored, since restorations can only take place within 30 days of a key being placed in the _Destroyed_ state. |
-| Created | The date the key was created. |
-| Type   | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
-| Key states | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
+| Last rotated | The date the last time the key was rotated. |
+| Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
+| Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
+| State | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
 {: caption="Table 1. Describes the Keys table." caption-side="bottom"}
+
+Other available fields in the table include:
+
+* Last modified: indicating the last time the key was changed in any way.
+* Created: the date the key was created.
+* Deleted: showing whether a key is in a deleted state (awaiting purge) or not.
+* Imported: indicating whether the key was created using key material supplied by the user.
+* Rotation policy: showing whether this key has a rotation policy attached to it.
+* Associated resources: shows whether the key is protecting any resources.
 
 If you have more than 5,000 keys, and you cannot filter the number of keys that will be searched to less than 5,000 (for example, by filtering by key state to only look for `Enabled` keys), your search will fail unless it exactly matches a key ID or alias. For more information about the API spec for key search, check out [GET /keys](/apidocs/key-protect#getkeys).
 {: tip}
