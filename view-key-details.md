@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2023
+lastupdated: "2023-02-03"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 
@@ -31,11 +31,7 @@ You can retrieve the general characteristics of a single encryption key by using
 While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Granting access to keys](/docs/key-protect?topic=key-protect-grant-access-keys) to view the key through IAM or by using the API to pass the specific key ID.
 {: important}
 
-Retrieving a key requires a _Writer_ or _Manager_ access policy, but you might
-need a way to view only the details about a key, such as its transition history
-or configuration, without retrieving the key itself. If you have _Reader_ access
-permissions, you can use the {{site.data.keyword.keymanagementserviceshort}}
-API to retrieve only metadata about a key.
+Retrieving a key requires a _Writer_ or _Manager_ access policy, but you might need a way to view only the details about a key, such as its transition history or configuration, without retrieving the key itself. If you have _Reader_ acces permissions, you can use the {{site.data.keyword.keymanagementserviceshort}} API to retrieve only metadata about a key.
 
 ## Viewing key metadata with the API
 {: #view-key-metadata-api}
@@ -77,12 +73,12 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
 
 |Variable|Description|
 |--- |--- |
-|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
+|keyID_or_alias|**Required**. The unique identifier or alias for the key that you want to inspect.|
+|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
+|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
+|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. The header itself is optional, but if unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-|key_ID_or_alias|**Required**. The identifier or alias for the key that you want to inspect.|
 {: caption="Table 1. Describes the variables that are needed to view a details about  a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns

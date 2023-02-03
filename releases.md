@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-12-16"
+  years: 2017, 2023
+lastupdated: "2023-02-03"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,18 @@ content-type: release-note
 Stay up-to-date with the new features that are available for
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## February 2023
+{: #key-protect-feb23}
+
+### 3 February 2023
+{: #key-protect-feb323}
+{: release-note}
+
+{{site.data.keyword.keymanagementservicefull}} announces ability to view number of key versions for keys in all states
+:  Previously, the [List key versions API endpoint](/apidocs/key-protect#getkeyversions) would return an HTTP 409 if a key was not in an `Active` (1) state. When a new parameter, `allKeyStates`, is passed as true, it returns the number of versions of a key even if the key is no longer active. Similarly, an HTTP 410 used to be returned for keys in a `Destroyed` (5) state. Now, if `allKeyStates` is passed as true, the number of versions of the destroyed key is returned.
+
+For more information, check out [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
 
 ## December 2022
 {: #key-protect-dec22}
