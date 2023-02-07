@@ -126,7 +126,7 @@ toc:
       - topicgroup:
           label: Key Protect CLI Reference
           topics:
-          - include: https://github.ibm.com/cloud-docs/key-protect-cli-plugin/blob/draft/key-protect-cli-commands.md
+          - key-protect-cli-reference.md
           - cli-reference-052.md
           - cli-reference-039.md
           - cli-changelog.md
