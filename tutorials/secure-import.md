@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-21"
+  years: 2017, 2023
+lastupdated: "2023-02-07"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -388,7 +388,7 @@ To retrieve the import token contents:
 3. Decode and save the public key to a file called `PublicKey.pem`.
 
     ```sh
-    jq -r '.payload' getImportTokenResponse.json | base64 -o PublicKey.pem
+    jq -r '.payload' getImportTokenResponse.json | base64 --decode -o PublicKey.pem
     ```
     {: pre}
 
