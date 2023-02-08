@@ -3,5 +3,3 @@ includes:
 translation:
   exclude:
     byFilePath:
-      - file-dont-translate.md
-      - folder-dont-translate/
