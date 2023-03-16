@@ -10,7 +10,7 @@
     "section_recommended": [
       {
         "title": "Getting started with Key Protect",
-        "description": "Learn how to create or import existing cryptographic keys using the Key Potect dashboard.",
+        "description": "Learn how to create or import existing cryptographic keys using the Key Protect dashboard.",
         "href": "/docs/key-protect?topic=key-protect-getting-started-tutorial"
       },
       {
