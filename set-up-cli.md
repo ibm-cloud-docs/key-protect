@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2023
+lastupdated: "2023-03-16"
 
 keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 
@@ -81,13 +81,12 @@ To install the CLIs:
     Select a Region:
         1. au-syd
         2. eu-de
-        3. eu-fr2 (available by request)
-        4. eu-gb
-        5. jp-osa
-        6. jp-tok
-        7. us-east
-        8. us-south
-        9. staging (us-south)
+        3. eu-gb
+        4. jp-osa
+        5. jp-tok
+        6. us-east
+        7. us-south
+        8. staging (us-south)
         Enter a number:
     ```
     {: screen}
