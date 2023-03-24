@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-03-16"
+lastupdated: "2023-03-24"
 
 keywords: key protect, release notes, service updates
 
@@ -28,9 +28,17 @@ content-type: release-note
 # Release notes for {{site.data.keyword.keymanagementserviceshort}}
 {: #key-protect-key-protect-relnotes}
 
-Stay up-to-date with the new features that are available for
-{{site.data.keyword.keymanagementservicefull}}.
+Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## March 2023
+{: #key-protect-mar23}
+
+### 24 March 2023
+{: #key-protect-mar2423}
+{: release-note}
+
+The price per key version in {{site.data.keyword.cloud_notm}} has risen 4.5% in staging, an increase from USD1 to USD1.045. This price increases in production on April 1, 2023 and applies to all new and existing key versions. For more information, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
 
 ## February 2023
 {: #key-protect-feb23}

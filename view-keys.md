@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-03"
+lastupdated: "2023-03-24"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -56,7 +56,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. Additionally, the individual values (such as **Last rotated date**), can be sorted. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you will see:
+4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. Additionally, the individual values (such as **Last rotated date**), can be sorted. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you can see:
 
 | Column | Description |
 | ------ | ----------- |
@@ -78,7 +78,7 @@ Other available fields in the table include:
 * Rotation policy: showing whether this key has a rotation policy attached to it.
 * Associated resources: shows whether the key is protecting any resources.
 
-If you have more than 5,000 keys, and you cannot filter the number of keys that will be searched to less than 5,000 (for example, by filtering by key state to only look for `Enabled` keys), your search will fail unless it exactly matches a key ID or alias. For more information about the API spec for key search, check out [GET /keys](/apidocs/key-protect#getkeys).
+The search capability is limited to a volume of 5,000 keys. If you have more than 5,000 keys, and you cannot filter the number of keys that will be searched to less than 5,000 (for example, by filtering by key state to only look for `Enabled` keys), your search will fail unless it exactly matches a key ID or alias. For more information about the API spec for key search, check out [GET /keys](/apidocs/key-protect#getkeys).
 {: tip}
 
 If you want to narrow the number of results returned by a search, try using one or a combination of the following parameters:
@@ -107,7 +107,7 @@ For example, you might have keys in your {{site.data.keyword.keymanagementservic
 For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 {: note}
 
-[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), you have two options to view your keys. The first option, [View keys through the resource list](#filter-key-state-gui-resource-list), will work for all keys except those you have assigned [fine-grained access to](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). For information about how to view keys with fine-grain access, check out [Viewing fine-grain access keys IAM](#filter-key-state-gui-iam).
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), you have two options to view your keys. The first option, [View keys through the resource list](#filter-key-state-gui-resource-list), works for all keys except those you have assigned [fine-grained access to](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). For information about how to view keys with fine-grain access, check out [Viewing fine-grain access keys IAM](#filter-key-state-gui-iam).
 
 #### Viewing keys through the resource list
 {: #filter-key-state-gui-resource-list}
