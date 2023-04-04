@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-04"
+  years: 2017, 2023
+lastupdated: "2023-03-24"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -29,7 +29,7 @@ subcollection: key-protect
 You can set an automatic rotation policy for a root key either by setting an instance policy on your {{site.data.keyword.keymanagementservicefull}} instance or, if you have the correct role, by setting the policy at key creation time.
 {: shortdesc}
 
-Recall from [Rotating your root keys](/docs/key-protect?topic=key-protect-key-rotation) that rotating root keys regularly shortens the cryptoperiod of a key and therefore can be used as a general security policy as well as in specific cases such as personnel turnover, process malfunctions, or the detection of a security issue.
+Recall from [Rotating your root keys](/docs/key-protect?topic=key-protect-key-rotation) that regularly rotating root keys shortens the cryptoperiod of a key and therefore can be used as a general security policy as well as in specific cases such as personnel turnover, process malfunctions, or the detection of a security issue.
 
 If you do not have `Manager` level of permission necessary to set a rotation policy, you can still manually rotate your keys any time as long as you have at least the `Writer` level of permission. Check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys) for more information about this process. Also, check out [Understanding user roles and resources](/docs/key-protect?topic=key-protect-manage-access) for more information about the manager, writer, and other roles regarding access to resources like keys, instances, and accounts.
 {: tip}

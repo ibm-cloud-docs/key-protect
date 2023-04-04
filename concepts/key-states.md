@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-21"
+  years: 2017, 2023
+lastupdated: "2023-03-16"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -71,9 +71,9 @@ The following table describes how key states affect service actions. The column 
 ### Cryptoperiods, originator-usage periods, and recipient-usage periods
 {: #key-states-periods}
 
-If you're familiar with NIST standard terms and key management systems, then you're probably aware of the concepts of a "crpytoperiod", an "originator-usage period", and a "recepient-usage period".
+If you're familiar with NIST standard terms and key management systems, then you're probably aware of the concepts of a "cryptoperiod", an "originator-usage period", and a "recepient-usage period".
 
-A "cryptoperiod" describes the complete lifecycle of a key. If a key is purged one year after it was created, the crpytoperiod of the key was one year. The cryptoperiod of a key, then, begins when it is created.
+A "cryptoperiod" describes the complete lifecycle of a key. If a key is purged one year after it was created, the cryptoperiod of the key was one year. The cryptoperiod of a key, then, begins when it is created.
 
 Similarly, the "originator-usage period" and "recepient-usage period" also begin when a key is created. The former describes the time in which a key can be used to protect data by wrapping it. The "recepient-usage period", on the other hand, describes the time in which a key can be "unwrapped" to decrypt protected data. Recall that deactivated keys can no longer be used to wrap data, but still can be used to unwrap data. Therefore, if a key is moved to the _Deactivated_ state (for example, by establishing an expiration date), it's originator-usage period has ended. However, its recepient-usage period will continue until the key is deleted.
 

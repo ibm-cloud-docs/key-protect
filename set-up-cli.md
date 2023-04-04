@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2023
+lastupdated: "2023-04-03"
 
 keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 

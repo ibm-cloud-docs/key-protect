@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-03"
+lastupdated: "2023-03-24"
 
 keywords: key protect, release notes, service updates
 
@@ -28,9 +28,17 @@ content-type: release-note
 # Release notes for {{site.data.keyword.keymanagementserviceshort}}
 {: #key-protect-key-protect-relnotes}
 
-Stay up-to-date with the new features that are available for
-{{site.data.keyword.keymanagementservicefull}}.
+Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## March 2023
+{: #key-protect-mar23}
+
+### 24 March 2023
+{: #key-protect-mar2423}
+{: release-note}
+
+The price per key version in {{site.data.keyword.cloud_notm}} has risen 4.5% in staging, an increase from USD1 to USD1.045. This price increases in production on April 1, 2023 and applies to all new and existing key versions. For more information, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
 
 ## February 2023
 {: #key-protect-feb23}
@@ -62,7 +70,7 @@ For more information, check out [Viewing key versions](/docs/key-protect?topic=k
 {: release-note}
 
 {{site.data.keyword.keymanagementservicefull}} announces new features for the CLI Plugin
-:   New features include support for creating [instance rotation policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to [enable and disable rotation policies for an individual key](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). Also, the latest release includes the ability to create keys with policy overrides and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
+:   New features include support for creating instance rotation policies using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to enable and disable rotation policies for an individual key at key creation time using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy#manage-policies-gui) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). Also, the latest release includes enhanced filtering for keys the [UI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
 
 ### 7 October 2022
 {: #key-protect-oct0722}

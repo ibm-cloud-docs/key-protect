@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-07"
+  years: 2023
+lastupdated: "2023-03-24"
 
 keywords: pricing plan, billing, cost
 
@@ -31,7 +31,7 @@ subcollection: key-protect
 {: api}
 {: cli}
 
-{{site.data.keyword.keymanagementserviceshort}} is switching from a tiered pricing plan, in which the cost of a key depends on how many keys you have deployed, to a value-based pricing model that counts the total number of **key versions** in your account, whether keys are created or imported, root or standard. In this plan the first five key versions are free (per account), after which the price is USD1 per key version per month. Only non-deleted keys, which include all active and disabled keys, are counted for pricing purposes. This pricing model covers the value {{site.data.keyword.keymanagementserviceshort}} provides by managing all versions of the key material so they can be used to decrypt older ciphertexts.
+{{site.data.keyword.keymanagementserviceshort}} is switching from a tiered pricing plan, in which the cost of a key depends on how many keys you have deployed, to a value-based pricing model that counts the total number of **key versions** in your account, whether keys are created or imported, root or standard. In this plan the first five key versions are free (per account), after which the price is USD1.045 per key version per month. Only non-deleted keys, which include all active and disabled keys, are counted for pricing purposes. This pricing model covers the value {{site.data.keyword.keymanagementserviceshort}} provides by managing all versions of the key material so they can be used to decrypt older ciphertexts.
 {: shortdesc}
 
 Creating or importing a key initiates the first **version** of that key. As a result, a newly created or imported key has one version. Each time a key is rotated, a new version is created. A key that has been rotated 10 times, then, has 11 versions (10 versions created by rotations plus the initial version). To discover how many versions you have of each non-deleted key, check out [How many key versions do you have?](#pricing-plan-how-many-keys). For more information about rotating keys, check out [Rotating your root keys](/docs/key-protect?topic=key-protect-key-rotation). Note that only root keys can be rotated. For the purpose of {{site.data.keyword.keymanagementserviceshort}} pricing, the [data encryption keys (DEKs)](/docs/key-protect?topic=key-protect-envelope-encryption) used by services or applications to encrypt the data are not counted as key versions in terms of pricing.
@@ -57,15 +57,15 @@ You do not need to perform any migration steps to switch to the new pricing plan
 {: #pricing-plan-scenarios}
 
 * **Scenario:** You have one non-deleted key that has been rotated 19 times, which means it has 20 total versions.
-  - **Pricing:** Your charge is $15USD per month (the first five keys are free).
+  - **Pricing:** Your charge is USD15.675 per month (the first five key versions are free).
 
 * **Scenario:** You have one non-deleted key that has been rotated four times, meaning the key has five total versions.
-  - **Pricing:** Your charge is $0 per month.
+  - **Pricing:** Your charge is USD0 per month.
 
 * **Scenario:** You have one non-deleted key with 20 total versions, another key with three versions, and a key in the `Suspended` state with two versions.
-  - **Pricing:** Your charge is $20 per month.
+  - **Pricing:** Your charge is USD20.9 per month.
 
-You are charged for all versions of all non-deleted keys that exist in your instances during the billing period (minus the five free key versions). This includes keys you create (or import) and delete before the month is over. If for example you create and delete a key the same day, you are charged $1 that month for the key (if you have more than five key versions in your instances). However, you will not be charged the following month for that key if it remains deleted. If you restore the key at any point, you will be charged for all of the versions of that key for that month. For more information about deleting keys, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
+You are charged for all versions of all non-deleted keys that exist in your instances during the billing period (minus the five free key versions). This includes keys you create (or import) and delete before the month is over. If for example you create and delete a key the same day, you are charged USD1.045 that month for the key (if you have more than five key versions in your instances). However, you will not be charged the following month for that key if it remains deleted. If you restore the key at any point, you will be charged for all of the versions of that key for that month. For more information about deleting keys, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
 {: important}
 
 ## How many key versions do you have?
