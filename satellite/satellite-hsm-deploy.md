@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-05-25"
+  years: 2023
+lastupdated: "2023-04-13"
 
 keywords: satellite, hsm, deploy
 
@@ -120,7 +120,9 @@ You must provide this information for both HSMs.
 * **Master key label**: {{site.data.keyword.keymanagementserviceshort}} uses a Master Key Encryption Key in your partition. A label or name is assigned to this key and is used by {{site.data.keyword.keymanagementserviceshort}} in PKCS#11 API to refer to the master key.
 * **Signing key label**: A label or name for a key in a partition, which is used for data authentication such as data signing and verification.
 * **Import key label**: {{site.data.keyword.keymanagementserviceshort}} supports importing Bring Your Own Key (BYOK) by a DES3 encryption Key. A label or name is assigned to this key.
-* **Secure import key label prefix**: {{site.data.keyword.keymanagementserviceshort}} supports a secure mechanism to Bring Your Own Key (BYOK) into an HSM. The prefix used by the HSM for these keys must be known to {{site.data.keyword.keymanagementserviceshort}}.
+* **Secure import key label prefix (TKEK)**: {{site.data.keyword.keymanagementserviceshort}} supports a secure mechanism to Bring Your Own Key (BYOK) into an HSM. The prefix used by the HSM for these keys must be known to {{site.data.keyword.keymanagementserviceshort}}.
 * **Activity Tracker ingestion key**: To receive audit logs, you must create an {{site.data.keyword.at_full_notm}} instance and an ingestion key.
+
+There are two additional credentials you must share before your service can be deployed, the **HSM client cert** and the **HSM client key**. These credentials enable NTLS communications used by the Thales HSM for exchanges between the HSM and {{site.data.keyword.keymanagementserviceshort}} running on your worker node. You must create and register with the HSM a TLS certificate for the worker node (client) that will connect to the HSM and provide the client certificate and key that {{site.data.keyword.keymanagementserviceshort}} uses to communicate with the HSM. The exact instructions to share these credentials are communicated as part of your conversations with your service representative.
 
 Make a note of these values for both HSMs before attempting to [deploy {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-satellite-ui-deploy).
