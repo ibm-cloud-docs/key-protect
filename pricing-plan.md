@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-04-13"
 
 keywords: pricing plan, billing, cost
 
@@ -25,7 +25,7 @@ subcollection: key-protect
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 
-# Pricing
+# Pricing for Key Protect on IBM Cloud
 {: #pricing-plan}
 {: ui}
 {: api}
