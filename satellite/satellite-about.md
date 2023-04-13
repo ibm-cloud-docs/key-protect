@@ -41,7 +41,7 @@ Because {{site.data.keyword.keymanagementserviceshort}} on Satellite features bo
 
 This level of control is designed for users who want to promote internal best practices or satisfy relevant legal requirements. Users can use the same key management service on {{site.data.keyword.cloud_notm}} {{site.data.keyword.keymanagementserviceshort}}, [on-prem](#x6969434){: term} {{site.data.keyword.keymanagementserviceshort}} on Satellite, and in future hybrid cloud environments, depending on the use case. This level of control is designed for businesses and industries where closer control over infrastructure satisfies business or regulatory needs (for example, a banking consortium subject to data residency rules).
 
-For information about pricing, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-pricing-plan-satellite).
+For information about pricing, check out [Pricing for {site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-pricing-plan-satellite).
 {: tip}
 
 ## Before you begin
