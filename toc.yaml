@@ -41,7 +41,12 @@ toc:
           - integrations/integrate-cos.md
           - integrations/view-protected-resources.md
           - integrations/sync-resources.md
-      - pricing-plan.md
+      - topicgroup:
+          label: Pricing
+          topics:
+          - pricing-about.md
+          - pricing-plan.md
+          - pricing-plan-satellite.md
       - releases.md
   - navgroup:
       id: howto

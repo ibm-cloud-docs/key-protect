@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2022
-lastupdated: "2022-03-08"
+years: 2020, 2023
+lastupdated: "2023-04-13"
 
 keywords: Key Protect, error messages, error codes
 
