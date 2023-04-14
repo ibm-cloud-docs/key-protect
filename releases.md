@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-04-14"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,17 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## April 2023
+{: #key-protect-apr23}
+
+### 14 April 2023
+{: #key-protect-apr1423}
+{: release-note}
+
+The {{site.data.keyword.keymanagementservicefull}} on Satellite [Pricing plan](/docs/key-protect?topic=key-protect-pricing-plan-satellite) is now active. Unlike the [pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan), the pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite is not based on key versions. Instead, reflecting the different use cases and infrastructure maintenance requirements for Satellite-based deployments, users are charged a flat rate for each location where they want {{site.data.keyword.keymanagementserviceshort}} installed and then an additional rate depending on the quota of keys they select at deployment time.
+
+For more information about {{site.data.keyword.keymanagementservicefull}} on Satellite, check out [About {{site.data.keyword.keymanagementservicefull}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
 
 ## March 2023
 {: #key-protect-mar23}
