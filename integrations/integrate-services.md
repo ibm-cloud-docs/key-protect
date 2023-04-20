@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-25"
+  years: 2017, 2023
+lastupdated: "2023-04-20"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -69,14 +69,14 @@ following **storage** services.
 ## Compute service integrations
 {: #compute-integrations}
 
-You can integrate {{site.data.keyword.keymanagementserviceshort}} with the
-following **compute** services.
+You can integrate {{site.data.keyword.keymanagementserviceshort}} with the following **compute** services.
 
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.cloud_notm}} image templates](/docs/image-templates?topic=image-templates-getting-started-with-image-templates#getting-started-with-image-templates){: external} | You can use {{site.data.keyword.cloud_notm}} image templates to capture an image of a virtual server to quickly replicate its configuration with minimal changes in the order process. With the End to End (E2E) Encryption feature, you can bring your own encrypted, cloud-init enabled operating system image. | [View docs](/docs/image-templates?topic=image-templates-using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance#using-end-to-end-e2e-encryption-to-provision-an-encrypted-instance){: external} |
 | [KMIP for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} | KMIP for VMware works together with VMware native vSphere encryption and vSAN encryption to provide simplified storage encryption management together with the security and flexibility of {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services customer-managed keys. | [View docs](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations){: external} |
-| [{{site.data.keyword.vsi_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external} |
+| [{{site.data.keyword.vsi_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.vsi_is_short}} to create an instance that consists of your virtual compute resources and resulting capacity within an {{site.data.keyword.vpc_short}}. | [View docs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external}
+| [{{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-getting-started){: external} | You can protect Linux Unified Key Setup (LUKS) encryption keys from being compromised by using {{site.data.keyword.keymanagementserviceshort}}. |[View docs](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/){: external} |
 | [{{site.data.keyword.discoveryshort}}](/docs/discovery?topic=discovery-getting-started){: external} | You can use {{site.data.keyword.discoveryshort}} to build cognitive, cloud-based exploration applications that analyze and provide new insights within your data. | [View docs](/docs/discovery?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.languagetranslationshort}}](/docs/language-translator?topic=language-translator-gettingstarted){: external} | You can use {{site.data.keyword.languagetranslationshort}} to identify the language in text and convert it into other languages. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
 | [{{site.data.keyword.speechtotextshort}}](/docs/speech-to-text?topic=speech-to-text-gettingStarted){: external} | You can use {{site.data.keyword.speechtotextshort}} to create customizable speech recognition for optimal text transcription in your application. | [View docs](/docs/watson?topic=watson-keyservice){: external} |
