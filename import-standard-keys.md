@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-09"
+  years: 2017, 2023
+lastupdated: "2023-05-02"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -167,32 +167,37 @@ When importing an existing standard key, it is required to include the encrypted
 ### Using OpenSSL to encrypt existing key material
 {: #open-ssl-encoding-standard-existing-key-material}
 
-Use this process to encrypt the contents of a file. For example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}.
+To encode your key material, first you should download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-1. Download and install
-    [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
-
-2. Base64-encode your key material string by running the following command:
+Once OpenSSL has been downloaded and installed, there are two recommended commands for encoding the key material. Both methods are equivalent, in that they convert a string , whether <key_material_string> or <password>, as you can see below, into a base64 string. If your material is in a file (for example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}), the best option is to issue:
 
     ```sh
     openssl base64 -in <infile> -out <outfile>
     ```
     {: pre}
 
-    Replace the variables in the example request according to the following
-    table.
+    Replace the variables in the example request according to the following table.
 
 |Variable|Description|
 |--- |--- |
-|infile|The name of the file where your key material string resides.<br><br>Ensure that the key is 16, 24, or 32 bytes long, corresponding to 128, 192, or 256 bits in length. The key must be base64-encoded.|
+|infile|The name of the binary file where your key material string resides.<br><br>Ensure that the file is not larger than 7,500 bytes.|
 |outfile|The name of the file where your base64-encoded key material will be created once the command has run.|
 {: caption="Table 2. Describes the variables that are needed to base64-encode your key material." caption-side="top"}
 
-If you want to output the base64 material in the command line directly rather
-than a file, run the command
-`openssl enc -base64 <<< '<key_material_string>'`, where key_material_string
-is the key material input for your imported key.
+If you want to output the base64 material in the command line directly rather than a file, run the command `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
 {: note}
+
+If you want to base 64 encode key material which is not in a file, you can issue:
+
+    ```sh
+    echo -n <password> | base64
+    ```
+    {: pre}
+
+    Where "password" is the key material you want to use.
+
+To avoid extra characters, for example an extra new line, it is a best practice to copy the base64 to the clipboard, especially when the base64 string is going to be posted in the console.
+{: tip}
 
 ### Using OpenSSL to create and encode new key material
 {: #open-ssl-encoding-standard-new-key-material}
