@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-05-30"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,19 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## May 2023
+{: #key-protect-may23}
+
+### 24 May 2023
+{: #key-protect-may2423}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} new integration between with {{site.data.keyword.powerSys_notm}} for AIX and Linux.
+
+The integration with AIX allows you to use {{site.data.keyword.powerSys_notm}} to leverage AIX file systems with the `keysvrmgr` and `hdcryptmgr` command. For more information, check out [Using Hyper Protect Crypto Services (HPCS) and Key Protect for AIX](/docs/power-iaas?topic=power-iaas-integrate-hpcs#AIX-hpcs).
+
+The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Unified Key Setup (LUKS) encryption keys from being compromised using {{site.data.keyword.keymanagementserviceshort}} as a single point of control to enable or disable access to data across the enterprise. This is done by successively wrapping encryption keys, with the ultimate control being a master key that resides in a hardware security module (HSM). For more information, check out [Using Hyper Protect Crypto Services (HPCS) or Key Protect for Linux](/docs/power-iaas?topic=power-iaas-integrate-hpcs#Linux-hpcs) and [Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and Key Protect](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/).
 
 ## April 2023
 {: #key-protect-apr23}
