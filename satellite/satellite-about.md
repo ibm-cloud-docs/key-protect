@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-02"
 
 keywords: satellite, hsm, about
 
@@ -10,18 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # About Key Protect on Satellite
 {: #satellite-about}
