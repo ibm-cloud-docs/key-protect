@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-06-08"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -156,30 +156,35 @@ instance.
     ```
     {: pre}
 
-3. Provision an instance of {{site.data.keyword.keymanagementserviceshort}}
-    within that account and resource group.
+3. Provision an instance of {{site.data.keyword.keymanagementserviceshort}} within that account and resource group.
+
+   First, specify the resource group for the instance by issuing:
+
+   ```sh
+   ibmcloud target -g <your-resource-group>
+   ```
+   {: pre}
+
+   For example, `ibmcloud target -g Default`
+
+   Then you can create the instance by issuing:
 
     ```sh
     ibmcloud resource service-instance-create "import-keys-demo" kms tiered-pricing us-east
     ```
     {: pre}
 
-    This tutorial won't incur any charges to your
-    {{site.data.keyword.cloud_notm}} account.
+    This tutorial won't incur any charges to your {{site.data.keyword.cloud_notm}} account.
     {: note}
 
-4. Optional: Verify that the {{site.data.keyword.keymanagementserviceshort}}
-    instance was created successfully by listing your available
-    {{site.data.keyword.keymanagementserviceshort}} instances.
+4. Optional: Verify that the {{site.data.keyword.keymanagementserviceshort}} instance was created successfully by listing your available {{site.data.keyword.keymanagementserviceshort}} instances.
 
     ```sh
     ibmcloud resource service-instances
     ```
     {: pre}
 
-    Success! You're now set with the
-    {{site.data.keyword.keymanagementserviceshort}} instance where you
-    can store and manage your encryption keys. Continue to the next step.
+    Success! You're now set with the {{site.data.keyword.keymanagementserviceshort}} instance where you can store and manage your encryption keys. Continue to the next step.
 
 ## Step 2. Set up the {{site.data.keyword.keymanagementserviceshort}} API
 {: #tutorial-import-configure-api}
@@ -683,7 +688,7 @@ To import the key:
 3. Remove the all the local files associated with this tutorial.
 
     ```sh
-    rm kms-encrypt-nonce *.json *.bin *.pem
+    rm *.json *.bin *.pem
     ```
     {: pre}
 
