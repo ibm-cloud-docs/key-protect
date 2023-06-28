@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-28"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,15 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## June 2023
+{: #key-protect-june23}
+
+### 27 June 2023
+{: #key-protect-june2723}
+{: release-note}
+
+The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is now available. This version includes support for counting the number of [key versions](topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state. Also, this version of the CLI includes native support for Macs that use an [Apple Silicon](https://support.apple.com/en-us/HT211814) processor. Previously, users received a warning during the installation of the {{site.data.keyword.keymanagementserviceshort}} CLI plugin.
+
 ## May 2023
 {: #key-protect-may23}
 
@@ -38,7 +47,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-may2423}
 {: release-note}
 
-{{site.data.keyword.keymanagementserviceshort}} new integration between with {{site.data.keyword.powerSys_notm}} for AIX and Linux.
+{{site.data.keyword.keymanagementserviceshort}} announces a new integration with {{site.data.keyword.powerSys_notm}} for AIX and Linux.
 
 The integration with AIX allows you to use {{site.data.keyword.powerSys_notm}} to leverage AIX file systems with the `keysvrmgr` and `hdcryptmgr` command. For more information, check out [Using Hyper Protect Crypto Services (HPCS) and Key Protect for AIX](/docs/power-iaas?topic=power-iaas-integrate-hpcs#AIX-hpcs).
 
