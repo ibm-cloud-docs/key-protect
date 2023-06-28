@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-02"
+  years: 2017, 2023
+lastupdated: "2023-06-28"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -32,6 +32,14 @@ you're notified when updates are available.
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
+## CLI version 0.8.0
+{: #cli-changelog-062723}
+
+Release date: 2023-06-27
+
+Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
+
+Support for counting the number of [key versions](topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state.
 
 ## CLI version 0.7.0
 {: #cli-changelog-1014}
