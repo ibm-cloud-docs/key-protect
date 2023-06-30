@@ -131,7 +131,7 @@ toc:
       - topicgroup:
           label: Key Protect CLI Reference
           topics:
-          - include: ../key-protect-cli-plugin/key-protect-cli-commands.md
+          - key-protect-cli-commands.md
           - cli-reference-052.md
           - cli-reference-039.md
           - cli-changelog.md
