@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2023
+lastupdated: "2023-07-05"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -42,7 +42,7 @@ network. To learn more about private connections on
 To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
 network connection, you must use the
 {{site.data.keyword.keymanagementserviceshort}} API or the
-[{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+[{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 This capability is not available from the
 {{site.data.keyword.keymanagementserviceshort}} GUI.
 {: note}
@@ -208,6 +208,6 @@ through a private endpoint.
 
 - To find out more about managing keys with
     {{site.data.keyword.keymanagementserviceshort}},
-    [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+    [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 

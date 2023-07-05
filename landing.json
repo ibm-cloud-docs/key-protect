@@ -4,7 +4,7 @@
     "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques. Encryption keys can be provisioned or imported for use with applications for many IBM Cloud™ services and then managed from a central location.",
     "section_devtools": {
       "api": "/apidocs/key-protect",
-      "cli": "/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference",
+      "cli": "/docs/key-protect?topic=key-protect-key-protect-cli-reference",
       "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/kms/ibm/latest/submodules/key-protect"
     },
     "section_recommended": [

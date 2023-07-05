@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-28"
+lastupdated: "2023-07-05"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -37,7 +37,7 @@ Be sure to keep your CLI installation up-to-date so that you can use the latest 
 
 Release date: 2023-06-27
 
-Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
 Support for counting the number of [key versions](topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state.
 
@@ -49,10 +49,10 @@ Release date: 2022-10-14
 ### Changes
 {: #cli-changelog-070-changes}
 
-Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
-- Support for creating [instance rotation policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to [enable and disable rotation policies for an individual key](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). 
-- Support also for the ability to [create keys with policy overrides](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create-override) and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
+- Support for creating [instance rotation policies](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policies) as well as the ability to [enable and disable rotation policies for an individual key](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policies). 
+- Support also for the ability to [create keys with policy overrides](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create-override) and the capability for [filtering the listing of keys](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys).
 
 ## CLI version 0.6.12
 {: #cli-changelog-0612}
@@ -62,10 +62,10 @@ Release date: 2022-08-12
 ### Changes
 {: #cli-changelog-0612-changes}
 
-Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include:
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
-- Support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
-- Support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
+- Support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys)
+- Support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys)
 
 ## CLI version 0.6.11
 {: #cli-changelog-0611}
@@ -75,7 +75,7 @@ Release date: 2022-06-27
 ### Changes
 {: #cli-changelog-0611-changes}
 
-Changes in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include support for filters when listing keys, support for listing the versions of a key, and support for using aliases in place of key IDs.
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include support for filters when listing keys, support for listing the versions of a key, and support for using aliases in place of key IDs.
 
 ## CLI version 0.6.10
 {: #cli-changelog-0610}
@@ -85,7 +85,7 @@ Release date: 2022-02-08
 ### Changes
 {: #cli-changelog-0610-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
 - The environment variable **`KP_PRIVATE_ADDR`** is no longer required when authenticating to `private.cloud.ibm.com`. More information is available about using the CLI with [private endpoints](/docs/cli?topic=cli-cli-private-endpoints).
 - The environment variable **`IBMCLOUD_TRACE`** gives you more visibility into your diagnostics. Learn more at the [CLI documentation](/docs/cli?topic=cli-ibmcloud_env_var#IBMCLOUD_TRACE).
@@ -99,7 +99,7 @@ Release date: 2021-12-14
 ### Changes
 {: #cli-changelog-069-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
 - Added support for [S&atilde;o-Paulo region](/docs/key-protect?topic=key-protect-regions).
 
@@ -111,7 +111,7 @@ Release date: 2021-11-05
 ### Changes
 {: #cli-changelog-068-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
 - Added support for [targeting private endpoints](/docs/key-protect?topic=key-protect-private-endpoints#target-private-endpoint).
 
@@ -128,9 +128,9 @@ Release date: 2021-10-11
 ### Changes
 {: #cli-changelog-066-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
-- Added feature for [key synchronizing](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-sync) as a new subcommand under **`key`**.
+- Added feature for [key synchronizing](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-sync) as a new subcommand under **`key`**.
 
 - Updated the "Internal server error" response message to return the actual error message.
 
@@ -142,7 +142,7 @@ Release date: 2021-08-30
 ### Changes
 {: #cli-changelog-065-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
 - The JSON response for the retrieval of multiple objects like listing keys, policies, and registrations is set as an empty array: **`[]`**  when there are no objects returned by the service.
 
@@ -156,7 +156,7 @@ Release date: 2021-07-23
 ### Changes
 {: #cli-changelog-064-changes}
 
-Changes included in this [version](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference):
+Changes included in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference):
 
 - Error messages have been formatted to make them easier for users to understand.
 
@@ -170,9 +170,9 @@ Release date: 2021-06-25
 ### Changes
 {: #cli-changelog-063-changes}
 
-There are minor changes in this latest [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+There are minor changes in this latest [release](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
-Support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-rotate).
+Support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-rotate).
 
 ## CLI version 0.6.2
 {: #cli-changelog-062}
@@ -182,10 +182,10 @@ Release date: 2021-05-20
 ### Changes
 {: #cli-changelog-062-changes}
 
-There are minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+There are minor changes in this [release](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
-- [Key purge](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) command supports purging a deleted key resulting in the permanent deletion of information related to that key. After being purged, the key is not available to be restored: `ibmcloud kp key purge <keyID>`.
-- Support for the new `ca-tor` regional [endpoint](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference); all Key Protect operations supported via CLI can be performed for this region: `ibmcloud kp region-set ca-tor` (sets the target endpoint to key protect **`ca-tor`** endpoint).
+- [Key purge](/docs/key-protect?topic=key-protect-key-protect-cli-reference) command supports purging a deleted key resulting in the permanent deletion of information related to that key. After being purged, the key is not available to be restored: `ibmcloud kp key purge <keyID>`.
+- Support for the new `ca-tor` regional [endpoint](/docs/key-protect?topic=key-protect-key-protect-cli-reference); all Key Protect operations supported via CLI can be performed for this region: `ibmcloud kp region-set ca-tor` (sets the target endpoint to key protect **`ca-tor`** endpoint).
 
 
 ## CLI version 0.6.1
@@ -196,7 +196,7 @@ Release date: 2021-04-30
 ### Changes
 {: #cli-changelog-061-changes}
 
-There are minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+There are minor changes in this [release](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 - Key Update command has been added, supporting transferring your key from its current key ring to a new key ring.
 
@@ -208,7 +208,7 @@ Release date: 2021-02-25
 ### Changes
 {: #cli-changelog-060-changes}
 
-There are major changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+There are major changes in this [release](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 - Key Ring support is added to the CLI supporting customization and best practices.
 - Key Alias feature is added to the CLI adding first-in-class management support. 
@@ -248,7 +248,7 @@ Release date: 2020-07-21
 Release date: 2020-06-19
 
 Documentation:
-[CLI reference, version 0.5.0](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference)
+[CLI reference, version 0.5.0](/docs/key-protect?topic=key-protect-key-protect-cli-reference)
 
 ### Add these commands
 {: #cli-changelog-050-add}
@@ -257,16 +257,16 @@ Documentation:
 {: #cli-changelog-050-add-kp-instance}
 
 - kp instance
-    [policies](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies)
+    [policies](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policies)
     : list policies associated with an instance
 
 - kp instance
-    [policy-update allowed-network](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-allowed)
+    [policy-update allowed-network](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policy-update-allowed)
     : update the instance policy and set the "allowed network" to
     public-and-private or private-only
 
 - kp instance
-    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policy-update-dual)
+    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policy-update-dual)
     : update the instance policy and enable or disable the
     "dual authorization delete" policy
 
@@ -274,41 +274,41 @@ Documentation:
 {: #cli-changelog-050-add-kp-key}
 
 - kp key
-    [cancel-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-cancel-delete)
+    [cancel-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-cancel-delete)
     : cancel a previously scheduled request to delete a key
 
 - kp key
-    [disable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-disable)
+    [disable](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-disable)
     : disable a root key and temporarily revoke access to the key's associated
     data in the cloud
 
 - kp key
-    [enable](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-enable)
+    [enable](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-enable)
     : enable a root key that was previously disabled; this action restores the
     key's encrypt and decrypt operations
 
 - kp key
-    [restore](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-restore)
+    [restore](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-restore)
     : restore a previously deleted root key, which restores access to its
     associated data in the cloud
 
 - kp key
-    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-dual)
+    [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-dual)
     : update the "dual authorization delete" policy associated with a key
 
 - kp key
-    [policy-update rotation](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policy-update-rotation)
+    [policy-update rotation](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-rotation)
     : update the "rotation" policy associated with a key
 
 - kp key
-    [schedule-delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-schedule-delete)
+    [schedule-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-schedule-delete)
     : authorize a key, with a "dual-auth-delete" policy, to be deleted
 
 #### kp registrations
 {: #cli-changelog-050-add-kp-registrations}
 
 - kp
-    [registrations](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-registrations)
+    [registrations](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations)
     : list registrations, which are associations between keys and other cloud
     resources such as Cloud Object Storage (COS) buckets or Cloud Databases
     deployments
@@ -320,12 +320,12 @@ Documentation:
 {: #cli-changelog-050-update-kp-import-token}
 
 - kp import-token
-    [key-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-key-encrypt)
+    [key-encrypt](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-import-token-key-encrypt)
     : add the `-a` (--hash) option; encrypt keys using the SHA-1 algorithm for
     Hyper Protect Crypto Services (HPCS)
 
 - kp import-token
-    [nonce-encrypt](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-import-token-nonce-encrypt)
+    [nonce-encrypt](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-import-token-nonce-encrypt)
     : add the `-c` (--cbc) option; encrypt the nonce using the AES-CBC encryption
     algorithm; only supported for HPCS
 
@@ -333,7 +333,7 @@ Documentation:
 {: #cli-changelog-050-update-kp-key}
 
 - kp key
-    [delete](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-delete)
+    [delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-delete)
     : add the `-f` (--force) option to delete a key, with force, which is used to
     delete a key that has existing "registrations"
 
@@ -341,7 +341,7 @@ Documentation:
 {: #cli-changelog-050-update-kp-keys}
 
 - kp
-    [keys](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys)
+    [keys](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys)
     : add the `-n` (--number-of-keys) and `-s` (--starting-offset) options to
     retrieve a subset of keys
 
