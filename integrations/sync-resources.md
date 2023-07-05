@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-10-07"
+  years: 2023
+lastupdated: "2023-07-05"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 # Sync associated resources
 {: #sync-associated-resources}
 
-You can initiate a manual data synchronization request between root keys and other cloud resources, such as {{site.data.keyword.cos_full_notm}} buckets or deployments of {{site.data.keyword.databases-for}}, by using the [{{site.data.keyword.keymanagementservicelong}} API](/apidocs/key-protect), [{{site.data.keyword.cloud_notm}} console](/login), or the  [{{site.data.keyword.keymanagementserviceshort}} CLI plugin](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+You can initiate a manual data synchronization request between root keys and other cloud resources, such as {{site.data.keyword.cos_full_notm}} buckets or deployments of {{site.data.keyword.databases-for}}, by using the [{{site.data.keyword.keymanagementservicelong}} API](/apidocs/key-protect), [{{site.data.keyword.cloud_notm}} console](/login), or the  [{{site.data.keyword.keymanagementserviceshort}} CLI plugin](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 {: shortdesc}
 
 

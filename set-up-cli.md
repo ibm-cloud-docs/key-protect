@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-03"
+lastupdated: "2023-07-05"
 
 keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 
@@ -29,7 +29,7 @@ to help you create, import, and manage encryption keys.
 
 To find out more about using the {{site.data.keyword.keymanagementserviceshort}}
 CLI plug-in, check out the
-[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+[{{site.data.keyword.keymanagementserviceshort}} CLI reference doc](https://cloud.ibm.com/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 {: tip}
 
 ## Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in

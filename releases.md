@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-28"
+lastupdated: "2023-07-05"
 
 keywords: key protect, release notes, service updates
 
@@ -38,7 +38,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-june2723}
 {: release-note}
 
-The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is now available. This version includes support for counting the number of [key versions](topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state. Also, this version of the CLI includes native support for Macs that use an [Apple Silicon](https://support.apple.com/en-us/HT211814) processor. Previously, users received a warning during the installation of the {{site.data.keyword.keymanagementserviceshort}} CLI plugin.
+The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is now available. This version includes support for counting the number of [key versions](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state. Also, this version of the CLI includes native support for Macs that use an [Apple Silicon](https://support.apple.com/en-us/HT211814) processor. Previously, users received a warning during the installation of the {{site.data.keyword.keymanagementserviceshort}} CLI plugin.
 
 ## May 2023
 {: #key-protect-may23}
@@ -103,7 +103,7 @@ For more information, check out [Viewing key versions](/docs/key-protect?topic=k
 {: release-note}
 
 {{site.data.keyword.keymanagementservicefull}} announces new features for the CLI Plugin
-:   New features include support for creating instance rotation policies using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-instance-policies) as well as the ability to enable and disable rotation policies for an individual key at key creation time using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy#manage-policies-gui) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-policies). Also, the latest release includes enhanced filtering for keys the [UI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) and the [CLI](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
+:   New features include support for creating instance rotation policies using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy) and the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policies) as well as the ability to enable and disable rotation policies for an individual key at key creation time using the [UI](/docs/key-protect?topic=key-protect-set-rotation-policy#manage-policies-gui) and the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policies). Also, the latest release includes enhanced filtering for keys the [UI](/docs/key-protect?topic=key-protect-view-keys#view-keys-gui) and the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys).
 
 ### 7 October 2022
 {: #key-protect-oct0722}
@@ -120,7 +120,7 @@ For more information, check out [Viewing key versions](/docs/key-protect?topic=k
 {: release-note}
 
 {{site.data.keyword.keymanagementservicefull}} announces a new release of the CLI plugin
-:   The new version supersedes the old version and upgrading your installation is recommended. New features include support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys) and support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-keys).
+:   The new version supersedes the old version and upgrading your installation is recommended. New features include support for the new search parameter to filter the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys) and support also for the new sort parameters to order the list of keys returned from the [`keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys).
 
 ## June 2022
 {: #key-protect-jun22}
@@ -186,7 +186,7 @@ Announcing {{site.data.keyword.keymanagementserviceshort}} support for {{site.da
 {: release-note}
 
 Announcing {{site.data.keyword.keymanagementserviceshort}} CLI plug-in v.0.6.5
-:   The [release of {{site.data.keyword.keymanagementserviceshort}} CLI version 0.6.5](/docs/key-protect?topic=key-protect-cli-changelog) introduces new structures for empty results when querying. Learn more at [the CLI reference](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+:   The [release of {{site.data.keyword.keymanagementserviceshort}} CLI version 0.6.5](/docs/key-protect?topic=key-protect-cli-changelog) introduces new structures for empty results when querying. Learn more at [the CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 ## August 2021
 {: #key-protect-aug21}
@@ -206,7 +206,7 @@ Announcing {{site.data.keyword.keymanagementserviceshort}} support for key purge
 {: release-note}
 
 Announcing {{site.data.keyword.keymanagementserviceshort}} CLI plug-in v.0.6.3
-:   The {{site.data.keyword.keymanagementserviceshort}} CLI plugin has been updated to version 0.6.3. Minor changes in this [release](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference) include support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-rotate).
+:   The {{site.data.keyword.keymanagementserviceshort}} CLI plugin has been updated to version 0.6.3. Minor changes in this [release](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include support for {{site.data.keyword.BluSoftlayer_full}} {{site.data.keyword.hscrypto}} specific algorithms in [Key Create](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create) and [Key Rotate](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-rotate).
 
 ## April 2021
 {: #key-protect-apr21}
@@ -230,7 +230,7 @@ Announcing {{site.data.keyword.keymanagementserviceshort}} CLI plug-in v.0.6.3
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} supports key transfers in key rings
-:   You can now use the {{site.data.keyword.keymanagementserviceshort}} API to transfer a key from one key ring to another key ring. In order to move a key, you must have _Manager_ IAM access permissions to both the key and the target key ring, which is the key ring that you would like the key to be transferred to. To find out more, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys#transfer-key-key-ring-api). Also, support for aliases and key-rings brings best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
+:   You can now use the {{site.data.keyword.keymanagementserviceshort}} API to transfer a key from one key ring to another key ring. In order to move a key, you must have _Manager_ IAM access permissions to both the key and the target key ring, which is the key ring that you would like the key to be transferred to. To find out more, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys#transfer-key-key-ring-api). Also, support for aliases and key-rings brings best practices to using the [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-key-protect-cli-reference). Learn more about all of the new features in the [CLI changelog](/docs/key-protect?topic=key-protect-cli-changelog).
 
 ## February 2021
 {: #key-protect-feb21}
@@ -653,7 +653,7 @@ Announcing secure import of encryption keys
 {: release-note}
 
 Announcing the new {{site.data.keyword.keymanagementserviceshort}} CLI plug-in
-:   You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance. To learn how to install the plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference).
+:   You can now use the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to manage keys in your {{site.data.keyword.keymanagementserviceshort}} service instance. To learn how to install the plug-in, see [Setting up the CLI](/docs/key-protect?topic=key-protect-set-up-cli). To find out more about the {{site.data.keyword.keymanagementserviceshort}} CLI, [check out the CLI reference doc](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 ## September 2018
 {: #key-protect-sept18}
