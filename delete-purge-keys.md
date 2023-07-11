@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2023
+lastupdated: "2023-07-11"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -26,7 +26,7 @@ subcollection: key-protect
 You can use {{site.data.keyword.keymanagementservicefull}} to delete an encryption key and its key material if you are a manager for your {{site.data.keyword.keymanagementserviceshort}} instance.
 {: shortdesc}
 
-Before you can delete an instance, you must delete every key in that instance. Similarly, you cannot delete an account until all keys in all instances have been deleted. Check out [Account cancelation and data deletion](/docs/key-protect?topic=key-protect-security-and-compliance#account-cancelation) for more information.
+Before you can delete an instance, you must delete every key in that instance. However, if you close your account, any existing instances and keys are automatically hard deleted. Check out [Account cancelation and data deletion](/docs/key-protect?topic=key-protect-security-and-compliance#account-cancelation) for more information.
 {: important}
 
 In the event that a key is no longer needed or should be removed, {{site.data.keyword.keymanagementserviceshort}} allows you to delete and ultimately purge keys, an action that shreds the key material and makes any of the data encrypted with it inaccessible.
@@ -96,5 +96,3 @@ For a detailed description of the request, see the {{site.data.keyword.keymanage
 To learn how to delete and purge a key using the UI, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
 
 To learn how to delete and purge a key that holds a dual-authorization deletion policy using the UI, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
-
-

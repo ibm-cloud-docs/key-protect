@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-08"
+  years: 2017, 2023
+lastupdated: "2023-07-11"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -87,12 +87,9 @@ To help you determine what data is protected by a key, you can use {{site.data.k
 ### Account cancelation and data deletion
 {: #account-cancelation}
 
-If a user wishes to cancel their [{{site.data.keyword.cloud_notm}} account](/docs/account?topic=account-account_settings), they must first delete all keys in all instances in their account. Instances that have keys in them cannot be deleted. 
+Although instances that have non-deleted keys in them cannot be deleted, it is possible to close an [{{site.data.keyword.cloud_notm}} account](/docs/account?topic=account-account_settings) without first deleting all {{site.data.keyword.keymanagementserviceshort}} instances. If an account is closed and instances and keys belonging to it still exist, the instances and keys are permanently hard deleted.
 
-Because the **Keys** table in the console shows only `Enabled` keys by default, use the filters to show keys in all states. This can reveal keys that are not being displayed in the table.
-{: tip}
-
-After all keys in all instances have been deleted, the account cancelation can proceed and any data encrypted using those keys are inaccessible. After 30 days, {{site.data.keyword.keymanagementserviceshort}} deletes all the key data including metadata, but note that a user can use the `purge` option to remove key data when deleting keys. {{site.data.keyword.keymanagementserviceshort}} logs and stored backups of logs will be deleted after 365 days. Data already present in security or audit logs, support records, or business transaction records may be retained for those purposes. Due to the possibility of crypto erasure of data in an active account which is encrypted by keys from an another account which has been canceled, {{site.data.keyword.keymanagementserviceshort}} will only delete keys in the canceled account via a support ticket.
+For more information about closing an account, check out [Closing an account](/docs/account?topic=account-account_settings#cancel-account).
 
 ## Compliance readiness
 {: #compliance-ready}
