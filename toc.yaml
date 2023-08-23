@@ -121,7 +121,6 @@ toc:
           label: Enhancing security
           topics:
           - data-security.md
-          - manage-scc.md
   - navgroup:
       id: reference
       topics:
