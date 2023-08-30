@@ -32,6 +32,9 @@ When a key is deleted, it is moved to a "destroyed" state. However, information 
 
 As part of a testing and development process, it is normal to regularly create and delete keys. These keys are not gone forever; rather they are "soft deleted" and moved to a **destroyed** state, meaning that the key cannot be used as part of any key actions such as encrypting or decrypting data. The key data can only be looked at, and, if the key was deleted in error, it might be possible to restore the key to an **active** state.
 
+All keys, whether created in {{site.data.keyword.keymanagementserviceshort}} or imported, and whether a root or standard key, can be restored.
+{: tip}
+
 This intermediate period, in which a key has been deleted but can still be restored, lasts for 30 days. Between 30 days and 90 days, the key data can still be accessed, but the key can no longer be restored. After 90 days, the key becomes eligible to be automatically **purged**, which can occur at any time after 90 days. Purged keys, unlike destroyed keys, are gone forever.
 
 | Time from key deletion | Name of key state | Can view/access key data? | Can restore? |
@@ -43,13 +46,10 @@ This intermediate period, in which a key has been deleted but can still be resto
 
 `*`Note: because purged keys are completely inaccessible and "destroyed" in the common usage of the word, there is technically no "purged" key state. Purged keys are simply gone and therefore don't have a "state" one way or another. However, it can be useful to think of "purged" as being a state because nonexistence is part of the lifecycle of a key. If you need to purge a key sooner than 90 days, it requires a special key purging role. For more information, check out [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
-All keys, whether created in {{site.data.keyword.keymanagementserviceshort}} or imported, and whether a root or standard key, can be restored.
-{: important}
-
 For more information about key states, check out [Monitoring the lifecycle of encryption keys](/docs/key-protect?topic=key-protect-key-states).
 
 Because {{site.data.keyword.keymanagementserviceshort}} does not allow instances that have keys in them to be deleted, it is required that any keys in an instance be deleted before the instance itself can be deleted. However, because of the "soft" deletion of keys, it is possible that a user might delete a key and then soon after delete an instance. This deletion of the instance also permanently deletes the key, even if the deletion of the key is recent enough to have made it eligible to be restored. For this reason, {{site.data.keyword.keymanagementserviceshort}} allows an instance to be reclaimed for a short time after it has been deleted. To see if your instance can be reclaimed, check out [Listing reclaimed resources by using the CLI](/docs/account?topic=account-resource-reclamation&interface=cli#list-reclaimed-cli). For the commands on reclaiming the resource (the instance in this case), check out [Restoring a resource by using the CLI](/docs/account?topic=account-resource-reclamation&interface=cli#restore-resource-cli).
-{: tip}
+{: important}
 
 ## How do I know whether a key can be restored?
 {: #restore-keys-eligibility}
