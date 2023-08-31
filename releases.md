@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-08-30"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,19 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## August 2023
+{: #key-protect-oct23}
+
+### 30 August 2023
+{: #key-protect-oct3023}
+{: release-note}
+
+Because {{site.data.keyword.keymanagementserviceshort}} does not allow instances that have keys in them to be deleted, it is required that any keys in an instance be deleted before the instance itself can be deleted. However, because of the "soft" deletion of keys, it is possible that a user might delete a key and then soon after delete an instance. This deletion of the instance also permanently deletes the key, even if the deletion of the key is recent enough to have made it eligible to be restored.
+
+For this reason, {{site.data.keyword.keymanagementserviceshort}} now supports the reclamation of instances for a short time after they have been deleted. To see if your instance can be reclaimed, check out [Listing reclaimed resources by using the CLI](/docs/account?topic=account-resource-reclamation&interface=cli#list-reclaimed-cli). For the commands on reclaiming the resource (the instance in this case), check out [Restoring a resource by using the CLI](/docs/account?topic=account-resource-reclamation&interface=cli#restore-resource-cli).
+
+For more information about restoring keys, check out [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
 ## June 2023
 {: #key-protect-june23}
