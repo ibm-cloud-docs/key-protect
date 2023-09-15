@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-07"
+  years: 2017, 2023
+lastupdated: "2023-09-15"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -32,8 +32,7 @@ Review region and connectivity options for interacting with
 ## Available regions
 {: #available-regions}
 
-{{site.data.keyword.keymanagementserviceshort}} is available in the following
-regions (borders and geographic features in the illustration are artistic representations):
+{{site.data.keyword.keymanagementserviceshort}} is available in the following regions. This map might not reflect actual political or geographic boundaries.
 
 
 
@@ -95,6 +94,7 @@ endpoints to use when you connect to the
 | Osaka            | `jp-osa.kms.cloud.ibm.com`   |
 | Toronto          | `ca-tor.kms.cloud.ibm.com`   |
 | S&atilde;o-Paulo | `br-sao.kms.cloud.ibm.com`   |
+| Madrid           | `eu-es.kms.cloud.ibm.com.`   |
 {: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -112,6 +112,7 @@ endpoints to use when you connect to the
 | Osaka            | `private.jp-osa.kms.cloud.ibm.com`           |
 | Toronto          | `private.ca-tor.kms.cloud.ibm.com`           |
 | S&atilde;o-Paulo | `private.br-sao.kms.cloud.ibm.com`           |
+| Madrid           | `private.eu-es.kms.cloud.ibm.com.`           |
 {: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
