@@ -38,7 +38,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-sep1523}
 {: release-note}
 
-{{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Madrid MZR.
+{{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Madrid MZR. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, check out [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
 
 ## August 2023
 {: #key-protect-oct23}
