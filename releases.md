@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-08-30"
+lastupdated: "2023-09-15"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,15 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## September 2023
+{: #key-protect-sep23}
+
+### 15 September 2023
+{: #key-protect-sep1523}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Madrid MZR.
 
 ## August 2023
 {: #key-protect-oct23}
