@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-15"
+lastupdated: "2023-09-16"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -25,8 +25,7 @@ subcollection: key-protect
 # Regions and endpoints
 {: #regions}
 
-Review region and connectivity options for interacting with
-{{site.data.keyword.keymanagementservicelong}}.
+Review region and connectivity options for interacting with {{site.data.keyword.keymanagementservicelong}}.
 {: shortdesc}
 
 ## Available regions
