@@ -2,9 +2,9 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-27"
+lastupdated: "2023-10-05"
 
-keywords: secrets management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, Secrets Manager use cases, single tenant, multi-tenant
+keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
 subcollection: key-protect
 
@@ -70,7 +70,7 @@ For example, consider the following scenarios and how they map to secrets manage
 ## Which data protection service is best for me?
 {: #which-data-protection-service}
 
-The following table lists the different offerings that you can use with {{site.data.keyword.cloud_notm}} to protect your application secrets.
+The following table lists the different offerings that you can use with {{site.data.keyword.cloud_notm}} to protect your data.
 
 | Scenario | What to use |
 | --- | --- |
