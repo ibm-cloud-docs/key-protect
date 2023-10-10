@@ -15,6 +15,7 @@ toc:
       topics:
       - index.md
       - about.md
+      - service-comparison.md
       - topicgroup:
           label: Key concepts
           topics:
