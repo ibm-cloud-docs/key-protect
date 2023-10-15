@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-11"
+lastupdated: "2023-10-15"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -56,7 +56,7 @@ subcollection: key-protect
 {:release-note: data-hd-content-type='release-note'}
 
 
-# Comparison between {{site.data.keyword.secrets-manager_short}} and related {{site.data.keyword.cloud_notm}} services
+# Which data protection service is best for me?
 {: #manage-secrets-ibm-cloud}
 
 
@@ -67,7 +67,7 @@ For example, consider the following scenarios and how they map to secrets manage
 
 ![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](./images/secrets-mgmt-options.svg){: caption="Figure 1. Secrets management use cases" caption-side="bottom"}
 
-## Which data protection service is best for me?
+## Use cases
 {: #which-data-protection-service}
 
 The following table lists the different offerings that you can use with {{site.data.keyword.cloud_notm}} to protect your data.
