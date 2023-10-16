@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-09"
+  years: 2020, 2023
+lastupdated: "2023-10-16"
 
 keywords: key rings, group keys, manage key groups
 
@@ -133,8 +133,6 @@ available for to hold standard and root keys.
 {: #transfer-key-key-ring}
 
 As requirements change and new team members are brought into an org, you might create new key rings to reflect these organizational changes. After creating the key rings, it might be necessary to move a key from an existing key ring to a new key ring that has different IAM permissions. For example, you might be onboarding a team that will need specific access to a key that is part of to a custom, non-default key ring that was previously made. You can create a new key ring that is dedicated to the onboarding team and, since keys can only be associated with one key ring at a time, you will need to move the key to the new key ring.
-
-Because a key ring cannot be deleted as long as it contains keys in any state (including the `destroyed` state keys are moved to after they are deleted but before they are automatically purged 90 days after deletion), if you want to delete a key ring, you might need to transfer keys to a different ring first.
 
 After transferring a key to a different key ring, it may take up to a maximum of ten minutes for the change to take effect.
 {: important}
@@ -374,8 +372,7 @@ You can delete a key ring by making a `DELETE` call to the following endpoint.
 https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>
 ```
 
-This action won't succeed if the key ring contains at least one key, regardless
-of key state (including keys in the _Destroyed_ state).
+This action won't succeed if the key ring contains at least one key in a state other than the _Destroyed_ state. If the only keys in the key ring are in the _Destroyed_ state, the key ring can be deleted if the `-f` flag is added to the delete command. The keys in that state are automatically transferred to the `default` key ring.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -386,10 +383,10 @@ of key state (including keys in the _Destroyed_ state).
     {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your key rings](#list-key-ring-api).
 
-3. Run the following `curl` command to delete the key ring.
+3. Run the following `curl` command to delete the key ring. Note the presence of the `-f` flag, which force deletes the key ring in the event that it contains keys in the _Destroyed_ state.
 
     ```sh
-    $ curl -X DELETE \
+    $ curl -X DELETE -f \
         "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -397,8 +394,7 @@ of key state (including keys in the _Destroyed_ state).
     ```
     {: codeblock}
 
-    Replace the variables in the example request according to the following
-    table.
+    Replace the variables in the example request according to the following table.
 
 |Variable|Description|
 |--- |--- |
