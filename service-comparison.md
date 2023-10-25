@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-15"
+lastupdated: "2023-10-16"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -56,7 +56,7 @@ subcollection: key-protect
 {:release-note: data-hd-content-type='release-note'}
 
 
-# Which data protection service is best for me?
+# Which data security service is best for me?
 {: #manage-secrets-ibm-cloud}
 
 
@@ -74,11 +74,11 @@ The following table lists the different offerings that you can use with {{site.d
 
 | Scenario | What to use |
 | --- | --- |
-| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}} to generate and import encryption keys by using a multi-tenant service with shared hardware. |
-| You need to be able to create and manage keys in a Satellite location. | You can use **{{site.data.keyword.keymanagementserviceshort}} to create and manage keys in either {{site.data.keyword.cloud_notm}} or in Satellite. |
+| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** to generate and import encryption keys by using a multi-tenant service with shared hardware. |
+| You need to be able to create and manage keys in a Satellite location. | You can use **{{site.data.keyword.keymanagementserviceshort}}** to create and manage keys in either {{site.data.keyword.cloud_notm}} or in Satellite. |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
-| The data you want to protect with encryption keys is highly valuable for your company or you need to comply to certain data protection regulations. To do so you want to have the full and exclusive control over your keys & even exclude access from the {{site.data.keyword.cloud_notm}} admin to the master key. Therefore you want to leverage a dedicated key management service running within a secure enclave as well as a dedicated FIPS 140-2 Level 4 hardware security module as a Service that underlies your full control. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you have the full control to manage encryption keys in a single-tenant service with dedicated hardware for own your own key (KYOK). |
+| The data you want to protect with encryption keys is highly valuable for your company or you need to comply to certain data protection regulations. To do so you want to have the full and exclusive control over your keys & even exclude access from the {{site.data.keyword.cloud_notm}} admin to the master key. Therefore you want to leverage a dedicated key management service running within a secure enclave as well as a dedicated FIPS 140-2 Level 4 hardware security module as a service that underlies your full control. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you have the full control to manage encryption keys in a single-tenant service with dedicated hardware for own your own key (KYOK). |
 | You have a multi-cloud architecture and want to enhance the data security posture across all your clouds efficiently and securely. | **[{{site.data.keyword.hscrypto}} with Unified Key Orchestrator](/docs/hs-crypto?topic=hs-crypto-uko-overview#:~:text=Unified%20Key%20Orchestrator%20enables%20you,trust%20of%20your%20key%20hierarchy)** allows you to manage your keys across {{site.data.keyword.cloud_notm}} (BYOK and KYOK), AWS (BYOK), GCP (BYOK) and Azure (BYOK) in a unified and highly secure way. |
 {: caption="Table 1. Secrets management and data protection scenarios" caption-side="top"}
 

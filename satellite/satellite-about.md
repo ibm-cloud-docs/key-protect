@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-06-02"
+lastupdated: "2023-10-16"
 
 keywords: satellite, hsm, about
 
@@ -22,9 +22,6 @@ In this topic, references to "{{site.data.keyword.keymanagementserviceshort}}" r
 {: note}
 
 As protecting data everywhere becomes increasingly critical for organizations transforming into hybrid Cloud IT, {{site.data.keyword.cloud_notm}} is introducing the ability for {{site.data.keyword.keymanagementserviceshort}} to support data encryption on the new Satellite environments. {{site.data.keyword.keymanagementserviceshort}} on Satellite enables secure data services closer to where they are needed, with the additional security benefit of allowing customers to have separate and direct control of their "root of trust" with Bring Your Own Hardware Security Module (BYOHSM) capability.
-
-To deploy {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must be added to the allowlist. [Contact {{site.data.keyword.IBM_notm}}](https://www.ibm.com/contact/us/en/) to learn more.
-{: important}
 
 Because {{site.data.keyword.keymanagementserviceshort}} on Satellite features both a Satellite location with services (such as {{site.data.keyword.keymanagementserviceshort}}) managed by {{site.data.keyword.cloud_notm}} and infrastructure controlled by the user (including two fully user-controlled HSMs), it is designed for users who either desire or require closer control over their infrastructure (and keys) than is available with a fully managed service offering deployed on {{site.data.keyword.cloud_notm}}. This offering includes single tenant {{site.data.keyword.keymanagementserviceshort}} on Satellite that connects to two user-controlled HSMs, in contrast to the multi-tenant fully managed {{site.data.keyword.keymanagementserviceshort}} in {{site.data.keyword.cloud_notm}}.
 
