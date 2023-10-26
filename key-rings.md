@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-16"
+lastupdated: "2023-10-26"
 
 keywords: key rings, group keys, manage key groups
 
@@ -372,7 +372,7 @@ You can delete a key ring by making a `DELETE` call to the following endpoint.
 https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>
 ```
 
-This action won't succeed if the key ring contains at least one key in a state other than the _Destroyed_ state. If the only keys in the key ring are in the _Destroyed_ state, the key ring can be deleted if the `-f` flag is added to the delete command. The keys in that state are automatically transferred to the `default` key ring.
+This action won't succeed if the key ring contains at least one key in a state other than the _Destroyed_ state. If the only keys in the key ring are in the _Destroyed_ state, the key ring can be deleted if `force=true` is added to the delete command. The keys in that state are automatically transferred to the `default` key ring.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).
@@ -383,11 +383,11 @@ This action won't succeed if the key ring contains at least one key in a state o
     {{site.data.keyword.keymanagementserviceshort}} instance by
     [retrieving a list of your key rings](#list-key-ring-api).
 
-3. Run the following `curl` command to delete the key ring. Note the presence of the `-f` flag, which force deletes the key ring in the event that it contains keys in the _Destroyed_ state.
+3. Run the following `curl` command to delete the key ring. Note the presence of `force=true`, which force deletes the key ring in the event that it contains keys in the _Destroyed_ state.
 
     ```sh
-    $ curl -X DELETE -f \
-        "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>" \
+    $ curl -X DELETE \
+        "https://<region>.kms.cloud.ibm.com/api/v2/key_rings/<key_ring_id>?force=true" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
         -H "prefer: <return_preference>"
