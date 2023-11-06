@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-11"
+lastupdated: "2023-11-06"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -32,6 +32,9 @@ Sensitive data should not be stored on any cloud provider unencrypted (as "plain
 The solution is a key management system like {{site.data.keyword.keymanagementserviceshort}}, which keeps data secure by encrypting the data encryption keys (DEKs) that encrypt your plaintext data with root keys managed by IBM via an impenetrable HSM. In this kind of a system, known as "envelope encryption", the process of decrypting the data means first "unwrapping" the encrypted DEK (opening its envelope, in other words) and then using the DEK to decrypt the data.
 
 For more information about envelope encryption works, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+
+Unsure which {{site.data.keyword.cloud_notm}} security is right for your use case? Check out [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud) for more information.
+{: tip}
 
 ## What {{site.data.keyword.keymanagementserviceshort}} offers
 {: #about-offers}
