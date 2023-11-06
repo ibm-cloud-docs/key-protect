@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-11-06"
 
 keywords: satellite, ui, deploy
 
@@ -26,19 +26,23 @@ subcollection: key-protect
 # Deploying the Key Protect console to Satellite
 {: #satellite-ui-deploy}
 
-After you have [successfully deployed your Satellite location](/docs/satellite?topic=satellite-getting-started) and [configured your HSM](/docs/key-protect?topic=key-protect-satellite-hsm-deploy), you're ready to deploy {{site.data.keyword.keymanagementservicefull}} on Satellite.
+After you have [successfully deployed your Satellite location](/docs/satellite?topic=satellite-getting-started), you can initiate a creation request for {{site.data.keyword.keymanagementservicefull}} on Satellite, followed by creating a service ticket to complete the installation.
 {: shortdesc}
 
-While the {{site.data.keyword.IBM_notm}} Console is used to create the {{site.data.keyword.keymanagementserviceshort}} service on Satellite, the console itself cannot currently be used to access the {{site.data.keyword.keymanagementserviceshort}} APIs that are used to create keys or perform other key actions (such as rotating keys, deleting keys, editing keys, and so on). Those key actions must be performed through direct calls to the [{{site.data.keyword.keymanagementserviceshort}} APIs](/apidocs/key-protect) or by using the CLI.
+To ensure that {{site.data.keyword.keymanagementserviceshort}} is installed in your Satellite location correctly, your configuration parameters, including your Hardware Security Module (HSM) information, are shared out-of-band during your interaction with your service representative.
 {: important}
+
+Note that when you click **Create** on the catalog page, you initiate a **creation request**. This request must be followed by an interaction with a service representative (if you have not already initiated this interaction). If you do not contact a service representative, your creation request cannot succeed. While you can intitiate a creation request without first having configured your HSMs, you cannot initiate the request without first having created a [Satellite location](/docs/satellite?topic=satellite-getting-started). The best practice, however, is to begin your interaction with {{site.data.keyword.IBM_notm}} well in advance of your attempt to initiate a creation request.
+
+While the {{site.data.keyword.IBM_notm}} Console is used to create the {{site.data.keyword.keymanagementserviceshort}} service on Satellite, the console itself cannot currently be used to access the {{site.data.keyword.keymanagementserviceshort}} APIs that are used to create keys or perform other key actions (such as rotating keys, deleting keys, editing keys, and so on). Those key actions must be performed through direct calls to the [{{site.data.keyword.keymanagementserviceshort}} APIs](/apidocs/key-protect) or by using the CLI.
+{: note}
 
 ## Before you begin
 {: #satellite-ui-deploy-before-begin}
 
-Before you can deploy {{site.data.keyword.keymanagementserviceshort}} on Satellite, you must have created a Satellite location and have both deployed and [correctly configured](/docs/key-protect?topic=key-protect-satellite-hsm-deploy) at least two HSMs. You must also have [gathered the information about the HSM that Satellite needs to consume](/docs/key-protect?topic=key-protect-satellite-hsm-deploy#satellite-hsm-ui-values) and have [deployed the {{site.data.keyword.cloud_notm}} Databases service in your Satellite location](docs/cloud-databases?topic=cloud-databases-satellite-on-prem). You must also have been added to the allowlist, which can be achieved through your contact with the service representative.
+Before {{site.data.keyword.keymanagementserviceshort}} on Satellite can be successfully deployed, you must have created a Satellite location and have both deployed and [correctly configured](/docs/key-protect?topic=key-protect-satellite-hsm-deploy) at least two HSMs. You must also have [gathered the information about the HSM that Satellite must consume](/docs/key-protect?topic=key-protect-satellite-hsm-deploy#satellite-hsm-ui-values) and have [deployed the {{site.data.keyword.cloud_notm}} Databases service in your Satellite location](docs/cloud-databases?topic=cloud-databases-satellite-on-prem).
 
-Because the HSM information is not verified until after {{site.data.keyword.keymanagementserviceshort}} has been provisioned (an operation that can take more than an hour), it is important to ensure these fields are filled out correctly when first attempting to create a {{site.data.keyword.keymanagementserviceshort}} on Satellite location.
-{: important}
+For the smoothest interaction with your service representative, the best practice is to gather these configuration variables before initiating a creation request for {{site.data.keyword.keymanagementserviceshort}} on Satellite.
 
 * **HSM IP address**: The IP address of your HSM. This is needed in order to connect to the worker nodes that you assigned to {{site.data.keyword.keymanagementserviceshort}}.
 * **HSM server certificate**: The NTLS communications used by the Thales HSM requires certificate exchanges between the HSM and {{site.data.keyword.keymanagementserviceshort}}. You must create a TLS certificate in your HSM and provide the certificate {{site.data.keyword.keymanagementserviceshort}} will use to verify communications from the HSM.
@@ -53,7 +57,7 @@ Because the HSM information is not verified until after {{site.data.keyword.keym
 There are two additional credentials you must share before your service can be deployed, the **HSM client cert** and the **HSM client key**, but these are not shared as part of deploying the UI itself. These credentials enable NTLS communications used by the Thales HSM for exchanges between the HSM and {{site.data.keyword.keymanagementserviceshort}} running on your worker node. You must create and register with the HSM a TLS certificate for the worker node (client) that will connect to the HSM and provide the client certificate and key that {{site.data.keyword.keymanagementserviceshort}} uses to communicate with the HSM. The exact instructions to share these credentials are communicated as part of your conversations with your service representative.
 {: tip}
 
-## Provisioning {{site.data.keyword.keymanagementserviceshort}}
+## Initiating a {{site.data.keyword.keymanagementserviceshort}} on Satellite creation request
 {: #satellite-ui-deploy-catalog}
 
 To provision the {{site.data.keyword.keymanagementserviceshort}} service, complete the following steps:
@@ -64,11 +68,11 @@ To provision the {{site.data.keyword.keymanagementserviceshort}} service, comple
 
 3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
-4. On the {{site.data.keyword.keymanagementserviceshort}} catalog page, select Satellite.
+4. On the {{site.data.keyword.keymanagementserviceshort}} catalog page, select **Satellite**.
 
 4. Note the **Before you begin** checklist and confirm you have completed the required steps.
 
-5. Select the **Key quota** you want assigned to this location. This number represents the total number of keys which can be deployed into this location. This number can be changed later by opening a service ticket. Note that the quota can only be adjusted in groups of 100 keys. For more information, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-pricing-plan-satellite). If you do not see the key quota section, the service plan, or the HSM fields, check with your service representative to make sure you have been added to the allowlist.
+5. Select the **Key quota** you want assigned to this location. This number represents the maximum number of keys which can be created in this location. This number can be changed later by opening a service ticket. Note that the quota can only be set in groups of 100 keys. For more information, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-pricing-plan-satellite).
 
 6. In the **Configure your resource** section:
     * Give the service a **Name**. While not necessary, it is a best practice to choose a name relevant to the usage you plan for the service.

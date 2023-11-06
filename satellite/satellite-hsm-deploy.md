@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-11-06"
 
 keywords: satellite, hsm, deploy
 
@@ -108,7 +108,7 @@ Many different tools can be used to create these keys. Consult with Thales techn
 ## Gather the information needed to connect the HSM with the {{site.data.keyword.keymanagementserviceshort}} console
 {: #satellite-hsm-ui-values}
 
-In order to [deploy {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-satellite-ui-deploy), you must provide the information to connect to the HSM and to perform the kinds of privileged actions on the HSM that are necessary for {{site.data.keyword.keymanagementserviceshort}} to function.
+In order to [deploy {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-satellite-ui-deploy), you must provide the information to connect to the HSM and to perform the kinds of privileged actions on the HSM that are necessary for {{site.data.keyword.keymanagementserviceshort}} to function as part of your interactions with your service representative.
 
 You must provide this information for both HSMs.
 {: important}
