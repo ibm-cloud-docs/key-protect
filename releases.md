@@ -41,7 +41,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {{site.data.keyword.keymanagementserviceshort}} announces the availability of:
 
 * The ability to add a description to a key [using the CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create) and [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#description).
-* The ability to force delete a key ring [using the CLI](/apidocs/key-protect#deletekeyring) and [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings#force_delete). You can also find a code example [here](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-ring-delete).
+* The ability to force delete a key ring [using the API](/apidocs/key-protect#deletekeyring), [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings#force_delete), and the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-ring-delete).
 
 ## September 2023
 {: #key-protect-sep23}
