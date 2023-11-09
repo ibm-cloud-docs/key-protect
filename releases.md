@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-09-15"
+lastupdated: "2023-11-09"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,18 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## November 2023
+{: #key-protect-nov23}
+
+### 9 November 2023
+{: #key-protect-nov923}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the availability of:
+
+* The ability to add a description to a key [using the CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create) and [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#description).
+* The ability to force delete a key ring [using the CLI](/apidocs/key-protect#deletekeyring) and [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings#force_delete). You can also find a code example [here](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-ring-delete).
 
 ## September 2023
 {: #key-protect-sep23}
