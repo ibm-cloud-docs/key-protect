@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-11-09"
+lastupdated: "2023-12-14"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,17 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## December 2023
+{: #key-protect-dec23}
+
+### 15 December 2023
+{: #key-protect-dec1523}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces that {{site.data.keyword.keymanagementservicefull}} on Satellite is now available in the  {{site.data.keyword.cloud_notm}} `eu-de` Multi-Zone Region (MZR). Previously, only the `us-east` region was available. 
+
+For more information about {{site.data.keyword.keymanagementservicefull}} on Satellite, check out [About {{site.data.keyword.keymanagementservicefull}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
 
 ## November 2023
 {: #key-protect-nov23}
