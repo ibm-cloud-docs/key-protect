@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-02-24"
+  years: 2023
+lastupdated: "2023-12-14"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -32,7 +32,7 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 
 [CBR](/docs/account?topic=account-context-restrictions-whatis) allows you to manage user and service access to network resources, including Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses linking your {{site.data.keyword.keymanagementserviceshort}} resources.
 
-You must be the account owner or have an access policy with the administrator role on all account management services in order to restrict access.
+For more information about the services integrated with CBR, check out [Services integrated with context-based restrictions](/docs/account?topic=account-context-restrictions-whatis#cbr-access-reqs-target-service).
 {: note}
 
 ## Overview
