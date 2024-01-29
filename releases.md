@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-12-14"
+  years: 2017, 2024
+lastupdated: "2024-01-29"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,15 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## January 2024
+{: #key-protect-jan24}
+
+### 30 January 2024
+{: #key-protect-dec3024}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces that adding a [key description](/docs/key-protect?topic=key-protect-create-root-key-gui) is now available as an option in the control plane (UI).
 
 ## December 2023
 {: #key-protect-dec23}
