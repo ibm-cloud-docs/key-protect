@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-12"
+lastupdated: "2024-02-13"
 
 keywords: key protect, release notes, service updates
 
@@ -34,8 +34,8 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 ### February 2024
 {: #key-protect-feb24}
 
-### 12 February 2024
-{: #key-protect-feb0224}
+### 13 February 2024
+{: #key-protect-feb1324}
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} announces that adding a [key description](/docs/key-protect?topic=key-protect-create-root-key-gui) is now available as an option in the control plane (UI).
