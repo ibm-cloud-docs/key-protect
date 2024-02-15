@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-04"
+  years: 2017, 2024
+lastupdated: "2024-01-29"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -60,7 +60,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
     provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. To create a new key, click **Add**. A side panel will open. Make sure the **Create a key** option is selected. Note that to set a **Key alias**, **Key Ring**, or **Rotation policy** for this key, you must click the **Advanced options** tab to reveal them.
+4. To create a new key, click **Add**. A side panel will open. Make sure the **Create a key** option is selected. Note that to set a **Key alias**, **Key Ring**, or **Rotation policy** for this key, you must click the **Advanced Options** tab to reveal them.
 
 If you are not a `Manager` (or have an equivalent level of permissions), the **Rotation policy** option does not appear.
 {: note}
@@ -71,7 +71,8 @@ If you are not a `Manager` (or have an equivalent level of permissions), the **R
 | --- | --- |
 | Type | The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. Root keys are selected by default.|
 | Key name | A human-readable display name for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
-| Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
+| Key description | **Optional**. Descriptions are a useful way to add information about a key (for example, a phrase describing its purpose) in a way that isn't possible to do using an alias or its name. This description must be at least two characters and no more than 240, and cannot be changed later. To protect your privacy, do not use personal data, such as your name or location, as a description for your key.|
+| Key alias | **Optional**. A [key alias](/docs/key-protect?topic=key-protect-create-key-alias) is also a way to describe a key. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
 |Rotation policy| **Optional**. If you hold the [_Manager_ role](/docs/key-protect?topic=key-protect-manage-access), you can set a rotation policy for the key at key-creation time. If an [instance policy](/docs/key-protect?topic=key-protect-manage-policies-instance) exists to create rotation policies on keys by default, you can also overwrite that policy at key-creation time to a different interval. Note that if your instance has a rotation policy enabled and you **Disable** the rotation policy at key creation time, the policy is still written to your key in a **Disabled** state. If you want to enable this policy later, you can do so. Check out [Set a rotation policy after the key has been created](/docs/key-protect?topic=key-protect-set-rotation-policy#manage-policies-gui) for more information.|
 {: caption="Table 1. Describes the Create a key settings." caption-side="bottom"}
