@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-04-13"
+  years: 2024
+lastupdated: "2024-02-23"
 
 keywords: pricing plan, cost, satellite
 
@@ -52,7 +52,7 @@ Pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite is base
 If you change quotas in the middle of a billing cycle (for example, going from 100 keys to 200 keys) you are charged whichever quota is larger. This charge is not prorated by the amount of time a particular quota was selected and is based on the maximum quota during a particular billing cycle.
 {: important}
 
-If you navigate to the [catalog page for {{site.data.keyword.keymanagementserviceshort}} on Satellite](https://cloud.ibm.com/catalog/services/key-protect), click on the **Satellite** card under **Select a location**, and cannot see the specific plan information for {{site.data.keyword.keymanagementserviceshort}} on Satellite, this might be because you have not been allowlisted. [Contact {{site.data.keyword.IBM_notm}}](https://www.ibm.com/contact/us/en/) to learn more.
+If you navigate to the [catalog page for {{site.data.keyword.keymanagementserviceshort}} on Satellite](https://cloud.ibm.com/catalog/services/key-protect), click on the **Satellite** card under **Select a location**, and cannot see the specific plan information for {{site.data.keyword.keymanagementserviceshort}} on Satellite, this might be because you have not been allowlisted. [Contact {{site.data.keyword.IBM_notm}}](https://www.ibm.com/contact) to learn more.
 
 ## What is a non-deleted key?
 {: #pricing-plan-satellite-non-deleted}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-09"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -53,7 +53,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 
 After you delete a key, the key transitions to the _Destroyed_ state. Any data encrypted by keys in this state is no longer accessible. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. Destroyed keys can be recovered after up to 30 days or their expiration date, whichever is sooner. After 30 days, keys can no longer be recovered, and become eligible to be purged after 90 days, a process that shreds the key material and makes its metadata inaccessible.
 
-If a user [has the _KeyPurge_ attribute](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), they can purge a key after four hours. Check out [Purging keys in the console](#delete-keys-gui-purge) for more information.
+If a user [has the _KeyPurge_ attribute](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), they can purge a key after four hours. Check out [Purging keys in the console](/docs/key-protect?topic=key-protect-delete-keys&interface=ui#delete-keys-gui-purge) for more information.
 {: tip}
 
 ## Purging keys in the console
@@ -66,7 +66,7 @@ Because a purged key has its key material permanently shredded and metadata inac
 
 To purge a key:
 
-1. Follow the instructions to [Delete a key](#delete-keys-gui).
+1. Follow the instructions to [Delete a key](/docs/key-protect?topic=key-protect-delete-keys&interface=ui#delete-keys-gui).
 
 2. After waiting at least four hours, once again navigate to the key and click the ⋯ icon.
 
@@ -84,7 +84,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 ```
 
-This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](#delete-keys-force-delete) at query time to delete the key.
+This action won't succeed if the key is actively protecting one or more cloud resources. You can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key, or [use the `force` parameter](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-keys-force-delete) at query time to delete the key.
 {: important}
 
 1. [Retrieve your authentication credentials to work with keys in the service](/docs/key-protect?topic=key-protect-set-up-api).

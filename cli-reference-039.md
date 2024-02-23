@@ -22,14 +22,14 @@ subcollection: key-protect
 {: #cli-reference-039}
 
 CLI version 0.3.9 is deprecated. The current version is
-[found here](/docs/key-protect?topic=key-protect-cli-reference).
+[found here](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 {: note}
 
 This document is specific to the `key-protect` plugin, version `0.3.9`.
 {: important}
 
 - The latest CLI Reference, version 0.4.0, is
-[found here](/docs/key-protect?topic=key-protect-cli-reference).
+[found here](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 Verify the installed plug-in version.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-06"
+  years: 2024
+lastupdated: "2024-02-23"
 
 keywords: satellite, hsm, deploy
 
@@ -37,7 +37,7 @@ To work correctly with {{site.data.keyword.keymanagementserviceshort}}, these HS
 Before a {{site.data.keyword.keymanagementserviceshort}} on Satellite location can be deployed, HSMs must both exist and have been configured to create the kinds of keys that work with {{site.data.keyword.keymanagementserviceshort}}. At a high level, this is a two step process:
 
 * **The purchase and initial setup of the HSMs**. Users are responsible to purchase and setup the HSMs within their own infrastructure. For more information about the type of HSMs that are supported, check out [About the HSMs supported for use with {{site.data.keyword.keymanagementserviceshort}} on Satellite](#satellite-hsm-supported). Because these HSMs are not purchased from {{site.data.keyword.IBM_notm}}, make sure to follow the relevant product documentation from your HSM vendor in regard to setup, maintenance, and resolving service incidents. {{site.data.keyword.IBM_notm}} is only responsible for errors that result from issues with the {{site.data.keyword.keymanagementserviceshort}} service, not from any issues with your HSM.
-* **Configure the HSMs to work with {{site.data.keyword.keymanagementserviceshort}}**. In order for an HSM to work properly with {{site.data.keyword.keymanagementserviceshort}}, it must not only have a [partition](#satellite-hsm-supported-partitions) dedicated to work with {{site.data.keyword.keymanagementserviceshort}}, but it also must be configured to produce keys using the key algorithms supported by {{site.data.keyword.keymanagementserviceshort}}. The labels for these keys must be provided as part of deploying the [{{site.data.keyword.keymanagementserviceshort}} console](/docs/key-protect?topic=key-protect-satellite-ui-deploy#satellite-ui-deploy-before-begin}).
+* **Configure the HSMs to work with {{site.data.keyword.keymanagementserviceshort}}**. In order for an HSM to work properly with {{site.data.keyword.keymanagementserviceshort}}, it must not only have a [partition](#satellite-hsm-supported-partitions) dedicated to work with {{site.data.keyword.keymanagementserviceshort}}, but it also must be configured to produce keys using the key algorithms supported by {{site.data.keyword.keymanagementserviceshort}}. The labels for these keys must be provided as part of deploying the [{{site.data.keyword.keymanagementserviceshort}} console](/docs/key-protect?topic=key-protect-satellite-ui-deploy#satellite-ui-deploy-before-begin).
 
 ## About the HSMs supported for use with {{site.data.keyword.keymanagementserviceshort}} on Satellite
 {: #satellite-hsm-supported}
@@ -53,7 +53,7 @@ Older firmware and application/OS version are not explicitly supported as using 
 Depending on the version of the software application and supported FIPS 140-2 Level 3 firmware, the upgrade path through prior versions may be required. The Thales HSM documentation prescribes the correct upgrade path. As of this writing, the path to 7.3.1 is through 7.3.0. In other words, update to version 7.3.0 before updating to version 7.3.1.
 {: tip}
 
-* For more information about Thales SafeNet Luna Network HSMs releases, check out [Thales SafeNet Luna Network HSMs Available Documentation Releases](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm).
+* For more information about Thales SafeNet Luna Network HSMs releases, check out [Thales SafeNet Luna Network HSMs Available Documentation Releases](https://thalesdocs.com/gphsm/luna/7/docs/network/Content/Home_Luna.htm).
 
 * For details about the certifications, check out [FIPS 140-2 Certificate](https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program/Certificate/3205).
 

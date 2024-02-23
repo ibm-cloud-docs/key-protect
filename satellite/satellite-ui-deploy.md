@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-06"
+  years: 2024
+lastupdated: "2024-02-23"
 
 keywords: satellite, ui, deploy
 
@@ -40,7 +40,7 @@ While the {{site.data.keyword.IBM_notm}} Console is used to create the {{site.da
 ## Before you begin
 {: #satellite-ui-deploy-before-begin}
 
-Before {{site.data.keyword.keymanagementserviceshort}} on Satellite can be successfully deployed, you must have created a Satellite location and have both deployed and [correctly configured](/docs/key-protect?topic=key-protect-satellite-hsm-deploy) at least two HSMs. You must also have [gathered the information about the HSM that Satellite must consume](/docs/key-protect?topic=key-protect-satellite-hsm-deploy#satellite-hsm-ui-values) and have [deployed the {{site.data.keyword.cloud_notm}} Databases service in your Satellite location](docs/cloud-databases?topic=cloud-databases-satellite-on-prem).
+Before {{site.data.keyword.keymanagementserviceshort}} on Satellite can be successfully deployed, you must have created a Satellite location and have both deployed and [correctly configured](/docs/key-protect?topic=key-protect-satellite-hsm-deploy) at least two HSMs. You must also have [gathered the information about the HSM that Satellite must consume](/docs/key-protect?topic=key-protect-satellite-hsm-deploy#satellite-hsm-ui-values) and have [deployed the {{site.data.keyword.cloud_notm}} Databases service in your Satellite location](/docs/cloud-databases?topic=cloud-databases-satellite-on-prem).
 
 For the smoothest interaction with your service representative, the best practice is to gather these configuration variables before initiating a creation request for {{site.data.keyword.keymanagementserviceshort}} on Satellite.
 

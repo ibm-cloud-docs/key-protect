@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-07-11"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -49,7 +49,7 @@ see
 ### Data encryption
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://ibm.com/cloud/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
+{{site.data.keyword.keymanagementserviceshort}} uses [{{site.data.keyword.cloud_notm}} hardware security modules (HSMs)](https://www.ibm.com/products/hardware-security-module){: external} to generate provider-managed key material and perform [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) operations. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
 
 Access to {{site.data.keyword.keymanagementserviceshort}} takes place over HTTPS and uses Transport Layer Security (TLS) to encrypt data in transit.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-02-11"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: quantum safe cryptography, quantum cryptography, quantum safe TLS
 
@@ -156,7 +156,7 @@ key sizes, see
 The Kyber algorithm is used based on recommendation from
 {{site.data.keyword.cloud_notm}}. To find out more about the algorithm and its
 associated key sizes, see
-[CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/master/docs/algorithms/kem/kyber.md){: external}.
+[CRYSTALS-Kyber](https://github.com/open-quantum-safe/liboqs/blob/main/docs/algorithms/kem/kyber.md){: external}.
 {: note}
 
 ### Quantum Safe Enabled Endpoints

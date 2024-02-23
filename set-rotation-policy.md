@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-03-24"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -38,7 +38,7 @@ There are a few different ways to set a rotation policy:
 
 * [Set a rotation policy on your {{site.data.keyword.keymanagementservicefull}} instance](#manage-policies-instance). This ensures that every key that is created has the rotation policy unless the policy is overridden at key-creation time by a `Manager`.
 * [Set a rotation policy at key creation time](#manage-policies-creation-time). This allows for the adjustment of the rotation policy for a particular key to be applied during the creation of a key.
-* [Set a rotation policy after the key has been created](#manage-policies-gui). A rotation policy can be changed on a key at any time, even if a key is carrying a disabled rotation policy or if one was never applied to the key at all.
+* [Set a rotation policy after the key has been created](/docs/key-protect?topic=key-protect-set-rotation-policy&interface=ui#manage-policies-gui). A rotation policy can be changed on a key at any time, even if a key is carrying a disabled rotation policy or if one was never applied to the key at all.
 
 You can create a rotation policy only for root keys that are generated in {{site.data.keyword.keymanagementserviceshort}}. If you imported the root key initially, you must provide new base64 encoded key material to rotate the key. For more information, see [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 {: important}
