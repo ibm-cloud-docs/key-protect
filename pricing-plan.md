@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-04-14"
+  years: 2024
+lastupdated: "2024-02-23"
 
 keywords: pricing plan, billing, cost
 
@@ -34,7 +34,7 @@ subcollection: key-protect
 Pricing in {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}} is based on the number of **key versions** in your account. The first five key versions are free, after which keys cost USD1.045 per key version per month.
 {: shortdesc}
 
-Creating or importing a key initiates the first **version** of that key. As a result, a newly created or imported key has one version. Each time a key is rotated, a new version is created. A key that has been rotated 10 times, then, has 11 versions (10 versions created by rotations plus the initial version). To discover how many versions you have of each non-deleted key, check out [How many key versions do you have?](#pricing-plan-how-many-keys). For more information about rotating keys, check out [Rotating your root keys](/docs/key-protect?topic=key-protect-key-rotation). Note that only root keys can be rotated. For the purpose of {{site.data.keyword.keymanagementserviceshort}} pricing, the [data encryption keys (DEKs)](/docs/key-protect?topic=key-protect-envelope-encryption) used by services or applications to encrypt the data are not counted as key versions in terms of pricing.
+Creating or importing a key initiates the first **version** of that key. As a result, a newly created or imported key has one version. Each time a key is rotated, a new version is created. A key that has been rotated 10 times, then, has 11 versions (10 versions created by rotations plus the initial version). To discover how many versions you have of each non-deleted key, check out [How many key versions do you have?](/docs/key-protect?topic=key-protect-pricing-plan&interface=ui#pricing-plan-how-many-keys). For more information about rotating keys, check out [Rotating your root keys](/docs/key-protect?topic=key-protect-key-rotation). Note that only root keys can be rotated. For the purpose of {{site.data.keyword.keymanagementserviceshort}} pricing, the [data encryption keys (DEKs)](/docs/key-protect?topic=key-protect-envelope-encryption) used by services or applications to encrypt the data are not counted as key versions in terms of pricing.
 
 While {{site.data.keyword.keymanagementserviceshort}} does not charge a monthly fee for the maintenance of deployed instances, it does charge for the usage of its service through keys that are created, imported, rotated and otherwise managed. Note that "non-deleted" keys refers to any key that has not been moved into the `Destroyed` state. `Deactivated` and `Suspended` keys have not been deleted, and still count as non-deleted versions. For more information about key states, check out [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 

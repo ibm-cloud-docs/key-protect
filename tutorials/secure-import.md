@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-06-08"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -660,7 +660,7 @@ To import the key:
     details page. Choose from a list of options for managing your key, such as
     [rotating the key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-key-gui)
     or
-    [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui).
+    [deleting the key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-gui).
 
 ## Step 9. Clean up
 {: #tutorial-import-clean-up}

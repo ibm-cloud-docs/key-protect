@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-21"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -75,7 +75,7 @@ to generate key material that you can import into
 Choose from two options for importing root keys based on the level of
 security that's required for your environment or workload.
 
-By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key material while it's in transit by using supported ciphers of the Transport Layer Security (TLS) 1.2 and 1.3 protocols. For more information about those ciphers, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-security).
+By default, {{site.data.keyword.keymanagementserviceshort}} encrypts your key material while it's in transit by using supported ciphers of the Transport Layer Security (TLS) 1.2 and 1.3 protocols. For more information about those ciphers, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-encryption).
 
 If you're building a proof of concept or trying out the service for the
 first time, you can import root key material into
@@ -92,7 +92,7 @@ to encrypt and import root key material into the service.
 If you choose to encrypt your key material by using an import token, determine a
 method for running RSA encryption on the key material. You must use the
 `RSAES_OAEP_SHA_256` encryption scheme as specified by the
-[PKCS #1 v2.1 standard for RSA encryption](https://tools.ietf.org/html/rfc3447){: external}.
+[PKCS #1 v2.1 standard for RSA encryption](https://datatracker.ietf.org/doc/html/rfc3447){: external}.
 
 Review the capabilities of your internal key management system or on-premises
 HSM to determine your options, or check out the

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-09"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -125,7 +125,7 @@ complete the following steps to disable a key:
 {: #enable-ui}
 {: ui}
 
-[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](#disable-ui) a root key,
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys) and [disable](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui) a root key,
 complete the following steps to enable the key:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.

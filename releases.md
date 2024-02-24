@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-13"
+lastupdated: "2024-02-23"
 
 keywords: key protect, release notes, service updates
 
@@ -94,7 +94,7 @@ For more information about restoring keys, check out [Restoring keys](/docs/key-
 {: #key-protect-june2723}
 {: release-note}
 
-The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is now available. This version includes support for counting the number of [key versions](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state. Also, this version of the CLI includes native support for Macs that use an [Apple Silicon](https://support.apple.com/en-us/HT211814) processor. Previously, users received a warning during the installation of the {{site.data.keyword.keymanagementserviceshort}} CLI plugin.
+The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is now available. This version includes support for counting the number of [key versions](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state. Also, this version of the CLI includes native support for Macs that use an [Apple Silicon](https://support.apple.com/en-us/116943) processor. Previously, users received a warning during the installation of the {{site.data.keyword.keymanagementserviceshort}} CLI plugin.
 
 ## May 2023
 {: #key-protect-may23}
@@ -276,7 +276,7 @@ Announcing {{site.data.keyword.keymanagementserviceshort}} CLI plug-in v.0.6.3
 
    - Note that as part of this change, the **Instance policies** and **Manage keys** panels in the console have been renamed **Instance policies** and **Keys** respectively.
    - This release also adds the ability to use the API to purge keys four hours after they have been moved to the _Destroyed_ state. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys).
-   - The ability to purge keys using the UI was added in the [August, 2021 release](#key-purge-aug-2021).
+   - The ability to purge keys using the UI was added in the [August, 2021 release](#key-protect-aug0521).
 
 ## March 2021
 {: #key-protect-mar21}
@@ -308,10 +308,6 @@ The process to restore keys has been enhanced
    - Note that "Associated Resources" are now accessible within the context of each key in the console, as well as having its own item in the menu. Also, setting a key's rotation policy is now possible in the same panel where a key can be manually rotated.
    - Also, the list of endpoints in the console has grown with the addition of Osaka. You can now update your applications to reference the new endpoint.
 
-### 15 February 2021
-{: #key-protect-feb1521}
-{: release-note}
-
 {{site.data.keyword.keymanagementserviceshort}} supports additional UI features
 :   Now, users can [Wrap](/docs/key-protect?topic=key-protect-wrap-keys) and [Unwrap](/docs/key-protect?topic=key-protect-unwrap-keys) active root keys to provide envelope encryption. For more information, see Protecting data with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption) for an overview.
 
@@ -331,10 +327,6 @@ The process to restore keys has been enhanced
 
 {{site.data.keyword.keymanagementserviceshort}} supports new UI actions
 :   If you have _Manager_ access permissions, you can filter for keys in the **Destroyed** state and restore an imported root key via the ⋯ icon on the **Keys** table. You can use the restore key side panel to complete the process for restoring the key. For more information, see [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
-
-### 05 February 2021
-{: #key-protect-feb0521}
-{: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} supports private networks
 :   You can now connect to {{site.data.keyword.keymanagementserviceshort}} from your virtual private cloud (VPC) via a virtual private endpoint (VPE). VPEs are bound to a [VPE gateway](/docs/vpc?topic=vpc-about-vpe) and serve as an intermediary that enables your workload to interact with {{site.data.keyword.keymanagementserviceshort}}.
@@ -584,7 +576,7 @@ Added:
 {: release-note}
 
 Transport keys deprecated, replaced with import tokens
-:   On 20 March 2019, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#added-transport-keys-beta) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of
+:   On 20 March 2019, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#key-protect-mar2019) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of
 beta period. The following API methods have changed:
 
    - `POST api/v2/lockers` is now `POST api/v2/import_token`

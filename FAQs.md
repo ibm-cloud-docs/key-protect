@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-11-08"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -211,7 +211,7 @@ If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}} i
 {: #disable-dual-auth}
 {: faq}
 
-Yes. If you need to add a key that doesn't require dual authorization to your {{site.data.keyword.keymanagementserviceshort}} instance, you can always [disable dual authorization for the {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable dual-auth-instance-policy-ui) so that any new or future keys won't require it.
+Yes. If you need to add a key that doesn't require dual authorization to your {{site.data.keyword.keymanagementserviceshort}} instance, you can always [disable dual authorization for the {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth#disable-dual-auth-instance-policy-ui) so that any new or future keys won't require it.
 
 ## What happens when I need to delete or deprovision my {{site.data.keyword.keymanagementserviceshort}} instance?
 {: #deprovision-service}

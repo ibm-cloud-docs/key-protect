@@ -6,7 +6,7 @@ toc:
     audience: service
     href: /docs/key-protect
     console-page: /catalog/services/key-protect
-    product-page: https://ibm.com/cloud/key-protect
+    product-page: https://ibm.com/products/key-protect
     path: key-protect
     label: Key Protect
   entries:
@@ -143,7 +143,6 @@ toc:
           topics:
           - shared-responsibilities.md
           - ha-dr.md
-      - related-links.md
   - navgroup:
       id: help
       topics:

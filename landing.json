@@ -26,12 +26,12 @@
     ],
     "section_learn": {
       "developer": "https://developer.ibm.com/depmodels/cloud/",
-      "architecture": "https://www.ibm.com/cloud/architecture",
+      "architecture": "https://www.ibm.com/architectures/hybrid",
       "training": "https://www.ibm.com/training/cloud",
       "community": "https://community.ibm.com/community/user/publiccloud/home"
     },
     "section_updates": {
-      "view_more": "/docs/key-protect?topic=key-protect-releases",
+      "view_more": "/docs/key-protect?topic=key-protect-key-protect-relnotes",
       "tiles": [
         {
           "date": "5 August 2021",

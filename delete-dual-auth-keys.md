@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-09"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -80,7 +80,7 @@ Four hours after the other user with a _Manager_ access policy has authorized th
 This can be done by clicking the ⋯ icon to open a list of options for the key that you want to purge and then clicking **Purge**. If you cannot delete the key, make sure it has been at least four hours since the key was authorized for deleting by another user and that you hold the _KeyPurge_ attribute.
 
 ## Authorize deletion for a key with the API
-{: #delete-dual-auth-keys-set-key-deletion-api}
+{: #delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api}
 {: api}
 
 [After you enable dual authorization for an instance or key](/docs/key-protect?topic=key-protect-manage-dual-auth),
@@ -149,7 +149,7 @@ starts after you provide the first authorization to delete the key. During this
 seven-day period, the key remains in the
 [_Active_ state](/docs/key-protect?topic=key-protect-key-states)
 and all key operations are allowed on the key. If no action is taken by another user and the seven-day period expires, you must
-[restart the dual authorization process](#delete-dual-auth-keys-set-key-deletion-api)
+[restart the dual authorization process](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-set-key-deletion-api)
     to delete the key.
 {: note}
 
@@ -266,7 +266,7 @@ The following table lists which APIs you can use to retrieve data related to a d
 {: caption="Table 4. Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
 
 ### Removing an existing authorization
-{: #delete-dual-auth-keys-unset-key-deletion-api}
+{: #delete-dual-auth-keys-undelete-dual-auth-keys-set-key-deletion-api}
 {: api}
 
 If you need to cancel an authorization for a key before the seven-day authorization period
@@ -316,6 +316,6 @@ A successful request returns an HTTP `204 No Content` response, which
 indicates that your key is no longer authorized for deletion. If you need to
 restart the dual authorization process, you can issue another authorization
 to
-[set the key for deletion](#delete-dual-auth-keys-set-key-deletion-api).
+[set the key for deletion](#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api).
 
 

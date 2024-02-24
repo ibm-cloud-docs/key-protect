@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-26"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: key rings, group keys, manage key groups
 
@@ -44,7 +44,7 @@ that exist within the key ring.
 
 Key rings are also useful in cases where it is important for one business unit to
 have access to a set of keys that another business unit should not have. An account admin
-can create key rings for each business unit and [assign](#grant-access-key-ring) the appropriate
+can create key rings for each business unit and [assign](/docs/key-protect?topic=key-protect-grouping-keys&interface=ui#grant-access-key-ring) the appropriate
 level of access to the appropriate users. In the case that the account admin would like to delegate
 platform management of a specific key ring to someone else, they can assign a user a
 [platform administrator role at the key ring level](/docs/account?topic=account-userroles#platformroles).
@@ -381,7 +381,7 @@ This action won't succeed if the key ring contains at least one key in a state o
 
     You can find the ID for a key ring in your
     {{site.data.keyword.keymanagementserviceshort}} instance by
-    [retrieving a list of your key rings](#list-key-ring-api).
+    [retrieving a list of your key rings](/docs/key-protect?topic=key-protect-grouping-keys&interface=api#list-key-ring-ap).
 
 3. Run the following `curl` command to delete the key ring. Note the presence of `force=true`, which force deletes the key ring in the event that it contains keys in the _Destroyed_ state.
 
