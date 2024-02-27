@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-27"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -85,7 +85,7 @@ for !ok && attempt <= maxRetries {
 Once the maximum amount of retries has been reached and you have confirmed that
 the errors your application is experiencing are due to
 {{site.data.keyword.keymanagementserviceshort}}, open a
-[support ticket](https://github.ibm.com/kms/customer-issues){: external}
+[support ticket](https://www.ibm.com/mysupport){: external}
 with details regarding your request.
 {: note}
 

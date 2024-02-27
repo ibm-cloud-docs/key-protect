@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-27"
 
 keywords: key protect, release notes, service updates
 
@@ -26,7 +26,7 @@ content-type: release-note
 {:term: .term}
 
 # Release notes for {{site.data.keyword.keymanagementserviceshort}}
-{: #key-protect-key-protect-relnotes}
+{: #key-protect-relnotes}
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
@@ -38,7 +38,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-feb1324}
 {: release-note}
 
-{{site.data.keyword.keymanagementserviceshort}} announces that adding a [key description](/docs/key-protect?topic=key-protect-create-root-key-gui) is now available as an option in the control plane (UI).
+{{site.data.keyword.keymanagementserviceshort}} announces that adding a [key description](/docs/key-protect?topic=key-protect-create-root-keys) is now available as an option in the control plane (UI).
 
 {{site.data.keyword.keymanagementserviceshort}} also announces the ability to access private endpoints using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
 

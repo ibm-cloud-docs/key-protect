@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-02"
+  years: 2017, 2024
+lastupdated: "2024-02-27"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -78,8 +78,6 @@ For the Auditor-Group, assign two access policies that grant viewer access to th
 
 You can assign administrator access to everything in an account by creating an access group and assigning two policies to it. To create the first policy, select **All Identity and Access enabled services** in **Account** with the Administrator platform role and Manager service role. To create the second policy, select **All Account Management Services** with the Administrator role assigned.
 {: tip}
-
-For more best practices from IBM Garage for Cloud, see [Managing access to resources in {{site.data.keyword.cloud_notm}}](https://cloudnativetoolkit.dev/resources/ibm-cloud/access-control/){: external}.
 
 ## Platform roles and service roles
 {: #manage-access-roles}
