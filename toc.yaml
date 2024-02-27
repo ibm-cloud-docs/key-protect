@@ -133,6 +133,7 @@ toc:
           topics:
           - include: ../key-protect-cli-plugin/key-protect-cli-commands.md
           - cli-reference-052.md
+          - cli-reference-040.md
           - cli-reference-039.md
           - cli-changelog.md
       - regions.md

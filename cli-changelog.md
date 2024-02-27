@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-27"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -39,7 +39,7 @@ Release date: 2023-06-27
 
 Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
-Support for counting the number of [key versions](/docs/key-protect?topic=key-protect-cli-plugin-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state.
+Support for counting the number of [key versions](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-versions) regardless of whether the key is in an active state.
 
 ## CLI version 0.7.0
 {: #cli-changelog-1014}
