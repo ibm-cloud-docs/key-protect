@@ -118,6 +118,7 @@ toc:
           - set-dual-auth-policy.md
       - restore-keys.md
       - key-rings.md
+      - kmip.md
       - topicgroup:
           label: Enhancing security
           topics:
