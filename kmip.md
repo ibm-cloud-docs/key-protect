@@ -27,8 +27,6 @@ subcollection: key-protect
 # Using the key management interoperability protocol (KMIP)
 {: #kmip}
 
-{{site.data.keyword.cloud_notm}}
-
 To better facilitate the use of {{site.data.keyword.keymanagementservicefull}} keys to create key management interoperability protocol (KMIP) adapters for use with VMWare, {{site.data.keyword.keymanagementserviceshort}} now directly offers the ability to create adapters and upload certificates using the {{site.data.keyword.keymanagementserviceshort}} control plane (UI). 
 
 This solution architecture describes the {{site.data.keyword.keymanagementserviceshort}} Native KMIP support for VMWare architecture for protecting your VMware® instances. Many storage encryption options are available to protect your VMware workload. {{site.data.keyword.keymanagementserviceshort}} Native KMIP support for VMWare works together with VMware native vSphere encryption and vSAN™ encryption. The vSphere and vSAN encryption provides simplified storage encryption management together with the security and flexibility of {{site.data.keyword.cloud}} {{site.data.keyword.keymanagementserviceshort}} customer-managed keys.
@@ -64,7 +62,8 @@ To create an adapter:
 
 3. In the open side panel, give the adapter a **Name** and, optionally, a **Description**. Note that names must contain at least two and no more than 40 characters. If you choose to give it a description, it must be at least two and no more than 240 characters. After that has been completed, you can choose the root key you want to use to create this adapter and to encrypt the KMIP keys it creates. Choosing a root key is mandatory. Note that if you delete this root key at a later date, the adapter no longer works.
 
-4. Adding a public TLS certificate allows the holder of its corresponding private certificate to communicate with {{site.data.keyword.keymanagementserviceshort}} via its associated KMIP adapter. Only certificates authorized under a KMIP adapter will be permitted to make KMIP protocol requests against your instance. Resources managed via the KMIP protocol cannot be accessed via HTTP API.  
+4. Adding a public TLS certificate allows the holder of its corresponding private certificate to communicate with {{site.data.keyword.keymanagementserviceshort}} via its associated KMIP adapter. Only certificates authorized under a KMIP adapter will be permitted to make KMIP protocol requests against your instance. Resources managed via the KMIP protocol cannot be accessed via HTTP API.
+
    While you do not need to add any certificates during the creation of the adapter, if you know which certificates you want to add, you can do so by clicking the **Add certificates (optional)** tab in the panel. In the resulting screen, click the **Upload certificate** button, give the certificate a name, and input the contents of the certificate (the material must be in PEM format and contain the `BEGIN CERTIFICATE` and `END CERTIFICATE` tags). Note that it can take a few minutes for the certificate to be associated. Also, a certificate can only be associated with a single adapter in a {{site.data.keyword.keymanagementserviceshort}} region.
 
 Keep the private key of any uploaded certificates secure, as any certificate uploaded to a KMIP adapter will have the ability to make all supported KMIP operations.
