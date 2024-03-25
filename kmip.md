@@ -83,10 +83,10 @@ Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access
 
 The following IAM actions govern resources that will be used to manage access to KMIP resources:
 
-- kms.kmip-management.create
-- kms.kmip-management.list
-- kms.kmip-management.read
-- kms.kmip-management.delete
+- `kms.kmip-management.create`
+- `kms.kmip-management.list`
+- `kms.kmip-management.read`
+- `kms.kmip-management.delete`
 
 Each action grants the mentioned behavior to all `kmip_adapter` `certificate` and `kmip_object` resources in the instance, without granularity. 
 
