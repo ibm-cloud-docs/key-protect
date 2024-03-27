@@ -1,6 +1,6 @@
 {
     "title": "IBM Key Protect docs",
-    "lastupdated": "2021-06-04",
+    "lastupdated": "2024-03-27",
     "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques. Encryption keys can be provisioned or imported for use with applications for many IBM Cloud™ services and then managed from a central location.",
     "section_devtools": {
       "api": "/apidocs/key-protect",
