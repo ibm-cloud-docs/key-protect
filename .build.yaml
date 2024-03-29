@@ -1,5 +1,0 @@
-includes:
-  - https://github.ibm.com/cloud-docs/key-protect-cli-plugin
-translation:
-  exclude:
-    byFilePath:
