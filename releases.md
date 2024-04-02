@@ -71,7 +71,7 @@ For more information about {{site.data.keyword.keymanagementservicefull}} on Sat
 
 {{site.data.keyword.keymanagementserviceshort}} announces the availability of:
 
-* The ability to add a description to a key [using the CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create) and [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#description).
+* The ability to add a description to a key [using Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key#description).
 * The ability to force delete a key ring [using the API](/apidocs/key-protect#deletekeyring), [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings#force_delete), and the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-ring-delete).
 
 ## September 2023
@@ -82,6 +82,12 @@ For more information about {{site.data.keyword.keymanagementservicefull}} on Sat
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Madrid MZR. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, check out [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
+
+### 12 September 2023
+{: #key-protect-sep1223}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the availability of the ability to add a description to a key [using the CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create).
 
 ## August 2023
 {: #key-protect-oct23}
