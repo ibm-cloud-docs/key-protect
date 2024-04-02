@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-04-02"
 
 keywords: key protect, release notes, service updates
 
@@ -31,7 +31,16 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-### February 2024
+## April 2024
+{: #key-protect-apr24}
+
+### 15 April 2024
+{: #key-protect-apr1524}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces native support in the UI, CLI, SDK, and API for [key management interoperability protocol (KMIP) adapters](/docs/key-protect?topic=key-protect-kmip), an alternative to the [KMIP for VMWare](/docs/vmwaresolutions?topic=vmwaresolutions-kmip-overview) solution offering on {{site.data.keyword.cloud_notm}}.
+
+## February 2024
 {: #key-protect-feb24}
 
 ### 13 February 2024

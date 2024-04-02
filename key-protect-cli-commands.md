@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-02"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -156,6 +156,7 @@ More commands for managing
 | [kp key-rings](#kp-key-rings)        |            | Lists the key rings associated with the kp instance |
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
 | [kp registrations](#kp-registrations) |            | List associations between root keys and other cloud resources |
+| [kp kmip](#kp-kmip)                                         |               | Create and manage KMIP adapters and associated resources. |
 {: caption="Table 5. Commands for managing other resources" caption-side="bottom"}
 
 [Key aliases](#kp-key-alias-create) can be used as identifiers for methods as shown in examples for [key create](#kp-key-create-example-7), [key disable](#kp-key-disable-example-3), and anywhere you see 'Key ID or Alias' supported here.
@@ -4966,6 +4967,501 @@ No service instance found.
 * **`-r, --key-ring`**
 
     A unique, human readable name for the key-ring. Required to show registrations on the given key ring.
+
+### ibmcloud kp kmip command
+{: #kp-kmip}
+
+The KMIP commands allow API access to KMIP adapters and objects.
+
+| Sub-command                                                  | Status v0.10   | Description |
+| ------------------------------------------------------------ | ------------- | ----------- |
+| [adapter-create](#kp-kmip-adapter-create) |               | Create a KMIP Adapter |
+| [adapter](#kp-kmip-adapter-get) |               | Retrieve a KMIP Adapter |
+| [adapters](#kp-kmip-adapter-list)  |               | List KMIP Adapters in an instance |
+| [adapter-delete](#kp-kmip-adapter-delete) |               | Delete a KMIP Adapter |
+| [cert-create](#kp-kmip-adapter-create) |               | Create a KMIP Client Certificate associated with an adapter |
+| [cert](#kp-kmip-cert-get) |               | Retrieve a KMIP Client Certificate |
+| [certs](#kp-kmip-cert-list)  |               | List KMIP Client Certificate associated with a KMIP Adapter |
+| [cert-delete](#kp-kmip-cert-delete) |               | Delete a KMIP Client Certificate |
+| [object](#kp-kmip-object-get) |               | Retrieve a KMIP Object |
+| [objects](#kp-kmip-object-list)  |               | List KMIP Objects in a KMIP Adapter |
+| [object-delete](#kp-kmip-object-delete) |               | Delete a KMIP Object |
+
+## kp kmip adapter-create
+{: #kp-kmip-adapter-create}
+
+Use `kmip adapter-create` to create a KMIP Adapter under a Key Protect instance. Adapters are used to group and manage KMIP objects. 
+KMIP adapters under the same Key Protect instance must have a unique name, since adapters can be retrieved by either the name or the ID. For all KMIP-related CLI commands, any argument or flag that takes an Adapter ID can also use an Adapter name.
+
+Depending on the profile, different information may need to be supplied to create the adapter. Currently, only one profile of KMIP adapter is supported: `native_1.0`.
+
+The `native_1.0` profile needs only the ID of a root key to be provided in the `-k` flag.
+
+```sh
+adapter-create 
+    -p, --profile PROFILE 
+    [-k, --crk-id CRK_ID] 
+    [-n, --name NAME] 
+    [-d, --description DESC]
+    -i, --instance-id      INSTANCE_ID
+    [-o, --output          OUTPUT]
+```
+
+### Example
+{: #kp-kmip-adapter-create-examples}
+
+These are examples of `kp kmip adapter-create`.
+
+#### Example 1
+{: #kp-kmip-adapter-create-examples1}
+
+This example creates KMIP adapter with the `native_1.0` profile
+```sh
+ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0 -d "my description"
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Adapter...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      my description  
+$ ibmcloud kp kmip adapters
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Adapters...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      2024-03-20 22:06:43 +0000 UTC   2024-03-20 22:06:43 +0000 UTC   
+```
+
+## kp kmip adapter
+{: #kp-kmip-adapter-get}
+
+Retrieve details about a KMIP adapter, including the creation and update date. You can use the adapter ID or the adapter name.
+
+```sh
+ibmcloud kp kmip adapter ADAPTERID
+    -i, --instance-id INSTANCE_ID
+    [-o, --output      OUTPUT]
+```
+
+### Example
+{: #kp-kmip-adapter-get-examples}
+
+These are examples of `kp kmip adapter`.
+
+#### Example 1
+{: #kp-kmip-adapter-get-examples1}
+
+Note that there are some attributes to the adapter only visible in the JSON output format.
+
+```sh
+$ ibmcloud kp key create rootKmip
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating key: 'rootKmip', in instance: '8944cc2d-7e00-46b2-baa4-787051e0f7b3'...
+OK
+Key ID                                 Key Name   
+47a0ad90-204d-4e45-aa5b-68ed40a05fa2   rootKmip   
+$ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Adapter...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      -   
+# retreiving adapter by name
+$ ibmcloud kp kmip adapter myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Getting KMIP Adapter...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At                      Adapter Description   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      2024-03-20 22:06:43 +0000 UTC   2024-03-20 22:06:43 +0000 UTC   -   
+# retrieving adapter by ID
+$ ibmcloud kp kmip adapter d6a00af1-277f-40e8-b33e-da3a68752209 -o json
+{
+    "id": "d6a00af1-277f-40e8-b33e-da3a68752209",
+    "profile": "native_1.0",
+    "profile_data": {
+        "crk_id": "47a0ad90-204d-4e45-aa5b-68ed40a05fa2"
+    },
+    "name": "myadapter",
+    "description": "",
+    "created_by": "IBMid-664003LB2T",
+    "created_at": "2024-03-20T22:06:43Z",
+    "updated_by": "IBMid-664003LB2T",
+    "updated_at": "2024-03-20T22:06:43Z"
+}
+```
+## kp kmip adapters
+{: #kp-kmip-adapter-list}
+
+List the KMIP adapters that are available in your Key Protect Instance.
+
+```sh
+ibmcloud kp kmip adapters 
+    -i, --instance-id      INSTANCE_ID
+    [-o, --output          OUTPUT]
+    [-n, --limit LIMIT] 
+    [-s, --offset OFFSET] 
+    [-t, --total-count]
+```
+
+### Example
+{: #kp-kmip-adapter-list-examples}
+
+These are examples of `kp kmip adapters`.
+
+#### Example 1
+{: #kp-kmip-adapter-list-examples1}
+
+```sh
+$ ibmcloud kp kmip adapters -n 100 -s 0
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Adapters...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      2024-03-20 22:06:43 +0000 UTC   2024-03-20 22:06:43 +0000 UTC 
+```
+
+## kp kmip adapter-delete
+{: #kp-kmip-adapter-delete}
+
+Deletes a KMIP adapter. This will delete any objects and certificates associated with the adapter.
+
+```sh
+ibmcloud kp kmip adapter-delete ADAPTERID
+    -i, --instance-id      INSTANCE_ID
+```
+
+### Example
+{: #kp-kmip-adapter-delete-examples}
+
+These are examples of `kp kmip adapter-delete`.
+
+#### Example 1
+{: #kp-kmip-adapter-delete-examples1}
+
+```sh 
+$ ibmcloud kp kmip adapter-create -n adap -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Adapter...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
+e97e4297-4a6f-41c9-ae67-0920715964fd   native_1.0        adap           -   
+$ ibmcloud kp kmip adapter-delete e97e4297-4a6f-41c9-ae67-0920715964fd
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Deleting KMIP Adapter...
+OK
+```
+
+## kp kmip cert-create
+{: #kp-kmip-cert-create}
+
+Use `kp kmip cert-create` to create an KMIP Client Certificate to associate to a specific KMIP adapter. The certificate provided in the `-c` flag should be in the x509 PEM format. The certificate file can be uploaded by using the prefix `@` to specify a filepath, or by providing the contents of the certificate file directly to the flag.
+
+KMIP Client Certificates are used to connect and authenticate to the KMIP server through mutual TLS (mTLS). A certificate must be registered before any KMIP protocol operations can be carried out with a KMIP adapter. It may take up to 5 minutes for the certificate to be usable in KMIP operations.
+
+Certificates must have a unique name within the same KMIP adapter, and the contents of the certificate must be unique, even between multiple adapters.
+
+See also: [KMIP Protocol Specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910)
+
+```sh
+ibmcloud kp kmip cert-create 
+    -a ADAPTER_NAME_OR_ID 
+    -c {@path/to/cert | CERTIFICATE} 
+    [-n NAME]
+    -i, --instance-id     INSTANCE_ID
+    [-o, --output         OUTPUT]
+```
+
+### Example
+{: #kp-kmip-cert-create-examples}
+
+These are examples of `kp kmip cert-create`.
+
+#### Example 1
+{: #kp-kmip-cert-create-examples1}
+
+This example shows two ways of uploading the same certificate file.
+
+```sh
+$ ibmcloud kp key create rootKmip
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating key: 'rootKmip', in instance: '8944cc2d-7e00-46b2-baa4-787051e0f7b3'...
+OK
+Key ID                                 Key Name   
+47a0ad90-204d-4e45-aa5b-68ed40a05fa2   rootKmip   
+$ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Adapter...
+OK
+Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
+d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      -   
+
+$ export CERT=$(cat ./cert.pem) 
+
+$ ibmcloud kp kmip cert-create -n mycert -c "$CERT" -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Client Certificate...
+OK
+Certificate ID                         Certificate Name   Created At   
+3f550b96-86bc-44fe-8d1d-113e57067219   mycert             2024-03-20 22:08:03 +0000 UTC   
+
+## Alternatively, you can also provide the filepath of the certificate
+
+$ ibmcloud kp kmip cert-delete mycert -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Deleting KMIP Client Certificate...
+OK
+
+$ ibmcloud kp kmip cert-create -n mycert -c @./cert.pem -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Creating KMIP Client Certificate...
+OK
+Certificate ID                         Certificate Name   Created At   
+a279fded-06d1-45a1-8a95-901f194fb937   mycert             2024-03-20 22:11:34 +0000 UTC   
+```
+
+## kp kmip cert
+{: #kp-kmip-cert-get}
+
+Retrieves a specific KMIP Client Certificate. A certificate can be retrieved by either the id or the name.
+
+```sh
+ibmcloud kp kmip cert CERTIFICATE 
+    -a ADAPTER
+    -i, --instance-id     INSTANCE_ID
+    [-o, --output         OUTPUT]
+```
+
+### Examples
+{: #kp-kmip-cert-get-examples}
+
+These are examples of `kp kmip cert`.
+
+#### Example 1
+{: #kp-kmip-cert-get-examples1}
+
+Getting a certificate by name:
+
+```sh
+$ ibmcloud kp kmip cert mycert -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Getting KMIP Client Certificate...
+OK
+Certificate ID                         Certificate Name   Created At   
+a279fded-06d1-45a1-8a95-901f194fb937   mycert             2024-03-20 22:11:34 +0000 UTC   
+```
+#### Example 2
+{: #kp-kmip-cert-get-examples2}
+
+Getting a certificate by UUID in JSON format. The PEM-format contents of the certificate will be returned in the JSON body.
+
+```sh
+$ ibmcloud kp kmip cert a279fded-06d1-45a1-8a95-901f194fb937  -a myadapter -o json
+{
+    "id": "a279fded-06d1-45a1-8a95-901f194fb937",
+    "name": "mycert",
+    "certificate": "-----BEGIN CERTIFICATE-----\nMIIFqzCCA5OgAwIBAgIUNXqfJMkAHOBHz6+ekETDlCqIEqUwDQYJKoZIhvcNAQEL\nBQAw
+    ... CERTIFICATE CONTENTS ABBREVIATED ...
+    Y6uFtHuQSpud0C\n-----END CERTIFICATE-----\n",
+    "created_by": "IBMid-12345678",
+    "created_at": "2024-03-20T22:11:34Z"
+}
+```
+
+## kp kmip certs
+{: #kp-kmip-cert-list}
+
+List all KMIP Client Certificates associated with a specific KMIP adapter.
+
+```sh
+ibmcloud kp kmip certs 
+    -a, --adapter         ADAPTER
+    [-n, --limit LIMIT] 
+    [-s, --offset OFFSET] 
+    [-t, --total-count]
+    -i, --instance-id     INSTANCE_ID
+    [-o, --output         OUTPUT]
+```
+
+### Examples
+{: #kp-kmip-cert-list-examples}
+
+These are examples of `kp kmip certs`.
+
+#### Example 1
+{: #kp-kmip-cert-list-examples1}
+
+```sh
+$ ibmcloud kp kmip certs -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Client Certificates...
+OK
+Certificate ID                         Certificate Name   Created At   
+a279fded-06d1-45a1-8a95-901f194fb937   mycert             2024-03-20 22:11:34 +0000 UTC   
+```
+
+## kp kmip cert-delete
+{: #kp-kmip-cert-delete}
+
+Delete a KMIP Client Certificate.
+
+```sh
+cert-delete CERTIFICATE 
+    -a adapter
+    -i, --instance-id     INSTANCE_ID
+```
+
+### Examples
+{: #kp-kmip-cert-delete-examples}
+These are examples of `kp kmip cert-delete`
+
+#### Example 1
+{: #kp-kmip-cert-delete-examples1}
+
+```sh
+$ ibmcloud kp kmip cert-delete -a myadapter mycert
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Deleting KMIP Client Certificate...
+OK
+```
+
+## kp kmip object
+{: #kp-kmip-object-get}
+
+KMIP Objects are created through operations performed through a KMIP client using the KMIP protocol. They cannot be created through the API, but can be read and deleted. Objects belong to a single adapter. 
+
+Objects do not have a name, and must be retrieved by ID.
+
+```sh
+ibmcloud kp kmip object OBJECT
+    -a, --adapter         ADAPTER
+    -i, --instance-id     INSTANCE_ID
+    [-o, --output         OUTPUT]
+```
+
+### Examples
+{: #kp-kmip-object-get-examples}
+These are examples of `kp kmip object`
+
+#### Example 1
+{: #kp-kmip-object-get-examples1}
+
+```sh
+$ ibmcloud kp kmip object 12365a82-5404-4bd9-a4c7-2b628ee18304 -a testadapter 
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Getting KMIP Object...
+OK
+Object ID                              Object Type     Object State   Created At                      Updated At   
+12365a82-5404-4bd9-a4c7-2b628ee18304   Symmetric Key   Active         2024-03-14 21:01:45 +0000 UTC   2024-03-14 21:01:45 +0000 UTC   
+```
+
+#### Example 2
+{: #kp-kmip-object-get-examples2}
+
+Getting a KMIP Object as a JSON will show some extra attributes not visible in the normal table view.
+
+```sh
+$ ibmcloud kp kmip object 12365a82-5404-4bd9-a4c7-2b628ee18304 -a testadapter -o json
+{
+    "id": "12365a82-5404-4bd9-a4c7-2b628ee18304",
+    "kmip_object_type": 2,
+    "state": 2,
+    "created_by_kmip_client_cert_id": "531c18f3-4e37-447e-a7e0-e8676407bb75",
+    "created_by": "IBMid-123456",
+    "created_at": "2024-03-14T21:01:45Z",
+    "updated_by_kmip_client_cert_id": "531c18f3-4e37-447e-a7e0-e8676407bb75",
+    "updated_by": "IBMid-123456",
+    "updated_at": "2024-03-14T21:01:45Z"
+}
+
+```
+
+## kp kmip objects
+{: #kp-kmip-object-list}
+
+List KMIP Objects and view information about their Object Type and Object state among other metadata. Use the `-f` flag to filter for objects only in a specific state. By default, the state filter is set to `1,2,3,4`.
+
+The numbers correspond to the object states as follows: 
+- Pre-Active = 1
+- Active = 2
+- Deactivated = 3
+- Compromised = 4
+- Destroyed = 5
+- Destroyed Compromised = 6
+
+See [KMIP State Enumeration](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660938)
+
+```sh
+ibmcloud kp kmip objects 
+    -a, --adapter         ADAPTER
+    [-n, --limit LIMIT] 
+    [-s, --offset OFFSET] 
+    [-t, --total-count]
+    -i, --instance-id     INSTANCE_ID
+    [-o, --output         OUTPUT]
+```
+
+### Examples
+{: #kp-kmip-object-list-examples}
+
+These are examples of `kp kmip objects`.
+
+#### Example 1
+{: #kp-kmip-object-list-examples1}
+
+```sh
+$ ibmcloud kp kmip objects -a myadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Objects...
+OK
+Object ID                              Object Type     Object State   Created At                      Updated At   
+00196c59-c5c2-42d8-9729-703cd0389f60   Symmetric Key   Compromised    2024-03-14 20:47:54 +0000 UTC   2024-03-14 20:47:54 +0000 UTC   
+02f1043c-0494-4399-82af-5395a14b019f   Symmetric Key   Pre-Active     2024-03-14 20:58:06 +0000 UTC   2024-03-14 20:58:06 +0000 UTC   
+08082ff4-821b-4689-83ec-15cac5bd1939   Symmetric Key   Pre-Active     2024-02-22 00:10:46 +0000 UTC   2024-02-22 00:11:23 +0000 UTC   
+0c1ea28d-dfaa-404a-b9c4-fcdc3f5d8b02   Symmetric Key   Deactivated    2024-03-14 21:05:48 +0000 UTC   2024-03-14 21:05:48 +0000 UTC   
+10b49b05-0101-4234-927b-20a3356da291   Symmetric Key   Pre-Active     2024-03-14 21:26:54 +0000 UTC   2024-03-14 21:26:54 +0000 UTC   
+12365a82-5404-4bd9-a4c7-2b628ee18304   Symmetric Key   Active         2024-03-14 21:01:45 +0000 UTC   2024-03-14 21:01:45 +0000 UTC
+```
+
+#### Example 2
+{: #kp-kmip-object-list-examples2}
+
+Using the `-f` flag to filter for objects of a specific state. Use commas to specify multiple states. 
+
+```sh
+$ ibmcloud kp kmip objects -a testadapter -f 5,6
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Objects...
+OK
+Object ID                              Object Type     Object State            Created At                      Updated At   
+03d38805-2bb2-4aa0-bbf3-dc4a6d5d0475   Symmetric Key   Destroyed               2024-03-14 20:47:58 +0000 UTC   2024-03-14 20:47:58 +0000 UTC   
+08c94f34-0100-4331-b759-5937ed5b1228   Symmetric Key   Destroyed               2024-03-14 20:46:38 +0000 UTC   2024-03-14 20:46:38 +0000 UTC   
+1a13e112-41f8-4d52-be08-a0946b8c22fa   Symmetric Key   Destroyed Compromised   2024-03-14 20:58:20 +0000 UTC   2024-03-14 20:58:20 +0000 UTC   
+```
+
+## kp kmip object-delete
+{: #kp-kmip-object-delete}
+
+Delete a KMIP Object. Only objects whose state is not Active, or not Destroyed can be successfully deleted.
+
+```sh
+cert-delete OBJECT_ID 
+    -a adapter
+    -i, --instance-id     INSTANCE_ID
+```
+
+### Examples
+{: #kp-kmip-object-delete-examples}
+
+These are examples of `kp kmip object-delete`
+
+#### Example 1
+{: #kp-kmip-object-delete-examples1}
+
+```sh
+$ ibmcloud kp kmip object-delete 9b2f5af5-3534-4f02-8836-f89af37c4351 -a testadapter
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Deleting KMIP Object...
+OK
+```
 
 ## Next Steps
 {: #cli-reference-next-steps}

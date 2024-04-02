@@ -133,9 +133,6 @@ toc:
           label: Key Protect CLI Reference
           topics:
           - key-protect-cli-commands.md
-          - cli-reference-052.md
-          - cli-reference-040.md
-          - cli-reference-039.md
           - cli-changelog.md
       - regions.md
       - at-events.md
