@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-26"
+lastupdated: "2024-04-08"
 
 keywords: KMIP, VMWare, key protect
 
@@ -72,7 +72,7 @@ Keep the private key of any uploaded certificates secure, as any certificate upl
 ## Configuring a KMIP client to communicate with an adapter
 {: #kmip-client}
 
-To communicate with your adapter, you must either [setup VMWare](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-70248689-A0E5-495B-A619-72561BA3A6C9.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
+To communicate with your adapter, you must either [setup VMWare](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-55B17A13-13AB-4CA1-8D83-6515AA1FEC67.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
 
 ## Granting access to KMIP 
 {: #kmip-granting-access}
@@ -102,6 +102,9 @@ Each KMIP symmetric key that is created counts as a single key version and may i
 
 ## KMIP supported objects and operations
 {: #kmip-supported}
+
+Refer to [Result Reason](http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660896){: external} in the KMIP Version 1.4 documentation for the reasons for expected failures, such as a request against an unsupported operation.
+{: note}
 
 ### KMIP supported operations
 {: #kmip-supported-operations}
