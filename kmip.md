@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-08"
+lastupdated: "2024-04-15"
 
 keywords: KMIP, VMWare, key protect
 
@@ -74,6 +74,11 @@ Keep the private key of any uploaded certificates secure, as any certificate upl
 
 To communicate with your adapter, you must either [setup VMWare](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-55B17A13-13AB-4CA1-8D83-6515AA1FEC67.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
 
+For VMWare vSphere, follow the steps outlined in [Add a Standard Key Provider Using the vSphere Client](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-55B17A13-13AB-4CA1-8D83-6515AA1FEC67.html). When adding a standard key provider, use the [{{site.data.keyword.keymanagementserviceshort}} endpoint](https://cloud.ibm.com/docs/key-protect?topic=key-protect-regions) specific to your instance's region. For example, for the {{site.data.keyword.keymanagementserviceshort}} instance in region `us-south` , use `us-south.kms.cloud.ibm.com` as the address and `5696` as the port, which is the default for the KMIP server. 
+
+As described in step 4 above, the vSphere client needs to upload its client certificate in the adapter in order for it to communicate with the KMIP adapter. Follow the steps outlined in [Use the Certificate Option to Establish a Standard Key Provider Trusted Connection](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820.html#GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820) guide to download the client certificate. This certificate can be uploaded into the adapter.
+
+
 ## Granting access to KMIP 
 {: #kmip-granting-access}
 
@@ -96,6 +101,10 @@ Each action grants the mentioned behavior to all `kmip_adapter` `certificate` an
 The adapter details panel allows you to learn about an adapter (for example, through its description) and also allows you to do actions like adding certificates.
 
 To view the adapter details, click the ⋯ icon. This shows all of the details about the adapter. Here you can see its name, its description, any KMIP symmetric keys associated with the adapter, and certificates that have been uploaded to it. You can also use this panel to upload more certificates, as desired.
+
+KMIP symmetric keys cannot be deleted using the UI. To delete keys, you must use the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference&interface=ui#kp-kmip-object-delete). Only KMIP symmetric keys that are in a state other than the `Active` (state `1`) can be deleted. An adapter cannot be deleted if it contains keys that are in the `Active` state.
+
+Each adapter's resources are protected with a CRK. You cannot delete a CRK that is active and associated with an adapter.
 
 Each KMIP symmetric key that is created counts as a single key version and may incur a [charge, depending on the number of key versions you have](/docs/key-protect?topic=key-protect-pricing-plan). If you want to delete a KMIP symmetric key, you can only do so using the API, CLI, or SDK. You cannot use the UI. Note that deletions of a KMIP symmetric is permanent.
 {:important}
