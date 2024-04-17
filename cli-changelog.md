@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-02"
+lastupdated: "2024-04-17"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -43,6 +43,8 @@ Release date: 2024-04-15
 Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
 Support for the [key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-kmip).
+
+The "Targeting Endpoint" string no longer prints when the `-o json` flag is given in any command.
 
 ## CLI version 0.9.3
 {: #cli-changelog-120723}
