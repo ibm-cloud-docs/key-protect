@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2023
-lastupdated: "2023-12-14"
+years: 2020, 2024
+lastupdated: "2024-04-18"
 
 keywords: Key Protect, error messages, error codes
 
@@ -151,7 +151,7 @@ The client should not repeat this request without modification.
 {: #error-messages-collection-total-mismatch-err-context}
 
 This error occurs when an
-[instance policy](/apidocs/key-protect#set-instance-policies){: external}
+[instance policy](/apidocs/key-protect#putinstancepolicy){: external}
 is created.
 
 The value of the `metadata.collectionTotal` field does not match the number of
@@ -237,7 +237,7 @@ The client should not repeat this request without modification.
 {: #error-messages-body-query-param-mismatch-err-cxt}
 
 This error occurs when an
-[instance policy](/apidocs/key-protect#set-instance-policies){: external}
+[instance policy](/apidocs/key-protect#putinstancepolicy){: external}
 is created.
 
 The query parameter, which specifies the policy (dualAuthDelete, allowedNetwork,

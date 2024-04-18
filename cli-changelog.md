@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-17"
+lastupdated: "2024-04-18"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -417,9 +417,6 @@ Documentation:
 
 Release date: 2020-05-01
 
-Documentation:
-[CLI reference, version 0.4.0](/docs/key-protect?topic=key-protect-cli-reference-040)
-
 Major changes were made to the `ibmcloud kp` command structure.
 
 ### Add these commands
@@ -482,9 +479,6 @@ which is anticipated the end of September, 2020.
 {: #cli-changelog-039}
 
 Release date: 2019-11-11
-
-Documentation:
-[CLI reference, version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 
 ### Updates
 {: #cli-changelog-039-update}

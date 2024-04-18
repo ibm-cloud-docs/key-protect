@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-02"
+lastupdated: "2024-04-18"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -42,9 +42,6 @@ The example showing how to use [**`region-set`**](#kp-region-set-examples) outli
 {: #cli-reference-previous}
 
 This documentation for version 0.8 does not include deprecated commands.
-
-[Version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
-has documentation for deprecated commands.
 
 All deprecated commands work in versions 0.4.0 and 0.5.2. That is, version 0.5.2
 is backwards compatible with versions 0.3.9 and 0.4.0.
@@ -2164,7 +2161,7 @@ Deleting a key that has a
 requires an authorization from two users. With the
 {{site.data.keyword.keymanagementserviceshort}} API, you can provide the
 first authorization by
-[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-set-key-deletion-api).
+[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api).
 Then, a different user provides a second authorization by using the
 [GUI](/login/){: external}
 or
@@ -4389,7 +4386,7 @@ ef2cc155-fe56-492c-845c-4d1f0688c7ba   my-last-key
 
 * **`-l, --key-search`**
 
-    List keys based on search string with prepended qualifiers (e.g. `exact`, `not`, `alias`, `name`). For more details, see the [API Documentation](/apidocs/key-protect#kp-get-key-search-api).
+    List keys based on search string with prepended qualifiers (e.g. `exact`, `not`, `alias`, `name`). For more details, see the [API Documentation](/apidocs/key-protect#getkeys).
 
 * **`-n, --number-of-keys`**
 

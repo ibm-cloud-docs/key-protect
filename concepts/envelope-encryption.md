@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2024
+lastupdated: "2024-04-18"
 
 keywords: envelope encryption, wrap data encryption key, unwrap data encryption key
 
@@ -159,7 +159,7 @@ protected within the key.
 
 If your business application needs to access the contents of your wrapped DEKs,
 you can use the {{site.data.keyword.keymanagementserviceshort}} API
-to send an [unwrap request](/apidocs/key-protect#invoke-an-action-on-a-key){: external} to the service.
+to send an [unwrap request](/docs/key-protect?topic=key-protect-unwrap-keys){: external} to the service.
 
 
 Complete the following steps to encrypt data via envelope encryption:
