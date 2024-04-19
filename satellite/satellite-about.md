@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-12"
+lastupdated: "2024-04-19"
 
 keywords: satellite, hsm, about
 
@@ -71,8 +71,7 @@ If you're familiar with [Understanding your responsibilities with using {{site.d
 * Ensure network connectivity between HSM and worker nodes has been established.
 * Provision {{site.data.keyword.keymanagementserviceshort}} on Satellite using the instructions in [Deploying {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-ui-deploy).
 * Give the {{site.data.keyword.keymanagementserviceshort}} service the following service-to-service authorizations in your Satellite location: [Satellite Cluster Creator](/docs/satellite?topic=satellite-iam#iam-resource-loc), [Satellite Link Source Access Controller](/docs/satellite?topic=satellite-iam#iam-resource-link) and [Satellite Link Administrator](/docs/satellite?topic=satellite-iam#iam-resource-link). Until these authorizations are given, it is not possible for a Satellite cluster to be created for {{site.data.keyword.keymanagementserviceshort}}. Once the authorization is set, {{site.data.keyword.keymanagementserviceshort}} is allowed to start the process of deploying {{site.data.keyword.keymanagementserviceshort}} on your worker nodes, a process that can take up to several hours. Once the deployment is completed, you will receive a completion status on your {{site.data.keyword.keymanagementserviceshort}} service provision.
-* When you update the operating System in your worker nodes, ensure that it does not disrupt the service. Check out [Change management](/docs/satellite?topic=satellite-infrastructure-service#satis-change-management) for more information.
-* Updating [worker nodes](/docs/satellite?topic=satellite-hosts#host-update-workers) in your Satellite location.
+* When you update the operating system in your worker nodes, ensure that it does not disrupt the service. Check out [Understanding Satellite location and hosts](/docs/satellite?topic=satellite-location-host) for more information.
 
 **{{site.data.keyword.keymanagementserviceshort}} on Satellite responsibilities**:
 
