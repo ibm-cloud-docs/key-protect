@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-03-25"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -113,86 +113,87 @@ Service roles can be assigned per-instance or for all instances in an account.
 
 **Service instance roles**
 
+Note that the permissions included in roles are **additive**. A _Manager_, for example, has all of the permissions that a _Reader_ has and more. The exception is the _KeyPurge_ role, which includes the `kms.secrets.purge` action that is not a part of any other role and must therefore be set explicitly.
+{: note}
+
 * **Manager**: Has the full spectrum of rights over a particular object (for example, the manager of a key has the ability to wrap, unwrap, and delete the key, as well as the exclusive right to read and update {{site.data.keyword.keymanagementserviceshort}} policies such as `dualAuthDelete`, `allowedNetwork`, `allowedIP`, among others).
 * **Writer**: Has most of the same rights a manager does when it comes to using an object (including the ability to retrieve a key and its metadata), but generally cannot delete or disable the object.
 * **Reader**: Can use the object (for example, key readers can wrap and unwrap a key), but neither create, delete, or modify the object.
 * **ReaderPlus**: Have the same rights as a reader, with the additional ability to retrieve a standard key's payload.
 * **KeyPurge**: Has the ability to [purge keys after four hours](/docs/key-protect?topic=key-protect-delete-purge-keys).
-
-Note that the permissions included in roles are **additive**. A _Manager_, for example, has all of the permissions that a _Reader_ has and more. The exception is the _KeyPurge_ role, which includes the `kms.secrets.purge` action that is not a part of any other role and must therefore be set explicitly.
-{: note}
+* **KmipAdapterManager**: Has all rights necessary to manage access to resources governed via the [KMIP protocol](/docs/key-protect?topic=key-protect-kmip)
 
 The following table shows how service access roles map to {{site.data.keyword.keymanagementserviceshort}} permissions.
 
-| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge |
-| ------ | ------ | ---------- | ------ | ------- | -------- |
-| Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Retrieve key metadata | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Retrieve key total | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List keys | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List key versions | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Wrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Unwrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Rewrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Rotate a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Disable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Enable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Schedule deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Cancel deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Patch a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Purge keys after four hours | | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
+| Create a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Import a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Retrieve a key | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Retrieve key metadata | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Retrieve key total | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List keys | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List key versions | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Wrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Unwrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Rewrap a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Rotate a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Disable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Enable a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Schedule deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Cancel deletion for a key | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Delete a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Restore a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Patch a key | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Purge keys after four hours | | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 {: #table-2}
 {: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
 {: tab-title="Keys"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
-| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge |
-| ------ | ------ | ---------- | ------ | ------- | -------- |
-| Create a key ring | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List key rings | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Delete a key ring | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
+| Create a key ring | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| List key rings | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete a key ring | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-3}
 {: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="bottom"}
 {: tab-title="Key Rings"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
-| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge |
-| ------ | ------ | ---------- | ------ | ------- | -------- |
-| Set key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
+| Set key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| List key policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| List instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-4}
 {: caption="Table 4. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="bottom"}
 {: tab-title="Policies"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
-| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge |
-| ------ | ------ | ---------- | ------ | ------- | -------- |
-| Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
+| Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-5}
 {: caption="Table 5. Lists service access roles as they apply to import token resources" caption-side="bottom"}
 {: tab-title="Import tokens"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
 
-| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge |
-| ------ | ------ | ---------- | ------ | ------- | -------- |
-| Create a registration[^services-1] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List registrations for a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| List registrations for any key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Update a registration[^services-2] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Replace a registration[^services-3] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
-| Delete a registration[^services-4] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- | 
+| Create a registration[^services-1] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| List registrations for a key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| List registrations for any key | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Update a registration[^services-2] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Replace a registration[^services-3] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| Delete a registration[^services-4] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-6}
 {: caption="Table 6. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
 {: tab-title="Registrations"}
@@ -201,6 +202,28 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 
 The _KeyPurge_ role only confers the ability to purge keys and should be considered additive to other service access roles, such as _Manager_.
 {: note}
+
+ Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
+| List KMIP adapters | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Create a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Retrieve a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List KMIP objects of a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Retrieve a KMIP object from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete a KMIP object from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List client certificates of a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Add a client certificate to a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Retrieve a client certificate from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete a client certificate from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+{: #table-7}
+{: caption="Table 7. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
+{: tab-title="KMIP Management"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
+
+The **Writer**, **Reader**, and **ReaderPlus** roles do not have access to the KMIP protocol.
+{: important}
 
 ### Roles and {{site.data.keyword.iamshort}} policies
 {: #manage-access-roles-policies}

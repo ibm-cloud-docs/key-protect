@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-04-18"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -172,7 +172,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/disable
 2. Retrieve the ID of the root key that you want to disable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys`
-    [request](/apidocs/key-protect#list-keys){: external},
+    [request](/apidocs/key-protect#getkeys){: external},
     or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
@@ -294,7 +294,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/enable
 2. Retrieve the ID of the disabled root key that you want to enable.
 
     You can retrieve the ID for a specified key by making a `GET /v2/keys`
-    [request](/apidocs/key-protect#list-keys){: external},
+    [request](/apidocs/key-protect#getkeys){: external},
     or by viewing your keys in the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 

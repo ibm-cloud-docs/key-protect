@@ -118,6 +118,7 @@ toc:
           - set-dual-auth-policy.md
       - restore-keys.md
       - key-rings.md
+      - kmip.md
       - topicgroup:
           label: Enhancing security
           topics:
@@ -131,10 +132,7 @@ toc:
       - topicgroup:
           label: Key Protect CLI Reference
           topics:
-          - include: ../key-protect-cli-plugin/key-protect-cli-commands.md
-          - cli-reference-052.md
-          - cli-reference-040.md
-          - cli-reference-039.md
+          - key-protect-cli-commands.md
           - cli-changelog.md
       - regions.md
       - at-events.md

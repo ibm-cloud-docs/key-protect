@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-04-18"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -143,7 +143,7 @@ on-premises, you protect root keys while they're in flight to
 {{site.data.keyword.keymanagementserviceshort}} based on the policies that you
 specify. For example, you can set a policy on the import token that limits its
 use based on time and usage count.
-
+a
 ### How it works
 {: #how-import-tokens-work}
 
@@ -192,7 +192,7 @@ The following list describes the import token workflow.
 
     2. {{site.data.keyword.keymanagementserviceshort}} verifies your request, decrypts the encrypted packet, and stores the key material as a root key in your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-You can create only one import token per {{site.data.keyword.keymanagementserviceshort}} instance at a time. To learn more about retrieval limits for import tokens, [see the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect#create-an-import-token){: external}.
+You can create only one import token per {{site.data.keyword.keymanagementserviceshort}} instance at a time. To learn more about retrieval limits for import tokens, [see the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect#postimporttoken){: external}.
 {: note}
 
 To try out the import token feature, see

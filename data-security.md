@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-04-18"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -89,7 +89,7 @@ To help you determine what data is protected by a key, you can use {{site.data.k
 
 Although instances that have non-deleted keys in them cannot be deleted, it is possible to close an [{{site.data.keyword.cloud_notm}} account](/docs/account?topic=account-account_settings) without first deleting all {{site.data.keyword.keymanagementserviceshort}} instances. If an account is closed and instances and keys belonging to it still exist, the instances and keys are permanently hard deleted.
 
-For more information about closing an account, check out [Closing an account](/docs/account?topic=account-account_settings#cancel-account).
+For more information about closing an account, check out [Closing an account](/docs/account?topic=account-account-close).
 
 ## Compliance readiness
 {: #compliance-ready}

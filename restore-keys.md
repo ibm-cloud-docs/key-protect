@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-04-22"
+  years: 2020, 2024
+lastupdated: "2024-04-18"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -103,7 +103,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/restore
 
 2. Retrieve the ID of the key that you want to restore.
 
-    You can retrieve the ID for a specified key by making a [list keys request](/apidocs/key-protect#list-keys){: external} request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard. For more information, check out [Viewing a list of keys](/docs/key-protect?topic=key-protect-view-keys).
+    You can retrieve the ID for a specified key by making a [list keys request](/apidocs/key-protect#getkeys){: external} request, or by viewing your keys in the {{site.data.keyword.keymanagementserviceshort}} dashboard. For more information, check out [Viewing a list of keys](/docs/key-protect?topic=key-protect-view-keys).
 
 3. Run the following `curl` command to restore the key and regain access to its associated data. Note that you must wait 30 seconds after deleting a key before you are able to restore it.
 

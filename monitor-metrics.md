@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-02-28"
+  years: 2020, 2024
+lastupdated: "2024-04-18"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -37,7 +37,7 @@ dashboards.
 
 For more information regarding the {{site.data.keyword.mon_short}} service,
 see the
-[getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started-monitor){: external}.
+[getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external}.
 
 ## What metrics are available?
 {: #kp-metrics-available}

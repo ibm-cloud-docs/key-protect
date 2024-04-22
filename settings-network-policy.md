@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-05-11"
+  years: 2020, 2024
+lastupdated: "2024-04-18"
 
 keywords: instance settings, service settings, network access policies
 
@@ -156,9 +156,9 @@ complete the following steps to create a network access policy:
 As an admin, enable a network access policy for a
 {{site.data.keyword.keymanagementserviceshort}} instance by making a
 `PUT` call to the following endpoint. See these API references to
-[set](/apidocs/key-protect#set-instance-policies){: external}
+[set](/apidocs/key-protect#putinstancepolicy){: external}
 and
-[list](/apidocs/key-protect#list-instance-policies){: external}
+[list](/apidocs/key-protect#getinstancepolicy){: external}
 instance policies.
 
 ```plaintext

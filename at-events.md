@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-08-24"
+  years: 2017, 2024
+lastupdated: "2024-04-22"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -620,6 +620,34 @@ The following fields include extra information:
 
 - The `responseData.eventAckData.eventAckTimeStamp` field includes the date and
     time that the event was acknowledged.
+
+### KMIP management events
+{: #at-events-kmip-management}
+
+The following table lists the KMIP management actions that generate an event:
+
+| Action | Description |
+| - | - |
+| `kms.kmip-management.create` | Create a KMIP adapter or KMIP adapter client certificate. |
+| `kms.kmip-management.delete` | Delete a KMIP adapter, KMIP adapter client certificate, or KMIP object. |
+| `kms.kmip-management.list` | List KMIP adapters, KMIP adapter client certificates, or KMIP objects. |
+| `kms.kmip-management.read` | Get a KMIP adapter, KMIP adapter client certificate, or KMIP object. |
+| `kms.kmip-management.default` | Invalid KMIP managmenet API request. |
+
+### KMIP events
+{: #at-events-kmip-events}
+
+The following table lists the KMIP protocol operation actions that generate an event:
+
+| Action | Description |
+| - | - |
+| `kms.kmip.create` | Create a KMIP symmetric key, or add a KMIP attribute to a KMIP object. |
+| `kms.kmip.get` | Get a KMIP symmetric key, KMIP attributes, or supported KMIP protocol versions from the server. |
+| `kms.kmip.activate` | Activate a KMIP object. |
+| `kms.kmip.revoke` | Revoke a KMIP object. |
+| `kms.kmip.destroy` | Destroy a KMIP object. |
+| `kms.kmip.locate` | List KMIP objects. |
+| `kms.kmip.default` | Invalid KMIP operation request. |
 
 ## Analyzing failed events
 {: #at-events-analyze-failed}

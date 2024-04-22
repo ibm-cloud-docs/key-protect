@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-04-18"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -32,8 +32,75 @@ you're notified when updates are available.
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
+## CLI version 0.10.0
+{: #cli-changelog-04152024}
+
+Release date: 2024-04-15
+
+### Changes
+{: #cli-changelog-0100-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Support for the [key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-kmip).
+
+The "Targeting Endpoint" string no longer prints when the `-o json` flag is given in any command.
+
+## CLI version 0.9.3
+{: #cli-changelog-120723}
+
+Release date: 2023-12-07
+
+### Changes
+{: #cli-changelog-093-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+An internal update GoLang versions. It includes no feature additions.
+
+## CLI version 0.9.1
+{: #cli-changelog-110923}
+
+Release date: 2023-11-09
+
+### Changes
+{: #cli-changelog-091-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Support for the ability to [force the deletion of a key ring](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-ring-delete).
+
+Also added the following info message that prints to `stderr` that says which {{site.data.keyword.keymanagementserviceshort}} endpoint a CLI action is going to hit.
+
+```
+Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Listing KMIP Objects...
+OK
+Object ID                              Object Type     Object State   Created At                      Updated At   
+08082ff4-821b-4689-83ec-15cac5bd1939   Symmetric Key   Pre-Active     2024-02-22 00:10:46 +0000 UTC   2024-02-22 00:11:23 +0000 UTC   
+2b4d7937-afbe-4ba6-b818-ef25e1d6e183   Symmetric Key   Pre-Active     2024-01-23 21:59:21 +0000 UTC   2024-01-23 21:59:21 +0000 UTC   
+3c10176d-98f2-455d-9da1-a4857c648576   Symmetric Key   Compromised    2024-01-22 15:35:08 +0000 UTC   2024-01-22 15:35:08 +0000 UTC
+```
+
+## CLI version 0.9.0
+{: #cli-changelog-091223}
+
+Release date: 2023-09-12
+
+### Changes
+{: #cli-changelog-090-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Support for the ability to [set descriptions during key creation](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-create-example-8).
+
 ## CLI version 0.8.0
 {: #cli-changelog-062723}
+
+Release date: 2023-06-27
+
+### Changes
+{: #cli-changelog-080-changes}
 
 Release date: 2023-06-27
 
@@ -350,9 +417,6 @@ Documentation:
 
 Release date: 2020-05-01
 
-Documentation:
-[CLI reference, version 0.4.0](/docs/key-protect?topic=key-protect-cli-reference-040)
-
 Major changes were made to the `ibmcloud kp` command structure.
 
 ### Add these commands
@@ -415,9 +479,6 @@ which is anticipated the end of September, 2020.
 {: #cli-changelog-039}
 
 Release date: 2019-11-11
-
-Documentation:
-[CLI reference, version 0.3.9](/docs/key-protect?topic=key-protect-cli-reference-039)
 
 ### Updates
 {: #cli-changelog-039-update}

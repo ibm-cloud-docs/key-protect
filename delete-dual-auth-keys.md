@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-04-18"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -316,6 +316,6 @@ A successful request returns an HTTP `204 No Content` response, which
 indicates that your key is no longer authorized for deletion. If you need to
 restart the dual authorization process, you can issue another authorization
 to
-[set the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api).
+[set the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api&interface=api).
 
 
