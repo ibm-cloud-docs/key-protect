@@ -5,7 +5,7 @@
     "section_devtools": {
       "api": "/apidocs/key-protect",
       "cli": "/docs/key-protect?topic=key-protect-key-protect-cli-reference",
-      "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/kms/ibm/latest/submodules/key-protect"
+      "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/key-protect-all-inclusive/ibm/latest"
     },
     "section_recommended": [
       {
