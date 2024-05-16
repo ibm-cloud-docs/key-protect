@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-05-16"
 
 keywords: pricing plan, cost, satellite
 
@@ -45,9 +45,9 @@ Pricing is for {{site.data.keyword.keymanagementserviceshort}} on Satellite only
 
 Pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite is based on two metrics:
 
-* **Base price**: a monthly base price charged for the installation of {{site.data.keyword.keymanagementserviceshort}} into a Satellite location. This is $780 a month per location. Note that there is no additional charge for creating multiple instances in a location.
+* **Base price**: a monthly base price charged for the installation of {{site.data.keyword.keymanagementserviceshort}} into a Satellite location. Check out [{{site.data.keyword.keymanagementserviceshort}} in the {{site.data.keyword.cloud_notm}} catalog](/catalog/services/key-protect) for the latest price. Note that there is no additional charge for creating multiple instances in a location.
 
-* **Key quota**: the maximum number of [non-deleted keys](#pricing-plan-satellite-non-deleted) which is defined when {{site.data.keyword.keymanagementserviceshort}} is deployed in the Satellite location. This quota covers the number of keys per location, not per instance. If you choose to create a second instance, it is bound by the quota selected for the location. You do not need to increase your quota. Keys cost $1 per key, while quotas can be requested in batches of 100 keys. Because the minimum quota that can be selected is 100, the minimum quota charge is $100. If 200 keys are selected, for example, the charge is $200. This quota of keys can be changed later by opening a service ticket. If you attempt to exceed your key quota, you will get an error.
+* **Key quota**: the maximum number of [non-deleted keys](#pricing-plan-satellite-non-deleted) which is defined when {{site.data.keyword.keymanagementserviceshort}} is deployed in the Satellite location. This quota covers the number of keys per location, not per instance. If you choose to create a second instance, it is bound by the quota selected for the location. You do not need to increase your quota. Keys have a fixed cost (check out [{{site.data.keyword.keymanagementserviceshort}} in the {{site.data.keyword.cloud_notm}} catalog](/catalog/services/key-protect) for the latest prices), while quotas can be requested in batches of 100 keys. The minimum quota that can be selected is 100. Additional quotas can be requested in batches of 100. This quota of keys can be changed later by opening a service ticket. If you attempt to exceed your key quota, you get an error.
 
 If you change quotas in the middle of a billing cycle (for example, going from 100 keys to 200 keys) you are charged whichever quota is larger. This charge is not prorated by the amount of time a particular quota was selected and is based on the maximum quota during a particular billing cycle.
 {: important}
