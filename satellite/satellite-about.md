@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-05-22"
 
 keywords: satellite, hsm, about
 
@@ -36,7 +36,7 @@ For information about pricing, check out [Pricing for {{site.data.keyword.keyman
 Although you can initiate an installation creation request at any point **after you have created a Satellite location**, the best practice is to deploy a {{site.data.keyword.cloud_notm}} Databases (ICD) that uses PostgreSQL in {{site.data.keyword.cloud_notm}} and the {{site.data.keyword.at_full_notm}} service in your Satellite location, as well as having [deployed and configured two Thales Hardware Security Modules (HSMs)](#satellite-about-HSM) in your Satellite location before initiating the creation request. In any case, because the process to deploy {{site.data.keyword.keymanagementserviceshort}} on Satellite **requires** an interaction between you and an [{{site.data.keyword.IBM_notm}} service representative](https://cloud.ibm.com/unifiedsupport/cases/form), the best practice is to initiate this interaction as soon as possible. During this interaction, you receive important information about how to properly configure your HSMs and share information about your HSMs and your ICD instance and {{site.data.keyword.at_full_notm}} service.
 {: tip}
 
-Before deploying {{site.data.keyword.keymanagementserviceshort}} in a Satellite location, you must first [deploy a Satellite location](/docs/satellite?topic=satellite-getting-started). Note that this location **must be [on-prem](#x6969434){: term}** in a user-owned [VM](##x2043253){: term}. It cannot be contained in {{site.data.keyword.cloud_notm}}. After your Satellite location has been created, you can initiate a request to deploy the {{site.data.keyword.at_full_notm}} service using the process described in [Using {{site.data.keyword.at_full_notm}} with {{site.data.keyword.keymanagementserviceshort}}](#satellite-about-before-begin-activity).
+Before deploying {{site.data.keyword.keymanagementserviceshort}} in a Satellite location, you must first [deploy a Satellite location](/docs/satellite?topic=satellite-getting-started). Note that this location **must be [on-prem](#x6969434){: term}** in a user-owned [VM](#x2043253){: term}. It cannot be contained in {{site.data.keyword.cloud_notm}}. After your Satellite location has been created, you can initiate a request to deploy the {{site.data.keyword.at_full_notm}} service using the process described in [Using {{site.data.keyword.at_full_notm}} with {{site.data.keyword.keymanagementserviceshort}}](#satellite-about-before-begin-activity).
 
 Before the service can be successfully deployed, you must also have deployed [a {{site.data.keyword.cloud_notm}} Databases (ICD) that uses PostgreSQL](/docs/cloud-databases?topic=cloud-databases-satellite-on-prem) service in your Satellite location, which is used by {{site.data.keyword.keymanagementserviceshort}} to manage your keys. After your ICD for PostgreSQL instance has deployed, you need to share [several values about your ICD instance](#satellite-about-before-begin-postgresql) with your service representative.
 
