@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-06-28"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5093,12 +5093,13 @@ ibmcloud kp kmip adapters
     [-n, --limit LIMIT] 
     [-s, --offset OFFSET] 
     [-t, --total-count]
+    [-k, --crk-id CRK_ID]
 ```
 
 ### Example
 {: #kp-kmip-adapter-list-examples}
 
-These are examples of `kp kmip adapters`.
+These are examples of `kp kmip adapters`. Use the `-k` flag to only show adapters that use a specific CRK ID.
 
 #### Example 1
 {: #kp-kmip-adapter-list-examples1}

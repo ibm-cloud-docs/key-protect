@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-06-28"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -31,6 +31,19 @@ you're notified when updates are available.
 
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.10.1
+{: #cli-changelog-07012024}
+
+Release date: 2024-07-01
+
+### Changes
+{: #cli-changelog-0101-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Addition of a `--crk-id` (`-k`) flag to list only adapters with the specified key ID.
+
 
 ## CLI version 0.10.0
 {: #cli-changelog-04152024}
