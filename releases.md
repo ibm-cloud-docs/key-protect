@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-22"
+lastupdated: "2024-06-28"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,19 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## July 2024
+{: #key-protect-jul24}
+
+### 01 July 2024
+{: #key-protectjul0124}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the availability of:
+
+* The ability to manage [key management interoperability protocol (KMIP) adapters](/docs/key-protect?topic=key-protect-kmip) using [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_kmip_adapters)
+* The ability to list kmip_adapters associated with a specific crk_id [using the API](/apidocs/key-protect#get-kmip-adapters), [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-kmip-adapter-list), and SDK.
+* The ability to force delete a kmip_object [using the API](/apidocs/key-protect#delete-kmip-object).
 
 ## April 2024
 {: #key-protect-apr24}
