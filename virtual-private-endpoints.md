@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-07-29"
 
 keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
 
@@ -72,7 +72,7 @@ connect to {{site.data.keyword.keymanagementserviceshort}} service in another re
 For example, from the Sydney region, you can use {{site.data.keyword.keymanagementserviceshort}} service in 
 `us-south` region using the us-south endpoint.
 
-When connecting to a VPE via [CLI](/docs/vpc?topic=vpc-ordering-endpoint-gateway#vpe-ordering-cli) 
+When connecting to a VPE via [CLI](/docs/vpc?topic=vpc-ordering-endpoint-gateway#vpe-ordering-cli&interface=cli) 
 or [API](/docs/vpc?topic=vpc-ordering-endpoint-gateway#vpe-ordering-api), you will 
 need to specify the CRN of the region that you will use to connect to the 
 {{site.data.keyword.keymanagementserviceshort}} service. Use the table below to locate the CRN 

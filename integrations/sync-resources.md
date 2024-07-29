@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-07-05"
+  years: 2024
+lastupdated: "2024-07-29"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -65,7 +65,7 @@ resources and ensuring that the key state and key versions are up to date.
 
 4. Click on the **Associated Resources** tab to see the list of resources.
 
-5. Click on the **Manually sync** resource icon (e.g. ![sync icon](../images/resource-icon.svg)).
+5. Click on the **Manually sync** resource icon.
 
 6. In the **Manually sync associated resource** dialog box, click on the button labeled, **Manually sync** to perform the synchronization.
 
