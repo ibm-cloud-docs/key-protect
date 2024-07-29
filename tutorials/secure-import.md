@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-07-29"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -102,7 +102,7 @@ installed locally on your computer.
     number 3 at the link before returning to this tutorial.
 
 4. Download and install the
-    [OpenSSL cryptography library](https://www.openssl.org/source/){: external}.
+    [OpenSSL cryptography library](https://openssl-library.org:443/source/){: external}.
 
     You can use `openssl` commands to generate encryption keys on your local
     computer if you're trying out

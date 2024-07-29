@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-07-29"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -114,9 +114,7 @@ If you use {{site.data.keyword.keymanagementserviceshort}} resources in the
 Frankfurt, Germany region to process personal data for European citizens, you
 can enable the EU Supported setting for your {{site.data.keyword.cloud_notm}}
 account. To find out more, see
-[Enabling the EU Supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
-and
-[Requesting support for resources in the European Union](/docs/get-support?topic=get-support-using-avatar#eusupported){: external}.
+[Enabling EU support for your account](/docs/account?topic=account-eu-supported){: external}.
 
 ### General Data Protection Regulation (GDPR)
 {: #gdpr}
@@ -132,7 +130,7 @@ readiness.
 
 To ensure GDPR compliance for your
 {{site.data.keyword.keymanagementserviceshort}} resources,
-[enable the EU supported setting](/docs/account?topic=account-eu-hipaa-supported#bill_eusupported){: external}
+[enable the EU supported setting](/docs/account?topic=account-eu-supported){: external}
 for your {{site.data.keyword.cloud_notm}} account. You can learn more about how
 {{site.data.keyword.keymanagementserviceshort}} processes and protects personal
 data by reviewing the following addendums.

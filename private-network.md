@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-07-05"
+  years: 2017, 2024
+lastupdated: "2024-07-29"
 
 keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
 
@@ -30,6 +30,9 @@ Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on
 service endpoint.
 {: shortdesc}
 
+As of 11 January 2024, it is possible to access private endpoints using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
+{: tip}
+
 To get started, enable
 [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external}
 for your infrastructure account. After you enable VRF for your account, you can
@@ -55,7 +58,7 @@ Before you target a private endpoint for
 
 1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
     enabled for
-    [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf){: external}.
+    [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf&interface=ui){: external}.
 
     When you enable VRF, a separate routing table is created for your account,
     and connections to and from your account's resources are routed separately

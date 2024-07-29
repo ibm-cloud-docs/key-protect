@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-07-29"
 
 keywords: delete keys with dual authorization, dual authorization, safe deletion
 
@@ -149,7 +149,7 @@ starts after you provide the first authorization to delete the key. During this
 seven-day period, the key remains in the
 [_Active_ state](/docs/key-protect?topic=key-protect-key-states)
 and all key operations are allowed on the key. If no action is taken by another user and the seven-day period expires, you must
-[restart the dual authorization process](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-set-key-deletion-api)
+[restart the dual authorization process](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api)
     to delete the key.
 {: note}
 

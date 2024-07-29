@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-29"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -122,7 +122,7 @@ The **`kp key`** command manages individual keys.
 | [sync](#kp-key-sync)                                         |               | Synchronize a key's associated resources |
 | [unwrap](#kp-key-unwrap)                                     |               | Unwrap a data encryption key |
 | [update](#kp-key-update)                                     |               | Update a key, transferring it to a new key ring |
-| [versions](#kp-key-versions)                                 | updated       | List all key versions  |
+| [versions](#kp-key-versions)                                 |               | List all key versions  |
 | [wrap](#kp-key-wrap)                                         |               | Wrap a data encryption key |
 {: caption="Table 3. Sub-commands for managing keys" caption-side="bottom"}
 
