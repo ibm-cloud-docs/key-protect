@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-07"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.6.0
 
@@ -2138,7 +2138,7 @@ Deleting a key that has a
 requires an authorization from two users. With the
 {{site.data.keyword.keymanagementserviceshort}} API, you can provide the
 first authorization by
-[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-set-key-deletion-api).
+[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api).
 Then, a different user provides a second authorization by using the
 [GUI](/login/){: external}
 or
