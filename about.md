@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-08-13"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -48,6 +48,7 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 * **Built-in protection**: Deleted keys, and their encrypted data, can never be recovered. Manage your user roles, key states, and set a rotation schedule that works for your use case using the UI, CLI, or API.
 * **Application-independent**: Generate, store, retrieve and manage keys independent of application logic.
 * **Create and manage keys inside a Satellite location**: [{{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about) allows you to deploy {{site.data.keyword.keymanagementserviceshort}} into infrastructure that you own and manage.
+* **[Key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-kmip)** support, as [certified by VMWare](https://www.vmware.com/resources/compatibility/detail.php?productid=60700&kmsversionid=225&deviceCategory=kms){: external}. KMIP support allows customers to integrate any external KMS to facilitate data encryption. Where Azure, AWS, and Google Cloud KMS all require third party KMIP server support (incuring extra costs), support for KMIP in {{site.data.keyword.keymanagementserviceshort}} is integrated.
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
 {: #use-cases}
