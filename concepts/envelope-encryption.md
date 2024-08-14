@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-08-07"
 
 keywords: envelope encryption, wrap data encryption key, unwrap data encryption key
 
@@ -167,7 +167,7 @@ Complete the following steps to encrypt data via envelope encryption:
 1. Retrieve the base64 encoded ciphertext of the wrapped DEK.
 2. [Retrieve the key ID](/docs/key-protect?topic=key-protect-view-keys)
     of the root key that is associated with the DEK.
-3. Make an [unwrap request](/apidocs/key-protect#invoke-an-action-on-a-key){: external} to {{site.data.keyword.keymanagementserviceshort}}.
+3. Make an [unwrap request](/docs/key-protect?topic=key-protect-unwrap-keys){: external} to {{site.data.keyword.keymanagementserviceshort}}.
     Note that if you specified additional authenticated data (AAD) in a previous
     wrap request, you must supply it in your unwrap request.
 4. Use the returned base64 encoded plaintext to decrypt the data protected under

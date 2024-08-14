@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-15"
+lastupdated: "2024-08-13"
 
 keywords: KMIP, VMWare, key protect
 
@@ -41,9 +41,11 @@ This feature works in parallel with the current KMIP for VMWare solution. It is 
 
 While many storage encryption solutions are available for your VMware workload, {{site.data.keyword.keymanagementserviceshort}} Native KMIP support offers the following benefits:
 
+* KMIP support in {{site.data.keyword.keymanagementserviceshort}} is [certified by VMWare](https://www.vmware.com/resources/compatibility/detail.php?productid=60700&kmsversionid=225&deviceCategory=kms){: external} and can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. 
 * Integration with VMware vSAN encryption and vSphere encryption, both of which are implemented in the hypervisor layer rather than the storage or virtual machine layer. This approach allows easy management and transparency to your storage solution and application.
 * Fully managed key management server available in many {{site.data.keyword.cloud_notm}} multizone regions (MZRs).
 * Integrating your VMware cluster with {{site.data.keyword.cloud_notm}} {{site.data.keyword.keymanagementserviceshort}} provides you with fully customer-managed keys that you can revoke at any time.
+* Because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
 
 ## Creating an adapter
 {: #kmip-adapter-create}
