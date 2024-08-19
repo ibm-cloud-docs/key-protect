@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-19"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -4991,12 +4991,12 @@ Depending on the profile, different information may need to be supplied to creat
 The `native_1.0` profile needs only the ID of a root key to be provided in the `-k` flag.
 
 ```sh
-adapter-create 
+$ ibmcloud kp kmip adapter-create
+    -i, --instance-id      INSTANCE_ID
     -p, --profile PROFILE 
     [-k, --crk-id CRK_ID] 
     [-n, --name NAME] 
     [-d, --description DESC]
-    -i, --instance-id      INSTANCE_ID
     [-o, --output          OUTPUT]
 ```
 
@@ -5010,7 +5010,7 @@ These are examples of `kp kmip adapter-create`.
 
 This example creates KMIP adapter with the `native_1.0` profile
 ```sh
-ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0 -d "my description"
+$ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0 -d "my description"
 Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
 Creating KMIP Adapter...
 OK
@@ -5030,9 +5030,9 @@ d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      2024-03-
 Retrieve details about a KMIP adapter, including the creation and update date. You can use the adapter ID or the adapter name.
 
 ```sh
-ibmcloud kp kmip adapter ADAPTERID
-    -i, --instance-id INSTANCE_ID
-    [-o, --output      OUTPUT]
+$ ibmcloud kp kmip adapter ADAPTER_NAME_OR_ID
+    -i, --instance-id   INSTANCE_ID
+    [-o, --output       OUTPUT]
 ```
 
 ### Example
@@ -5087,13 +5087,13 @@ $ ibmcloud kp kmip adapter d6a00af1-277f-40e8-b33e-da3a68752209 -o json
 List the KMIP adapters that are available in your Key Protect Instance.
 
 ```sh
-ibmcloud kp kmip adapters 
-    -i, --instance-id      INSTANCE_ID
-    [-o, --output          OUTPUT]
-    [-n, --limit LIMIT] 
-    [-s, --offset OFFSET] 
+$ ibmcloud kp kmip adapters 
+    -i, --instance-id       INSTANCE_ID
+    [-o, --output           OUTPUT]
+    [-n, --limit            LIMIT] 
+    [-s, --starting-offset  OFFSET] 
     [-t, --total-count]
-    [-k, --crk-id CRK_ID]
+    [-k, --crk-id           CRK_ID]
 ```
 
 ### Example
@@ -5119,8 +5119,10 @@ d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      2024-03-
 Deletes a KMIP adapter. This will delete any objects and certificates associated with the adapter.
 
 ```sh
-ibmcloud kp kmip adapter-delete ADAPTERID
-    -i, --instance-id      INSTANCE_ID
+$ ibmcloud kp kmip adapter-delete ADAPTER_NAME_OR_ID
+    -i, --instance-id INSTANCE_ID
+    [-f, --force]
+    [-y, --skip-confirm]
 ```
 
 ### Example
@@ -5156,12 +5158,12 @@ Certificates must have a unique name within the same KMIP adapter, and the conte
 See also: [KMIP Protocol Specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910)
 
 ```sh
-ibmcloud kp kmip cert-create 
-    -a ADAPTER_NAME_OR_ID 
-    -c {@path/to/cert | CERTIFICATE} 
-    [-n NAME]
-    -i, --instance-id     INSTANCE_ID
-    [-o, --output         OUTPUT]
+$ ibmcloud kp kmip cert-create 
+    -a, --adapter       ADAPTER_NAME_OR_ID
+    -c, --cert-string   {@path/to/cert | CERTIFICATE_STRING} 
+    [-n, --name         NAME]
+    -i, --instance-id   INSTANCE_ID
+    [-o, --output       OUTPUT]
 ```
 
 ### Example
@@ -5218,10 +5220,10 @@ a279fded-06d1-45a1-8a95-901f194fb937   mycert             2024-03-20 22:11:34 +0
 Retrieves a specific KMIP Client Certificate. A certificate can be retrieved by either the id or the name.
 
 ```sh
-ibmcloud kp kmip cert CERTIFICATE 
-    -a ADAPTER
-    -i, --instance-id     INSTANCE_ID
-    [-o, --output         OUTPUT]
+$ ibmcloud kp kmip cert CERTIFICATE_ID
+    -a, --adapter       ADAPTER_NAME_OR_ID
+    -i, --instance-id   INSTANCE_ID
+    [-o, --output       OUTPUT]
 ```
 
 ### Examples
@@ -5266,13 +5268,13 @@ $ ibmcloud kp kmip cert a279fded-06d1-45a1-8a95-901f194fb937  -a myadapter -o js
 List all KMIP Client Certificates associated with a specific KMIP adapter.
 
 ```sh
-ibmcloud kp kmip certs 
-    -a, --adapter         ADAPTER
-    [-n, --limit LIMIT] 
-    [-s, --offset OFFSET] 
+$ ibmcloud kp kmip certs 
+    -a, --adapter           ADAPTER_NAME_OR_ID 
+    [-n, --limit            LIMIT] 
+    [-s, --starting-offset  OFFSET] 
     [-t, --total-count]
-    -i, --instance-id     INSTANCE_ID
-    [-o, --output         OUTPUT]
+    -i, --instance-id       INSTANCE_ID
+    [-o, --output           OUTPUT]
 ```
 
 ### Examples
@@ -5298,8 +5300,8 @@ a279fded-06d1-45a1-8a95-901f194fb937   mycert             2024-03-20 22:11:34 +0
 Delete a KMIP Client Certificate.
 
 ```sh
-cert-delete CERTIFICATE 
-    -a adapter
+$ ibmcloud kp kmip cert-delete CERTIFICATE_ID
+    -a, --adapter         ADAPTER_NAME_OR_ID
     -i, --instance-id     INSTANCE_ID
 ```
 
@@ -5325,8 +5327,8 @@ KMIP Objects are created through operations performed through a KMIP client usin
 Objects do not have a name, and must be retrieved by ID.
 
 ```sh
-ibmcloud kp kmip object OBJECT
-    -a, --adapter         ADAPTER
+$ ibmcloud kp kmip object OBJECT_ID
+    -a, --adapter         ADAPTER_NAME_OR_ID 
     -i, --instance-id     INSTANCE_ID
     [-o, --output         OUTPUT]
 ```
@@ -5385,12 +5387,12 @@ See [KMIP State Enumeration](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-
 
 ```sh
 ibmcloud kp kmip objects 
-    -a, --adapter         ADAPTER
-    [-n, --limit LIMIT] 
-    [-s, --offset OFFSET] 
+    -a, --adapter           ADAPTER_NAME_OR_ID
+    [-n, --limit            LIMIT] 
+    [-s, --starting-offset  OFFSET] 
     [-t, --total-count]
-    -i, --instance-id     INSTANCE_ID
-    [-o, --output         OUTPUT]
+    -i, --instance-id       INSTANCE_ID
+    [-o, --output           OUTPUT]
 ```
 
 ### Examples
@@ -5437,9 +5439,11 @@ Object ID                              Object Type     Object State            C
 Delete a KMIP Object. Only objects whose state is not Active, or not Destroyed can be successfully deleted.
 
 ```sh
-cert-delete OBJECT_ID 
-    -a adapter
-    -i, --instance-id     INSTANCE_ID
+$ ibmcloud kp kmip object-delete OBJECT_ID
+    -a, --adapter ADAPTER_NAME_OR_ID 
+    -i, --instance-id INSTANCE_ID
+    [-f, --force]
+    [-y, --skip-confirm]
 ```
 
 ### Examples
