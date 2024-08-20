@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-19"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -32,6 +32,20 @@ you're notified when updates are available.
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
+## CLI version 0.10.2
+{: #cli-changelog-08019024}
+
+Release date: 2024-08-19
+
+### Changes
+{: #cli-changelog-0102-changes}
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Addition of a `--force` (`-f`) flag to `object-delete`. This flag forces deletion of the kmip object regardless of the object's state.
+
+Addition of a `--force` (`-f`) flag to `adapter-delete`. This flag will attempt to force delete all kmip objects within the adapter, then deletes the specified adapter.
+
 ## CLI version 0.10.1
 {: #cli-changelog-07012024}
 
@@ -42,7 +56,7 @@ Release date: 2024-07-01
 
 Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
 
-Addition of a `--crk-id` (`-k`) flag to list only adapters with the specified key ID.
+Addition of a `--crk-id` (`-k`) flag to list kmip_adapters with the specified key ID.
 
 
 ## CLI version 0.10.0
