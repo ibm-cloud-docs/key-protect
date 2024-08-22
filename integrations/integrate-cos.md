@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-21"
+  years: 2017, 2024
+lastupdated: "2024-08-22"
 
 keywords: Key Protect integration, integrate COS with Key Protect, encrypt COS bucket
 
@@ -88,7 +88,7 @@ Figure 1 shows how {{site.data.keyword.keymanagementserviceshort}}
 integrates with {{site.data.keyword.cos_full_notm}} to further secure your
 encryption keys.
 
-![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope.svg){: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
+![The figure shows a contextual view of envelope encryption.](images/kp-cos-envelope.svg){: caption="Figure 1. Contextual view of envelope encryption." caption-side="bottom"}
 
 To learn more about how envelope encryption works in
 {{site.data.keyword.keymanagementserviceshort}}, see
