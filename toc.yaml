@@ -25,10 +25,6 @@ toc:
               - pricing-about.md
               - pricing-plan.md
               - pricing-plan-satellite.md
-          - topicgroup:
-              label: Key concepts
-              topics:
-              - concepts/key-states.md
           - service-comparison.md
           - concepts/manage-access.md
           - shared-responsibilities.md
@@ -42,6 +38,7 @@ toc:
           topics:
           - concepts/importing-keys.md
           - concepts/key-rotation.md
+          - concepts/key-states.md
       - releases.md
   - navgroup:
       id: tutorial
@@ -57,83 +54,87 @@ toc:
       id: howto
       topics: 
       - topicgroup:
-          label: Integrations
-          topics:
-          - integrations/integrate-services.md
-          - integrations/integrate-cos.md
-          - integrations/view-protected-resources.md
-          - integrations/sync-resources.md
-      - topicgroup:
           label: Setting up the service
           topics:
           - provision.md
-          - settings-dual-auth.md
-          - settings-network-policy.md
-          - settings-allowed-ip.md
-          - cbr-controlled-access.md
-          - settings-key-create-import-access.md
+          - grant-access-keys.md
+          - topicgroup:
+              label: Integrations
+              topics:
+              - integrations/integrate-services.md
+              - integrations/integrate-cos.md
+              - integrations/view-protected-resources.md
+              - integrations/sync-resources.md
+          - topicgroup:
+              label: Deploying Key Protect on Satellite
+              topics:
+              - satellite/satellite-about.md
+              - satellite/satellite-hsm-deploy.md
+              - satellite/satellite-ui-deploy.md
+          - topicgroup:
+              label: Accessing the API
+              topics:
+              - set-up-api.md
+              - retrieve-access-token.md
+              - retrieve-instance-id.md
+              - private-network.md
+              - virtual-private-endpoints.md
+          - set-up-cli.md
+      - topicgroup:
+          label: Working with keys
+          topics:
+          - topicgroup:
+              label: Creating and importing keys
+              topics:
+              - create-root-keys.md
+              - create-standard-keys.md
+              - create-key-alias.md
+              - import-root-keys.md
+              - import-standard-keys.md
+              - create-import-tokens.md
+              - settings-key-create-import-access.md
+          - grant-access-keys.md
+          - topicgroup:
+               label: Retrieving keys
+               topics:
+               - view-keys.md
+               - retrieve-key.md
+               - view-key-details.md
+          - topicgroup:
+               label: Wrapping and unwrapping keys
+               topics:
+               - wrap-keys.md
+               - unwrap-keys.md
+               - rewrap-keys.md
+          - topicgroup:
+              label: Rotating keys
+              topics:
+              - set-rotation-policy.md
+              - rotate-keys.md
+              - view-key-versions.md
+          - topicgroup:
+              label: Deleting and purging keys
+              topics:
+              - delete-purge-keys.md
+              - disable-keys.md
+              - delete-keys.md
+              - settings-dual-auth.md
+              - set-dual-auth-policy.md
+              - delete-dual-auth-keys.md
+          - restore-keys.md
+          - key-rings.md
+          - kmip.md
+      - topicgroup:
+          label: Logging and monitoring
+          topics:
+          - at-events.md
           - settings-monitor-metrics.md
-      - topicgroup:
-          label: Deploying Key Protect on Satellite
-          topics:
-          - satellite/satellite-about.md
-          - satellite/satellite-hsm-deploy.md
-          - satellite/satellite-ui-deploy.md
-      - topicgroup:
-          label: Accessing the API
-          topics:
-          - set-up-api.md
-          - retrieve-access-token.md
-          - retrieve-instance-id.md
-          - private-network.md
-          - virtual-private-endpoints.md
-      - set-up-cli.md
-      - grant-access-keys.md
-      - topicgroup:
-          label: Creating keys
-          topics:
-          - create-root-keys.md
-          - create-standard-keys.md
-          - create-key-alias.md
-      - topicgroup:
-          label: Importing keys
-          topics:
-          - import-root-keys.md
-          - import-standard-keys.md
-          - create-import-tokens.md
-      - topicgroup:
-          label: Viewing keys
-          topics:
-          - view-keys.md
-          - view-key-details.md
-          - retrieve-key.md
-      - topicgroup:
-          label: Protecting keys
-          topics:
-          - wrap-keys.md
-          - unwrap-keys.md
-          - rewrap-keys.md
-      - topicgroup:
-          label: Rotating keys
-          topics:
-          - set-rotation-policy.md
-          - rotate-keys.md
-          - view-key-versions.md
-      - disable-keys.md
-      - topicgroup:
-          label: Deleting and purging keys
-          topics:
-          - delete-purge-keys.md
-          - delete-keys.md
-          - delete-dual-auth-keys.md
-          - set-dual-auth-policy.md
-      - restore-keys.md
-      - key-rings.md
-      - kmip.md
+          - monitor-metrics.md
       - topicgroup:
           label: Enhancing security
           topics:
           - data-security.md
+          - cbr-controlled-access.md
   - navgroup:
       id: reference
       topics:
@@ -145,12 +146,10 @@ toc:
           topics:
           - key-protect-cli-commands.md
           - cli-changelog.md
-      - regions.md
-      - at-events.md
-      - monitor-metrics.md
       - topicgroup:
-          label: Standards and compliance
+          label: Service availability
           topics:
+          - regions.md
           - ha-dr.md
   - navgroup:
       id: help
