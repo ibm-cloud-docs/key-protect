@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-09-03"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -114,7 +114,6 @@ The **`kp key`** command manages individual keys.
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
 | policy-update [dual-auth-delete](#kp-key-policy-update-dual) |               | Update the key policy for "dual auth delete" |
 | policy-update [rotation](#kp-key-policy-update-rotation)     |               | Update the key policy for "rotation" |
-| [purge](#kp-key-purge)                                       |               | Purge a deleted key |
 | [restore](#kp-key-restore)                                   |               | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   |               | Authorize a key, with a dual-auth-delete policy, to be deleted |
