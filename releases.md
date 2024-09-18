@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-09-18"
 
 keywords: key protect, release notes, service updates
 
@@ -562,8 +562,7 @@ Support for integrated services and resources
 {{site.data.keyword.keymanagementserviceshort}} announces new dual authorization policies
 :   You can now enable dual authorization policies to safely delete keys from your {{site.data.keyword.keymanagementserviceshort}} instance. When you enable dual authorization, you require an action from two users to delete a key.
 
-   - To learn how to enable dual authorization at the instance level, see [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth).
-   - To learn how to enable dual authorization at the key level, see [Enabling a dual authorization policy for a key](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
+   - To learn how to enable dual authorization, see [Using dual authorization policies for the deletion of keys](/docs/key-protect?topic=key-protect-manage-dual-auth).
 
 ## November 2019
 {: #key-protect-nov19}

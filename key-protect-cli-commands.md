@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-03"
+lastupdated: "2024-09-18"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -647,9 +647,7 @@ Deleting a key that has a dual authorization policy requires an authorization
 from two users.
 
 For more information, see
-[deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys)
-and
-[setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
+[Using dual authorization policies for the deletion of keys](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
 
 ### Notes
 {: #kp-instance-policy-update-dual-notes}

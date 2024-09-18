@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-09-18"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -23,13 +23,13 @@ subcollection: key-protect
 {:ui: .ph data-hd-interface='ui'}
 {:api: .ph data-hd-interface='api'}
 
-# Viewing a list of keys
+# Retrieving a list of {{site.data.keyword.keymanagementserviceshort}} keys
 {: #view-keys}
 
 {{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to keys to ensure the security of your resources.
 {: shortdesc}
 
-While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) will not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Viewing fine-grain access keys through IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam) to view the key through IAM or by using the API to pass the specific key ID.
+While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) does not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Viewing fine-grain access keys through IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam) to view the key through IAM or by using the API to pass the specific key ID.
 {: important}
 
 It is a good practice to audit your key configuration regularly:
@@ -370,4 +370,3 @@ $ curl -X GET \
 |--- |--- |
 | sort-value | The list of properties for sorting. The key properties that can be sorted at this time are:  \n \n- id \n- state \n- extractable \n- imported \n- creationDate \n- lastUpdateDate \n- lastRotateDate \n- deletionDate \n- expirationDate |
 {: caption="Table 7. Usage notes for the sort query parameter." caption-side="top"}
-

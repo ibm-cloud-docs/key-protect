@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-02-03"
+  years: 2017, 2024
+lastupdated: "2024-09-18"
 
 keywords: key versions, get key versions, list key versions
 
@@ -30,8 +30,7 @@ subcollection: key-protect
 View the versions that are associated with a root key by using {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} creates a new version of the key. As a security admin, you can audit the
-rotation history of a root key by viewing its key version history.
+When you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} creates a new version of the key. As a security admin, you can audit the rotation history of a root key by viewing its key version history.
 
 Key versions are available only for root keys. To learn more about how key rotation works in {{site.data.keyword.keymanagementserviceshort}}, check out [Comparing your key rotation options](/docs/key-protect?topic=key-protect-key-rotation#compare-key-rotation-options).
 {: note}
@@ -128,5 +127,3 @@ shows an example returned value.
 
 The `resources` object lists each key version, along with its ID and
 creation date, in reverse chronological order.
-
-

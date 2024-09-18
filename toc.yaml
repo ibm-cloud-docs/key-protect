@@ -27,7 +27,8 @@ toc:
               - pricing-plan-satellite.md
           - service-comparison.md
           - concepts/manage-access.md
-          - shared-responsibilities.md
+          - topic: shared-responsibilities.md
+            navtitle: Your responsibilies
       - topicgroup:
           label: Use cases
           topics:
@@ -37,9 +38,10 @@ toc:
           label: Best practices
           topics:
           - concepts/importing-keys.md
-          - concepts/key-rotation.md
           - concepts/key-states.md
-      - releases.md
+          - concepts/key-rotation.md
+      - topic: releases.md
+        navtitle: Release notes
   - navgroup:
       id: tutorial
       topics:
@@ -48,7 +50,7 @@ toc:
               label: Apply end to end security to a cloud application
               href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
           - link:
-              label: Enhance security of your deployed application
+              label: Enhance the security of your deployed application
               href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security
   - navgroup:
       id: howto
@@ -93,11 +95,12 @@ toc:
               - import-standard-keys.md
               - create-import-tokens.md
               - settings-key-create-import-access.md
-          - grant-access-keys.md
+              - manage-dual-auth.md
           - topicgroup:
                label: Retrieving keys
                topics:
-               - view-keys.md
+               - topic: view-keys.md
+                 navtitle: Retrieving a list of keys
                - retrieve-key.md
                - view-key-details.md
           - topicgroup:
@@ -113,14 +116,11 @@ toc:
               - rotate-keys.md
               - view-key-versions.md
           - topicgroup:
-              label: Deleting and purging keys
+              label: Deleting keys
               topics:
               - delete-purge-keys.md
               - disable-keys.md
               - delete-keys.md
-              - settings-dual-auth.md
-              - set-dual-auth-policy.md
-              - delete-dual-auth-keys.md
           - restore-keys.md
           - key-rings.md
           - kmip.md
@@ -139,10 +139,10 @@ toc:
       id: reference
       topics:
       - link:
-          label: Key Protect API Reference
+          label: Key Protect API reference
           href: https://{DomainName}/apidocs/key-protect
       - topicgroup:
-          label: Key Protect CLI Reference
+          label: Key Protect CLI reference
           topics:
           - key-protect-cli-commands.md
           - cli-changelog.md

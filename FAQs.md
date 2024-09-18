@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-09-18"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -205,7 +205,7 @@ With {{site.data.keyword.keymanagementserviceshort}}, you can [enforce dual auth
 
 After you enable a dual authorization policy for a {{site.data.keyword.keymanagementserviceshort}} instance, any keys that you add to the instance inherit the policy at the key level. Dual authorization policies for keys cannot be reverted.
 
-If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}} instance, those keys will continue to require only a single authorization to be deleted. If you want to enable those keys for dual authorization, you can use the {{site.data.keyword.keymanagementserviceshort}} APIs t [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
+If you have existing keys in a {{site.data.keyword.keymanagementserviceshort}} instance, those keys will continue to require only a single authorization to be deleted. If you want to enable those keys for dual authorization, you can use the {{site.data.keyword.keymanagementserviceshort}} APIs t [set dual authorization policies for those individual keys](/docs/key-protect?topic=key-protect-manage-dual-auth).
 
 ## Can I disable a dual authorization settings for my {{site.data.keyword.keymanagementserviceshort}} instance?
 {: #disable-dual-auth}
@@ -230,5 +230,3 @@ Setting and retrieving the network access policy is only supported through the a
 After the network access policy is set to `private-only` the UI cannot be used for any {{site.data.keyword.keymanagementserviceshort}} actions.
 
 Keys in a `private-only` instance will not be shown in the UI and any {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an unauthorized error (HTTP status code 401).
-
-

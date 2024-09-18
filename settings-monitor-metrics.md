@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-18"
+  years: 2020, 2024
+lastupdated: "2024-09-18"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Monitoring metrics
+# Monitoring operational metrics
 {: #manage-monitor-metrics}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
@@ -245,5 +245,3 @@ Optional: Verify that the metrics policy was updated by browsing
     {{site.data.keyword.keymanagementserviceshort}} instance with
     {{site.data.keyword.mon_short}}, check out
     [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
-
-
