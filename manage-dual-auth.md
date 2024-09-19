@@ -36,17 +36,13 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 
 Dual authorization policies (also known as "dual auth" policies) can be set at the instance level, where it is automatically applied to any subsequently created keys, or on specific keys. Whatever the method used to generate the policy on a key, the authorization of two administrators is required to delete the key.
 
-[Considerations](#manage-dual-auth-instance-policy-considerations)
+* [**Considerations for setting a dual auth policy**](#manage-dual-auth-instance-policy-considerations).
 
-Setting and removing policy on instance 
+* **Setting and removing the policy on an instance** [**using the console**](#enable-dual-auth-instance-policy-ui) and [**using the API**](#enable-dual-auth-instance-policy-api).
 
-[For the console](#enable-dual-auth-instance-policy-ui)
+* [**Setting the policy on keys**](#set-dual-auth-key-policy).
 
-[For the API](#enable-dual-auth-instance-policy-api)
-
-[Setting policy on keys](#set-dual-auth-key-policy)
-
-[Deleting keys with dual auth](#delete-dual-auth-keys)
+* [**Deleting keys that have a dual auth policy**](#delete-dual-auth-keys).
 
 ### Considerations for setting a dual auth policy
 {: #manage-dual-auth-instance-policy-considerations}
@@ -71,7 +67,7 @@ Setting and removing policy on instance
 
 For information about deleting a key with a dual auth policy, check out [](#delete-dual-auth-keys-api)
 
-### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
+#### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enable-dual-auth-instance-policy-ui}
 {: ui}
 
@@ -96,7 +92,7 @@ complete the following steps to create a dual authorization policy:
 
     - Click `Save` or `Cancel` (whichever is appropriate).
 
-### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
+#### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-dual-auth-instance-policy-api}
 {: api}
 
@@ -169,7 +165,7 @@ $ curl -X GET \
 
 Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
 
-### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
+#### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #disable-dual-auth-instance-policy-ui}
 {: ui}
 
@@ -270,7 +266,7 @@ You can also use {{site.data.keyword.keymanagementservicefull}} to set dual auth
 After you enable dual authorization at the key level, the policy that is associated with the key can no longer be changed to allow a single authorization to delete the key.
 {: important}
 
-### Viewing a dual authorization policy for a key
+#### Viewing a dual authorization policy for a key
 {: #view-dual-auth-key-policy-api}
 {: api}
 
@@ -344,11 +340,11 @@ For keys that do not have an existing dual authorization policy, the following J
 ```
 {: screen}
 
-### Creating a dual authorization policy for a key
+### Creating a dual auth policy for a key
 {: #create-dual-auth-key-policy-api}
 {: api}
 
-Create a dual authorization policy for single key by making a `PUT` call to the following endpoint.
+Dual auth policies can also be set on a key using the API. Create a dual authorization policy for single key by making a `PUT` call to the following endpoint.
 
 ```plaintext
 https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies?policy=dualAuthDelete
@@ -425,7 +421,7 @@ A successful request returns a `200 OK` response with dual authorization policy 
 
 The key now requires an authorization from two users before it can be deleted.
 
-### Deleting keys that have a dual auth policy
+## Deleting keys that have a dual auth policy
 {: #delete-dual-auth-keys}
 
 Deleting a key that has a dual auth policy can be achieved using the console, the API, or the CLI. Whatever the reason for a dual authorization policy, the method for deletion is the same. One of the users authorized to delete the key schedules it for deletion, which must be confirmed by another user.
@@ -434,7 +430,7 @@ You can use {{site.data.keyword.keymanagementservicefull}} to safely delete encr
 
 Before deleting keys, make sure to review the [Considerations before deleting and purging a key](/docs/key-protect?topic=key-protect-delete-purge-keys#delete-purge-keys-considerations).
 
-#### Considerations for deleting a key that holds a dual auth policy
+### Considerations for deleting a key that holds a dual auth policy
 {: #delete-dual-auth-keys-api}
 
 Before you delete a key by using dual authorization:
@@ -476,7 +472,7 @@ Before you delete a key by using dual authorization:
 The other user must have _Manager_ access policy for the instance or key in order to authorize the key for deletion.
 {: note}
 
-##### Purging a key that holds dual authorization in the console
+#### Purging a key that holds dual authorization in the console
 {: #delete-dual-auth-keys-set-key-deletion-console-purge}
 {: ui}
 
