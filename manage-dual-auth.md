@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-09-19"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -25,26 +25,28 @@ subcollection: key-protect
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 
-# Using dual authorization for the deletion of keys
+# Using dual authorization policies for the deletion of keys
 {: #manage-dual-auth}
 
-After you set up your {{site.data.keyword.keymanagementservicelong}} service instance, you can manage dual authorization (also known as "dual auth") by using the console, the API, or the CLI. This guide shows the instructions for using the console and the API. For instructions about the CLI, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
+After you set up your {{site.data.keyword.keymanagementservicelong}} service instance, you can set a dual authorization policy to ensure that keys are not deleted maliciously or by accident by requiring the approval of two administrators to delete keys that carry the policy. This guide shows the instructions for using the console and the API. For instructions about the CLI, check out the [{{site.data.keyword.keymanagementserviceshort}} CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 {: shortdesc}
 
 ## Managing dual authorization settings
 {: #manage-dual-auth-instance-policy}
 
-Dual authorization for {{site.data.keyword.keymanagementserviceshort}} is a policy that helps to prevent accidental or malicious deletion of keys by requiring two administrators to approve its deletion. This policy can be set at the instance level, where it is automatically applied to any subsequently created keys, or on specific keys. Whatever the method used to generate the policy on a key, the authorization of two administrators is required to delete the key.
+Dual authorization policies (also known as "dual auth" policies) can be set at the instance level, where it is automatically applied to any subsequently created keys, or on specific keys. Whatever the method used to generate the policy on a key, the authorization of two administrators is required to delete the key.
 
-Links to various sections (all the h3s):
+[Considerations](#manage-dual-auth-instance-policy-considerations)
 
-Considerations
+Setting and removing policy on instance 
 
-Setting and removing policy on instance (console and api)
+[For the console](#enable-dual-auth-instance-policy-ui)
 
-Setting policy on keys (only api)
+[For the API](#enable-dual-auth-instance-policy-api)
 
-Deleting keys with dual auth
+[Setting policy on keys](#set-dual-auth-key-policy)
+
+[Deleting keys with dual auth](#delete-dual-auth-keys)
 
 ### Considerations for setting a dual auth policy
 {: #manage-dual-auth-instance-policy-considerations}
@@ -678,5 +680,3 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/unsetKey
 {: caption="Table 5. Describes the variables that are needed to unset a key for deletion." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which indicates that your key is no longer authorized for deletion. If you need to restart the dual authorization process, you can issue another authorization to set the key for deletion.
-
-
