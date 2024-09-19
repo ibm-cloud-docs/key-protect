@@ -36,14 +36,6 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 
 Dual authorization policies (also known as "dual auth" policies) can be set at the instance level, where it is automatically applied to any subsequently created keys, or on specific keys. Whatever the method used to generate the policy on a key, the authorization of two administrators is required to delete the key.
 
-* [**Considerations for setting a dual auth policy**](#manage-dual-auth-instance-policy-considerations).
-
-* **Setting and removing the policy on an instance** [**using the console**](#enable-dual-auth-instance-policy-ui) and [**using the API**](#enable-dual-auth-instance-policy-api).
-
-* [**Setting the policy on keys**](#set-dual-auth-key-policy).
-
-* [**Deleting keys that have a dual auth policy**](#delete-dual-auth-keys).
-
 ### Considerations for setting a dual auth policy
 {: #manage-dual-auth-instance-policy-considerations}
 
