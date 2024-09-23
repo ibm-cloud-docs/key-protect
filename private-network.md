@@ -28,7 +28,7 @@ subcollection: key-protect
 Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on {{site.data.keyword.cloud_notm}}'s virtual private endpoints (VPEs) by targeting a private service endpoint.
 {: shortdesc}
 
-As of 11 January 2024, it is possible to access private endpoints using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
+As of 11 January 2024, it is possible to access VPEs using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
 {: tip}
 
 To get started, enable
@@ -63,12 +63,11 @@ Before you target a VPE for
 
 2. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
     enabled for
-    [service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
+    [VPEs](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
 
     After you enable VRF and VPE for your account, all existing
     and future {{site.data.keyword.keymanagementserviceshort}} resources and
-    instances become available from both the public and private
-    endpoints.
+    instances become available from both the public endpoints and VPEs.
     {: note}
 
 VPE settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
@@ -99,11 +98,10 @@ Prepare your VSI or test machine by configuring your routing table for the
     ```
     {: pre}
 
-## Step 2. Target the {{site.data.keyword.keymanagementserviceshort}} private endpoint
+## Step 2. Target the {{site.data.keyword.keymanagementserviceshort}} VPE
 {: #target-private-endpoint}
 
-After you configure your VSI to accept {{site.data.keyword.cloud_notm}} private
-network traffic, you can target the private endpoint for
+After you configure your VSI to accept {{site.data.keyword.cloud_notm}} traffic over a VPE, you can target the VPE for
 {{site.data.keyword.keymanagementserviceshort}} by using the
 {{site.data.keyword.keymanagementserviceshort}} API or
 {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
@@ -149,7 +147,7 @@ network traffic, you can target the private endpoint for
     {: tip}
 
 3. Set an environment variable to target a
-    {{site.data.keyword.keymanagementserviceshort}} private endpoint.
+    {{site.data.keyword.keymanagementserviceshort}} VPE.
 
     ```sh
     export KP_PRIVATE_ADDR=https://private.<region>.kms.cloud.ibm.com
@@ -168,7 +166,7 @@ Test your VPE connection by using the
 [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli).
 
 1. Create a [root key](/docs/key-protect?topic=key-protect-create-root-keys) by
-    targeting the private endpoint.
+    targeting the VPE.
 
     ```sh
     ibmcloud kp key create <key_name> -i <instance_ID>
