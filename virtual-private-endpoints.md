@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-23"
 
-keywords: network access policies, virtual private endpoints, virtual private gateway, VPE
+keywords: network access policies, virtual private endpoints, VPE
 
 subcollection: key-protect
 
@@ -21,12 +21,12 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Using a virtual private endpoint
+# Accessing virtual private endpoints in specific regions
 {: #virtual-private-endpoints}
 
 After you created your VPC and you want to connect to 
 {{site.data.keyword.keymanagementserviceshort}} service for your 
-data encryption needs, you can create a virtual private endpoint 
+data encryption needs, you can create a virtual private endpoint (VPE)
 in your VPC to access Key Protect service within your VPC network.
 {: shortdesc}
 
@@ -37,30 +37,23 @@ and serve as an intermediary
 that enables your workload to interact with 
 {{site.data.keyword.keymanagementserviceshort}}.
 
-To connect to {{site.data.keyword.keymanagementserviceshort}} by using a 
-virtual private endpoint, you must use the 
-{{site.data.keyword.keymanagementserviceshort}} API, SDK, or Terraform.
-The {{site.data.keyword.keymanagementserviceshort}} UI has to be accessed 
-through public network from your VPC.
-{: note}
-
 ## Before you begin
 {: #vpe-prereqs}
 
-Before you target a virtual private endpoint for
+Before you target a VPE for
 {{site.data.keyword.keymanagementserviceshort}}:
 
 - Ensure that you have [provisioned a Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started){: external}.
 - Ensure that you have conducted [planning for Virtual Private Endpoints](/docs/vpc?topic=vpc-planning-considerations){: external}.
 - Ensure that [correct access controls](/docs/vpc?topic=vpc-using-acls){: external} 
-    are set for your virtual private endpoint.
-- Understand the [limitations](/docs/vpc?topic=vpc-limitations-vpe){: external} of having a virtual private endpoint.
+    are set for your VPE.
+- Understand the [limitations](/docs/vpc?topic=vpc-limitations-vpe){: external} of having a VPE.
 - Ensure that you have [created](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external} and understand how to 
     [access](/docs/vpc?topic=vpc-accessing-vpe-after-setup){: external} a VPE gateway.
 - Understand how to [view details](/docs/vpc?topic=vpc-vpe-viewing-details-of-an-endpoint-gateway){: external} of 
-    a Virtual Private Endpoint.
+    a VPE.
 
-Virtual private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
+VPE settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
 {: important}
 
 ## Virtual Private Service Endpoints
@@ -124,5 +117,3 @@ of the target region.
 |            | `private.au-syd.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`     |  |
 |            | `private.jp-tok.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`     |  |
 {: caption="Table 1. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
-
-

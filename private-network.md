@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-23"
 
-keywords: Key Protect private endpoints, Key Protect private network, VRF, service endpoints
+keywords: Key Protect private endpoints, VPE, service endpoints
 
 subcollection: key-protect
 
@@ -22,12 +22,10 @@ subcollection: key-protect
 {:preview: .preview}
 {:term: .term}
 
-# Using private endpoints
+# Using virtual private endpoints (VPEs)
 {: #private-endpoints}
 
-Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on
-{{site.data.keyword.cloud_notm}}'s private network by targeting a private
-service endpoint.
+Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on {{site.data.keyword.cloud_notm}}'s virtual private endpoints (VPEs) by targeting a private service endpoint.
 {: shortdesc}
 
 As of 11 January 2024, it is possible to access private endpoints using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
@@ -42,18 +40,10 @@ network. To learn more about private connections on
 {{site.data.keyword.cloud_notm}}, see
 [Service endpoints for private connections](/docs/account?topic=account-service-endpoints-overview){: external}.
 
-To connect to {{site.data.keyword.keymanagementserviceshort}} by using a private
-network connection, you must use the
-{{site.data.keyword.keymanagementserviceshort}} API or the
-[{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
-This capability is not available from the
-{{site.data.keyword.keymanagementserviceshort}} GUI.
-{: note}
-
 ## Before you begin
 {: #private-network-prereqs}
 
-Before you target a private endpoint for
+Before you target a VPE for
 {{site.data.keyword.keymanagementserviceshort}}:
 
 1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
@@ -75,22 +65,22 @@ Before you target a private endpoint for
     enabled for
     [service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint){: external}.
 
-    After you enable VRF and service endpoints for your account, all existing
+    After you enable VRF and VPE for your account, all existing
     and future {{site.data.keyword.keymanagementserviceshort}} resources and
     instances become available from both the public and private
     endpoints.
     {: note}
 
-Private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
+VPE settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery). 
 {: important}
 
-## Step 1. Configure the {{site.data.keyword.cloud_notm}} private network on your virtual server
+## Step 1. Configure the {{site.data.keyword.cloud_notm}} VPE on your virtual server
 {: #configure-private-network}
 
 Prepare your VSI or test machine by configuring your routing table for the
-{{site.data.keyword.cloud_notm}} private network.
+{{site.data.keyword.cloud_notm}} VPE.
 
-1. To route traffic to the {{site.data.keyword.cloud_notm}} private network,
+1. To route traffic to the {{site.data.keyword.cloud_notm}} VPE,
     run the following command on your VSI:
 
     ```sh
@@ -155,7 +145,7 @@ network traffic, you can target the private endpoint for
 
     See
     [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external}
-    to learn how to set up your account for connecting to a private network.
+    to learn how to set up your account for connecting to a VPE.
     {: tip}
 
 3. Set an environment variable to target a
@@ -171,10 +161,10 @@ network traffic, you can target the private endpoint for
     instance resides. For the complete list of endpoints, see
     [Regions and endpoints](/docs/key-protect?topic=key-protect-regions#connectivity-options).
 
-## Step 3. Create a {{site.data.keyword.keymanagementserviceshort}} resource on the private network
+## Step 3. Create a {{site.data.keyword.keymanagementserviceshort}} resource on the VPE
 {: #create-key-private-network}
 
-Test your private network connection by using the
+Test your VPE connection by using the
 [{{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli).
 
 1. Create a [root key](/docs/key-protect?topic=key-protect-create-root-keys) by
@@ -207,10 +197,8 @@ Test your private network connection by using the
 {: #private-network-next-steps}
 
 You're now set to interact with {{site.data.keyword.keymanagementserviceshort}}
-through a private endpoint.
+through a VPE.
 
 - To find out more about managing keys with
     {{site.data.keyword.keymanagementserviceshort}},
     [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
-
-
