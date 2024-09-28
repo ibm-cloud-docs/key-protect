@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-09-28"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -20,7 +20,7 @@ subcollection: key-protect
 {:note: .note}
 {:important: .important}
 
-# {{site.data.keyword.mon_short}} operational metrics
+# {{site.data.keyword.mon_short}} operational metrics using the console
 {: #operational-metrics}
 
 As a security officer, auditor, or manager, you can use the
@@ -290,5 +290,3 @@ service instance receives multiple 401 and 403 errors within a 10 minute time
 span.
 
 ![An example of a 401 and 403 configuration.](images/monitor-401-alert.png){: caption="Figure 5. The configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
-
-

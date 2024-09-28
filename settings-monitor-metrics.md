@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-09-28"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:preview: .preview}
 
-# Monitoring operational metrics
+# Monitoring operational metrics using the API
 {: #manage-monitor-metrics}
 
 After you set up your {{site.data.keyword.keymanagementservicelong}} service
