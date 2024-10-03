@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-09-18"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -22,7 +22,7 @@ subcollection: key-protect
 {:preview: .preview}
 {:term: .term}
 
-# Bringing your encryption keys to the cloud
+# Bringing keys into the cloud
 {: #importing-keys}
 
 Encryption keys contain subsets of information, such as the metadata that helps

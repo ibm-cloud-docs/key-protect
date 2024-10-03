@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-09-18"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Understanding user roles and resources
+# User roles and resources
 {: #manage-access}
 
 {{site.data.keyword.keymanagementservicefull}} supports a centralized access control system that leverages {{site.data.keyword.iamlong}} to help you assign your users the correct roles and access for your account, service instances, encryption keys, and key rings.

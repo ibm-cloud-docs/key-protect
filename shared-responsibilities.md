@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-18"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:download: .download}
 {:preview: .preview}
 
-# Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}
+# Your responsibilities when using {{site.data.keyword.keymanagementserviceshort}}
 {: #shared-responsibilities}
 
 Learn about the management responsibilities and terms and conditions that you
@@ -112,5 +112,3 @@ You are responsible for the recovery of the workloads that run
 | Virtual Private Endpoints (VPE) | VPE does not support automatically switching to backup during failover at this time. | VPE settings, specifically the Internet Protocol (IP) address, need to be manually updated during disaster recovery procedures. |
 | Private Endpoint (PE) | PE will not support allowed IP settings during disaster recovery at this time, but an announcement on this topic will be made soon. | PE settings, specifically the Internet Protocol (IP) address, need to be manually updated during disaster recovery procedures. |
 {: caption="Table 5. Responsibilities for disaster recovery" caption-side="top"}
-
-

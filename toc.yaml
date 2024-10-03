@@ -13,134 +13,143 @@ toc:
   - navgroup:
       id: learn
       topics:
-      - index.md
-      - about.md
-      - service-comparison.md
+      - topic: index.md
+        navtitle: Getting started
       - topicgroup:
-          label: Key concepts
+          label: About
+          topics:
+          - about.md
+          - topicgroup:
+              label: Pricing
+              topics:
+              - pricing-about.md
+              - pricing-plan.md
+              - pricing-plan-satellite.md
+          - service-comparison.md
+          - concepts/manage-access.md
+          - topic: shared-responsibilities.md
+            navtitle: Your responsibilies
+      - topicgroup:
+          label: Use cases
+          topics:
+          - concepts/envelope-encryption.md
+          - concepts/quantum-safe-cryptography.md
+      - topicgroup:
+          label: Best practices
           topics:
           - concepts/importing-keys.md
-          - concepts/envelope-encryption.md
           - concepts/key-states.md
           - concepts/key-rotation.md
-          - concepts/quantum-safe-cryptography.md
-          - concepts/manage-access.md
-      - topicgroup:
-          label: Tutorials
-          topics:
+      - topic: releases.md
+        navtitle: Release notes
+  - navgroup:
+      id: tutorial
+      topics:
           - tutorials/secure-import.md
           - link:
               label: Apply end to end security to a cloud application
               href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
           - link:
-              label: Enhance security of your deployed application
+              label: Enhance the security of your deployed application
               href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security
-      - topicgroup:
-          label: Integrations
-          topics:
-          - integrations/integrate-services.md
-          - integrations/integrate-cos.md
-          - integrations/view-protected-resources.md
-          - integrations/sync-resources.md
-      - topicgroup:
-          label: Pricing
-          topics:
-          - pricing-about.md
-          - pricing-plan.md
-          - pricing-plan-satellite.md
-      - releases.md
   - navgroup:
       id: howto
-      topics:
+      topics: 
       - topicgroup:
           label: Setting up the service
           topics:
           - provision.md
-          - settings-dual-auth.md
-          - settings-network-policy.md
-          - settings-allowed-ip.md
-          - cbr-controlled-access.md
-          - settings-key-create-import-access.md
+          - grant-access-keys.md
+          - topicgroup:
+              label: Integrations
+              topics:
+              - integrations/integrate-services.md
+              - integrations/integrate-cos.md
+              - integrations/view-protected-resources.md
+              - integrations/sync-resources.md
+          - topicgroup:
+              label: Deploying Key Protect on Satellite
+              topics:
+              - satellite/satellite-about.md
+              - satellite/satellite-hsm-deploy.md
+              - satellite/satellite-ui-deploy.md
+          - topicgroup:
+              label: Accessing the API
+              topics:
+              - set-up-api.md
+              - retrieve-access-token.md
+              - retrieve-instance-id.md
+              - private-network.md
+              - virtual-private-endpoints.md
+          - set-up-cli.md
+      - topicgroup:
+          label: Working with keys
+          topics:
+          - topicgroup:
+              label: Creating and importing keys
+              topics:
+              - create-root-keys.md
+              - create-standard-keys.md
+              - create-key-alias.md
+              - import-root-keys.md
+              - import-standard-keys.md
+              - create-import-tokens.md
+              - settings-key-create-import-access.md
+              - manage-dual-auth.md
+          - topicgroup:
+               label: Retrieving keys
+               topics:
+               - topic: view-keys.md
+                 navtitle: Retrieving a list of keys
+               - retrieve-key.md
+               - view-key-details.md
+          - topicgroup:
+               label: Wrapping and unwrapping keys
+               topics:
+               - wrap-keys.md
+               - unwrap-keys.md
+               - rewrap-keys.md
+          - topicgroup:
+              label: Rotating keys
+              topics:
+              - set-rotation-policy.md
+              - rotate-keys.md
+              - view-key-versions.md
+          - topicgroup:
+              label: Deleting keys
+              topics:
+              - delete-purge-keys.md
+              - disable-keys.md
+              - delete-keys.md
+          - restore-keys.md
+          - key-rings.md
+          - kmip.md
+      - topicgroup:
+          label: Logging and monitoring
+          topics:
+          - at-events.md
           - settings-monitor-metrics.md
-      - topicgroup:
-          label: Deploying Key Protect on Satellite
-          topics:
-          - satellite/satellite-about.md
-          - satellite/satellite-hsm-deploy.md
-          - satellite/satellite-ui-deploy.md
-      - topicgroup:
-          label: Accessing the API
-          topics:
-          - set-up-api.md
-          - retrieve-access-token.md
-          - retrieve-instance-id.md
-          - private-network.md
-          - virtual-private-endpoints.md
-      - set-up-cli.md
-      - grant-access-keys.md
-      - topicgroup:
-          label: Creating keys
-          topics:
-          - create-root-keys.md
-          - create-standard-keys.md
-          - create-key-alias.md
-      - topicgroup:
-          label: Importing keys
-          topics:
-          - import-root-keys.md
-          - import-standard-keys.md
-          - create-import-tokens.md
-      - topicgroup:
-          label: Viewing keys
-          topics:
-          - view-keys.md
-          - view-key-details.md
-          - retrieve-key.md
-      - topicgroup:
-          label: Protecting keys
-          topics:
-          - wrap-keys.md
-          - unwrap-keys.md
-          - rewrap-keys.md
-      - topicgroup:
-          label: Rotating keys
-          topics:
-          - set-rotation-policy.md
-          - rotate-keys.md
-          - view-key-versions.md
-      - disable-keys.md
-      - topicgroup:
-          label: Deleting and purging keys
-          topics:
-          - delete-purge-keys.md
-          - delete-keys.md
-          - delete-dual-auth-keys.md
-          - set-dual-auth-policy.md
-      - restore-keys.md
-      - key-rings.md
-      - kmip.md
+          - monitor-metrics.md
       - topicgroup:
           label: Enhancing security
           topics:
           - data-security.md
+          - cbr-controlled-access.md
   - navgroup:
       id: reference
       topics:
       - link:
-          label: Key Protect API Reference
+          label: Key Protect API reference
           href: https://{DomainName}/apidocs/key-protect
       - topicgroup:
-          label: Key Protect CLI Reference
+          label: Key Protect CLI reference
           topics:
           - key-protect-cli-commands.md
           - cli-changelog.md
-      - regions.md
-      - at-events.md
-      - monitor-metrics.md
       - topicgroup:
-          label: Standards and compliance
+          label: Service availability
           topics:
-          - shared-responsibilities.md
+          - regions.md
           - ha-dr.md
   - navgroup:
       id: help

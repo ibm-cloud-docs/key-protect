@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-11"
+  years: 2017, 2024
+lastupdated: "2024-08-28"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -21,10 +21,10 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Provisioning the {{site.data.keyword.keymanagementserviceshort}} service
+# Creating an instance
 {: #provision}
 
-You can create an instance of {{site.data.keyword.keymanagementservicefull}} by using the {{site.data.keyword.cloud_notm}} console or the{{site.data.keyword.cloud_notm}} CLI.
+You can create an instance of {{site.data.keyword.keymanagementservicefull}} by using the {{site.data.keyword.cloud_notm}} console or the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
 This topic covers the process for deploying an instance of {{site.data.keyword.keymanagementserviceshort}} inside {{site.data.keyword.cloud_notm}}. For more information about deploying {{site.data.keyword.keymanagementserviceshort}} on Satellite, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
@@ -376,5 +376,3 @@ Message: [409, Conflict] Conflict: Instance contains 2 active keys. Remove all k
 
 To find out more about programmatically managing your keys,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
-
-

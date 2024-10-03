@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-09-18"
 
 keywords: quantum safe cryptography, quantum cryptography, quantum safe TLS
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# Introduction to Quantum-safe Cryptography in TLS
+# Quantum-safe cryptography in TLS
 {: #quantum-safe-cryptography-tls-introduction}
 
 You can use a quantum safe enabled TLS connection to send requests to a
@@ -452,5 +452,3 @@ Replace the variables in your request according to the following table.
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 {: caption="Table 4. Describes the variables needed to make a list keys request through a quantum safe endpoint." caption-side="top"}
-
-

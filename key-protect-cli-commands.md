@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-09-18"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -114,7 +114,6 @@ The **`kp key`** command manages individual keys.
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
 | policy-update [dual-auth-delete](#kp-key-policy-update-dual) |               | Update the key policy for "dual auth delete" |
 | policy-update [rotation](#kp-key-policy-update-rotation)     |               | Update the key policy for "rotation" |
-| [purge](#kp-key-purge)                                       |               | Purge a deleted key |
 | [restore](#kp-key-restore)                                   |               | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   |               | Authorize a key, with a dual-auth-delete policy, to be deleted |
@@ -648,9 +647,7 @@ Deleting a key that has a dual authorization policy requires an authorization
 from two users.
 
 For more information, see
-[deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys)
-and
-[setting dual authorization policies for keys](/docs/key-protect?topic=key-protect-set-dual-auth-key-policy).
+[Using dual authorization policies for the deletion of keys](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
 
 ### Notes
 {: #kp-instance-policy-update-dual-notes}
