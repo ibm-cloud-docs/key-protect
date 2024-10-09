@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-09"
 
 keywords: key versions, get key versions, list key versions
 
@@ -99,7 +99,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/versions
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. The header itself is optional, but if unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |show_total|**Optional**. If set to `true`, returns `totalCount` in the response metadata for use with pagination for all keys in an active state, unless `allKeyStates` is also set to true. The `totalCount` value returned specifies the total number of key versions that match the request, disregarding limit and offset. The default is set to false.|
 |allKeyStates|**Optional**. If not set to true, an HTTP 409 is returned for all non-active keys.
-{: caption="Table 1. Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/keys/<keyID_or_alias>/versions` response returns the list
 of versions that are associated with the root key. The following JSON object

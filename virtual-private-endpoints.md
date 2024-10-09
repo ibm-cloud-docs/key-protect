@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-09"
 
 keywords: network access policies, virtual private endpoints, VPE
 
@@ -116,4 +116,4 @@ of the target region.
 |            | `private.eu-de.kms.cloud.ibm.com`    | `crn:v1:bluemix:public:kms:eu-de:::endpoint:private.eu-de.kms.cloud.ibm.com`       |  |
 |            | `private.au-syd.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`     |  |
 |            | `private.jp-tok.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`     |  |
-{: caption="Table 1. Lists VPEs for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
+{: caption="Lists VPEs for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}

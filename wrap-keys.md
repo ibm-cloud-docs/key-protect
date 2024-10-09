@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-09"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: wrap key, encrypt data encryption key, envelope encryption API examples
 
@@ -123,7 +123,7 @@ Replace the variables in the example request according to the following table.
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |data_key|**Optional**.The key material of the DEK that you want to manage and protect. The plaintext value must be base64 encoded. For more information on encoding your key material, see [Encoding your key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material). To generate a new DEK, omit the plaintext attribute. The service generates a random plaintext (32 bytes), wraps that value, and then returns both the generated and wrapped values in the response. The generated and wrapped values are base64 encoded and you will need to decode them in order to decrypt the keys.|
 |additional_data|**Optional**.The additional authentication data (AAD) that is used to further secure the key. Each string can hold up to 255 characters. If you supply AAD when you make a wrap call to the service, you must specify the same AAD during the subsequent unwrap call.Important: The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap requests.|
-{: caption="Table 1. Describes the variables that are needed to wrap a specified key in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
+{: caption="Describes the variables that are needed to wrap a specified key in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
 
 Your wrapped data encryption key, containing the base64 encoded key
 material, is returned in the response entity-body. The response body also
@@ -166,5 +166,3 @@ body on a wrap request. Your generated DEK, containing the base64 encoded
 key material, is returned in the response entity-body, along with the
 wrapped DEK.
 {: tip}
-
-

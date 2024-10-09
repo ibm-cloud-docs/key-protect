@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-09"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -67,7 +67,7 @@ If you prefer to inspect the keys in your service by using a graphical interface
 | Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
 | Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
 | State | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
-{: caption="Table 1. Describes the Keys table." caption-side="bottom"}
+{: caption="Describes the Keys table." caption-side="bottom"}
 
 Other available fields in the table include:
 
@@ -181,7 +181,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the target key ring. If unspecified, the response will include all resources that the user has access to in the specified instance. If provided, the response will only include resources that the user has access to in the specified key ring. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Table 1. Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/keys` request returns a collection of keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance. 
 
@@ -270,7 +270,7 @@ Replace the `limit` and `offset` variables in your request according to the foll
 |--- |--- |
 |offset|The number of keys to skip. For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use `../keys?offset=25`. You can also pair offset with limit to page through your available resources.|
 |limit|The number of keys to retrieve. For example, if you have 100 keys in your instance, and you want to list only 10 keys, use `../keys?limit=10`. The maximum value for limit is 5000.|
-{: caption="Table 2. Table 2. Describes usage of the limit and offset variables." caption-side="top"}
+{: caption="Table 2. Describes usage of the limit and offset variables." caption-side="top"}
 
 Offset is the location of a particular key in a data set. The `offset` value is zero-based, which means that the 10th encryption key in a data set is at offset 9.
 {: tip}
@@ -302,7 +302,7 @@ Replace the `state` variable in your request according to the following table.
 |Variable|Description|
 |--- |--- |
 |state|The states of the keys to be retrieved. States are integers, where Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5 values. For example, if you want to only list keys in the active state in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?state=1`. You can also pair states with offsets and limits to page through your available resources.|
-{: caption="Table 3. Describes the state variable." caption-side="top"}
+{: caption="Describes the state variable." caption-side="top"}
 
 For usage notes, check out the following examples for setting your `state` query parameter.
 
@@ -311,7 +311,7 @@ For usage notes, check out the following examples for setting your `state` query
 |`.../keys`|Lists all of your available resources, up to the first 200 keys.|
 |`.../keys?state=5`|Lists keys in the deleted state.|
 |`.../keys?state=2,3`|Lists keys in the suspended and deactivated state.|
-{: caption="Table 4. Provides usage notes for the stage query parameter." caption-side="top"}
+{: caption="Provides usage notes for the stage query parameter." caption-side="top"}
 
 ### Retrieving keys by Extractable value
 {: #filter-keys-extractable-state-api}
@@ -340,7 +340,7 @@ Replace the `extractable` variable in your request according to the following ta
 |Variable|Description|
 |--- |--- |
 |extractable|The type of keys to be retrieved. Filters keys based on the extractable property. You can use this query parameter to search for keys whose material can leave the service. If set to true, standard keys will be retrieved. If set to false, root keys will be retrieved. If omitted, both root and standard keys will be retrieved. For example, if you want to only list keys with extractable material in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?extractable=true`. You can also pair extractable with `offset`, `limit`, and `state` to page through your available resources.|
-{: caption="Table 5. Describes the extractable variable." caption-side="top"}
+{: caption="Describes the extractable variable." caption-side="top"}
 
 For usage notes, check out the following examples for setting your `extractable` query parameter.
 
@@ -349,7 +349,7 @@ For usage notes, check out the following examples for setting your `extractable`
 |`../keys`|Lists all of your available resources, up to the first 200 keys.|
 |`../keys?extractable=true`|Lists standard keys.|
 |`../keys?extractable=false`|Lists root keys.|
-{: caption="Table 6. Provides usage notes for the extractable query parameter." caption-side="top"}
+{: caption="Provides usage notes for the extractable query parameter." caption-side="top"}
 
 ### Sorting a list of keys
 {: #filter-keys-sort-api}
@@ -369,4 +369,4 @@ $ curl -X GET \
 |Variable|Description|
 |--- |--- |
 | sort-value | The list of properties for sorting. The key properties that can be sorted at this time are:  \n \n- id \n- state \n- extractable \n- imported \n- creationDate \n- lastUpdateDate \n- lastRotateDate \n- deletionDate \n- expirationDate |
-{: caption="Table 7. Usage notes for the sort query parameter." caption-side="top"}
+{: caption="Usage notes for the sort query parameter." caption-side="top"}

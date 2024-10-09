@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-28"
+lastupdated: "2024-10-09"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -137,7 +137,7 @@ instance.
 |Metric Type|Gauge|
 |Value Type|none|
 |Segment By|[Attributes for Segmentation](#attributes-for-segmentation)|
-{: caption="Table 1. Describes the API Hits metrics." caption-side="bottom"}
+{: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ## Latency
 {: #latency}
@@ -156,7 +156,7 @@ type that occur within 60 seconds.
 |Metric Type|Gauge|
 |Value Type|Milliseconds|
 |Segment By|[Attributes for Segmentation](#attributes-for-segmentation)|
-{: caption="Table 2. Describes the Latency metrics." caption-side="bottom"}
+{: caption="Describes the Latency metrics." caption-side="bottom"}
 
 ## Attributes for Segmentation
 {: #attributes-for-segmentation}
@@ -176,7 +176,7 @@ You can filter your metrics by using the following attributes.
 |ibm_resource_group_name|Resource group name associated with the {{site.data.keyword.keymanagementserviceshort}} service instance.|
 |ibm_service_instance_name|{{site.data.keyword.keymanagementserviceshort}} service instance name.|
 |ibm_service_instance|{{site.data.keyword.keymanagementserviceshort}} service instance ID.|
-{: caption="Table 3. Describes the attributes use for segmenting metrics." caption-side="bottom"}
+{: caption="Describes the attributes use for segmenting metrics." caption-side="bottom"}
 
 ## Metrics Filter Attributes
 {: #metrics-filter-attributes}
@@ -190,7 +190,7 @@ These filters are more granular than the segmentation filters.
 |ibmScope|The account, organization, or space GUID associated with the metric.|
 |ibmServiceInstanceName|The service instance associated with the metric.|
 |ibmKmsApi|The {{site.data.keyword.keymanagementserviceshort}} API call associated with the metric.|
-{: caption="Table 4. Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics." caption-side="bottom"}
+{: caption="Describes the scope filters for {{site.data.keyword.keymanagementserviceshort}} metrics." caption-side="bottom"}
 
 Due to {{site.data.keyword.mon_short}} limitations, you will only be able to see
 the values in the dropdown filters for up to 6 hours at a time. You can manually
@@ -222,7 +222,7 @@ platform metrics, follow the below steps:
 3. Select `Monitoring`. This will take you to the
     {{site.data.keyword.keymanagementserviceshort}} dashboard.
 
-![An example of the console monitoring button.](images/kp-ui-monitoring-button.png){: caption="Figure 1. Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
+![An example of the console monitoring button.](images/kp-ui-monitoring-button.png){: caption="Shows example of the {{site.data.keyword.mon_short}} instance console monitoring button." caption-side="bottom"}
 
 ### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance using observability page
 {: #find-observability}
@@ -246,14 +246,14 @@ platform metrics, follow the below steps:
     the dashboard for your {{site.data.keyword.keymanagementserviceshort}}
     service instance.
 
-![An example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png){: caption="Figure 2. The dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
+![An example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png){: caption="The dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
 
 Below are figures that show the metric views available to you on the default
 dashboard.
 
-![An example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png){: caption="Figure 3. Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png){: caption="Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
-![An example of a {{site.data.keyword.keymanagementserviceshort}} dashboard view.](images/monitor-operation-view2.png){: caption="Figure 4. Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a {{site.data.keyword.keymanagementserviceshort}} dashboard view.](images/monitor-operation-view2.png){: caption="Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
 
 You will not be able to see any metrics in your {{site.data.keyword.mon_short}}
 instance until you enable a metrics policy for your
@@ -289,4 +289,4 @@ The figure as shown provides an example of how to configure an alert when your
 service instance receives multiple 401 and 403 errors within a 10 minute time
 span.
 
-![An example of a 401 and 403 configuration.](images/monitor-401-alert.png){: caption="Figure 5. The configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}
+![An example of a 401 and 403 configuration.](images/monitor-401-alert.png){: caption="The configuration for a 401 alert in a {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}

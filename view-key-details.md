@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-02-03"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: get key details, get key configuration, retrieve encryption key details
 
@@ -79,7 +79,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>/metadata
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. The header itself is optional, but if unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Table 1. Describes the variables that are needed to view a details about  a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to view a details about  a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/keys/<key_ID_or_alias>/metadata` response returns
 details about your key. The following JSON object shows an example returned
@@ -135,5 +135,3 @@ Need to retrieve the `payload` value for a standard key? To learn more, see
 For a detailed description of the response parameters, see the
 {{site.data.keyword.keymanagementserviceshort}}
 [REST API reference doc](/apidocs/key-protect){: external}.
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-22"
+lastupdated: "2024-10-09"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -67,7 +67,7 @@ correlate to the actions below, see
 | `kms.secrets.eventack`             | `kms.secrets-event.ack`               |
 | `kms.secrets.listkeyversions`      | `kms.secrets-key-versions.list`       |
 | `kms.secrets.readmetadata`         | `kms.secrets-metadata.read`           |
-{: caption="Table 1. Historical reference mapping of event names" caption-side="bottom"}
+{: caption="Historical reference mapping of event names" caption-side="bottom"}
 
 ## Key events
 {: #key-actions}
@@ -99,7 +99,7 @@ The following table lists the key actions that generate an event:
 | `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key with Dual Authorization policy  |
 | `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key with Dual Authorization policy     |
 | `kms.secrets.unwrap`              | Unwrap a key                                                 |
-{: caption="Table 2. Lifecycle Key Actions" caption-side="bottom"}
+{: caption="Lifecycle Key Actions" caption-side="bottom"}
 
 ## Key Ring events
 {: #keyring-actions}
@@ -112,7 +112,7 @@ The following table lists the key ring actions that generate an event:
 | `kms.key-rings.delete`          | Delete a key ring             |
 | `kms.key-rings.list`            | List key rings in an instance |
 | `kms.key-rings.request`         | Invalid key ring request      |
-{: caption="Table 3. Key Ring actions" caption-side="bottom"}
+{: caption="Key Ring actions" caption-side="bottom"}
 
 ## Policy events
 {: #policy-actions}
@@ -127,7 +127,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instance-policies.write`   | Set instance policies        |
 | `kms.policies.default`         | Invalid policy request event |
 | `kms.instance-policies.request` | Invalid policy request event |
-{: caption="Table 4. Policy actions" caption-side="bottom"}
+{: caption="Policy actions" caption-side="bottom"}
 
 ## Import token events
 {: #import-token-actions}
@@ -139,7 +139,7 @@ The following table lists the import token actions that generate an event:
 | `kms.import-token.create`  | Create an import token             |
 | `kms.import-token.read`    | Retrieve an import token           |
 | `kms.import-token.request` | Invalid import token request event |
-{: caption="Table 5. Import token actions" caption-side="bottom"}
+{: caption="Import token actions" caption-side="bottom"}
 
 ## Registration events
 {: #registration-actions}
@@ -153,7 +153,7 @@ The following table lists the registration actions that generate an event:
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
 | `kms.registrations.default`             | Invalid registration request event                       |
-{: caption="Table 6. Registration actions" caption-side="bottom"}
+{: caption="Registration actions" caption-side="bottom"}
 
 
 
@@ -183,7 +183,7 @@ information, see
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
-{: caption="Table 7. {{site.data.keyword.at_full_notm}} regions" caption-side="bottom"}
+{: caption="{{site.data.keyword.at_full_notm}} regions" caption-side="bottom"}
 
 ## Analyzing successful events
 {: #at-events-analyze}
@@ -207,7 +207,7 @@ model to provide more insight into your data.
 |requestData.requestURI|The [URI](#x2116436){: term} of the API request that was made.|
 |requestData.instanceID|The unique identifier of your {{site.data.keyword.keymanagementserviceshort}} instance.|
 |correlationId|The unique identifier of the API request that generated the event.|
-{: caption="Table 8. Describes the common fields in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Describes the common fields in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 For more information on the event fields in the Cloud Auditing Data Federation
 (CADF) event model, see
@@ -230,7 +230,7 @@ These fields will appear when using key rings in specific conditions.
 | ---------------------- | --------------------------------------------------- |
 | requestData.keyRingId  | The ID of the key ring if a key ring is specified in the header (`X-Kms-Key-Ring`) of the request. |
 | responseData.keyRingId | The ID of the key ring if a key ring is specified in the request or in API methods where the key ID (or alias) is in the path of the request [URI](#x2116436){: term}. |
-{: caption="Table 9. Describes conditional fields for use with key rings in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Describes conditional fields for use with key rings in {{site.data.keyword.at_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 ### Key action events
 {: #key-action-events}
@@ -730,7 +730,7 @@ The following table lists the actions associated with each severity level:
 | Critical | kms.secrets.delete  \n  kms.registrations.delete|
 | Warning  | kms.secrets.rotate, kms.secrets.restore  \n  kms.secrets.enable, kms.secrets.disable  \n  kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion  \n  kms.policies.write, kms.instance-policies.write|
 | Normal   | kms.secrets.create, kms.secrets.read  \n  kms.secrets-metadata.read, kms.secrets.head  \n  kms.secrets.list, kms.secrets.wrap  \n  kms.secrets.unwrap, kms.secrets.rewrap  \n  kms.secrets-key-versions.list, kms.secrets-event.ack  \n  kms.policies.read, kms.instance-policies.read  \n  kms.import-token.create, kms.import-token.read  \n  kms.registrations.create, kms.registrations.write  \n  kms.registrations.merge, kms.registrations.list  \n  kms.secrets.ack-delete, kms.secrets.ack-restore  \n  kms.secrets.ack-rotate, kms.secrets.ack-enable  \n  kms.secrets.ack-disable |
-{: caption="Table 10. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 The following table lists the status codes associated with each severity level:
 
@@ -738,5 +738,4 @@ The following table lists the status codes associated with each severity level:
 | -------- | ---------------------------- |
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
-{: caption="Table 11. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
-
+{: caption="Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}

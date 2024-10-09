@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-10-09"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -49,7 +49,7 @@ following **database** services.
 | [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq){: external} | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.Db2_on_Cloud_long_notm}}](/docs/Db2onCloud){: external} | {{site.data.keyword.Db2_on_Cloud_long_notm}} is an SQL database that is provisioned for you in the cloud. You can use {{site.data.keyword.Db2_on_Cloud_short}} just as you would use any database software, but without the time and expense of hardware setup or software installation and maintenance. | [View docs](/docs/Db2onCloud?topic=Db2onCloud-key-management-services){: external}  |
 | [{{site.data.keyword.sqlquery_short}}](/docs/sql-query){: external}  | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. | [View docs](/docs/sql-query?topic=sql-query-keyprotect){: external}  |
-{: caption="Table 1. Supported database services." caption-side="bottom"}
+{: caption="Supported database services." caption-side="bottom"}
 
 ## Storage service integrations
 {: #storage-integrations}
@@ -61,7 +61,7 @@ following **storage** services.
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-getting-started){: external} | You can use {{site.data.keyword.block_storage_is_short}} to provide hypervisor-mounted, high-performance data storage for virtual server instances in your VPC. | [View docs](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption){: external} |
 | [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage){: external} | You can use {{site.data.keyword.cos_full_notm}} to store unstructured data in the {{site.data.keyword.cloud_notm}}. | [View docs](/docs/cloud-object-storage?topic=cloud-object-storage-kp){: external} |
-{: caption="Table 2. Supported storage services." caption-side="bottom"}
+{: caption="Supported storage services." caption-side="bottom"}
 
 ## Compute service integrations
 {: #compute-integrations}
@@ -81,7 +81,7 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 | [{{site.data.keyword.conversationfull}}](/docs/assistant?topic=assistant-getting-started#getting-started){: external} | You can use {{site.data.keyword.conversationfull}} to to build your own branded live chatbot into any device, application, or channel. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.nlufull}}](/docs/natural-language-understanding?topic=natural-language-understanding-getting-started#getting-started){: external} | You can use {{site.data.keyword.nlufull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.personalityinsightsfull}}](/docs/natural-language-understanding?topic=natural-language-understanding-about){: external} | You can use {{site.data.keyword.personalityinsightsfull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
-{: caption="Table 3. Supported compute services." caption-side="bottom"}
+{: caption="Supported compute services." caption-side="bottom"}
 
 ## Container service integrations
 {: #container-integrations}
@@ -93,7 +93,7 @@ following **container** services.
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started){: external} | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters. | [View docs](/docs/containers?topic=containers-encryption){: external} |
 | [{{site.data.keyword.openshiftlong_notm}}](https://cloud.ibm.com/docs/openshift?topic=openshift-encryption){: external} | You can use the {{site.data.keyword.openshiftlong_notm}} service to deploy secure, highly available apps in OpenShift clusters. | [View docs](https://cloud.ibm.com/docs/openshift?topic=openshift-encryption){: external} |
-{: caption="Table 4. Supported container services." caption-side="bottom"}
+{: caption="Supported container services." caption-side="bottom"}
 
 ## Ingestion service integrations
 {: #integration-integrations}
@@ -106,7 +106,7 @@ following **integration** services.
 | [{{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external} | The {{site.data.keyword.mon_full_notm}} service is a container-intelligence management system. You can use it to gain operational visibility into the performance and health of your applications, services, and platforms. | [View docs](/docs/monitoring?topic=monitoring-mng-data){: external} |
 | [{{site.data.keyword.bpfull_notm}}](/docs/schematics?topic=schematics-getting-started){: external} | The {{site.data.keyword.bpfull_notm}} service delivers Terraform-as-a-Service. You can use it to organize your {{site.data.keyword.cloud_notm}} resources across environments by using workspaces. | [View docs](/docs/schematics?topic=schematics-secure-data#pi-encrypt) |
 | [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting-started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
-{: caption="Table 5. Supported integration services." caption-side="bottom"}
+{: caption="Supported integration services." caption-side="bottom"}
 
 ## Developer tools service integrations
 {: #integration-devtools-integrations}
@@ -117,7 +117,7 @@ following **developer tools** services.
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.cloud_notm}} {{site.data.keyword.contdelivery_short}}](/docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started){: external} | The {{site.data.keyword.contdelivery_short}} service provides a suite of tools that support DevOps best practices. You can use the service to manage toolchains, operate delivery pipelines, gain insights into code quality and vulnerabilities, integrate third party tools, and more. | [Creating a Continuous Delivery service instance](/docs/ContinuousDelivery?topic=ContinuousDelivery-create_cd_service){: external} [Protecting your personal data when you use the Professional plan](/docs/ContinuousDelivery?topic=ContinuousDelivery-cd_data_security#cd_professional_plan){: external} |
-{: caption="Table 6. Supported developer tools services." caption-side="bottom"}
+{: caption="Supported developer tools services." caption-side="bottom"}
 
 ## Understanding your integration
 {: #understand-integration}
@@ -133,7 +133,7 @@ For example, you can create a root key, manage the key in
 {{site.data.keyword.keymanagementserviceshort}}, and use the root key to protect
 the data that is stored across different cloud services.
 
-![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg){: caption="Figure 1. Contextual view of {{site.data.keyword.keymanagementserviceshort}} integration." caption-side="bottom"}
+![The diagram shows a contextual view of your {{site.data.keyword.keymanagementserviceshort}} integration.](../images/kp-integrations.svg){: caption="Contextual view of {{site.data.keyword.keymanagementserviceshort}} integration." caption-side="bottom"}
 
 ### {{site.data.keyword.keymanagementserviceshort}} API methods
 {: #envelope-encryption-api-methods}
@@ -148,7 +148,7 @@ on a resource.
 | ------ | ----------- |
 | `POST /keys/{root_key_ID}/actions/wrap` | [Wrap (encrypt) a data encryption key](/docs/key-protect?topic=key-protect-wrap-keys) |
 | `POST /keys/{root_key_ID}/actions/unwrap` | [Unwrap (decrypt) a data encryption key](/docs/key-protect?topic=key-protect-unwrap-keys) |
-{: caption="Table 6. Describes the {{site.data.keyword.keymanagementserviceshort}} API methods." caption-side="bottom"}
+{: caption="Describes the {{site.data.keyword.keymanagementserviceshort}} API methods." caption-side="bottom"}
 
 To find out more about programmatically managing your keys in
 {{site.data.keyword.keymanagementserviceshort}}, check out the

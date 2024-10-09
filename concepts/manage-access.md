@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-09"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -102,7 +102,7 @@ Platform roles be assigned over an entire account, over particular service insta
 | Create {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Delete {{site.data.keyword.keymanagementserviceshort}} instances | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Invite new users and manage access policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 1. Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
+{: caption="Lists platform management roles as they apply to {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
 
 While an account-level role gives a user particular permissions over service instances by default, roles can also be assigned over a particular service instance. For example, an account _Editor_ (who has the ability to view, create, and delete instances, but not the ability to assign roles) can be made an _Administrator_ of a particular service instance, allowing them to assign roles within that service instance.
 
@@ -148,7 +148,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Sync keys | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 | Purge keys after four hours | | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | |
 {: #table-2}
-{: caption="Table 2. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
 {: tab-title="Keys"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -159,7 +159,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | List key rings | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Delete a key ring | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-3}
-{: caption="Table 3. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="bottom"}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key ring resources" caption-side="bottom"}
 {: tab-title="Key Rings"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -171,7 +171,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Set instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 | List instance policies | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-4}
-{: caption="Table 4. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="bottom"}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} policy resources" caption-side="bottom"}
 {: tab-title="Policies"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -181,7 +181,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Create an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 | Retrieve an import token | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-5}
-{: caption="Table 5. Lists service access roles as they apply to import token resources" caption-side="bottom"}
+{: caption="Lists service access roles as they apply to import token resources" caption-side="bottom"}
 {: tab-title="Import tokens"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -195,7 +195,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 | Replace a registration[^services-3] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 | Delete a registration[^services-4] | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 {: #table-6}
-{: caption="Table 6. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} registration resources" caption-side="top"}
 {: tab-title="Registrations"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}
@@ -217,7 +217,7 @@ The _KeyPurge_ role only confers the ability to purge keys and should be conside
 | Retrieve a client certificate from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Delete a client certificate from a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: #table-7}
-{: caption="Table 7. Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} key resources" caption-side="bottom"}
 {: tab-title="KMIP Management"}
 {: tab-group="IAM-roles"}
 {: class="comparison-tab-table"}

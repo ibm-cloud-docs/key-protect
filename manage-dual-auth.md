@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-10-09"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -135,7 +135,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br> If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-{: caption="Table 1. Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
+{: caption="Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which indicates that your {{site.data.keyword.keymanagementserviceshort}} instance is now enabled for dual authorization. Keys that you create or import to the service now require two authorizations before they can be deleted. For more information, see
 [Deleting keys](#delete-dual-auth-keys).
@@ -228,7 +228,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelet
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-{: caption="Table 1. Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
+{: caption="Describes the variables that are needed to enable dual authorization at the instance level." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which indicates that the dual authorization policy was updated for your service instance. Keys that you create or import to the service now require only one authorization before they can be deleted. For more information, see [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
@@ -293,7 +293,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/policies?policy=
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM Token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 1. Describes the variables that are needed to view a dual authorization policy for a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to view a dual authorization policy for a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful request returns dual authorization policy details that are associated with your key. The following JSON object shows an example response for a key that has an existing dual authorization policy.
 
@@ -384,7 +384,7 @@ After you enable a dual authorization policy for a single key, the policy cannot
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 2. Describes the variables that are needed to update a dual authorization policy with the  {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to update a dual authorization policy with the  {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful request returns a `200 OK` response with dual authorization policy details for your key. The following JSON object shows an example response.
 
@@ -510,7 +510,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/setKeyFo
 |key_ID_or_alias|**Required**. The unique identifier or alias for the root key that you want to rotate.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 1. Describes the variables that are needed to set a key for deletion." caption-side="top"}
+{: caption="Describes the variables that are needed to set a key for deletion." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which indicates that your key was authorized for deletion. Another user with a _Manager_ access policy can now [delete the key](/docs/key-protect?topic=key-protect-delete-keys) by using the {{site.data.keyword.keymanagementserviceshort}} console or API.
 
@@ -560,7 +560,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |return_preference|**Optional**. A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns a successful deletion response. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
-{: caption="Table 2. Describes the variables that are needed to delete a key." caption-side="top"}
+{: caption="Describes the variables that are needed to delete a key." caption-side="top"}
 
 If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body.
 
@@ -625,7 +625,7 @@ The following table lists which APIs you can use to retrieve data related to a d
 | [Get key](/docs/key-protect?topic=key-protect-retrieve-key)                       | Retrieve key details                                     |
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
 | [Get registrations](/docs/key-protect?topic=key-protect-view-protected-resources) | Retrieve a list of registrations associated with the key |
-{: caption="Table 4. Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
+{: caption="Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
 
 #### Removing an existing authorization
 {: #delete-dual-auth-keys-undelete-dual-auth-keys-set-key-deletion-api}
@@ -665,6 +665,6 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/unsetKey
 |key_ID_or_alias |**Required**. The unique identifier or alias for the root key that you want to rotate.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 5. Describes the variables that are needed to unset a key for deletion." caption-side="top"}
+{: caption="Describes the variables that are needed to unset a key for deletion." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which indicates that your key is no longer authorized for deletion. If you need to restart the dual authorization process, you can issue another authorization to set the key for deletion.

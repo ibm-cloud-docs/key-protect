@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-09"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -64,7 +64,7 @@ Here are a few common scenarios that explain how {{site.data.keyword.keymanageme
 | Your development team has stringent policies, and you need a way to generate and rotate keys. | With {{site.data.keyword.keymanagementserviceshort}}, you can rapidly generate keys from an {{site.data.keyword.cloud_notm}} hardware security module (HSM). When it's time to replace a key, whether it was created using {{site.data.keyword.keymanagementserviceshort}} or imported, you can [rotate the key on-demand](/docs/key-protect?topic=key-protect-rotate-keys) or [set a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for the key to meet your on-going security needs. |
 | You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures. | With the service, you can control user access to manage keys by [assigning different IAM roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material. Similarly, users can be assigned the "Manager" role over only a single key, if needed. |
 | You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption keys, so you can manage and protect other keys that encrypt your data at rest. | With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap (encrypt) your data encryption keys with a highly secure root key](/docs/key-protect?topic=key-protect-envelope-encryption) and also unwrap that key when needed. You can bring your own root keys or create them in the service. |
-{: caption="Table 1. Reasons to use {{site.data.keyword.keymanagementserviceshort}} in various scenarios." caption-side="top"}
+{: caption="Reasons to use {{site.data.keyword.keymanagementserviceshort}} in various scenarios." caption-side="top"}
 
 {{site.data.keyword.keymanagementserviceshort}} is a cloud-based key management system that provides the best of cost, security, and scale. If you are looking for a dedicated key management solution that supports customer-controlled, cloud-based HSMs [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external} integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization has more control and authority over its data. Check out the [{{site.data.keyword.hscrypto}} offering details page](/catalog/services/hyper-protect-crypto-services){: external} to learn more.
 {: tip}
@@ -78,7 +78,7 @@ An IT or security admin might need advanced permissions to your instance, keys, 
 
 The following diagram shows how the default IAM roles of manager, reader, and writer can interact with keys that are managed in the service.
 
-![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg){: caption="Figure 1. Shows how different access roles interact with keys." caption-side="bottom"}
+![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg){: caption="Shows how different access roles interact with keys." caption-side="bottom"}
 
 While a particular user can be assigned specific roles over specific resources (a user with a "Reader" role at the instance level might be a "Manager" of a particular key or key ring), in general:
 
@@ -94,7 +94,7 @@ While a particular user can be assigned specific roles over specific resources (
 
 The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}} components work to protect your sensitive data and keys.
 
-![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg){: caption="Figure 2. {{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
+![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg){: caption="{{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
 
 Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) protocol to encrypt data in transit. For more information about TLS and the ciphers supported by {{site.data.keyword.keymanagementserviceshort}}, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-encryption).
 {: note}
@@ -106,4 +106,4 @@ Access to the {{site.data.keyword.keymanagementserviceshort}} service takes plac
 | Customer-managed encryption keys | Root keys are symmetric keys that protect data encryption keys with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). Root keys never leave the boundary of the HSM. |
 | Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
 | Fine-grained access control | {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} IAM roles to ensure that users can be assigned appropriate access at the instance, key, and key ring level. |
-{: caption="Table 2. {{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}
+{: caption="{{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-10-09"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -198,7 +198,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/disable
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-{: caption="Table 1. Describes the variables that are needed to disable root keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to disable root keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful disable request returns an HTTP `204 No Content` response,
 which indicates that the root key was disabled for encrypt and decrypt
@@ -324,7 +324,7 @@ table.
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br><br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-{: caption="Table 2. Describes the variables that are needed to enable root keys  with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to enable root keys  with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful enable request returns an HTTP `204 No Content` response, which
 indicates that the root key was reinstated for encrypt and decrypt
@@ -398,5 +398,3 @@ NIST SP 800-57.
 }
 ```
 {: screen}
-
-

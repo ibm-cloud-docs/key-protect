@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-10-09"
 
 keywords: key rings, group keys, manage key groups
 
@@ -123,7 +123,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Table 1. Describes the variables that are needed to create a key ring with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to create a key ring with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `POST api/v2/key_rings` request returns an HTTP `201 Created`
 response, which indicates that the key ring was created and is now
@@ -199,7 +199,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>
 |original_key_ring_ID|**Optional**. The unique identifier of the key ring that the key is currently a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |new_key_ring_ID|**Required**. The unique identifier for the target key ring that you would like to move the key to.|
-{: caption="Table 2. Describes the variables that are needed to update a key's key ring with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to update a key's key ring with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `PATCH api/v2/keys/keyID_or_alias` request returns the key's metadata, including the id of the key ring that the key is a part of.
 
@@ -291,7 +291,7 @@ To assign access to a key ring with the console:
     access to the entire instance in order for them to list, create and delete key rings
     within the instance.
 
-![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to an instance." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Shows how to grant user access to an instance." caption-side="bottom"}
 
 ## Listing key rings with the API
 {: #list-key-ring-api}
@@ -336,7 +336,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys_rings
 | offset_limit | **Optional**. By default, `GET /key_rings` returns a sequence of 51 keyRings including the default keyRing. To retrieve a different set of key rings, use `limit` with `offset` to paginate through your available resources. The maximum value for `limit` is '5,000.' |
 | offset_value | **Optional**. By specifying `offset`, you retrieve a subset of key rings that starts at the `offset` value. |
 | show_total   | **Optional**. If set to `true`, the response metadata returns a value for `totalCount` in use with pagination.  |
-{: caption="Table 3. Describes the variables that are needed to view key rings with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to view key rings with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful `GET api/v2/key_rings` request returns a collection of key
 rings that are available in your
@@ -402,9 +402,7 @@ This action won't succeed if the key ring contains at least one key in a state o
 |key_ring_id|**Required.** The unique identifier for the key ring that you would like to delete.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 4. Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which
 indicates that the key ring was successfully deleted.
-
-
