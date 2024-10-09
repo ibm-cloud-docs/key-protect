@@ -1,33 +1,41 @@
 {
-    "title": "IBM Key Protect docs",
-    "lastupdated": "2024-03-27",
-    "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques. Encryption keys can be provisioned or imported for use with applications for many IBM Cloud™ services and then managed from a central location.",
-    "section_devtools": {
-      "api": "/apidocs/key-protect",
-      "cli": "/docs/key-protect?topic=key-protect-key-protect-cli-reference",
-      "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/key-protect-all-inclusive/ibm/latest"
-    },
-    "section_recommended": [
+  "version": 2,
+  "title": "Key Protect",
+  "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 certified cloud-based hardware security modules.",
+  "product_page": "https://www.ibm.com/products/key-protect",
+  "console_page": "/catalog/services/key-protect",
+  "section_topics": {
+    "links": [
       {
         "title": "Getting started with Key Protect",
-        "description": "Learn how to create or import existing cryptographic keys using the Key Potect dashboard.",
         "href": "/docs/key-protect?topic=key-protect-getting-started-tutorial"
       },
       {
         "title": "Protecting data with envelope encryption",
-        "description": "Learn how envelope encryption, which forms the backbone of Key Protect, works to secure your data.",
         "href": "/docs/key-protect?topic=key-protect-envelope-encryption"
       },
       {
-        "title": "Grouping keys together using key rings",
-        "description": "Learn how to use use Key Protect to create a group of keys for a target group of users that require the same IAM access permissions.",
-        "href": "/docs/key-protect?topic=key-protect-grouping-keys"
+        "title": "Rotating your root keys",
+        "href": "/docs/key-protect?topic=key-protect-key-rotation"
+      },
+      {
+        "title": "User roles and resources",
+        "href": "/docs/key-protect?topic=key-protect-manage-access"
+      },
+      {
+        "title": "User roles and resources",
+        "href": "/docs/key-protect?topic=key-protect-key-states"
       }
-    ],
-    "section_learn": {
-      "developer": "https://developer.ibm.com/depmodels/cloud/",
-      "architecture": "https://www.ibm.com/architectures/hybrid",
-      "training": "https://www.ibm.com/training/cloud",
-      "community": "https://community.ibm.com/community/user/cloud/home"
-    }
+    ]
+  },
+  "section_highlights": [
+  ],
+  "section_devtools": {
+    "api": "/apidocs/key-protect",
+    "cli": "/docs/key-protect?topic=key-protect-key-protect-cli-reference",
+    "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/key-protect-all-inclusive/ibm/latest"
+  },
+  "section_updates": {
+    "view_more": "/docs/key-protect?topic=key-protect-key-protect-relnotes"
   }
+}
