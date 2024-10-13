@@ -29,6 +29,13 @@
     ]
   },
   "section_highlights": [
+    {
+      "title": "Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and IBM Key Protect",
+      "description": "This tutorial provides step-by-step instructions on how to protect Linux Unified Key Setup (LUKS) encryption keys from being compromised by using either IBM Cloud Hyper Protect Crypto Services (HPCS) or IBM Key Protect as the single point of control to enable or disable access to data across the enterprise.",
+      "href": "https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/",
+      "type": "blog",
+      "recommended": true
+    }
   ],
   "section_devtools": {
     "api": "/apidocs/key-protect",
