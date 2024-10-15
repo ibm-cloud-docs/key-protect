@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-15"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -31,18 +31,18 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 ## Available regions
 {: #available-regions}
 
+
+
+
 {{site.data.keyword.keymanagementserviceshort}} is available in the following regions. This map might not reflect actual political or geographic boundaries.
+
 
 
 
 ![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg){: caption="Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
  
-You can create {{site.data.keyword.keymanagementserviceshort}} resources in one
-of the supported {{site.data.keyword.cloud_notm}} regions, which represent the
-geographic area where your {{site.data.keyword.keymanagementserviceshort}}
-requests are handled and processed. To learn more, see
-[Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
+You can create {{site.data.keyword.keymanagementserviceshort}} resources in any supported {{site.data.keyword.cloud_notm}} region, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
 
 ## Connectivity options
 {: #connectivity-options}
