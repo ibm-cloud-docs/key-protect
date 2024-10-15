@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-03-16"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -37,7 +37,7 @@ Cryptographic keys often transition through several states that are a function o
 Although this diagram shows keys in a "pre-activation" state, a state defined in NIST standards, from a technical point of view, "pre-active" defines a state before a key exists. Keys that do not yet exist cannot, obviously, have a state. Nevertheless, it is shown here for conceptual completeness. The "purged" state of a key, in which the key material has been permanently shredded a certain period of time after the key has been moved into a _Destroyed_ state, is not shown in this diagram and is similarly a state of nonexistence.
 {: important}
 
-![Key states diagram.](../images/key-states.svg){: caption="Figure 1. Key states and transitions." caption-side="bottom"}
+![Key states diagram.](../images/key-states.svg){: caption="Key states and transitions." caption-side="bottom"}
 
 | State       | Integer mapping | Description |
 | ----------- | --------------- | ----------- |
@@ -45,7 +45,7 @@ Although this diagram shows keys in a "pre-activation" state, a state defined in
 | Suspended   |       2         | A key moves into the _Suspended_ state when it is [disabled for encrypt and decrypt operations](/docs/key-protect?topic=key-protect-disable-keys). In this state, the key is unable to cryptographically protect data and can only be moved to the _Active_ or _Destroyed_ states. |
 | Deactivated |       3         | A key moves into the _Deactivated_ state within one hour past its expiration date, if one is assigned. In this state, the only actions that can be performed on the key are unwrap, rewrap, rotate, and delete. |
 | Destroyed   |       5         | Keys are moved into the _Destroyed_ state after being deleted. Keys in this state can be recovered for 30 days but become eligible to be purged after 90 days. They can also be purged four hours after being moved into the _Destroyed_ state, if necessary. After being moved into a _Destroyed_ state, metadata that is associated with a key, such as its name and a record of when it last transitioned, is kept in the {{site.data.keyword.keymanagementserviceshort}} database until the key is purged. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys). |
-{: caption="Table 1. Describes key states and transitions." caption-side="top"}
+{: caption="Describes key states and transitions." caption-side="top"}
 
 ## Key states and service actions
 {: #key-states-service-actions}
@@ -66,7 +66,7 @@ The following table describes how key states affect service actions. The column 
 | Enable key  |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |                                                    |
 | Delete key  | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |                                                    |
 | Restore key |                                                    |                                                    |                                                    | ![Check mark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 2. Describes how key states affect service actions." caption-side="top"}
+{: caption="Describes how key states affect service actions." caption-side="top"}
 
 ### Cryptoperiods, originator-usage periods, and recipient-usage periods
 {: #key-states-periods}
@@ -86,5 +86,3 @@ If no expiration date is set on a key (and it is not manually suspended, deactiv
 After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view the last time the key was transitioned.
 
 For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}. After both services are provisioned and running, activity events are generated and automatically collected in a {{site.data.keyword.at_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-10-09"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -68,7 +68,7 @@ While many of the topics in this documentation show how to accomplish tasks in b
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
 |Rotation policy| **Optional**. If you hold the [_Manager_ role](/docs/key-protect?topic=key-protect-manage-access), you can set a rotation policy for the key at key-creation time. If an [instance policy](/docs/key-protect?topic=key-protect-set-rotation-policy) exists to create rotation policies on keys by default, you can also overwrite that policy at key-creation time to a different interval. Note: if you do not posses the _Manager_ role on this instance (or an equivalent level of permissions), this field is not visible.|
-{: caption="Table 1. Describes the Create a key settings." caption-side="bottom"}
+{: caption="Describes the Create a key settings." caption-side="bottom"}
 
 When you are finished filling out the key's details, click **Create key** to confirm.
 
@@ -103,7 +103,7 @@ Complete the following steps to add an existing key.
 | Key description | **Optional**. Descriptions are a useful way to add information about a key (for example, a phrase describing its purpose) in a way that isn't possible to do using an alias or its name. This description must be at least two characters and no more than 240, and cannot be changed later. To protect your privacy, do not use personal data, such as your name or location, as a description for your key.|
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
-{: caption="Table 1. Describes the Import your own key settings." caption-side="top"}
+{: caption="Describes the Import your own key settings." caption-side="top"}
 
 Rotation policies cannot be applied to a key when importing a key. Imported keys must be [rotated manually](/docs/key-protect?topic=key-protect-rotate-keys).
 
@@ -169,5 +169,3 @@ For more information about rotating keys, check out [Bringing your encryption ke
 While it is comparatively simple to [Base64-encode key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material), it is important to follow [NIST guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: external} when creating your own key material. Improperly created key material can make your keys more susceptible to being compromised. Unless you feel confident in creating the appropriate key material yourself, the best practice is to let {{site.data.keyword.keymanagementserviceshort}} create your key material for you as part of the key creation process, which follows the latest NIST guidelines.
 
 Because this key material can be used to [create a functionally duplicate key](#get-started-next-steps-best-practices-key-aliases), whether you have created the key material yourself or exported a {{site.data.keyword.keymanagementserviceshort}} created key, make sure you keep this key material secure.
-
-

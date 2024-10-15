@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-10-09"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -111,7 +111,7 @@ You can create an access policy for a key by targeting the instance and the key 
 
 13. Continue to add platform and service access roles as needed. When you are finished, click **Assign**.
 
-![The image shows an example of how to grant user access to a key.](images/grant-access-key.png){: caption="Figure 1. Shows how to grant user access to a specific key." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key.](images/grant-access-key.png){: caption="Shows how to grant user access to a specific key." caption-side="bottom"}
 
 ## Granting access to key rings in an instance
 {: #grant-access-key-ring-level}
@@ -152,14 +152,14 @@ To assign access to a key ring via the console:
 
 10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**. Note that the user must be assigned at least _Reader_ access to the entire instance in order for them to list, create and delete key rings within the instance.
 
-![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Figure 1. Shows how to grant user access to a key ring." caption-side="bottom"}
+![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Shows how to grant user access to a key ring." caption-side="bottom"}
 
 ## Granting access for specific functions
 {: #grant-access-keys-specific-functions}
 
 In order to use the {{site.data.keyword.keymanagementserviceshort}} [Key Purge feature](/docs/key-protect?topic=key-protect-delete-purge-keys), a specific role called `KeyPurge` must be granted as it is not enabled by default, even for the account owner. Once you've followed the steps listed in the other sections of this topic for either granting access to this permission for all keys, or a specific key, choose the _KeyPurge_ role as shown in the graphic.
 
-![The image shows an example of how to grant permission to use the Key Purge Feature.](images/key-purge-permission.jpg){: caption="Figure 4. Shows how to grant permission to use the Key Purge Feature." caption-side="bottom"}
+![The image shows an example of how to grant permission to use the Key Purge Feature.](images/key-purge-permission.jpg){: caption="Shows how to grant permission to use the Key Purge Feature." caption-side="bottom"}
 
 ## Next Steps
 {: #grant-access-keys-next-steps}

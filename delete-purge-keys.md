@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-09"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -43,7 +43,7 @@ The following table lists the time frames in which you can view, restore, and pu
 | 4 hours - 30 days       | Destroyed         | Yes                       | Yes          | Yes                      |
 | 30-90 days              | Destroyed         | Yes                       | No           | Yes                      |
 | After 90 days           | Purged `*`        | No                        | No           | Yes                      |
-{: caption="Table 1. Lists how users can interact with keys during certain time intervals after a key has been deleted" caption-side="top"}
+{: caption="Lists how users can interact with keys during certain time intervals after a key has been deleted" caption-side="top"}
 
 `*` Note: because purged keys are completely inaccessible and "destroyed" in the common usage of the word, there is technically no "purged" key state. Purged keys no longer exist and therefore don't have a "state" one way or another. However, it can be useful to think of "purged" as being a state as nonexistence is part of the lifecycle of a key.
 
@@ -85,7 +85,7 @@ Replace the variables in the example request according to the following table.
 |keyID_or_alias|**Required**. The unique identifier or alias for the key that you would like to purge.|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 2. Describes the variables that are needed to purge a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
+{: caption="Describes the variables that are needed to purge a key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
 
 For a detailed description of the request, see the {{site.data.keyword.keymanagementserviceshort}} [REST API reference doc](/apidocs/key-protect){: external}.
 {: tip}

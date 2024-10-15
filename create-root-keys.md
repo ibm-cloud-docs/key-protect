@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-10-09"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -75,7 +75,7 @@ If you are not a `Manager` (or have an equivalent level of permissions), the **R
 | Key alias | **Optional**. A [key alias](/docs/key-protect?topic=key-protect-create-key-alias) is also a way to describe a key. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
 |Rotation policy| **Optional**. If you hold the [_Manager_ role](/docs/key-protect?topic=key-protect-manage-access), you can set a rotation policy for the key at key-creation time. If an [instance policy](/docs/key-protect?topic=key-protect-set-rotation-policy) exists to create rotation policies on keys by default, you can also overwrite that policy at key-creation time to a different interval. Note that if your instance has a rotation policy enabled and you **Disable** the rotation policy at key creation time, the policy is still written to your key in a **Disabled** state. If you want to enable this policy later, you can do so. Check out [Set a rotation policy after the key has been created](/docs/key-protect?topic=key-protect-set-rotation-policy#manage-policies-gui) for more information.|
-{: caption="Table 1. Describes the Create a key settings." caption-side="bottom"}
+{: caption="Describes the Create a key settings." caption-side="bottom"}
 
 When you are finished filling out the key's details, click **Create key** to confirm.
 
@@ -141,7 +141,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |key_description|An extended description of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
 |expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service creates a root key that you can use for wrap or unwrap operations.|
-{: caption="Table 1. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
+{: caption="Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
 
 To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: important}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-25"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: get key, get encryption key, view encryption key, retrieve encryption key
 
@@ -80,7 +80,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_ID_or_alias>
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |key_ID_or_alias|**Required**. The identifier or alias for the key that you want to retrieve.|
-{: caption="Table 1. Describes the variables that are needed to view a specified key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to view a specified key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
 A successful `GET api/v2/keys/<key_ID_or_alias>` response returns details
@@ -180,5 +180,3 @@ hardware security module and cannot be retrieved.
 For a detailed description of the response parameters, see the
 {{site.data.keyword.keymanagementserviceshort}}
 [REST API reference doc](/apidocs/key-protect){: external}.
-
-

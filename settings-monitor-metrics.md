@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-28"
+lastupdated: "2024-10-09"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -138,7 +138,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 1. Describes the variables that are needed to enable a metrics policy." caption-side="top"}
+{: caption="Describes the variables that are needed to enable a metrics policy." caption-side="top"}
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that your {{site.data.keyword.keymanagementserviceshort}} instance
@@ -219,7 +219,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/instance/policies?policy=metrics
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 2. Describes the variables that are needed to enable metrics policies." caption-side="top"}
+{: caption="Describes the variables that are needed to enable metrics policies." caption-side="top"}
 
     A successful request returns an HTTP `204 No Content` response, which
     indicates that the metrics policy was updated for your service

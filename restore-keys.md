@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-10-09"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -42,7 +42,7 @@ This intermediate period, in which a key has been deleted but can still be resto
 | One-30 days            | Destroyed         | Yes                       | Yes          |
 | 30-90 days             | Destroyed         | Yes                       | No           |
 | After 90 days          | Purged`*`         | No                        | No           |
-{: caption="Table 1. Ties key states to the time from a key's deletion to what actions are possible with the key." caption-side="top"}
+{: caption="Ties key states to the time from a key's deletion to what actions are possible with the key." caption-side="top"}
 
 `*`Note: because purged keys are completely inaccessible and "destroyed" in the common usage of the word, there is technically no "purged" key state. Purged keys are simply gone and therefore don't have a "state" one way or another. However, it can be useful to think of "purged" as being a state because nonexistence is part of the lifecycle of a key. If you need to purge a key sooner than 90 days, it requires a special key purging role. For more information, check out [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
@@ -128,7 +128,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/restore
 | IAM_token   | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the `IAM` token, including the `Bearer` value, in the `curl` request. For more information, check out [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
 | instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, check out [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
 | key_ring_ID | **Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is therefore recommended to specify the key ring ID for a more optimized request.  Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: `default`.  For more information, check out [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
-{: caption="Table 2. Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
+{: caption="Describes the variables that are needed to restore keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
     A successful restore request returns an HTTP `201 Created` response, which indicates that the key was restored to the _Active_ key state and is now available for encrypt and decrypt operations. All attributes and policies that were previously associated with the key are also restored.
 
@@ -199,5 +199,3 @@ Review the `state` field in the response body to verify that the key transitione
 
 The integer mapping for the _Active_ key state is `1`.
 {: note}
-
-

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-02-01"
+  years: 2020, 2024
+lastupdated: "2024-10-09"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -177,7 +177,7 @@ existing value for the omitted field will be overwritten with the default value.
 |import_root_key|**Required**. Set to true to allow root keys to be imported into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent root keys from being imported into your instance <br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
 |import_standard_key|**Required**. Set to true to allow standard keys to be imported into your {{site.data.keyword.keymanagementserviceshort}} instance. Set to false to prevent standard keys from being imported into your instance.<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (true).|
 |enforce_token|**Required**. Set to `true` to prevent authorized users from importing key material into the your {{site.data.keyword.keymanagementserviceshort}} instance without using an import token. Set to `false` to allow authorized users to import key material into your instance without using an import token.<br><br>If enabled, this attribute will take precedence over the import_root_key and import_standard_key attributes.<br><br>Note: If omitted, POST /instance/policies will set this attribute to the default value (false).|
-{: caption="Table 1. Describes the variables that are needed to enable a keyCreateImportAccess policy." caption-side="top"}
+{: caption="Describes the variables that are needed to enable a keyCreateImportAccess policy." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which
 indicates that your {{site.data.keyword.keymanagementserviceshort}}
@@ -263,7 +263,7 @@ keyCreateImportAccess policy.
 |region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 2. Describes the variables that are needed to disable a keyCreateImportAccess policy." caption-side="top"}
+{: caption="Describes the variables that are needed to disable a keyCreateImportAccess policy." caption-side="top"}
 
 A successful request returns an HTTP `204 No Content` response, which
 indicates that the keyCreateImportAccess policy was updated for your service
@@ -284,5 +284,3 @@ $ curl -X GET \
 {: codeblock}
 
 Where the `<instance_ID>` is the name of your instance and your `<IAM_token>` is your IAM token.
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-10-09"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -149,7 +149,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/sync
 |keyID_or_alias|**Required**. The identifier or alias for the root key that is associated with the cloud resources that you want to view.<br><br>For more information, see [View Keys](/docs/key-protect?topic=key-protect-view-keys).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Table 1. Describes the variables that are needed to initiate a re-notification of a key lifecycle event" caption-side="top"}
+{: caption="Describes the variables that are needed to initiate a re-notification of a key lifecycle event" caption-side="top"}
 
 
 A successful `GET api/v2/keys/<keyID_or_alias>/actions/sync` request returns an HTTP `204 No Content`

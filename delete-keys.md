@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-10-09"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -120,7 +120,7 @@ This action won't succeed if the key is actively protecting one or more cloud re
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of.<br><br>If unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request.<br><br>Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default.<br>For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |return_preference|**Optional**.A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns a successful deletion response. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
-{: caption="Table 1.  Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
 If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body.
@@ -217,7 +217,7 @@ Force deletion on a key won't succeed if the key is protecting a registered {{si
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see[Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |return_preference|**Optional**. A header that alters server behavior for POST and DELETE operations.<br><br>When you set the return_preference variable to return=minimal, the service returns a successful deletion response. When you set the variable to return=representation, the service returns both the key material and the key metadata.|
-{: caption="Table 2. Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to delete keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
 
 
 If the `return_preference` variable is set to `return=representation`, the details of the `DELETE` request are returned in the response entity-body.
@@ -276,6 +276,4 @@ The following table lists which APIs you can use to retrieve data related to a d
 | [Get key](/docs/key-protect?topic=key-protect-retrieve-key)                       | Retrieve key details                                     |
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
 | [Get registrations](/docs/key-protect?topic=key-protect-view-protected-resources) | Retrieve a list of registrations associated with the key |
-{: caption="Table 4. Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
-
-
+{: caption="Lists the API that users can use to view details about a key and its registrations." caption-side="top"}

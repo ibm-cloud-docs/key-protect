@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-09"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: unwrap key, decrypt key, decrypt data encryption key
 
@@ -124,7 +124,7 @@ Replace the variables in the example request according to the following table.
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |additional_data|**Optional**.The additional authentication data (AAD) that is used to further secure the key. Each string can hold up to 255 characters. If you supply AAD when you make a wrap call to the service, you must specify he same AAD during the unwrap call.|
 |encrypted_data_key|**Required**. The ciphertext value that was returned during a wrap operation.|
-{: caption="Table 1. Describes the variables that are needed to unwrap keys in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
+{: caption="Describes the variables that are needed to unwrap keys in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
 
 The original key material is returned in the response entity-body. The
 response body also contains the ID of the key version that was used to
@@ -179,12 +179,10 @@ table.
 |--- |--- |
 |infile|The name of the file where your base64 encoded key material string resides.|
 |outfile|The name of the file where your decoded key material will be be outputted once the command has ran.|
-{: caption="Table 2. Describes the variables that are needed to decode your key material." caption-side="top"}
+{: caption="Describes the variables that are needed to decode your key material." caption-side="top"}
 
 If you want to output the decoded material in the command line directly rather
 than a file, run the command
 `openssl enc -base64 -d <<< '<key_material_string>'`, where
 key_material_string is the returned plaintext from your unwrap request.
 {: note}
-
-

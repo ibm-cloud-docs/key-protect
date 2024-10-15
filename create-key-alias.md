@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-10-04"
+  years: 2020, 2024
+lastupdated: "2024-10-09"
 
 keywords: key alias, alias, key reference
 
@@ -91,7 +91,7 @@ table.
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see[Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Table 1. Describes the variables that are needed to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
+{: caption="Describes the variables that are needed to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
 To protect the confidentiality of your personal data, avoid entering
 personally identifiable information (PII), such as your name or location,
@@ -168,7 +168,7 @@ table.
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Table 2. Describes the variables that are needed to delete a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
+{: caption="Describes the variables that are needed to delete a key alias with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
 A successful `DELETE api/v2/keys/<keyID_or_alias>/aliases/<key_alias>` request
 returns an HTTP `204 No Content` response, which indicates that the alias
@@ -213,6 +213,4 @@ alias.
 | [Create Standard Keys](/docs/key-protect?topic=key-protect-create-standard-keys) | You can create up to 5 aliases while creating a standard key. |
 | [Retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) | You can retrieve a key by ID or alias. |
 | [View key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata) | You can retrieve the metadata of a key by ID or alias. |
-{: caption="Table 3. Describes the variables that are APIs that use key alias." caption-side="top"}
-
-
+{: caption="Describes the variables that are APIs that use key alias." caption-side="top"}

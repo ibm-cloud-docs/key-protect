@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-04-18"
+lastupdated: "2024-10-09"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -65,7 +65,7 @@ With {{site.data.keyword.cloud_notm}}, you can choose from various secrets manag
 
 For example, consider the following scenarios and how they map to secrets management offerings and data protection offerings in {{site.data.keyword.cloud_notm}}.
 
-![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](./images/secrets-mgmt-options.svg){: caption="Figure 1. Secrets management use cases" caption-side="bottom"}
+![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](./images/secrets-mgmt-options.svg){: caption="Secrets management use cases" caption-side="bottom"}
 
 ## Use cases
 {: #which-data-protection-service}
@@ -80,7 +80,7 @@ The following table lists the different offerings that you can use with {{site.d
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
 | The data you want to protect with encryption keys is highly valuable for your company or you need to comply to certain data protection regulations. To do so you want to have the full and exclusive control over your keys & even exclude access from the {{site.data.keyword.cloud_notm}} admin to the master key. Therefore you want to leverage a dedicated key management service running within a secure enclave as well as a dedicated FIPS 140-2 Level 4 hardware security module as a service that underlies your full control. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you have the full control to manage encryption keys in a single-tenant service with dedicated hardware for own your own key (KYOK). |
 | You have a multi-cloud architecture and want to enhance the data security posture across all your clouds efficiently and securely. | **[{{site.data.keyword.hscrypto}} with Unified Key Orchestrator](/docs/hs-crypto?topic=hs-crypto-uko-overview)** allows you to manage your keys across {{site.data.keyword.cloud_notm}} (BYOK and KYOK), AWS (BYOK), GCP (BYOK) and Azure (BYOK) in a unified and highly secure way. |
-{: caption="Table 1. Secrets management and data protection scenarios" caption-side="top"}
+{: caption="Secrets management and data protection scenarios" caption-side="top"}
 
 ## What are key features for each data protection service?
 {: #key-features}
@@ -98,7 +98,7 @@ For a higher level of security and control, your business might benefit from the
 | Available on Satellite                  | ![Checkmark icon](../../icons/checkmark-icon.svg)   |                                                   |                                                   |
 | Runs in secure enclave[^secure-enclave] |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Client initialised and controlled HSM   |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 2. Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
+{: caption="Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
 {: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists features. The first row features the names of the services in the table, followed by a row listing the types of secrets that are supported by each service. The third row uses checkmarks to indicate whether a service is multi-tenant. The fourth row uses checkmarks to indicate whether a service is single-tenant. The fifth row uses checkmarks to indicate whether a service is backed by a hardware security module (HSM). The sixth row uses checkmarks to indicate whether a service is available on Satellite. The seventh row uses checkmarks to indicate whether the service runs in a secure enclave. The eigth row uses checkmarks to indicate whether the service uses a client initialized and controlled HSM."}
 {: class="comparison-table"}
 
@@ -118,4 +118,3 @@ Each service supports either a Lite plan or a free trial that you can use to try
 - [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){: external}
 - [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){: external}
 - [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external}
-

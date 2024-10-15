@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-01-29"
+lastupdated: "2024-10-09"
 
 keywords: import symmetric key, upload root key, upload CRK or CMK
 
@@ -61,7 +61,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 | Key description | **Optional**. Descriptions are a useful way to add information about a key (for example, a phrase describing its purpose) in a way that isn't possible to do using an alias or its name. This description must be at least two characters and no more than 240, and cannot be changed later. To protect your privacy, do not use personal data, such as your name or location, as a description for your key.|
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
-{: caption="Table 1. Describes the Import your own key settings." caption-side="top"}
+{: caption="Describes the Import your own key settings." caption-side="top"}
 
 When you are finished filling out the key's details, click **Import key** to confirm.
 
@@ -125,7 +125,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_material|**Required**. The base64-encoded key material, an existing key-wrapping key, that you want to store and manage in the service. For more information, check out [Base64 encoding your key material](#how-to-encode-root-key-material).<br><br>Ensure that the key material meets the following requirements:<br>A standard key can be up to 7,500 bytes in size. The key must be base64-encoded.|
 |key_type|A boolean value that determines whether the key material can leave the service.<br><br>When you set the extractable attribute to `false`, the service designates the key as a root key that you can use for wrap or unwrap operations.|
-{: caption="Table 1. Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
+{: caption="Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="top"}
 
 To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: important}
@@ -168,7 +168,7 @@ Use this process to encrypt the contents of a key material in a file.
 |--- |--- |
 |infile|The name of the file where your key material string resides. Ensure that the key is 16, 24, or 32 bytes long, corresponding to 128, 192, or 256 bits in length. The key must be base64-encoded.|
 |outfile|The name of the file where your base64-encoded key material will be created once the command has run.|
-{: caption="Table 2. Describes the variables that are needed to base64-encode your key material." caption-side="top"}
+{: caption="Describes the variables that are needed to base64-encode your key material." caption-side="top"}
 
 If you want to output the base64 material in the command line directly rather than a file, issue `openssl enc -base64 <<< '<key_material_string>'`, where key_material_string is the key material input for your imported key.
 {: note}
@@ -193,7 +193,7 @@ Use this process to create a random base64-encoded key material with a specific 
 |Variable|Description|
 |--- |--- |
 |byte_length|The length of the key, measured in bytes. Acceptable byte lengths are 16, 24, or 32 bytes, corresponding to 128, 192, or 256 bits in length. The key must be base64-encoded.|
-{: caption="Table 3. Describes the variable that is needed to create and encode new key material." caption-side="top"}
+{: caption="Describes the variable that is needed to create and encode new key material." caption-side="top"}
 
 #### Key Material Creation Examples
 {: #import-root-key-open-ssl-examples}
@@ -210,5 +210,3 @@ Use this process to create a random base64-encoded key material with a specific 
 - To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
-
-

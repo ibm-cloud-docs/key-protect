@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-10-09"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -35,7 +35,7 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 
 
-![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg){: caption="Figure 1. Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
+![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg){: caption="Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
  
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one
@@ -94,7 +94,7 @@ endpoints to use when you connect to the
 | Toronto          | `ca-tor.kms.cloud.ibm.com`   |
 | S&atilde;o-Paulo | `br-sao.kms.cloud.ibm.com`   |
 | Madrid           | `eu-es.kms.cloud.ibm.com.`   |
-{: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
+{: caption="Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
 {: class="comparison-tab-table"}
@@ -112,7 +112,7 @@ endpoints to use when you connect to the
 | Toronto          | `private.ca-tor.kms.cloud.ibm.com`           |
 | S&atilde;o-Paulo | `private.br-sao.kms.cloud.ibm.com`           |
 | Madrid           | `private.eu-es.kms.cloud.ibm.com.`           |
-{: caption="Table 2. Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
+{: caption="Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
 {: class="comparison-tab-table"}

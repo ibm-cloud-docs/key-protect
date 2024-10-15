@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-02-01"
+  years: 2017, 2024
+lastupdated: "2024-10-09"
 
 keywords: create standard encryption key, create secret, standard encryption key examples
 
@@ -62,7 +62,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 | Key name | A human-readable display name for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
 | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
 | Key ring | **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
-{: caption="Table 1. Descriptions of settings for creating a key." caption-side="bottom"}
+{: caption="Descriptions of settings for creating a key." caption-side="bottom"}
 
 When you are finished filling out the key's details, click **Create key** to confirm.
 
@@ -128,7 +128,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |key_description|**Optional**.An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
 |expiration_date|**Optional**.The date and time that the key expires in the system, in RFC 3339 format (YYYY-MM-DD HH:MM:SS.SS, for example 2019-10-12T07:20:50.52Z). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_type|**Optional**.A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to true, the service creates a standard key that you can store in your apps or services.|
-{: caption="Table 1. Describes the variables that are needed to add a standard key." caption-side="bottom"}
+{: caption="Describes the variables that are needed to add a standard key." caption-side="bottom"}
 
 To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: important}
@@ -150,5 +150,3 @@ $ curl -X GET \
 {: #create-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
-
-
