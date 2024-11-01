@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-11-01"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -29,12 +29,10 @@ service to track how users and applications interact with
 {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-{{site.data.keyword.at_full_notm}} records service and user initiated activities
-that change the state of a service in {{site.data.keyword.cloud_notm}}. You can
-use this service to investigate abnormal activity and critical actions and to
-comply with regulatory audit requirements. In addition, you can be alerted about
-actions as they happen. The events that are collected comply with the Cloud
-Auditing Data Federation (CADF) standard.
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
+
+{{site.data.keyword.at_full_notm}} records service and user initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard.
 
 For more information regarding the {{site.data.keyword.at_full_notm}} service, see the
 [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started){: external}.
@@ -184,6 +182,11 @@ information, see
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
 {: caption="{{site.data.keyword.at_full_notm}} regions" caption-side="bottom"}
+
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
+
+For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
 
 ## Analyzing successful events
 {: #at-events-analyze}
