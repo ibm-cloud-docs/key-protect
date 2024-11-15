@@ -146,6 +146,7 @@ toc:
           topics:
           - key-protect-cli-commands.md
           - cli-changelog.md
+      - data_portability.md
       - topicgroup:
           label: Service availability
           topics:
