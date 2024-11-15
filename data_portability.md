@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-15"
 
 keywords: key protect, data portability
 
@@ -11,8 +11,6 @@ subcollection: key-protect
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
-<!–Name your file data_portability.md and include it in the Reference nav group in your toc.yaml file.–>
 
 # Understanding data portability for {{site.data.keyword.keymanagementserviceshort}}
 {: #data-portability}
