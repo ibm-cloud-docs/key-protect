@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-12-13"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -32,6 +32,8 @@ and the breakdown of responsibilities between the customer and
 {{site.data.keyword.IBM_notm}} for each type, see
 [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities){: external}.
 {: shortdesc}
+
+
 
 Review the following sections for the specific responsibilities for you and for
 {{site.data.keyword.IBM_notm}} when you use
