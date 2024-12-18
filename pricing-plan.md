@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-17"
+lastupdated: "2024-12-18"
 
 keywords: pricing plan, billing, cost
 
@@ -93,7 +93,9 @@ To see how many versions you have of each key you have deployed:
 {: #pricing-plan-migrate-ui}
 {: ui}
 
-Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the plan. This can be done in the console by following these steps:
+Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
+
+This can be done in the console by following these steps:
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
@@ -108,6 +110,8 @@ Users who want enhanced cross regional resiliency must either create a new insta
 ## Updating a pricing plan by using the CLI
 {: #cpricing-plan-migrate-cli}
 {: cli}
+
+Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
 
 Complete the following steps to update a pricing plan by using the {{site.data.keyword.Bluemix_notm}} command-line interface (CLI).
 
@@ -142,6 +146,8 @@ Complete the following steps to update a pricing plan by using the {{site.data.k
 ## Updating a pricing plan by using the API
 {: #pricing-plan-migrate-api}
 {: api}
+
+Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
 
 You can programmatically update a pricing plan for a service by calling the [{{site.data.keyword.cloud_notm}} Resource Controller API](/apidocs/resource-controller/resource-controller#update-resource-instance) as shown in the following sample request. The example updates a pricing plan for an instance.
 

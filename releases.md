@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-12-13"
+lastupdated: "2024-12-18"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,16 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## January 2025
+{: #key-protect-jan25}
+
+### 01 January 2025
+{: #key-protect-jan0125}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the availability of a new Cross-region resliency pricing plan. Users who want the enhanced cross regional resliency of this plan can either create a new instance using this plan or switch existing instances to this plan starting on 03 January 2025. For more information, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
+
+Additionally, the pricing plan formerly known as "Key version pricing" has been renamed "Standard", and does not have enhanced cross regional resiliency. Also, the five free key versions per account has been discontinued.
 
 ## December 2024
 {: #key-protect-dec24}
