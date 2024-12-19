@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-18"
+lastupdated: "2024-12-19"
 
 keywords: pricing plan, billing, cost
 
@@ -27,9 +27,6 @@ subcollection: key-protect
 
 # Pricing for Key Protect on IBM Cloud
 {: #pricing-plan}
-{: ui}
-{: api}
-{: cli}
 
 Pricing in {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}} is based on the number of **key versions** in your account and whether you choose a plan that features enhanced cross regional disaster recovery. For the pricing rates, check out [{{site.data.keyword.keymanagementserviceshort}} in the {{site.data.keyword.cloud_notm}} catalog](/catalog/services/key-protect). There you can see the two plans offered for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}, the **Cross-region resiliency** plan offering enhanced cross-regional disaster recovery, and the **Standard** plan, which is identical except that it does not offer cross-regional disaster recovery.
 {: shortdesc}
@@ -49,7 +46,7 @@ Creating or importing a key initiates the first **version** of that key. As a re
 
 There are three regions, `us-south` (located in Dallas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany) where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure. The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), the `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan), and the `eu-de` region has data replicated into a datacenter in the Paris region. This means that if service in `us-south`, `jp-tok`, or `eu-de` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. Note that the standby infrastructure in the region with failover support is completely separate from the {{site.data.keyword.keymanagementserviceshort}} service available in that region, and that failover only goes in one direction. Your data in `us-east`, for example, is not currently replicated to `us-south`.
 
-This enhanced cross-region disaster recovery is only available to instances provisioned under (or [migrated to](#pricing-plan-migrate)) the Cross-region resiliency pricing plan. You cannot switch to the Cross-region resiliency plan during a disaster to take advantage of its capabilities. You must have the plan already.
+This enhanced cross-region disaster recovery is only available to instances provisioned under (or [switched to](#pricing-plan-switch-ui)) the Cross-region resiliency pricing plan. You cannot switch to the Cross-region resiliency plan during a disaster to take advantage of its capabilities. You must have the plan already.
 
 The Cross-region resiliency plan includes a non-prorated monthly charge **per region** (as long at least one key has been created in an instance in the region). This regional charge is the same regardless of the number of instances you have in a region and only applies to the Cross-region resliency plan; you are charged the same for 100 instances in a region as you would be for one. This plan also charges double the key version price for each key version.
 {: tip}
@@ -77,7 +74,6 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
 
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}
-{: ui}
 
 To see how many versions you have of each key you have deployed:
 
@@ -92,8 +88,7 @@ To see how many versions you have of each key you have deployed:
 5. Repeat this process for every key in your instance. Note that because only root keys can be rotated, all of your standard keys only have one version.
 
 ## Switching to a different plan in the console
-{: #pricing-plan-migrate-ui}
-{: ui}
+{: #pricing-plan-switch-ui}
 
 Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
 
@@ -109,115 +104,9 @@ This can be done in the console by following these steps:
 
 5. To change your pricing plan, select the desired plan and click **Save**. Your pricing plan has now been changed.
 
-## Updating a pricing plan by using the CLI
-{: #cpricing-plan-migrate-cli}
-{: cli}
+## Updating a pricing plan by using th API or CLI
+{: #pricing-plan-switch-api-cli}
 
 Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
 
-Complete the following steps to update a pricing plan by using the {{site.data.keyword.Bluemix_notm}} command-line interface (CLI).
-
-1. Check whether the service is enabled with the resource controller.
-
-   ```
-   ibmcloud catalog service <service_name>
-   ```
-   {: codeblock}
-
-   The output lists `RC Compatible true`. Make a note of the ID of the plan that you want to update to.
-
-   ```
-   RC Compatible      true
-   RC Provisionable   true
-   IAM Compatible     true
-   Children   Name                      Kind         ID
-              lite                      plan         4bcd3fgh-3cf2-47c0-93d4-d2f2289eac28
-              standard                  plan         264d0450-996d-4bcd-894d-fc7018dacf1e
-    ```
-
-1. Update the pricing plan for your service instance.
-
-   - If the service is enabled with the resource controller, run the [`ibmcloud resource service-instance-update` command](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_service_instance_update).
-
-     ```
-     ibmcloud resource service-instance-update <service_instance_name> --service-plan-id <plan_id>
-     ```
-     {: codeblock}
-
-
-## Updating a pricing plan by using the API
-{: #pricing-plan-migrate-api}
-{: api}
-
-Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
-
-You can programmatically update a pricing plan for a service by calling the [{{site.data.keyword.cloud_notm}} Resource Controller API](/apidocs/resource-controller/resource-controller#update-resource-instance) as shown in the following sample request. The example updates a pricing plan for an instance.
-
-```
-curl -X PATCH https://resource-controller.cloud.ibm.com/v2/resource_instances/8d7af921-b136-4078-9666-081bd8470d94 -H 'Authorization: Bearer <>' -H 'Content-Type: application/json' -d '{
-    "name": "my-instance-new-binding-1",
-    "resource_plan_id": "744bfc56-d12c-4866-88d5-dac9139e0e5d"
-  }'
-```
-{: codeblock}
-{: curl}
-
-```java
-Map<String, Object> parameters = new HashMap<String, Object>();
-parameters.put("exampleProperty", "exampleValue");
-
-UpdateResourceInstanceOptions updateResourceInstanceOptions = new UpdateResourceInstanceOptions.Builder()
-  .id(instanceGuid)
-  .name(resourceInstanceUpdateName)
-  .parameters(parameters)
-  .build();
-
-Response<ResourceInstance> response = service.updateResourceInstance(updateResourceInstanceOptions).execute();
-ResourceInstance resourceInstance = response.getResult();
-
-System.out.printf("updateResourceInstance() response:\n%s\n", resourceInstance.toString());
-```
-{: codeblock}
-{: java}
-
-```
-getAccountUsage(params)
-```
-{: codeblock}
-{: javascript}
-
-```python
-parameters = {
-    'exampleProperty': 'exampleValue'
-}
-resource_instance = resource_controller_service.update_resource_instance(
-    id=instance_guid,
-    name=resource_instance_update_name,
-    parameters=parameters
-).get_result()
-
-print('\nupdate_resource_instance() response:\n',
-      json.dumps(resource_instance, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-parameters := map[string]interface{}{"exampleProperty": "exampleValue"}
-updateResourceInstanceOptions := resourceControllerService.NewUpdateResourceInstanceOptions(
-  instanceGUID,
-)
-updateResourceInstanceOptions = updateResourceInstanceOptions.SetName(resourceInstanceUpdateName)
-updateResourceInstanceOptions = updateResourceInstanceOptions.SetParameters(parameters)
-
-resourceInstance, response, err := resourceControllerService.UpdateResourceInstance(updateResourceInstanceOptions)
-if err != nil {
-  panic(err)
-}
-b, _ := json.MarshalIndent(resourceInstance, "", "  ")
-fmt.Printf("\nUpdateResourceInstance() response:\n%s\n", string(b))
-```
-{: codeblock}
-{: go}
-
-If you want to purchase a larger subscription, contact [{{site.data.keyword.Bluemix_notm}} Sales](https://www.ibm.com/cloud?contactmodule){: external}.
+For more information on how to switch pricing plans using the API or CLI, check out [Updating your pricing plan](/docs/account?topic=account-changing&interface=cli).
