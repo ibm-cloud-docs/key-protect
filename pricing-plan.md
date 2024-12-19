@@ -104,7 +104,7 @@ This can be done in the console by following these steps:
 
 5. To change your pricing plan, select the desired plan and click **Save**. Your pricing plan has now been changed.
 
-## Updating a pricing plan by using th API or CLI
+## Switching a pricing plan by using th API or CLI
 {: #pricing-plan-switch-api-cli}
 
 Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
