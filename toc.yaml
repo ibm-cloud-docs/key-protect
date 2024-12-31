@@ -23,8 +23,10 @@ toc:
               label: Pricing
               topics:
               - pricing-about.md
-              - pricing-plan.md
-              - pricing-plan-satellite.md
+              - topic: pricing-plan.md
+                navtitle: On IBM Cloud
+              - topic: pricing-plan-satellite.md
+                navtitle: On Satellite
           - service-comparison.md
           - concepts/manage-access.md
           - topic: shared-responsibilities.md
