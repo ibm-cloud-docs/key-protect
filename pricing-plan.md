@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-31"
+  years: 2025
+lastupdated: "2025-01-03"
 
 keywords: pricing plan, billing, cost
 
@@ -90,7 +90,7 @@ To see how many versions you have of each key you have deployed:
 ## Switching to a different plan in the console
 {: #pricing-plan-switch-ui}
 
-Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
+Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan.
 
 This can be done in the console by following these steps:
 
@@ -104,9 +104,7 @@ This can be done in the console by following these steps:
 
 5. To change your pricing plan, select the desired plan and click **Save**. Your pricing plan has now been changed.
 
-## Switching a pricing plan by using the API or CLI
+## Switching a pricing plan using the API or CLI
 {: #pricing-plan-switch-api-cli}
-
-Users who want enhanced cross regional resiliency must either create a new instance using the new plan, which was introduced on 1 January 2025, or switch an existing instance to the new plan, which can be done starting 3 January 2025.
 
 For more information on how to switch pricing plans using the API or CLI, check out [Updating your pricing plan](/docs/account?topic=account-changing&interface=cli).
