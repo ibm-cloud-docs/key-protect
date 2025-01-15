@@ -149,6 +149,8 @@ toc:
           - key-protect-cli-commands.md
           - cli-changelog.md
       - data_portability.md
+      - topic: service-dependency.md
+        navtitle: Service dependency map
       - topicgroup:
           label: Service availability
           topics:
