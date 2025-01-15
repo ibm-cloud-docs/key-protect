@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-09"
+  years: 2020, 2025
+lastupdated: "2025-01-15"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -43,7 +43,7 @@ Dual authorization policies (also known as "dual auth" policies) can be set at t
     By enabling dual authorization at the instance level, any new keys that you add to the instance automatically inherit the dual authorization policy. This is helpful in scenarios when a user with a _Manager_ level of permission on an instance wants to set a policy that applies to all subsequently created keys, regardless of which user creates the key. Because the instance level policy can only be changed by a user with a _Manager_ level permission (or a specifically tailored role that includes the ability to set dual auth policies), the _Manager_ can be assured that any subsequently created keys have the policy. Note that your existing keys are not affected by the policy change and will still require a single authorization for deletion.
 
 - **You can always disable a dual authorization policy for your {{site.data.keyword.keymanagementserviceshort}} instance.**
-    If you want to [disable an existing dual authorization policy](#disable-dual-auth-instance-policy-ui) to allow for single authorization, keep in mind that the change is applicable only for future keys that you add to the instance. Any existing keys that were created under a dual authorization policy will continue to require actions from two users before the keys can be deleted. After a key inherits a dual authorization policy, the policy cannot be reverted.
+    If you want to [disable an existing dual authorization policy](/docs/key-protect?topic=key-protect-manage-dual-auth&interface=ui#disable-dual-auth-instance-policy-u) to allow for single authorization, keep in mind that the change is applicable only for future keys that you add to the instance. Any existing keys that were created under a dual authorization policy will continue to require actions from two users before the keys can be deleted. After a key inherits a dual authorization policy, the policy cannot be reverted.
 
 - **Once a dual auth policy has been applied to a key, the policy cannot be changed.**
     While it is possible to enable or disable a dual auth policy on an instance, a dual auth policy on a key cannot be disabled. The key retains the policy until it is deleted.
@@ -57,7 +57,7 @@ Dual authorization policies (also known as "dual auth" policies) can be set at t
 - **To work with dual authorization policies, you must be assigned a _Manager_ access policy for the instance or key.** 
     To learn how IAM roles map to {{site.data.keyword.keymanagementserviceshort}} service actions, check out [Service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
-For information about deleting a key with a dual auth policy, check out [](#delete-dual-auth-keys-api)
+For information about deleting a key with a dual auth policy, check out [Deleting keys](#delete-dual-auth-keys-api)
 
 #### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the console
 {: #enable-dual-auth-instance-policy-ui}

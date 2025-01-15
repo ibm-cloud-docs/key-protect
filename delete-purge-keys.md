@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-25"
+  years: 2022, 2025
+lastupdated: "2025-01-15"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -95,4 +95,4 @@ For a detailed description of the request, see the {{site.data.keyword.keymanage
 
 To learn how to delete and purge a key using the UI, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
 
-To learn how to delete and purge a key that holds a dual-authorization deletion policy using the UI, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
+To learn how to delete and purge a key that holds a dual-authorization deletion policy using the UI, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-manage-dual-auth). For information about how to do this using the API, click the **API** tab at the beginning of the topic.

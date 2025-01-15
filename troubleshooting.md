@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-02-27"
+  years: 2017, 2025
+lastupdated: "2025-01-15"
 
 keywords: failed to create key, failed to delete key, delete service
 
@@ -98,8 +98,6 @@ service access roles in the applicable
 about roles, see
 [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 {: tsResolve}
-
-
 
 ## Unable to view or list keys
 {: #unable-to-list-keys-api}
@@ -281,5 +279,3 @@ for more details about using the forums.
 For more information about opening an {{site.data.keyword.IBM_notm}} support
 ticket, or about support levels and ticket severities, see
 [Contacting support](/docs/get-support){: external}.
-
-

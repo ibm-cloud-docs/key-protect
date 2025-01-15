@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-01-15"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -579,7 +579,7 @@ public or private networks.
 For existing instances the network access policy is enforced after it is set.
 
 For more information, see
-[managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies).
+[managing network access policies](/docs/key-protect?topic=key-protect-access-control-with-cbr).
 
 ```sh
 ibmcloud kp instance policy-update allowed-network
@@ -647,7 +647,7 @@ Deleting a key that has a dual authorization policy requires an authorization
 from two users.
 
 For more information, see
-[Using dual authorization policies for the deletion of keys](/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
+[Using dual authorization policies for the deletion of keys](/docs/key-protect?topic=key-protect-manage-dual-auth).
 
 ### Notes
 {: #kp-instance-policy-update-dual-notes}
@@ -2158,7 +2158,7 @@ Deleting a key that has a
 requires an authorization from two users. With the
 {{site.data.keyword.keymanagementserviceshort}} API, you can provide the
 first authorization by
-[setting the key for deletion](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-delete-dual-auth-keys-set-key-deletion-api).
+[setting the key for deletion](/docs/key-protect?topic=key-protect-manage-dual-auth).
 Then, a different user provides a second authorization by using the
 [GUI](/login/){: external}
 or
