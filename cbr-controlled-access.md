@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-07-29"
+  years: 2025
+lastupdated: "2025-01-15"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -38,7 +38,7 @@ For more information about the services integrated with CBR, check out [Services
 ## Overview
 {: #cbr-overview}
 
-There are two parts in the instructions to restrict access, [Creating Zones](docs/account?topic=account-context-restrictions-create#network-zones-create&interface=ui), and [Creating Rules](/docs/account?topic=account-context-restrictions-create&interface=ui), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](/apidocs/context-based-restrictions), or with [Context-based restrictions](https://cloud.ibm.com/context-based-restrictions).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
+There are two parts in the instructions to restrict access, [Creating Zones](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create), and [Creating Rules](/docs/account?topic=account-context-restrictions-create&interface=ui), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](/apidocs/context-based-restrictions), or with [Context-based restrictions](https://cloud.ibm.com/context-based-restrictions).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
 
 CBR rules do not apply to provisioning or deprovision processes.
 {: note}

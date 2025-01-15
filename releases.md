@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-03"
+lastupdated: "2025-01-15"
 
 keywords: key protect, release notes, service updates
 
@@ -480,7 +480,7 @@ Updates to the {{site.data.keyword.keymanagementserviceshort}} UI
    - Enable/disable key: If you have _Manager_ access permissions, you can now use the {{site.data.keyword.keymanagementserviceshort}} UI to suspend or restore a key's encrypt and decrypt operations. For more information, see [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys#disable-enable-ui)
    - Restore key: If you have _Manager_ access permissions, you can now use the the {{site.data.keyword.keymanagementserviceshort}} UI to restore a previously imported root key that was deleted. For more information, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys#restore-ui).
    - Set an instance level dual authorization policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to require two users to safely delete a key from your {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see [Enabling a dual authorization policy for an instance](/docs/key-protect?topic=key-protect-manage-dual-auth#enable-dual-auth-instance-policy-ui).
-   - Set an instance level network policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to public or private networks. For more information, see [Managing Network Access Policies](/docs/key-protect?topic=key-protect-managing-network-access-policies#enabling-network-access-to-your-service-instance-ui).
+   - Set an instance level network policy: You can now use the {{site.data.keyword.keymanagementserviceshort}} UI to restrict requests to public or private networks. For more information, see [Managing Network Access Policies](/docs/key-protect?topic=key-protect-access-control-with-cbr).
 
 ### 19 June 2020
 {: #key-protect-jun1920}
@@ -521,7 +521,7 @@ Announcing new permissions for existing roles
 {: release-note}
 
 Announcing network access policies
-:   You can set a network access policy to allow API requests to a {{site.data.keyword.keymanagementserviceshort}} instance from public or private networks. To find out more, see [Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies).
+:   You can set a network access policy to allow API requests to a {{site.data.keyword.keymanagementserviceshort}} instance from public or private networks. To find out more, see [Managing network access policies](/docs/key-protect?topic=key-protect-access-control-with-cbr).
 
 ## March 2020
 {: #key-protect-mar20}

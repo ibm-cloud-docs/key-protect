@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2024
-lastupdated: "2024-04-18"
+years: 2020, 2025
+lastupdated: "2025-01-15"
 
 keywords: Key Protect, error messages, error codes
 
@@ -699,7 +699,7 @@ The message returns a reason in the message that provides the specific context.
 
 Reason code: AUTHORIZATIONS_NOT_MET 
 
-The key cannot be deleted because it failed the dual authorization request. Before you delete this key, make sure dual authorization procedures are followed. See the topic, [Deleting keys using dual authorization](https://cloud.ibm.com/docs/key-protect?topic=key-protect-delete-dual-auth-keys).
+The key cannot be deleted because it failed the dual authorization request. Before you delete this key, make sure dual authorization procedures are followed. See the topic, [Deleting keys using dual authorization](https://cloud.ibm.com/docs/key-protect?topic=key-protect-manage-dual-auth).
 
 Reason code: PROTECTED_RESOURCE_ERR
 
@@ -3629,5 +3629,3 @@ This section sorts error messages by the reason code.
     [details](#error-messages-unauthorized-err)
 - UNPROCESSABLE_CIPHERTEXT_ERR -
     [details](#error-messages-unprocessable-ciphertext-err)
-
-

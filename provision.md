@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-08-28"
+  years: 2017, 2025
+lastupdated: "2025-01-15"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -208,7 +208,7 @@ Public network access is the default setting and is used if a policy is not set.
 A private instance accepts API requests from only `private` endpoints.
 
 See
-[Managing network access policies](/docs/key-protect?topic=key-protect-managing-network-access-policies)
+[Managing network access policies](/docs/key-protect?topic=key-protect-access-control-with-cbr)
 for learn more about public and private access.
 
 **Note** the GUID is the instance ID. In this example, the instance ID is
