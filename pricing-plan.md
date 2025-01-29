@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-03"
+lastupdated: "2025-01-29"
 
 keywords: pricing plan, billing, cost
 
@@ -54,26 +54,26 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
 ## Pricing scenarios
 {: #pricing-plan-scenarios}
 
-### For the Standard plan
-{: #pricing-plan-scenarios-version}
-
 * **Scenario:** You have one non-deleted key that has been rotated 19 times, which means it has 20 total versions.
-  - **Pricing:** You are charged for 20 versions per month (your charge in the first month is prorated).
+    - **Pricing:** You are charged for 20 versions per month (your charge in the first month is prorated).
 
 * **Scenario:** You have one non-deleted key with 20 total versions, another key with three versions, and a key in the `Suspended` state with two versions.
-  - **Pricing:** Your are charged for 25 versions per month.
-
-### For Cross-region resiliency plan
-{: #pricing-plan-scenarios-cross-region}
+    - **Pricing:** Your are charged for 25 versions per month.
 
 * **Scenario:** You have two instances in a single cross region with a total of 10 key versions.
-  - **Pricing:** You are charged 1x the regional price and for 10 key versions (charged at double the rate of a single version in the Key versions plan).
+    - **Pricing:** You are charged 1x the regional price and for 10 key versions (charged at double the rate of a single version in the Key versions plan).
 
 * **Scenario:** You have two instances in two cross regions with a total of 10 key versions.
-  - **Pricing:** You are charged 2x the regional price and for 10 key versions (charged at double the rate of a single version in the Standard plan).
+    - **Pricing:** You are charged 2x the regional price and for 10 key versions (charged at double the rate of a single version in the Standard plan).
+
+* **Scenario:** You create a key in the middle of a month.
+    - **Pricing:** Key versions are charged based on a proration by the number of days (out of 31) it exists in the monthly billing period. A key that only existed for one day, for example, is charged for 1/31 of the monthly price. A key created in with 15 days left in a month, then, is charged for 15 of the 31 days, (0.5 versions per month, if looking at your billing page).
 
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}
+
+[Key management interoperability protocol (KMIP) symmetric keys](/docs/key-protect?topic=key-protect-kmip#kmip-adapter-view&interface=ui) are counted as a single key version and count toward your overall number of versions. Your KMIP symmetric keys can be located in the **KMIP** tab in the console or [through the API](/docs/key-protect?topic=key-protect-kmip#kmip-adapter-api-view-delete-objects&interface=api).
+{: note}
 
 To see how many versions you have of each key you have deployed:
 

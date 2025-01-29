@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-09"
+  years: 2025
+lastupdated: "2025-01-29"
 
 keywords: KMIP, VMWare, key protect
 
@@ -108,7 +108,7 @@ KMIP symmetric keys cannot be deleted using the UI. To delete keys, you must use
 
 Each adapter's resources are protected with a CRK. You cannot delete a CRK that is active and associated with an adapter.
 
-Each KMIP symmetric key that is created counts as a single key version and may incur a [charge, depending on the number of key versions you have](/docs/key-protect?topic=key-protect-pricing-plan). If you want to delete a KMIP symmetric key, you can only do so using the API, CLI, or SDK. You cannot use the UI. Note that deletions of a KMIP symmetric is permanent.
+Each KMIP symmetric key that is created counts as a single key version and incurs a [charge of one key version](/docs/key-protect?topic=key-protect-pricing-plan). If you want to delete a KMIP symmetric key, you can only do so using the API, CLI, or SDK. You cannot use the UI. Note that deletions of a KMIP symmetric is permanent.
 {:important}
 
 ## KMIP supported objects and operations
