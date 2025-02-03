@@ -161,6 +161,5 @@ toc:
       topics:
       - topic: FAQs.md
         navtitle: FAQ
-      - FAQs.md
       - error-messages.md
       - troubleshooting.md

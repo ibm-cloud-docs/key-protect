@@ -26,7 +26,7 @@ subcollection: key-protect
 # FAQ for {{site.data.keyword.keymanagementserviceshort}}
 {: #faqs}
 
-You can use the following FAQs to help you with {{site.data.keyword.keymanagementservicelong}}.
+You can use the following FAQ to help you with {{site.data.keyword.keymanagementservicelong}}.
 
 ## How does pricing work for {{site.data.keyword.keymanagementserviceshort}}?
 {: #how-does-pricing-work}
