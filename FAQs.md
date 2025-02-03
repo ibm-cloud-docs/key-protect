@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-09-18"
+  years: 2017, 2025
+lastupdated: "2025-02-03"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -23,7 +23,7 @@ subcollection: key-protect
 {:support: data-reuse='support'}
 {:help: data-hd-content-type='help'}
 
-# FAQs
+# FAQ for {{site.data.keyword.keymanagementserviceshort}}
 {: #faqs}
 
 You can use the following FAQs to help you with {{site.data.keyword.keymanagementservicelong}}.
