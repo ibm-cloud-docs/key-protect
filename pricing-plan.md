@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-14"
 
 keywords: pricing plan, billing, cost
 
@@ -107,4 +107,7 @@ This can be done in the console by following these steps:
 ## Switching a pricing plan using the API or CLI
 {: #pricing-plan-switch-api-cli}
 
-For more information on how to switch pricing plans using the API or CLI, check out [Updating your pricing plan](/docs/account?topic=account-changing&interface=cli).
+For more information on how to switch pricing plans using the API or CLI, check out [Updating your pricing plan](/docs/account?topic=account-changing&interface=cli). 
+
+When using the API or CLI, the name of the Cross Regional Resiliency plan is `cross-region-resiliency`.
+{: tip}
