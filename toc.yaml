@@ -159,6 +159,7 @@ toc:
   - navgroup:
       id: help
       topics:
-      - FAQs.md
+      - topic: FAQs.md
+        navtitle: FAQ
       - error-messages.md
       - troubleshooting.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-14"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -65,16 +65,15 @@ the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
 3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
-4. Select a service plan, and click **Create** to provision an instance of
-    {{site.data.keyword.keymanagementserviceshort}} in the account, region, and
-    resource group where you are logged in.
+4. Select a service plan, and click **Create** to provision an instance of {{site.data.keyword.keymanagementserviceshort}} in the account, region, and resource group where you are logged in. For more information about pricing, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
 
 ## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} CLI
 {: #provision-cli}
 
-You can also provision an instance of
-{{site.data.keyword.keymanagementserviceshort}} by using the
-{{site.data.keyword.cloud_notm}} CLI.
+You can also provision an instance of {{site.data.keyword.keymanagementserviceshort}} by using the {{site.data.keyword.cloud_notm}} CLI.
+
+While the following examples use the `tiered-pricing` plan, you can also deploy resources into select regions using the [`cross-region-resiliency` plan](/docs/key-protect?topic=key-protect-pricing-plan), which offers additional failover support. The regions where this plan is available are `us-south` (located in Dallas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany). You cannot to use this plan to deploy into other regions.
+{: important}
 
 ### Login using the CLI
 {: #provision-login-cli}
