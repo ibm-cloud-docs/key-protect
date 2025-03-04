@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-12-17"
+  years: 2017, 2025
+lastupdated: "2025-03-04"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:important: .important}
 {:term: .term}
 
-# High availability and disaster recovery
+# Understanding high availability and disaster recovery for Key Protect
 {: #ha-dr}
 
 {{site.data.keyword.keymanagementservicefull}} is a highly available, regional service with automatic features that help keep your applications secure and operational.
@@ -29,7 +29,7 @@ subcollection: key-protect
 
 The high availability of {{site.data.keyword.keymanagementserviceshort}} and the disaster recovery of data are guaranteed by {{site.data.keyword.cloud_notm}} and {{site.data.keyword.keymanagementserviceshort}}. Note that "disaster recovery" does not include the ability to recover from user-initiated accidental deletions.
 
-Cross-regional disaster recovery is only available for instances under a pricing plan that includes cross-regional support. If you did not configure the instance to be under a cross-regional plan prior to a regional disaster event, key actions may be suspended.
+Cross-regional disaster recovery is only available for instances under a [pricing plan](/docs/key-protect?topic=key-protect-pricing-plan) that includes cross-regional support. If you did not configure the instance to be under a cross-regional plan prior to a regional disaster event, key actions may be suspended.
 {: important}
 
 ## Locations, tenancy, and availability
@@ -39,12 +39,9 @@ Cross-regional disaster recovery is only available for instances under a pricing
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/blog/announcement/expansion-availability-zones-global-regions/){: external} to meet local access, low latency, and security requirements for the region.
 
-There are three regions, `us-south` (located in Dallas, Texas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany) where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure. The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), the `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan), and the `eu-de` region has data replicated into a datacenter in the Paris region. This means that if service in `us-south`, `jp-tok`, or `eu-de` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. Note that the standby infrastructure in the region with failover support is completely separate from the {{site.data.keyword.keymanagementserviceshort}} service available in that region, and that failover only goes in one direction. Your data in `us-east`, for example, is not currently replicated to `us-south`.
+There are three regions, `us-south` (located in Dallas, Texas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany) where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure if you select the [Cross-region resiliency pricing plan](/docs/key-protect?topic=key-protect-pricing-plan). The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), the `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan), and the `eu-de` region has data replicated into a datacenter in the Paris region. This means that if service in `us-south`, `jp-tok`, or `eu-de` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. Note that the standby infrastructure in the region with failover support is completely separate from the {{site.data.keyword.keymanagementserviceshort}} service available in that region, and that failover only goes in one direction. Your data in `us-east`, for example, is not currently replicated to `us-south`.
 
 Because your requests are routed automatically, you can continue to call your original endpoint. Initially, read-only operations are all that will be available. However, if there is reason to believe the disruption will last for an extended period, write operations will be enabled as soon as possible. Otherwise, read-only operations are all that will be available for up to six hours before write operations will be enabled.
-
-{{site.data.keyword.keymanagementserviceshort}} will be adding cross-regional high availability to selected regions in different geographical locations.
-{: tip}
 
 As you plan your encryption strategy with {{site.data.keyword.cloud_notm}}, remember that provisioning {{site.data.keyword.keymanagementserviceshort}} in a region that is nearest to you is more likely to result in faster, more reliable connections when you interact with the {{site.data.keyword.keymanagementserviceshort}} APIs. Furthermore, regulatory requirements might influence which region or regions to use. Note that {{site.data.keyword.keymanagementserviceshort}} does not restrict using keys across regions and geographical locations. For example, a user might use keys from `us-south` to encrypt storage in Frankfurt. **Choose the region that is best for your use case overall**.
 
