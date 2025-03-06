@@ -35,7 +35,7 @@ Cross-regional disaster recovery is only available for instances under a [pricin
 ## Locations, tenancy, and availability
 {: #availability}
 
-{{site.data.keyword.keymanagementserviceshort}}, when deployed in {{site.data.keyword.cloud_notm}}, is a multi-tenant, regional service.
+{{site.data.keyword.keymanagementserviceshort}} is a multi-tenant, regional service.
 
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/blog/announcement/expansion-availability-zones-global-regions/){: external} to meet local access, low latency, and security requirements for the region.
 
