@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-03-11"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -47,7 +47,6 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 * **Flexibility**: Apps on or outside IBM Cloud can integrate with the Key Protect APIs. {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of IBM database, storage, container, and ingestion services. For more information, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
 * **Built-in protection**: Deleted keys, and their encrypted data, can never be recovered. Manage your user roles, key states, and set a rotation schedule that works for your use case using the UI, CLI, or API.
 * **Application-independent**: Generate, store, retrieve and manage keys independent of application logic.
-* **Create and manage keys inside a Satellite location**: [{{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about) allows you to deploy {{site.data.keyword.keymanagementserviceshort}} into infrastructure that you own and manage.
 * **[Key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-kmip)** support, as [certified by VMWare](https://www.vmware.com/resources/compatibility/detail.php?productid=60700&kmsversionid=225&deviceCategory=kms){: external}, can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. And because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
@@ -58,7 +57,6 @@ Here are a few common scenarios that explain how {{site.data.keyword.keymanageme
 | Scenarios | Reasons |
 | --------- | ------- |
 | You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}} to generate and import encryption keys by using a multi-tenant service with shared hardware. |
-| You need to be able to create and manage keys in a Satellite location. | You can use [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-satellite-about) to create and manage keys in either {{site.data.keyword.cloud_notm}} or in Satellite. |
 | As an IT admin for a large corporation, you need to integrate, track, and rotate encryption keys for many different service offerings. | The {{site.data.keyword.keymanagementserviceshort}} interface simplifies the management of multiple encryption services. With the service, you can manage and sort encryption keys in one centralized location, or you can separate keys by project and house them in different {{site.data.keyword.cloud_notm}} spaces. |
 | As a developer, you want to integrate your pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}. | Apps on or outside {{site.data.keyword.cloud_notm}} can integrate with the {{site.data.keyword.keymanagementserviceshort}} APIs. You can use your own existing keys for your apps and import them into {{site.data.keyword.keymanagementserviceshort}}. |
 | Your development team has stringent policies, and you need a way to generate and rotate keys. | With {{site.data.keyword.keymanagementserviceshort}}, you can rapidly generate keys from an {{site.data.keyword.cloud_notm}} hardware security module (HSM). When it's time to replace a key, whether it was created using {{site.data.keyword.keymanagementserviceshort}} or imported, you can [rotate the key on-demand](/docs/key-protect?topic=key-protect-rotate-keys) or [set a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for the key to meet your on-going security needs. |

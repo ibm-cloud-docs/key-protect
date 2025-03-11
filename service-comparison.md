@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-10-09"
+lastupdated: "2025-03-11"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -75,7 +75,6 @@ The following table lists the different offerings that you can use with {{site.d
 | Scenario | What to use |
 | --- | --- |
 | You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** to generate and import encryption keys by using a multi-tenant service with shared hardware. |
-| You need to be able to create and manage keys in a Satellite location. | You can use **{{site.data.keyword.keymanagementserviceshort}}** to create and manage keys in either {{site.data.keyword.cloud_notm}} or in Satellite. |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
 | The data you want to protect with encryption keys is highly valuable for your company or you need to comply to certain data protection regulations. To do so you want to have the full and exclusive control over your keys & even exclude access from the {{site.data.keyword.cloud_notm}} admin to the master key. Therefore you want to leverage a dedicated key management service running within a secure enclave as well as a dedicated FIPS 140-2 Level 4 hardware security module as a service that underlies your full control. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you have the full control to manage encryption keys in a single-tenant service with dedicated hardware for own your own key (KYOK). |
@@ -95,11 +94,10 @@ For a higher level of security and control, your business might benefit from the
 | Multi-tenant[^multi-tenant]             | ![Checkmark icon](../../icons/checkmark-icon.svg)   |                                                   |                                                   |
 | Single-tenant[^single-tenant]           |                                                     | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | HSM backed[^hsm]                        | ![Checkmark icon](../../icons/checkmark-icon.svg)   |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Available on Satellite                  | ![Checkmark icon](../../icons/checkmark-icon.svg)   |                                                   |                                                   |
 | Runs in secure enclave[^secure-enclave] |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Client initialised and controlled HSM   |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
-{: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists features. The first row features the names of the services in the table, followed by a row listing the types of secrets that are supported by each service. The third row uses checkmarks to indicate whether a service is multi-tenant. The fourth row uses checkmarks to indicate whether a service is single-tenant. The fifth row uses checkmarks to indicate whether a service is backed by a hardware security module (HSM). The sixth row uses checkmarks to indicate whether a service is available on Satellite. The seventh row uses checkmarks to indicate whether the service runs in a secure enclave. The eigth row uses checkmarks to indicate whether the service uses a client initialized and controlled HSM."}
+{: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists features. The first row features the names of the services in the table, followed by a row listing the types of secrets that are supported by each service. The third row uses checkmarks to indicate whether a service is multi-tenant. The fourth row uses checkmarks to indicate whether a service is single-tenant. The fifth row uses checkmarks to indicate whether a service is backed by a hardware security module (HSM). The sixth row uses checkmarks to indicate whether the service runs in a secure enclave. The seventh row uses checkmarks to indicate whether the service uses a client initialized and controlled HSM."}
 {: class="comparison-table"}
 
 [^multi-tenant]: A multi-tenant service uses a single instance of its software (and its underlying database and hardware) to serve multiple tenants. [Learn more](https://www.ibm.com/topics/multi-tenant){: external}.
