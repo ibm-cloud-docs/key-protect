@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-03-11"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,14 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## March 2025
+{: #key-protect-mar25}
+
+### 11 March 2025
+{: #key-protect-mar1125}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the end of marketing for {{site.data.keyword.keymanagementserviceshort}} on Satellite. As of this day, all documentation relating to Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
 
 ## January 2025
 {: #key-protect-jan25}
@@ -76,12 +84,18 @@ Additionally, the pricing plan formerly known as "Key version pricing" has been 
 
 {{site.data.keyword.keymanagementserviceshort}} also announces the ability to access private endpoints using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
 
+As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanagementserviceshort}} on Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
+{: note}
+
 ## December 2023
 {: #key-protect-dec23}
 
 ### 15 December 2023
 {: #key-protect-dec1523}
 {: release-note}
+
+As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanagementserviceshort}} on Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
+{: note}
 
 {{site.data.keyword.keymanagementserviceshort}} announces that {{site.data.keyword.keymanagementservicefull}} on Satellite is now available in the  {{site.data.keyword.cloud_notm}} `eu-de` Multi-Zone Region (MZR). Previously, only the `us-east` region was available. 
 
@@ -155,6 +169,9 @@ The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Uni
 ### 14 April 2023
 {: #key-protect-apr1423}
 {: release-note}
+
+As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanagementserviceshort}} on Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
+{: note}
 
 The {{site.data.keyword.keymanagementservicefull}} on Satellite [Pricing plan](/docs/key-protect?topic=key-protect-pricing-plan-satellite) is now active. Unlike the [pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan), the pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite is not based on key versions. Instead, reflecting the different use cases and infrastructure maintenance requirements for Satellite-based deployments, users are charged a flat rate for each location where they want {{site.data.keyword.keymanagementserviceshort}} installed and then an additional rate depending on the quota of keys they select at deployment time.
 
@@ -254,6 +271,9 @@ For more information, check out [Viewing key versions](/docs/key-protect?topic=k
 ### 15 December 2021
 {: #key-protect-dec1521}
 {: release-note}
+
+As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanagementserviceshort}} on Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
+{: note}
 
 {{site.data.keyword.keymanagementservicefull}} announces new {{site.data.keyword.satellitelong_notm}} support
 :   {{site.data.keyword.keymanagementservicefull}} now supports [{{site.data.keyword.satellitelong_notm}}](/docs/satellite?topic=satellite-getting-started) where you use your own compute infrastructure that is in your on-premises data center, other cloud providers, or edge networks to more fully control your own encryption keys by creating your own instance of {{site.data.keyword.keymanagementserviceshort}}.

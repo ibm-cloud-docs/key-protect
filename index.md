@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-03-11"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -28,9 +28,6 @@ subcollection: key-protect
 {: shortdesc}
 
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
-
-This topic covers the processes for using a {{site.data.keyword.keymanagementserviceshort}} instance deployed inside {{site.data.keyword.cloud_notm}}. For more information about {{site.data.keyword.keymanagementserviceshort}} on Satellite, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
-{: important}
 
 ## Getting started with encryption keys
 {: #get-started-keys}

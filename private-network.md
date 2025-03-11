@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-09-23"
+  years: 2017, 2025
+lastupdated: "2025-03-11"
 
 keywords: Key Protect private endpoints, VPE, service endpoints
 
@@ -28,7 +28,7 @@ subcollection: key-protect
 Create and manage {{site.data.keyword.keymanagementserviceshort}} resources on {{site.data.keyword.cloud_notm}}'s virtual private endpoints (VPEs) by targeting a private service endpoint.
 {: shortdesc}
 
-As of 11 January 2024, it is possible to access VPEs using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint (for example, in a Satellite location). Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
+As of 11 January 2024, it is possible to access VPEs using the {{site.data.keyword.keymanagementserviceshort}} control plane UI, allowing users to create and manage keys for instances using a private endpoint. Similarly, keys created using the CLI or the SDK or related method can now be seen and updated using the UI.
 {: tip}
 
 To get started, enable
