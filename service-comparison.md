@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2025-03-11"
+lastupdated: "2025-03-12"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -107,6 +107,11 @@ For a higher level of security and control, your business might benefit from the
 [^hsm]: A service that is backed by a hardware security module (HSM) uses tamper-resistant, FIPS-validated physical hardware as its root of trust for cryptographic storage and processing of encryption keys.
 
 [^secure-enclave]: Mitigates internal as well as external attack vectors to gain unauthorised access to keys.
+
+## Can these services work together?
+{: #service-comparison-da}
+
+Yes. For many use cases, it is important to use more than one service to completely sercure your data. For more information about the deployable architecture that covers security services, check out [What is cloud security?](/docs/security-hub?topic=security-hub-cloud-security).
 
 ## How do I get started?
 {: #get-started-data-protection}
