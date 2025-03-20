@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2025-03-12"
+lastupdated: "2025-03-20"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -111,7 +111,7 @@ For a higher level of security and control, your business might benefit from the
 ## Can these services work together?
 {: #service-comparison-da}
 
-Yes. For many use cases, it is important to use more than one service to completely sercure your data. For more information about the deployable architecture that covers security services, check out [What is cloud security?](/docs/security-hub?topic=security-hub-cloud-security).
+Yes. For many use cases, it is important to use more than one service to completely sercure your data. For more information about the deployable architecture that covers security services, check out [What is cloud security?](/docs/security-hub?topic=security-hub-cloud-security)
 
 ## How do I get started?
 {: #get-started-data-protection}
