@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-13"
+  years: 2019, 2025
+lastupdated: "2025-04-09"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -54,7 +54,7 @@ data.
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
 | Availability | Provide high availability capabilities, such as {{site.data.keyword.IBM_notm}}-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
-| Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.at_full}}. | Use the provided tools to [review instance logs and activities](/docs/key-protect?topic=key-protect-at-events). |
+| Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.logs_full_notm}}. | Use the provided tools to [review instance logs and activities](/docs/cloud-logs). |
 | Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/get-support?topic=get-support-viewing-notifications){: external}, and monitor the [{{site.data.keyword.IBM_notm}} Cloud status page](/status?selected=announcement){: external} for general announcements. |
 {: caption="Responsibilities for incident and operations" caption-side="top"}
 

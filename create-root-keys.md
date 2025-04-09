@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-04-09"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -41,7 +41,7 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
 Encryption keys that are created in one region can be used to encrypt data stores located in any region within IBM Cloud.
 {: note}
 
-You can specify an expiration date when creating a root key. After performing the wrap, unwrap, rewrap, get key, or get key metadata actions on a key, an associated {{site.data.keyword.at_full}} event will send information on the date that the key expires and how many days are left until that day arrives. For more information on monitoring key expiration via {{site.data.keyword.at_full_notm}}, see [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
+You can specify an expiration date when creating a root key. After performing the wrap, unwrap, rewrap, get key, or get key metadata actions on a key, an associated {{site.data.keyword.logs_full_notm}} event will send information on the date that the key expires and how many days are left until that day arrives.
 
 ## Creating root keys in the console
 {: #create-root-key-gui}

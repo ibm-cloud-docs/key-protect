@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-04-09"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -146,9 +146,9 @@ Both the Reader and ReaderPlus roles help you assign read-only access to {{site.
 {: faq}
 {: support}
 
-You can use the {{site.data.keyword.at_full_notm}} service to track how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}} instance. For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.at_short}} event is generated. These events are automatically forwarded to the {{site.data.keyword.at_short}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
+You can use the {{site.data.keyword.logs_full_notm}} service to track how users and applications interact with your {{site.data.keyword.keymanagementserviceshort}} instance. For example, when you create, import, delete, or read a key in {{site.data.keyword.keymanagementserviceshort}}, an {{site.data.keyword.logs_full_notm}} event is generated. These events are automatically forwarded to the {{site.data.keyword.logs_full_notm}} service in the same region where the {{site.data.keyword.keymanagementserviceshort}} service is provisioned.
 
-To find out more, check out [{{site.data.keyword.at_full}} events](/docs/key-protect?topic=key-protect-at-events).
+To find out more, check out [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 
 ## How can I check what data is encrypted by which root key?
 {: #check-protected-data}

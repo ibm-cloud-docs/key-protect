@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-04-09"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -41,7 +41,7 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 
 * **Bring your encryption keys to the cloud**: Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
 * **Robust security**: Provision and store keys using FIPS 140-2 Level 3 certified hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
-* **Control and visibility**: Use the {{site.data.keyword.mon_full_notm}} service and {{site.data.keyword.at_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [Monitoring operational metrics](/docs/key-protect?topic=key-protect-operational-metrics) and [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
+* **Control and visibility**: Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 * **Simplified billing**: Track subscription and credit spending for all accounts from a single view. To learn more about keys, key versions, and pricing, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
 * **Self-managed encryption**: Create or import root and standard keys protect your data.
 * **Flexibility**: Apps on or outside IBM Cloud can integrate with the Key Protect APIs. {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of IBM database, storage, container, and ingestion services. For more information, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).

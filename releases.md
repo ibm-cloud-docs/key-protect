@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-04-09"
 
 keywords: key protect, release notes, service updates
 
@@ -516,15 +516,15 @@ Announcing {{site.data.keyword.keymanagementserviceshort}} CLI plug-in v.0.5.0
 {: #key-protect-may2920}
 {: release-note}
 
-Announcing new {{site.data.keyword.at_full_notm}} event field support
-:   Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will return updated event fields in [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external} logs. These updates will be available across all supported regions by 29 May 2020.
+Announcing new {{site.data.keyword.logs_full_notm}} event field support
+:   Beginning in late May 2020, {{site.data.keyword.keymanagementserviceshort}} will return updated event fields in [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external} logs. These updates will be available across all supported regions by 29 May 2020.
 
    - Successful replace registration, update registration, and unwrap key events
     will change from severity level `warning` to `normal`.
    - The `rewrapedKeyVersionId` field will change to `rewrappedKeyVersionId`.
    - The `TotalResources` field will change to `totalResources`.
-   - **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
-   - **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external} audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.
+   - **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.logs_full_notm}}.
+   - **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external} audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.
 
 ### 01 May 2020
 {: #key-protect-may0120}
@@ -562,10 +562,10 @@ Announcing support for key metadata and key versions
 {: release-note}
 
 Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will return updated event fields
-:    These updates will be available in [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external} logs across all supported regions by 15 April 2020. This change impacts the following {{site.data.keyword.at_full_notm}} event fields. Affected event fields include removed event fields, such as `meta`, `observer.typeURI`, `requestHeader`, `requestPath`, `responseBody`, `type`, and `typeURI`. The `eventTime` field will change from format `2020-02-03T20:20:37+0000` to `2020-02-03T20:20:37Z`. The `target.name` field is currently set to {{site.data.keyword.keymanagementserviceshort}}. This value will change to the name of the resource on which the operation was performed. For example, the name of the encryption key, or the name of your {{site.data.keyword.keymanagementserviceshort}} instance. New event fields include `requestData` and `responseData`.
+:    These updates will be available in [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external} logs across all supported regions by 15 April 2020. This change impacts the following {{site.data.keyword.logs_full_notm}} event fields. Affected event fields include removed event fields, such as `meta`, `observer.typeURI`, `requestHeader`, `requestPath`, `responseBody`, `type`, and `typeURI`. The `eventTime` field will change from format `2020-02-03T20:20:37+0000` to `2020-02-03T20:20:37Z`. The `target.name` field is currently set to {{site.data.keyword.keymanagementserviceshort}}. This value will change to the name of the resource on which the operation was performed. For example, the name of the encryption key, or the name of your {{site.data.keyword.keymanagementserviceshort}} instance. New event fields include `requestData` and `responseData`.
 
-   - **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.at_full_notm}}.
-   - **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-monitor_events){: external} audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.
+   - **Why are we making these changes?** These changes are required to remove deprecated event fields and support upcoming service enhancements for {{site.data.keyword.logs_full_notm}}.
+   - **How will the changes impact my environment?** This change impacts the event fields that are returned in [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external} audit logs when you perform {{site.data.keyword.keymanagementserviceshort}} actions. The change does not impact {{site.data.keyword.keymanagementserviceshort}} operations. As a security or compliance admin, ensure that the removed and changed event fields do not affect your audit operations.
 
 ### 25 February 2020
 {: #key-protect-feb2520}
@@ -670,8 +670,8 @@ Announcing private endpoint support
 {: #key-protect-jun2219}
 {: release-note}
 
-Announcing {{site.data.keyword.at_full_notm}} integration
-:   You can now monitor API calls to the {{site.data.keyword.keymanagementserviceshort}} service by using {{site.data.keyword.at_full_notm}}. To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [{{site.data.keyword.at_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
+Announcing {{site.data.keyword.logs_full_notm}} integration
+:   You can now monitor API calls to the {{site.data.keyword.keymanagementserviceshort}} service by using {{site.data.keyword.logs_full_notm}}. To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [{{site.data.keyword.logs_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## May 2019
 {: #key-protect-may19}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-09"
+  years: 2020, 2025
+lastupdated: "2025-04-09"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -66,7 +66,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is revoked.
 
 After access to the associated data is revoked, a corresponding `disable event`
-is displayed in the {{site.data.keyword.at_full}} web UI. The `disable event` indicates the
+is displayed in the {{site.data.keyword.logs_full_notm}} web UI. The `disable event` indicates the
 key has been revoked (and is now disabled) and the key can **not** be used for
 encrypt and decrypt operations.
 {: note}
@@ -86,7 +86,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is restored.
 
 After access to the associated data is restored, a corresponding `enable event`
-is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `enable event` indicates the
+is displayed in the {{site.data.keyword.logs_full_notm}} web UI. The `enable event` indicates the
 key has been restored (and is now enabled) and the key can be used for encrypt
 and decrypt operations.
 {: note}

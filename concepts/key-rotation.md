@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-04-09"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -86,7 +86,7 @@ To enable key rotation options for your {{site.data.keyword.cloud_notm}} data se
 
 After you rotate a root key, {{site.data.keyword.keymanagementserviceshort}} notifies the {{site.data.keyword.cloud_notm}} data services that use the key to protect your data. This notification triggers actions in those services to rewrap the key's associated data encryption keys (DEKs) with the latest key version.
 
-After {{site.data.keyword.keymanagementserviceshort}} receives confirmation from those services that all associated DEKs are rewrapped, you receive an event in your {{site.data.keyword.at_full_notm}} UI to show that the rotation is complete.
+After {{site.data.keyword.keymanagementserviceshort}} receives confirmation from those services that all associated DEKs are rewrapped, you receive an event in your {{site.data.keyword.logs_full_notm}} UI to show that the rotation is complete.
 
 ### Managing retired key versions
 {: #key-rotation-managing}
