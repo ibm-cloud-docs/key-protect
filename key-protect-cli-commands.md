@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-04-09"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -1676,7 +1676,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is revoked.
 
 After access to the associated data is revoked, a corresponding `disable event`
-is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `disable event` indicates the
+is displayed in the {{site.data.keyword.logs_full_notm}} web UI. The `disable event` indicates the
 key has been revoked (and is now disabled) and the key can **not** be used for
 encrypt and decrypt operations.
 
@@ -1904,7 +1904,7 @@ disabled root key, the service may take up to a maximum of 4 hours before access
 to the root key's associated data is restored.
 
 After access to the associated data is restored, a corresponding `enable event`
-is displayed in the {{site.data.keyword.at_full_notm}} web UI. The `enable event` indicates the
+is displayed in the {{site.data.keyword.logs_full_notm}} web UI. The `enable event` indicates the
 key has been restored (and is now enabled) and the key can be used for encrypt
 and decrypt operations, such as wrap, unwrap, and rewrap.
 

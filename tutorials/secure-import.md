@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-07-29"
+  years: 2017, 2025
+lastupdated: "2025-04-09"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -45,7 +45,7 @@ You can choose from
 [different options for uploading keys](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead)
 based on your ongoing security needs. As you manage the lifecycle of encryption
 keys, you control access to resources by using {{site.data.keyword.iamshort}},
-and you monitor API activity to the service with {{site.data.keyword.at_short}}.
+and you monitor API activity to the service with {{site.data.keyword.logs_full_notm}}.
 
 In this tutorial, you use an
 [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)

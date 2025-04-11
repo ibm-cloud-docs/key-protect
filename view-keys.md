@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-04-09"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -36,7 +36,7 @@ It is a good practice to audit your key configuration regularly:
 
 - Examine when keys were created and determine whether it's time to rotate the key.
 
-- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.at_short}}](/docs/key-protect?topic=key-protect-at-events).
+- [Monitor API calls to {{site.data.keyword.keymanagementserviceshort}} with {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 
 - Inspect which users have access to keys and if the level of access is appropriate.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2025-01-15"
+  years: 2024, 2025
+lastupdated: "2025-04-09"
 
 keywords:
 
@@ -40,12 +40,12 @@ The following table provides the dependency listing of this service following a 
 |:---|:---|:---|:---|:---|
 | IBM Cloud Hardware Security Module | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 | IBM Cloud Service Endpoints | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
-| IBMid | Access management, Availability, Change management, Instance control, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBMid | Access management, Availability, Change management, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | IBM Cloud Virtual Private Endpoint for VPC | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same zone  |
 | IBM Cloud Public IP Address Management | Availability, Change management, Instance control | No | Both |  Same region  |
-| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Virtual Servers | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 | IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
@@ -59,10 +59,11 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Global Search and Tagging | Availability, Instance control | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Global Search and Tagging | Availability, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Key Protect for IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Global Resource Catalog | Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
-| IBM Cloud Console | Availability, Change management, Instance control, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Console | Availability, Change management, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Key Protect for IBM Cloud service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -73,40 +74,15 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Classic Infrastructure Resource Management| Access management, Change management, Disaster recovery, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| Mezmo| Change management, Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Bare Metal| Change management, Security compliance | No | Both |  Same data center  |
-| IBM Cloud Activity Tracker event routing| Change management, Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Classic Infrastructure Resource Management| Access management, Change management, Disaster recovery, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Object Storage| Change management, Disaster recovery, Security compliance | No | Both |  Same region  |
-| IBM Cloud CLI | Change management, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud Secrets Manager| Change management, Disaster recovery, Operations, Security compliance | No | Both |  Same region  |
-| ServiceNow| Change management, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 {: row-headers}
 {: caption="IBM Key Protect for IBM Cloud service dependency information - Medium dependencies" caption-side="top"}
 {: tab-title="Medium dependencies"}
 {: tab-group="service-dependency-data-for-kms"}
 {: class="comparison-tab-table"}
 {: #medium-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
-
-|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
-|:---|:---|:---|:---|:---|
-| SOS Inventory Management| Security compliance | No | Both |  Same region  |
-| IBM Cloud VPN for VPC Site to Site Gateway| Operations, Security compliance | No | Both |  Same region  |
-| SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Business Support Services| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Log Analysis and IBM Cloud Activity Tracker| Access management, Operations, Security compliance | No | Both |  Same region  |
-| PagerDuty| Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| SOS SIEM| Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| SOS File Integrity Monitoring| Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| Slack| Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Monitoring| Operations, Security compliance | No | Both |  Same region  |
-{: row-headers}
-{: caption="IBM Key Protect for IBM Cloud service dependency information - Minimal dependencies" caption-side="top"}
-{: tab-title="Minimal dependencies"}
-{: tab-group="service-dependency-data-for-kms"}
-{: class="comparison-tab-table"}
-{: #minimal-deps}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 This table can be used to answer the following questions:
