@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-17"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -46,6 +46,11 @@ Although this diagram shows keys in a "pre-activation" state, a state defined in
 | Deactivated |       3         | A key moves into the _Deactivated_ state within one hour past its expiration date, if one is assigned. In this state, the only actions that can be performed on the key are unwrap, rewrap, rotate, and delete. |
 | Destroyed   |       5         | Keys are moved into the _Destroyed_ state after being deleted. Keys in this state can be recovered for 30 days but become eligible to be purged after 90 days. They can also be purged four hours after being moved into the _Destroyed_ state, if necessary. After being moved into a _Destroyed_ state, metadata that is associated with a key, such as its name and a record of when it last transitioned, is kept in the {{site.data.keyword.keymanagementserviceshort}} database until the key is purged. For more information, check out [About deleting and purging keys](/docs/key-protect?topic=key-protect-delete-purge-keys). |
 {: caption="Describes key states and transitions." caption-side="top"}
+
+Use caution when setting an expiration date, as keys created with an expiration date automatically transition to the _Deactivated_ state within one hour after expiration. In this state, the only allowed actions on the key are unwrap, rewrap, rotate, and delete. Deactivated keys cannot be used to encrypt (wrap) new data, even if rotated while deactivated. Rotation does not reset or extend the expiration date, nor does it allow the date to be changed. It is recommended that any data encrypted with an expiring or expired key be re-encrypted using a new customer root key (CRK) before the original CRK expires, to prevent service disruptions. Deleting and restoring a deactivated key does not move it back to the _Active_ state. If the expiration_date attribute is omitted, the key does not expire.
+{: important}
+
+You can monitor the usage of keys with expiration dates using [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs). The logs indicate the expiration date and the number of days remaining using the JSON properties `responseData.expirationDate` and `responseData.daysToKeyExpire` for keys that have expiration date and for the following `action` values: `kms.secrets.wrap`, `kms.secrets.unwrap`, `kms.secrets.rewrap`, `kms.secrets.read`, `kms.secrets.readmetadata`, `kms.secrets.create`, `kms.secrets-with-policy-overrides.create` and `kms.secrets.expire`. In addition, a successful REST call to `GET /api/v2/keys` returns the `expirationDate` property for each key that has an expiration date.
 
 ## Key states and service actions
 {: #key-states-service-actions}

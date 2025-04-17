@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-17"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -40,8 +40,6 @@ Root keys are symmetric key-wrapping keys that are used to protect the security 
 
 Encryption keys that are created in one region can be used to encrypt data stores located in any region within IBM Cloud.
 {: note}
-
-You can specify an expiration date when creating a root key. After performing the wrap, unwrap, rewrap, get key, or get key metadata actions on a key, an associated {{site.data.keyword.logs_full_notm}} event will send information on the date that the key expires and how many days are left until that day arrives.
 
 ## Creating root keys in the console
 {: #create-root-key-gui}
@@ -139,14 +137,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |key_name|**Required**. A human-readable name for convenient identification of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
 |alias_list|One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than dashes (-) or underscores (_). The alias cannot be a version 4 UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 - 90 characters (inclusive).|
 |key_description|An extended description of your key. Important: To protect your privacy, do not store your personal data as metadata for your key.|
-|expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (`YYYY-MM-DD HH:MM:SS.SS`, for example `2019-10-12T07:20:50.52Z`). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
+|expiration_date|**Optional**. The date and time that the key expires in the system, in RFC 3339 format (YYYY-MM-DD HH:MM:SS.SS, for example 2019-10-12T07:20:50.52Z). Use caution when setting an expiration date, as keys created with an expiration date automatically transition to the _Deactivated_ state within one hour after expiration. In this state, the only allowed actions on the key are unwrap, rewrap, rotate, and delete. Deactivated keys cannot be used to encrypt (wrap) new data, even if rotated while deactivated. Rotation does not reset or extend the expiration date, nor does it allow the date to be changed. It is recommended that any data encrypted with an expiring or expired key be re-encrypted using a new customer root key (CRK) before the original CRK expires, to prevent service disruptions. Deleting and restoring a deactivated key does not move it back to the _Active_ state. If the expiration_date attribute is omitted, the key does not expire. |
 |key_type|A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to false, the service creates a root key that you can use for wrap or unwrap operations.|
 {: caption="Describes the variables that are needed to add a root key with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
 
-To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
+Use caution when setting an expiration date, as keys created with an expiration date automatically transition to the _Deactivated_ state within one hour after expiration. In this state, the only allowed actions on the key are unwrap, rewrap, rotate, and delete. Deactivated keys cannot be used to encrypt (wrap) new data, even if rotated while deactivated. Rotation does not reset or extend the expiration date, nor does it allow the date to be changed. It is recommended that any data encrypted with an expiring or expired key be re-encrypted using a new customer root key (CRK) before the original CRK expires, to prevent service disruptions. Deleting and restoring a deactivated key does not move it back to the _Active_ state. If the expiration_date attribute is omitted, the key does not expire.
 {: important}
 
-If the `expirationDate` is provided in your create key request, the key will transition to the deactivated state within one hour past the key's expiration date.
+You can monitor the usage of keys with expiration dates using [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs). The logs indicate the expiration date and the number of days remaining using the JSON properties `responseData.expirationDate` and `responseData.daysToKeyExpire` for keys that have expiration date and for the following `action` values: `kms.secrets.wrap`, `kms.secrets.unwrap`, `kms.secrets.rewrap`, `kms.secrets.read`, `kms.secrets.readmetadata`, `kms.secrets.create`, `kms.secrets-with-policy-overrides.create` and `kms.secrets.expire`. In addition, a successful REST call to `GET /api/v2/keys` returns the `expirationDate` property for each key that has an expiration date.
+
+To protect the confidentiality of your personal data, avoid entering personally identifiable information (PII), such as your name or location, when you add keys to the service.
 {: note}
 
 A successful `POST api/v2/keys` response returns the ID value for your key, along with other metadata. The ID is a unique identifier that is assigned to your key and is used for subsequent calls to the {{site.data.keyword.keymanagementserviceshort}} API.
