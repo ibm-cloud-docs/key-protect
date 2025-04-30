@@ -121,9 +121,9 @@ toc:
       - topicgroup:
           label: Logging and monitoring
           topics:
-          - at-events.md
           - settings-monitor-metrics.md
           - monitor-metrics.md
+          - at-events.md
       - topicgroup:
           label: Enhancing security
           topics:
