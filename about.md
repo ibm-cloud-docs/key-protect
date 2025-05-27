@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-05-27"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases
 
@@ -47,7 +47,7 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 * **Flexibility**: Apps on or outside IBM Cloud can integrate with the Key Protect APIs. {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of IBM database, storage, container, and ingestion services. For more information, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
 * **Built-in protection**: Deleted keys, and their encrypted data, can never be recovered. Manage your user roles, key states, and set a rotation schedule that works for your use case using the UI, CLI, or API.
 * **Application-independent**: Generate, store, retrieve and manage keys independent of application logic.
-* **[Key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-kmip)** support, as [certified by VMWare](https://www.vmware.com/resources/compatibility/detail.php?productid=60700&kmsversionid=225&deviceCategory=kms){: external}, can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. And because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
+* **[Key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-kmip)** support, as [certified by VMWare](https://compatibilityguide.broadcom.com/detail?program=kms&productId=60700&persona=live){: external}, can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. And because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
 
 ## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
 {: #use-cases}

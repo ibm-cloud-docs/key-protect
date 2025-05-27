@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-05-27"
 
 keywords: Key Protect private endpoints, VPE, service endpoints
 
@@ -48,7 +48,7 @@ Before you target a VPE for
 
 1. Ensure that your {{site.data.keyword.cloud_notm}} infrastructure account is
     enabled for
-    [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint#vrf&interface=ui){: external}.
+    [virtual routing and forwarding (VRF)](/docs/account?topic=account-vrf-service-endpoint&interface=ui#vrf&interface=ui){: external}.
 
     When you enable VRF, a separate routing table is created for your account,
     and connections to and from your account's resources are routed separately

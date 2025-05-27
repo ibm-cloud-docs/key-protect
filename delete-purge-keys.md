@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-05-27"
 
 keywords: key purge, automatic purge, manual purge
 
@@ -56,7 +56,7 @@ Once a key has been purged, any API calls that use the Key ID of a purged key wi
 {{site.data.keyword.keymanagementserviceshort}} blocks the deletion of any key that's actively protecting any registered cloud resources. Before you delete a key:
 
 1. [Review the registered {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key. If needed, you can [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-keys-force-delete) that's protecting a registered cloud resource. However, the action won't succeed if the key's associated resource is non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy), which is a Write Once Read Many (WORM) policy set on the customer's relevant cloud resource.
-2. Verify whether a key has a retention policy by checking the `preventKeyDeletion` field of the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact [{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/mysupport) to remove the retention policy on each resource that is associated with the key before you can delete the key.
+2. Verify whether a key has a retention policy by checking the `preventKeyDeletion` field of the [registration details](/docs/key-protect?topic=key-protect-view-protected-resources#view-protected-resources-api) for the key. Then, you must contact [{{site.data.keyword.cloud_notm}} support](https://www.ibm.com/mysupport/s/) to remove the retention policy on each resource that is associated with the key before you can delete the key.
 3. Verify the key's deletion authorization policy. By default, keys in {{site.data.keyword.keymanagementserviceshort}} only require a single deletion authorization by a user with the _Manager_ role However, if a [dual authorization policy has been set](/docs/key-protect?topic=key-protect-manage-dual-auth), two users with the _Manager_ role will have to approve the deletion.
 
 {{site.data.keyword.keymanagementserviceshort}} restricts the ability to purge keys after only four hours to users with the [_KeyPurge_ role](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keys-specific-functions), which must be specifically set for a user as it is not enabled by default, even for the instance owner. This ability is restricted precisely because purged keys cannot be restored. If there is any doubt whether a key should be purged four hours after it has been deleted, **do not purge it**.

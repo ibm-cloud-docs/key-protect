@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-07-29"
+  years: 2017, 2025
+lastupdated: "2025-05-27"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -154,7 +154,7 @@ certified.
 If you or your company is a covered entity as defined by HIPAA, you can enable
 the HIPAA Supported setting for your {{site.data.keyword.cloud_notm}} account.
 To find out more, see
-[Enabling the HIPAA Supported setting](/docs/account?topic=account-eu-hipaa-supported#enabling-hipaa){: external}.
+[Enabling the HIPAA Supported setting](/docs/account?topic=account-enabling-hipaa){: external}.
 
 ### ISO 27001, 27017, 27018
 {: #iso}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-05-27"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -37,7 +37,7 @@ Cross-regional disaster recovery is only available for instances under a [pricin
 
 {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant, regional service.
 
-You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/blog/announcement/expansion-availability-zones-global-regions/){: external} to meet local access, low latency, and security requirements for the region.
+You can create {{site.data.keyword.keymanagementserviceshort}} resources in one of the supported [{{site.data.keyword.cloud_notm}} regions](/docs/key-protect?topic=key-protect-regions), which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. Each {{site.data.keyword.cloud_notm}} region contains [multiple availability zones](https://www.ibm.com/new){: external} to meet local access, low latency, and security requirements for the region.
 
 There are three regions, `us-south` (located in Dallas, Texas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany) where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure if you select the [Cross-region resiliency pricing plan](/docs/key-protect?topic=key-protect-pricing-plan). The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), the `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan), and the `eu-de` region has data replicated into a datacenter in the Paris region. This means that if service in `us-south`, `jp-tok`, or `eu-de` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. 
 
@@ -89,7 +89,7 @@ for !ok && attempt <= maxRetries {
 Once the maximum amount of retries has been reached and you have confirmed that
 the errors your application is experiencing are due to
 {{site.data.keyword.keymanagementserviceshort}}, open a
-[support ticket](https://www.ibm.com/mysupport){: external}
+[support ticket](https://www.ibm.com/mysupport/s/){: external}
 with details regarding your request.
 {: note}
 
