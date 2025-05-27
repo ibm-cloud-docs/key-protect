@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-05-27"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -91,7 +91,7 @@ Using the path: "/v1/zones" with the GET method will list the zones. Using POST,
 You can determine which services are available by checking for [reference targets](/apidocs/context-based-restrictions#list-available-serviceref-targets).
 {: note}
 
-After creating zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/account?topic=account-context-restrictions-remove) them.
+After creating zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ### Create Network Zones using the CBR UI
 {: #cbr-create-zone-ui}
@@ -101,7 +101,7 @@ With the prerequisites and requirements in place, you can follow the steps to [c
 Instead of creating a zone by using UI inputs, you can use the **JSON code form** to directly enter JSON to create a zone by clicking **Enter as JSON code**.
 {: note}
 
-After creating zones, you can also [update](/docs/account?topic=account-context-restrictions-update) and [delete](/docs/account?topic=account-context-restrictions-remove) them.
+After creating zones, you can also [update](/docs/account?topic=account-context-restrictions-update) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ## About Network Rules
 {: #cbr-network-rules}
@@ -162,7 +162,7 @@ When you create context-based restriction for the IAM Access Groups service, use
 Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Also, the rules may not take effect immediately due to synchronization and resource availability. 
 {: important}
 
-After creating rules, you can also [update](/docs/account?topic=account-context-restrictions-update&interface=ui) and [delete](/docs/account?topic=account-context-restrictions-remove&interface=ui) them.
+After creating rules, you can also [update](/docs/account?topic=account-context-restrictions-update&interface=ui) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules&interface=ui) them.
 
 ## Next steps
 {: #cbr-next-steps}

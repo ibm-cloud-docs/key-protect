@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-05-27"
 
 keywords: failed to create key, failed to delete key, delete service
 
@@ -265,17 +265,13 @@ seen by the {{site.data.keyword.cloud_notm}} development teams.
 
 - If you have technical questions about
     {{site.data.keyword.keymanagementserviceshort}}, post your question on
-    [Stack Overflow](https://stackoverflow.com/search?q=key-protect+ibm-cloud){: external}
+    [Stack Overflow](https://stackoverflow.com/questions/tagged/key-protect){: external}
     and tag your question with "ibm-cloud" and "key-protect".
 
 - For questions about the service and getting started instructions, use the
     [IBM developerWorks dW Answers](https://developer.ibm.com/){: external}
     forum. Include the "ibm-cloud" and "key-protect" tags.
 
-See
-[Asking a question](/docs/get-support?topic=get-support-using-avatar#asking-a-question){: external}
-for more details about using the forums.
-
 For more information about opening an {{site.data.keyword.IBM_notm}} support
 ticket, or about support levels and ticket severities, see
-[Contacting support](/docs/get-support){: external}.
+[Contacting support](https://www.ibm.com/mysupport/s/){: external}.

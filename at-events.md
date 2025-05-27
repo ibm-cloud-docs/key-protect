@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-27"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 {:term: .term}
 {:important: .important}
 
-# Activity tracking events using 
+# Activity tracking events 
 {: #at-events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.logs_full_notm}}
@@ -736,4 +736,3 @@ The following table lists the status codes associated with each severity level:
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
 {: caption="Table 11. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
-

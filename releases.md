@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-05-27"
 
 keywords: key protect, release notes, service updates
 
@@ -99,8 +99,6 @@ As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanag
 
 {{site.data.keyword.keymanagementserviceshort}} announces that {{site.data.keyword.keymanagementservicefull}} on Satellite is now available in the  {{site.data.keyword.cloud_notm}} `eu-de` Multi-Zone Region (MZR). Previously, only the `us-east` region was available. 
 
-For more information about {{site.data.keyword.keymanagementservicefull}} on Satellite, check out [About {{site.data.keyword.keymanagementservicefull}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
-
 ## November 2023
 {: #key-protect-nov23}
 
@@ -173,9 +171,7 @@ The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Uni
 As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanagementserviceshort}} on Satellite has been removed, as well as the ability to select {{site.data.keyword.keymanagementserviceshort}} on Satellite in the catalog.
 {: note}
 
-The {{site.data.keyword.keymanagementservicefull}} on Satellite [Pricing plan](/docs/key-protect?topic=key-protect-pricing-plan-satellite) is now active. Unlike the [pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan), the pricing for {{site.data.keyword.keymanagementserviceshort}} on Satellite is not based on key versions. Instead, reflecting the different use cases and infrastructure maintenance requirements for Satellite-based deployments, users are charged a flat rate for each location where they want {{site.data.keyword.keymanagementserviceshort}} installed and then an additional rate depending on the quota of keys they select at deployment time.
-
-For more information about {{site.data.keyword.keymanagementservicefull}} on Satellite, check out [About {{site.data.keyword.keymanagementservicefull}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
+The {{site.data.keyword.keymanagementservicefull}} on Satellite pricing plan is now active.
 
 ## March 2023
 {: #key-protect-mar23}
@@ -277,8 +273,6 @@ As of 11 March, 2025, all documentation relating to {{site.data.keyword.keymanag
 
 {{site.data.keyword.keymanagementservicefull}} announces new {{site.data.keyword.satellitelong_notm}} support
 :   {{site.data.keyword.keymanagementservicefull}} now supports [{{site.data.keyword.satellitelong_notm}}](/docs/satellite?topic=satellite-getting-started) where you use your own compute infrastructure that is in your on-premises data center, other cloud providers, or edge networks to more fully control your own encryption keys by creating your own instance of {{site.data.keyword.keymanagementserviceshort}}.
-
-    - For more information, check out [About {{site.data.keyword.keymanagementserviceshort}} on Satellite](/docs/key-protect?topic=key-protect-satellite-about).
 
 ## September 2021
 {: #key-protect-sep21}
@@ -662,16 +656,6 @@ Announcing private endpoint support
 :   You can now connect to {{site.data.keyword.keymanagementserviceshort}} over the {{site.data.keyword.cloud_notm}} private network by targeting a private endpoint for the service.
 
    - To get started, enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint){: external} for your infrastructure account. For more information, see [Using private endpoints](/docs/key-protect?topic=key-protect-private-endpoints).
-
-## June 2019
-{: #key-protect-jun19}
-
-### 22 June 2019
-{: #key-protect-jun2219}
-{: release-note}
-
-Announcing {{site.data.keyword.logs_full_notm}} integration
-:   You can now monitor API calls to the {{site.data.keyword.keymanagementserviceshort}} service by using {{site.data.keyword.logs_full_notm}}. To learn more about monitoring {{site.data.keyword.keymanagementserviceshort}} activity, see [{{site.data.keyword.logs_full_notm}} events](/docs/key-protect?topic=key-protect-at-events).
 
 ## May 2019
 {: #key-protect-may19}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-05-27"
 
 keywords: KMIP, VMWare, key protect
 
@@ -41,7 +41,7 @@ This feature works in parallel with the current KMIP for VMWare solution. It is 
 
 While many storage encryption solutions are available for your VMware workload, {{site.data.keyword.keymanagementserviceshort}} Native KMIP support offers the following benefits:
 
-* KMIP support in {{site.data.keyword.keymanagementserviceshort}} is [certified by VMWare](https://www.vmware.com/resources/compatibility/detail.php?productid=60700&kmsversionid=225&deviceCategory=kms){: external} and can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. 
+* KMIP support in {{site.data.keyword.keymanagementserviceshort}} is [certified by VMWare](https://compatibilityguide.broadcom.com/detail?program=kms&productId=60700&persona=live){: external} and can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. 
 * Integration with VMware vSAN encryption and vSphere encryption, both of which are implemented in the hypervisor layer rather than the storage or virtual machine layer. This approach allows easy management and transparency to your storage solution and application.
 * Fully managed key management server available in many {{site.data.keyword.cloud_notm}} multizone regions (MZRs).
 * Integrating your VMware cluster with {{site.data.keyword.cloud_notm}} {{site.data.keyword.keymanagementserviceshort}} provides you with fully customer-managed keys that you can revoke at any time.
@@ -74,11 +74,11 @@ Keep the private key of any uploaded certificates secure, as any certificate upl
 ## Configuring a KMIP client to communicate with an adapter
 {: #kmip-client}
 
-To communicate with your adapter, you must either [setup VMWare](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-55B17A13-13AB-4CA1-8D83-6515AA1FEC67.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
+To communicate with your adapter, you must either [setup VMWare](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security-7-0.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
 
-For VMWare vSphere, follow the steps outlined in [Add a Standard Key Provider Using the vSphere Client](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-55B17A13-13AB-4CA1-8D83-6515AA1FEC67.html). When adding a standard key provider, use the [{{site.data.keyword.keymanagementserviceshort}} endpoint](https://cloud.ibm.com/docs/key-protect?topic=key-protect-regions) specific to your instance's region. For example, for the {{site.data.keyword.keymanagementserviceshort}} instance in region `us-south` , use `us-south.kms.cloud.ibm.com` as the address and `5696` as the port, which is the default for the KMIP server. 
+For VMWare vSphere, follow the steps outlined in [Add a Standard Key Provider Using the vSphere Client](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security-7-0.html){: external}. When adding a standard key provider, use the [{{site.data.keyword.keymanagementserviceshort}} endpoint](https://cloud.ibm.com/docs/key-protect?topic=key-protect-regions) specific to your instance's region. For example, for the {{site.data.keyword.keymanagementserviceshort}} instance in region `us-south` , use `us-south.kms.cloud.ibm.com` as the address and `5696` as the port, which is the default for the KMIP server. 
 
-As described in step 4 above, the vSphere client needs to upload its client certificate in the adapter in order for it to communicate with the KMIP adapter. Follow the steps outlined in [Use the Certificate Option to Establish a Standard Key Provider Trusted Connection](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820.html#GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820) guide to download the client certificate. This certificate can be uploaded into the adapter.
+As described in step 4 above, the vSphere client needs to upload its client certificate in the adapter in order for it to communicate with the KMIP adapter. Follow the steps outlined in [Use the Certificate Option to Establish a Standard Key Provider Trusted Connection](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security-7-0.html#GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820) guide to download the client certificate. This certificate can be uploaded into the adapter.
 
 
 ## Granting access to KMIP 

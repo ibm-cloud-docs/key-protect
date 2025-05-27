@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-27"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -78,7 +78,6 @@ You can integrate {{site.data.keyword.keymanagementserviceshort}} with the follo
 | [{{site.data.keyword.speechtotextshort}}](/docs/speech-to-text?topic=speech-to-text-gettingStarted){: external} | You can use {{site.data.keyword.speechtotextshort}} to create customizable speech recognition for optimal text transcription in your application. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.texttospeechshort}}](/docs/text-to-speech?topic=text-to-speech-gettingStarted){: external} | You can use {{site.data.keyword.texttospeechshort}}'s speech-synthesis capabilities to convert written text into natural-sounding speech. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.aios_short}}](https://dataplatform.cloud.ibm.com/docs/content/wsj/model/getting-started.html){: external} | You can use {{site.data.keyword.aios_short}} to automate and maintain the AI lifecycle in your business applications. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
-| [{{site.data.keyword.conversationfull}}](/docs/assistant?topic=assistant-getting-started#getting-started){: external} | You can use {{site.data.keyword.conversationfull}} to to build your own branded live chatbot into any device, application, or channel. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.nlufull}}](/docs/natural-language-understanding?topic=natural-language-understanding-getting-started#getting-started){: external} | You can use {{site.data.keyword.nlufull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 | [{{site.data.keyword.personalityinsightsfull}}](/docs/natural-language-understanding?topic=natural-language-understanding-about){: external} | You can use {{site.data.keyword.personalityinsightsfull}} to analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment. | [View docs](/docs/watson?topic=watson-iam#gs-credential-cloud){: external} |
 {: caption="Supported compute services." caption-side="bottom"}

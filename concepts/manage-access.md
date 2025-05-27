@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-27"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -54,7 +54,7 @@ For more information about how platform and services roles work in {{site.data.k
 ### Best practices
 {: #manage-access-best-practices}
 
-There is a [limit](/docs/account?topic=account-known-issues#iam_limits) on the total number of policies that are allowed in an account. You can use a few strategies to ensure that you don't reach the limit and to reduce the amount of time that you spend managing access for the identities in your account (users, service IDs, or trusted profiles):
+There is a [limit](/docs/account?topic=account-cloudaccess#iam_limits) on the total number of policies that are allowed in an account. You can use a few strategies to ensure that you don't reach the limit and to reduce the amount of time that you spend managing access for the identities in your account (users, service IDs, or trusted profiles):
 
 * Use the principle of least privilege and assign only the access that is necessary. This can help you ensure that the identities in your account are limited to only the actions that you want to allow. For example, rather than the account owner sharing their credentials, which by default give them _Administrator_ and _Manager_ access over all resources under their account, create new policies for users who need access to the account and to each service instance (and its associated keys).
 * Add resources to a resource group to further minimize the number of necessary policies. For example, you might have a team working on a project that uses specific resources in your account. Add the team members to an access group or trusted profile with a policy that assigns access to only the resources that are in a specific resource group. This way, you don't need to assign a policy to each resource for each team member. For more information about assigning fine-grained access, check out [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-09"
+  years: 2020, 2025
+lastupdated: "2025-05-27"
 
 keywords: key rings, group keys, manage key groups
 
@@ -381,7 +381,7 @@ This action won't succeed if the key ring contains at least one key in a state o
 
     You can find the ID for a key ring in your
     {{site.data.keyword.keymanagementserviceshort}} instance by
-    [retrieving a list of your key rings](/docs/key-protect?topic=key-protect-grouping-keys#list-key-ring-api&interface=api).
+    [retrieving a list of your key rings](/docs/key-protect?topic=key-protect-grouping-keys&interface=api#list-key-ring-api).
 
 3. Run the following `curl` command to delete the key ring. Note the presence of `force=true`, which force deletes the key ring in the event that it contains keys in the _Destroyed_ state.
 

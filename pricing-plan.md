@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-05-27"
 
 keywords: pricing plan, billing, cost
 
@@ -72,7 +72,7 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}
 
-[Key management interoperability protocol (KMIP) symmetric keys](/docs/key-protect?topic=key-protect-kmip#kmip-adapter-view&interface=ui) are counted as a single key version and count toward your overall number of versions. Your KMIP symmetric keys can be located in the **KMIP** tab in the console or [through the API](/docs/key-protect?topic=key-protect-kmip#kmip-adapter-api-view-delete-objects&interface=api).
+[Key management interoperability protocol (KMIP) symmetric keys](/docs/key-protect?topic=key-protect-kmip&interface=ui#kmip-adapter-view) are counted as a single key version and count toward your overall number of versions. Your KMIP symmetric keys can be located in the **KMIP** tab in the console or [through the API](/docs/key-protect?topic=key-protect-kmip&interface=api#kmip-adapter-api-view-delete-objects).
 {: note}
 
 To see how many versions you have of each key you have deployed:
