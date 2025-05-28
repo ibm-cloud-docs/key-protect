@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-05-28"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -162,7 +162,7 @@ When you create context-based restriction for the IAM Access Groups service, use
 Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Also, the rules may not take effect immediately due to synchronization and resource availability. 
 {: important}
 
-After creating rules, you can also [update](/docs/account?topic=account-context-restrictions-update&interface=ui) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules&interface=ui) them.
+After creating rules, you can also [update](/docs/account?topic=account-context-restrictions-update&interface=ui) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ## Next steps
 {: #cbr-next-steps}
