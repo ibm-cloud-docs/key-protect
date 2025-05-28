@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-05-28"
 
 keywords: encryption key states, encryption key lifecycle, manage key lifecycle
 
@@ -90,4 +90,4 @@ If no expiration date is set on a key (and it is not manually suspended, deactiv
 
 After you add a key to the service, use the {{site.data.keyword.keymanagementserviceshort}} dashboard or the {{site.data.keyword.keymanagementserviceshort}} REST APIs to view the last time the key was transitioned.
 
-For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in a {{site.data.keyword.logs_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
+For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in an {{site.data.keyword.logs_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
