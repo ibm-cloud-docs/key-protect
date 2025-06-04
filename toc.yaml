@@ -48,10 +48,7 @@ toc:
           - tutorials/secure-import.md
           - link:
               label: Apply end to end security to a cloud application
-              href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-cloud-e2e-security
-          - link:
-              label: Enhance the security of your deployed application
-              href: https://{DomainName}/docs/tutorials?topic=solution-tutorials-extended-app-security
+              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security
   - navgroup:
       id: howto
       topics: 
