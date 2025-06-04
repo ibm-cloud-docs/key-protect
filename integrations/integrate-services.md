@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-04"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -48,7 +48,6 @@ following **database** services.
 | [{{site.data.keyword.databases-for-redis_full_notm}}](/docs/databases-for-redis){: external} | {{site.data.keyword.databases-for-redis_full_notm}} is a managed service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.messages-for-rabbitmq_full_notm}}](/docs/messages-for-rabbitmq){: external} | {{site.data.keyword.messages-for-rabbitmq_full_notm}} is a managed RabbitMQ service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.Db2_on_Cloud_long_notm}}](/docs/Db2onCloud){: external} | {{site.data.keyword.Db2_on_Cloud_long_notm}} is an SQL database that is provisioned for you in the cloud. You can use {{site.data.keyword.Db2_on_Cloud_short}} just as you would use any database software, but without the time and expense of hardware setup or software installation and maintenance. | [View docs](/docs/Db2onCloud?topic=Db2onCloud-key-management-services){: external}  |
-| [{{site.data.keyword.sqlquery_short}}](/docs/sql-query){: external}  | You can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data. | [View docs](/docs/sql-query?topic=sql-query-keyprotect){: external}  |
 {: caption="Supported database services." caption-side="bottom"}
 
 ## Storage service integrations

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-04"
 
 keywords: Key Protect availability, Key Protect disaster recovery
 
@@ -96,7 +96,7 @@ with details regarding your request.
 ## Disaster recovery
 {: #dr}
 
-{{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-zero-downtime#disaster-recovery){: external}.
+{{site.data.keyword.keymanagementserviceshort}} follows {{site.data.keyword.cloud_notm}} requirements for [planning and recovering from disaster events](/docs/overview?topic=overview-shared-responsibilities){: external}.
 
 Private endpoint settings, specifically the Internet Protocol (IP) address, may need to be manually updated during [Disaster recovery and business continuity actions](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
 {: important}
