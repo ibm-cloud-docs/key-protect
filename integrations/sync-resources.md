@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-09"
+  years: 2025
+lastupdated: "2025-06-05"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -86,7 +86,7 @@ Key's associated resources are synchronized successfully
 {: screen}
 
 ### Required parameters
-{: #kp-key-sync-required}
+{: #sync-associated-resources-kp-key-sync-required}
 
 * **`keyID_or_alias`**
 
@@ -99,7 +99,7 @@ Key's associated resources are synchronized successfully
    You can set an environment variable instead of specifying `-i` with the following command: **`$ export KP_INSTANCE_ID=<INSTANCE_ID>`**.
 
 ### Optional parameters
-{: #kp-key-sync-optional}
+{: #sync-associated-resources-kp-key-sync-optional}
 
 * **`-o, --output`**
 
