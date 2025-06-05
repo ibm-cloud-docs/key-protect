@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-06-05"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -163,6 +163,6 @@ For more information about rotating keys, check out [Bringing your encryption ke
 ### Creating your own key material
 {: #get-started-next-steps-best-practices-key-material}
 
-While it is comparatively simple to [Base64-encode key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material), it is important to follow [NIST guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf){: external} when creating your own key material. Improperly created key material can make your keys more susceptible to being compromised. Unless you feel confident in creating the appropriate key material yourself, the best practice is to let {{site.data.keyword.keymanagementserviceshort}} create your key material for you as part of the key creation process, which follows the latest NIST guidelines.
+While it is comparatively simple to [Base64-encode key material](/docs/key-protect?topic=key-protect-import-root-keys#how-to-encode-root-key-material), it is important to follow NIST guidelines when creating your own key material. Improperly created key material can make your keys more susceptible to being compromised. Unless you feel confident in creating the appropriate key material yourself, the best practice is to let {{site.data.keyword.keymanagementserviceshort}} create your key material for you as part of the key creation process, which follows the latest NIST guidelines.
 
 Because this key material can be used to [create a functionally duplicate key](#get-started-next-steps-best-practices-key-aliases), whether you have created the key material yourself or exported a {{site.data.keyword.keymanagementserviceshort}} created key, make sure you keep this key material secure.
