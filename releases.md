@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-27"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,14 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## July 2025
+{: #key-protect-july25}
+
+## 27 July 2025
+{: #key-protect-july2725}
+
+{{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Montreal MZR. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, check out [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
 
 ## March 2025
 {: #key-protect-mar25}
