@@ -31,11 +31,11 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-## July 2025
-{: #key-protect-july25}
+## June 2025
+{: #key-protect-june25}
 
-## 27 July 2025
-{: #key-protect-july2725}
+## 27 June 2025
+{: #key-protect-june2725}
 
 {{site.data.keyword.keymanagementserviceshort}} announces that it is now live in the Montreal MZR. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, check out [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
 
