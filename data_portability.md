@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-15"
+  years: 2020, 2025
+lastupdated: "2025-07-21"
 
 keywords: key protect, data portability
 
@@ -34,7 +34,7 @@ Users are responsible for the use of the exported data and configuration for dat
 * The planning and execution for the porting of the required application code on the alternative infrastructure, including the adaptation of customer’s application code, deployment automation, and so on.
 * The conversion of the exported data and configuration to the format that’s required by the alternative infrastructure and adapted applications.
 
-For more information about your responsibilities for {{site.data.keyword._service-name_notm}}, check out [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
+For more information about your responsibilities, check out [Understanding your responsibilities with using {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-shared-responsibilities#disaster-recovery).
 
 ## Data export procedures by key type
 {: #data-portability-procedures}
