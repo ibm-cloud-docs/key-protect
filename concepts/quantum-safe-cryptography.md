@@ -59,7 +59,7 @@ To keep your in-transit data resilient,
 use a post-quantum enabled TLS connection to ensure that your data is secure
 during the key exchange process.
 
-## What are the considerations of post-quantum Cryptography?
+## What are the considerations of post-quantum cryptography?
 {: #qsc-considerations}
 
 Before configuring your service to send requests to
