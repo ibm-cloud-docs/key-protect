@@ -18,8 +18,7 @@ toc:
       - topicgroup:
           label: About
           topics:
-          - about.md<staging-st>
-          - st-about.md</staging-st>
+          - about.md
           - topicgroup:
               label: Pricing
               topics:
@@ -56,8 +55,7 @@ toc:
       - topicgroup:
           label: Setting up the service
           topics:
-          - provision.md<staging-st>
-          - st.init-cli.md</staging-st>
+          - provision.md
           - grant-access-keys.md
           - topicgroup:
               label: Integrations
