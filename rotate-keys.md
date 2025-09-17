@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-09-17"
 
 keywords: rotate encryption key, encryption key rotation, rotate key API examples
 
@@ -55,9 +55,11 @@ Rotation is available only for root keys. To learn more about your key rotation 
 
 6. From the options menu, click **Rotate** to open the **Rotation** side panel.
 
-7. Under **Manage rotation policy**, select the 30-day intervals for key rotation you want. If a key is set to be rotated every `2` months, for example, it will be rotated every 60 days, regardless of the number of days in a particular month.
+7. From here, you can either rotate the key one time by clicking **Rotate key**. You can also (or as an alternative) set a policy for this key to be rotated on a interval of your choosing. To do this, under **Manage rotation policy**, **Enable** the policy, then select the 30-day interval for key rotation you want. If a key is set to be rotated every `2` months, for example, it will be rotated every 60 days, regardless of the number of days in a particular month.
 
-8. Click **Set policy** to establish this policy. If you want to rotate the key immediately, click **Rotate key**. Note: these actions are not mutually exclusive.
+8. If establishing a new policy, click **Set policy** to establish this policy.
+
+To learn about setting a rotation policy for your instance that sets a rotation policy on every subsequently created key, check out [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
 
 **For imported root keys only**, you must add base64 encoded key material that you want to store and manage in the service. Ensure that the key material is in 128, 192, or 256 bits and that the bytes of data (for example, 32 bytes for 256 bits) are encoded by using base64 encoding.
 {: important}
