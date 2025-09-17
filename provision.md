@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-08-18"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -26,6 +26,8 @@ subcollection: key-protect
 
 You can create an instance of {{site.data.keyword.keymanagementservicefull}} by using the {{site.data.keyword.cloud_notm}} console or the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
+
+
 
 ## Overview
 {: #provision-overview}
