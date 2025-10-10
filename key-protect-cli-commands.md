@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-10-10"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -149,6 +149,8 @@ More commands for managing
 | [kp region-set](#kp-region-set)       |               | Target a different regional endpoint |
 | [kp registrations](#kp-registrations) |            | List associations between root keys and other cloud resources |
 | [kp kmip](#kp-kmip)                                         |               | Create and manage KMIP adapters and associated resources. |
+| [kp crypto-unit](#kp-crypto-unit) | | Manage crypto units |
+| [kp crypto-units](#kp-crypto-units) | | List crypto units allocated to an instance |
 {: caption="Commands for managing other resources" caption-side="bottom"}
 
 [Key aliases](#kp-key-alias-create) can be used as identifiers for methods as shown in examples for [key create](#kp-key-create-example-7), [key disable](#kp-key-disable-example-3), and anywhere you see 'Key ID or Alias' supported here.
@@ -5457,6 +5459,228 @@ Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
 Deleting KMIP Object...
 OK
 ```
+
+## kp crypto-unit
+{: #kp-crypto-unit}
+
+The `kp crypto-unit` command allows you to manage your crypto units. Note that this command does nothing on its own. You must use one of the subcommands along with it.
+
+```
+NAME:
+  -ibmcloud key-protect crypto-unit - Manage crypto units
+
+USAGE:
+  ibmcloud key-protect crypto-unit command [arguments...] [command options]
+
+COMMANDS:
+  claim     Claim crypto unit(s)
+  mk        Commands to manage Master Keys (MKs) of crypto unit(s)
+  mks       List the MKs uploaded to crypto unit(s)
+  sig-key   Generate a signature key file compatible for use as a crypto unit user credential
+  user      Manage users in crypto unit(s)
+  users     List users in crypto unit(s)
+  help, h   Show help
+
+Enter 'ibmcloud key-protect crypto-unit help [command]' for more information about a command.
+```
+
+### `claim`
+{: #kp-crypto-unit-claim}
+
+```
+NAME:
+  claim - Claim crypto unit(s)
+
+USAGE:
+  claim --credential ADMIN_KEY_FILE
+
+OPTIONS:
+  --credential value  Required. Path to file containing signature key that will be associated with the user. Must be between 1 and 255 characters
+```
+
+### `mk`
+{: #kp-crypto-unit-mk}
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit mk - Commands to manage Master Keys (MKs) of crypto unit(s)
+
+USAGE:
+  ibmcloud key-protect crypto-unit mk command [arguments...] [command options]
+
+COMMANDS:
+  generate   Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit mk import` to upload an MK to a crypto unit
+  import     Import a Master Key (MK) to crypto unit(s)
+  help, h    Show help
+```
+
+#### `mk generate`
+{: #kp-crypto-unit-mk-generate}
+
+```
+NAME:
+  generate - Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit mk import` to upload an MK to a crypto unit
+
+USAGE:
+  generate --keyshare-files KEYSHARE_FILES --keyshare-minimum KEYSHARE_MINIMUM --algo ALGO --key-name KEYNAME --cu CRYPTO_UNITS
+
+OPTIONS:
+  --algo value              Required. Algorithm that generated MK will be compatible with. Only AES-256 is supported
+  --auth value              Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'
+  --cu value                Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+  --key-name value          Required. MK name. Must be between 1 and 8 characters
+  --keyshare-files value    Required. Array specifying file paths to write MK key share files to. Passphrase to encrypt file with is optional. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters
+  --keyshare-minimum value  Required. Number of key shares needed to reconstruct the MK. Must be between 2 and 255 and less than or equal to the number of keyshare files
+```
+
+#### `mk-import`
+{: #kp-crypto-unit-mk-import}
+
+```
+NAME:
+  import - Import a Master Key (MK) to crypto unit(s)
+
+USAGE:
+  import --keyshare-files KEYSHARE_FILES --auth AUTH
+
+OPTIONS:
+  --auth value            Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'
+  --cu value              Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+  --keyshare-files value  Required. Array specifying file paths to MK key share files. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters
+```
+
+### `mks`
+{: #kp-crypto-unit-mks}
+
+```
+NAME:
+  mks - List the MKs uploaded to crypto unit(s)
+
+USAGE:
+  mks --cu CRYPTO_UNITS
+
+OPTIONS:
+  --cu value  Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+```
+
+### `sig-key`
+{: #kp-crypto-unit-sig-key}
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit sig-key - Generate a signature key file compatible for use as a crypto unit user credential
+
+USAGE:
+  ibmcloud key-protect crypto-unit sig-key command [arguments...] [command options]
+
+COMMANDS:
+  generate   Generate a signature key file compatible for use as a crypto unit user credential
+  help, h    Show help
+
+Enter 'ibmcloud key-protect crypto-unit sig-key help [command]' for more information about a command.
+```
+
+#### `sig-key generate`
+{: #kp-crypto-unit-sig-key-generate}
+
+```
+NAME:
+  generate - Generate a signature key file compatible for use as a crypto unit user credential
+
+USAGE:
+  generate --file FILE --passphrase PASSWORD --algo RSA-2048
+
+OPTIONS:
+  --algo value      The algorithm type used to generate the signature key. Only RSA-2048 is supported
+  --file value      Required. The file path to write the signature key to. Must be between 1 and 255 characters
+  --passphrase value  Optional passphrase used to encrypt the signature key file
+```
+
+### `user`
+{: #kp-crypto-unit-user}
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit user - Manage users in crypto unit(s)
+
+USAGE:
+  ibmcloud key-protect crypto-unit user command [arguments...] [command options]
+
+COMMANDS:
+  add       Add new user to crypto unit(s)
+  remove    Remove user from crypto unit
+  help, h   Show help
+
+Enter 'ibmcloud key-protect crypto-unit user help [command]' for more information about a command.
+```
+
+#### `user-add`
+{: #kp-crypto-unit-user-add}
+
+```
+NAME:
+  add - Add new user to crypto unit(s)
+
+USAGE:
+  add --type TYPE --name NAME --credential CREDENTIAL --auth AUTH
+
+OPTIONS:
+  --auth value        Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'
+  --credential value  Required. Credential file path with optional passphrase to encrypt file with. Format: '/path/to/signature.key#filepassphrase'. File path must be between 1 and 255 characters. Passphrase must be between 4 and 255 characters
+  --cu value          Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+  --name value        Required. Name of the user to add. Must be between 1 and 255 characters
+  --type value        Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
+```
+
+#### `user-remove`
+{: #kp-crypto-unit-user-remove}
+
+```
+NAME:
+  remove - Remove user from crypto unit
+
+USAGE:
+  remove -u USER --cu CRYPTO_UNITS
+
+OPTIONS:
+  --cu value              Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+  -u value, --user value  Required. The username of the user to remove from crypto-unit(s)
+```
+
+### `users`
+{: #kp-crypto-unit-users}
+
+```
+NAME:
+  users - List users in crypto unit(s)
+
+USAGE:
+  users --cu CRYPTO_UNITS
+
+OPTIONS:
+  --cu value  Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'
+
+```
+
+## `kp crypto-units`
+{: #kp-crypto-units}
+
+The `kp crypto-units` command allows you to list your crypto units.
+
+```
+NAME:
+  ibmcloud kp - List crypto units allocated to instance
+
+USAGE:
+  ibmcloud crypto-units
+
+COMMANDS:
+
+Additional help topics:
+
+Use "export KP_INSTANCE_ID=TARGET_INSTANCE_ID" or "ibmcloud kp command [arguments...] [command options] -i TARGET_INSTANCE_ID" to set a target instance ID.
+```
+
 
 ## Next Steps
 {: #cli-reference-next-steps}

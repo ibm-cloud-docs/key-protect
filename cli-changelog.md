@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-08-19"
+  years: 2017, 2025
+lastupdated: "2025-10-10"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -31,6 +31,15 @@ you're notified when updates are available.
 
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+## CLI version 0.11.1
+{: #cli-changelog-0111}
+
+Release date (internal): 2025-10-13
+
+Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
+
+Addition of the [crypto-unit](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit) and [crypto-units](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-units) commands, along with subcommands, that allow for the creation, management, and listing of crypto units for single-tenant {{site.data.keyword.keymanagementserviceshort}}.
 
 ## CLI version 0.10.2
 {: #cli-changelog-08019024}
@@ -514,5 +523,3 @@ Release date: 2019-11-11
 
 - Fix bug in the JSON output format option (`--output json`) for all commands
     that support JSON output
-
-
