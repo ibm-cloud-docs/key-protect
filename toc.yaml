@@ -55,7 +55,13 @@ toc:
       - topicgroup:
           label: Setting up the service
           topics:
-          - provision.md
+          - topicgroup:
+              label: Creating an instance
+              topics:
+              - topic: provision.md
+                navtitle: Multi-tenant
+              - topic: st-init-cli.md
+                navtitle: Single-tenant
           - grant-access-keys.md
           - topicgroup:
               label: Integrations

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "title": "Key Protect",
-  "introduction": "IBM® Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud™ using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 certified cloud-based hardware security modules.",
+  "introduction": "IBM\u00ae Key Protect is a full-service encryption solution that allows data to be secured and stored in IBM Cloud\u2122 using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 certified cloud-based hardware security modules.",
   "product_page": "https://www.ibm.com/products/key-protect",
   "console_page": "/catalog/services/key-protect",
   "section_topics": {
