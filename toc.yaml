@@ -59,7 +59,7 @@ toc:
               label: Creating an instance
               topics:
               - topic: provision.md
-                navtitle: Multi-tenant
+                navtitle: Standard
           - grant-access-keys.md
           - topicgroup:
               label: Integrations
