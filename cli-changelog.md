@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-10-10"
+  years: 2017, 2026
+lastupdated: "2026-02-08"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -32,14 +32,7 @@ you're notified when updates are available.
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
 
-## CLI version 0.11.1
-{: #cli-changelog-0111}
 
-Release date (internal): 2025-10-13
-
-Changes in this [version](/docs/key-protect?topic=key-protect-key-protect-cli-reference) include:
-
-Addition of the [crypto-unit](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit) and [crypto-units](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-units) commands, along with subcommands, that allow for the creation, management, and listing of crypto units for single-tenant {{site.data.keyword.keymanagementserviceshort}}.
 
 ## CLI version 0.10.2
 {: #cli-changelog-08019024}
@@ -109,7 +102,6 @@ Support for the ability to [force the deletion of a key ring](/docs/key-protect?
 Also added the following info message that prints to `stderr` that says which {{site.data.keyword.keymanagementserviceshort}} endpoint a CLI action is going to hit.
 
 ```
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
 Listing KMIP Objects...
 OK
 Object ID                              Object Type     Object State   Created At                      Updated At   
