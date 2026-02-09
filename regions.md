@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-06-27"
+  years: 2017, 2026
+lastupdated: "2026-02-09"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -95,6 +95,7 @@ endpoints to use when you connect to the
 | S&atilde;o-Paulo | `br-sao.kms.cloud.ibm.com`   |
 | Madrid           | `eu-es.kms.cloud.ibm.com.`   |
 | Montreal         | `ca-mon.kms.cloud.ibm.com.`  |
+| Chennai          | `in-che.kms.cloud.ibm.com`.  |
 {: caption="Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -114,6 +115,7 @@ endpoints to use when you connect to the
 | S&atilde;o-Paulo | `private.br-sao.kms.cloud.ibm.com`           |
 | Madrid           | `private.eu-es.kms.cloud.ibm.com.`           |
 | Montreal         | `private.ca-mon.kms.cloud.ibm.com.`          |
+| Chennai          | `private.in-che.kms.cloud.ibm.com`           |
 {: caption="Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
