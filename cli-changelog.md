@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-08-19"
+  years: 2017, 2026
+lastupdated: "2026-02-08"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -31,6 +31,8 @@ you're notified when updates are available.
 
 Be sure to keep your CLI installation up-to-date so that you can use the latest commands and flags that are available for the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in.
 {: tip}
+
+
 
 ## CLI version 0.10.2
 {: #cli-changelog-08019024}
@@ -100,7 +102,6 @@ Support for the ability to [force the deletion of a key ring](/docs/key-protect?
 Also added the following info message that prints to `stderr` that says which {{site.data.keyword.keymanagementserviceshort}} endpoint a CLI action is going to hit.
 
 ```
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
 Listing KMIP Objects...
 OK
 Object ID                              Object Type     Object State   Created At                      Updated At   
@@ -514,5 +515,3 @@ Release date: 2019-11-11
 
 - Fix bug in the JSON output format option (`--output json`) for all commands
     that support JSON output
-
-

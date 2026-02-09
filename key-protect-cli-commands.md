@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-04-09"
+  years: 2017, 2026
+lastupdated: "2026-02-08"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5008,13 +5008,13 @@ These are examples of `kp kmip adapter-create`.
 This example creates KMIP adapter with the `native_1.0` profile
 ```sh
 $ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0 -d "my description"
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Adapter...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
 d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      my description  
 $ ibmcloud kp kmip adapters
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Listing KMIP Adapters...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At   
@@ -5044,20 +5044,20 @@ Note that there are some attributes to the adapter only visible in the JSON outp
 
 ```sh
 $ ibmcloud kp key create rootKmip
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating key: 'rootKmip', in instance: '8944cc2d-7e00-46b2-baa4-787051e0f7b3'...
 OK
 Key ID                                 Key Name   
 47a0ad90-204d-4e45-aa5b-68ed40a05fa2   rootKmip   
 $ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Adapter...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
 d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      -   
 # retreiving adapter by name
 $ ibmcloud kp kmip adapter myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Getting KMIP Adapter...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At                      Adapter Description   
@@ -5103,7 +5103,7 @@ These are examples of `kp kmip adapters`. Use the `-k` flag to only show adapter
 
 ```sh
 $ ibmcloud kp kmip adapters -n 100 -s 0
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Listing KMIP Adapters...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Created At                      Updated At   
@@ -5132,13 +5132,13 @@ These are examples of `kp kmip adapter-delete`.
 
 ```sh 
 $ ibmcloud kp kmip adapter-create -n adap -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Adapter...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
 e97e4297-4a6f-41c9-ae67-0920715964fd   native_1.0        adap           -   
 $ ibmcloud kp kmip adapter-delete e97e4297-4a6f-41c9-ae67-0920715964fd
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Deleting KMIP Adapter...
 OK
 ```
@@ -5175,13 +5175,13 @@ This example shows two ways of uploading the same certificate file.
 
 ```sh
 $ ibmcloud kp key create rootKmip
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating key: 'rootKmip', in instance: '8944cc2d-7e00-46b2-baa4-787051e0f7b3'...
 OK
 Key ID                                 Key Name   
 47a0ad90-204d-4e45-aa5b-68ed40a05fa2   rootKmip   
 $ ibmcloud kp kmip adapter-create -n myadapter -k 47a0ad90-204d-4e45-aa5b-68ed40a05fa2 -p native_1.0
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Adapter...
 OK
 Adapter ID                             Adapter Profile   Adapter Name   Adapter Description   
@@ -5190,7 +5190,7 @@ d6a00af1-277f-40e8-b33e-da3a68752209   native_1.0        myadapter      -
 $ export CERT=$(cat ./cert.pem) 
 
 $ ibmcloud kp kmip cert-create -n mycert -c "$CERT" -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Client Certificate...
 OK
 Certificate ID                         Certificate Name   Created At   
@@ -5199,12 +5199,12 @@ Certificate ID                         Certificate Name   Created At
 ## Alternatively, you can also provide the filepath of the certificate
 
 $ ibmcloud kp kmip cert-delete mycert -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Deleting KMIP Client Certificate...
 OK
 
 $ ibmcloud kp kmip cert-create -n mycert -c @./cert.pem -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Creating KMIP Client Certificate...
 OK
 Certificate ID                         Certificate Name   Created At   
@@ -5235,7 +5235,7 @@ Getting a certificate by name:
 
 ```sh
 $ ibmcloud kp kmip cert mycert -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Getting KMIP Client Certificate...
 OK
 Certificate ID                         Certificate Name   Created At   
@@ -5284,7 +5284,7 @@ These are examples of `kp kmip certs`.
 
 ```sh
 $ ibmcloud kp kmip certs -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Listing KMIP Client Certificates...
 OK
 Certificate ID                         Certificate Name   Created At   
@@ -5311,7 +5311,7 @@ These are examples of `kp kmip cert-delete`
 
 ```sh
 $ ibmcloud kp kmip cert-delete -a myadapter mycert
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Deleting KMIP Client Certificate...
 OK
 ```
@@ -5339,7 +5339,7 @@ These are examples of `kp kmip object`
 
 ```sh
 $ ibmcloud kp kmip object 12365a82-5404-4bd9-a4c7-2b628ee18304 -a testadapter 
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Getting KMIP Object...
 OK
 Object ID                              Object Type     Object State   Created At                      Updated At   
@@ -5402,7 +5402,7 @@ These are examples of `kp kmip objects`.
 
 ```sh
 $ ibmcloud kp kmip objects -a myadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Listing KMIP Objects...
 OK
 Object ID                              Object Type     Object State   Created At                      Updated At   
@@ -5421,7 +5421,7 @@ Using the `-f` flag to filter for objects of a specific state. Use commas to spe
 
 ```sh
 $ ibmcloud kp kmip objects -a testadapter -f 5,6
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Listing KMIP Objects...
 OK
 Object ID                              Object Type     Object State            Created At                      Updated At   
@@ -5453,10 +5453,12 @@ These are examples of `kp kmip object-delete`
 
 ```sh
 $ ibmcloud kp kmip object-delete 9b2f5af5-3534-4f02-8836-f89af37c4351 -a testadapter
-Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+Targeting endpoint: not shown
 Deleting KMIP Object...
 OK
 ```
+
+
 
 ## Next Steps
 {: #cli-reference-next-steps}

@@ -45,17 +45,21 @@ toc:
   - navgroup:
       id: tutorial
       topics:
-          - tutorials/secure-import.md
-          - link:
-              label: Apply end to end security to a cloud application
-              href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security
+      - tutorials/secure-import.md
+      - link:
+          label: Apply end to end security to a cloud application
+          href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security
   - navgroup:
       id: howto
-      topics: 
+      topics:
       - topicgroup:
           label: Setting up the service
           topics:
-          - provision.md
+          - topicgroup:
+              label: Creating an instance
+              topics:
+              - topic: provision.md
+                navtitle: Standard
           - grant-access-keys.md
           - topicgroup:
               label: Integrations
@@ -88,18 +92,18 @@ toc:
               - settings-key-create-import-access.md
               - manage-dual-auth.md
           - topicgroup:
-               label: Retrieving keys
-               topics:
-               - topic: view-keys.md
-                 navtitle: Retrieving a list of keys
-               - retrieve-key.md
-               - view-key-details.md
+              label: Retrieving keys
+              topics:
+              - topic: view-keys.md
+                navtitle: Retrieving a list of keys
+              - retrieve-key.md
+              - view-key-details.md
           - topicgroup:
-               label: Wrapping and unwrapping keys
-               topics:
-               - wrap-keys.md
-               - unwrap-keys.md
-               - rewrap-keys.md
+              label: Wrapping and unwrapping keys
+              topics:
+              - wrap-keys.md
+              - unwrap-keys.md
+              - rewrap-keys.md
           - topicgroup:
               label: Rotating keys
               topics:
