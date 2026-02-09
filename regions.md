@@ -41,6 +41,8 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 ![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg){: caption="Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
+Access to the Chennai region is allowlisted. If you cannot access or deploy in this region, open a [support ticket](https://www.ibm.com/mysupport/s/).
+
  
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in any supported {{site.data.keyword.cloud_notm}} region, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).
 
@@ -95,7 +97,7 @@ endpoints to use when you connect to the
 | S&atilde;o-Paulo | `br-sao.kms.cloud.ibm.com`   |
 | Madrid           | `eu-es.kms.cloud.ibm.com.`   |
 | Montreal         | `ca-mon.kms.cloud.ibm.com.`  |
-| Chennai          | `in-che.kms.cloud.ibm.com`.  |
+| Chennai (allowlisted)         | `in-che.kms.cloud.ibm.com`.  |
 {: caption="Lists public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
 {: #table-1}
 {: tab-title="Public"}
@@ -115,7 +117,7 @@ endpoints to use when you connect to the
 | S&atilde;o-Paulo | `private.br-sao.kms.cloud.ibm.com`           |
 | Madrid           | `private.eu-es.kms.cloud.ibm.com.`           |
 | Montreal         | `private.ca-mon.kms.cloud.ibm.com.`          |
-| Chennai          | `private.in-che.kms.cloud.ibm.com`           |
+| Chennai (allowlisted)         | `private.in-che.kms.cloud.ibm.com`           |
 {: caption="Lists private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
 {: #table-2}
 {: tab-title="Private"}
