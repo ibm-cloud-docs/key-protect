@@ -35,13 +35,14 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 
 {{site.data.keyword.keymanagementserviceshort}} is available in the following regions. This map might not reflect actual political or geographic boundaries.
+{: important}
 
 
 
 
 ![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map.svg){: caption="Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
-Access to the Chennai region is allowlisted. If you cannot access or deploy in this region, open a [support ticket](https://www.ibm.com/mysupport/s/).
+Access to the Chennai region is allowlisted. If this region is not available to you, open a [support ticket](https://www.ibm.com/mysupport/s/).
 {: important}
 
  
