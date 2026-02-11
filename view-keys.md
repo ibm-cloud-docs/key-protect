@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-04-09"
+  years: 2017, 2026
+lastupdated: "2026-02-11"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -26,10 +26,10 @@ subcollection: key-protect
 # Retrieving a list of {{site.data.keyword.keymanagementserviceshort}} keys
 {: #view-keys}
 
-{{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to keys to ensure the security of your resources.
+{{site.data.keyword.keymanagementservicefull}} provides a centralized system to view, manage, and audit your encryption keys. Audit your keys and access restrictions to keys to help ensure the security of your resources.
 {: shortdesc}
 
-While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), note that calling the [list keys API](/apidocs/key-protect#getkeys) does not return keys that you have assigned individual access to (that only you can access, in other words). Calling this API will however return the keys in key rings you have access to (if you have access to all of the keys in an instance, you will see all keys). You can, however, see the keys that only you have access to by following the instructions in [Viewing fine-grain access keys through IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam) to view the key through IAM or by using the API to pass the specific key ID.
+While you can [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level), the [list keys API](/apidocs/key-protect#getkeys) does not return keys with individual access permissions. In other words, it does not return keys that only you can access. However, calling this API returns the keys in key rings you have access to. If you have access to all keys in an instance, you see all keys. You can view keys with individual access permissions by following the instructions in [Viewing fine-grain access keys through IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam). Alternatively, use the API to pass the specific key ID.
 {: important}
 
 It is a good practice to audit your key configuration regularly:
@@ -56,13 +56,13 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click on **Keys**, which shows a list of all keys in your service instance. Keys can be filtered by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** using the drop-down lists. Additionally, the individual values (such as **Last rotated date**), can be sorted. The search bar can be used to search keys by their display name, key ID, and alias. Note that the quickest way to find a key is to search by its key ID. The fields found in the table can be customized using the **Settings** button. By default you can see:
+4. Click **Keys** to see a list of all keys in your service instance. You can filter keys by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** by using the drop-down lists. You can sort individual values such as **Last rotated date**. Use the search bar to search keys by their display name, key ID, and alias. The quickest way to find a key is to search by its key ID. You can customize the fields in the table by using the **Settings** button. By default, you can see:
 
 | Column | Description |
 | ------ | ----------- |
-| Name | The display name you gave to your key. |
+| Name | The display name that you gave to your key. |
 | Key ID | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
-| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
+| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) that the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
 | Last rotated | The date the last time the key was rotated. |
 | Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
 | Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
@@ -71,30 +71,31 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 Other available fields in the table include:
 
-* Last modified: indicating the last time the key was changed in any way.
-* Created: the date the key was created.
+* Last modified: indicating the last time that the key was changed in any way.
+* Created: the date that the key was created.
 * Deleted: showing whether a key is in a deleted state (awaiting purge) or not.
-* Imported: indicating whether the key was created using key material supplied by the user.
-* Rotation policy: showing whether this key has a rotation policy attached to it.
+* Imported: indicating whether the key was created by using key material that is supplied by the user.
+* Rotation policy: showing whether this key has a rotation policy that is attached to it.
 * Associated resources: shows whether the key is protecting any resources.
 
-The search capability is limited to a volume of 5,000 keys. If you have more than 5,000 keys, and you cannot filter the number of keys that will be searched to less than 5,000 (for example, by filtering by key state to only look for `Enabled` keys), your search will fail unless it exactly matches a key ID or alias. For more information about the API spec for key search, check out [GET /keys](/apidocs/key-protect#getkeys).
+The search capability is limited to a volume of 5,000 keys. If you have more than 5,000 keys and cannot filter the number to less than 5,000, your search fails unless it exactly matches a key ID or alias. For example, you can filter by key state to show only `Enabled` keys. For more information about the API spec for key search, see [GET /keys](/apidocs/key-protect#getkeys).
 {: tip}
 
-If you want to narrow the number of results returned by a search, try using one or a combination of the following parameters:
+If you want to narrow the number of results returned by a search, try applying one or a combination of the following parameters:
 
-* `not:` when specified, inverts the logic the search uses (for example, `not:foo` will search for keys that have aliases or names that do not contain `foo`).
-* `escape:` everything after this option is take as plaintext (example: `escape:not:` will search for keys that have an alias or name containing the substring `not:`).
+* `not:` when specified, inverts the logic that the search uses (for example, `not:foo` searches for keys that have aliases or names that do not contain `foo`).
+* `escape:` everything after this option is taken as plaintext (example: `escape:not:` searches for keys that have an alias or name that contains the substring `not:`).
 * `exact:` only looks for exact matches.
 * `alias:` only looks for key aliases.
 * `name:` only looks for key names.
 
-Note that `not:exact:foobar` will look for keys where key name or alias is *not* exactly `foobar`, while `exact:not:foobar` will look for keys where key name or alias is exactly `not:foobar`
+`not:exact:foobar` looks for keys where key name or alias is *not* exactly `foobar`, while `exact:not:foobar` looks for keys where key name or alias is exactly `not:foobar`.
+{: note}
 
-Search scopes behave in an *OR* manner. This means when using more than one search scope, a match in at least one of the scopes will result in the key being returned. By default (if no scopes are provided), the search is performed in both `name` and `alias` scopes.
+Search scopes behave in an *OR* manner. This means that when using more than one search scope, a match in at least one of the scopes results in the key being returned. By default (if no scopes are provided), the search is performed in both `name` and `alias` scopes.
 {: important}
 
-**Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance?** Verify with your administrator that you are assigned the correct role for the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
+**Not seeing the full list of keys that are stored in your {{site.data.keyword.keymanagementserviceshort}} instance?** Verify with your administrator that you are assigned in the correct role for the applicable {{site.data.keyword.keymanagementserviceshort}} instance or individual key. For more information about roles, see [Roles and permissions](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
 
 ### Retrieving keys by state
 {: #filter-key-state-gui}
@@ -107,7 +108,7 @@ For example, you might have keys in your {{site.data.keyword.keymanagementservic
 For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 {: note}
 
-[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), you have two options to view your keys. The first option, [View keys through the resource list](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-resource-list), works for all keys except those you have assigned [fine-grained access to](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). For information about how to view keys with fine-grain access, check out [Viewing fine-grain access keys IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam).
+[After you create or import your existing keys into the service](/docs/key-protect?topic=key-protect-create-root-keys), you have two options to view your keys. The first option, [View keys through the resource list](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-resource-list), works for all keys except those with [fine-grained access](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level). For information about viewing keys with fine-grain access, see [Viewing fine-grain access keys IAM](/docs/key-protect?topic=key-protect-view-keys&interface=ui#filter-key-state-gui-iam).
 
 #### Viewing keys through the resource list
 {: #filter-key-state-gui-resource-list}
@@ -135,9 +136,9 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 
 2. Select a table row, and click the ⋯ icon to open a list of options for that user. Then select **Manage Access** from the drop down list.
 
-3. Here you can see all of the IAM information for this user, including the Access groups they belong to. To specifically see the access policies for this user, click the **Access policies** tab.
+3. Here you can see all of the IAM information for this user, including the Access groups that they belong to. To specifically see the access policies for this user, click the **Access policies** tab.
 
-An account owner or user with the appropriate privileges can see all of the policies assigned to this user, including any fine-grained access over keys.
+An account owner or user with the appropriate privileges can see all of the policies that are assigned to this user, including any fine-grained access over keys.
 
 ## Viewing keys with the API
 {: #view-keys-api}
@@ -173,15 +174,15 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 
     Replace the variables in the example request according to the information in Table 1. For more information about optional parameters available when viewing collections of keys, including the ability to search your keys, see the [API documentation regarding the `List keys` method](/apidocs/key-protect#getkeys).
 
-|Variable|Description|
-|--- |--- |
-|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|keyID_or_alias|**Required**. The unique identifier or alias for the key that you want to inspect.|
-|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the target key ring. If unspecified, the response will include all resources that the user has access to in the specified instance. If provided, the response will only include resources that the user has access to in the specified key ring. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-|correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
-{: caption="Describes the variables that are needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+region | **Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints). |
+key_ID_or_alias | **Required**. The unique identifier or alias for the key that you want to inspect. |
+IAM_token | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
+instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
+key_ring_ID | **Optional**. The unique identifier of the target key ring. If unspecified, the response includes all resources that the user has access to in the specified instance. If provided, the response includes only resources that the user has access to in the specified key ring. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
+correlation_ID | **Optional**. The unique identifier that is used to track and correlate transactions. |
+{: caption="Table 1. Variables needed to view keys with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="bottom"}
 
 A successful `GET api/v2/keys` request returns a collection of keys that are available in your {{site.data.keyword.keymanagementserviceshort}} service instance. 
 
@@ -242,7 +243,7 @@ A successful `GET api/v2/keys` request returns a collection of keys that are ava
 
 By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys&interface=api#retrieve-subset-keys-api).
 
-Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to ensure you're assigned the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
+Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to help ensure you're assigned to the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
 {: tip}
 
 ### Retrieving a subset of keys
@@ -266,11 +267,11 @@ $ curl -X GET \
 
 Replace the `limit` and `offset` variables in your request according to the following table.
 
-|Variable|Description|
-|--- |--- |
-|offset|The number of keys to skip. For example, if you have 50 keys in your instance, and you want to list keys 26 - 50, use `../keys?offset=25`. You can also pair offset with limit to page through your available resources.|
-|limit|The number of keys to retrieve. For example, if you have 100 keys in your instance, and you want to list only 10 keys, use `../keys?limit=10`. The maximum value for limit is 5000.|
-{: caption="Table 2. Describes usage of the limit and offset variables." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+offset | The number of keys to skip. For example, if you have 50 keys in your instance and you want to list keys 26 - 50, use `../keys?offset=25`. You can also pair offset with limit to page through your available resources. |
+limit | The number of keys to retrieve. For example, if you have 100 keys in your instance and you want to list only 10 keys, use `../keys?limit=10`. The maximum value for limit is 5000. |
+{: caption="Table 2. Usage of the limit and offset variables" caption-side="bottom"}
 
 Offset is the location of a particular key in a data set. The `offset` value is zero-based, which means that the 10th encryption key in a data set is at offset 9.
 {: tip}
@@ -299,19 +300,19 @@ $ curl -X GET \
 
 Replace the `state` variable in your request according to the following table.
 
-|Variable|Description|
-|--- |--- |
-|state|The states of the keys to be retrieved. States are integers, where Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5 values. For example, if you want to only list keys in the active state in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?state=1`. You can also pair states with offsets and limits to page through your available resources.|
-{: caption="Describes the state variable." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+state | The states of the keys to be retrieved. States are integers where Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5. For example, if you want to list only keys in the active state in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?state=1`. You can also pair states with offsets and limits to page through your available resources. |
+{: caption="Table 3. The state variable" caption-side="bottom"}
 
 For usage notes, check out the following examples for setting your `state` query parameter.
 
-|URL|Description|
-|--- |--- |
-|`.../keys`|Lists all of your available resources, up to the first 200 keys.|
-|`.../keys?state=5`|Lists keys in the deleted state.|
-|`.../keys?state=2,3`|Lists keys in the suspended and deactivated state.|
-{: caption="Provides usage notes for the stage query parameter." caption-side="top"}
+URL | Description |
+|-----|-------------|
+`.../keys` | Lists all of your available resources, up to the first 200 keys. |
+`.../keys?state=5` | Lists keys in the deleted state. |
+`.../keys?state=2,3` | Lists keys in the suspended and deactivated state. |
+{: caption="Table 4. Usage notes for the state query parameter" caption-side="bottom"}
 
 ### Retrieving keys by Extractable value
 {: #filter-keys-extractable-state-api}
@@ -337,25 +338,25 @@ $ curl -X GET \
 
 Replace the `extractable` variable in your request according to the following table.
 
-|Variable|Description|
-|--- |--- |
-|extractable|The type of keys to be retrieved. Filters keys based on the extractable property. You can use this query parameter to search for keys whose material can leave the service. If set to true, standard keys will be retrieved. If set to false, root keys will be retrieved. If omitted, both root and standard keys will be retrieved. For example, if you want to only list keys with extractable material in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?extractable=true`. You can also pair extractable with `offset`, `limit`, and `state` to page through your available resources.|
-{: caption="Describes the extractable variable." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+extractable | The type of keys to be retrieved. Filters keys based on the extractable property. You can use this query parameter to search for keys whose material can leave the service. If set to `true`, standard keys are retrieved. If set to `false`, root keys are retrieved. If omitted, both root and standard keys are retrieved. For example, if you want to list only keys with extractable material in your {{site.data.keyword.keymanagementserviceshort}} instance, use `../keys?extractable=true`. You can also pair extractable with `offset`, `limit`, and `state` to page through your available resources. |
+{: caption="Table 5. The extractable variable" caption-side="bottom"}
 
 For usage notes, check out the following examples for setting your `extractable` query parameter.
 
-|URL|Description|
-|--- |--- |
-|`../keys`|Lists all of your available resources, up to the first 200 keys.|
-|`../keys?extractable=true`|Lists standard keys.|
-|`../keys?extractable=false`|Lists root keys.|
-{: caption="Provides usage notes for the extractable query parameter." caption-side="top"}
+URL | Description |
+|-----|-------------|
+`../keys` | Lists all of your available resources, up to the first 200 keys. |
+`../keys?extractable=true` | Lists standard keys. |
+`../keys?extractable=false` | Lists root keys. |
+{: caption="Table 6. Usage notes for the extractable query parameter" caption-side="bottom"}
 
 ### Sorting a list of keys
 {: #filter-keys-sort-api}
 {: api}
 
-Using the **`sort`** parameter in the query string [sorts the list of keys](/apidocs/key-protect#kp-get-key-sort-api) returned based on one or more key properties. To sort on a property in descending order, prefix the term with "-". To sort on multiple key properties, use a comma to separate each properties. The first property in the comma-separated list will be evaluated before the next. 
+Using the **`sort`** parameter in the query string [sorts the list of keys](/apidocs/key-protect#kp-get-key-sort-api) returned based on one or more key properties. To sort on a property in descending order, prefix the term with "-". To sort on multiple key properties, use a comma to separate each property. The first property in the comma-separated list is evaluated before the next.
 
 ```sh
 $ curl -X GET \
@@ -366,7 +367,7 @@ $ curl -X GET \
 ```
 {: codeblock}
 
-|Variable|Description|
-|--- |--- |
-| sort-value | The list of properties for sorting. The key properties that can be sorted at this time are:  \n \n- id \n- state \n- extractable \n- imported \n- creationDate \n- lastUpdateDate \n- lastRotateDate \n- deletionDate \n- expirationDate |
-{: caption="Usage notes for the sort query parameter." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+sort-value | The list of properties for sorting. The key properties that can be sorted currently are: `id`, `state`, `extractable`, `imported`, `creationDate`, `lastUpdateDate`, `lastRotateDate`, `deletionDate`, `expirationDate`. |
+{: caption="Table 7. Usage notes for the sort query parameter" caption-side="bottom"}

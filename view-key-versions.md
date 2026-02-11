@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2026
+lastupdated: "2026-02-11"
 
 keywords: key versions, get key versions, list key versions
 
@@ -74,8 +74,9 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/versions
     or by accessing the {{site.data.keyword.keymanagementserviceshort}}
     dashboard.
 
-3. Get a list of versions that are associated with the root key by running the
-    following `curl` command. You can also add a query parameter, `?totalCount=true`, as shown, that returns `totalCount` in the response metadata for use with pagination.
+3. Get a list of versions that are associated with the root key by running the following `curl` command.
+    
+    You can add a query parameter, `?totalCount=true`, as shown. This parameter returns `totalCount` in the response metadata for use with pagination.
 
     ```sh
     $ curl -X GET \
@@ -90,16 +91,16 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/versions
     Replace the variables in the example request according to the following
     table.
 
-|Variable|Description|
-|--- |--- |
-|region|**Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
-|keyID_or_alias|**Required**. The unique identifier or alias for the key that you want to inspect.|
-|IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
-|instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the key ring that the key is a part of. The header itself is optional, but if unspecified, {{site.data.keyword.keymanagementserviceshort}} will search for the key in every key ring associated with the specified instance. It is recommended to specify the key ring ID for a more optimized request. Note: The key ring ID of keys that are created without an `x-kms-key-ring` header is: default. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
-|show_total|**Optional**. If set to `true`, returns `totalCount` in the response metadata for use with pagination for all keys in an active state, unless `allKeyStates` is also set to true. The `totalCount` value returned specifies the total number of key versions that match the request, disregarding limit and offset. The default is set to false.|
-|allKeyStates|**Optional**. If not set to true, an HTTP 409 is returned for all non-active keys.
-{: caption="Describes the variables that are needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+Variable | Description |
+|----------|-------------|
+region | **Required**. The region abbreviation, such as `us-south` or `eu-gb`, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints). |
+key_ID_or_alias | **Required**. The unique identifier or alias for the key that you want to inspect. |
+IAM_token | **Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token). |
+instance_ID | **Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
+key_ring_ID | **Optional**. The unique identifier of the key ring that the key is a part of. If unspecified, {{site.data.keyword.keymanagementserviceshort}} searches for the key in every key ring that is associated with the specified instance. Specifying the key ring ID is recommended for a more optimized request. The key ring ID of keys that are created without an `x-kms-key-ring` header is `default`. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys). |
+show_total | **Optional**. If set to `true`, returns `totalCount` in the response metadata for use with pagination for all keys in an active state, unless `allKeyStates` is also set to `true`. The `totalCount` value returned specifies the total number of key versions that match the request, disregarding limit and offset. The default is set to `false`. |
+allKeyStates | **Optional**. If not set to `true`, an HTTP 409 is returned for all non-active keys. |
+{: caption="Table 1. Variables needed to list key versions with the {{site.data.keyword.keymanagementserviceshort}} API" caption-side="bottom"}
 
 A successful `GET api/v2/keys/<keyID_or_alias>/versions` response returns the list
 of versions that are associated with the root key. The following JSON object
