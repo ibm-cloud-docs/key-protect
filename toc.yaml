@@ -59,7 +59,6 @@ toc:
               label: Creating an instance
               topics:
               - topic: provision.md
-                navtitle: Standard
           - grant-access-keys.md
           - topicgroup:
               label: Integrations
