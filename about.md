@@ -1,30 +1,25 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-27"
+  years: 2017, 2026
 
-keywords: about Key Protect, about Key Management Service, Key Protect use cases
+lastupdated: "2026-03-05"
+
+keywords: about Key Protect, about Key Management Service, Key Protect use cases, Standard Key Protect, Dedicated Key Protect, single-tenant, multi-tenant
 
 subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
+{{site.data.keyword.attribute-definition-list}}
+
+
+
 
 # About {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} is a full-service encryption solution that allows data to be secured and stored in {{site.data.keyword.cloud_notm}} using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 certified cloud-based hardware security modules.
+{{site.data.keyword.keymanagementservicefull}} is a full-service encryption solution that allows data to be secured and stored in {{site.data.keyword.cloud_notm}} using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 (submitted for certification) cloud-based hardware security modules.
 {: shortdesc}
 
 Sensitive data should not be stored on any cloud provider unencrypted (as "plaintext", in other words). But just as with any method of encryption, going back to the earliest known ciphertexts created thousands of years ago, it's important not just to encrypt information so that it cannot be decoded easily but to protect the ciphers used to encrypt and decrypt it (since having a cipher is as good as having the data).
@@ -40,7 +35,7 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 {: #about-offers}
 
 * **Bring your encryption keys to the cloud**: Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
-* **Robust security**: Provision and store keys using FIPS 140-2 Level 3 certified hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
+* **Robust security**: Provision and store keys using FIPS 140-2 Level 3 (submitted for certification) hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
 * **Control and visibility**: Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 * **Simplified billing**: Track subscription and credit spending for all accounts from a single view. To learn more about keys, key versions, and pricing, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
 * **Self-managed encryption**: Create or import root and standard keys protect your data.
@@ -56,16 +51,13 @@ Here are a few common scenarios that explain how {{site.data.keyword.keymanageme
 
 | Scenarios | Reasons |
 | --------- | ------- |
-| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}} to generate and import encryption keys by using a multi-tenant service with shared hardware. |
+| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 (submitted for certification) hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}} to generate and import encryption keys by using a multi-tenant service with shared hardware. |
 | As an IT admin for a large corporation, you need to integrate, track, and rotate encryption keys for many different service offerings. | The {{site.data.keyword.keymanagementserviceshort}} interface simplifies the management of multiple encryption services. With the service, you can manage and sort encryption keys in one centralized location, or you can separate keys by project and house them in different {{site.data.keyword.cloud_notm}} spaces. |
 | As a developer, you want to integrate your pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}. | Apps on or outside {{site.data.keyword.cloud_notm}} can integrate with the {{site.data.keyword.keymanagementserviceshort}} APIs. You can use your own existing keys for your apps and import them into {{site.data.keyword.keymanagementserviceshort}}. |
 | Your development team has stringent policies, and you need a way to generate and rotate keys. | With {{site.data.keyword.keymanagementserviceshort}}, you can rapidly generate keys from an {{site.data.keyword.cloud_notm}} hardware security module (HSM). When it's time to replace a key, whether it was created using {{site.data.keyword.keymanagementserviceshort}} or imported, you can [rotate the key on-demand](/docs/key-protect?topic=key-protect-rotate-keys) or [set a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for the key to meet your on-going security needs. |
 | You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures. | With the service, you can control user access to manage keys by [assigning different IAM roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material. Similarly, users can be assigned the "Manager" role over only a single key, if needed. |
 | You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption keys, so you can manage and protect other keys that encrypt your data at rest. | With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap (encrypt) your data encryption keys with a highly secure root key](/docs/key-protect?topic=key-protect-envelope-encryption) and also unwrap that key when needed. You can bring your own root keys or create them in the service. |
 {: caption="Reasons to use {{site.data.keyword.keymanagementserviceshort}} in various scenarios." caption-side="top"}
-
-{{site.data.keyword.keymanagementserviceshort}} is a cloud-based key management system that provides the best of cost, security, and scale. If you are looking for a dedicated key management solution that supports customer-controlled, cloud-based HSMs [{{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started){: external} integrates with {{site.data.keyword.keymanagementserviceshort}} to enable Keep Your Own Keys (KYOK) for {{site.data.keyword.cloud_notm}}, so your organization has more control and authority over its data. Check out the [{{site.data.keyword.hscrypto}} offering details page](/catalog/services/hyper-protect-crypto-services){: external} to learn more.
-{: tip}
 
 ## How {{site.data.keyword.keymanagementserviceshort}} works
 {: #kp-how}
