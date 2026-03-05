@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-09-17"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -24,10 +24,16 @@ subcollection: key-protect
 # Getting started tutorial
 {: #getting-started-tutorial}
 
-{{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard. To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About key protect](/docs/key-protect?topic=key-protect-about).
+
+
+
+{{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard. To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 {: shortdesc}
 
+
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
+
+
 
 ## Getting started with encryption keys
 {: #get-started-keys}
@@ -40,7 +46,7 @@ Choose from two key types:
 
 * **Standard keys**: Symmetric keys that are typically used to directly encrypt and decrypt data such as secrets and passwords.
 
-While many of the topics in this documentation show how to accomplish tasks in both the console and with the APIs, there is also a separate API repo for the {{site.data.keyword.keymanagementserviceshort}} APIs. For that documentation, check out [{{site.data.keyword.keymanagementserviceshort}} API](https://cloud.ibm.com/apidocs/key-protect){: external}.
+While many of the topics in this documentation show how to accomplish tasks in both the console and with the APIs, there is also a separate API repo for the {{site.data.keyword.keymanagementserviceshort}} APIs. For that documentation, check out [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}.
 
 ## Creating new keys
 {: #create-keys}

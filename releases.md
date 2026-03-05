@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-08-18"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: key protect, release notes, service updates
 
@@ -167,7 +167,7 @@ The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is 
 
 The integration with AIX allows you to use {{site.data.keyword.powerSys_notm}} to leverage AIX file systems with the `keysvrmgr` and `hdcryptmgr` command. For more information, check out [Using Hyper Protect Crypto Services (HPCS) and Key Protect for AIX](/docs/power-iaas?topic=power-iaas-integrate-hpcs#AIX-hpcs).
 
-The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Unified Key Setup (LUKS) encryption keys from being compromised using {{site.data.keyword.keymanagementserviceshort}} as a single point of control to enable or disable access to data across the enterprise. This is done by successively wrapping encryption keys, with the ultimate control being a master key that resides in a hardware security module (HSM). For more information, check out [Using Hyper Protect Crypto Services (HPCS) or Key Protect for Linux](/docs/power-iaas?topic=power-iaas-integrate-hpcs#Linux-hpcs) and [Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and Key Protect](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/).
+The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Unified Key Setup (LUKS) encryption keys from being compromised using {{site.data.keyword.keymanagementserviceshort}}  as a single point of control to enable or disable access to data across the enterprise. This is done by successively wrapping encryption keys, with the ultimate control being a master key that resides in a hardware security module (HSM). For more information, check out [Using Hyper Protect Crypto Services (HPCS) or Key Protect for Linux](/docs/power-iaas?topic=power-iaas-integrate-hpcs#Linux-hpcs) and [Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and Key Protect](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/).
 
 ## April 2023
 {: #key-protect-apr23}
@@ -673,7 +673,7 @@ Announcing private endpoint support
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} now uses {{site.data.keyword.cloud_notm}} Hardware Security Module 7.0 for cryptographic storage and operations
-:   Your {{site.data.keyword.keymanagementserviceshort}} keys are stored in FIPS 140-2 Level 3-compliant, tamper-evident hardware for all regions. To learn more about the features and benefits of {{site.data.keyword.cloud_notm}} HSM 7.0, check out the [product page](/cloud/hardware-security-module){: external}.
+:   Your {{site.data.keyword.keymanagementserviceshort}} keys are stored in FIPS 140-2 Level 3 certified, tamper-evident hardware for all regions. To learn more about the features and benefits of {{site.data.keyword.cloud_notm}} HSM 7.0, check out the [product page](/cloud/hardware-security-module){: external}.
 
 ### 15 May 2019
 {: #key-protect-051519}

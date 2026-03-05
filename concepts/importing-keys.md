@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -24,6 +24,8 @@ subcollection: key-protect
 
 # Bringing keys into the cloud
 {: #importing-keys}
+
+
 
 Encryption keys contain subsets of information, such as the metadata that helps
 you identify the key, and the _key material_ that's used to encrypt and decrypt
@@ -59,8 +61,7 @@ material to the service.
 Explore your options for creating 256-bit symmetric encryption keys based on
 your security needs.
 
-For example, you can use your internal key management system, backed by a
-FIPS-validated, on-premises hardware security module (HSM), to generate key
+For example, you can use your internal key management system, backed by an on-premises hardware security module (HSM), to generate key
 material before you bring keys to the cloud.
 
 If you're building a proof of concept, you can also use a cryptography toolkit

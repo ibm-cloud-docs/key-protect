@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-04-09"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -44,7 +44,7 @@ You can use the following FAQ to help you with {{site.data.keyword.keymanagement
 {: #faq-instance-secured}
 {: faq}
 
-Each {{site.data.keyword.keymanagementserviceshort}} instance gets a randomly-generated "instance key-encrypted-key" (IKEK) which is wrapped by the HSM master key, producing a wrapped instance key (WIKEK). No user has access to the WIKEK or the IKEK, and even {{site.data.keyword.IBM_notm}} does not have access to the IKEK. There is no direct or explicit access to the WIKEK by {{site.data.keyword.IBM_notm}}, and it is encrypted by the master key.
+Each {{site.data.keyword.keymanagementserviceshort}}  instance gets a randomly-generated "instance key-encrypted-key" (IKEK) which is wrapped by the HSM master key, producing a wrapped instance key (WIKEK). No user has access to the WIKEK or the IKEK, and even {{site.data.keyword.IBM_notm}} does not have access to the IKEK. There is no direct or explicit access to the WIKEK by {{site.data.keyword.IBM_notm}}, and it is encrypted by the master key.
 
 ## What is an active encryption key?
 {: #what-is-active-encryption-key}
