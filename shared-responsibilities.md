@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-09"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -57,7 +57,7 @@ You are responsible for change management of your application data.
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
 | Applications | Provide major, minor, and patch version updates for {{site.data.keyword.keymanagementserviceshort}} interfaces. | Use the API, CLI, or console tools to apply the provided updates, including version updates, new features, and security patches. |
-{: caption="Table 3. Responsibilities for change management - Key Protect Standard" caption-side="bottom"}
+{: caption="Table 3. Responsibilities for change management - Key Protect " caption-side="bottom"}
 
 
 
