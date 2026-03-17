@@ -46,6 +46,9 @@ see
 [How do I know that my data is safe?](/docs/overview?topic=overview-security#security){: external}.
 {: tip}
 
+You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to manage {{site.data.keyword.keymanagementserviceshort}} security configurations as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
+
 ### Data encryption
 {: #data-encryption}
 

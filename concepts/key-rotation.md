@@ -131,3 +131,5 @@ Keys do not rotate at precisely the same time of the day the key was created. Th
 - For more information about manually rotating root keys, check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 - For more information about viewing the key versions that are available for a root key, check out [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
+
+- To automate key rotation with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

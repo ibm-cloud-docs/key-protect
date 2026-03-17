@@ -204,9 +204,30 @@ Use this process to create a random base64-encoded key material with a specific 
 
 3. `openssl rand -base64 32` will generate a 256-bit key material.
 
+## Importing root keys with Terraform
+{: #import-root-key-terraform}
+
+You can use Terraform to import and manage root keys as code. The [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module enables you to create and import keys in an existing {{site.data.keyword.keymanagementserviceshort}} instance.
+
+```hcl
+module "kms_key" {
+  source          = "terraform-ibm-modules/kms-key/ibm"
+  version         = "latest"
+  kms_instance_id = var.kms_instance_id
+  key_name        = "my-imported-root-key"
+  standard_key    = false
+  payload         = var.base64_encoded_key_material
+}
+```
+{: codeblock}
+
+For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+
 ## What's next
 {: #import-root-key-next-steps}
 
 - To find out more about protecting keys with envelope encryption, check out [Wrapping keys](/docs/key-protect?topic=key-protect-wrap-keys).
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+- To automate key imports with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

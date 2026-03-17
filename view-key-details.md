@@ -135,3 +135,5 @@ Need to retrieve the `payload` value for a standard key? To learn more, see
 For a detailed description of the response parameters, see the
 {{site.data.keyword.keymanagementserviceshort}}
 [REST API reference doc](/apidocs/key-protect){: external}.
+
+- To automate key management with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

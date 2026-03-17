@@ -224,3 +224,5 @@ To find out more about programmatically managing your keys in
 - To learn how to create an import token for your {{site.data.keyword.keymanagementserviceshort}} instance, see [Creating an import token](/docs/key-protect?topic=key-protect-create-import-tokens).
 
 - To find out more about importing keys to the service, see [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
+
+- To automate key management with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

@@ -39,6 +39,9 @@ Unsure which {{site.data.keyword.cloud_notm}} security is right for your use cas
 ## What {{site.data.keyword.keymanagementserviceshort}} offers
 {: #about-offers}
 
+You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to manage {{site.data.keyword.keymanagementserviceshort}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
+
 * **Bring your encryption keys to the cloud**: Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
 * **Robust security**: Provision and store keys using FIPS 140-2 Level 3 certified hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
 * **Control and visibility**: Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).

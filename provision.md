@@ -369,8 +369,36 @@ Message: [409, Conflict] Conflict: Instance contains 2 active keys. Remove all k
 ```
 {: screen}
 
+## Provisioning with Terraform
+{: #provision-terraform}
+
+You can use Terraform to provision and manage {{site.data.keyword.keymanagementserviceshort}} instances, keys, and key rings as code. The [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module provides a comprehensive solution for provisioning a Key Protect instance with keys and key rings in a single deployment.
+
+```hcl
+module "key_protect_all_inclusive" {
+  source            = "terraform-ibm-modules/kms-all-inclusive/ibm"
+  version           = "latest"
+  resource_group_id = var.resource_group_id
+  region            = var.region
+  key_protect_instance_name = "my-key-protect-instance"
+  keys = [
+    {
+      key_ring_name = "my-key-ring"
+      keys = [
+        { key_name = "my-root-key" }
+      ]
+    }
+  ]
+}
+```
+{: codeblock}
+
+For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+
 ## What's next
 {: #provision-service-next-steps}
 
 To find out more about programmatically managing your keys,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+- To automate {{site.data.keyword.keymanagementserviceshort}} provisioning with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

@@ -277,3 +277,6 @@ The following table lists which APIs you can use to retrieve data related to a d
 | [Get key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata)     | Retrieve key metadata                                    |
 | [Get registrations](/docs/key-protect?topic=key-protect-view-protected-resources) | Retrieve a list of registrations associated with the key |
 {: caption="Lists the API that users can use to view details about a key and its registrations." caption-side="top"}
+
+You can also use the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module to manage keys as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

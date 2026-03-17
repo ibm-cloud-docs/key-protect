@@ -146,7 +146,27 @@ $ curl -X GET \
 ```
 {: codeblock}
 
+## Creating standard keys with Terraform
+{: #create-standard-key-terraform}
+
+You can use Terraform to create and manage standard keys as code. The [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module enables you to create keys in an existing {{site.data.keyword.keymanagementserviceshort}} instance.
+
+```hcl
+module "kms_key" {
+  source          = "terraform-ibm-modules/kms-key/ibm"
+  version         = "latest"
+  kms_instance_id = var.kms_instance_id
+  key_name        = "my-standard-key"
+  standard_key    = true
+}
+```
+{: codeblock}
+
+For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+
 ## What's next
 {: #create-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
+- To automate key creation with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

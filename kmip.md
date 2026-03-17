@@ -381,3 +381,6 @@ KMIP objects cannot be created through the REST API, but they can be viewed and 
     {: codeblock}
 
     Where the `<object_id>` is the UUID of the KMIP object. You cannot delete KMIP objects in the Active (state=2) state.
+
+You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module to manage {{site.data.keyword.keymanagementserviceshort}} instances and KMIP adapters as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

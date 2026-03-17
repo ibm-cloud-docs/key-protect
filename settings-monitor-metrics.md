@@ -245,3 +245,5 @@ Optional: Verify that the metrics policy was updated by browsing
     {{site.data.keyword.keymanagementserviceshort}} instance with
     {{site.data.keyword.mon_short}}, check out
     [Monitoring Operational Metrics](/docs/key-protect?topic=key-protect-operational-metrics).
+
+- To automate {{site.data.keyword.keymanagementserviceshort}} with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

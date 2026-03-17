@@ -276,3 +276,5 @@ Any combination of these attributes can be applied in a policy. If that policy h
 Account owners and admins can invite users and set service policies that correspond to the {{site.data.keyword.keymanagementserviceshort}} actions the users can perform.
 
 - For more information about assigning user roles in the {{site.data.keyword.cloud_notm}} UI, see [Managing IAM access](/docs/account?topic=account-account-getting-started){: external}.
+
+- To automate {{site.data.keyword.keymanagementserviceshort}} with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

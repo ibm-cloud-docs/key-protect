@@ -214,3 +214,9 @@ alias.
 | [Retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) | You can retrieve a key by ID or alias. |
 | [View key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata) | You can retrieve the metadata of a key by ID or alias. |
 {: caption="Describes the variables that are APIs that use key alias." caption-side="top"}
+
+## What's next
+{: #create-key-alias-next-steps}
+
+You can also use the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module to manage keys and key aliases as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

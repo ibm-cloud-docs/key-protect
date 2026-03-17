@@ -186,6 +186,25 @@ You can also list the versions that are available for the key by using the
 [Viewing key versions](/docs/key-protect?topic=key-protect-view-key-versions).
 {: tip}
 
+## Rotating keys with Terraform
+{: #rotate-key-terraform}
+
+You can use Terraform to manage key rotation as code. The [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module enables you to configure automatic rotation policies for keys.
+
+```hcl
+module "kms_key" {
+  source                  = "terraform-ibm-modules/kms-key/ibm"
+  version                 = "latest"
+  kms_instance_id         = var.kms_instance_id
+  key_name                = "my-root-key"
+  standard_key            = false
+  rotation_interval_month = 3
+}
+```
+{: codeblock}
+
+For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+
 ### Using an import token to rotate a key
 {: #rotate-keys-secure-api}
 {: api}

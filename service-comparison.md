@@ -121,3 +121,4 @@ Each service supports either a Lite plan or a free trial that you can use to try
 - [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){: external}
 - [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){: external}
 - [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external}
+- To automate {{site.data.keyword.keymanagementserviceshort}} with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).
