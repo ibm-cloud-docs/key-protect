@@ -137,5 +137,3 @@ key.
 - For more information about associating your storage buckets with
 {{site.data.keyword.keymanagementserviceshort}} keys, see
 [Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.
-
-- To automate key management with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

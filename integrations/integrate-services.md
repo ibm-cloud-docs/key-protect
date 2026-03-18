@@ -30,9 +30,6 @@ customer-managed keys for those services. Encryption with customer-managed
 encryption keys is sometimes called Bring Your Own Key (BYOK).
 {: shortdesc}
 
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to provision and manage {{site.data.keyword.keymanagementserviceshort}} instances, keys, and integrations as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 ## Database service integrations
 {: #database-integrations}
 
@@ -212,4 +209,3 @@ key that you want to use for advanced encryption.
     {{site.data.keyword.keymanagementserviceshort}} service, see
     [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
 
-- To automate key management with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

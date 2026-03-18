@@ -32,9 +32,6 @@ instance, you can manage keyCreateImportAccess policies by using the
 ## Managing keyCreateImportAccess settings
 {: #manage-keyCreateImportAccess-instance-policy}
 
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to manage key create and import access policies as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 A keyCreateImportAccess policy for
 {{site.data.keyword.keymanagementserviceshort}} instances is an access policy
 that you can use to restrict how keys are created and imported into your

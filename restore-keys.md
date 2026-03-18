@@ -199,6 +199,3 @@ Review the `state` field in the response body to verify that the key transitione
 
 The integer mapping for the _Active_ key state is `1`.
 {: note}
-
-You can also use the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module to manage keys as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}

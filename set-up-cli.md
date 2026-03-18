@@ -182,6 +182,3 @@ To update the CLI:
 
 ## What's next
 {: #set-up-cli-next-steps}
-
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module to manage {{site.data.keyword.keymanagementserviceshort}} instances and keys as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}

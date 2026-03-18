@@ -104,9 +104,6 @@ If you want to rotate the key immediately, click **Rotate key**. Note: these act
 
 When it's time to rotate the key based on the rotation interval that you specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces the root key with new key material.
 
-You can also use the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key){: external} module to configure rotation policies as code when creating or managing keys. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 
 
 

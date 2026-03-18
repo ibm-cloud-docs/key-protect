@@ -30,9 +30,6 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 ## Managing CBR settings
 {: #manage-cbr-settings}
 
-You can also use the [Context-Based Restrictions module](https://github.com/terraform-ibm-modules/terraform-ibm-cbr){: external} module to manage context-based restriction zones and rules as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 [CBR](/docs/account?topic=account-context-restrictions-whatis) allows you to manage user and service access to network resources, including Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses linking your {{site.data.keyword.keymanagementserviceshort}} resources.
 
 For more information about the services integrated with CBR, check out [Services integrated with context-based restrictions](/docs/account?topic=account-context-restrictions-whatis#cbr-access-reqs-target-service).
@@ -174,5 +171,3 @@ Users who attempt to access your resources outside of the defined zones will rec
 {: note}
 
 Follow the creation or modification of any zones or rules with adequate testing to ensure access and availability.
-
-- To automate context-based restrictions with Terraform, see the [Context-Based Restrictions module](https://github.com/terraform-ibm-modules/terraform-ibm-cbr){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

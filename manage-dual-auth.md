@@ -34,9 +34,6 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 ## Managing dual authorization settings
 {: #manage-dual-auth-instance-policy}
 
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to manage dual authorization policies as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 Dual authorization policies (also known as "dual auth" policies) can be set at the instance level, where it is automatically applied to any subsequently created keys, or on specific keys. Whatever the method used to generate the policy on a key, the authorization of two administrators is required to delete the key.
 
 ### Considerations for setting a dual auth policy

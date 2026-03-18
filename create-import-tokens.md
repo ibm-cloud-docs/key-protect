@@ -142,4 +142,3 @@ In the example, the `payload` value represents the public key that is associated
 
 - To find out more about using an import token to securely bring encryption keys to {{site.data.keyword.cloud_notm}}, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
 - For a guided tutorial on using import tokens in {{site.data.keyword.keymanagementserviceshort}}, see [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
-- To automate key management with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

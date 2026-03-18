@@ -99,6 +99,3 @@ When you connect to a VPE by using the [CLI](/docs/vpc?topic=vpc-ordering-endpoi
 |            | `private.au-syd.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:au-syd:::endpoint:private.au-syd.kms.cloud.ibm.com`     |
 |            | `private.jp-tok.kms.cloud.ibm.com`   | `crn:v1:bluemix:public:kms:jp-tok:::endpoint:private.jp-tok.kms.cloud.ibm.com`     |
 {: caption="Table 1. VPE endpoints and CRNs for {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
-
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module to manage {{site.data.keyword.keymanagementserviceshort}} instances and networking configuration as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}

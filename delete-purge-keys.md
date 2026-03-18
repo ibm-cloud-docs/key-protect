@@ -96,5 +96,3 @@ For a detailed description of the request, see the {{site.data.keyword.keymanage
 To learn how to delete and purge a key using the UI, check out [Deleting keys using a single authorization](/docs/key-protect?topic=key-protect-delete-keys). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
 
 To learn how to delete and purge a key that holds a dual-authorization deletion policy using the UI, check out [Deleting keys using dual authorization](/docs/key-protect?topic=key-protect-manage-dual-auth). For information about how to do this using the API, click the **API** tab at the beginning of the topic.
-
-- To automate key management with Terraform, see the [KMS Key module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

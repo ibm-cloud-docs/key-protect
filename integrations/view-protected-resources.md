@@ -459,4 +459,3 @@ encoding. To view the URL encoded values, click the **URL encoded** tab.
 To find out more about viewing registrations,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
 
-- To automate {{site.data.keyword.keymanagementserviceshort}} with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive) module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules).

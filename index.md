@@ -27,9 +27,6 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard. To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About key protect](/docs/key-protect?topic=key-protect-about).
 {: shortdesc}
 
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to provision and manage {{site.data.keyword.keymanagementserviceshort}} instances, keys, and key rings as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 ## Getting started with encryption keys

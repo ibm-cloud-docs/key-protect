@@ -200,5 +200,3 @@ through a VPE.
 - To find out more about managing keys with
     {{site.data.keyword.keymanagementserviceshort}},
     [check out the {{site.data.keyword.keymanagementserviceshort}} CLI reference doc](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
-
-- To automate key management with Terraform, see the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module. You can explore all available modules in the [Terraform IBM Modules registry](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}.

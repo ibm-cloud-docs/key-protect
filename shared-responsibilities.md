@@ -61,9 +61,6 @@ data.
 ## Change management
 {: #change-management}
 
-You can also use the [KMS All-Inclusive module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive){: external} module to manage {{site.data.keyword.keymanagementserviceshort}} changes as code, enabling version control and consistent deployments. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-{: tip}
-
 You and {{site.data.keyword.IBM_notm}} share responsibilities for keeping
 {{site.data.keyword.keymanagementservicelong_notm}} service components at the
 latest version.
