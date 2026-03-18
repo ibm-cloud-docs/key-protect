@@ -179,6 +179,3 @@ To update the CLI:
     ibmcloud plugin list
     ```
     {: pre}
-
-## What's next
-{: #set-up-cli-next-steps}
