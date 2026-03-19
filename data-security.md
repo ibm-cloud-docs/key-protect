@@ -148,8 +148,8 @@ to its HIPAA readiness. As such, you can use
 {{site.data.keyword.keymanagementserviceshort}} to generate and manage keys for
 HIPAA ready applications. Those keys are protected by the
 {{site.data.keyword.keymanagementserviceshort}} trust anchor, which is backed by
-a hardware security module (HSM) that is tamper-resistant and FIPS-140-2 level 3
-(certification pending).
+a hardware security module (HSM) that is tamper-resistant and FIPS 140-2 Level 3
+certified (Standard), or an HSM that is FIPS 140-3 Level 4 (Dedicated), which has certification pending.
 
 If you or your company is a covered entity as defined by HIPAA, you can enable
 the HIPAA Supported setting for your {{site.data.keyword.cloud_notm}} account.
