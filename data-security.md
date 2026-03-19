@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-27"
+  years: 2017, 2026
+lastupdated: "2026-03-19"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -149,7 +149,7 @@ to its HIPAA readiness. As such, you can use
 HIPAA ready applications. Those keys are protected by the
 {{site.data.keyword.keymanagementserviceshort}} trust anchor, which is backed by
 a hardware security module (HSM) that is tamper-resistant and FIPS-140-2 level 3
-certified.
+(certification pending).
 
 If you or your company is a covered entity as defined by HIPAA, you can enable
 the HIPAA Supported setting for your {{site.data.keyword.cloud_notm}} account.
