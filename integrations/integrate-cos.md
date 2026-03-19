@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: Key Protect integration, integrate COS with Key Protect, encrypt COS bucket
 
@@ -73,7 +73,7 @@ To enable the security benefits of _customer-managed encryption_, you can add
 envelope encryption to your DEKs in {{site.data.keyword.cos_full_notm}} by
 integrating with the {{site.data.keyword.keymanagementserviceshort}} service.
 With {{site.data.keyword.keymanagementserviceshort}}, you provision highly
-secure root keys, which serve as a master keys that you control in the service.
+secure root keys, which  serve as a master keys that you control in the service.
 
 When you create a bucket in {{site.data.keyword.cos_full_notm}}, you can
 configure envelope encryption for the bucket at its creation. This added

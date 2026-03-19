@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-09-17"
+  years: 2017, 2026
+lastupdated: "2026-03-05"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -26,15 +26,8 @@ subcollection: key-protect
 # Creating root keys
 {: #create-root-keys}
 
-Use {{site.data.keyword.keymanagementservicefull}} to create root keys with the {{site.data.keyword.cloud_notm}} console.
+Use {{site.data.keyword.keymanagementservicefull}} to create root keys.
 {: shortdesc}
-
-{: ui}
-
-Use {{site.data.keyword.keymanagementservicefull}} to create root keys programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
-{: shortdesc}
-
-{: api}
 
 Root keys are symmetric key-wrapping keys that are used to protect the security of encrypted data in the cloud. For more information about root keys, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
@@ -47,6 +40,7 @@ Encryption keys that are created in one region can be used to encrypt data store
 
 [After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key in the
 {{site.data.keyword.cloud_notm}} console.
+
 
 If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
@@ -85,6 +79,8 @@ Keys that are created in the service are symmetric 256-bit keys, supported by th
 ## Creating root keys with the API
 {: #create-root-key-api}
 {: api}
+
+
 
 Create a root key by making a `POST` call to the following endpoint.
 

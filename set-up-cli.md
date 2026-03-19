@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-07-13"
+  years: 2017, 2026
+lastupdated: "2026-03-19"
 
 keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 
@@ -91,7 +91,23 @@ To install the CLIs:
     ```
     {: screen}
 
-    After you select your region, you can start working with your instance.
+
+1. Set the instance endpoint:
+
+    ```sh
+    export KP_TARGET_ADDR=<KEY_PROTECT_INSTANCE_ENDPOINT>   
+    ```
+    {: pre}
+
+Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endopoint of your instance ID. For example:
+
+    ```sh
+    export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud   
+    ```
+    {: pre}
+
+You can find the instance endpoint for Key Protect in the IBM Cloud UI console for your specific instance.
+
 
 1. Optional: Verify that the plug-in was installed successfully.
 
@@ -179,5 +195,3 @@ To update the CLI:
     ibmcloud plugin list
     ```
     {: pre}
-
-

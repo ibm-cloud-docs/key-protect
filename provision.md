@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-08-18"
+  years: 2017, 2026
+lastupdated: "2026-03-09"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -51,8 +51,12 @@ An instance, in {{site.data.keyword.keymanagementserviceshort}} should **not**
 be equated with compute resources. A
 {{site.data.keyword.keymanagementserviceshort}} instance is a namespace.
 
-## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} console
+
+## Provisioning an instance from the {{site.data.keyword.cloud_notm}} console
 {: #provision-gui}
+
+
+
 
 To provision an instance of {{site.data.keyword.keymanagementserviceshort}} from
 the {{site.data.keyword.cloud_notm}} console, complete the following steps.
@@ -64,7 +68,7 @@ the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
 3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
-4. Select a service plan, and click **Create** to provision an instance of {{site.data.keyword.keymanagementserviceshort}} in the account, region, and resource group where you are logged in. For more information about pricing, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
+4. Select a  service plan, and click **Create** to provision an instance of {{site.data.keyword.keymanagementserviceshort}} in the account, region, and resource group where you are logged in. For more information about pricing, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
 
 ## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} CLI
 {: #provision-cli}
