@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-19"
 
 keywords: pricing plan, billing, cost
 
@@ -29,15 +29,20 @@ subcollection: key-protect
 {: #pricing-plan}
 
 
-
-
-Pricing in {{site.data.keyword.keymanagementserviceshort}} is based on the number of **key versions** in your account and whether you choose a plan that features enhanced cross regional disaster recovery. For the pricing rates, check out [{{site.data.keyword.keymanagementserviceshort}} in the {{site.data.keyword.cloud_notm}} catalog](/catalog/services/key-protect). There you can see the two plans offered for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}, the **Cross-region resiliency** plan offering enhanced cross-regional disaster recovery, and the **Standard** plan, which is identical except that it does not offer cross-regional disaster recovery.
+Pricing in {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}} depends on whether you deploy a {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instance. {{site.data.keyword.keymanagementserviceshort}} Dedicated has only one pricing plan. Standard has two.
 {: shortdesc}
+
+
 
 
 As of 1 January 2025, five key versions per account are no longer free. You are charged for each key version, starting with the first created key.
 {: important}
 
+
+## Pricing for {{site.data.keyword.keymanagementserviceshort}} Dedicated
+{: #pricing-plan-dedicated}
+
+Pricing for {{site.data.keyword.keymanagementserviceshort}} Dedicated is based solely on a flat rate of crypto units per hour. If you deploy two crypto units, your price is double this hourly rate. If you deploy three crypto units, your price is triple the rate. For the latest per-hour pricing, check out the [{{site.data.keyword.keymanagementserviceshort}} catalog page](/catalog/services/key-protect) page and select the **Dedicated** tile.
 
 
 ## What is a key version?
@@ -53,6 +58,9 @@ Creating or importing a key initiates the first **version** of that key. As a re
 {: #pricing-plan-dr}
 
 
+Cross-region disaster recovery is currently not supported in {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+{: note}
+
 
 There are three regions, `us-south` (located in Dallas, United States), `jp-tok` (located in Tokyo, Japan), and `eu-de` (located in Frankfurt, Germany) where {{site.data.keyword.keymanagementserviceshort}} has failover support into a separate region where data is replicated into standby infrastructure. The `us-south` region has data replicated into the `us-east` region (located in Washington DC, United States), the `jp-tok` region has data replicated into the `jp-osa` region (located in Osaka, Japan), and the `eu-de` region has data replicated into a datacenter in the Paris region. This means that if service in `us-south`, `jp-tok`, or `eu-de` is disrupted, requests to {{site.data.keyword.keymanagementserviceshort}} in those regions are routed to the region where the data has already been replicated. Note that the standby infrastructure in the region with failover support is completely separate from the {{site.data.keyword.keymanagementserviceshort}} service available in that region, and that failover only goes in one direction. Your data in `us-east`, for example, is not currently replicated to `us-south`.
 
@@ -62,10 +70,10 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
 {: tip}
 
 
-
-
-## Pricing scenarios for {{site.data.keyword.keymanagementserviceshort}}
+## Pricing scenarios for {{site.data.keyword.keymanagementserviceshort}} Standard
 {: #pricing-plan-scenarios}
+
+
 
 
 * **Scenario:** You have one non-deleted key that has been rotated 19 times, which means it has 20 total versions.

@@ -32,6 +32,15 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: shortdesc}
 
 
+## March 2026
+{: #key-protect-mar26}
+
+## 19 March 2026
+{: #key-protect-mar1926}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the availability of:
+:     {{site.data.keyword.keymanagementserviceshort}} Dedicated, a single-tenant offering featuring a user owned and managed HSM, FIPS 140-3 Level 4 certification (pending), keep your own key (KYOK), master key management, and workload isolation. For more information, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
 
 
 
@@ -169,7 +178,7 @@ The 0.8.0 version of the {{site.data.keyword.keymanagementserviceshort}} CLI is 
 
 The integration with AIX allows you to use {{site.data.keyword.powerSys_notm}} to leverage AIX file systems with the `keysvrmgr` and `hdcryptmgr` command. For more information, check out [Using Hyper Protect Crypto Services (HPCS) and Key Protect for AIX](/docs/power-iaas?topic=power-iaas-integrate-hpcs#AIX-hpcs).
 
-The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Unified Key Setup (LUKS) encryption keys from being compromised using {{site.data.keyword.keymanagementserviceshort}}  as a single point of control to enable or disable access to data across the enterprise. This is done by successively wrapping encryption keys, with the ultimate control being a master key that resides in a hardware security module (HSM). For more information, check out [Using Hyper Protect Crypto Services (HPCS) or Key Protect for Linux](/docs/power-iaas?topic=power-iaas-integrate-hpcs#Linux-hpcs) and [Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and Key Protect](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/).
+The {{site.data.keyword.powerSys_notm}} for Linux integration prevents Linux Unified Key Setup (LUKS) encryption keys from being compromised using {{site.data.keyword.keymanagementserviceshort}} Standard as a single point of control to enable or disable access to data across the enterprise. This is done by successively wrapping encryption keys, with the ultimate control being a master key that resides in a hardware security module (HSM). For more information, check out [Using Hyper Protect Crypto Services (HPCS) or Key Protect for Linux](/docs/power-iaas?topic=power-iaas-integrate-hpcs#Linux-hpcs) and [Protect LUKS encryption keys with IBM Cloud Hyper Protect Crypto Services and Key Protect](https://developer.ibm.com/tutorials/protect-luks-encryption-keys-with-ibm-cloud-hyper-protect-crypto-services/).
 
 ## April 2023
 {: #key-protect-apr23}

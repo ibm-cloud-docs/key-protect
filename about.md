@@ -14,86 +14,301 @@ subcollection: key-protect
 {{site.data.keyword.attribute-definition-list}}
 
 
-
-
-# About {{site.data.keyword.keymanagementserviceshort}}
+# About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}
 {: #about}
 
-{{site.data.keyword.keymanagementservicefull}} is a full-service encryption solution that allows data to be secured and stored in {{site.data.keyword.cloud_notm}} using the latest envelope encryption techniques that leverage FIPS 140-2 Level 3 cloud-based hardware security modules.
+{{site.data.keyword.keymanagementservicefull}} offers two deployment options to meet different security and compliance requirements: Standard (multi-tenant) and Dedicated (single-tenant).
 {: shortdesc}
 
-Sensitive data should not be stored on any cloud provider unencrypted (as "plaintext", in other words). But just as with any method of encryption, going back to the earliest known ciphertexts created thousands of years ago, it's important not just to encrypt information so that it cannot be decoded easily but to protect the ciphers used to encrypt and decrypt it (since having a cipher is as good as having the data).
+Both versions provide full-service encryption solutions that allow data to be secured and stored in {{site.data.keyword.cloud_notm}} using envelope encryption techniques and cloud-based hardware security modules. Standard is a multi-tenant offering, where {{site.data.keyword.keymanagementserviceshort}} manages the isolation of keys and resources. Dedicated is single-tenant, offering full control of keys (master key and root keys) and confidential computing.
 
-The solution is a key management system like {{site.data.keyword.keymanagementserviceshort}}, which keeps data secure by encrypting the data encryption keys (DEKs) that encrypt your plaintext data with root keys managed by IBM via an impenetrable HSM. In this kind of a system, known as "envelope encryption", the process of decrypting the data means first "unwrapping" the encrypted DEK (opening its envelope, in other words) and then using the DEK to decrypt the data.
+All existing key operations (for example, key creations, rotations, deletions) are available for the Dedicated option in the console. However, initializing the service requires following CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-st-init-cli).
+{: important}
 
-For more information about envelope encryption works, check out [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+## Overview of both offerings
+{: #comparison-overview}
 
-Unsure which {{site.data.keyword.cloud_notm}} security is right for your use case? Check out [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud) for more information.
+Both Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}} protect sensitive data by encrypting data encryption keys (DEKs) with root keys managed through hardware security modules. In Standard, the master keys are managed by IBM. In Dedicated, you own and manage your own master keys. In this envelope encryption system, decrypting data requires first "unwrapping" the encrypted DEK and then using the DEK to decrypt the data.
+
+For more information about how envelope encryption works, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+
+Unsure which {{site.data.keyword.cloud_notm}} security service is right for your use case? Check out [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud) for more information.
 {: tip}
 
-## What {{site.data.keyword.keymanagementserviceshort}} offers
-{: #about-offers}
+## Key similarities
+{: #comparison-similarities}
 
-* **Bring your encryption keys to the cloud**: Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
-* **Robust security**: Provision and store keys using FIPS 140-2 Level 3 hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys. For more information, check out [Understanding your responsibilities with using Key Protect](/docs/key-protect?topic=key-protect-shared-responsibilities).
-* **Control and visibility**: Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}. For more information, check out [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
-* **Simplified billing**: Track subscription and credit spending for all accounts from a single view. To learn more about keys, key versions, and pricing, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
-* **Self-managed encryption**: Create or import root and standard keys protect your data.
-* **Flexibility**: Apps on or outside IBM Cloud can integrate with the Key Protect APIs. {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of IBM database, storage, container, and ingestion services. For more information, check out [Integrating services](/docs/key-protect?topic=key-protect-integrate-services).
-* **Built-in protection**: Deleted keys, and their encrypted data, can never be recovered. Manage your user roles, key states, and set a rotation schedule that works for your use case using the UI, CLI, or API.
-* **Application-independent**: Generate, store, retrieve and manage keys independent of application logic.
-* **[Key management interoperability protocol (KMIP)](/docs/key-protect?topic=key-protect-kmip)** support, as [certified by VMWare](https://compatibilityguide.broadcom.com/detail?program=kms&productId=60700&persona=live){: external}, can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. And because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
+Both Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}} share the following core capabilities:
 
-## Reasons to use {{site.data.keyword.keymanagementserviceshort}}
-{: #use-cases}
+### Encryption and key management
+{: #comparison-similarities-encryption}
 
-Here are a few common scenarios that explain how {{site.data.keyword.keymanagementserviceshort}} can be used to solve issues faced by businesses operating at scale in production.
+Envelope encryption
+:   Used to protect data encryption keys with root keys.
 
-| Scenarios | Reasons |
-| --------- | ------- |
-| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}} to generate and import encryption keys by using a multi-tenant service with shared hardware. |
-| As an IT admin for a large corporation, you need to integrate, track, and rotate encryption keys for many different service offerings. | The {{site.data.keyword.keymanagementserviceshort}} interface simplifies the management of multiple encryption services. With the service, you can manage and sort encryption keys in one centralized location, or you can separate keys by project and house them in different {{site.data.keyword.cloud_notm}} spaces. |
-| As a developer, you want to integrate your pre-existing applications, such as self-encrypting storage, to {{site.data.keyword.keymanagementserviceshort}}. | Apps on or outside {{site.data.keyword.cloud_notm}} can integrate with the {{site.data.keyword.keymanagementserviceshort}} APIs. You can use your own existing keys for your apps and import them into {{site.data.keyword.keymanagementserviceshort}}. |
-| Your development team has stringent policies, and you need a way to generate and rotate keys. | With {{site.data.keyword.keymanagementserviceshort}}, you can rapidly generate keys from an {{site.data.keyword.cloud_notm}} hardware security module (HSM). When it's time to replace a key, whether it was created using {{site.data.keyword.keymanagementserviceshort}} or imported, you can [rotate the key on-demand](/docs/key-protect?topic=key-protect-rotate-keys) or [set a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for the key to meet your on-going security needs. |
-| You are a security admin in an industry, such as finance or legal, that must adhere to governance over how data is protected. You need to grant controlled access of keys without compromising the data that it secures. | With the service, you can control user access to manage keys by [assigning different IAM roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles). For example, you can grant read-only access to users who need to view key creation information without viewing the key material. Similarly, users can be assigned the "Manager" role over only a single key, if needed. |
-| You want to perform envelope encryption as you move data into the cloud. You need to bring your own master encryption keys, so you can manage and protect other keys that encrypt your data at rest. | With {{site.data.keyword.keymanagementserviceshort}}, you can [wrap (encrypt) your data encryption keys with a highly secure root key](/docs/key-protect?topic=key-protect-envelope-encryption) and also unwrap that key when needed. You can bring your own root keys or create them in the service. |
-{: caption="Reasons to use {{site.data.keyword.keymanagementserviceshort}} in various scenarios." caption-side="top"}
+AES-GCM encryption
+:   Both use the Advanced Encryption Standard algorithm in Galois/Counter Mode (AES GCM) to wrap and unwrap DEKs.
 
-## How {{site.data.keyword.keymanagementserviceshort}} works
-{: #kp-how}
+256-bit key material
+:   Both support 256-bit key material for created root keys.
 
-{{site.data.keyword.keymanagementservicelong_notm}} helps you manage encryption keys throughout your organization by aligning with {{site.data.keyword.cloud_notm}} IAM roles.
+Key lifecycle management
+:   Creating, importing, rotating, and managing encryption keys are supported.
 
-An IT or security admin might need advanced permissions to your instance, keys, or key rings that other users, including auditors, might not. For this reason, {{site.data.keyword.keymanagementserviceshort}} maps to established IAM roles to allow fine-grained access for each user as needed. For more information, check out [Managing users and access](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles).
+Key operations
+:   All existing key operations (creations, rotations, deletions) are available in both versions.
 
-The following diagram shows how the default IAM roles of manager, reader, and writer can interact with keys that are managed in the service.
+### Integration and access
+{: #comparison-similarities-integration}
 
-![The diagram shows the same components as described in the previous definition list.](images/keys-use-cases.svg){: caption="Shows how different access roles interact with keys." caption-side="bottom"}
+IAM integration
+:   Both integrate with {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) for fine-grained access control.
 
-While a particular user can be assigned specific roles over specific resources (a user with a "Reader" role at the instance level might be a "Manager" of a particular key or key ring), in general:
+API compatibility
+:   Both use the same key-provider API, ensuring a consistent developer experience.
 
-* **Readers** can access information about keys.
-* **Writers** can use keys with an application or service that is integrated with {{site.data.keyword.keymanagementserviceshort}}
-* **Managers** create keys and control their lifecycle (in addition to being able to do everything Readers and Writers can do).
+Service integrations
+:   Both integrate with {{site.data.keyword.cloud_notm}} services including database, storage, container, and ingestion services.
 
-### Architecture overview
-{: #about-architecture-overview}
+HTTPS communication
+:   Both use HTTPS with Transport Layer Security (TLS) protocol to encrypt data in transit.
 
-{{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard algorithm in Galois/Counter Mode (AES GCM) to wrap and unwrap DEKs. CRKs that are not imported are created with 256-bit key material. Imported CRKs can be have 128, 192, or 256-bit key material.
+REST API
+:   Both provide REST APIs for encryption key creation and management.
+
+### Management capabilities
+{: #comparison-similarities-management}
+
+Key rings
+:   Both support organizing keys using key rings.
+
+Key aliases
+:   Both support creating aliases for keys.
+
+Rotation policies
+:   Both allow setting rotation schedules for keys.
+
+Dual authorization
+:   Both support dual authorization policies for key deletion.
+
+KMIP support
+:   Both offer Key Management Interoperability Protocol (KMIP) support, certified by VMWare.
+
+## Key differences
+{: #comparison-differences}
+
+The following table highlights the primary differences between Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}:
+
+| Feature | Standard {{site.data.keyword.keymanagementserviceshort}} | Dedicated {{site.data.keyword.keymanagementserviceshort}} |
+|---------|----------------------------------------------------------|-----------------------------------------------------------|
+| Tenancy model | Multi-tenant with shared HSMs | Single-tenant with dedicated HSM partitions |
+| HSM certification | FIPS 140-2 Level 3 certified | Submitted to NIST for FIPS 140-3 Level 4 certification |
+| Key control | Bring Your Own Key (BYOK) | Keep Your Own Key (KYOK) |
+| {{site.data.keyword.IBM_notm}} administrator access | {{site.data.keyword.IBM_notm}} administrators have operational access | No visibility for {{site.data.keyword.cloud_notm}} administrators |
+| HSM partition ownership | Shared HSM resources | Exclusive ownership of HSM partitions (crypto units) |
+| Master key management | {{site.data.keyword.IBM_notm}}-managed HSM master keys | User-owned master keys |
+| Administrator assignment | {{site.data.keyword.IBM_notm}}-managed | User assigns their own administrators |
+| Initialization | Console or CLI | CLI required for initialization |
+| Workload isolation | Shared infrastructure | Complete workload isolation |
+| Crypto units | Not applicable | Operational crypto units for key management and cryptographic operations |
+| Key hierarchy control | {{site.data.keyword.IBM_notm}} manages root of trust | User owns root of trust |
+| Privileged access | {{site.data.keyword.IBM_notm}} operational access | No operational access for provider |
+{: caption="Table 1. Comparison of Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
+
+## Standard {{site.data.keyword.keymanagementserviceshort}} features
+{: #comparison-standard-features}
+
+Standard {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant service that provides cost-effective encryption key management with shared infrastructure and {{site.data.keyword.IBM_notm}}-managed security operations.
+
+### What Standard offers
+{: #comparison-standard-offers}
+
+Bring your encryption keys to the cloud
+:   Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
+
+Robust security
+:   Provision and store keys using FIPS 140-2 Level 3 hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys.
+
+Control and visibility
+:   Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}.
+
+Simplified billing
+:   Track subscription and credit spending for all accounts from a single view. To learn more about keys, key versions, and pricing, check out [Pricing](/docs/key-protect?topic=key-protect-pricing-plan).
+
+Self-managed encryption
+:   Create or import root and standard keys to protect your data.
+
+Flexibility
+:   Apps on or outside {{site.data.keyword.IBM_notm}} Cloud can integrate with the Key Protect APIs. {{site.data.keyword.keymanagementserviceshort}} integrates easily with a variety of {{site.data.keyword.IBM_notm}} database, storage, container, and ingestion services.
+
+Built-in protection
+:   Deleted keys, and their encrypted data, can never be recovered. Manage your user roles, key states, and set a rotation schedule that works for your use case using the UI, CLI, or API.
+
+Application-independent
+:   Generate, store, retrieve and manage keys independent of application logic.
+
+Standard {{site.data.keyword.keymanagementserviceshort}} is ideal for organizations that need robust encryption key management with shared infrastructure and {{site.data.keyword.IBM_notm}}-managed security operations.
+
+## Dedicated {{site.data.keyword.keymanagementserviceshort}} features
+{: #comparison-dedicated-features}
+
+Dedicated {{site.data.keyword.keymanagementserviceshort}} is a single-tenant service designed to provide enterprises with full control over their encryption keys and cryptographic operations in the cloud.
+
+### What Dedicated offers
+{: #comparison-dedicated-offers}
+
+Complete key control
+:   KYOK capabilities ensure only you have access to your keys, with no visibility for {{site.data.keyword.cloud_notm}} administrators.
+
+FIPS 140-3 Level 4 HSMs (submitted for NIST certification)
+:   Submitted to NIST for certification of the latest hardware security module certification standard.
+
+Dedicated HSM partitions
+:   Exclusive crypto units for enhanced security and workload isolation.
+
+User-managed master keys
+:   Full control over the root of trust that encrypts the entire hierarchy of encryption keys.
+
+Custom administrators
+:   Assign your own HSM administrators using RSA signature authentication keys.
+
+Workload isolation
+:   Complete separation from other tenants with dedicated infrastructure.
+
+Enhanced compliance
+:   Meets stringent regulatory requirements for data sovereignty and security.
+
+Zero trust
+:   Infrastructure runs on RedHat Openshift Confidential Containers fortified by Intel TDX secure enclaves.
+
+All existing key operations (for example, key creations, rotations, deletions) are available in the console. However, initializing the service requires following CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-st-init-cli).
+{: important}
+
+### Dedicated-specific concepts
+{: #comparison-dedicated-concepts}
+
+Dedicated {{site.data.keyword.keymanagementserviceshort}} introduces several unique concepts:
+
+Crypto units
+:   A single unit representing an HSM and corresponding software stack dedicated to cryptography. Operational crypto units manage encryption keys and perform cryptographic operations.
+
+RSA signature authentication keys
+:   Administrators use RSA-based signature keys to sign commands issued to crypto units. The private key creates signatures and is stored locally in an encrypted keyfile, while the public key is installed in the crypto unit to define administrators.
+
+Master key (HSM master backup key)
+:   A symmetric 256-bit AES key that encrypts the service instance for key storage. With the master key, you own the root of trust that encrypts the entire hierarchy of encryption keys. Deleting the master key effectively crypto-shreds all encrypted data.
+
+Master key parts
+:   When initializing using key part files, a master key is composed of two or more master key parts. Each part is a symmetric 256-bit AES key that can be owned by different people for enhanced security.
+
+## Use case comparison
+{: #comparison-use-cases}
+
+The following diagram illustrates use cases where Standard or Dedicated {{site.data.keyword.keymanagementserviceshort}} would be most appropriate. The primary factor in choosing between Standard and Dedicated is the level of security and control you require for your data.
+
+![The diagram shows use cases where Standard and Dedicated are useful.](images/kp-data3.svg){: caption="Figure 1. Use cases for Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
+
+### When to use Standard {{site.data.keyword.keymanagementserviceshort}}
+{: #comparison-when-standard}
+
+Standard {{site.data.keyword.keymanagementserviceshort}} is ideal for:
+
+* Organizations requiring FIPS 140-2 Level 3 encryption.
+* Cost-sensitive deployments that can use shared infrastructure.
+* Rapid deployment requirements.
+* Standard compliance and regulatory requirements.
+* Applications that need BYOK capabilities.
+* Integration with multiple {{site.data.keyword.cloud_notm}} services.
+* Organizations comfortable with {{site.data.keyword.IBM_notm}}-managed HSM infrastructure.
+
+### When to use Dedicated {{site.data.keyword.keymanagementserviceshort}}
+{: #comparison-when-dedicated}
+
+Dedicated {{site.data.keyword.keymanagementserviceshort}} is ideal for:
+
+* Organizations requiring FIPS 140-3 Level 4 (submitted for certification) encryption.
+* Stringent regulatory compliance requiring data sovereignty.
+* Regulated industries with sensitive data and strict security requirements (finance, healthcare, government).
+* Organizations requiring full control of the root of trust for keys and the HSM.
+* Complete workload isolation requirements.
+* Organizations that need to eliminate privileged access risks.
+* Scenarios requiring custom HSM administrator assignment.
+* Organizations that need full control over the encryption key hierarchy.
+
+## Common scenarios
+{: #comparison-scenarios}
+
+Here are common scenarios that explain how both versions of {{site.data.keyword.keymanagementserviceshort}} can be used:
+
+| Scenario | Standard | Dedicated |
+|----------|----------|-----------|
+| Generate and manage encryption keys backed by FIPS-certified hardware | ✓ FIPS 140-2 Level 3 certified | ✓ (Submitted to NIST for FIPS 140-3 Level 4 certification) |
+| IT admin needs to integrate, track, and rotate encryption keys for multiple services | ✓ | ✓ |
+| Developer wants to integrate pre-existing applications with key management | ✓ | ✓ |
+| Development team has stringent policies requiring rapid key generation and rotation | ✓ | ✓ |
+| Security admin needs controlled access without compromising data security | ✓ | ✓ |
+| Perform envelope encryption with master encryption keys | ✓ | ✓ |
+| Eliminate all {{site.data.keyword.IBM_notm}} administrator access to encryption keys | ✗ | ✓ |
+| Require dedicated HSM partitions for regulatory compliance | ✗ | ✓ |
+| Need complete control over HSM master keys | ✗ | ✓ |
+| Assign custom HSM administrators | ✗ | ✓ |
+| Cost-effective shared infrastructure | ✓ | ✗ |
+| For public and internal data, cloud workloads like cloud object storage, physical storage, block storage, file systems, and databases | ✓ | ✗ |
+| For sensitive and confidential data (PHI, PII, Financial records), database and object storage, AI models and data, and data-in-use protection (confidential computing) |   | Recommended |
+{: caption="Table 2. Scenario comparison for Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
+
+## Architecture overview
+{: #comparison-architecture}
+
+Both Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}} use similar architectural components with key differences in tenancy and control.
+
+{{site.data.keyword.keymanagementserviceshort}} uses the Advanced Encryption Standard algorithm in Galois/Counter Mode (AES GCM) to wrap and unwrap DEKs. Root keys that are not imported are created with 256-bit key material. Imported root keys can have 128, 192, or 256-bit key material.
 {: note}
-
-The following architecture diagram shows how {{site.data.keyword.keymanagementserviceshort}} components work to protect your sensitive data and keys.
-
-![The diagram shows how {{site.data.keyword.keymanagementserviceshort}} components protect sensitive data and keys.](images/kp-architecture.svg){: caption="{{site.data.keyword.keymanagementserviceshort}} architecture" caption-side="bottom"}
 
 Access to the {{site.data.keyword.keymanagementserviceshort}} service takes place over HTTPS. All communication uses the Transport Layer Security (TLS) protocol to encrypt data in transit. For more information about TLS and the ciphers supported by {{site.data.keyword.keymanagementserviceshort}}, check out [Data encryption](/docs/key-protect?topic=key-protect-security-and-compliance#data-encryption).
 {: note}
 
-| Components | Description |
-| ---------- | ----------- |
-| {{site.data.keyword.keymanagementserviceshort}} REST API | The {{site.data.keyword.keymanagementserviceshort}} REST API drives encryption key creation and management across {{site.data.keyword.cloud_notm}} services. |
-| IBM-managed hardware security module | {{site.data.keyword.cloud_notm}} data centers provide the hardware to protect your keys. Hardware security modules (HSMs) are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary. All cryptographic operations, such as key creation and key rotation, are performed within the HSM. IBM periodically rotates the HSM's master keys, providing an extra layer of security. |
-| Customer-managed encryption keys | Root keys are symmetric keys that protect data encryption keys with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). Root keys never leave the boundary of the HSM. |
-| Dedicated key storage | Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption. |
-| Fine-grained access control | {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} IAM roles to ensure that users can be assigned appropriate access at the instance, key, and key ring level. |
-{: caption="{{site.data.keyword.keymanagementserviceshort}} service components" caption-side="top"}
+### Common architectural components
+{: #comparison-architecture-common}
+
+{{site.data.keyword.keymanagementserviceshort}} REST API
+:   The {{site.data.keyword.keymanagementserviceshort}} REST API drives encryption key creation and management across {{site.data.keyword.cloud_notm}} services.
+
+Hardware security modules
+:   {{site.data.keyword.cloud_notm}} data centers provide the hardware to protect your keys. HSMs are tamper-resistant hardware devices that store and use cryptographic key material without exposing keys outside of a cryptographic boundary.
+
+Customer-managed encryption keys
+:   Root keys are symmetric keys that protect data encryption keys with [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). Root keys never leave the boundary of the HSM.
+
+Dedicated key storage
+:   Key metadata is stored in highly durable, dedicated storage for {{site.data.keyword.keymanagementserviceshort}} that is encrypted at rest with additional application layer encryption.
+
+Fine-grained access control
+:   {{site.data.keyword.keymanagementserviceshort}} leverages {{site.data.keyword.cloud_notm}} IAM roles to ensure that users can be assigned appropriate access at the instance, key, and key ring level.
+
+### Standard-specific architecture
+{: #comparison-architecture-standard}
+
+In Standard {{site.data.keyword.keymanagementserviceshort}}:
+
+* HSMs are shared across multiple tenants in a multi-tenant architecture.
+* {{site.data.keyword.IBM_notm}} manages and periodically rotates the HSM's master keys, providing an extra layer of security.
+* {{site.data.keyword.IBM_notm}} administrators have operational access to manage the infrastructure.
+
+### Dedicated-specific architecture
+{: #comparison-architecture-dedicated}
+
+In {{site.data.keyword.keymanagementserviceshort}} Dedicated:
+
+* Each customer receives dedicated HSM partitions (crypto units) for complete workload isolation.
+* Customers manage their own HSM master backup keys, owning the root of trust.
+* Customers assign their own administrators using RSA signature authentication keys.
+* No {{site.data.keyword.IBM_notm}} administrator access to customer encryption keys or cryptographic operations.
+
+## Next steps
+{: #comparison-next-steps}
+
+* To get started with Standard {{site.data.keyword.keymanagementserviceshort}}, see [Provisioning the service](/docs/key-protect?topic=key-protect-provision).
+* To get started with Dedicated {{site.data.keyword.keymanagementserviceshort}}, see [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-st-init-cli).
+* For more information about your responsibilities when using {{site.data.keyword.keymanagementserviceshort}}, see [Understanding your responsibilities](/docs/key-protect?topic=key-protect-shared-responsibilities).
+* To compare {{site.data.keyword.keymanagementserviceshort}} with other {{site.data.keyword.IBM_notm}} security services, see [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud).

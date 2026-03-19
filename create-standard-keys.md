@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-19"
 
 keywords: create standard encryption key, create secret, standard encryption key examples
 
@@ -36,6 +36,9 @@ You can create a standard encryption key using the {{site.data.keyword.keymanage
 [After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a standard key in the {{site.data.keyword.cloud_notm}} console.
 
 
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli) before you can create any resources.
+{: important}
+
 
 If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
@@ -68,6 +71,9 @@ If you know which key ring you want a key to be placed in, and you are a _Manage
 {: #create-standard-key-api}
 {: api}
 
+
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli) before you can create any resources.
+{: important}
 
 
 Create a standard key by making a `POST` call to the following endpoint.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-19"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -25,14 +25,17 @@ subcollection: key-protect
 {: #getting-started-tutorial}
 
 
-
-
-{{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard. To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+{{site.data.keyword.keymanagementservicefull}} helps you provision or import encrypted keys for applications for many {{site.data.keyword.cloud_notm}} services that can be managed from a central location. This tutorial shows you how to create and import existing cryptographic keys by using the {{site.data.keyword.keymanagementserviceshort}} dashboard. To find out more about managing and protecting your encryption keys with {{site.data.keyword.keymanagementserviceshort}}, and about relevant use cases, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 {: shortdesc}
+
+
 
 
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
+
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli) before you can create any resources.
+{: important}
 
 
 ## Getting started with encryption keys

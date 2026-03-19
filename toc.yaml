@@ -59,10 +59,22 @@ toc:
               label: Creating an instance
               topics:
               - topic: provision.md
+                navtitle: Standard
+              - topic: st-init-cli.md
+                navtitle: Dedicated
+              - topic: crypto-unit-states.md
           - topicgroup:
               label: Setting up Terraform
               topics:
               - terraform-setup.md
+          - topicgroup:
+              label: Migrating from Hyper Protect Crypto Services
+              topics:
+              - topic: migrate-st.md
+                navtitle: To Dedicated
+              - topic: kur.md
+              - topic: migrate-tool.md
+                navtitle: Using the Key Migration Tool
           - grant-access-keys.md
           - topicgroup:
               label: Integrations

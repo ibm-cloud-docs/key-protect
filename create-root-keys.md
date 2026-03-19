@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-19"
 
 keywords: create root key, create key-wrapping key, create CRK
 
@@ -40,6 +40,9 @@ Encryption keys that are created in one region can be used to encrypt data store
 
 [After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a root key in the
 {{site.data.keyword.cloud_notm}} console.
+
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli) before you can create any resources.
+{: important}
 
 
 If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
@@ -80,6 +83,9 @@ Keys that are created in the service are symmetric 256-bit keys, supported by th
 {: #create-root-key-api}
 {: api}
 
+
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli) before you can create any resources.
+{: important}
 
 
 Create a root key by making a `POST` call to the following endpoint.

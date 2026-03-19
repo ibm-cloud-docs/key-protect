@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-19"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -25,6 +25,9 @@ subcollection: key-protect
 # Tutorial: Creating and importing encryption keys
 {: #tutorial-import-keys}
 
+
+Import tokens are not supported by {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+{: important}
 
 
 Learn how to create, encrypt, and bring your encryption keys to the cloud by
