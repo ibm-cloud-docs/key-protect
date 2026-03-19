@@ -59,10 +59,6 @@ toc:
               label: Creating an instance
               topics:
               - topic: provision.md
-          - topicgroup:
-              label: Setting up Terraform
-              topics:
-              - terraform-setup.md
           - grant-access-keys.md
           - topicgroup:
               label: Integrations
