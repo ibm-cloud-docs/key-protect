@@ -26,7 +26,7 @@ The following table lists the different offerings that you can use with {{site.d
 
 | Scenario | What to use |
 | --- | --- |
-| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 or FIPS 140-3 Level 4 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}**  to generate and import encryption keys by either using a multi-tenant service with shared hardware (featuring FIPS 140-2 Level 3 certification), or dedicated hardware using hardware that has been submitted to NIST for FIPS 140-3 Level 4 certification. |
+| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 or FIPS 140-3 Level 4 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** <prod-st>or HPCS</prod-st> to generate and import encryption keys by either using a multi-tenant service with shared hardware (featuring FIPS 140-2 Level 3 certification), or dedicated hardware using hardware that has been submitted to NIST for FIPS 140-3 Level 4 certification. |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
 {: caption="Secrets management and data protection scenarios" caption-side="top"}
