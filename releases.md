@@ -31,14 +31,7 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
-## March 2026
-{: #key-protect-mar26}
 
-## 19 March 2026
-{: #key-protect-mar1926}
-
-{{site.data.keyword.keymanagementserviceshort}} announces the availability of:
-:     {{site.data.keyword.keymanagementserviceshort}} Dedicated, a single-tenant offering featuring a user owned and managed HSM, FIPS 140-3 Level 4 certification (pending), keep your own key (KYOK), master key management, and workload isolation. For more information, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 
 

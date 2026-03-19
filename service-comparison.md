@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-19"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -26,7 +26,7 @@ The following table lists the different offerings that you can use with {{site.d
 
 | Scenario | What to use |
 | --- | --- |
-| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 or FIPS 140-3 Level 3 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** or HPCS to generate and import encryption keys  |
+| You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 or FIPS 140-3 Level 4 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** or HPCS to generate and import encryption keys  |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
 {: caption="Secrets management and data protection scenarios" caption-side="top"}
