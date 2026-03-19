@@ -29,8 +29,6 @@ subcollection: key-protect
 {: shortdesc}
 
 
-
-
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 

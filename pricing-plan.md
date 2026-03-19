@@ -33,8 +33,6 @@ Pricing in {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keywor
 {: shortdesc}
 
 
-
-
 As of 1 January 2025, five key versions per account are no longer free. You are charged for each key version, starting with the first created key.
 {: important}
 
@@ -72,8 +70,6 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
 
 ## Pricing scenarios for {{site.data.keyword.keymanagementserviceshort}} Standard
 {: #pricing-plan-scenarios}
-
-
 
 
 * **Scenario:** You have one non-deleted key that has been rotated 19 times, which means it has 20 total versions.
