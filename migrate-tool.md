@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -161,6 +161,7 @@ export IBMCLOUD_API_KEY_KP_ST=<IBM Cloud API key that can access Key Protect Ded
 {: pre}
 
 Example for `HPCS_API_ENDPOINT` and `KP_ST_API_ENDPOINT`:
+
 ```sh
 export HPCS_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
 export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud
@@ -174,8 +175,6 @@ The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` doe
 This typically occurs when:
 - The HPCS instance and Key Protect Dedicated instance are in different IBM Cloud accounts
 - Separate IAM identities are used for source and target environments
-  
-{: note}
 
 ### Optional environment variables
 {: #migrate-tool-optional-vars}
