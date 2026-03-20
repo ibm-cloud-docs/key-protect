@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords: Setup Key Protect CLI plugin, Configure KMS plug-in, First time KMS plugin
 
@@ -99,7 +99,7 @@ To install the CLIs:
     ```
     {: pre}
 
-Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endopoint of your instance ID. For example:
+    Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endopoint of your instance ID. For example:
 
     ```sh
     export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud   

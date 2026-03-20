@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -68,17 +68,17 @@ $ export KP_INSTANCE_ID=<INSTANCE_ID>
 
 Make sure to set your Key Protect instance endpoint:
 
-    ```sh
-    export KP_TARGET_ADDR=<KEY_PROTECT_INSTANCE_ENDPOINT>   
-    ```
-    {: pre}
+```sh
+export KP_TARGET_ADDR=<KEY_PROTECT_INSTANCE_ENDPOINT>   
+```
+{: pre}
 
 Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endopoint of your instance ID. For example:
 
-    ```sh
-    export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud   
-    ```
-    {: pre}
+```sh
+export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud   
+```
+{: pre}
 
 You can find the instance endpoint for Key Protect in the IBM Cloud UI console for your specific instance.
 
