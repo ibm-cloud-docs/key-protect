@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -220,7 +220,7 @@ ibmcloud kp crypto-unit mk generate --keyshare-files '["<KEYSHARE_FILE_1>#<PASSW
 
 Where:
 
-* `<KEYSHARE_FILE_1>#<PASSWORD1>` is the location of one of the keyshares, along with a passphrase for the file that is created. Note that the passphrase is optional but if one is set, it must have at least six characters.
+* `<KEYSHARE_FILE_1>#<PASSWORD1>` is the location of one of the keyshares, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6-255 characters.
 * `<KEYSHARE_FILE_2>#<PASSWORD2>` is the location of another keyshare, along with a passphrase for the file that is created. Note that the passphrase is optional but if one is set, it must have at least six characters.
 * `<KEY_NAME>` is the name of your master key.
 * `<ADMIN_KEY_FILE>#<PASSOWRD3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity).
@@ -253,8 +253,9 @@ Where:
 
 This command can also be used to add admins to your crypto units by making your `--type` `admin` and adding a `--name` and `--file` that point to an admin identity you possess. Do not add `--name` or `--file` when adding `kmsCryptoUser`. For example:
 
+
 ```{: pre}
-ibmcloud kp crypto-unit user add --type admin --name <USERNAME> --credential “<USERNAME_KEY_FILE>#<USER_KEY_FILE_PWD>” --auth '[{"ADMIN": “<ADMIN_KEY_FILE>#<PWD>”}]’
+ibmcloud kp crypto-unit user add --type admin --name <USERNAME> --credential "<USERNAME_KEY_FILE>#<USER_KEY_FILE_PWD>" --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PWD>"}]'
 ```
 {: codeblock}
 
