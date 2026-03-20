@@ -166,7 +166,7 @@ Example for `HPCS_API_ENDPOINT` and `KP_ST_API_ENDPOINT`:
 export HPCS_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
 export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud
 ```
-{:pre}
+{: pre}
 
 The `IBMCLOUD_API_KEY` must be associated with an IAM identity (for example, an IBM Cloud user or service ID) that has the `Manager` role for both HPCS and Key Protect Dedicated.
 
