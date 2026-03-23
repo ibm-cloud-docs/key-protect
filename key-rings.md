@@ -362,23 +362,6 @@ rings that are available in your
 ```
 {: screen}
 
-## Creating key rings with Terraform
-{: #create-key-ring-terraform}
-
-You can use Terraform to create and manage key rings as code. The [KMS Key Ring module](https://github.com/terraform-ibm-modules/terraform-ibm-kms-key-ring){: external} module enables you to create key rings in an existing {{site.data.keyword.keymanagementserviceshort}} instance.
-
-```hcl
-module "kms_key_ring" {
-  source          = "terraform-ibm-modules/kms-key-ring/ibm"
-  version         = "latest"
-  kms_instance_id = var.kms_instance_id
-  key_ring_id     = "my-key-ring"
-}
-```
-{: codeblock}
-
-For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
-
 ## Deleting key rings with the API
 {: #delete-key-ring-api}
 {: api}
