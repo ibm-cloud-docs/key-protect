@@ -180,5 +180,4 @@ To update the CLI:
     ```
     {: pre}
 
-## What's next
-{: #set-up-cli-next-steps}
+

@@ -214,6 +214,3 @@ alias.
 | [Retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) | You can retrieve a key by ID or alias. |
 | [View key metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata) | You can retrieve the metadata of a key by ID or alias. |
 {: caption="Describes the variables that are APIs that use key alias." caption-side="top"}
-
-## What's next
-{: #create-key-alias-next-steps}

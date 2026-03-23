@@ -208,4 +208,3 @@ key that you want to use for advanced encryption.
 - To find out more about bringing your own root keys to the
     {{site.data.keyword.keymanagementserviceshort}} service, see
     [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
-

@@ -458,4 +458,3 @@ encoding. To view the URL encoded values, click the **URL encoded** tab.
 
 To find out more about viewing registrations,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
-
