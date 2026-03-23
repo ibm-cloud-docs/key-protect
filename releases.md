@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords: key protect, release notes, service updates
 
@@ -34,10 +34,15 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 ## March 2026
 {: #key-protect-mar26}
 
+## 23 March 2026
+{: #key-protect-mar2326}
+
+{{site.data.keyword.keymanagementserviceshort}} announces the `us-east` (Washington, DC, United States) and `eu-de` (Frankfurt, Germany) availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+
 ## 19 March 2026
 {: #key-protect-mar1926}
 
-{{site.data.keyword.keymanagementserviceshort}} announces the availability of:
+{{site.data.keyword.keymanagementserviceshort}} announces the `us-south` (Dallas, Texas, United States) availability of:
 :   {{site.data.keyword.keymanagementserviceshort}} Dedicated, a single-tenant offering featuring a user owned and managed HSM, FIPS 140-3 Level 4 certification (pending), keep your own key (KYOK) capability, master key management, and workload isolation. For more information, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 
