@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -15,14 +15,28 @@ subcollection: key-protect
 # Migrating from Hyper Protect Crypto Services (HPCS) to {{site.data.keyword.keymanagementserviceshort}} Dedicated
 {: #migrate-st}
 
-Users of Hyper Protect Crypto Services (HPCS) who want or need to migrate to {{site.data.keyword.keymanagementserviceshort}} Dedicated can accomplish that through a three step process.
+Users of Hyper Protect Crypto Services (HPCS) who want or need to migrate to {{site.data.keyword.keymanagementserviceshort}} Dedicated should follow this comprehensive migration guide, which covers:
 {: shortdesc}
 
+**Assessment Phase:**
 - [Identifying HPCS usage](#migration-identify-hpcs-usage)
-- [Classifying HPCS usage](#migration-classify-usage)
-- [Migrating your root keys (CRKs)](#migration-crk-migration)
+- [Searching for usage](#migration-search-for-usage)
+- [Classifying usage](#migration-classify-usage)
 
-## Step 1: Identify HPCS usage
+**Migration by Feature:**
+- [Customer root keys (CRKs)](#migration-crk-migration)
+- [Standard keys](#migration-standard-key-migration)
+- [KMIP for VMWare](#kmip-migration)
+- [PKCS #11 (GREP11)](#migration-pkcs11-grep11)
+- [Unified Key Orchestrator (UKO)](#migration-uko)
+- [Terraform](#migration-terraform)
+- [CLI provisioning](#migration-cli)
+- [Secure import](#migration-secure-import)
+
+**Completion:**
+- [Post migration validation](#migration-post-migration)
+
+## Identifying HPCS usage
 {: #migration-identify-hpcs-usage}
 
 Check all {{site.data.keyword.cloud_notm}} accounts for [HPCS](/docs/hs-crypto?topic=hs-crypto-get-started&interface=ui) instances.
@@ -66,7 +80,7 @@ For more information about IAM roles and how to assign access, check out [{{site
 
 If no HPCS instances exist, no migration is required.
 
-## Step 2: Search for usage
+## Searching for usage
 {: #migration-search-for-usage}
 
 If you have HPCS instances, you need to determine how you are using those resources. The following table describes various methods for identifying HPCS usage:
@@ -76,28 +90,51 @@ If you have HPCS instances, you need to determine how you are using those resour
 | [Activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) | Provides factual indication of HPCS usage through logged events | Search for events by using the largest time window possible. Lack of events does not necessarily mean no usage because usage can occur during rare events (for example, restart of an {{site.data.keyword.cloud_notm}} service instance) or between long intervals that might exceed the event retention period. |
 | [Associations](/docs/hs-crypto?topic=hs-crypto-view-protected-resources&interface=ui) | Shows HPCS usage by {{site.data.keyword.cloud_notm}} resources | Lack of associations does not necessarily mean no usage due to the nature of distributed computing systems in which resources are not always in sync. Conversely, presence of associations does not necessarily mean active usage, associations can be stale. Some {{site.data.keyword.cloud_notm}} resources do not create or use associations. List associations by using the [`kp registrations` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations). |
 | [Sync associated resources](/docs/hs-crypto?topic=hs-crypto-sync-associated-resources&interface=ui) | Improves synchronization of associations | Use the [`kp key sync` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-sync) to explicitly sync associated resources and get more accurate association data. |
-| [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) | CLI tool provided by IBM that scans {{site.data.keyword.cloud_notm}} accounts and generates a report of resources that reference HPCS keys, grouped by KMS instance and key. Also capable of processing activity tracking audit log files. | Discovery and reporting tool only; does not perform migration actions. The tool might not detect all possible usages of keys. See [Identifying HPCS CRK usage with the Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) for more details. |
+| [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) | CLI tool provided by IBM that scans {{site.data.keyword.cloud_notm}} accounts and generates a report of resources that reference HPCS keys, grouped by KMS instance and key. Also capable of processing activity tracking audit log files. | Discovery and reporting tool only; does not perform migration actions. The tool might not detect all possible usages of keys. |
 {: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
 
 Two separate tools are referenced in this document:
 
 - **Key Migration Tool (CRKM)** – used to create migration intents and trigger synchronization. This tool is required for automated CRK migration, see [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool).
 .
-- **Key Usage Reporter (KUR)** – a discovery and reporting tool used to identify services that reference HPCS keys. KUR does not perform migration actions.
+- **Key Usage Reporter (KUR)** – a discovery and reporting tool used to identify services that reference HPCS keys. KUR does not perform migration actions. See [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur).
+
+Before you proceed with migration activities, ensure that you have the latest version of the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in installed. This ensures compatibility with all migration features and commands.
+
+To check your current plug-in version:
+
+```sh
+ibmcloud plugin show key-protect
+```
+{: pre}
+
+To update the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in to the latest version:
+
+```sh
+ibmcloud plugin update key-protect
+```
+{: pre}
+
+If the plug-in is not installed, you can install it by running:
+
+```sh
+ibmcloud plugin install key-protect
+```
+{: pre}
 
 For both HPCS and {{site.data.keyword.keymanagementserviceshort}} Dedicated, the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in must read the target instance endpoint from the environment variable `KP_TARGET_ADDR`. The `KP_TARGET_ADDR` variable works for both private and public endpoints.
 
 This example command targets an example HPCS instance:
 
 ```sh
-export KP_TARGET_ADDR=https://9cf93dbe-0ae0-4b3a-836c-2207ce189dd2.api.us-south.hs-crypto.appdomain.cloud
+export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
 ```
 {: pre}
 
 This example command targets an example {{site.data.keyword.keymanagementserviceshort}} Dedicated instance:
 
 ```sh
-export KP_TARGET_ADDR=https://323be0dc-34cf-4121-ac25-c74cd0d8d5b7.api.us-south.kms.appdomain.cloud
+export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud
 ```
 {: pre}
 
@@ -105,7 +142,7 @@ You can find the instance endpoint for both HPCS and {{site.data.keyword.keymana
 
 When you follow this document and use the {{site.data.keyword.cloud_notm}} CLI to connect to HPCS, ensure that your login user has an IAM policy at the HPCS instance level. An IAM policy at key ring level or the key level might not list all associations and other resources.
 
-## Step 3: Custom apps versus {{site.data.keyword.cloud_notm}} services and software HPCS usage
+## Custom apps versus {{site.data.keyword.cloud_notm}} services and software HPCS usage
 {: #migration-custom-apps-vs-ibm-cloud}
 
 HPCS usage comes from two main sources: custom apps and {{site.data.keyword.cloud_notm}} services or software.
@@ -122,7 +159,7 @@ Search for usage of the following:
 - References to host names that contain `hs-crypto`
 - [HPCS REST API](/apidocs/hs-crypto)
 - [GREP11](/docs/hs-crypto?topic=hs-crypto-uko-grep11-intro)
-- [CLI](/docs/hs-crypto?topic=hs-crypto-cli-change-log&interface=ui)
+- [HPCS CLI plug-ins](/docs/hs-crypto?topic=hs-crypto-cli-change-log&interface=ui)
 
 Also search for usage of HPCS through the HPCS PKCS11 library:
 - [HPCS PKCS #11](https://github.com/IBM-Cloud/hpcs-pkcs11)
@@ -141,9 +178,13 @@ Search IAM identities with access to HPCS, mostly [service IDs](/docs/account?to
 ### {{site.data.keyword.cloud_notm}} services and software
 {: #migration-ibm-cloud-services}
 
-Searching for {{site.data.keyword.cloud_notm}} services and software usage is a task that you need to perform with the help of HPCS activity tracking events, associations, the {{site.data.keyword.cloud_notm}} CLI, and tools that are provided by IBM. The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool is recommended for discovering which {{site.data.keyword.cloud_notm}} services and resources reference HPCS keys.
+To identify {{site.data.keyword.cloud_notm}} services and software that are using HPCS, follow this recommended approach:
 
-## Step 4: Classify usage
+1. **Start with the Key Usage Reporter (KUR)** - The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool is the recommended starting point. It scans your {{site.data.keyword.cloud_notm}} accounts and generates a comprehensive report of resources that reference HPCS keys, grouped by service and key.
+
+2. **Cross-reference with Activity Tracking** - Review [HPCS activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) over the largest available time window to identify services that have recently performed cryptographic operations. The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool is capable of processing activity tracking audit log files, producing CSV summaries that help identify HPCS utilization.
+
+## Classifying usage
 {: #migration-classify-usage}
 
 Each type of HPCS usage relevant to the migration falls into one of the following categories:
@@ -160,89 +201,121 @@ Each type of HPCS usage relevant to the migration falls into one of the followin
 | [Secure import of root key material](/docs/hs-crypto?topic=hs-crypto-importing-keys) | Optionally used as part of key import |
 {: caption="Table 2. HPCS usage types" caption-side="bottom"}
 
-## Step 5: Migrating your root keys (CRKs)
+## Migrating your root keys (CRKs)
 {: #migration-crk-migration}
 
-### Checking for existence of CRKs
+### Checking for the existence of CRKs
 {: #migration-check-crk-existence}
 
-Use the following bash script to count the total number of CRKs, in any [state](/docs/hs-crypto?topic=hs-crypto-key-states), in each HPCS instance.
+Use the following Bash script to count the total number of CRKs in all [states](/docs/hs-crypto?topic=hs-crypto-key-states) for a given HPCS instance.
 
 Make sure that you are logged in to {{site.data.keyword.cloud_notm}} through the {{site.data.keyword.cloud_notm}} CLI.
 {: important}
 
+
 ```sh
-# count the total number of CRKs, in any state
-HPCS_ADDR=https://adb94850-5ff6-40ac-86ce-aebf7b543c97.api.us-south.hs-crypto.appdomain.cloud
-HPCS_INSTANCE_ID=adb94850-5ff6-40ac-86ce-aebf7b543c97
-curl -i -k -s --head \
+# count the total number of CRKs in all states 
+HPCS_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+HPCS_INSTANCE_ID=fadedbee-0000-0000-0000-1234567890ab
+AUTH_HEADER="${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}"
+header="$(curl -i -k -s --head \
   "${HPCS_ADDR}/api/v2/keys?state=0,1,2,3,5&extractable=false" \
-  -H "authorization: ${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}" \
+  -H "authorization: ${AUTH_HEADER}" \
   -H "bluemix-instance: ${HPCS_INSTANCE_ID}" \
   -H "prefer: return=representation" \
-| grep '^Key-Total:'
+| grep '^Key-Total:' \
+| tr -d '\r')"
+if [ -n "$header" ]; then
+  total="${header#Key-Total: }"
+  echo "Total number of CRKs in all states: $total"
+else
+  echo "Error: Key-Total header not found. Try logging into IBM Cloud again. Check endpoint, auth token, or permissions." >&2
+fi
 ```
 {: pre}
 
 Replace `HPCS_ADDR` and `HPCS_INSTANCE_ID` with valid values for each HPCS instance.
+You can find the instance endpoint for HPCS and the instance ID in the {{site.data.keyword.cloud_notm}} UI console for the specific instance.
 
 The output looks similar to the following example:
 
 ```sh
-Key-Total: 4
+Total number of CRKs in all states: 11
 ```
 {: screen}
 
-If the output is an empty line, log in to {{site.data.keyword.cloud_notm}} through the {{site.data.keyword.cloud_notm}} CLI again.
+If there are zero CRKs across all HPCS instances, CRK migration is not required.
 {: tip}
 
-If there are zero CRKs in all the HPCS instances, CRK migration is not needed.
-{: tip}
-
-Check the count of CRKs in Active (1) or Deactivated (Expired) (3) states using the script below. Only CRKs in Active (1) or Deactivated (3) states can be part of cryptographic operations, [wrap](/docs/hs-crypto?topic=hs-crypto-wrap-keys), [unwrap](/docs/hs-crypto?topic=hs-crypto-unwrap-keys) and [rewrap](/docs/hs-crypto?topic=hs-crypto-rewrap-keys). A CRK in Deactivated (3) supports unwrap and rewrap but not wrap.
+Check the count of CRKs in the Active (1) and Deactivated (Expired) (3) states by using the following script. Only CRKs in the Active (1) or Deactivated (Expired) (3) states can be used for cryptographic operations such as[wrap](/docs/hs-crypto?topic=hs-crypto-wrap-keys), [unwrap](/docs/hs-crypto?topic=hs-crypto-unwrap-keys) and [rewrap](/docs/hs-crypto?topic=hs-crypto-rewrap-keys). A CRK in Deactivated (3) supports unwrap and rewrap but not wrap.
 
 ```sh
-# count the total number of CRKs, in Active (1) or Deactivated (Expired) (3) states
-HPCS_ADDR=https://adb94850-5ff6-40ac-86ce-aebf7b543c97.api.us-south.hs-crypto.appdomain.cloud
-HPCS_INSTANCE_ID=adb94850-5ff6-40ac-86ce-aebf7b543c97
-curl -i -k -s --head \
+# count the total number of CRKs in Active (1) or Deactivated (Expired) (3) states
+HPCS_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+HPCS_INSTANCE_ID=fadedbee-0000-0000-0000-1234567890ab
+AUTH_HEADER="${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}"
+header="$(curl -i -k -s --head \
   "${HPCS_ADDR}/api/v2/keys?state=1,3&extractable=false" \
-  -H "authorization: ${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}" \
+  -H "authorization: ${AUTH_HEADER}" \
   -H "bluemix-instance: ${HPCS_INSTANCE_ID}" \
   -H "prefer: return=representation" \
-| grep '^Key-Total:'
+| grep '^Key-Total:' \
+| tr -d '\r')"
+if [ -n "$header" ]; then
+  total="${header#Key-Total: }"
+  echo "Total number of CRKs in Active (1) or Deactivated (Expired) (3) states: $total"
+else
+  echo "Error: Key-Total header not found. Try logging into IBM Cloud again. Check endpoint, auth token, or permissions." >&2
+fi
 ```
 {: pre}
 
-If there are no CRKs in the Active (1) or Deactivated (3) state in any HPCS instance, this does not necessarily mean that HPCS is not referenced. An {{site.data.keyword.cloud_notm}} resource or custom application might still be configured to reference a CRK that is in another state. However, any attempt to perform cryptographic operations with such a CRK will fail.
+If there are zero CRKs in the Active (1) or Deactivated (Expired) (3) states across all HPCS instances, no CRKs are available for cryptographic operations.
+However, this does not necessarily mean that HPCS is not in use. Resources or applications might still be configured to reference CRKs in other states. Any attempt to perform cryptographic operations with such CRKs will fail.
+
+Interpreting CRK counts:
+
+| Condition | Interpretation | Action |
+|----------|---------------|--------|
+| Total CRKs = 0 (all states) | No CRKs exist in any HPCS instance | CRK migration is not required |
+| Total CRKs > 0, but Active (1) + Deactivated (3) = 0 | No CRKs are currently usable for cryptographic operations | Migration might still be required. Verify whether any resources or applications reference CRKs in other states |
+| Active (1) or Deactivated (3) CRKs exist | CRKs are available for cryptographic operations (fully or partially) | CRK migration is required |
 
 You can obtain the full CRN of HPCS CRKs by using the {{site.data.keyword.cloud_notm}} CLI [`kp keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys).
 
 The following example lists CRKs in all states:
 
 ```sh
-ibmcloud kp keys --instance-id adb94850-5ff6-40ac-86ce-aebf7b543c97 --crn --key-type root-key --key-states active,suspended,deactivated,destroyed --number-of-keys 5000
+export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+ibmcloud kp keys --instance-id fadedbee-0000-0000-0000-1234567890ab --crn --key-type root-key --key-states active,suspended,deactivated,destroyed --number-of-keys 5000
 ```
 {: pre}
 
-- The command above list CRKs in all states, including Suspended (Disabled) and Destroyed (soft deleted) states.
+Replace `KP_TARGET_ADDR` with valid values for each HPCS instance.
+You can find the instance endpoint for HPCS in the {{site.data.keyword.cloud_notm}} UI console for the specific instance.
+
+- The command above lists CRKs in all states, including Suspended (Disabled) and Destroyed (soft deleted) states.
 - Active cryptographic use of CRKs in Suspended (Disabled) and Destroyed (soft deleted) states is not allowed but CRKs in those states can still be referenced by {{site.data.keyword.cloud_notm}} resources or custom code.
 - It is possible to move CRKs from Suspended (Disabled) and Destroyed (soft deleted) states to Active state.
 - The command can list up to 5000 CRKs at a time. Pagination might be needed to list all CRKs.
 
-### Customer root keys (CRKs) migration in custom apps
+### Customer root keys (CRKs) migration in custom applications
 {: #migration-crk-migration-custom-apps}
 
-Custom apps can migrate CRKs to {{site.data.keyword.keymanagementserviceshort}} Dedicated by using one of the following approaches:
+Custom applications can migrate CRKs to {{site.data.keyword.keymanagementserviceshort}} Dedicated by rewrapping the data encryption key (DEK) that is protected by HPCS.
 
-1. The custom app generates a new [data encryption key](/docs/hs-crypto?topic=hs-crypto-envelope-encryption#envelope-encryption-overview) (DEK), creates a new wrapped DEK (WDEK) with {{site.data.keyword.keymanagementserviceshort}} Dedicated by using a wrap operation, and re-encrypts its data with the new DEK.
+The migration process involves the following steps:
 
-2. The custom app retrieves its DEKs from HPCS by using an unwrap operation, wraps that DEK with {{site.data.keyword.keymanagementserviceshort}} Dedicated, generates a new WDEK, and uses that WDEK.
+- Unwrap the [data encryption key](/docs/hs-crypto?topic=hs-crypto-envelope-encryption#envelope-encryption-overview) (DEK) from HPCS.
+- Wrap the DEK with {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+- Generate a new wrapped data encryption key (WDEK).
+- Use the new WDEK for subsequent cryptographic operations.
 
-In all cases, custom apps must:
+In all cases, custom applications must:
 
 - Use a different endpoint. A {{site.data.keyword.keymanagementserviceshort}} Dedicated instance has an endpoint that is specific to that instance.
-- Use an IAM identity, most likely a service ID, that allows access to {{site.data.keyword.keymanagementserviceshort}} Dedicated at the appropriate level. This might require new IAM policies whose target is {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+- Use a different key ID.
+- Use an IAM identity, most likely a service ID, that allows access to {{site.data.keyword.keymanagementserviceshort}} Dedicated at the appropriate level. This might require new IAM policies that target {{site.data.keyword.keymanagementserviceshort}} Dedicated.
 
 For more information about the {{site.data.keyword.keymanagementserviceshort}} API, see the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect).
 
@@ -251,7 +324,14 @@ For more information about the {{site.data.keyword.keymanagementserviceshort}} A
 
 Some {{site.data.keyword.cloud_notm}} services and IBM software that integrate with HPCS can participate in an automated CRK migration workflow to {{site.data.keyword.keymanagementserviceshort}} Dedicated. This workflow is based on migration intents and key lifecycle synchronization events, and is designed to minimize disruption while preserving cryptographic continuity.
 
-This section describes the migration model, prerequisites, migration flow, and how to monitor progress.
+#### Alternative migration path: re-creating service instances
+{: #migration-alternative-path}
+
+An alternative to the migration intent workflow is to create a new instance of the {{site.data.keyword.cloud_notm}} service and configure it with a CRK from {{site.data.keyword.keymanagementserviceshort}} Dedicated from the start. You then copy the data and metadata from the existing service instance to the new one. After the new instance is verified, the original instance that uses the HPCS CRK can be decommissioned.
+
+This approach might cause interruption of service during the transition period while data is being copied and references are updated to point to the new instance. The trade-off is that this approach requires provisioning new infrastructure, copying data, and updating any references (for example, endpoints, bindings, or application configuration) that point to the original service instance. Evaluate the operational cost of re-creating the service instance against the simplicity of starting fresh with a {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK.
+
+This section describes the migration intent model, prerequisites, migration flow, and how to monitor progress.
 
 #### Migration overview
 {: #migration-overview}
@@ -264,17 +344,6 @@ At a high level, the migration works as follows:
 2. {{site.data.keyword.cloud_notm}} services that are associated with that HPCS CRK detect the intent.
 3. Each service rewraps its DEKs and updates its key associations.
 4. Associations with the HPCS CRK are removed after migration is complete.
-
-#### Example migration scenario
-{: #migration-scenario-example}
-
-Consider the following example:
-
-- A Cloud Object Storage instance (`COS_1`) uses a DEK that is wrapped by an HPCS CRK (`HPCS_key_1`).
-- A {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK (`KP_D_key_1`) exists or has been created.
-- The objective is for all data previously encrypted by `HPCS_key_1`, including the DEK for `COS_1`, to be encrypted by `KP_D_key_1`.
-
-The migration process enables this transition without requiring you to move data.
 
 #### Prerequisites
 {: #migration-prerequisites}
@@ -299,6 +368,13 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
     - [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
     - [VPC Images](/docs/vpc?topic=vpc-planning-custom-images)
     - [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
+
+    You do not need to wait for all services to support migration intents before you begin the migration. Use the [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool and [activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) to determine which services are actually using your HPCS CRKs. If your HPCS keys are used only by services that already support migration intents, you can complete the migration now.
+
+    A single HPCS CRK can be used by both supported and unsupported services at the same time. In this case, create the migration intent now. The services that already support migration intents will detect the intent and complete their migration. The migration intent remains attached to the CRK. When additional services add migration intent support, you only need to run the Sync command from the [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) on the same CRKs — there is no need to create new migration intents.
+
+    This means you can start the migration process today and return later to complete it for the remaining services as support becomes available.
+    {: tip}
 
 - Target CRKs
 :   {{site.data.keyword.keymanagementserviceshort}} Dedicated CRKs must already exist. Target CRKs can be generated or imported, with or without customer-supplied key material, via API, CLI or the UI.
@@ -377,38 +453,107 @@ KUR is also capable of processing activity tracking audit log files, producing C
 - Some services or specific parts of services (for example, IKS / ROKS persistent volume claims) require specific procedures and are not fully covered by migration intents. See the next sections for more information.
 - You are responsible for validating that all HPCS usage has stopped before you decommission HPCS.
 
+#### Example migration scenario
+{: #migration-scenario-example}
+
+The following end-to-end example illustrates how to migrate an HPCS CRK that is used by a Cloud Object Storage instance.
+
+**Starting point:**
+
+- An HPCS CRK (`HPCS_key_1`) protects a DEK used by a Cloud Object Storage instance (`COS_1`).
+- The objective is for `COS_1` to use a {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK (`KP_D_key_1`) instead, without moving any data.
+
+**Step 1: Identify HPCS CRK usage**
+
+Use the [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool to scan your accounts and identify which services and resources are using `HPCS_key_1`. Cross-reference the KUR report with [activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) to confirm active usage.
+
+**Step 2: Create the target CRK in {{site.data.keyword.keymanagementserviceshort}} Dedicated**
+
+Create `KP_D_key_1` in your {{site.data.keyword.keymanagementserviceshort}} Dedicated instance. The target CRK can be generated or imported, with or without customer-supplied key material, through the API, CLI, or the UI.
+
+**Step 3: Set up IAM authorization policies**
+
+Create service-to-service IAM authorization policies that allow Cloud Object Storage to access the {{site.data.keyword.keymanagementserviceshort}} Dedicated instance, key ring, or individual key where `KP_D_key_1` resides. The IAM policies must be defined in the same account as the target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance. For services such as IBM Cloud Databases, Messages for RabbitMQ, Kubernetes, and OpenShift, ensure that delegated authorization is enabled when you create the IAM policy.
+
+Most cases of failed migrations occur because IAM authorization policies are not configured or are configured incorrectly.
+{: important}
+
+Before you proceed, use the CRKM tool `authz-check` command to verify that the required IAM authorization policies are in place. The `authz-check` command inspects the association on each source HPCS CRK and checks whether a matching IAM authorization policy exists that would allow each registered service to access the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. For each association, the tool reports whether a matching policy was found or whether a policy is missing, along with a template of the policy that needs to be created. Running this check before you create migration intents helps you identify and fix authorization gaps that would otherwise cause migration failures. For more information, see [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool).
+
+**Step 4: Create the migration intent**
+
+Use the [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) to create a migration intent on `HPCS_key_1` that references the target CRK `KP_D_key_1`. The CRKM tool accepts a CSV file that contains pairs of source HPCS CRK CRNs and target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK CRNs, which makes it possible to create migration intents in bulk.
+
+After the migration intent is created, HPCS emits synchronization events that notify associated services about the migration request.
+
+**Step 5: Run Sync**
+
+For some services (for example, IBM Cloud Databases, Messages for RabbitMQ, Kubernetes, and OpenShift), additional synchronization events must be explicitly triggered a few minutes after intent creation. Use the CRKM tool Sync command to trigger these events.
+
+You can run the Sync command at any time to retry incomplete migrations.
+
+**Step 6: Monitor migration progress**
+
+Use the CRKM tool Status command to check the migration progress. The tool reports the association counts for both the source HPCS CRK and the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. As services complete migration:
+
+- The number of associations on `HPCS_key_1` decreases.
+- The number of associations on `KP_D_key_1` increases.
+
+For Event Streams, migration might take up to one business day. For other services, migration is expected to finish in less than four hours.
+
+**About the Key Migration Tool (CRKM)**
+
+The [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) is a CLI tool that supports the following operations:
+
+- **Status** — Reports migration progress by showing association counts for source and target CRKs across all CRK pairs.
+- **Authz-check** — Verifies that the required IAM authorization policies are in place for each registered service before migration. Reports matches and missing policies with actionable templates.
+- **Create** — Creates migration intents in bulk from a CSV file of source and target CRK CRN pairs.
+- **Sync** — Triggers synchronization events to prompt services to process the migration intent. Can be run multiple times to retry incomplete migrations.
+
+The CRKM tool is required for automated CRK migration and works with the KUR tool, which handles discovery and reporting.
+
 ## Standard Key Migration
 {: #migration-standard-key-migration}
 
+[Standard keys](/docs/hs-crypto?topic=hs-crypto-envelope-encryption#key-types) in HPCS store secret material such as API keys, passwords, or encryption keys that are used directly by applications. Unlike CRKs, standard keys do not use the migration intent workflow. Migration of standard keys requires you to retrieve the key material from HPCS and re-provision it in a supported service.
 
 ### Checking for existence of Standard Keys
 {: #migration-check-standard-key-existence}
 
-Use the following bash script to count the total number of Standard Keys, in any valid standard key [state](/docs/hs-crypto?topic=hs-crypto-key-states), in each HPCS instance.
+Use the following bash script to count the total number of Standard Keys in all valid standard key [state](/docs/hs-crypto?topic=hs-crypto-key-states), in each HPCS instance.
 
 Make sure that you are logged in to {{site.data.keyword.cloud_notm}} through the {{site.data.keyword.cloud_notm}} CLI.
 {: important}
 
 ```sh
-# count the total number of Standard Keys, in any valid standard key state
-# Standard keys are returned when extractable=true is specified.
-HPCS_ADDR=https://adb94850-5ff6-40ac-86ce-aebf7b543c97.api.us-south.hs-crypto.appdomain.cloud
-HPCS_INSTANCE_ID=adb94850-5ff6-40ac-86ce-aebf7b543c97
-curl -i -k -s --head \
-  "${HPCS_ADDR}/api/v2/keys?state=0,1,5&extractable=true" \
-  -H "authorization: ${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}" \
+# count the total number of Standard keys in all states 
+HPCS_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+HPCS_INSTANCE_ID=fadedbee-0000-0000-0000-1234567890ab
+AUTH_HEADER="${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}"
+header="$(curl -i -k -s --head \
+  "${HPCS_ADDR}/api/v2/keys?state=1,5&extractable=true" \
+  -H "authorization: ${AUTH_HEADER}" \
   -H "bluemix-instance: ${HPCS_INSTANCE_ID}" \
   -H "prefer: return=representation" \
-| grep '^Key-Total:'
+| grep '^Key-Total:' \
+| tr -d '\r')"
+if [ -n "$header" ]; then
+  total="${header#Key-Total: }"
+  echo "Total number of Standard keys in all states: $total"
+else
+  echo "Error: Key-Total header not found. Try logging into IBM Cloud again. Check endpoint, auth token, or permissions." >&2
+fi
 ```
 {: pre}
 
 Replace `HPCS_ADDR` and `HPCS_INSTANCE_ID` with valid values for each HPCS instance.
+You can find the instance endpoint for HPCS and the instance ID in the {{site.data.keyword.cloud_notm}} UI console for the specific instance.
+
 
 The output looks similar to the following example:
 
 ```sh
-Key-Total: 4
+Total number of Standard keys in all states: 4
 ```
 {: screen}
 
@@ -416,39 +561,49 @@ If the output is an empty line, log in to {{site.data.keyword.cloud_notm}} throu
 {: tip}
 
 
-If there are zero Standard Keys in all the HPCS instances, Standard Key migration is not needed.
+If there are zero Standard Keys in all the HPCS instances, Standard Key migration is not required.
 {: tip}
 
-Check the count of standard keys in Destroyed (5) state (the "soft delete" state) using the script below. 
+Check the count of standard keys in Destroyed (5) state using the script below. 
 
 ```sh
-# count the total number of Standard Keys in Destroyed (5) state (the "soft delete" state)
-# Standard keys are returned when extractable=true is specified.
-HPCS_ADDR=https://adb94850-5ff6-40ac-86ce-aebf7b543c97.api.us-south.hs-crypto.appdomain.cloud
-HPCS_INSTANCE_ID=adb94850-5ff6-40ac-86ce-aebf7b543c97
-curl -i -k -s --head \
+# count the total number of Standard keys in Destroyed (5) state.
+HPCS_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+HPCS_INSTANCE_ID=fadedbee-0000-0000-0000-1234567890ab
+AUTH_HEADER="${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}"
+header="$(curl -i -k -s --head \
   "${HPCS_ADDR}/api/v2/keys?state=5&extractable=true" \
-  -H "authorization: ${AUTH_TOKEN:-$(jq -r .IAMToken ~/.bluemix/config.json)}" \
+  -H "authorization: ${AUTH_HEADER}" \
   -H "bluemix-instance: ${HPCS_INSTANCE_ID}" \
   -H "prefer: return=representation" \
-| grep '^Key-Total:'
+| grep '^Key-Total:' \
+| tr -d '\r')"
+if [ -n "$header" ]; then
+  total="${header#Key-Total: }"
+  echo "Total number of Standard keys in Destroyed (5) state: $total"
+else
+  echo "Error: Key-Total header not found. Try logging into IBM Cloud again. Check endpoint, auth token, or permissions." >&2
+fi
 ```
 {: pre}
 
 If all standard keys are in Destroyed (5) (soft deleted) state, this does not guarantee that there is no usage. An {{site.data.keyword.cloud_notm}} resource or custom application might still reference the key. In this case, operations are expected to fail the next time key material retrieval is attempted.
 
-Standard keys can exist only in Pre-active(0), Active (1) or Destroyed (5) states. Other key states apply only to CRKs. Unlike CRKs, standard keys don’t support a “disabled/suspended” state.
+Standard keys can exist only in Active (1) or Destroyed (5) states. Other key states apply only to CRKs. 
 
 You can obtain the full CRN of HPCS standard keys by using the {{site.data.keyword.cloud_notm}} CLI [`kp keys` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-keys).
 
-The following example lists standard keys in all supported states:
+The following example lists standard keys in possible states:
 
 ```sh
-ibmcloud kp keys --instance-id adb94850-5ff6-40ac-86ce-aebf7b543c97 --crn --key-type standard-key --key-states active,destroyed --number-of-keys 5000
+export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.hs-crypto.appdomain.cloud
+ibmcloud kp keys --instance-id fadedbee-0000-0000-0000-1234567890ab --crn --key-type standard-key --key-states active,destroyed --number-of-keys 5000
 ```
 {: pre}
 
-- Unlike CRKs, standard keys cannot be in the Suspended (2) (Disabled) state.
+Replace `KP_TARGET_ADDR` with valid values for each HPCS instance.
+You can find the instance endpoint for HPCS in the {{site.data.keyword.cloud_notm}} UI console for the specific instance.
+
 - The command can list up to 5000 standard keys at a time. Pagination might be needed to list all standard keys.
 
 ####  Checking HPCS Usage on AIX
@@ -467,20 +622,31 @@ If no logical volumes or physical volumes report `TYPE=hpcs`, the AIX system is 
 
 Information about HPCS deprecation and migration to {{site.data.keyword.keymanagementserviceshort}} Dedicated will be communicated in a future AIX release through official AIX release documentation.
 
-####  Checking HPCS Usage on Direct Link
+####  Checking HPCS Standard key usage by Direct Link
 {: #migration-direct-link}
 
 Refer to the Direct Link documentation at [Migrating Direct Link MACsec CAKs and MD5 keys from HPCS to Secrets Manager](/docs/dl?topic=dl-hpcs-migration&interface=ui)
 
-If standard keys exist, besides the Direct Link and AIX usages above, you must [retrieve the key material](/apidocs/hs-crypto#getkey) of each standard key and re-provision it in a supported service. This can be done either by:
+#### Migration of standard keys
+{: #migration-standard-key-process}
 
-- Importing the key material into a new {{site.data.keyword.keymanagementserviceshort}} Dedicated standard key.
-- Storing the secret in {{site.data.keyword.cloud_notm}} Secrets Manager, which is the recommended solution for general secret material.
+If standard keys exist, besides the Direct Link and AIX usages above, you must migrate them by following these steps:
 
+1. **Retrieve the key material** — Use the [HPCS API](/apidocs/hs-crypto#getkey) to retrieve the plaintext key material of each standard key.
+
+2. **Re-provision the key material** — Store the retrieved key material in a supported service. This can be done either by:
+   - Importing the key material into a new {{site.data.keyword.keymanagementserviceshort}} Dedicated standard key.
+   - Storing the secret in {{site.data.keyword.cloud_notm}} Secrets Manager, which is the recommended solution for general secret material.
+
+3. **Update application references** — Update any custom applications, service configurations, or IAM policies that reference the HPCS standard key. Applications must be updated with the new service endpoint, key ID, and any required IAM policies that grant access to the new key in {{site.data.keyword.keymanagementserviceshort}} Dedicated or Secrets Manager.
+
+4. **Validate** — Confirm that all applications and services are functioning correctly with the new key before you decommission the HPCS standard key.
+
+   
 ## KMIP for VMWare Migration
 {: #kmip-migration}
 
-VMware KMIP support for HPCS will end on 31 December 2026, after which the KMIP for VMware service will no longer work. Detailed instructions on migrating to {{site.data.keyword.keymanagementserviceshort}} Dedicated will be published [here](/docs/vmwaresolutions?topic=vmwaresolutions-eos-kmip) on 3 March 2026.
+VMware KMIP support for HPCS will end on 31 December 2026, after which the KMIP for VMware service will no longer work. Detailed instructions on migrating to {{site.data.keyword.keymanagementserviceshort}} Dedicated is published [here](/docs/vmwaresolutions?topic=vmwaresolutions-eos-kmip).
 
 ## PKCS #11 (GREP11)
 {: #migration-pkcs11-grep11}
@@ -489,10 +655,14 @@ VMware KMIP support for HPCS will end on 31 December 2026, after which the KMIP 
 
 To determine whether this feature is being used, check the HPCS activity tracking logs for entries where the action field is `hs-crypto.ep11.use` or starts with `hs-crypto.keystore`. The presence of these entries indicates that PKCS #11 (GREP11) is being used.
 
+Please refer to [GREP11/PKCS#11 Migration Guide](/docs/hs-crypto?topic=hs-crypto-migrate-hpcs-to-CCRT).
+
 ## Unified Key Orchestrator (UKO)
 {: #migration-uko}
 
 [UKO-managed keys](/docs/hs-crypto?topic=hs-crypto-introduce-uko) are not supported by {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+
+Please refer to [Refer to UKO Migration Guide](/docs/hs-crypto?topic=hs-crypto-migration-guide).
 
 ## Terraform
 {: #migration-terraform}
@@ -501,6 +671,8 @@ To use Terraform with {{site.data.keyword.keymanagementserviceshort}} Dedicated,
 
 Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance is available through the IBM Cloud Console UI and the IBM Cloud CLI.
 Creating new {{site.data.keyword.keymanagementserviceshort}} Dedicated instances with Terraform is not supported.
+
+For more information see [Setting up Terraform for Key Protect](/docs/key-protect?topic=key-protect-terraform-setup#install-terraform)
 
 ## Instance provisioning by using the IBM Cloud CLI
 {: #migration-cli}
@@ -551,7 +723,7 @@ Disabling CRKs is strongly recommended before deletion because:
 
 A recommended milestone is to ensure that all HPCS CRKs that were successfully migrated are in the Disabled state.
 
-Keys in the Disabled state can be re-enabled at any time and do not permanently block remediation.
+CRKs in the Disabled state can be re-enabled at any time and do not permanently block remediation.
 
 ### Final milestones and decommissioning considerations
 {: #migration-decommissioning}
