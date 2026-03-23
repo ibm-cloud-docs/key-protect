@@ -238,3 +238,4 @@ You would create a 16-, 24-, or 32-byte key material, for use as a standard key,
 {: #import-standard-key-next-steps}
 
 - To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+
