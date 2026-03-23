@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -45,7 +45,7 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 Access to the Chennai region is allowlisted. If this region is not available to you, open a [support ticket](https://www.ibm.com/mysupport/s/).
 {: important}
 
-[{{site.data.keyword.keymanagementserviceshort}} Dedicated](/docs/key-protect?topic=key-protect-about) is currently only available in `us-south` (Dallas).
+[{{site.data.keyword.keymanagementserviceshort}} Dedicated](/docs/key-protect?topic=key-protect-about) is currently only available in `us-south` (Dallas, Texas, United States), `us-east` (Washington, DC, United States), and `eu-de` (Frankfurt, Germany).
 {: important}
 
  
