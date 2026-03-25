@@ -374,4 +374,3 @@ Message: [409, Conflict] Conflict: Instance contains 2 active keys. Remove all k
 
 To find out more about programmatically managing your keys,
 [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
-
