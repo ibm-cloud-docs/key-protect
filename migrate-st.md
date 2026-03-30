@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-25"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -620,7 +620,7 @@ hdcryptmgr showpv <pvname> -v
 
 If no logical volumes or physical volumes report `TYPE=hpcs`, the AIX system is not actively using HPCS Standard Keys.
 
-Information about HPCS deprecation and migration to {{site.data.keyword.keymanagementserviceshort}} Dedicated will be communicated in a future AIX release through official AIX release documentation.
+Starting with AIX® 7.3 Technology Level (TL) 4 Service Pack (SP) 1, the {{site.data.keyword.keymanagementserviceshort}} Dedicated Server authentication method replaces the deprecated Hyper Protect Crypto Services (HPCS) authentication method. The -t option of the hdcryptmgr command is updated to include the kms as the valid value in place of hpcs value. The value of the hpcs option is accepted even for Key Protect. To migrate from HPCS to Key Protect Server, see Migrating from HPCS to Key Protect Server section in the Encrypted logical volumes topic.
 
 ####  Checking HPCS Standard key usage by Direct Link
 {: #migration-direct-link}

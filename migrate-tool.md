@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-03-20"
+lastupdated: "2026-03-25"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -96,10 +96,10 @@ chmod +x <crkm-binary>
 The `status`, `create`, and `sync` operations from the CLI tool produce the following two files:
 
 * A `.csv` output file is created after the operation completes, with `execution` in the file name, the operation name, and the date-time of command run. The file contains a copy of the input data, and in addition for each row:
-    * The number of registrations found on the HPCS key
-    * The number of registrations found on the Key Protect Dedicated key
+    * The number of associations found on the HPCS key
+    * The number of associations found on the Key Protect Dedicated key
     * The status of the operation on the HPCS key
-* A `.log` output file is created after the operation completes, with `summary` in the file name, the operation name, and the date-time of command run. The file provides an overview of the status of keys with migration intents and their number of registrations.
+* A `.log` output file is created after the operation completes, with `summary` in the file name, the operation name, and the date-time of command run. The file provides an overview of the status of keys with migration intents and their number of associations.
 
 In addition:
 * Using the `status` operation is a good way to verify your input file is correctly formatted as no action is taken.
@@ -170,7 +170,7 @@ export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-so
 
 The `IBMCLOUD_API_KEY` must be associated with an IAM identity (for example, an IBM Cloud user or service ID) that has the `Manager` role for both HPCS and Key Protect Dedicated.
 
-The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` does not have access to the target Key Protect Dedicated instance. 
+The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` does not have access to the target Key Protect Dedicated instance.
 
 This typically occurs when:
 - The HPCS instance and Key Protect Dedicated instance are in different IBM Cloud accounts
@@ -216,12 +216,12 @@ The command works in two phases:
 
 The tool extracts the distinct account IDs from the TargetCRK column in the CSV, fetches all IAM authorization policies for each account, and writes them to JSON files (`policies-{serviceName}-{accountID}.json`) for reference.
 
-### Phase 2: Match registrations
+### Phase 2: Match associations
 {: #migrate-tool-authz-phase2}
 
-For each row in the CSV, the tool fetches all registrations on the source HPCS key (the cloud resources encrypted by that key) and checks whether an IAM authorization policy exists that would allow each registered service to use the target Key Protect Dedicated key.
+For each row in the CSV, the tool fetches all associations on the source HPCS key (the cloud resources encrypted by that key) and checks whether an IAM authorization policy exists that would allow each associated service to use the target Key Protect Dedicated key. The tool also looks up the resource group of each target Key Protect Dedicated instance via the IBM Cloud Resource Controller API, so that policies scoped to a resource group can be matched.
 
-For each registration, the tool reports either:
+For each association, the tool reports either:
 
 `MATCH`
 :   A valid authorization policy was found. The policy JSON is printed.
@@ -229,25 +229,25 @@ For each registration, the tool reports either:
 `NO MATCH`
 :   No authorization policy was found. The tool prints a message explaining what is missing and a colored JSON template of a policy that would satisfy the match. In the template, required fields are shown in green and optional fields in blue.
 
-A summary is printed at the end with the total number of checked, matched, and unmatched registrations.
+A summary is printed at the end with the total number of checked, matched, and unmatched associations.
 
 ### Authorization check flags
 {: #migrate-tool-authz-flags}
 
 `--match-all-authz-policies`
-:   By default, the tool stops at the first matching policy per registration. Use this flag to log all matching policies.
+:   By default, the tool stops at the first matching policy per association. Use this flag to log all matching policies.
 
 ### Matching criteria
 {: #migrate-tool-authz-criteria}
 
-An authorization policy matches a registration when all of the following are true:
+An authorization policy matches an association when all of the following are true:
 
-1. The policy's **subjects** (who is authorized) contain a `serviceName` and `accountId` matching the registered cloud service.
+1. The policy's **subjects** (who is authorized) contain a `serviceName` and `accountId` matching the associated cloud service.
 2. The policy's **resources** (what is being accessed) contain a `serviceName` and `accountId` matching the target Key Protect Dedicated key's service.
 3. The policy's **roles** grant appropriate access (`Reader`, `ReaderPlus`, `Writer`, or `Manager`).
-4. If the registered service requires it (for example, `databases-for-*`, `messages-for-rabbitmq`, `containers-kubernetes`), the policy also includes the `AuthorizationDelegator` role.
+4. If the associated service requires it (for example, `databases-for-*`, `messages-for-rabbitmq`, `containers-kubernetes`), the policy also includes the `AuthorizationDelegator` role.
 
-If the policy specifies optional attributes such as `serviceInstance`, `keyRing`, or `resource`, those must also match the target key.
+If the policy specifies optional attributes such as `resourceGroupId`, `serviceInstance`, `keyRing`, or `resource`, those must also match the target key or its Key Protect Dedicated instance.
 
 ## Creating migration intents
 {: #migrate-tool-create}
@@ -260,7 +260,7 @@ After creating a `.csv` file with the pairing of HPCS keys to migrate to their r
 {: pre}
 
 This operation:
-* Triggers sync events to services that have registrations (resources associated with the keys being migrated) so they know to start migrating the HPCS key.
+* Triggers sync events to services that have associations (cloud resources using the keys being migrated) so they know to start migrating the HPCS key.
 * Allows you to monitor event acknowledgement and migration in the activity tracking logs. See [Migration not completed in time](#migrate-tool-troubleshoot-time) for troubleshooting using activity tracking.
 
 If a migration intent already exists on a key and you want to update it with an updated `.csv` input file, run the CLI with the `--replace-mi` flag.
@@ -277,7 +277,7 @@ After five minutes from the completion of the previous step, use the `sync` oper
 ```
 {: pre}
 
-This operation triggers sync events to services that have registrations (resources associated with the keys being migrated). This step ensures that even for services that use HPCS keys indirectly (for example, ICD uses COS to store backups, COS uses Key Protect) the migration can take place.
+This operation triggers sync events to services that have associations (cloud resources using the keys being migrated). This step ensures that even for services that use HPCS keys indirectly (for example, ICD uses COS to store backups, COS uses Key Protect) the migration can take place.
 
 Wait at least five minutes before checking on the status of the migration. The migration is performed by HPCS adopting services, which have up to four hours to respond to HPCS.
 For Event Streams, after the creation of a migration intent, the migration might take up to one business day.
@@ -292,9 +292,9 @@ Use the `status` operation to check on the status of the migration:
 ```
 {: pre}
 
-If the number of registrations of an HPCS key was not zero at the start of the migration and it drops to zero at some point, that indicates that migration has been completed.
+If the number of associations of an HPCS key was not zero at the start of the migration and it drops to zero at some point, that indicates that migration has been completed.
 
-See [Troubleshooting](#migrate-tool-troubleshoot) if there are issues observed in the status column or the number of HPCS registrations (`KpRegistrationsCount`) is still non-zero.
+See [Troubleshooting](#migrate-tool-troubleshoot) if there are issues observed in the status column or the number of HPCS associations (`KpStAssociationsCount`) is still non-zero.
 
 ## Troubleshooting
 {: #migrate-tool-troubleshoot}
@@ -304,16 +304,16 @@ Use the following information to troubleshoot common issues with the migration t
 ### Migration not completed in time
 {: #migrate-tool-troubleshoot-time}
 
-Sometimes services may encounter problems migrating keys. 
+Sometimes services may encounter problems migrating keys.
 
-Use the `sync` operation with the `.csv` file as input to notify services with resources associated with the key to try the migration again:
+Use the `sync` operation with the `.csv` file as input to notify services with associations to the key to try the migration again:
 
 ```sh
 ./<crkm-binary> sync <.csv input file>
 ```
 {: pre}
 
-If the number of registrations of an HPCS key was not zero at the start of the migration and it does not drops to zero at some point, that might indicate services are encountering problems migrating keys or there are state registrations.
+If the number of associations of an HPCS key was not zero at the start of the migration and it does not drop to zero at some point, that might indicate services are encountering problems migrating keys or there are stale associations.
 Create an IBM Support ticket for Key Protect, mention HPCS to Key Protect migration.
 
 
@@ -374,7 +374,7 @@ FAILED - kp.Error: correlation_id='4629f1af-1a9b-44ea-9139-3c5c39b9790e', msg='U
 
 This means the user does not have access to the key, or the instance in the CRN of the key does not exist.
 
-### Create command: No registrations found
+### Create command: No associations found
 {: #migrate-tool-troubleshoot-create-noreg}
 
 Error message:
@@ -382,18 +382,18 @@ Error message:
 ```text
 2023/03/22 10:39:36 Retrieving Key...
 2023/03/22 10:39:36 Key retrieved successfully
-2023/03/22 10:39:36 Retrieving Registrations...
-2023/03/22 10:39:36 Registrations retrieved successfully
+2023/03/22 10:39:36 Retrieving associations...
+2023/03/22 10:39:36 Associations retrieved successfully
 2023/03/22 10:39:36 Retrieving Migration Intent...
 2023/03/22 10:39:36 Migration Intent retrieved successfully
-2023/03/22 10:39:36 No registrations found for the key
+2023/03/22 10:39:36 No associations found for the key
 2023/03/22 10:39:36 -----------------------------------------------
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No registrations were found for the key"
+The CSV status column output also reads: "FAILED - No associations were found for the key"
 
-This means the HPCS key has no resources it is protecting or no resources it is associated with. Therefore, there is no reason to create a migration intent on the HPCS key and no reason to perform migration.
+This means the HPCS key has no cloud resources associated with it. Therefore, there is no reason to create a migration intent on the HPCS key and no reason to perform migration.
 
 ### Create command: Migration intent already exists
 {: #migrate-tool-troubleshoot-create-exists}
@@ -403,8 +403,8 @@ Error message:
 ```text
 2023/03/22 10:39:35 Retrieving Key...
 2023/03/22 10:39:35 Key retrieved successfully
-2023/03/22 10:39:35 Retrieving Registrations...
-2023/03/22 10:39:35 Registrations retrieved successfully
+2023/03/22 10:39:35 Retrieving associations...
+2023/03/22 10:39:35 Associations retrieved successfully
 2023/03/22 10:39:35 Retrieving Migration Intent...
 2023/03/22 10:39:35 Migration Intent retrieved successfully
 2023/03/22 10:39:35 Migration Intent already exists
@@ -424,8 +424,8 @@ Error message:
 ```text
 2023/03/22 13:15:56 Retrieving Key...
 2023/03/22 13:15:56 Key retrieved successfully
-2023/03/22 13:15:56 Retrieving Registrations...
-2023/03/22 13:15:56 Registrations retrieved successfully
+2023/03/22 13:15:56 Retrieving associations...
+2023/03/22 13:15:56 Associations retrieved successfully
 2023/03/22 13:15:56 Retrieving Migration Intent...
 2023/03/22 13:15:56 No Migration Intent found for keyID a2cd689e-9a49-4cd7-ba0d-07d25a0b3a25
 2023/03/22 13:15:56 -----------------------------------------------
@@ -436,7 +436,7 @@ The CSV status column output also reads: "FAILED - No Migration Intent found for
 
 This means a migration intent does not exist for that HPCS key. Retry [Creating migration intents](#migrate-tool-create), ensuring the key resource CRN is included in the input file used, and check on the status of the operation.
 
-### Sync command: No registrations found
+### Sync command: No associations found
 {: #migrate-tool-troubleshoot-sync-noreg}
 
 Error message:
@@ -444,18 +444,18 @@ Error message:
 ```text
 2023/03/22 13:13:45 Retrieving Key...
 2023/03/22 13:13:45 Key retrieved successfully
-2023/03/22 13:13:45 Retrieving Registrations...
-2023/03/22 13:13:45 Registrations retrieved successfully
+2023/03/22 13:13:45 Retrieving associations...
+2023/03/22 13:13:45 Associations retrieved successfully
 2023/03/22 13:13:45 Retrieving Migration Intent...
 2023/03/22 13:13:45 Migration Intent retrieved successfully
-2023/03/22 13:13:45 No Registrations found for keyID d4c3cbee-20ed-4deb-b59d-4674f70713b5
+2023/03/22 13:13:45 No associations found for keyID d4c3cbee-20ed-4deb-b59d-4674f70713b5
 2023/03/22 13:13:45 -----------------------------------------------
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No registrations were found for the key"
+The CSV status column output also reads: "FAILED - No associations were found for the key"
 
-This means the HPCS key has no resources it is protecting or no resources it is associated with. Therefore, there is no reason to perform a syncing of resources. This also means the migration has been completed for the key.
+This means the HPCS key has no cloud resources associated with it. Therefore, there is no reason to perform a syncing of resources. This also means the migration has been completed for the key.
 
 ### Sync command: No migration intent found
 {: #migrate-tool-troubleshoot-sync-nomi}
@@ -465,8 +465,8 @@ Error message:
 ```text
 2023/03/22 13:15:13 Retrieving Key...
 2023/03/22 13:15:13 Key retrieved successfully
-2023/03/22 13:15:13 Retrieving Registrations...
-2023/03/22 13:15:13 Registrations retrieved successfully
+2023/03/22 13:15:13 Retrieving associations...
+2023/03/22 13:15:13 Associations retrieved successfully
 2023/03/22 13:15:13 Retrieving Migration Intent...
 2023/03/22 13:15:13 Migration Intent retrieved successfully
 2023/03/22 13:15:13 No Migration Intent found for keyID a2cd689e-9a49-4cd7-ba0d-07d25a0b3a25
@@ -487,8 +487,8 @@ Error message:
 2023/03/29 09:17:06 Sleeping for 100ms before processing row 2
 2023/03/29 09:17:06 Retrieving Key...
 2023/03/29 09:17:06 Key retrieved successfully
-2023/03/29 09:17:06 Retrieving Registrations...
-2023/03/29 09:17:06 Registrations retrieved successfully
+2023/03/29 09:17:06 Retrieving associations...
+2023/03/29 09:17:06 Associations retrieved successfully
 2023/03/29 09:17:06 Retrieving Migration Intent...
 2023/03/29 09:17:06 Migration Intent retrieved successfully
 2023/03/29 09:17:06 Post Sync Resources for key...
