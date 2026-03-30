@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-03-30"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -255,14 +255,14 @@ This command can also be used to add admins to your crypto units by making your 
 
 
 ```{: pre}
-ibmcloud kp crypto-unit user add --type admin --name <USERNAME> --credential "<USERNAME_KEY_FILE>#<USER_KEY_FILE_PWD>" --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PWD>"}]'
+ibmcloud kp crypto-unit user add --type admin --name <USERNAME> --credential "<USERNAME_KEY_FILE>" --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PWD>"}]'
 ```
 {: codeblock}
 
 Where: 
 
 * `<USERNAME>` is the name of the admin identity you are adding.
-* `<USERNAME_KEY_FILE>#<USER_KEY_FILE_PWD>` is the file path of the credential to associate with the new user.
+* `<USERNAME_KEY_FILE>` is the file path of the credential to associate with the new user.
 * `<ADMIN_KEY_FILE>#<PWD>` is the location of your existing admin and its passphrase you generated earlier (if you are not bringing your own identity).
 
 Do not add `--name` or `--file` when adding `kmsCryptoUser` as an admin.
