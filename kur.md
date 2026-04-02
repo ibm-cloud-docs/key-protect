@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-03-19"
+lastupdated: "2026-04-02"
 
 keywords: key usage reporter, KUR, encryption report, key scan, activity tracking, audit logs
 
@@ -19,7 +19,7 @@ subcollection: key-protect
 The Key Usage Reporter (KUR) CLI scans an IBM Cloud account and produces a comprehensive report of which cloud resources are encrypted by which KMS keys. The tool supports both {{site.data.keyword.keymanagementserviceshort}} (`kms`) and {{site.data.keyword.hscrypto}} (`hs-crypto`). The tool is also capable of processing activity tracking audit log files, producing CSV summaries that help identify KMS utilization.
 {: shortdesc}
 
-KUR is provided as-is and on a best effort basis. The tool might not detect all possible usages of keys, and results should not be treated as authoritative. Some services, configurations, or edge cases might not be covered.
+KUR is provided as-is and on a best-effort basis. The tool does not detect all possible usages of keys, and the results should not be treated as authoritative. Some services, configurations, or edge cases might not be covered.
 {: important}
 
 
@@ -30,9 +30,9 @@ KUR is provided as-is and on a best effort basis. The tool might not detect all 
 
 2. Download the tool binary provided in the support ticket.
 
-3. Verify the SHA-256 checksum of the downloaded binary matches the value provided in the support ticket. Compare the values directly; they must match exactly.
+3. Verify the SHA-256 checksum of the downloaded binary matches the value that is provided in the support ticket. Compare the values directly; they must match exactly.
 
-   Run the appropriate command for your operating system to get the SHA-256 checksum and compare with the value provided in the support ticket:
+   Run the appropriate command for your operating system to get the SHA-256 checksum and compare with the value that is provided in the support ticket:
 
    **macOS:**
    ```sh
@@ -94,7 +94,7 @@ KUR is provided as-is and on a best effort basis. The tool might not detect all 
 ## Prerequisites
 {: #kur-prereqs}
 
-Before running the tool, ensure the following are in place:
+Before running the tool, ensure that the following requirements are met:
 
 * **IBM Cloud CLI** (`ibmcloud`) is installed by following the instructions in [Getting started with the IBM Cloud CLI](/docs/cli?topic=cli-getting-started).
 * The following **IBM Cloud CLI plugins** are installed and up-to-date:
@@ -108,7 +108,7 @@ Before running the tool, ensure the following are in place:
    ```
    {: pre}
 
-* You are **logged in** to the IBM Cloud CLI and targeting the account you want to scan:
+* You are **logged in** to the IBM Cloud CLI and targeting the account that you want to scan:
    ```sh
    ibmcloud login
    ```
@@ -128,7 +128,7 @@ Before running the tool, ensure the following are in place:
 
 The following examples show how to run the Key Usage Reporter tool with different options and configurations.
 
-### Basic usage — scan for HPCS keys (default)
+### Basic usage: scan for HPCS keys (default)
 {: #kur-basic-usage}
 
 Use the following command to scan the currently targeted IBM Cloud account for all `hs-crypto` instances, their keys, and any cloud resources encrypted by those keys.
@@ -151,7 +151,7 @@ To scan for Key Protect instances instead of HPCS, use the `-service kms` flag.
 ### Scan for Key Protect Dedicated instances only
 {: #kur-scan-kp-dedicated}
 
-You can filter the scan to only include dedicated Key Protect instances.
+You can filter the scan to include only Key Protect Dedicated instances.
 
 ```sh
 ./<kur-binary> --service kms --service-type dedicated
@@ -161,7 +161,7 @@ You can filter the scan to only include dedicated Key Protect instances.
 ### Scan for Key Protect multi-tenant instances only
 {: #kur-scan-kp-multitenant}
 
-You can filter the scan to only include multi-tenant Key Protect instances.
+You can filter the scan to include only Key Protect Standard (mult-tenant) instances.
 
 ```sh
 ./<kur-binary> --service kms --service-type multi-tenant
@@ -196,10 +196,10 @@ The following table lists all available command-line flags for the Key Usage Rep
 | Flag                   | Default | Description |
 |------------------------|---------|-------------|
 | `--service`            | `hs-crypto` | KMS service to scan: `hs-crypto` or `kms` |
-| `--service-type`       | (none) | Filter KMS instances by type: `dedicated` or `multi-tenant`. Only valid with `-service kms`. |
-| `--skip-private-calls` | `false` | Skip REST calls to private endpoints. Instances without a public endpoint will be skipped. |
-| `--debug`              | `false` | Enable debug mode — shows detailed log messages on stderr |
-| `--output`             | auto-named | Output file path. Defaults to `encryption-key-usage-report-<service>-<account-name>.json` |
+| `--service-type`       | (None) | Filter KMS instances by type: `dedicated` or `multi-tenant`. Only valid with `-service kms`. |
+| `--skip-private-calls` | `false` | Skip REST calls to private endpoints. Instances without a public endpoint are skipped. |
+| `--debug`              | `false` | Enable debug mode: show detailed log messages on stderr |
+| `--output`             | Auto-named | Output file path. Defaults to `encryption-key-usage-report-<service>-<account-name>.json` |
 {: caption="Table 1. CLI flags for the Key Usage Reporter tool" caption-side="bottom"}
 
 Flags can use single dash (`-flag`) or double dash (`--flag`).
@@ -241,43 +241,43 @@ Metadata includes execution context such as the tool version, target KMS service
 ### KMS instances
 {: #kur-kms-instances}
 
-One entry per KMS or HPCS instance found in the account. Instances that have detected key usage are listed first, followed by instances with no detected usage. Each instance contains:
+One entry per KMS or HPCS instance found in the account. Instances with detected key usage are listed first, then instances with no detected usage. Each instance contains:
 
 Instance metadata
 :   Name, CRN, state, allowed network, public and private endpoints, type (for Key Protect: `multi-tenant` or `dedicated`)
 
 `found_by_kms_instance_listing`
-:   `true` if the instance was found by listing KMS instances in the account
+:   `true` if the instance was found by listing KMS instances in the account.
 
 `found_by_resource_scan`
-:   `true` if the instance had keys detected during the resource scan
+:   `true` if the instance with keys detected during the resource scan.
 
 `instance_stats`
 :   Key counts by state:
    * `active_crk_count`, `suspended_crk_count`, `deactivated_crk_count`, `destroyed_crk_count`
-   * `active_standard_key_count`, `destroyed_standard_key_count`
+   * `active_standard_key_count`, `destroyed_standard_key_count`.
 
 `keys[]`
 :   Full key inventory from the Key Protect API. Each key includes:
-   * `type` — `crk` (Customer Root Key) or `standard_key`
-   * `state_name` — `pre-activation`, `active`, `suspended`, `deactivated`, or `destroyed`
-   * `name` — key name
-   * `id` — key UUID
-   * `has_migration_intent` — whether the key has a migration intent set
-   * `migration_intent_target_crk` — target CRK CRN (only present when `has_migration_intent` is `true`)
-   * `found_by_kms_key_listing` or `found_by_resource_scan` — how the key was discovered
-   * `associations[]` — cloud resources registered against the key (from the Key Protect registrations API). Each entry shows the `resource_crn` and whether it has `prevent_key_deletion` enabled. Omitted when a key has no registrations.
-   * `service_usage` — map of service name to encrypted resources detected by the account-wide resource scan. Only present for keys found by the resource scan.
+   * `type`: `crk` (Customer Root Key) or `standard_key`.
+   * `state_name`: `pre-activation`, `active`, `suspended`, `deactivated`, or `destroyed`.
+   * `name`: key name.
+   * `id`: key UUID.
+   * `has_migration_intent`: whether the key has a migration intent set.
+   * `migration_intent_target_crk`: target CRK CRN (only present when `has_migration_intent` is `true`).
+   * `found_by_kms_key_listing` or `found_by_resource_scan`: how the key was discovered.
+   * `associations[]`: cloud resources registered against the key (from the Key Protect registrations API). Each entry shows the `resource_crn` and whether it has `prevent_key_deletion` enabled. Omitted when a key has no registrations.
+   * `service_usage`: map of service name to encrypted resources detected by the account-wide resource scan. Only present for keys found by the resource scan.
 
 ### CRNs
 {: #kur-crns}
 
-Resources that referenced encryption identifiers matching a CRN pattern but not a KMS or HPCS key CRN are captured here to ensure nothing is silently dropped.
+Resources that reference encryption identifiers that match a CRN pattern but not a KMS or HPCS key CRN are captured here to ensure that nothing is silently dropped.
 
 ### Unknowns
 {: #kur-unknowns}
 
-Resources that referenced encryption identifiers that could not be parsed as CRNs at all are listed here.
+Resources that reference encryption identifiers that could not be parsed as CRNs at all are listed here.
 
 ### Example instance entry
 {: #kur-example-instance}
@@ -343,7 +343,7 @@ The following example shows the structure of a KMS instance entry in the JSON re
 ## Processing activity tracking logs
 {: #kur-process-at}
 
-In addition to the main report generation, the tool includes a subcommand for processing activity tracking audit logs.
+In addition to generating the main report, the tool includes a subcommand to process activity tracking audit logs.
 
 ### Usage
 {: #kur-at-usage}
@@ -358,19 +358,19 @@ Use the `process-at` subcommand to process activity tracking log files.
 ### What it does
 {: #kur-at-function}
 
-Takes a TSV file exported from the IBM Cloud Logs activity tracking event routing archive query, extracts the JSON events from the `text` column, and filters for KMS and HPCS-related events (`kms.*` and `hs-crypto.*` actions). It then produces four output files:
+Takes a TSV file that is exported from the IBM Cloud Logs activity tracking event routing archive query, extracts the JSON events from the `text` column, and filters for KMS and HPCS-related events (`kms.*` and `hs-crypto.*` actions). It then produces four output files:
 
 `<base>_events.json`
-:   All extracted events as a formatted JSON array
+:   All events extracted as a formatted JSON array.
 
 `<base>_events.csv`
-:   Flat CSV with one row per event, containing: serviceName, region, accountId, instanceId, keyId, action, outcome, reasonType, reasonCode, initiatorId, initiatorName, authId, requestInstanceId, eventTime, correlationId, agent
+:   Flat CSV with one row per event, containing: serviceName, region, accountId, instanceId, keyId, action, outcome, reasonType, reasonCode, initiatorId, initiatorName, authId, requestInstanceId, eventTime, correlationId, agent.
 
 `<base>_events_summary.csv`
-:   Grouped summary with event counts, grouped by service, region, account, instance, key, action, outcome, reason, and initiator
+:   Grouped summary with event counts, which are grouped by service, region, account, instance, key, action, outcome, reason, and initiator.
 
 `<base>_events_summary_by_action.csv`
-:   Grouped summary with event counts, grouped by service, region, account, instance, key, action, and initiator (without outcome or reason breakdown)
+:   Grouped summary with event counts, which are grouped by service, region, account, instance, key, action, and initiator (without outcome or reason breakdown).
 
 Where `<base>` is derived from the input file name (stripping `_logs.tsv` or `.tsv`).
 
@@ -391,12 +391,12 @@ The command produces the following output files:
 * `hpcs-at-data-1-day_events_summary.csv`
 * `hpcs-at-data-1-day_events_summary_by_action.csv`
 
-This is useful for analyzing KMS key activity patterns, identifying which services and users are performing key operations, and investigating migration-related events like `ack-migrate`.
+This feature is useful for analyzing KMS key activity patterns, identifying which services and users are performing key operations, and investigating migration-related events like `ack-migrate`.
 
 ## Troubleshooting
 {: #kur-troubleshooting}
 
-The following information helps you resolve common issues when running the Key Usage Reporter tool.
+The following information helps you to resolve common issues when running the Key Usage Reporter tool.
 
 ### IBM Cloud CLI not installed
 {: #kur-ts-cli-not-installed}
@@ -412,7 +412,7 @@ Install the IBM Cloud CLI by following the [Getting started with the IBM Cloud C
 ### Missing CLI plugins
 {: #kur-ts-missing-plugins}
 
-If required CLI plugins are not installed, you'll see an error message listing the missing plugins.
+If required CLI plugins are not installed, you see an error message that lists the missing plugins.
 
 ```text
 missing required IBM Cloud CLI plugins: [container-service vpc-infrastructure]
@@ -431,7 +431,7 @@ ibmcloud plugin install event-notifications
 ### Outdated CLI plugins
 {: #kur-ts-outdated-plugins}
 
-If your CLI plugins are outdated, you'll see a warning message listing which plugins need to be updated.
+If your CLI plugins are outdated, you see a warning message that lists which plugins need to be updated.
 
 ```text
 the following IBM Cloud CLI plugins are outdated: [container-service]
@@ -448,7 +448,7 @@ ibmcloud plugin update container-service
 ### Not logged in
 {: #kur-ts-not-logged-in}
 
-If you're not logged in to IBM Cloud, the tool will display an error message.
+If you're not logged in to IBM Cloud, the tool displays an error message.
 
 ```text
 not logged in to IBM Cloud. Please login first
@@ -467,7 +467,7 @@ ibmcloud login
 
 The tool requires a valid IAM token with at least 3 minutes of remaining validity.
 
-If your IAM token has less than 3 minutes of remaining validity, the tool will reject it. Refresh your session:
+If your IAM token has less than 3 minutes of remaining validity, the tool rejects it. Refresh your session:
 
 ```sh
 ibmcloud login
@@ -477,7 +477,7 @@ ibmcloud login
 ### Private-only instances
 {: #kur-ts-private-only}
 
-Some KMS instances might be configured to allow only private network access. If a KMS instance allows only private network access and you are not connected to the IBM Cloud private network, the tool cannot fetch stats or keys for that instance. Use `--skip-private-calls` to skip these instances rather than having the tool fail on them:
+Some KMS instances might be configured to allow only private network access. If a KMS instance allows only private network access and you are not connected to the IBM Cloud Private network, the tool cannot fetch stats or keys for that instance. Use `--skip-private-calls` to skip these instances rather than having the tool fail on them:
 
 ```sh
 ./<kur-binary> --service kms --skip-private-calls
@@ -494,16 +494,16 @@ The IBM Cloud resource listing API has a limit on the number of instances that c
 ```
 {: screen}
 
-The IBM Cloud resource listing API returns a maximum of 100 instances. If the account has more than 100 KMS instances, only the first 100 will be included in the report. This is a known limitation.
+The IBM Cloud resource listing API returns a maximum of 100 instances. If the account has more than 100 KMS instances, only the first 100 are included in the report. This behavior is a known limitation.
 
 ### Invalid service-type with hs-crypto
 {: #kur-ts-invalid-service-type}
 
-The `--service-type` flag is only valid when scanning Key Protect instances.
+The `--service-type` flag is valid only when scanning Key Protect instances.
 
 ```text
 error: --service-type can only be used with --service kms
 ```
 {: screen}
 
-The `--service-type` flag (to filter by `dedicated` or `multi-tenant`) only applies to Key Protect (`--service kms`). It is not applicable to HPCS instances.
+The `--service-type` flag (to filter by `dedicated` or `multi-tenant`) applies only to Key Protect (`--service kms`). It is not applicable to HPCS instances.
