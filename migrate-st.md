@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-02"
+lastupdated: "2026-04-06"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -351,13 +351,20 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 - Service support
   - Only IBM Cloud services and software that explicitly support HPCS-to-{{site.data.keyword.keymanagementserviceshort}} Dedicated CRK Migration Intent can participate.
   - Currently, the IBM services and software that support Migration Intent are:
-    - [App Config](/docs/app-configuration?topic=app-configuration-getting-started)
-    - [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
-    - [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage)
-    - [Database Services (ICD)](https://www.ibm.com/products/cloud-databases)
-    - [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about)
-    - [Event Streams](/docs/EventStreams?topic=EventStreams-about)
-    - [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started)
+
+
+| IBM Service | Migration intent support | Service Specific Instructions |
+|--------|-------------|----------------|
+| [App Config](/docs/app-configuration?topic=app-configuration-getting-started) | Full | N/A |
+| [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) | Full | N/A |
+| [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
+| [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
+| [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
+| [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
+| [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
+
+{: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
+
       
 - Support for the following IBM services and software is not currently available:
     - [Kubernetes (IKS)](/docs/containers)
