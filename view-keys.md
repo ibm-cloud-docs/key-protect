@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-04-12"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -62,11 +62,11 @@ If you prefer to inspect the keys in your service by using a graphical interface
 | ------ | ----------- |
 | Name | The display name that you gave to your key. |
 | Key ID | A unique key ID that was assigned to your key by the {{site.data.keyword.keymanagementserviceshort}} service. You can use the ID value to make calls to the service with the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external}. |
-| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) that the keys are associated with. These states include _Deactivated_, _Destroyed_, _Disabled_, and _Enabled_. |
+| Key ring ID | The [key ring](/docs/key-protect?topic=key-protect-grouping-keys) that the keys are associated with. These states include _Deactivated_, _Deleted_, _Disabled_, and _Enabled_. |
 | Last rotated | The date the last time the key was rotated. |
 | Key alias | The [key alias](/docs/key-protect?topic=key-protect-create-key-alias) (or aliases) of the key. |
 | Type | The [key type](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) of the key (either a Root key or a Standard key). |
-| State | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Destroyed_, _Disabled_, or _Enabled_. |
+| State | The [key state](/docs/key-protect?topic=key-protect-key-states) of the key, one of _Deactivated_, _Deleted_, _Disabled_, or _Enabled_. |
 {: caption="Describes the Keys table." caption-side="bottom"}
 
 Other available fields in the table include:
