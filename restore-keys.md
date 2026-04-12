@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-09"
+  years: 2020, 2026
+lastupdated: "2026-04-12"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -78,7 +78,7 @@ If you prefer to restore your key by using a graphical interface, you can use th
 
 4. Click **Keys** to open the keys panel and find the key in the destroyed state you want to restore. One way to achieve this is to click the **Key states** drop-down list and select the **Destroyed** state. This will limit the results to only keys that have been deleted.
 
-5. Click the ⋯ icon to open a list of options for the key that you want to restore. Note that if the key has just been moved to a _Destroyed_ state you must wait 30 seconds before attempting to restore it.
+5. Click the ⋯ icon to open a list of options for the key that you want to restore. Note that if the key has been deleted and moved to a _Destroyed_ state, you must wait 30 seconds before attempting to restore it.
 
 6. Click the **Restore Key** button to open the restore side panel.
 
