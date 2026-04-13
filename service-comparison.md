@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2026-03-19"
+lastupdated: "2026-04-13"
 
 keywords: key management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, HPCS, Key Protect use cases, single tenant, multi-tenant
 
@@ -29,7 +29,7 @@ The following table lists the different offerings that you can use with {{site.d
 | You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 or FIPS 140-3 Level 4 hardware. | You can use **{{site.data.keyword.keymanagementserviceshort}}** to generate and import encryption keys by either using a multi-tenant service with shared hardware (featuring FIPS 140-2 Level 3 certification), or dedicated hardware using hardware that has been submitted to NIST for FIPS 140-3 Level 4 certification. |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
 | You need to generate, renew, and manage SSL/TLS certificates for your deployments. | You can also manage your SSL/TLS certificates and private keys in dedicated instance of **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**. |
-{: caption="Secrets management and data protection scenarios" caption-side="top"}
+{: caption="Secrets management and data protection scenarios" caption-side="bottom"}
 
 ## What are key features for each data protection service?
 {: #key-features}
@@ -47,7 +47,7 @@ For a higher level of security and control, your business might benefit from the
 | HSM backed[^hsm]                        | ![Checkmark icon](../../icons/checkmark-icon.svg)   |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Runs in secure enclave[^secure-enclave] |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Client initialised and controlled HSM   |                                                     |                                                   | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-{: caption="Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
+{: caption="Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="bottom"}
 {: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists features. The first row features the names of the services in the table, followed by a row listing the types of secrets that are supported by each service. The third row uses checkmarks to indicate whether a service is multi-tenant. The fourth row uses checkmarks to indicate whether a service is single-tenant. The fifth row uses checkmarks to indicate whether a service is backed by a hardware security module (HSM). The sixth row uses checkmarks to indicate whether the service runs in a secure enclave. The seventh row uses checkmarks to indicate whether the service uses a client initialized and controlled HSM."}
 {: class="comparison-table"}
 

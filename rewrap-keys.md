@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2026
+lastupdated: "2026-04-13"
 
 keywords: rewrap key, reencrypt data encryption key, rewrap API examples
 
@@ -107,7 +107,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys/<keyID_or_alias>/actions/rewrap
 |correlation_ID|The unique identifier that is used to track and correlate transactions.|
 |encrypted_data_key|**Required**. The ciphertext value that was returned by the original wrap operation.|
 |additional_data|**Optional**The additional authentication data (AAD) that is used to further secure the key. Each string can hold up to 255 characters. If you supplied AAD for the initial wrap call, you must specify the same AAD during the subsequent unwrap or rewrap calls.<br><br>Important: The {{site.data.keyword.keymanagementserviceshort}} service does not save additional authentication data. If you supply AAD, save the data to a secure location to ensure that you can access and provide the same AAD during subsequent unwrap or rewrap requests.|
-{: caption="Describes the variables that are needed to rewrap keys in {{site.data.keyword.keymanagementserviceshort}}." caption-side="top"}
+{: caption="Describes the variables that are needed to rewrap keys in {{site.data.keyword.keymanagementserviceshort}}." caption-side="bottom"}
 
 The newly wrapped data encryption key, original key version (`keyVersion`)
 that is associated with the supplied ciphertext and latest key version

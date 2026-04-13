@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-04-09"
+  years: 2024, 2026
+lastupdated: "2026-04-13"
 
 keywords:
 
@@ -50,7 +50,7 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 {: row-headers}
-{: caption="IBM Key Protect for IBM Cloud service dependency information - Critical dependencies" caption-side="top"}
+{: caption="IBM Key Protect for IBM Cloud service dependency information - Critical dependencies" caption-side="bottom"}
 {: tab-title="Critical dependencies"}
 {: tab-group="service-dependency-data-for-kms"}
 {: class="comparison-tab-table"}
@@ -65,7 +65,7 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | IBM Cloud Console | Availability, Change management, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
-{: caption="IBM Key Protect for IBM Cloud service dependency information - Significant dependencies" caption-side="top"}
+{: caption="IBM Key Protect for IBM Cloud service dependency information - Significant dependencies" caption-side="bottom"}
 {: tab-title="Significant dependencies"}
 {: tab-group="service-dependency-data-for-kms"}
 {: class="comparison-tab-table"}
@@ -78,7 +78,7 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Object Storage| Change management, Disaster recovery, Security compliance | No | Both |  Same region  |
 | IBM Cloud Secrets Manager| Change management, Disaster recovery, Operations, Security compliance | No | Both |  Same region  |
 {: row-headers}
-{: caption="IBM Key Protect for IBM Cloud service dependency information - Medium dependencies" caption-side="top"}
+{: caption="IBM Key Protect for IBM Cloud service dependency information - Medium dependencies" caption-side="bottom"}
 {: tab-title="Medium dependencies"}
 {: tab-group="service-dependency-data-for-kms"}
 {: class="comparison-tab-table"}

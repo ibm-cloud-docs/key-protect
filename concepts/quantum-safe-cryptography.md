@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-08-14"
+  years: 2017, 2026
+lastupdated: "2026-04-13"
 
 keywords: post-quantum cryptography, quantum cryptography, post-quantum TLS
 
@@ -163,7 +163,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 | Dallas        | `qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `qsc.eu-gb.kms.cloud.ibm.com`            |
 | Frankfurt     | `qsc.eu-de.kms.cloud.ibm.com`            |
-{: caption="Lists post-quantum enabled public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="top"}
+{: caption="Lists post-quantum enabled public endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's public network" caption-side="bottom"}
 {: #table-1}
 {: tab-title="Public"}
 {: class="comparison-tab-table"}
@@ -174,7 +174,7 @@ requests to the {{site.data.keyword.keymanagementservicefull}} service.
 | Dallas        | `private-qsc.us-south.kms.cloud.ibm.com`         |
 | London        | `private-qsc.eu-gb.kms.cloud.ibm.com`            |
 | Frankfurt     | `private-qsc.eu-de.kms.cloud.ibm.com`            |
-{: caption="Lists post-quantum enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="top"}
+{: caption="Lists post-quantum enabled private endpoints for interacting with {{site.data.keyword.keymanagementserviceshort}} APIs over IBM Cloud's private network" caption-side="bottom"}
 {: #table-2}
 {: tab-title="Private"}
 {: class="comparison-tab-table"}
@@ -413,7 +413,7 @@ required when making a post-quantum `curl` request.
 |--- |--- |
 |-tlsv1.3|This flag enforces that curl connects to a TLS v1.3 server.|
 |--curves|This flag specifies which post-quantum algorithm should be used in the TLSv1.3 key exchange mechanism. If you do not specify an algorithm, the flag will default to the p384_kyber768 algorithm.|
-{: caption="Describes the flags needed to make curl requests to the {{site.data.keyword.keymanagementserviceshort}} service." caption-side="top"}
+{: caption="Describes the flags needed to make curl requests to the {{site.data.keyword.keymanagementserviceshort}} service." caption-side="bottom"}
 
 You can use the following example request to retrieve a list of keys for your
 {{site.data.keyword.keymanagementserviceshort}} instance via a post-quantum
@@ -436,4 +436,4 @@ Replace the variables in your request according to the following table.
 |region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides.<br><br>For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request.<br><br>For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance.<br><br>For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Describes the variables needed to make a list keys request through a post-quantum endpoint." caption-side="top"}
+{: caption="Describes the variables needed to make a list keys request through a post-quantum endpoint." caption-side="bottom"}
