@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-04-13"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -47,7 +47,7 @@ the cloud by importing keys into
 | ------- | ----------- |
 | Bring your own keys (BYOK) | You want to fully control and strengthen your key management practices by generating strong keys from your on-premises hardware security module (HSM). If you choose to export symmetric keys from your internal key management infrastructure, you can use {{site.data.keyword.keymanagementserviceshort}} to securely bring them to the cloud. |
 | Secure import of root key material | When you export your keys to the cloud, you want assurance that the key material is protected while it's in flight. Mitigate against man-in-the-middle attacks by [using an import token](#using-import-tokens) to securely import root key material into your {{site.data.keyword.keymanagementserviceshort}} instance. |
-{: caption="Describes the benefits of importing key material" caption-side="top"}
+{: caption="Describes the benefits of importing key material" caption-side="bottom"}
 
 Imported keys cannot be [scheduled for automatic rotation](/docs/key-protect?topic=key-protect-key-rotation). They must be rotated manually.
 {: note}
@@ -216,7 +216,7 @@ The following table lists the API methods that set up an import token for your
 | ------ | ----------- |
 | `POST api/v2/import_token` | [Create an import token](/docs/key-protect?topic=key-protect-create-import-tokens) |
 | `GET api/v2/import_token` | [Retrieve an import token](/docs/key-protect?topic=key-protect-create-import-tokens) |
-{: caption="Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="top"}
+{: caption="Describes the {{site.data.keyword.keymanagementserviceshort}} API methods" caption-side="bottom"}
 
 To find out more about programmatically managing your keys in
 {{site.data.keyword.keymanagementserviceshort}}, check out the

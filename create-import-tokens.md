@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-04-13"
 
 keywords: create import token, secure import, key-wrapping key
 
@@ -71,7 +71,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
 |expiration_time|The time in seconds from the creation of a import token that determines how long it remains valid. The minimum value is 300 seconds (5 minutes), and the maximum value is 86400 (24 hours). The default value is 600 (10 minutes).|
 |use_count|The number of times that an import token can be retrieved within its expiration time before it is no longer accessible. The default value is 1. The maximum value is 500.|
-{: caption="Describes the variables that are needed to create an import token." caption-side="top"}
+{: caption="Describes the variables that are needed to create an import token." caption-side="bottom"}
 
 A successful `POST api/v2/import_token` request creates an import token for your {{site.data.keyword.keymanagementserviceshort}} instance. The response body contains the metadata that is associated with your import token, such as its creation date and policy details. The following snippet shows example output.
 
@@ -117,7 +117,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/import_token
 |region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-{: caption="Describes the variables that are needed to retrieve an import token with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="top"}
+{: caption="Describes the variables that are needed to retrieve an import token with the {{site.data.keyword.keymanagementserviceshort}} API." caption-side="bottom"}
 
 A successful `GET api/v2/import_token` request retrieves the import token for your {{site.data.keyword.keymanagementserviceshort}} instance. The response body contains the metadata that is associated with your import token, such as its creation date and policy details.
 

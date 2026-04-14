@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-06"
+lastupdated: "2026-04-13"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -358,10 +358,12 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 | [App Config](/docs/app-configuration?topic=app-configuration-getting-started) | Full | N/A |
 | [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) | Full | N/A |
 | [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
-| [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
+| [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
+
+
 
 {: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
 
