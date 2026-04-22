@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-05-28"
+  years: 2026
+lastupdated: "2026-04-22"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -30,15 +30,15 @@ After you set up your {{site.data.keyword.keymanagementservicelong}} service ins
 ## Managing CBR settings
 {: #manage-cbr-settings}
 
-[CBR](/docs/account?topic=account-context-restrictions-whatis) allows you to manage user and service access to network resources, including Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses linking your {{site.data.keyword.keymanagementserviceshort}} resources.
+[CBR](/docs/iam?topic=iam-context-restrictions-whatis) allows you to manage user and service access to network resources, including Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses linking your {{site.data.keyword.keymanagementserviceshort}} resources.
 
-For more information about the services integrated with CBR, check out [Services integrated with context-based restrictions](/docs/account?topic=account-context-restrictions-whatis#cbr-access-reqs-target-service).
+For more information about the services integrated with CBR, check out [Services integrated with context-based restrictions](/docs/iam?topic=iam-context-restrictions-whatis#cbr-access-reqs-target-service).
 {: note}
 
 ## Overview
 {: #cbr-overview}
 
-There are two parts in the instructions to restrict access, [Creating Zones](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create), and [Creating Rules](/docs/account?topic=account-context-restrictions-create&interface=ui), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](/apidocs/context-based-restrictions), or with [Context-based restrictions](https://cloud.ibm.com/context-based-restrictions).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
+There are two parts in the instructions to restrict access, [Creating Zones](/docs/iam?topic=iam-context-restrictions-create&interface=ui#network-zones-create), and [Creating Rules](/iam?topic=iam-context-restrictions-create), each with multiple steps. First, create a zone with the appropriate details for network or resource definitions like VPC settings. Then, attach that zone to the resource to restrict access. There are two possible paths for achieving this goal: either using a RESTful [API](/apidocs/context-based-restrictions), or with [Context-based restrictions](https://cloud.ibm.com/context-based-restrictions).  Note that after creating or updating a zone or a rule it may take a few minutes for the change to take effect.
 
 CBR rules do not apply to provisioning or deprovision processes.
 {: note}
@@ -91,24 +91,24 @@ Using the path: "/v1/zones" with the GET method will list the zones. Using POST,
 You can determine which services are available by checking for [reference targets](/apidocs/context-based-restrictions#list-available-serviceref-targets).
 {: note}
 
-After creating zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
+After creating zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/iam?topic=iam-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ### Create Network Zones using the CBR UI
 {: #cbr-create-zone-ui}
 
-With the prerequisites and requirements in place, you can follow the steps to [create zones in the UI](/docs/account?topic=account-context-restrictions-create&interface=ui).
+With the prerequisites and requirements in place, you can follow the steps to [create zones in the UI](/docs/iam?topic=iam-context-restrictions-create).
 
 Instead of creating a zone by using UI inputs, you can use the **JSON code form** to directly enter JSON to create a zone by clicking **Enter as JSON code**.
 {: note}
 
-After creating zones, you can also [update](/docs/account?topic=account-context-restrictions-update) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
+After creating zones, you can also [update](/docs/iam?topic=iam-context-restrictions-update) and [delete](/docs/iam?topic=iam-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ## About Network Rules
 {: #cbr-network-rules}
 
 After you have created your zones, you can attach the zones to your networked resources by creating rules.
 
-You can choose from the available [types of endpoints](/docs/account?topic=account-context-restrictions-whatis#context-restrictions-endpint-type) specific to your network topology when you add resources to a rule.
+You can choose from the available [types of endpoints](/docs/iam?topic=iam-context-restrictions-whatis#context-restrictions-endpint-type) specific to your network topology when you add resources to a rule.
 {: note}
 
 ### Create Network Rules using the CBR API
@@ -154,7 +154,7 @@ After creating rules, you can also [update](/apidocs/context-based-restrictions#
 ### Create Network Rules using the CBR UI
 {: #cbr-create-rules-ui}
 
-[Follow the steps to add resources and contexts](/docs/account?topic=account-context-restrictions-create&interface=ui) to your network rule(s), but keep in mind some limitations.
+[Follow the steps to add resources and contexts](/docs/iam?topic=iam-context-restrictions-create) to your network rule(s), but keep in mind some limitations.
 
 When you create context-based restriction for the IAM Access Groups service, users who don't satisfy the rule will not be able to view any groups in the account, including the public access group.
 {: note}
@@ -162,7 +162,7 @@ When you create context-based restriction for the IAM Access Groups service, use
 Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Also, the rules may not take effect immediately due to synchronization and resource availability. 
 {: important}
 
-After creating rules, you can also [update](/docs/account?topic=account-context-restrictions-update&interface=ui) and [delete](/docs/account?topic=account-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
+After creating rules, you can also [update](/docs/iam?topic=iam-context-restrictions-update&interface=ui) and [delete](/docs/iam?topic=iam-context-restrictions-update&interface=ui#context-restrictions-remove-rules) them.
 
 ## Next steps
 {: #cbr-next-steps}
