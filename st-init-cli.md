@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-04-24"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -278,8 +278,8 @@ It may take unto 5 to 10 minutes before you can use your instance.
 
 Now that your instance has been created, you have admin identities that can be used to operate it, and have created your master key and given Key Protect access to perform actions on your instance, you are ready to do things like:
 
-* [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys). Note that you can create a maximum of 500 keys.
-* [Create key rings](/docs/key-protect?topic=key-protect-grouping-keys).
+* [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys). You can have a maximum of 500 root or standard keys that are in any state, including `Destroyed`.
+* [Create key rings](/docs/key-protect?topic=key-protect-grouping-keys). You can have a maximum of 50 key rings per service instance.
 * [Set a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy).
 
 Import tokens are not supported by {{site.data.keyword.keymanagementserviceshort}} Dedicated.
