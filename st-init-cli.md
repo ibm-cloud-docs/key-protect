@@ -18,7 +18,7 @@ subcollection: key-protect
 For Dedicated {{site.data.keyword.keymanagementserviceshort}} to function, you must first [provision an instance](#st-init-cli-provision), then [generate admin credentials](#st-init-cli-generate-admin) used to operate your crypto units, and then [create and load the master key](#st-init-cli-crypto-units-master-key), which permits {{site.data.keyword.keymanagementserviceshort}} to perform cryptographic operations against the crypto units on your behalf.
 {: shortdesc}
 
-For more information about the key concepts for the Dedicated {{site.data.keyword.keymanagementserviceshort}} service, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about-st).
+For more information about the key concepts for the Dedicated {{site.data.keyword.keymanagementserviceshort}} service, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 ## Before you begin
 {: #st-init-cli-before-begin}
