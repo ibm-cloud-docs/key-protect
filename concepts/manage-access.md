@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-04-27"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -31,7 +31,7 @@ Because {{site.data.keyword.keymanagementserviceshort}} is a key management syst
 
 These varying kinds of access are analogous to many kinds of life situations. A person might be the founder and CEO of a company and yet only be a regular member of a local club, and likewise have no authority at all to write traffic tickets. In a similar way, {{site.data.keyword.keymanagementserviceshort}} roles are assigned within the context of a specific part of {{site.data.keyword.keymanagementserviceshort}}, although to make things simpler, {{site.data.keyword.keymanagementserviceshort}} does define "default" roles over certain resources unless specified otherwise (which we'll discuss in more detail later).
 
-There are two main areas of administration for almost all {{site.data.keyword.cloud_notm}} products: the **account** (also known as the "platform"), and the **service instances** owned by the account. A large bank, for example, might have only one account (controlled by executive leadership) and separate service instances for each of the organizational units within the bank (for example, one unit might manage bank accounts while another manages loans). While it is likely that users with rights at the account level will also have rights over the various instances (and perhaps, though not always, the other way around), note that the names given to account roles are different than those for the roles within the service instances, reflecting this difference between account roles and service instance roles. For more information on those roles, their names, and their permissions, check out [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions).
+There are two main areas of administration for almost all {{site.data.keyword.cloud_notm}} products: the **account** (also known as the "platform"), and the **service instances** owned by the account. A large bank, for example, might have only one account (controlled by executive leadership) and separate service instances for each of the organizational units within the bank (for example, one unit might manage bank accounts while another manages loans). While it is likely that users with rights at the account level will also have rights over the various instances (and perhaps, though not always, the other way around), note that the names given to account roles are different than those for the roles within the service instances, reflecting this difference between account roles and service instance roles. For more information on those roles, their names, and their permissions, check out [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions).
 
 ## How IAM access works
 {: #grant-access-keys-how-access}
@@ -54,7 +54,7 @@ For more information about how platform and services roles work in {{site.data.k
 ### Best practices
 {: #manage-access-best-practices}
 
-There is a [limit](/iam?topic=iam-cloudaccess#iam_limits) on the total number of policies that are allowed in an account. You can use a few strategies to ensure that you don't reach the limit and to reduce the amount of time that you spend managing access for the identities in your account (users, service IDs, or trusted profiles):
+There is a [limit](/docs/account?topic=account-cloudaccess#iam_limits) on the total number of policies that are allowed in an account. You can use a few strategies to ensure that you don't reach the limit and to reduce the amount of time that you spend managing access for the identities in your account (users, service IDs, or trusted profiles):
 
 * Use the principle of least privilege and assign only the access that is necessary. This can help you ensure that the identities in your account are limited to only the actions that you want to allow. For example, rather than the account owner sharing their credentials, which by default give them _Administrator_ and _Manager_ access over all resources under their account, create new policies for users who need access to the account and to each service instance (and its associated keys).
 * Add resources to a resource group to further minimize the number of necessary policies. For example, you might have a team working on a project that uses specific resources in your account. Add the team members to an access group or trusted profile with a policy that assigns access to only the resources that are in a specific resource group. This way, you don't need to assign a policy to each resource for each team member. For more information about assigning fine-grained access, check out [assign fine-grained access to a single key](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-key-level).
