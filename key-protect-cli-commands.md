@@ -5502,6 +5502,7 @@ COMMANDS:
 Enter 'ibmcloud key-protect crypto-unit help [command]' for more information about a command.
 ```
 If you encounter issues with the `kp crypto-unit` command, see [Troubleshooting](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-troubleshooting) section.
+{: note}
 
 ### `zeroize`
 {: #kp-crypto-unit-zeroize}
