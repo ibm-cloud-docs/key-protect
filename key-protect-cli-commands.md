@@ -2,11 +2,13 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-01"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
 subcollection: key-protect
+
+content-type: cli-docs
 
 ---
 
