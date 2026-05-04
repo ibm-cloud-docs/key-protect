@@ -93,7 +93,7 @@ for your application, and then exchanging your API key for an
     instance of {{site.data.keyword.keymanagementserviceshort}}.
 
 3. Create a
-    [service ID](/docs/account?topic=account-serviceids){: external} for your application.
+    [service ID](/docs/iam?topic=iam-serviceids){: external} for your application.
 
     ```sh
     ibmcloud iam service-id-create SERVICE_ID_NAME
