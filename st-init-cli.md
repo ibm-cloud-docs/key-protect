@@ -306,10 +306,11 @@ Import tokens are not supported by {{site.data.keyword.keymanagementserviceshort
 
 If you receive the following error when you install the {{site.data.keyword.keymanagementservicelong_notm}} CLI plugin:
 
+```pre
 Installing binary...
 FAILED
 Unable to obtain plug-in's metadata. Error: exit status 1
-{: codeblock}
+```
 
 #### Linux environment
 {: #linux-error}
@@ -331,9 +332,10 @@ Contact {{site.data.keyword.keymanagementserviceshort}} support.
 
 If an `ibmcloud kp crypto-unit` command returns the following error:
 
+```pre
 FAILED
 command failed with error code: e00bad05
-{: codeblock}
+```
 
 This error might indicate that your system is not compatible with the `ibmcloud kp crypto-unit` feature. The recommended system requirements are:
 - Windows: AMD64 (Windows 10 or later)
@@ -367,12 +369,12 @@ To resolve this error:
 
 If the `crypto-unit claim`, `crypto-unit mk import`, or `crypto-unit user add --type kmsCryptoUser` commands fail to apply to all crypto units, you might see output similar to the following example:
 
-
+```pre
 Executing operation Generate Master Key against CryptoUnit with ID fadedbee-0000-0000-0000-1234567890ab
 OK
 Executing operation Generate Master Key against CryptoUnit with ID addedace-0000-0000-0000-1234567890ab
 FAILED
-{: codeblock}
+```
     
 To resolve this issue:
 1. By default, the `claim`, `mk import`, and `user add` commands attempt to apply to all crypto units. If these commands are only partially successful (applied to only a subset of the crypto units in the instance), retry the command only against the crypto units that returned a failure. Each of these commands can be configured to target specific crypto units. To determine how to target specific crypto units, append `-h` to any `crypto-unit` command to view the help text, or see the [CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
