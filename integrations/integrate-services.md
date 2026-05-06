@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-06-04"
+  years: 2017, 2026
+lastupdated: "2026-05-04"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -38,9 +38,8 @@ following **database** services.
 
 | Service | Description | Links |
 | ------- | ----------- | ----- |
-| [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=Cloudant-ibm-cloud-dedicated){: external} | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant?topic=Cloudant-securing-your-data-in-cloudant){: external} |
+| [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: external} | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant?topic=Cloudant-securing-your-data-in-cloudant){: external} |
 | [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch){: external} | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
-| [{{site.data.keyword.databases-for-enterprisedb_full_notm}}](/docs/databases-for-enterprisedb?topic=databases-for-enterprisedb-getting-started){: external} | {{site.data.keyword.databases-for-enterprisedb_full_notm}} offers a single source for purchase, deployment and support of EDB Postgres Enterprise and Standard editions based on PostgreSQL. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-mysql_fullnotm}}](/docs/databases-for-mysql){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MySQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
@@ -103,7 +102,7 @@ following **integration** services.
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external} | The {{site.data.keyword.mon_full_notm}} service is a container-intelligence management system. You can use it to gain operational visibility into the performance and health of your applications, services, and platforms. | [View docs](/docs/monitoring?topic=monitoring-mng-data){: external} |
 | [{{site.data.keyword.bpfull_notm}}](/docs/schematics?topic=schematics-getting-started){: external} | The {{site.data.keyword.bpfull_notm}} service delivers Terraform-as-a-Service. You can use it to organize your {{site.data.keyword.cloud_notm}} resources across environments by using workspaces. | [View docs](/docs/schematics?topic=schematics-secure-data#pi-encrypt) |
-| [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-getting-started){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
+| [{{site.data.keyword.messagehub_full}}](/docs/EventStreams?topic=EventStreams-quick_setup_guide){: external} | The {{site.data.keyword.messagehub}} service is a high-throughput message bus built with Apache Kafka. You can use it for event ingestion into {{site.data.keyword.cloud_notm}} and event stream distribution between your services and applications. | [View docs](/docs/EventStreams?topic=EventStreams-managing_encryption){: external} |
 {: caption="Supported integration services." caption-side="bottom"}
 
 ## Developer tools service integrations
@@ -165,7 +164,7 @@ that you manage in {{site.data.keyword.keymanagementserviceshort}}.
 
 Be sure to provision both services in the same region before you create an
 authorization. To learn more about service authorizations, see
-[Granting access between services](/docs/account?topic=account-serviceauth){: external}.
+[Granting access between services](/docs/iam?topic=iam-serviceauth){: external}.
 {: note}
 
 When you're ready to integrate a service, use the following steps to create an
