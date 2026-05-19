@@ -115,7 +115,7 @@ You can get the endpoint by issuing: `ibmcloud resource service-instance <\kp-in
 
 Save the full endpoint as an environment variable by issuing:
 
-Using [Mac]{: tag-mac}:
+Using [macOS]{: tag-macos}:
 
 ```{: pre}
 export KP_TARGET_ADDR=<ST_INSTANCE_ENDPOINT>
@@ -250,7 +250,7 @@ Dedicated {{site.data.keyword.keymanagementserviceshort}} uses the process of "k
 
 To generate the master key locally, issue:
 
-Using [Mac]{: tag-mac}:
+Using [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit mk generate --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2>"]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSOWRD3>"}]'
@@ -282,7 +282,7 @@ Note that the `keyshare-minimum`, which is set to `2` by default but can be incr
 
 To upload your master key to the crypto units of your instance, issue:
 
-Using [Mac]{: tag-mac}:
+Using [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit mk import --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2"]' --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD3>"}]'
@@ -311,7 +311,7 @@ Where:
 
 Now that your master key has been created, you need to allow the Key Protect service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted Key Protect is lower than that of an admin.
 
-Using [Mac]{: tag-mac}:
+Using [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit user add --type kmsCryptoUser --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD>"}]'
