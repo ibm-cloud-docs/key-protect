@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-05-19"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -100,7 +100,7 @@ industry, and regional compliance standards, including GDPR, HIPAA, and ISO
 
 For a complete listing of {{site.data.keyword.cloud_notm}} compliance
 certifications, see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/products/cloud/compliance){: external}.
 {: tip}
 
 ### EU support
@@ -161,7 +161,7 @@ To find out more, see
 
 {{site.data.keyword.keymanagementserviceshort}} is ISO 27001, 27017, 27018
 certified. You can view compliance certifications by visiting
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/products/cloud/compliance){: external}.
 
 ### Service Organization Controls (SOC)
 {: #soc}
@@ -176,7 +176,7 @@ Control (SOC) compliance for the following types:
 
 For information about requesting an {{site.data.keyword.cloud_notm}} SOC report,
 see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}.
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/products/cloud/compliance){: external}.
 
 ### PCI DSS
 {: #pci-dss}
@@ -184,5 +184,5 @@ see
 {{site.data.keyword.keymanagementserviceshort}} meets controls for the Payment
 Card Industry (PCI) data security standards to protect cardholder data. For
 information about requesting an attestation of compliance, see
-[Compliance on the {{site.data.keyword.cloud_notm}}](https://ibm.com/cloud/compliance){: external}
+[Compliance on the {{site.data.keyword.cloud_notm}}](https://www.ibm.com/products/cloud/compliance){: external}
 or contact an IBM representative.

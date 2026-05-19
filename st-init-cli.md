@@ -25,7 +25,7 @@ For more information about the key concepts for the Dedicated {{site.data.keywor
 
 If you do not have the latest version of the [{{site.data.keyword.cloud_notm}} CLI](/docs/key-protect?topic=key-protect-set-up-cli), you might not be able to initialize your instance. Help ensure your initialization succeeds by updating to the latest version of the CLI plugin.
 
-You must use the latest version of the CLI to complete the initialization, even if you deploy your instance using the console. If you receive the - `Unable to obtain plug-in's metadata` error, while installing the latest version of KP CLI plugin, see [troubleshooting steps](#unable-to-obtain-plug-ins-metadata-error-during-kp-plugin-install-or-upgrade).
+You must use the latest version of the CLI to complete the initialization, even if you deploy your instance using the console. If you receive the - `Unable to obtain plug-in's metadata` error, while installing the latest version of KP CLI plugin, see [troubleshooting steps](/docs/key-protect?topic=key-protect-getting-started#getting-started-unable-get-metadata-error).
 {: note}
 
 ## Provisioning your instance in the console
