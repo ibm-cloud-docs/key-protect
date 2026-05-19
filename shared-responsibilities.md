@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-05-19"
 
 keywords: shared responsibilities, disaster recovery, incident management
 
@@ -42,7 +42,7 @@ You are responsible for incident and operations management of your application d
 | ---- | ----------------------------------------------- | --------------------- |
 | Availability | Provide high availability capabilities, such as {{site.data.keyword.IBM_notm}}-owned infrastructure in multizone regions, to meet local access and low latency requirements for each supported region. | Use the list of [available regions](/docs/key-protect?topic=key-protect-regions) to plan for and create new instances of the service. |
 | Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.logs_full_notm}}. | Use the provided tools to [review instance logs and activities](/docs/cloud-logs). |
-| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/account?topic=account-email-prefs), and monitor the [{{site.data.keyword.IBM_notm}} Cloud status page](/status?selected=announcement) for general announcements. |
+| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/support?topic=support-email-prefs), and monitor the [{{site.data.keyword.IBM_notm}} Cloud status page](/status?selected=announcement) for general announcements. |
 {: caption="Table 1. Responsibilities for incident and operations - Key Protect Standard" caption-side="bottom"}
 
 
@@ -52,7 +52,7 @@ You are responsible for incident and operations management of your application d
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | ---- | ----------------------------------------------- | --------------------- |
 | Monitoring | Provide integration with select third-party partnership technologies, such as {{site.data.keyword.cloud_notm}} Activity Tracker. | Use the provided tools to [review instance logs and activities](/docs/key-protect?topic=key-protect-at-events). |
-| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/account?topic=account-email-prefs), and monitor the [IBM Cloud status page](https://cloud.ibm.com/status?selected=announcement) for general announcements. |
+| Incidents | Provide notifications for planned maintenance, security bulletins, or unplanned outages. | Set preferences to [receive emails about platform notifications](/docs/support?topic=support-email-prefs), and monitor the [IBM Cloud status page](https://cloud.ibm.com/status?selected=announcement) for general announcements. |
 | Firmware updates | Provide firmware updates for multiple crypto units in a sequential manner with no impact to running workloads. | Perform tasks as usual. |
 | Connecting to third-party cloud | Provide error messages when access to the third-party keystores does not work. | Contact affected third-party cloud service provider to resolve access or connection issues. |
 {: caption="Table 2. Responsibilities for incident and operations - Key Protect Dedicated" caption-side="bottom"}

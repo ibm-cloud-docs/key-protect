@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-19"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -89,7 +89,7 @@ following **container** services.
 | Service | Description | Integration docs |
 | ------- | ----------- | ---------------- |
 | [{{site.data.keyword.containerlong_notm}}](/docs/containers?topic=containers-getting-started){: external} | You can use the {{site.data.keyword.containerlong_notm}} service to deploy highly available apps in Docker containers that run in Kubernetes clusters. | [View docs](/docs/containers?topic=containers-encryption){: external} |
-| [{{site.data.keyword.openshiftlong_notm}}](https://cloud.ibm.com/docs/openshift?topic=openshift-encryption){: external} | You can use the {{site.data.keyword.openshiftlong_notm}} service to deploy secure, highly available apps in OpenShift clusters. | [View docs](https://cloud.ibm.com/docs/openshift?topic=openshift-encryption){: external} |
+| [{{site.data.keyword.openshiftlong_notm}}](/docs/openshift?topic=openshift-encryption) | You can use the {{site.data.keyword.openshiftlong_notm}} service to deploy secure, highly available apps in OpenShift clusters. | [View docs](/docs/openshift?topic=openshift-encryption) |
 {: caption="Supported container services." caption-side="bottom"}
 
 ## Ingestion service integrations

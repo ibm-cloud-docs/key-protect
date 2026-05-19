@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-04-02"
+lastupdated: "2026-05-19"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases, Standard Key Protect, Dedicated Key Protect, single-tenant, multi-tenant
 
@@ -126,7 +126,7 @@ Bring your encryption keys to the cloud
 :   Fully control and strengthen your key management practices by securely exporting symmetric keys from your internal key management infrastructure into {{site.data.keyword.cloud_notm}}.
 
 Robust security
-:   Provision and store keys by using FIPS 140-2 Level 3 hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/account?topic=account-userroles) to provide fine-grain access control to your keys.
+:   Provision and store keys by using FIPS 140-2 Level 3 hardware security modules (HSMs). Leverage {{site.data.keyword.cloud_notm}} [Identity and Access Management (IAM) roles](/docs/iam?topic=iam-userroles) to provide fine-grain access control to your keys.
 
 Control and visibility
 :   Use {{site.data.keyword.logs_full_notm}} to measure how users and applications interact with {{site.data.keyword.keymanagementserviceshort}}.
