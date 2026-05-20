@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-05-20"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -76,7 +76,7 @@ You can also verify HPCS usage by reviewing {{site.data.keyword.cloud_notm}} bil
 
 You can also verify HPCS usage by reviewing the IBM Cloud Resource list. To do so log in to IBM Cloud with a user that is an account administrator with account-wide Viewer (platform) and Reader (service) access across all services, open [https://cloud.ibm.com/resources](https://cloud.ibm.com/resources) and check for resource instances of product `Hyper Protect Crypto Services`.
 
-For more information about IAM roles and how to assign access, check out [{{site.data.keyword.cloud_notm}} IAM roles](/docs/account?topic=account-userroles).
+For more information about IAM roles and how to assign access, check out [{{site.data.keyword.cloud_notm}} IAM roles](/docs/iam?topic=iam-userroles).
 
 If no HPCS instances exist, no migration is required.
 
@@ -172,7 +172,7 @@ Also, search for usage through client SDKs:
 - [redstone](https://github.com/IBM/redstone)
 - [hpcs-grep11](https://github.com/IBM-Cloud/hpcs-grep11)
 
-Search IAM identities with access to HPCS, mostly [service IDs](/docs/account?topic=account-serviceids&interface=ui) and [Trusted Profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui), and less common user identities. Any identity with roles that are scoped to the HPCS service, instance, key ring, or key is a strong indicator of potential custom application usage.
+Search IAM identities with access to HPCS, mostly [service IDs](/docs/iam?topic=iam-serviceids&interface=ui) and [Trusted Profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui), and less common user identities. Any identity with roles that are scoped to the HPCS service, instance, key ring, or key is a strong indicator of potential custom application usage.
 
 ### {{site.data.keyword.cloud_notm}} services and software
 {: #migration-ibm-cloud-services}
