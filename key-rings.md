@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-05-26"
 
 keywords: key rings, group keys, manage key groups
 
@@ -47,7 +47,7 @@ have access to a set of keys that another business unit should not have. An acco
 can create key rings for each business unit and [assign](/docs/key-protect?topic=key-protect-grouping-keys&interface=ui#grant-access-key-ring) the appropriate
 level of access to the appropriate users. In the case that the account admin would like to delegate
 platform management of a specific key ring to someone else, they can assign a user a
-[platform administrator role at the key ring level](/docs/account?topic=account-userroles#platformroles).
+[platform administrator role at the key ring level](/docs/iam?topic=iam-userroles#platformroles){: external}.
 The sub administrator will then have the ability to manage the key ring and grant access to the appropriate users.
 
 You can grant access to key rings within a
@@ -88,6 +88,9 @@ To create a key ring:
 3. In the **Create a key ring** tab, give your new key ring a name, following the instructions on permitted characters. Then click **Create**.
 
 After it is created, your new key ring will appear in the list of key rings and you are able to transfer keys to it or create keys for it.
+
+If you manage key rings consistently in multiple environments, you can automate key ring and key layout with the [{{site.data.keyword.keymanagementserviceshort}} Key Ring module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key-ring/ibm/latest){: external} or the broader [{{site.data.keyword.keymanagementserviceshort}} All-Inclusive module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}. See [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for context.
+{: tip}
 
 ## Creating key rings with the API
 {: #create-key-ring-api}

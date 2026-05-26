@@ -105,7 +105,7 @@ for your application, and then exchanging your API key for an
     for the service ID.
 
     You can assign access permissions for your service ID
-    [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-assign-access-resourcess#assign-new-access){: external}.
+    [by using the {{site.data.keyword.cloud_notm}} console](/docs/iam?topic=iam-assign-access-resources#assign-new-access){: external}.
     To learn how the _Manager_, _Writer_, and _Reader_ access roles map to
     specific {{site.data.keyword.keymanagementserviceshort}} service actions,
     see

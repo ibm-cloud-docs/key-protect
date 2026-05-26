@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-05-26"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -69,6 +69,8 @@ When you are finished filling out the key's details, click **Import key** to con
 
 If you know which key ring you want a key to be placed in, and you are a _Manager_ of that key ring, you can also navigate to the **Key rings** panel, select ⋯ and click **Add key to key ring**. This will open the same panel you see by clicking **Add** on the **Keys** page with the **Key rings** variable filled in with the name of the key ring.
 {: tip}
+
+If you need to import and manage standard keys consistently across accounts or environments, you can automate this with the [{{site.data.keyword.keymanagementserviceshort}} Key module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key/ibm/latest){: external}. For a complete setup that also provisions the {{site.data.keyword.keymanagementserviceshort}} instance and key rings, see the all inclusive [{{site.data.keyword.keymanagementserviceshort}} module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}. For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 
 ## Importing standard keys
 {: #import-standard-key-api}

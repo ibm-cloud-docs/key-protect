@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-05-26"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -43,7 +43,7 @@ networking, and secure engineering.
 
 To learn more about security controls across {{site.data.keyword.cloud_notm}},
 see
-[How do I know that my data is safe?](/docs/overview?topic=overview-security#security){: external}.
+[How do I know that my data is safe?](https://cloud.ibm.com/docs/overview?topic=overview-security){: external}.
 {: tip}
 
 ### Data encryption

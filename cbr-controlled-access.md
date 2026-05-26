@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-26"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -171,3 +171,6 @@ Users who attempt to access your resources outside of the defined zones will rec
 {: note}
 
 Follow the creation or modification of any zones or rules with adequate testing to ensure access and availability.
+
+If you standardize context-based restrictions across environments, consider using the [Context-Based Restrictions module](https://registry.terraform.io/modules/terraform-ibm-modules/cbr/ibm/latest){: external}. For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
