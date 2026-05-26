@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-05-26"
 
 keywords: FAQ, key protect frequently asked questions, key protect answers
 
@@ -230,3 +230,18 @@ Setting and retrieving the network access policy is only supported through the a
 After the network access policy is set to `private-only` the UI cannot be used for any {{site.data.keyword.keymanagementserviceshort}} actions.
 
 Keys in a `private-only` instance will not be shown in the UI and any {{site.data.keyword.keymanagementserviceshort}} actions in the UI will return an unauthorized error (HTTP status code 401).
+
+## Can I use Terraform to automate {{site.data.keyword.keymanagementserviceshort}} setup?
+{: #faq-terraform-automation}
+{: faq}
+
+Yes. Terraform IBM Modules (TIM) provides curated, ready-to-use Terraform configurations for {{site.data.keyword.keymanagementserviceshort}}. 
+
+You can use the following modules to automate different aspects of your setup:
+
+* Provision an instance - [{{site.data.keyword.keymanagementserviceshort}} module](https://registry.terraform.io/modules/terraform-ibm-modules/key-protect/ibm/latest){: external}
+* Manage root and standard keys - [{{site.data.keyword.keymanagementserviceshort}} Key module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key/ibm/latest){: external}
+* Organize keys into key rings - [{{site.data.keyword.keymanagementserviceshort}} Key Ring module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key-ring/ibm/latest){: external}
+* Handle the full setup in a single module - [{{site.data.keyword.keymanagementserviceshort}} all-inclusive module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}
+
+For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).

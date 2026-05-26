@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-05-26"
 
 keywords: service instance, create service instance, Key Protect service instance
 
@@ -67,6 +67,10 @@ the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 3. Search for "Key Protect" in the ***Search the catalog...*** field and click `Key Protect`.
 
 4. Select a Standard or Dedicated plan, and click **Create** to provision an instance of {{site.data.keyword.keymanagementserviceshort}} in the account, region, and resource group where you are logged in. For more information about pricing, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
+
+If you need to repeat the same setup across accounts or environments, you can automate it with curated [Terraform IBM Modules](https://registry.terraform.io/namespaces/terraform-ibm-modules){: external}. The [{{site.data.keyword.keymanagementserviceshort}} All-Inclusive module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external} is one option that can provision an instance together with keys and key rings. For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
+
 
 ## Provisioning {{site.data.keyword.keymanagementserviceshort}} from the {{site.data.keyword.cloud_notm}} CLI
 {: #provision-cli}
