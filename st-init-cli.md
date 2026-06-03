@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-06-03"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -113,9 +113,9 @@ The endpoint is the `public` parameter value in the `endpoints` stanza of the js
 You can get the endpoint by issuing: `ibmcloud resource service-instance <\kp-instance-id\> --output json | jq -r '.[].extensions.endpoints'`.
 {: tip}
 
-Save the full endpoint as an environment variable by issuing:
+Save the full endpoint as an environment variable by issuing two commands on one of three supported operating systems.
 
-Using [macOS]{: tag-macos}:
+For [macOS]{: tag-macos}:
 
 ```{: pre}
 export KP_TARGET_ADDR=<ST_INSTANCE_ENDPOINT>
@@ -129,7 +129,7 @@ export KP_INSTANCE_ID=<GUID>
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} Powershell:
+For [Windows]{: tag-windows} Powershell:
 
 ```powershell
 $Env:KP_INSTANCE_ID = <GUID>
@@ -143,7 +143,7 @@ $Env:KP_TARGET_ADDR = <ST_INSTANCE_ENDPOINT>
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} CMD:
+For [Windows]{: tag-windows} CMD:
 
 ```sh
 set KP_INSTANCE_ID=<GUID>
@@ -248,23 +248,23 @@ Now that you have created your instance and your admin identity, you can use the
 Dedicated {{site.data.keyword.keymanagementserviceshort}} uses the process of "key spliting", in which a cryptographic key is split into multiple pieces to enhance security. At least `2` "keyshares" must be created, though more can be used depending on the use case.
 {: important}
 
-To generate the master key locally, issue:
+To generate the master key locally, issue the command on one of the three supported operating systems.
 
-Using [macOS]{: tag-macos}:
+For [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit mk generate --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2>"]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSOWRD3>"}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} Powershell:
+For [Windows]{: tag-windows} Powershell:
 
 ```powershell
 ibmcloud kp crypto-unit mk generate --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSOWRD3>"""}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} CMD:
+For [Windows]{: tag-windows} CMD:
 
 ```sh
 ibmcloud kp crypto-unit mk generate --keyshare-files"[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2>\"]" --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSOWRD3>\"}]"
@@ -280,23 +280,23 @@ Where:
 
 Note that the `keyshare-minimum`, which is set to `2` by default but can be increased, represents the minimum number of keyshares (by their locations) you must specify.
 
-To upload your master key to the crypto units of your instance, issue:
+To upload your master key to the crypto units of your instance, issue the command on one of the three supported operating systems.
 
-Using [macOS]{: tag-macos}:
+For [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit mk import --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2"]' --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD3>"}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} PowerShell:
+For [Windows]{: tag-windows} PowerShell:
 
 ```powershell
 ibmcloud kp crypto-unit mk import --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSWORD3>"""}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} CMD:
+For [Windows]{: tag-windows} CMD:
 
 ```sh
 ibmcloud kp crypto-unit mk import --keyshare-files "[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2\"]" --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSWORD3>\"}]"
@@ -309,23 +309,23 @@ Where:
 * * `<KEYSHARE_FILE_2>#<PASSWORD2` is the location of another keyshare, along with a passphrase for the file that will be created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<PASSWORD2>` to be prompted to enter a passphrase.
 * `<ADMIN_KEY_FILE>#<PASSWORD3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<PASSWORD3>` to be prompted to enter a passphrase.
 
-Now that your master key has been created, you need to allow the Key Protect service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted Key Protect is lower than that of an admin.
+Now that your master key has been created, you need to allow the {{site.data.keyword.keymanagementserviceshort}} service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted {{site.data.keyword.keymanagementserviceshort}} is lower than that of an admin. Issue the command using one of the three supported operating systems.
 
-Using [macOS]{: tag-macos}:
+For [macOS]{: tag-macos}:
 
 ```{: pre}
 ibmcloud kp crypto-unit user add --type kmsCryptoUser --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD>"}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} PowerShell:
+For [Windows]{: tag-windows} PowerShell:
 
 ```powershell
 ibmcloud kp crypto-unit user add --type kmsCryptoUser --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSWORD>"""}]'
 ```
 {: codeblock}
 
-Using [Windows]{: tag-windows} CMD:
+For [Windows]{: tag-windows} CMD:
 
 ```sh
 ibmcloud kp crypto-unit user add --type kmsCryptoUser --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSWORD>\"}]"
@@ -360,7 +360,7 @@ It may take unto 5 to 10 minutes before you can use your instance.
 ## Next steps
 {: #st-init-cli-next-steps}
 
-Now that your instance has been created, you have admin identities that can be used to operate it, and have created your master key and given Key Protect access to perform actions on your instance, you are ready to do things like:
+Now that your instance has been created, you have admin identities that can be used to operate it, and have created your master key and given {{site.data.keyword.keymanagementserviceshort}} access to perform actions on your instance, you are ready to do things like:
 
 * [Create a root key](/docs/key-protect?topic=key-protect-create-root-keys). You can have a maximum of 500 root or standard keys that are in any state, including `Destroyed`.
 * [Create key rings](/docs/key-protect?topic=key-protect-grouping-keys). You can have a maximum of 50 key rings per service instance.
