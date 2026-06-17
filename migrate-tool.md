@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2026
+  years: 2024, 2026
 
-lastupdated: "2026-04-02"
+lastupdated: "2026-06-17"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -25,7 +25,7 @@ In this topic, "key" refers to a customer root key (CRK) unless otherwise specif
 ## Downloading the tool
 {: #migrate-tool-download}
 
-1. Create an IBM Support ticket for Key Protect to request access to the HPCS to Key Protect migration tooling.
+1. Create an IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}} to request access to the HPCS to {{site.data.keyword.keymanagementserviceshort}} migration tools.
 
 2. Download the tool binary provided in the support ticket.
 
@@ -78,13 +78,14 @@ certutil -hashfile crkm-windows-amd64-1.0.0.exe SHA256
 ```powershell
 Get-FileHash <crkm-binary> -Algorithm SHA256
 ```
+{: pre}
 
 Example:
 
 ```powershell
 Get-FileHash crkm-windows-amd64-1.0.0.exe -Algorithm SHA256
 ```
-{: codeblock}
+{: pre}
 
 
 Make the binary executable (macOS/Linux):
@@ -98,28 +99,34 @@ chmod +x <crkm-binary>
 ## Understanding the migration tool output
 {: #migrate-tool-output}
 
-The `status`, `create`, and `sync` operations from the CLI tool produce the following two files:
+- The `status`, `create`, and `sync` operations from the CLI tool produce the following two files:
 
-`.csv` output file
-:   Created after the operation completes, with `execution` in the file name, the operation name, and the date-time of command run. The file contains a copy of the input data, and for each row:
-    - The number of associations that are found on the HPCS key
-    - The number of associations that are found on the Key Protect Dedicated key
-    - The status of the operation on the HPCS key
+    `.csv` output file
+    :   Created after the operation completes, with `execution` in the file name, the operation name, and the date-time of command run. The file contains a copy of the input data, and for each row:
+        - The number of associations that are found on the HPCS key
+        - The number of associations that are found on the {{site.data.keyword.keymanagementserviceshort}} Dedicated key
+        - The status of the operation on the HPCS key
+        - The state of the HPCS key and the {{site.data.keyword.keymanagementserviceshort}} Dedicated key (for example, `Active (1)`)
 
-`.log` output file
-:   Created after the operation completes, with `summary` in the file name, the operation name, and the date-time of command run. The file provides an overview of the status of keys with migration intents and their number of associations.
+    `.log` output file
+    :   Created after the operation completes, with `summary` in the file name, the operation name, and the date-time of command run. The file provides an overview of the status of keys with migration intents and their number of associations.
 
-The `status` operation is useful for verifying that your input file is correctly formatted, because this command takes no action. You can use the same input file repeatedly without removing keys that are fully migrated, as the status indicates why the operation was not performed.
+- The `delete` operation produces only the `execution` `.csv` file.
+
+- The `status` operation is useful for verifying that your input file is correctly formatted, because this command takes no action. You can use the same input file repeatedly without removing keys that are fully migrated, as the status indicates why the operation was not performed.
+
+For a migration to succeed, the source HPCS key must be in the `Active` or `Deactivated` state (so that it can unwrap data) and the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key must be in the `Active` state (so that it can wrap and unwrap data). If a key is in any other state, the tool prints a warning to the console because the migration is likely to fail.
+{: note}
 
 ## Before you begin
 {: #migrate-tool-prereqs}
 
-You must complete all migration prerequisites before using the migration tool.
+Complete all migration prerequisites to use the migration tool.
 
 ### Setting up IAM authorization policies
 {: #migrate-tool-iam}
 
-Configure IAM authorization policies from services to Key Protect Dedicated as documented. When you create a policy to Hybrid HPCS, you must select the "Enable authorizations to be delegated by source and dependent services" checkbox if the documentation requires it.
+Configure IAM authorization policies from services to {{site.data.keyword.keymanagementserviceshort}} Dedicated as documented. When you create a policy to Hybrid HPCS, select the **Enable authorizations to be delegated by source and dependent services** checkbox, if the documentation requires it.
 
 For examples, see:
 - ICD PostgreSQL: [Granting service authorization](/docs/databases-for-postgresql?topic=databases-for-postgresql-key-protect&interface=ui#granting-service-auth)
@@ -128,7 +135,7 @@ For examples, see:
 ### Creating target keys
 {: #migrate-tool-create-keys}
 
-Create keys in Key Protect Dedicated that are the target of the migration.
+Create keys in {{site.data.keyword.keymanagementserviceshort}} Dedicated that are the target of the migration.
 
 ## Setting up the input file
 {: #migrate-tool-input}
@@ -136,16 +143,16 @@ Create keys in Key Protect Dedicated that are the target of the migration.
 The CLI takes as input a `.csv` file without a header row. Each row in the file contains:
 
 - **First column**: The CRN of the source HPCS key (`sourceCRK`)
-- **Second column**: The CRN of the target Key Protect Dedicated key (`targetCRK`)
+- **Second column**: The CRN of the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key (`targetCRK`)
 
-Each row represents the intent to migrate any cloud resource encrypted by the `sourceCRK` to be encrypted by the `targetCRK` after migration is complete.
+Each row specifies which cloud resources you want to migrate. The migration tool re-encrypts resources that use the `sourceCRK` with the `targetCRK`.
 
 ### Example input file
 {: #migrate-tool-input-example}
 
 (The following table shows the structure. Do not include headers in your CSV file.)
 
-| Source HPCS Key CRN | Target Key Protect Dedicated Key CRN |
+| Source HPCS Key CRN | Target {{site.data.keyword.keymanagementserviceshort}} Dedicated Key CRN |
 | --- | --- |
 | `crn:v1:bluemix:public:hs-crypto:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab` | `crn:v1:bluemix:public:kms:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab` |
 | `crn:v1:bluemix:public:hs-crypto:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab` | `crn:v1:bluemix:public:kms:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab` |
@@ -177,10 +184,10 @@ export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-so
 ```
 {: pre}
 
-The `IBMCLOUD_API_KEY` must be associated with an IAM identity (for example, an IBM Cloud user or service ID) that has the `Manager` role for both HPCS and Key Protect Dedicated.
+Associate the `IBMCLOUD_API_KEY` with an IAM identity (for example, an IBM Cloud user or service ID) that has the `Manager` role for both HPCS and {{site.data.keyword.keymanagementserviceshort}} Dedicated.
 
-The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` does not have access to the target Key Protect Dedicated instance. This occurs when:
-- The HPCS instance and Key Protect Dedicated instance are in different IBM Cloud accounts
+The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` does not have access to the target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance. It occurs when:
+- The HPCS instance and {{site.data.keyword.keymanagementserviceshort}} Dedicated instance are in different IBM Cloud accounts
 - Separate IAM identities are used for source and target environments
 
 ### Optional environment variables
@@ -192,7 +199,7 @@ The following optional environment variables can be configured:
 :   Takes a custom IAM endpoint if the default `https://iam.cloud.ibm.com/identity/token` is not used.
 
 `DEBUG_MODE`
-:   Takes `true` or `false`. When set to `true`, the tool produces detailed logs.
+:   Takes `true` or `false`. When set to `true`, the tool produces detailed logs: the resolved configuration at startup, and per-request HTTP detail for every API call (method, path with query string, response status, and correlation ID). For requests that fail, the response body is also logged. Authorization headers and API keys are never logged.
 
 ## Validating the input file
 {: #migrate-tool-validate}
@@ -209,7 +216,7 @@ You might see "FAILED - No Migration Intent that is found for the key" in the st
 ## Checking IAM authorization policies
 {: #migrate-tool-authz-check}
 
-Use the `authz-check` command to verify that IAM authorization policies are in place so that cloud services that currently use HPCS source keys can use the corresponding Key Protect Dedicated target keys after migration.
+Use the `authz-check` command to verify that IAM authorization policies are in place so that cloud services that currently use HPCS source keys can use the corresponding {{site.data.keyword.keymanagementserviceshort}} Dedicated target keys after migration.
 
 ```sh
 ./<crkm-binary> authz-check <.csv input file>
@@ -226,7 +233,9 @@ The tool extracts the distinct account IDs from the TargetCRK column in the CSV,
 ### Phase 2: Match associations
 {: #migrate-tool-authz-phase2}
 
-For each row in the CSV, the tool fetches all associations on the source HPCS key (the cloud resources encrypted by that key). The tool checks whether an IAM authorization policy exists that would allow each associated service to use the target Key Protect Dedicated key. The tool also looks up the resource group of each target Key Protect Dedicated instance through the IBM Cloud resource controller API so that policies that are scoped to a resource group can be matched.
+For each row in the CSV, the tool fetches all associations on the source HPCS key (the cloud resources encrypted by that key). The tool checks whether an IAM authorization policy exists that allows each associated service to use the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key.
+
+The tool also looks up the resource group of each target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance through the IBM Cloud resource controller API. This lookup enables the tool to match policies that are scoped to a resource group.
 
 For each association, the tool reports either:
 
@@ -234,7 +243,7 @@ For each association, the tool reports either:
 :   A valid authorization policy was found. The policy JSON is printed.
 
 `NO MATCH`
-:   No authorization policy was found. The tool prints a message that explains what is missing and a colored JSON template of a policy that would satisfy the match. In the template, required fields are shown in green and optional fields in blue.
+:   No authorization policy was found. The tool prints a message that explains what is missing and a colored JSON template of a policy that satisfies the match. In the template, required fields are shown in green and optional fields in blue.
 
 A summary is printed at the end with the total number of checked, matched, and unmatched associations.
 
@@ -247,19 +256,19 @@ A summary is printed at the end with the total number of checked, matched, and u
 ### Matching criteria
 {: #migrate-tool-authz-criteria}
 
-An authorization policy matches an association when all of the following are true:
+An authorization policy matches an association when the following conditions are true:
 
-1. The policy's **subjects** (who is authorized) contain a `serviceName` and `accountId` matching the associated cloud service.
-2. The policy's **resources** (what is being accessed) contain a `serviceName` and `accountId` matching the target Key Protect Dedicated key's service.
+1. The policy's **subjects** (who is authorized) contain a `serviceName` and `accountId` that match the associated cloud service.
+2. The policy's **resources** (what is being accessed) contain a `serviceName` and `accountId` that match the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key's service.
 3. The policy's **roles** grant appropriate access (`Reader`, `ReaderPlus`, `Writer`, or `Manager`).
 4. If the associated service requires it (for example, `databases-for-*`, `messages-for-rabbitmq`, `containers-kubernetes`), the policy also includes the `AuthorizationDelegator` role.
 
-If the policy specifies optional attributes such as `resourceGroupId`, `serviceInstance`, `keyRing`, or `resource`, those must also match the target key or its Key Protect Dedicated instance.
+If the policy specifies optional attributes such as `resourceGroupId`, `serviceInstance`, `keyRing`, or `resource`, those attributes must also match the target key or its {{site.data.keyword.keymanagementserviceshort}} Dedicated instance.
 
 ## Creating migration intents
 {: #migrate-tool-create}
 
-After you create a `.csv` file with the pairing of HPCS keys to migrate to their respective Key Protect Dedicated keys, use the `create` operation to create migration intents on the HPCS keys.
+After you create a `.csv` file with the pairing of HPCS keys to migrate to their respective {{site.data.keyword.keymanagementserviceshort}} Dedicated keys, use the `create` operation to create migration intents on the HPCS keys.
 
 ```sh
 ./<crkm-binary> create <.csv input file>
@@ -268,11 +277,11 @@ After you create a `.csv` file with the pairing of HPCS keys to migrate to their
 
 This operation performs the following actions:
 - Triggers sync events to services that have associations (cloud resources that use the keys being migrated) so they can start migrating the HPCS key
-- You can monitor event acknowledgment and migration in the activity tracking logs (see [Migration that is not completed in time](#migrate-tool-troubleshoot-time) for troubleshooting)
+- You must monitor event acknowledgment and migration in the activity tracking logs (see [Migration that is not completed in time](#migrate-tool-troubleshoot-time) for troubleshooting)
 
-If a migration intent exists on a key and you want to update it with an updated `.csv` input file, run the CLI with the `--replace-mi` flag.
+If a migration intent exists on a key and you want to update it with an updated `.csv` input file, run the CLI tool with the `--replace-mi` flag.
 
-See [troubleshooting](#migrate-tool-troubleshoot) if there are issues that are observed in the creation of migration intents.
+For any issues that are observed in the creation of migration intents, see [troubleshooting](#migrate-tool-troubleshoot) section.
 
 ## Syncing keys
 {: #migrate-tool-sync}
@@ -284,9 +293,10 @@ After five minutes from the completion of the previous step, use the `sync` oper
 ```
 {: pre}
 
-This operation triggers sync events to services that have associations (cloud resources that use the keys being migrated). This step ensures that migration can occur even for services that use HPCS keys indirectly. For example, ICD uses COS to store backups, and COS uses Key Protect.
+This operation triggers sync events to services that have associations (cloud resources that use the keys being migrated). This step ensures that the migration can occur even for services that use HPCS keys indirectly. For example, ICD uses {{site.data.keyword.cos_full_notm}} to store backups, and {{site.data.keyword.cos_full_notm}} uses {{site.data.keyword.keymanagementserviceshort}}.
 
-You must wait at least five minutes before checking the migration status. The migration is performed by HPCS-adopting services, which have up to four hours to respond to HPCS. For Event Streams, the migration might take up to one business day after the creation of a migration intent.
+Wait at least five minutes and check the migration status. The HPCS-adopting services do the migration, which has up to four hours to respond to HPCS. For Event Streams, the migration might take up to one business day after you create a migration intent.
+
 
 ## Checking migration status
 {: #migrate-tool-status}
@@ -300,7 +310,40 @@ Use the `status` operation to check on the status of the migration:
 
 If the number of associations of an HPCS key was not zero at the start of the migration and drops to zero, the migration is complete.
 
-If you observe issues in the status column or the number of HPCS associations (`KpStAssociationsCount`) is still non-zero, see [Troubleshooting](#migrate-tool-troubleshoot).
+If you observe issues in the status column or the number of HPCS associations (`KpStAssociationsCount`) is still nonzero, see [troubleshooting](#migrate-tool-troubleshoot).
+
+## Deleting migration intents
+{: #migrate-tool-delete}
+
+Use the `delete` operation to remove the migration intent from one or more HPCS keys. For example, use this operation to undo a migration intent that was created with the wrong target key before migration begins. For each key, the tool checks whether a migration intent exists. If one exists, the tool prints the migration intent's properties (ID, source CRK, target CRK, creator, and creation date) and then deletes it. If no migration intent exists, the tool reports that none was found.
+
+Unlike other operations, the `delete` operation accepts either a `.csv` input file or a single HPCS key CRN.
+
+To delete the migration intents for every HPCS key in a `.csv` file, use the following command:
+
+```sh
+./<crkm-binary> delete <.csv input file>
+```
+{: pre}
+
+To delete the migration intent for a single HPCS key by passing its full CRN, use the following command:
+
+```sh
+./<crkm-binary> delete <HPCS key CRN>
+```
+{: pre}
+
+Example:
+
+```sh
+./<crkm-binary> delete crn:v1:bluemix:public:hs-crypto:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab
+```
+{: pre}
+
+The `delete` operation acts only on the source HPCS key. Therefore, only the `HPCS_API_ENDPOINT` and `IBMCLOUD_API_KEY` environment variables are required. The {{site.data.keyword.keymanagementserviceshort}} Dedicated variables are not required.
+
+The `delete` operation removes the migration intent immediately without prompting for confirmation. When you pass a `.csv` file, the migration intent of every key in the file is deleted.
+{: important}
 
 ## Troubleshooting
 {: #migrate-tool-troubleshoot}
@@ -310,7 +353,7 @@ Use the following information to troubleshoot common issues with the migration t
 ### Migration not completed in time
 {: #migrate-tool-troubleshoot-time}
 
-Sometimes services might encounter problems migrating keys.
+Sometimes services might encounter problems, while migrating keys.
 
 Use the `sync` operation with the `.csv` file as input to notify services with associations to the key to try the migration again:
 
@@ -319,7 +362,7 @@ Use the `sync` operation with the `.csv` file as input to notify services with a
 ```
 {: pre}
 
-If the number of associations of an HPCS key was not zero at the start of the migration and does not drop to zero, services might be encountering problems migrating keys. Alternatively, there might be stale associations. Create an IBM Support ticket for Key Protect and mention HPCS to Key Protect migration.
+If the number of associations of an HPCS key was not zero at the start of the migration and does not drop to zero, services might be encountering problems migrating keys. Alternatively, there might be stale associations. Create an IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}} and mention HPCS to {{site.data.keyword.keymanagementserviceshort}} migration.
 
 
 ### Invalid resource CRN format
@@ -334,7 +377,7 @@ invalid key crn for key : crn must be specified to 10 segments
 
 The CSV status column output also reads: "FAILED - crn must be specified to 10 segments"
 
-Review the input `.csv` file and ensure the CRN for the HPCS keys and Key Protect Dedicated keys are formatted correctly.
+Review the input `.csv` file and ensure the CRN for the HPCS keys and {{site.data.keyword.keymanagementserviceshort}} Dedicated keys are formatted correctly.
 
 ### Key not found
 {: #migrate-tool-troubleshoot-notfound}
@@ -356,7 +399,7 @@ FAILED - kp.Error: correlation_id='643a49af-a3cc-4eba-b23b-368bbc33115d', msg='N
 ```
 {: screen}
 
-The CRN for the key does not exist. Review the input `.csv` file and ensure that both the HPCS keys to migrate and the Key Protect Dedicated target keys exist.
+The CRN for the key does not exist. Review the input `.csv` file and ensure that both the HPCS keys to migrate and the {{site.data.keyword.keymanagementserviceshort}} Dedicated target keys exist.
 
 ### Instance does not exist or the user is unauthorized
 {: #migrate-tool-troubleshoot-unauthorized}
@@ -419,10 +462,11 @@ Error message:
 
 The CSV status column output also reads: "FAILED - Migration Intent exists for the key"
 
-The HPCS key already has an existing migration intent. To update the migration intent:
-1. Update the input `.csv` file with the new CRN of the Key Protect Dedicated key to migrate to
-2. Add the `--replace-mi` flag to the create command
-3. Run the command again
+The HPCS key already has an existing migration intent. To update the migration intent, complete the following steps:
+
+1. Update the input `.csv` file with the new CRN of the {{site.data.keyword.keymanagementserviceshort}} Dedicated key to migrate to.
+2. Add the `--replace-mi` flag to the create command.
+3. Run the command again.
 
 ### Status command: No migration intent found
 {: #migrate-tool-troubleshoot-status-nomi}
@@ -442,7 +486,7 @@ Error message:
 
 The CSV status column output also reads: "FAILED - No Migration Intent found for the key"
 
-A migration intent does not exist for that HPCS key. Retry [Creating migration intents](#migrate-tool-create), ensuring the key resource CRN is included in the input file, and check the status of the operation.
+A migration intent does not exist for that HPCS key. Retry [Creating migration intents](#migrate-tool-create), to ensure that the key resource CRN is included in the input file, and check the status of the operation.
 
 ### Sync command: No associations found
 {: #migrate-tool-troubleshoot-sync-noreg}
@@ -512,4 +556,4 @@ FAILED - kp.Error: correlation_id='0cefcea8-7e29-4c4a-9721-00244eb9752c', msg='C
 ```
 {: screen}
 
-The `sync` operation is being performed too quickly. You must wait at least five minutes before trying again.
+The `sync` operation is being performed too quickly. Wait at least five minutes before trying again.
