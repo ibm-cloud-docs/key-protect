@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: view protected data, view encrypted resources, registrations
 
@@ -44,7 +44,7 @@ get a full view of which encryption keys protect what data on
 |Security and compliance|As a security admin, you need a way to determine the risk that's involved with [destroying a root key](/docs/key-protect?topic=key-protect-delete-keys).<br>You want to examine which keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs.|
 {: caption="Describes the benefits of key registration." caption-side="bottom"}
 
-Key registration is an extra feature that's available only if the cloud service
+Key registration is an additional feature that's available only if the cloud service
 has enabled it as part of its integration with
 {{site.data.keyword.keymanagementserviceshort}}. To determine whether an
 [integrated service](/docs/key-protect?topic=key-protect-integrate-services)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-06-22"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -487,19 +487,22 @@ Most cases of failed migrations occur because IAM authorization policies are not
 
 Before you proceed, use the CRKM tool `authz-check` command to verify that the required IAM authorization policies are in place. The `authz-check` command inspects the association on each source HPCS CRK and checks whether a matching IAM authorization policy exists that would allow each registered service to access the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. For each association, the tool reports whether a matching policy was found or whether a policy is missing, along with a template of the policy that needs to be created. Running this check before you create migration intents helps you identify and fix authorization gaps that would otherwise cause migration failures. For more information, see [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool).
 
-**Step 4: Create the migration intent**
+### Step 4: Create the migration intent
+{: #migrate-st-step4}
 
 Use the [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) to create a migration intent on `HPCS_key_1` that references the target CRK `KP_D_key_1`. The CRKM tool accepts a CSV file that contains pairs of source HPCS CRK CRNs and target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK CRNs, which makes it possible to create migration intents in bulk.
 
 After the migration intent is created, HPCS emits synchronization events that notify associated services about the migration request.
 
-**Step 5: Run sync**
+### Step 5: Run sync
+{: #migrate-st-step5}
 
 For some services (for example, IBM Cloud Databases, Messages for RabbitMQ, Kubernetes, and OpenShift), more synchronization events must be explicitly triggered a few minutes after intent creation. Use the CRKM tool sync command to trigger these events.
 
 You can run the sync command at any time to retry incomplete migrations.
 
-**Step 6: Monitor migration progress**
+### Step 6: Monitor migration progress
+{: #migrate-st-step6}
 
 Use the CRKM tool Status command to check the migration progress. The tool reports the association counts for both the source HPCS CRK and the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. As services complete migration:
 

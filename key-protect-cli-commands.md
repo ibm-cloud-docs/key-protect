@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-06-22"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -111,9 +111,9 @@ The **`kp instance`** command manages policies for a
 | Sub-command                                                         | Status v0.8   | Description |
 | ------------------------------------------------------------------- | ------------- | ----------- |
 | [policies](#kp-instance-policies)                                   |               | List policies associated with an instance |
-| policy-update [allowed-network](#kp-instance-policy-update-allowed) |               | Update the instance policy for "allowed network" |
-| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   |               | Update the instance policy for "dual auth delete" |
-| policy-update [rotation](#kp-key-policy-update-rotation)            |               | Update the instance policy for "rotation" |
+| policy-update [allowed-network](#kp-instance-policy-update-allowed) |               | Update the instance policy for `allowed network` |
+| policy-update [dual-auth-delete](#kp-instance-policy-update-dual)   |               | Update the instance policy for `dual auth delete` |
+| policy-update [rotation](#kp-key-policy-update-rotation)            |               | Update the instance policy for `rotation` |
 {: caption="Sub-commands for managing keys" caption-side="bottom"}
 
 ### kp key command
@@ -130,8 +130,8 @@ The **`kp key`** command manages individual keys.
 | [disable](#kp-key-disable)                                   |               | Disable a key |
 | [enable](#kp-key-enable)                                     |               | Enable a key |
 | [policies](#kp-key-policies)                                 |               | Retrieve a list of policies |
-| policy-update [dual-auth-delete](#kp-key-policy-update-dual) |               | Update the key policy for "dual auth delete" |
-| policy-update [rotation](#kp-key-policy-update-rotation)     |               | Update the key policy for "rotation" |
+| policy-update [dual-auth-delete](#kp-key-policy-update-dual) |               | Update the key policy for `dual auth delete` |
+| policy-update [rotation](#kp-key-policy-update-rotation)     |               | Update the key policy for `rotation` |
 | [restore](#kp-key-restore)                                   |               | Restore a root key that was previously deleted |
 | [rotate](#kp-key-rotate)                                     |               | Rotate a root key |
 | [schedule-delete](#kp-key-schedule-delete)                   |               | Authorize a key, with a dual-auth-delete policy, to be deleted |
@@ -569,7 +569,7 @@ $ ibmcloud kp instance policies --output json
 
 * **`-d, --dual-auth-delete`**
 
-    Show the instance policy for "dual authorization delete".
+    Show the instance policy for `dual authorization delete`.
 
 * **`-k, --key-create-import-access`**
 
@@ -1403,7 +1403,7 @@ Enables the dual auth delete policy for a key.
 
     Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256 bits. The key must be base64-encoded.
 
-    Standard keys can be up to 7,500 bytes in size. The key must be base64-encoded.
+    Standard keys can be up to 7,500 bytes in length. The key must be base64-encoded.
 
     If you are creating a key using an import token then this is the encrypted key from the `kp import-token key-encrypt` process.
 

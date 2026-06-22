@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-22"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -309,7 +309,7 @@ Where:
 * * `<KEYSHARE_FILE_2>#<PASSWORD2` is the location of another keyshare, along with a passphrase for the file that will be created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<PASSWORD2>` to be prompted to enter a passphrase.
 * `<ADMIN_KEY_FILE>#<PASSWORD3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<PASSWORD3>` to be prompted to enter a passphrase.
 
-Now that your master key has been created, you need to allow the {{site.data.keyword.keymanagementserviceshort}} service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted {{site.data.keyword.keymanagementserviceshort}} is lower than that of an admin. Issue the command using one of the three supported operating systems.
+Now that your master key has been created, you need to allow the {{site.data.keyword.keymanagementserviceshort}} service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted {{site.data.keyword.keymanagementserviceshort}} is less than that of an admin. Issue the command using one of the three supported operating systems.
 
 For [macOS]{: tag-macos}:
 

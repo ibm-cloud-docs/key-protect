@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-08-07"
+  years: 2017, 2026
+lastupdated: "2026-06-22"
 
 keywords: envelope encryption, wrap data encryption key, unwrap data encryption key
 
@@ -33,7 +33,7 @@ to encrypt and decrypt your data.
 {: shortdesc}
 
 When working with sensitive data, it is important to use advanced encryption
-techniques to prevent a data breach. If you have large amounts of confidential data,
+techniques to prevent a data breach. If you have significant amounts of confidential data,
 it is often helpful to use a Key Management System to assist in keeping your data secure.
 {{site.data.keyword.keymanagementserviceshort}} uses the envelope encryption technique
 to keep your data resilient. Envelope encryption is the process of using encrypted keys,
@@ -89,7 +89,7 @@ unauthorized access or exposure.
 
 Unwrapping a DEK reverses the envelope encryption process by using the associated
 root key, resulting in a decrypted and authenticated DEK. A wrapped DEK cannot
-be unwrapped without the associated root key, which adds an extra layer of
+be unwrapped without the associated root key, which adds an additional layer of
 security to your data.
 
 Envelope encryption is treated briefly in the NIST Special Publication 800-57,

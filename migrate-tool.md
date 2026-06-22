@@ -3,7 +3,7 @@
 copyright:
   years: 2024, 2026
 
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-22"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -211,7 +211,7 @@ Use the `status` operation to check the status of the migration and verify that 
 ```
 {: pre}
 
-You might see "FAILED - No Migration Intent that is found for the key" in the status columns for all key inputs in the output `.csv` file and in the console log. This is expected when no migration intent is created yet.
+You might see `FAILED - No Migration Intent that is found for the key` in the status columns for all key inputs in the output `.csv` file and in the console log. This is expected when no migration intent is created yet.
 
 ## Checking IAM authorization policies
 {: #migrate-tool-authz-check}
@@ -375,7 +375,7 @@ invalid key crn for key : crn must be specified to 10 segments
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - crn must be specified to 10 segments"
+The CSV status column output also reads: `FAILED - crn must be specified to 10 segments`
 
 Review the input `.csv` file and ensure the CRN for the HPCS keys and {{site.data.keyword.keymanagementserviceshort}} Dedicated keys are formatted correctly.
 
@@ -439,7 +439,7 @@ Error message:
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No associations were found for the key"
+The CSV status column output also reads: `FAILED - No associations were found for the key`
 
 The HPCS key has no cloud resources that are associated with it. Therefore, you do not need to create a migration intent on the HPCS key or perform migration.
 
@@ -460,7 +460,7 @@ Error message:
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - Migration Intent exists for the key"
+The CSV status column output also reads: `FAILED - Migration Intent exists for the key`
 
 The HPCS key already has an existing migration intent. To update the migration intent, complete the following steps:
 
@@ -484,7 +484,7 @@ Error message:
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No Migration Intent found for the key"
+The CSV status column output also reads: `FAILED - No Migration Intent found for the key`
 
 A migration intent does not exist for that HPCS key. Retry [Creating migration intents](#migrate-tool-create), to ensure that the key resource CRN is included in the input file, and check the status of the operation.
 
@@ -505,7 +505,7 @@ Error message:
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No associations were found for the key"
+The CSV status column output also reads: `FAILED - No associations were found for the key`
 
 The HPCS key has no cloud resources that are associated with it. Therefore, you do not need to perform a syncing of resources. This also indicates that the migration is complete for the key.
 
@@ -526,7 +526,7 @@ Error message:
 ```
 {: screen}
 
-The CSV status column output also reads: "FAILED - No Migration Intent found for the key"
+The CSV status column output also reads: `FAILED - No Migration Intent found for the key`
 
 A migration intent does not exist for that key. Retry [Creating migration intents](#migrate-tool-create), ensuring the key resource CRN is included in the input file, and check the status of the operation.
 

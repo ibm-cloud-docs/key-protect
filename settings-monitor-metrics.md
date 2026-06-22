@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -32,7 +32,7 @@ instance, you can manage monitoring metrics by using the service API.
 {: #manage-metrics-policy}
 
 Metrics for {{site.data.keyword.keymanagementserviceshort}} service instances is
-an extra policy that allows you to receive the operational metrics for your
+an additional policy that allows you to receive the operational metrics for your
 {{site.data.keyword.keymanagementserviceshort}} instance. When you enable this
 policy, {{site.data.keyword.mon_short}} can be used to monitor any operations
 that are performed on the resources in your

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-09"
+  years: 2020, 2026
+lastupdated: "2026-06-22"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -100,7 +100,7 @@ To enable platform metrics in a region, complete the following steps:
 
 2. Go to the [monitoring dashboard](/observe/monitoring).
 
-3. Click on "Configure platform metrics."
+3. Click **Configure platform metrics**.
 
 4. Select the region where the {{site.data.keyword.keymanagementserviceshort}}
     instance was created.
@@ -210,7 +210,7 @@ on your KP service instance in order to view your
 {: #find-console}
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive
-platform metrics, follow the below steps:
+platform metrics, follow these steps:
 
 1. Go to the
     [Provision service instance](/docs/key-protect?topic=key-protect-provision#provision-gui)
@@ -228,7 +228,7 @@ platform metrics, follow the below steps:
 {: #find-observability}
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive
-platform metrics, follow the below steps:
+platform metrics, follow these steps:
 
 1. Go to the
     [monitoring dashboard](/observe/monitoring){: external} and find your monitoring

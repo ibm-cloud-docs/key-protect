@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -116,7 +116,7 @@ You can choose from the available [types of endpoints](/docs/iam?topic=iam-conte
 
 The API supports defining [network rules](/apidocs/context-based-restrictions#rules), and you will need the information from creating the network zone for the next steps. 
 
-Using the path: "/v1/rules" with the same endpoint as above, the GET method lists current rules. Sending a POST to the same path with the following example format guiding your own payload, you can create new rules:
+Using the path: "/v1/rules" with the same endpoint as the network zones, the GET method lists current rules. Sending a POST to the same path with the following example format guiding your own payload, you can create new rules:
 
 ```json
 {

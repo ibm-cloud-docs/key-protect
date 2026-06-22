@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -171,7 +171,7 @@ When importing an existing standard key, it is required to include the encrypted
 
 To encode your key material, first you should download and install [OpenSSL](https://github.com/openssl/openssl#for-production-use){: external}.
 
-Once OpenSSL has been downloaded and installed, there are two recommended commands for encoding the key material. Both methods are equivalent, in that they convert a string , whether <key_material_string> or <password>, as you can see below, into a base64 string. If your material is in a file (for example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}), the best option is to issue:
+Once OpenSSL has been downloaded and installed, there are two recommended commands for encoding the key material. Both methods are equivalent, in that they convert a string, whether <key_material_string> or <password>, as shown in the following examples, into a base64 string. If your material is in a file (for example, you might have a file with credentials, not just an encrypted key, that you want to store in {{site.data.keyword.keymanagementserviceshort}}), the best option is to issue:
 
     ```sh
     openssl base64 -in <infile> -out <outfile>
@@ -198,7 +198,7 @@ If you want to base 64 encode key material which is not in a file, you can issue
 
     Where "password" is the key material you want to use.
 
-To avoid extra characters, for example an extra new line, it is a best practice to copy the base64 to the clipboard, especially when the base64 string is going to be posted in the console.
+To avoid additional characters, for example an additional new line, it is a best practice to copy the base64 to the clipboard, especially when the base64 string is going to be posted in the console.
 {: tip}
 
 ### Using OpenSSL to create and encode new key material

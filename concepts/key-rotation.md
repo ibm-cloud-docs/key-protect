@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: rotate encryption keys, rotate keys automatically, key rotation
 
@@ -29,7 +29,7 @@ It is a best practice to rotate your root keys (that is, to create a new version
 **If you suspect a key has been compromised, disable it as soon as possible**. Check out [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys) for more information.
 {: important}
 
-Recall that root keys in {{site.data.keyword.keymanagementserviceshort}} Standard are not just used to create data encryption keys (DEKs), they are also used in conjunction with a master key (secured by IBM using a Hardware Security Module) to create a "wrap" of a DEK. The resulting "wrapped data encryption key" (WDEK) protects the DEK, which is used to encrypt data. If a user has a DEK they want to use, that key can be passed when creating a WDEK using the `wrap` call. If no DEK is specified, {{site.data.keyword.keymanagementserviceshort}} creates the DEK for you.
+Recall that root keys in {{site.data.keyword.keymanagementserviceshort}} Standard are not just used to create data encryption keys (DEKs), they are also used in conjunction with a master key (secured by IBM using a Hardware Security Module) to create a wrap of a DEK. The resulting wrapped data encryption key (WDEK) protects the DEK, which is used to encrypt data. If a user has a DEK they want to use, that key can be passed when creating a WDEK using the `wrap` call. If no DEK is specified, {{site.data.keyword.keymanagementserviceshort}} creates the DEK for you.
 
 Rotating to a new version of the root key does not immediately create a new WDEK, but it does mean that on the next wrap and re-wrap initiated by the user that the new root key will be used to create the new WDEK. Note that the new WDEK can also be unwrapped and used to read data encrypted with older versions of the DEK, and that old versions of the WDEK can still be unwrapped to obtain the DEK.
 
@@ -44,13 +44,17 @@ Only root keys can be rotated using {{site.data.keyword.keymanagementserviceshor
 
 Root keys can be rotated manually or on a schedule set by the owner of the key. The option you choose depends on your preferences and the needs of your use case.
 
-* **Setting a rotation policy**  
-    The simplest key rotation option, setting an [automatic rotation interval](/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency) means root keys are updated without further effort from the user. These rotations can be set at 30 day intervals (in other words, every 30 days, or 60 days, or 90 days, up to 12 months, or 720 days). This policy can be managed in the UI or by using the {{site.data.keyword.keymanagementserviceshort}} API. For more information about how to set a rotation policy, check out [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy). The process can also be set using the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-rotation).
+### Setting a rotation policy
+{: #setting-rotation-policy}
 
-    To rotate a key that you initially imported to the service, you must generate and provide new key material for the key with each rotation. As a result, automatic rotation policies are not available for keys that have imported key material. Imported root keys must therefore be rotated manually. Note that the metadata for imported keys, such as the key ID, do not change when the key is rotated, just as with a key generated with {{site.data.keyword.keymanagementserviceshort}}.
+The simplest key rotation option, setting an [automatic rotation interval](/docs/key-protect?topic=key-protect-key-rotation#rotation-frequency) means root keys are updated without further effort from the user. These rotations can be set at 30 day intervals (in other words, every 30 days, or 60 days, or 90 days, up to 12 months, or 720 days). This policy can be managed in the UI or by using the {{site.data.keyword.keymanagementserviceshort}} API. For more information about how to set a rotation policy, check out [Setting a rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy). The process can also be set using the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-rotation).
 
-* **Rotating keys manually**  
-    As a security admin, you might want to have more control over the frequency of rotation for your root keys. If you don't want to set an automatic rotation policy for a key, you can manually create a new key to replace an existing key, and then update your applications so that they reference the new key.
+To rotate a key that you initially imported to the service, you must generate and provide new key material for the key with each rotation. As a result, automatic rotation policies are not available for keys that have imported key material. Imported root keys must therefore be rotated manually. Note that the metadata for imported keys, such as the key ID, do not change when the key is rotated, just as with a key generated with {{site.data.keyword.keymanagementserviceshort}}.
+
+### Rotating keys manually
+{: #rotating-keys-manually}
+
+As a security admin, you might want to have more control over the frequency of rotation for your root keys. If you don't want to set an automatic rotation policy for a key, you can manually create a new key to replace an existing key, and then update your applications so that they reference the new key.
 
     To simplify this process, you can use {{site.data.keyword.keymanagementserviceshort}} to rotate the root key at any time. In this scenario, {{site.data.keyword.keymanagementserviceshort}} creates and replaces the key on your behalf with each rotation request. The metadata and key ID of the key will not change. For more information about to manually rotate a key, check out [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
@@ -74,7 +78,7 @@ It is possible to learn the last date a key was rotated by using the `lastRotate
 ## How key rotation works
 {: #how-key-rotation-works}
 
-During a root key rotation, the key remains in an **active** state. However, older versions are deactivated and can be considered "retired". This latest version of the root key will then be used for all future actions. While unwraps can still be done with WDEKs which were generated with an older version of the root key, wraps and re-wraps use the latest version of the root key. Note that a previous key version can only be used to unwrap and access data encrypted using that particular key version or lower. An old version of a root key cannot be used to create a new DEK or to wrap the DEK and create a WDEK. For more information, check out [Managing retired key versions](#key-rotation-managing).
+During a root key rotation, the key remains in an **active** state. However, older versions are deactivated and can be considered "retired". This latest version of the root key will then be used for all future actions. While unwraps can still be done with WDEKs which were generated with an older version of the root key, wraps and re-wraps use the latest version of the root key. Note that a previous key version can only be used to unwrap and access data encrypted using that particular key version or earlier versions. An old version of a root key cannot be used to create a new DEK or to wrap the DEK and create a WDEK. For more information, check out [Managing retired key versions](#key-rotation-managing).
 
 For more information about how key rotation works, check out [Understanding the key rotation process](#understand-key-rotation-process).
 

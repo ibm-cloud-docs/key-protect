@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-22"
 
 keywords: pricing plan, billing, cost
 
@@ -85,7 +85,7 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
     - **Pricing:** You are charged 2x the regional price and for 10 key versions (charged at double the rate of a single version in the Standard plan).
 
 * **Scenario:** You create a key in the middle of a month.
-    - **Pricing:** Key versions are charged based on a proration by the number of days (out of 31) it exists in the monthly billing period. A key that only existed for one day, for example, is charged for 1/31 of the monthly price. A key created in with 15 days left in a month, then, is charged for 15 of the 31 days, (0.5 versions per month, if looking at your billing page).
+    - **Pricing:** Key versions are charged based on a proration by the number of days (out of 31) it exists in the monthly billing period. A key that only existed for one day, for example, is charged for 1/31 of the monthly price. A key created with 15 days remaining in a month, then, is charged for 15 of the 31 days, (0.5 versions per month, if looking at your billing page).
 
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}
