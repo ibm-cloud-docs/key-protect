@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-23"
 
 keywords: pricing plan, billing, cost
 
@@ -66,6 +66,9 @@ This enhanced cross-region disaster recovery is only available to instances prov
 
 The Cross-region resiliency plan includes a non-prorated monthly charge **per region** (as long at least one key has been created in an instance in the region). This regional charge is the same regardless of the number of instances you have in a region and only applies to the Cross-region resliency plan; you are charged the same for 100 instances in a region as you would be for one. This plan also charges double the key version price for each key version.
 {: tip}
+
+Some {{site.data.keyword.cloud_notm}} services require {{site.data.keyword.keymanagementserviceshort}} instances that are provisioned under the cross-region resiliency plan. These instances support advanced service capabilities. Downgrading from the cross-region resiliency plan to the standard plan can affect the functionality of these dependent services. Before you downgrade, verify that your dependent {{site.data.keyword.cloud_notm}} services do not require cross-region disaster recovery capabilities.
+{: important}
 
 
 ## Pricing scenarios for {{site.data.keyword.keymanagementserviceshort}} Standard
