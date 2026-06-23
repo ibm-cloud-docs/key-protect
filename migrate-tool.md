@@ -3,7 +3,7 @@
 copyright:
   years: 2024, 2026
 
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-23"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -184,7 +184,15 @@ export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-so
 ```
 {: pre}
 
-Associate the `IBMCLOUD_API_KEY` with an IAM identity (for example, an IBM Cloud user or service ID) that has the `Manager` role for both HPCS and {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+For the `status`, `create`, `sync`, and `delete` commands, associate the API keys with IAM identities that have the following service access roles:
+
+IBMCLOUD_API_KEY (HPCS)
+: Requires the Manager service access role. Service access roles are additive, so Manager includes Reader and Writer, covering all four commands. The Manager role is required because the delete command and the create command with the --replace-mi option remove a migration intent from the source key.
+
+IBMCLOUD_API_KEY_KP_ST ({{site.data.keyword.keymanagementserviceshort}} Dedicated)
+: Requires the Reader service access role. These commands only read the target key, so Reader is sufficient. The delete command does not access {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+
+The authz-check command requires different service access roles than the other commands. For more information, see Checking IAM authorization policies.
 
 The `IBMCLOUD_API_KEY_KP_ST` variable is required only if `IBMCLOUD_API_KEY` does not have access to the target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance. It occurs when:
 - The HPCS instance and {{site.data.keyword.keymanagementserviceshort}} Dedicated instance are in different IBM Cloud accounts
@@ -222,6 +230,27 @@ Use the `authz-check` command to verify that IAM authorization policies are in p
 ./<crkm-binary> authz-check <.csv input file>
 ```
 {: pre}
+
+### Required access
+{: #migrate-tool-authz-access}
+
+The `authz-check` command only reads information. It does not create, update, or delete any keys or policies, so `Writer` or `Manager` access is not required.
+
+The command requires the following access:
+
+**HPCS instance**
+:   `Reader` service access role to read the source key's associations.
+
+**{{site.data.keyword.keymanagementserviceshort}} Dedicated instance**
+:   `Reader` service access role to read the target key's metadata.
+
+**IAM authorization policies**
+:   Account-level permission to view the IAM authorization policies of every account that is referenced in the TargetCRK column. This is not a {{site.data.keyword.keymanagementserviceshort}} or HPCS service access role. It is account-level access to IBM Cloud Identity and Access Management.
+
+The identity used for the IAM policy lookup is the one associated with `IBMCLOUD_API_KEY_KP_ST`. If `IBMCLOUD_API_KEY_KP_ST` is not set, the identity associated with `IBMCLOUD_API_KEY` is used.
+
+If the identity cannot view the policies in a target account, the tool logs the failure and continues. It reports every association in that account as `NO MATCH`. Insufficient IAM access appears as false `NO MATCH` results rather than an authorization error. Verify this access before you rely on the output.
+{: note}
 
 The command works in two phases:
 
