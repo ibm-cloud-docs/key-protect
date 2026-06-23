@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-23"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -354,13 +354,16 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 
 
 | IBM Service | Migration intent support | Service Specific Instructions |
-|--------|-------------|----------------|
+|-------------|--------------------------|-------------------------------|
 | [App Config](/docs/app-configuration?topic=app-configuration-getting-started) | Full | N/A |
 | [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) | Full | N/A |
 | [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
 | [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
+| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=containers-migrate_hpcs_kp) |
+| [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
+| [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
 
 
@@ -369,9 +372,7 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 
       
 - Support for the following IBM services and software is not currently available:
-    - [Kubernetes (IKS)](/docs/containers)
-    - [Red Hat OpenShift (ROKS)](/docs/openshift)
-    - [Schematics](/docs/schematics?topic=schematics-learn-about-schematics)
+    - [App ID](/docs/appid)  
     - [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
     - [VPC Images](/docs/vpc?topic=vpc-planning-custom-images)
     - [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
@@ -519,6 +520,7 @@ The [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool
 - **Authz-check**: Verifies that the required IAM authorization policies are in place for each registered service before migration. Reports match and missing policies with actionable templates.
 - **Create**: Creates migration intents in bulk from a CSV file of source and target CRK CRN pairs.
 - **Sync**: Triggers synchronization events to prompt services to process the migration intent. Can be run multiple times to retry incomplete migrations.
+- **Delete**: Removes the migration intent from one or more source keys.
 
 The CRKM tool is required for automated CRK migration and works with the KUR tool, which handles discovery and reporting.
 

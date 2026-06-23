@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-04-02"
+lastupdated: "2026-06-23"
 
 keywords: key usage reporter, KUR, encryption report, key scan, activity tracking, audit logs
 
@@ -120,8 +120,17 @@ Before running the tool, ensure that the following requirements are met:
    ```
    {: pre}
 
-* Your user or API key must have **read access** to the KMS instances, keys, and cloud resources in the account.
+* The identity that runs the tool requires account-wide **read-only** access. Assign the **Viewer** platform access role and the _Reader_ service access role across the account to the identity (user or API key) that you authenticate with.
 
+  This read-only, auditor-style access is the same level used to audit an account. It covers everything that the tool inspects, including:
+  - {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} instances and keys
+  - Cloud services that can be encrypted by those keys (for example, Cloud Object Storage, VPC infrastructure, Kubernetes clusters, Event Notifications, and App Configuration)
+
+  KUR performs read operations only and does not create, modify, or delete any resources.
+
+
+The access requirements in this section apply to the account scan. The `process-at` subcommand works entirely on a local activity tracking file and requires no IBM Cloud access.
+{: note}
 
 ## Running the tool
 {: #kur-running}
@@ -134,7 +143,7 @@ The following examples show how to run the Key Usage Reporter tool with differen
 Use the following command to scan the currently targeted IBM Cloud account for all `hs-crypto` instances, their keys, and any cloud resources encrypted by those keys.
 
 ```sh
-./<kur-binary> 
+./<kur-binary>
 ```
 {: pre}
 
