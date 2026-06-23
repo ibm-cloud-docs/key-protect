@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -115,7 +115,7 @@ When you are finished filling out the key's details, click **Import key** to con
 
 From the {{site.data.keyword.keymanagementserviceshort}} dashboard, you can inspect the general characteristics of your new keys.
 
-You can programmatically enable an extra layer of protection to Bring Your Own Key (BYOK) by encrypting your key material before you import a key into {{site.data.keyword.keymanagementserviceshort}}.
+You can programmatically enable an additional layer of protection to Bring Your Own Key (BYOK) by encrypting your key material before you import a key into {{site.data.keyword.keymanagementserviceshort}}.
 
 For more information about importing root keys, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys).
 

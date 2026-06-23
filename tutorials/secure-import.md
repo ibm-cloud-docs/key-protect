@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-22"
 
 keywords: tutorial, Key Protect tutorial, secure import
 
@@ -276,7 +276,7 @@ encryption keys to the service.
 In the following step, you create a
 [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens)
 for your {{site.data.keyword.keymanagementserviceshort}} instance. By
-creating an import token based on a policy that you specify, you enable extra
+creating an import token based on a policy that you specify, you enable additional
 security for your encryption key while it's in flight to the service.
 
 1. Using your terminal session, change into a new `key-protect-test` directory.

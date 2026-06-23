@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-23"
 
 keywords: pricing plan, billing, cost
 
@@ -67,6 +67,9 @@ This enhanced cross-region disaster recovery is only available to instances prov
 The Cross-region resiliency plan includes a non-prorated monthly charge **per region** (as long at least one key has been created in an instance in the region). This regional charge is the same regardless of the number of instances you have in a region and only applies to the Cross-region resliency plan; you are charged the same for 100 instances in a region as you would be for one. This plan also charges double the key version price for each key version.
 {: tip}
 
+Some {{site.data.keyword.cloud_notm}} services require {{site.data.keyword.keymanagementserviceshort}} instances that are provisioned under the cross-region resiliency plan. These instances support advanced service capabilities. Downgrading from the cross-region resiliency plan to the standard plan can affect the functionality of these dependent services. Before you downgrade, verify that your dependent {{site.data.keyword.cloud_notm}} services do not require cross-region disaster recovery capabilities.
+{: important}
+
 
 ## Pricing scenarios for {{site.data.keyword.keymanagementserviceshort}} Standard
 {: #pricing-plan-scenarios}
@@ -85,7 +88,7 @@ The Cross-region resiliency plan includes a non-prorated monthly charge **per re
     - **Pricing:** You are charged 2x the regional price and for 10 key versions (charged at double the rate of a single version in the Standard plan).
 
 * **Scenario:** You create a key in the middle of a month.
-    - **Pricing:** Key versions are charged based on a proration by the number of days (out of 31) it exists in the monthly billing period. A key that only existed for one day, for example, is charged for 1/31 of the monthly price. A key created in with 15 days left in a month, then, is charged for 15 of the 31 days, (0.5 versions per month, if looking at your billing page).
+    - **Pricing:** Key versions are charged based on a proration by the number of days (out of 31) it exists in the monthly billing period. A key that only existed for one day, for example, is charged for 1/31 of the monthly price. A key created with 15 days remaining in a month, then, is charged for 15 of the 31 days, (0.5 versions per month, if looking at your billing page).
 
 ## How many key versions do you have?
 {: #pricing-plan-how-many-keys}

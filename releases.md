@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: key protect, release notes, service updates
 
@@ -81,7 +81,7 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 {{site.data.keyword.keymanagementserviceshort}} announces the availability of a new Cross-region resliency pricing plan. Users who want the enhanced cross regional resliency of this plan can either create a new instance using this plan or switch existing instances to this plan. For more information, check out [Pricing for {{site.data.keyword.keymanagementserviceshort}} on {{site.data.keyword.cloud_notm}}](/docs/key-protect?topic=key-protect-pricing-plan).
 
-Additionally, the pricing plan formerly known as "Key version pricing" has been renamed "Standard", and does not have enhanced cross regional resiliency. Also, the five free key versions per account has been discontinued.
+Additionally, the pricing plan formerly known as `Key version pricing` has been renamed `Standard`, and does not have enhanced cross regional resiliency. Also, the five free key versions per account has been discontinued.
 
 ## July 2024
 {: #key-protect-jul24}
@@ -661,7 +661,7 @@ Added:
 {: release-note}
 
 Transport keys deprecated, replaced with import tokens
-:   On 20 March 2019, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#key-protect-mar2019) as a beta feature for importing encryption keys to the cloud with an extra layer of security. We're happy to announce that the feature has now reached its end of
+:   On 20 March 2019, [{{site.data.keyword.keymanagementserviceshort}} announced transport keys](#key-protect-mar2019) as a beta feature for importing encryption keys to the cloud with an additional layer of security. We're happy to announce that the feature has now reached its end of
 beta period. The following API methods have changed:
 
    - `POST api/v2/lockers` is now `POST api/v2/import_token`

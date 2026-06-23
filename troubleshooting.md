@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-27"
+  years: 2017, 2026
+lastupdated: "2026-06-22"
 
 keywords: failed to create key, failed to delete key, delete service
 
@@ -157,7 +157,7 @@ that you're unable to view. You also verify with your admin that the key belongs
 to the {{site.data.keyword.keymanagementserviceshort}} instance that you're
 targeting.
 
-The {{site.data.keyword.keymanagementserviceshort}} instance contains a large
+The {{site.data.keyword.keymanagementserviceshort}} instance contains a significant
 number of keys, and the specific keys that you're looking for aren't returned by
 default when you call `GET api/v2/keys` to list keys.
 {: tsCauses}

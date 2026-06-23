@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: create import token, secure import, key-wrapping key
 
@@ -140,7 +140,7 @@ The following snippet shows example output with truncated values.
 
 The response body also contains the public encryption key that you can use to [encrypt a root key](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) before you upload the key material to a {{site.data.keyword.keymanagementserviceshort}} instance.
 
-In the example, the `payload` value represents the public key that is associated with the import token. This value is base64 encoded. For extra security, {{site.data.keyword.keymanagementserviceshort}} also provides a `nonce` value that is used to verify the originality of a key import request to the service. To learn more about how to use these values, check out [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
+In the example, the `payload` value represents the public key that is associated with the import token. This value is base64 encoded. For more security, {{site.data.keyword.keymanagementserviceshort}} also provides a `nonce` value that is used to verify the originality of a key import request to the service. To learn more about how to use these values, check out [Tutorial: Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 ## What's next
 {: #create-import-token-next-steps}

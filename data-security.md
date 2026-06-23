@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords: data security, Key Protect compliance, encryption key deletion
 
@@ -106,7 +106,7 @@ certifications, see
 ### EU support
 {: #eu-support}
 
-{{site.data.keyword.keymanagementserviceshort}} has extra controls in place to
+{{site.data.keyword.keymanagementserviceshort}} has additional controls in place to
 protect your {{site.data.keyword.keymanagementserviceshort}} resources in the
 European Union (EU).
 

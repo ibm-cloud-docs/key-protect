@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-06-23"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -354,13 +354,16 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 
 
 | IBM Service | Migration intent support | Service Specific Instructions |
-|--------|-------------|----------------|
+|-------------|--------------------------|-------------------------------|
 | [App Config](/docs/app-configuration?topic=app-configuration-getting-started) | Full | N/A |
 | [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) | Full | N/A |
 | [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
 | [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
+| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=containers-migrate_hpcs_kp) |
+| [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
+| [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
 
 
@@ -369,9 +372,7 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 
       
 - Support for the following IBM services and software is not currently available:
-    - [Kubernetes (IKS)](/docs/containers)
-    - [Red Hat OpenShift (ROKS)](/docs/openshift)
-    - [Schematics](/docs/schematics?topic=schematics-learn-about-schematics)
+    - [App ID](/docs/appid)  
     - [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
     - [VPC Images](/docs/vpc?topic=vpc-planning-custom-images)
     - [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
@@ -487,19 +488,22 @@ Most cases of failed migrations occur because IAM authorization policies are not
 
 Before you proceed, use the CRKM tool `authz-check` command to verify that the required IAM authorization policies are in place. The `authz-check` command inspects the association on each source HPCS CRK and checks whether a matching IAM authorization policy exists that would allow each registered service to access the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. For each association, the tool reports whether a matching policy was found or whether a policy is missing, along with a template of the policy that needs to be created. Running this check before you create migration intents helps you identify and fix authorization gaps that would otherwise cause migration failures. For more information, see [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool).
 
-**Step 4: Create the migration intent**
+### Step 4: Create the migration intent
+{: #migrate-st-step4}
 
 Use the [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) to create a migration intent on `HPCS_key_1` that references the target CRK `KP_D_key_1`. The CRKM tool accepts a CSV file that contains pairs of source HPCS CRK CRNs and target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK CRNs, which makes it possible to create migration intents in bulk.
 
 After the migration intent is created, HPCS emits synchronization events that notify associated services about the migration request.
 
-**Step 5: Run sync**
+### Step 5: Run sync
+{: #migrate-st-step5}
 
 For some services (for example, IBM Cloud Databases, Messages for RabbitMQ, Kubernetes, and OpenShift), more synchronization events must be explicitly triggered a few minutes after intent creation. Use the CRKM tool sync command to trigger these events.
 
 You can run the sync command at any time to retry incomplete migrations.
 
-**Step 6: Monitor migration progress**
+### Step 6: Monitor migration progress
+{: #migrate-st-step6}
 
 Use the CRKM tool Status command to check the migration progress. The tool reports the association counts for both the source HPCS CRK and the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. As services complete migration:
 
@@ -516,6 +520,7 @@ The [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool
 - **Authz-check**: Verifies that the required IAM authorization policies are in place for each registered service before migration. Reports match and missing policies with actionable templates.
 - **Create**: Creates migration intents in bulk from a CSV file of source and target CRK CRN pairs.
 - **Sync**: Triggers synchronization events to prompt services to process the migration intent. Can be run multiple times to retry incomplete migrations.
+- **Delete**: Removes the migration intent from one or more source keys.
 
 The CRKM tool is required for automated CRK migration and works with the KUR tool, which handles discovery and reporting.
 

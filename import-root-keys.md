@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords: import symmetric key, upload root key, upload CRK or CMK
 
@@ -10,18 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Importing root keys
 {: #import-root-keys}
@@ -49,7 +38,7 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. To import a key, click **Add** and select the **Import your own key** window.
+4. To import a key, click **Add** and select the **Import key** window.
 
     Specify the key's details:
 
@@ -63,9 +52,9 @@ If you enable [dual authorization settings for your {{site.data.keyword.keymanag
 |Key ring| **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
 {: caption="Describes the Import your own key settings." caption-side="bottom"}
 
-When you are finished filling out the key's details, click **Import key** to confirm.
+When you are finished filling out the key's details, click **Add** to confirm.
 
-If you know which key ring you want a key to be placed in, and you are a _Manager_ of that key ring, you can also navigate to the **Key rings** panel, select ⋯ and click **Add key to key ring**. This will open the same panel you see by clicking **Add** on the **Keys** page with the **Key rings** variable filled in with the name of the key ring.
+If you are a _Manager_ of a specific key ring, you can add a key directly from the **Key rings** panel. From the key ring's actions menu (⋯), click **Add new key**. The same panel opens as when you click **Add** on the **Keys** page, but the **Key ring** field is pre-populated with the selected key ring name.
 {: tip}
 
 If you need to import and manage root keys consistently across accounts or environments, you can automate this with the [{{site.data.keyword.keymanagementserviceshort}} Key module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key/ibm/latest){: external}. For a complete setup that also provisions the {{site.data.keyword.keymanagementserviceshort}} instance and key rings, see the all inclusive[{{site.data.keyword.keymanagementserviceshort}} module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}. For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).

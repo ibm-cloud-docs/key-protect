@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: key alias, alias, key reference
 
@@ -180,7 +180,7 @@ It takes up to five minutes for an alias to be completely deleted from the servi
 ## Key Alias FAQ
 {: #alias-faq}
 
-Below are additional details about key aliases:
+The following are additional details about key aliases:
 
 - **An alias is independent from a key.**
     An alias is it's own resource and any actions taken on it will not affect the

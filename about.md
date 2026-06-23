@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-22"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases, Standard Key Protect, Dedicated Key Protect, single-tenant, multi-tenant
 
@@ -31,7 +31,7 @@ Both Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}} prot
 
 For more information about how envelope encryption works, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
-Unsure which {{site.data.keyword.cloud_notm}} security service is right for your use case? Check out [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud) for more information.
+Unsure which {{site.data.keyword.cloud_notm}} security service is appropriate for your use case? Check out [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud) for more information.
 {: tip}
 
 ## Key similarities

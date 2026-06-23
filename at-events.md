@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-06-05"
+  years: 2017, 2026
+lastupdated: "2026-06-22"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -39,7 +39,7 @@ Auditing Data Federation (CADF) standard.
 For more information regarding the {{site.data.keyword.logs_full_notm}} service, check out [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl){: external}.
 
 To determine which {{site.data.keyword.keymanagementserviceshort}} API requests
-correlate to the actions below, see
+correlate to the following actions, see
 [{{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
 
 ## Historical information regarding events
@@ -247,7 +247,7 @@ Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed =
 #### Create Key
 {: #create-key-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.keyType` field includes the type of key that was created.
 
@@ -269,7 +269,7 @@ The following fields include extra information:
 #### Delete Key
 {: #delete-key-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.keyState` field includes the integer that correlates to the
     state of the key.
@@ -277,7 +277,7 @@ The following field includes extra information:
 #### Expire Key
 {: #expire-key-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `requestData.keyType` field includes the type of key that was created.
 
@@ -296,7 +296,7 @@ The following field includes extra information:
 #### Wrap or unwrap key
 {: #wrap-unwrap-key-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
     current key version used to wrap input ciphertext on wrap requests.
@@ -307,7 +307,7 @@ The following field includes extra information:
 #### Rewrap key
 {: #rewrap-key-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
     current key version used to wrap input ciphertext on wrap requests.
@@ -318,7 +318,7 @@ The following field includes extra information:
 #### Restore key
 {: #restore-key-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.keyVersionId` field includes the unique identifier of the
     current key version used to wrap input ciphertext on wrap requests.
@@ -334,7 +334,7 @@ section
 #### Patch key
 {: #patch-key}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.initialValue.keyRingId` field includes the ID of the key ring that
     the key previously was a part of.
@@ -345,7 +345,7 @@ The following fields include extra information:
 #### Purge key
 {: #purge-key}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.deletionDate` field represents the date the key was deleted.
 
@@ -356,7 +356,7 @@ The following fields include extra information:
 #### Get key total
 {: #list-head-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.totalResources` field includes the total amount of keys
     within the {{site.data.keyword.keymanagementserviceshort}} instance.
@@ -364,7 +364,7 @@ The following field includes extra information:
 #### List keys
 {: #list-keys-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.totalResources` field includes the total amount of keys
     returned in the response.
@@ -372,7 +372,7 @@ The following field includes extra information:
 #### Get key or key metadata
 {: #get-key-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.keyType` field includes the type of key that was retrieved.
 
@@ -391,7 +391,7 @@ The following fields include extra information:
 #### List key versions
 {: #list-key-versions-success}
 
-The following field includes extra information:
+The following field includes additional information:
 
 - The `responseData.totalResources` field includes the total amount of key
     versions returned in the response.
@@ -399,7 +399,7 @@ The following field includes extra information:
 #### Set or Unset key for deletion
 {: #dual-auth-set-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.initialValue.authID` field includes the initiator ID of the
     person who set the dual authorization policy.
@@ -427,7 +427,7 @@ the dual authorization policy.
 ##### Allowed Network Policies
 {: #allowed-network-event}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.initialValue.policyAllowedNetworkEnabled` field includes if
     your allowed network policy was previously enabled or disabled.
@@ -446,7 +446,7 @@ The following fields include extra information:
 ##### Dual Auth Delete Policies
 {: #dual-auth-event}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.initialValue.policyDualAuthDeleteEnabled` field includes if
     your dual auth delete policy was previously enabled or disabled.
@@ -457,7 +457,7 @@ The following fields include extra information:
 ##### Allowed IP Policies
 {: #allowed-ip-event}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.initialValue.policyAllowedIPAttribute` field includes if
     your allowed IP policy was previously enabled or disabled.
@@ -468,7 +468,7 @@ The following fields include extra information:
 ##### Key Creation and Importation Access Policies
 {: #allowed-key-creation-policy}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `requestData.initialValue.PolicyKCIAEnabled` field includes if
     your key creation and importation policy was previously enabled or disabled.
@@ -518,7 +518,7 @@ The following fields include extra information:
 #### Create import token
 {: #create-import-token-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.expirationDate` field includes the expiration date of the
     import token.
@@ -530,7 +530,7 @@ The following fields include extra information:
 #### Retrieve import token
 {: #retrieve-import-token-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.maxAllowedRetrievals` field includes the maximum amount of
     times the import token can be retrieved within its expiration time before it
@@ -545,7 +545,7 @@ The following fields include extra information:
 #### Completed action of a key rotation
 {: #rotate-key-registrations-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
     that is associated with the event.
@@ -570,7 +570,7 @@ The following fields include extra information:
 #### Completed action of key restoration
 {: #restore-key-registrations-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
     that is associated with the event.
@@ -587,7 +587,7 @@ The following fields include extra information:
 #### Completed action of an enabled key
 {: #enable-key-registrations-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
     that is associated with the event.
@@ -604,7 +604,7 @@ The following fields include extra information:
 #### Completed action of a disabled key
 {: #disable-key-registration-success}
 
-The following fields include extra information:
+The following fields include additional information:
 
 - The `responseData.eventAckData.eventId` field includes the unique identifier
     that is associated with the event.

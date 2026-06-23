@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-22"
 
 keywords: post-quantum cryptography, quantum cryptography, post-quantum TLS
 
@@ -34,7 +34,7 @@ You can use a post-quantum enabled TLS connection to send requests to a
 Post-quantum cryptography is a new
 generation of the public-key cryptographic system that is undergoing NIST
 evaluation. These new quantum cryptographic algorithms are based on hard
-mathematical problems that, based on current research, even large quantum
+mathematical problems that, based on current research, even powerful quantum
 computers cannot break.
 
 When these quantum cryptographic algorithms are used for TLS communication, the
@@ -44,7 +44,7 @@ to have higher security levels than the current RSA and ECC algorithms. {{site.d
 ## Why is post-quantum TLS important?
 {: #quantum-safe-cryptography-importance}
 
-As quantum computing continues to evolve and advance, a large quantum computer
+As quantum computing continues to evolve and advance, a powerful quantum computer
 will be able to run a
 ["SHOR" algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm){: external}
 that can break the current TLS communication algorithms (RSA/ECC) in a matter of
@@ -68,7 +68,7 @@ Before configuring your service to send requests to
 mind the following considerations:
 
 - **Performance results may vary from traditional key algorithms.**
-    Post-quantum algorithms use a larger key size compared to classic public
+    Post-quantum algorithms use a greater key size compared to classic public
     key algorithms, therefore the network bandwidth requirements are higher.
     Post-quantum algorithm performance can also be affected by network profile,
     CPU speed, and API call rates.

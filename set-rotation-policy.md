@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-02-23"
+  years: 2017, 2026
+lastupdated: "2026-06-22"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -52,7 +52,7 @@ If a rotation policy is set on your instance, every root key that is created in 
 {: #manage-policies-instance-ui}
 {: ui}
 
-To set an instance policy, navigate to the **Instance policies** page in the left navigation and locate the **Key rotation policy** card. If no policy has been set, the button should be **Disabled**. To set a policy:
+To set an instance policy, navigate to the **Instance policies** page in the navigation menu and locate the **Key rotation policy** card. If no policy has been set, the button should be **Disabled**. To set a policy:
 
 1. Click the button to enable the policy.
 2. Then, set a rotation interval. Note that you can only set an automatic rotation policy in intervals of 30 days (or one month). If you set three months, for example, the key is rotated every 90 days. If a rotation policy has already been enabled for this instance, simply edit the value to the desired number of months.
@@ -103,7 +103,3 @@ If you want to rotate the key immediately, click **Rotate key**. Note: these act
 {: important}
 
 When it's time to rotate the key based on the rotation interval that you specify, {{site.data.keyword.keymanagementserviceshort}} automatically replaces the root key with new key material.
-
-
-
-

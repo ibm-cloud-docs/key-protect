@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-06-22"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -87,7 +87,8 @@ The word "object" is used in this section as a broad term for things like keys o
 
 As mentioned earlier, roles exist at both the platform (account) and service level. If you are unsure about what a platform or a service role allows a user to do, remember that platform roles interact mainly with {{site.data.keyword.cloud_notm}} services like the [resource controller](/docs/account?topic=account-overview) or {{site.data.keyword.iamshort}}. Roles inside of a service, on the other hand, interact mainly with the relevant API, which in this case is the {{site.data.keyword.keymanagementserviceshort}} API. This is why, as you'll see, platform roles have limited use inside of your service instances beyond (in the case of the _Administrator_ role) the ability to create an access policy for a particular object, such as a key ring.
 
-**Platform roles**
+### Platform roles
+{: #platform-roles}
 
 * **Administrator**: Has the full spectrum of rights over a particular object and its "child" objects (for example, keys are child objects of instances), including the right to invite new users and assign roles over the object (only administrators can assign roles). Note that administrators do not have service roles by default. They can, however, assign roles to themselves.
 * **Editor**: Can view, create, and delete instances at the account level, but cannot invite new users. Has limited use for objects within a service instance, such as keys, beyond the ability to view them.
@@ -111,7 +112,8 @@ Service roles can be applied to the three first class objects within a service i
 Service roles can be assigned per-instance or for all instances in an account.
 {: tip}
 
-**Service instance roles**
+### Service instance roles
+{: #service-instance-roles}
 
 Note that the permissions included in roles are **additive**. A _Manager_, for example, has all of the permissions that a _Reader_ has and more. The exception is the _KeyPurge_ role, which includes the `kms.secrets.purge` action that is not a part of any other role and must therefore be set explicitly.
 {: note}

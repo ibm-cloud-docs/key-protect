@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-06-22"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -237,7 +237,7 @@ Changes included in this [version](/docs/key-protect?topic=key-protect-key-prote
 
 - Added feature for [key synchronizing](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-sync) as a new subcommand under **`key`**.
 
-- Updated the "Internal server error" response message to return the actual error message.
+- Updated the `Internal server error` response message to return the actual error message.
 
 ## CLI version 0.6.5
 {: #cli-changelog-065}
@@ -373,7 +373,7 @@ Documentation:
 - kp instance
     [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-instance-policy-update-dual)
     : update the instance policy and enable or disable the
-    "dual authorization delete" policy
+    `dual authorization delete` policy
 
 #### kp key
 {: #cli-changelog-050-add-kp-key}
@@ -399,7 +399,7 @@ Documentation:
 
 - kp key
     [policy-update dual-auth-delete](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-dual)
-    : update the "dual authorization delete" policy associated with a key
+    : update the `dual authorization delete` policy associated with a key
 
 - kp key
     [policy-update rotation](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-policy-update-rotation)

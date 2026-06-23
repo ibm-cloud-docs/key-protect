@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2020, 2025
-lastupdated: "2025-01-15"
+years: 2020, 2026
+lastupdated: "2026-06-22"
 
 keywords: Key Protect, error messages, error codes
 
@@ -407,10 +407,10 @@ Some examples of this error are:
 {: #error-messages-bad-body-err-cxt-ex-1}
 
 The `create instance policy` request fails because the resource contains an
-extra field (`extra_field`).
+additional field (`extra_field`).
 
 ```sh
-# this request fails because there is an extra field in the body
+# this request fails because there is an additional field in the body
 $ curl -X PUT \
     "https://us-south.kms.cloud.ibm.com/api/v2/instance/policies?policy=dualAuthDelete" \
     -H "authorization: Bearer $ACCESS_TOKEN" \
