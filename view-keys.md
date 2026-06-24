@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-12"
+lastupdated: "2026-06-24"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -10,18 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Retrieving a list of {{site.data.keyword.keymanagementserviceshort}} keys
 {: #view-keys}
@@ -56,7 +45,13 @@ If you prefer to inspect the keys in your service by using a graphical interface
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click **Keys** to see a list of all keys in your service instance. You can filter keys by their **Key states** (for example, to show only keys in the **Enabled** state) or by their **Key ring ID** by using the drop-down lists. You can sort individual values such as **Last rotated date**. Use the search bar to search keys by their display name, key ID, and alias. The quickest way to find a key is to search by its key ID. You can customize the fields in the table by using the **Settings** button. By default, you can see:
+4. Click **Keys** to see a list of all keys in your service instance. You can manage the table view in the following ways:
+   * **Filter keys** - Use the drop-down lists in the table filter panel to filter by **Key state** (for example, **Enabled**) or **Key ring ID**.
+   * **Sort keys** - Click column headers to sort by values such as **Last rotated date**.
+   * **Search keys** - Use the search bar to search by display name, key ID, or alias. To quickly find a specific key, search by its key ID.
+   * **Customize columns** - Click the **Settings** button to select which columns to display.
+   
+   By default, the table displays the following columns:
 
 | Column | Description |
 | ------ | ----------- |
@@ -120,13 +115,13 @@ For more information on key states, see [Key states and transitions](/docs/key-p
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the application details page, click the filter icon and select the dropdown from the **Status** menu.
+4. On the **Keys** page, click the filter icon to open the filter panel.
 
-5. Select the key state of the keys that you would like to retrieve.
+5. From the **State** dropdown, select the key state of the keys that you would like to retrieve.
 
 6. Click the **Apply** button.
 
-7. Further, in the table row headings, you can click on **`Last Updated`** to sort the list by the date that the keys in the table were updated most recently, or click on **`Type`** to list all of the root keys and standard keys as groups.
+7. Further, in the table row headings, you can click on **`Last updated`** to sort the list by the date that the keys in the table were updated most recently, or click on **`Type`** to list all of the root keys and standard keys as groups.
 
 #### Viewing fine-grain access keys through IAM
 {: #filter-key-state-gui-iam}

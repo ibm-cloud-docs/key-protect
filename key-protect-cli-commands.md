@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -12,16 +12,7 @@ content-type: cli-docs
 
 ---
 
-{:codeblock: .codeblock}
-{:external: target="_blank" .external}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:screen: .screen}
-{:table: .aria-labeledby="caption"}
-{:shortdesc: .shortdesc}
-{:tip: .tip}
-{:deprecated: .deprecated}
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.keymanagementserviceshort}} CLI Reference
 {: #key-protect-cli-reference}
@@ -75,7 +66,7 @@ export KP_TARGET_ADDR=<KEY_PROTECT_INSTANCE_ENDPOINT>
 ```
 {: pre}
 
-Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endopoint of your instance ID. For example:
+Replace `<KEY_PROTECT_INSTANCE_ENDPOINT>` with the endpoint of your instance ID. For example:
 
 ```sh
 export KP_TARGET_ADDR=https://fadedbee-0000-0000-0000-1234567890ab.api.us-south.kms.appdomain.cloud   
@@ -5492,14 +5483,14 @@ USAGE:
   ibmcloud key-protect crypto-unit command [arguments...] [command options]
 
 COMMANDS:
-  claim     Claim crypto unit(s)
-  mk        Commands to manage Master Keys (MKs) of crypto unit(s)
-  mks       List the MKs uploaded to crypto unit(s)
-  sig-key   Generate a signature key file compatible for use as a crypto unit user credential
-  user      Manage users in crypto unit(s)
-  users     List users in crypto unit(s)
-  zeroize   Zeroize a crypto unit
-  help, h   Show help
+  claim        Claim crypto unit(s)
+  master-key   Commands to manage Master Keys (MKs) of crypto unit(s)
+  master-keys  List the MKs uploaded to crypto unit(s)
+  sig-key      Generate a signature key file compatible for use as a crypto unit user credential
+  user         Manage users in crypto unit(s)
+  users        List users in crypto unit(s)
+  zeroize      Zeroize a crypto unit
+  help, h      Show help
 
 Enter 'ibmcloud key-protect crypto-unit help [command]' for more information about a command.
 ```
@@ -5540,43 +5531,43 @@ OPTIONS:
   --ids strings         Optional. List of crypto unit IDs to target, can be provided as a comma-separated list, or repeating the flag. If omitted, all crypto units will be targeted
 ```
 
-### `mk`
-{: #kp-crypto-unit-mk}
+### `master-key`
+{: #kp-crypto-unit-master-key}
 
 ```
 NAME:
-  ibmcloud key-protect crypto-unit mk - Commands to manage Master Keys (MKs) of crypto unit(s)
+  ibmcloud key-protect crypto-unit master-key - Commands to manage Master Keys (MKs) of crypto unit(s)
 
 USAGE:
-  ibmcloud key-protect crypto-unit mk command [arguments...] [command options]
+  ibmcloud key-protect crypto-unit master-key command [arguments...] [command options]
 
 COMMANDS:
-  generate   Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit mk import` to upload an MK to a crypto unit
+  generate   Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
   import     Import a Master Key (MK) to crypto unit(s)
   help, h    Show help
 ```
 
-#### `mk generate`
-{: #kp-crypto-unit-mk-generate}
+#### `master-key generate`
+{: #kp-crypto-unit-master-key-generate}
 
 ```
 NAME:
-  generate - Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit mk import` to upload an MK to a crypto unit
+  generate - Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
 
 USAGE:
   generate --keyshare-files KEYSHARE_FILES --keyshare-minimum KEYSHARE_MINIMUM --algo ALGO --key-name KEYNAME --cu CRYPTO_UNITS
 
 OPTIONS:
   --algo value              Required. Algorithm that generated MK will be compatible with. Only AES-256 is supported
-  --auth value              Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --cu value                Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --auth value              Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --cu value                Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
   --key-name value          Required. MK name. Must be between 1 and 8 characters
   --keyshare-files value    Required. Array specifying file paths to write MK key share files to. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase.
   --keyshare-minimum value  Required. Number of key shares needed to reconstruct the MK. Must be between 2 and 255 and less than or equal to the number of keyshare files
 ```
 
-#### `mk-import`
-{: #kp-crypto-unit-mk-import}
+#### `master-key import`
+{: #kp-crypto-unit-master-key-import}
 
 ```
 NAME:
@@ -5586,23 +5577,23 @@ USAGE:
   import --keyshare-files KEYSHARE_FILES --auth AUTH
 
 OPTIONS:
-  --auth value            Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --auth value            Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
   --keyshare-files value  Required. Array specifying file paths to MK key share files. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase.
 ```
 
-### `mks`
-{: #kp-crypto-unit-mks}
+### `master-keys`
+{: #kp-crypto-unit-master-keys}
 
 ```
 NAME:
-  mks - List the MKs uploaded to crypto unit(s)
+  master-keys - List the MKs uploaded to crypto unit(s)
 
 USAGE:
-  mks --cu CRYPTO_UNITS
+  master-keys [--cu CRYPTO_UNITS]
 
 OPTIONS:
-  --cu value  Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --cu value  Optional. Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive. If omitted, lists MKs in all crypto units of the instance.
 ```
 
 ### `sig-key`
@@ -5667,9 +5658,9 @@ USAGE:
   add --type TYPE --name NAME --credential CREDENTIAL --auth AUTH
 
 OPTIONS:
-  --auth value        Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --credential string   Required. Path to file containing signature key that will be associated with the user. Must be between 1 and 255 characters. Do not include file passphrase
-  --cu value          Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --auth value          Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --credential value    Required. Path to file containing signature key that will be associated with the user. Must be between 1 and 255 characters. Do not include file passphrase
+  --cu value            Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
   --name value        Required. Name of the user to add. Must be between 1 and 255 characters
   --type value        Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
 ```
@@ -5685,7 +5676,7 @@ USAGE:
   remove -u USER --cu CRYPTO_UNITS
 
 OPTIONS:
-  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusivekp-crypto-unit-users
+  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
   -u value, --user value  Required. The username of the user to remove from crypto-unit(s)
 ```
 
@@ -5697,10 +5688,10 @@ NAME:
   users - List users in crypto unit(s)
 
 USAGE:
-  users --cu CRYPTO_UNITS
+  users [--cu CRYPTO_UNITS]
 
 OPTIONS:
-  --cu value  Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab"}]'
+  --cu value  Optional. Crypto unit(s) for the request to target. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab"}]' or '@/path/to/cu.json'. If omitted, lists users in all crypto units of the instance.
 ```
 
 ## `kp crypto-units`

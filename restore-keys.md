@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: restore key, restore a deleted key, re-import a key
 
@@ -59,7 +59,7 @@ To see whether a destroyed key can be restored:
 
 1. Navigate to your {{site.data.keyword.keymanagementserviceshort}} instance in the {{site.data.keyword.cloud_notm}} console.
 2. In the left navigation, make sure you are on the **Keys** screen.
-3. Find the key you want to restore. Note: only keys in a **Destroyed** state can be restored.
+3. Find the key you want to restore. Note: only keys in a **Deleted** state can be restored.
 4. Under the `Last updated` column, note the date. Then refer to Table 1, which can be found above. If the key has been deleted within the last 30 days, it can be restored. If it has been more then 30 days, you will not be able to restore the key. If you attempt to restore a key that is no longer eligible to be restored, you will receive an error when trying to restore the key.
 
 ## Restoring a deleted key with the console
@@ -76,13 +76,13 @@ If you prefer to restore your key by using a graphical interface, you can use th
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click **Keys** to open the keys panel and find the key in the destroyed state you want to restore. One way to achieve this is to click the **Key states** drop-down list and select the **Destroyed** state. This will limit the results to only keys that have been deleted.
+4. Click **Keys** to open the keys panel and find the key in the destroyed state you want to restore. One way to achieve this is to open the filter panel and select the **Deleted** state in the **Key states** drop-down list. This will limit the results to only keys that have been deleted.
 
 5. Click the ⋯ icon to open a list of options for the key that you want to restore. Note that if the key has been deleted and moved to a _Destroyed_ state, you must wait 30 seconds before attempting to restore it.
 
-6. Click the **Restore Key** button to open the restore side panel.
+6. Click the **Restore** button to open the restore side panel.
 
-7. Click **Restore Key** button.
+7. Click **Restore** button.
 
 8. Confirm the key was restored in the updated **Keys** table.
 

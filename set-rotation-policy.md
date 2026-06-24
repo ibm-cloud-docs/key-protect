@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
 keywords: automatic key rotation, set rotation policy, retrieve key policy
 
@@ -52,10 +52,10 @@ If a rotation policy is set on your instance, every root key that is created in 
 {: #manage-policies-instance-ui}
 {: ui}
 
-To set an instance policy, navigate to the **Instance policies** page in the navigation menu and locate the **Key rotation policy** card. If no policy has been set, the button should be **Disabled**. To set a policy:
+To set an instance policy, navigate to the **Policies** page in the navigation menu and locate the **Key rotation policy** card. If no policy has been set, the button should be **Disabled**. To set a policy:
 
 1. Click the button to enable the policy.
-2. Then, set a rotation interval. Note that you can only set an automatic rotation policy in intervals of 30 days (or one month). If you set three months, for example, the key is rotated every 90 days. If a rotation policy has already been enabled for this instance, simply edit the value to the desired number of months.
+2. Then, set a rotation interval. Note that you can only set an automatic rotation policy in intervals of 30 days (or one month). If you set three months, for example, the key is rotated every 90 days. If a rotation policy has already been enabled for this instance, click **Edit**, then change the value to the desired number of months.
 3. Click **Save**.
 
 Your key policy is now set. If no other action is taken, every root key created in {{site.data.keyword.keymanagementserviceshort}} is issued this policy.
@@ -75,7 +75,7 @@ As shown in [Creating root keys in the console](/docs/key-protect?topic=key-prot
 If you do not see the **Rotation policy** option, check your level of permissions to ensure you are a `Manager`.
 {: tip}
 
-If an instance-level rotation policy exists, the rotation policy button shows as **Enabled**. The rotation interval enabled on the instance (in months) is visible. If this rotation interval is appropriate for this key, not other action needs to be taken other than to click **Create** to create the key. If you want to change the rotation interval, click **Edit** and set the interval you want. Then click **Save**. Then you can click **Create** to create the key.
+If an instance-level rotation policy exists, the rotation policy button shows as **Enabled**. The rotation interval enabled on the instance (in months) is visible. If this rotation interval is appropriate for this key, not other action needs to be taken other than to click **Add** to create the key. If you want to change the rotation interval, use the number input set the rotation interval you want. Then you can click **Add** to create the key.
 
 ## Set a rotation policy after the key has been created
 {: #manage-policies-gui}

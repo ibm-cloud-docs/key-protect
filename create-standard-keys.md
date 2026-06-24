@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-24"
 
 keywords: create standard encryption key, create secret, standard encryption key examples
 
@@ -10,18 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating standard keys
 {: #create-standard-keys}
@@ -40,34 +29,36 @@ If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} off
 {: important}
 
 
-If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth), keep in mind that any keys that you add to the service require an authorization from two users to delete keys.
+If you enable [dual authorization settings for your {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-manage-dual-auth),  any keys that you add to the service require an authorization from two users to delete keys.
 {: note}
 
 1. [Log in to the {{site.data.keyword.cloud_notm}} console](/login/){: external}.
 
-2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
+2. From the navigation menu, go to **Resource List** to view a list of your resources.
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
     provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. To create a new key, click **Add** and leave the **Create a key** option selected.
+4. To create a new key, click **Add** and select the **Create a key** option.
 
-    Specify the key's details:
+    1. Specify the key's details:
 
-| Setting | Description |
-| --- | --- |
-| Type | The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. Root keys are selected by default. Select the **Standard key** button to create a standard key.|
-| Key name | A human-readable display name for easy identification of your key. Length must be within 2 - 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
-| Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
-| Key ring | **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, check out [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
-{: caption="Descriptions of settings for creating a key." caption-side="bottom"}
+    | Setting | Description |
+    | --- | --- |
+    | Type | The [type of key](/docs/key-protect?topic=key-protect-envelope-encryption#key-types) that you would like to manage in {{site.data.keyword.keymanagementserviceshort}}. Root keys are selected by default. Select the **Standard key** button to create a standard key.|
+    | Key name | A human-readable display name for easy identification of your key. Length must be within 2 to 90 characters (inclusive). To protect your privacy, ensure that the key name does not contain personally identifiable information (PII), such as your name or location. Note that key names do not need to be unique.|
+    | Key alias | **Optional**. [Key aliases](/docs/key-protect?topic=key-protect-create-key-alias) are ways to describe a key that allow them to be identified and grouped beyond the limits of a display name. Keys can have up to five aliases.|
+    | Key ring | **Optional**. [Key rings](/docs/key-protect?topic=key-protect-grouping-keys) are groupings of keys that allow those groupings to be managed independently as needed. Every key must be a part of a key ring. If no key ring is selected, keys are placed in the `default` key ring. Note that to place the key you're creating in a key ring, you must have the _Manager_ role over that key ring. For more information about roles, see [Managing user access](/docs/key-protect?topic=key-protect-manage-access).|
+    {: caption="Settings for creating a key." caption-side="bottom"}
 
-When you are finished filling out the key's details, click **Create key** to confirm.
+    2. When you are finished filling out the key's details, click **Add key** to confirm.
 
-If you know which key ring you want a key to be placed in, and you are a _Manager_ of that key ring, you can also navigate to the **Key rings** panel, select ⋯ and click **Add key to key ring**. This will open the same panel you see by clicking **Add** on the **Keys** page with the **Key rings** variable filled in with the name of the key ring.
+If you know which key ring you want to use and you have the _Manager_ role for that key ring, you can also create a key directly from the **Key rings** panel. Select the actions menu (⋯) for the key ring and click **Add new key**. This opens the same panel as clicking **Add** on the **Keys** page, with the **Key ring** field pre-populated with the selected key ring name.
 {: tip}
 
-If you need to provision standard keys consistently across accounts or environments, you can automate this with the [{{site.data.keyword.keymanagementserviceshort}} Key module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key/ibm/latest){: external}. For a complete setup that also provisions the {{site.data.keyword.keymanagementserviceshort}} instance and key rings, see the all inclusive [{{site.data.keyword.keymanagementserviceshort}} module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}. For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+If you need to provision standard keys consistently across accounts or environments, you can automate this with the [{{site.data.keyword.keymanagementserviceshort}} Key module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-key/ibm/latest){: external}. 
+For a complete setup that also provisions the {{site.data.keyword.keymanagementserviceshort}} instance and key rings, see the all inclusive [{{site.data.keyword.keymanagementserviceshort}} module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external}. 
+For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 
 ## Creating standard keys with the API
 {: #create-standard-key-api}
@@ -90,7 +81,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 2. Call the [{{site.data.keyword.keymanagementserviceshort}} API](/apidocs/key-protect){: external} with the following `curl` command.
 
     ```sh
-    $ curl -X POST \
+       curl -X POST \
         "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
         -H "authorization: Bearer <IAM_token>" \
         -H "bluemix-instance: <instance_ID>" \
@@ -125,11 +116,11 @@ https://<region>.kms.cloud.ibm.com/api/v2/keys
 |region|**Required**. The region abbreviation, such as us-south or eu-gb, that represents the geographic area where your {{site.data.keyword.keymanagementserviceshort}} instance resides. For more information, see [Regional service endpoints](/docs/key-protect?topic=key-protect-regions#service-endpoints).|
 |IAM_token|**Required**. Your {{site.data.keyword.cloud_notm}} access token. Include the full contents of the IAM token, including the Bearer value, in the curl request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token).|
 |instance_ID|**Required**. The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).|
-|key_ring_ID|**Optional**. The unique identifier of the target key ring that you would like the newly create key to be a part of. If unspecified, the header is automatically set to 'default' and the key will sit in the default key ring in the specified {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
+|key_ring_ID|**Optional**. The unique identifier of the target key ring that you would like the newly created key to be a part of. If unspecified, the header is automatically set to 'default' and the key will be placed in the default key ring in the specified {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Grouping keys](/docs/key-protect?topic=key-protect-grouping-keys).|
 |correlation_ID|**Optional**.The unique identifier that is used to track and correlate transactions.|
 |return_preference|A header that alters server behavior for POST and DELETE operations. When you set the `return_preference` variable to `return=minimal`, the service returns only the key metadata, such as the key name and ID value, in the response `entity-body`. When you set the variable to `return=representation`, the service returns both the key material and the key metadata.|
 |key_name|**Required**. A human-readable name for convenient identification of your key. To protect your privacy, do not store your personal data as metadata for your key.|
-|alias_list|**Optional**.One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than `-` or `_`. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 - 90 characters (inclusive).|
+|alias_list|**Optional**.One or more unique, human-readable aliases assigned to your key. Important: To protect your privacy, do not store your personal data as metadata for your key. Each alias must be alphanumeric, case sensitive, and cannot contain spaces or special characters other than `-` or `_`. The alias cannot be a UUID and must not be a {{site.data.keyword.keymanagementserviceshort}} reserved name: allowed_ip, key, keys, metadata, policy, policies, registration, registrations, ring, rings, rotate, wrap, unwrap, rewrap, version, versions. Alias size can be between 2 to 90 characters (inclusive).|
 |key_description|**Optional**.An extended description of your key. To protect your privacy, do not store your personal data as metadata for your key.|
 |expiration_date|**Optional**.The date and time that the key expires in the system, in RFC 3339 format (YYYY-MM-DD HH:MM:SS.SS, for example 2019-10-12T07:20:50.52Z). The key will transition to the deactivated state within one hour past the key's expiration date. If the expirationDate attribute is omitted, the key does not expire.|
 |key_type|**Optional**.A boolean value that determines whether the key material can leave the service. When you set the extractable attribute to true, the service creates a standard key that you can store in your apps or services.|
@@ -143,8 +134,8 @@ A successful `POST api/v2/keys` response returns the ID value for your key, alon
 **Optional**: Verify that the key was created by running the following call to get the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
 ```sh
-$ curl -X GET \
-    "https://<regon>.kms.cloud.ibm.com/api/v2/keys" \
+   curl -X GET \
+    "https://<region>.kms.cloud.ibm.com/api/v2/keys" \
     -H "accept: application/vnd.ibm.collection+json" \
     -H "authorization: Bearer <IAM_token>" \
     -H "bluemix-instance: <instance_ID>"
@@ -154,4 +145,4 @@ $ curl -X GET \
 ## What's next
 {: #create-standard-key-next-steps}
 
-- To find out more about programmatically managing your keys, [check out the {{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.
+- To find out more about programmatically managing your keys, see [{{site.data.keyword.keymanagementserviceshort}} API reference doc](/apidocs/key-protect){: external}.

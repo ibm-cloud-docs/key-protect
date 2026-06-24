@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
 keywords: metrics settings, operational metrics, metrics
 
@@ -77,7 +77,7 @@ complete the following steps to enable a metrics policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
     provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Instance policies** page, click the **Enable** button
+4. On the **Policies** page, click the **Enable** button
     in the metrics policy section.
 
 ### Enabling metrics for your {{site.data.keyword.keymanagementserviceshort}} instance with the API

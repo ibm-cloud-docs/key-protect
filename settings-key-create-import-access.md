@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: instance settings, service settings, key creation/import, key create policy, key creation/import, key policy
 
@@ -92,13 +92,13 @@ complete the following steps to enable a keyCreateImportAccess policy:
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
     provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click the **Instance policies** link on the left side of the page.
+4. Click the **Policies** link on the left side of the page.
 
     - Find the `Create and import access` panel (at the top of the page).
 
     - Enable or disable any keyCreateImportAccess settings you desire. Note that
         any create or import key actions that have been disabled will no longer be
-        available via the "Add Key" modal.
+        available via the "Add key" panel.
 
     - Click `Save` or `Cancel` (whichever is appropriate).
 

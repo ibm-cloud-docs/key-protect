@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-06-24"
 
 keywords: key versions, get key versions, list key versions
 
@@ -47,7 +47,7 @@ To see how many versions you have of each key you have deployed:
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Keys** panel, click the ⋯ icon and select **Key details**. This opens a side panel that shows, among other things, the number of versions of this key you have.
+4. On the **Keys** panel, click the ⋯ icon and select **Details**. This opens a side panel that shows, among other things, the number of versions of this key you have.
 
 5. If you want to know how many key versions you have in your instance, you must repeat this process for every key in your instance. Note that because only root keys can be rotated, all of your standard keys have only one version.
 
