@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: synchronize resources, sync registrations, BYOK
 
@@ -63,11 +63,11 @@ resources and ensuring that the key state and key versions are up to date.
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your
     provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click on the **Associated Resources** tab to see the list of resources.
+4. Click on the **Keys** tab to see the list of keys. Use the filter and search options as needed to find the key with resources to be synced.
 
-5. Click on the **Manually sync** resource icon.
+5. Click the `⋯` icon and then click the **Sync** option to open the side panel.
 
-6. In the **Manually sync associated resource** dialog box, click on the button labeled, **Manually sync** to perform the synchronization.
+6. In the **Sync** panel, click on the button labeled **Sync** to perform the synchronization.
 
 ## Syncing associated resources with the {{site.data.keyword.keymanagementserviceshort}} CLI plugin
 {: #sync-associated-resources-cli}

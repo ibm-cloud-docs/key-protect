@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
 keywords: single-tenant deploy, single-tenant-initialize, dedicated
 
@@ -62,7 +62,6 @@ After you have your resource group set, create the instance by issuing:
 
 ```{: pre}
 ibmcloud resource service-instance-create <INSTANCE_NAME> kms dedicated us-south 
-ibmcloud resource service-instance-create <INSTANCE_NAME> kms dedicated us-south 
 ```
 {: codeblock}
 
@@ -73,7 +72,6 @@ Where:
 Note that this command defaults you to two crypto units. You can specify three crypto units by issuing:
 
 ```{: pre}
-ibmcloud resource service-instance-create <INSTANCE_NAME> kms dedicated us-south -p '{"crypto_units": 3}'
 ibmcloud resource service-instance-create <INSTANCE_NAME> kms dedicated us-south -p '{"crypto_units": 3}'
 ```
 {: codeblock}
@@ -245,7 +243,7 @@ Because you are importing your master key credentials, {{site.data.keyword.keyma
 
 Now that you have created your instance and your admin identity, you can use them to create your master key. The master key, also known as HSM master key, is used to encrypt the service instance for key storage. It is a symmetric 256-bit AES key. With the master key, you take the ownership of the cloud HSM and own the root of trust that encrypts the entire hierarchy of encryption keys, including root keys and standard keys in the key management keystore. One service instance can have only one master key. If you delete the master key of the service instance, you can effectively crypto-shred all data that was encrypted with the keys that are managed in the service.
 
-Dedicated {{site.data.keyword.keymanagementserviceshort}} uses the process of "key spliting", in which a cryptographic key is split into multiple pieces to enhance security. At least `2` "keyshares" must be created, though more can be used depending on the use case.
+Dedicated {{site.data.keyword.keymanagementserviceshort}} uses the process of "key splitting", in which a cryptographic key is split into multiple pieces to enhance security. At least `2` "keyshares" must be created, though more can be used depending on the use case.
 {: important}
 
 To generate the master key locally, issue the command on one of the three supported operating systems.
@@ -253,21 +251,21 @@ To generate the master key locally, issue the command on one of the three suppor
 For [macOS]{: tag-macos}:
 
 ```{: pre}
-ibmcloud kp crypto-unit mk generate --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2>"]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSOWRD3>"}]'
+ibmcloud kp crypto-unit master-key generate --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2>"]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSOWRD3>"}]'
 ```
 {: codeblock}
 
 For [Windows]{: tag-windows} Powershell:
 
 ```powershell
-ibmcloud kp crypto-unit mk generate --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSOWRD3>"""}]'
+ibmcloud kp crypto-unit master-key generate --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSOWRD3>"""}]'
 ```
 {: codeblock}
 
 For [Windows]{: tag-windows} CMD:
 
 ```sh
-ibmcloud kp crypto-unit mk generate --keyshare-files"[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2>\"]" --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSOWRD3>\"}]"
+ibmcloud kp crypto-unit master-key generate --keyshare-files"[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2>\"]" --keyshare-minimum 2 --algo AES-256 --key-name <KEY_NAME> --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSOWRD3>\"}]"
 ```
 {: codeblock}
 
@@ -285,28 +283,28 @@ To upload your master key to the crypto units of your instance, issue the comman
 For [macOS]{: tag-macos}:
 
 ```{: pre}
-ibmcloud kp crypto-unit mk import --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2"]' --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD3>"}]'
+ibmcloud kp crypto-unit master-key import --keyshare-files '["<KEYSHARE_FILE_1>#<PASSWORD1>", "<KEYSHARE_FILE_2>#<PASSWORD2"]' --auth '[{"ADMIN": "<ADMIN_KEY_FILE>#<PASSWORD3>"}]'
 ```
 {: codeblock}
 
 For [Windows]{: tag-windows} PowerShell:
 
 ```powershell
-ibmcloud kp crypto-unit mk import --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSWORD3>"""}]'
+ibmcloud kp crypto-unit master-key import --keyshare-files '["""<KEYSHARE_FILE_1>#<PASSWORD1>""","""<KEYSHARE_FILE_2>#<PASSWORD2>"""]' --auth '[{"""ADMIN""": """<ADMIN_KEY_FILE>#<PASSWORD3>"""}]'
 ```
 {: codeblock}
 
 For [Windows]{: tag-windows} CMD:
 
 ```sh
-ibmcloud kp crypto-unit mk import --keyshare-files "[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2\"]" --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSWORD3>\"}]"
+ibmcloud kp crypto-unit master-key import --keyshare-files "[\"<KEYSHARE_FILE_1>#<PASSWORD1>\", \"<KEYSHARE_FILE_2>#<PASSWORD2\"]" --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSWORD3>\"}]"
 ```
 {: codeblock}
 
 Where:
 
 * `<KEYSHARE_FILE_1>#<PASSWORD1>` is the location of one of the keyshares, along with a passphrase for the file that will be created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<PASSWORD1>` to be prompted to enter a passphrase.
-* * `<KEYSHARE_FILE_2>#<PASSWORD2` is the location of another keyshare, along with a passphrase for the file that will be created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<PASSWORD2>` to be prompted to enter a passphrase.
+* `<KEYSHARE_FILE_2>#<PASSWORD2>` is the location of another keyshare, along with a passphrase for the file that will be created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<PASSWORD2>` to be prompted to enter a passphrase.
 * `<ADMIN_KEY_FILE>#<PASSWORD3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<PASSWORD3>` to be prompted to enter a passphrase.
 
 Now that your master key has been created, you need to allow the {{site.data.keyword.keymanagementserviceshort}} service the ability to perform actions on your crypto units (for example, to create keys). Note that the level of permissions granted {{site.data.keyword.keymanagementserviceshort}} is less than that of an admin. Issue the command using one of the three supported operating systems.
@@ -330,6 +328,7 @@ For [Windows]{: tag-windows} CMD:
 ```sh
 ibmcloud kp crypto-unit user add --type kmsCryptoUser --auth "[{\"ADMIN\": \"<ADMIN_KEY_FILE>#<PASSWORD>\"}]"
 ```
+{: codeblock}
 
 Where:
 
@@ -354,7 +353,7 @@ Do not add `--name` or `--file` when adding `kmsCryptoUser` as an admin.
 
 Congratulations. Your instance has been fully initialized. 
 
-It may take unto 5 to 10 minutes before you can use your instance.
+It might take up to 5 to 10 minutes before you can use your instance.
 {: note}
 
 ## Next steps
@@ -448,7 +447,7 @@ To resolve this error:
 ### Crypto unit commands fail to apply to all crypto units
 {: #crypto-unit-partial-failure}
 
-If the `crypto-unit claim`, `crypto-unit mk import`, or `crypto-unit user add --type kmsCryptoUser` commands fail to apply to all crypto units, you might see output similar to the following example:
+If the `crypto-unit claim`, `crypto-unit master-key import`, or `crypto-unit user add --type kmsCryptoUser` commands fail to apply to all crypto units, you might see output similar to the following example:
 
 ```pre
 Executing operation Generate Master Key against CryptoUnit with ID fadedbee-0000-0000-0000-1234567890ab
@@ -458,7 +457,7 @@ FAILED
 ```
     
 To resolve this issue:
-1. By default, the `claim`, `mk import`, and `user add` commands attempt to apply to all crypto units. If these commands are only partially successful (applied to only a subset of the crypto units in the instance), retry the command only against the crypto units that returned a failure. Each of these commands can be configured to target specific crypto units. To determine how to target specific crypto units, append `-h` to any `crypto-unit` command to view the help text, or see the [CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
+1. By default, the `claim`, `master-key import`, and `user add` commands attempt to apply to all crypto units. If these commands are only partially successful (applied to only a subset of the crypto units in the instance), retry the command only against the crypto units that returned a failure. Each of these commands can be configured to target specific crypto units. To determine how to target specific crypto units, append `-h` to any `crypto-unit` command to view the help text, or see the [CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference).
 
 2. Run the `kp crypto-units` command in the [CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-units) to confirm that all crypto units are in the same state.
    - If crypto unit states are mismatched, see [Crypto unit states](/docs/key-protect?topic=key-protect-crypto-unit-states).

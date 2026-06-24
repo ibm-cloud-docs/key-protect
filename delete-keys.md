@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: delete key, delete key API examples, purge key
 
@@ -10,18 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deleting keys using a single authorization
 {: #delete-keys}
@@ -49,7 +38,7 @@ By default, {{site.data.keyword.keymanagementserviceshort}} requires one authori
 
 5. Click the ⋯ icon to open a list of options for the key that you want to delete.
 
-6. From the options menu, click **Delete key** and confirm the key deletion in the next screen by ensuring the key has no associated resources. Note that you will not be able to delete the key if it is protecting a registered {{site.data.keyword.cloud_notm}} resource that's non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy).
+6. From the options menu, click **Delete**. In the confirmation screen, verify that the key has no associated resources, then confirm the deletion. You cannot delete a key if it protects a registered {{site.data.keyword.cloud_notm}} resource that's non-erasable due to a [retention policy](/docs/cloud-object-storage?topic=cloud-object-storage-immutable#immutable-terminology-policy).
 
 After you delete a key, the key transitions to the _Destroyed_ state. Any data encrypted by keys in this state is no longer accessible. Metadata that is associated with the key, such as the key's deletion date, is kept in the {{site.data.keyword.keymanagementserviceshort}} database. Destroyed keys can be recovered after up to 30 days or their expiration date, whichever is sooner. After 30 days, keys can no longer be recovered, and become eligible to be purged after 90 days, a process that shreds the key material and makes its metadata inaccessible.
 

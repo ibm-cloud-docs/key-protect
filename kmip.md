@@ -2,50 +2,48 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
-keywords: KMIP, VMWare, key protect
+keywords: KMIP, VMware, key protect, key management interoperability protocol
 
 subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using the key management interoperability protocol (KMIP)
 {: #kmip}
 
-To better facilitate the use of {{site.data.keyword.keymanagementservicefull}} keys to create key management interoperability protocol (KMIP) adapters for use with VMWare, {{site.data.keyword.keymanagementserviceshort}} now directly offers the ability to create adapters and upload certificates using the {{site.data.keyword.keymanagementserviceshort}} control plane (UI). 
+{{site.data.keyword.keymanagementservicefull}} provides native support for the key management interoperability protocol (KMIP), allowing you to create KMIP adapters and upload certificates directly through the {{site.data.keyword.keymanagementserviceshort}} console.
+{: shortdesc}
 
-This solution architecture describes the {{site.data.keyword.keymanagementserviceshort}} Native KMIP support architecture for protecting your VMware® instances. Many storage encryption options are available to protect your VMware workload. {{site.data.keyword.keymanagementserviceshort}} Native KMIP support works together with VMware native vSphere encryption and vSAN™ encryption. The vSphere and vSAN encryption provides simplified storage encryption management together with the security and flexibility of {{site.data.keyword.cloud}} {{site.data.keyword.keymanagementserviceshort}} customer-managed keys.
+This solution describes the {{site.data.keyword.keymanagementserviceshort}} native KMIP support architecture for protecting your VMware® instances. {{site.data.keyword.keymanagementserviceshort}} native KMIP support works with VMware native vSphere encryption and vSAN™ encryption to provide simplified storage encryption management with the security and flexibility of {{site.data.keyword.cloud}} {{site.data.keyword.keymanagementserviceshort}} customer-managed keys.
 
-This solution is an alternative to the [KMIP for VMWare](/docs/vmwaresolutions?topic=vmwaresolutions-kmip-overview) solution offering on {{site.data.keyword.cloud_notm}}. As a result, this document doesn't cover the existing configuration of these foundation solutions on {{site.data.keyword.cloud_notm}}. To understand more about the foundation solution architecture, see [Overview of VMware Solutions](/docs/vmwaresolutions?topic=vmwaresolutions-solution_overview).
+This solution is an alternative to the [KMIP for VMware](/docs/vmwaresolutions?topic=vmwaresolutions-kmip-overview){: external} offering on {{site.data.keyword.cloud_notm}}. This document does not cover the configuration of these foundation solutions. For more information about the foundation solution architecture, see [Overview of VMware Solutions](/docs/vmwaresolutions?topic=vmwaresolutions-solution_overview){: external}.
 
-This feature works in parallel with the current KMIP for VMWare solution. It is not currently possible to import adapters created using the VMWare solution into {{site.data.keyword.keymanagementserviceshort}} (or vice versa).
+This feature works in parallel with the current KMIP for VMware solution. You cannot import adapters created with the VMware solution into {{site.data.keyword.keymanagementserviceshort}}, or vice versa.
 {: tip}
 
 ## Benefits
 {: #kmip-overview-benefits}
 
-While many storage encryption solutions are available for your VMware workload, {{site.data.keyword.keymanagementserviceshort}} Native KMIP support offers the following benefits:
+{{site.data.keyword.keymanagementserviceshort}} native KMIP support offers the following benefits:
 
-* KMIP support in {{site.data.keyword.keymanagementserviceshort}} is [certified by VMWare](https://compatibilityguide.broadcom.com/detail?program=kms&productId=60700&persona=live){: external} and can be directly integrated with any service or platform that accepts encryption via a KMIP KMS server. Where other KMS' require third party KMIP server support, support for KMIP is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}. 
-* Integration with VMware vSAN encryption and vSphere encryption, both of which are implemented in the hypervisor layer rather than the storage or virtual machine layer. This approach allows easy management and transparency to your storage solution and application.
-* Fully managed key management server available in many {{site.data.keyword.cloud_notm}} multizone regions (MZRs).
-* Integrating your VMware cluster with {{site.data.keyword.cloud_notm}} {{site.data.keyword.keymanagementserviceshort}} provides you with fully customer-managed keys that you can revoke at any time.
-* Because KMIP symmetric keys are only [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), you only pay for what you use.
+**VMware certification**
+:   KMIP support in {{site.data.keyword.keymanagementserviceshort}} is [certified by VMware](https://compatibilityguide.broadcom.com/detail?program=kms&productId=60700&persona=live){: external} and can be directly integrated with any service or platform that accepts encryption through a KMIP KMS server. KMIP support is integrated and managed by {{site.data.keyword.keymanagementserviceshort}}, eliminating the need for third-party KMIP server support.
+
+**Hypervisor-level encryption**
+:   Integration with VMware vSAN encryption and vSphere encryption provides encryption at the hypervisor layer rather than the storage or virtual machine layer. This approach simplifies management and provides transparency to your storage solution and application.
+
+**Fully managed service**
+:   Key management server is fully managed and available in many {{site.data.keyword.cloud_notm}} multizone regions (MZRs).
+
+**Customer-managed keys**
+:   You maintain full control over your encryption keys and can revoke them at any time.
+
+**Cost-effective**
+:   KMIP symmetric keys are [charged as a single key version](/docs/key-protect?topic=key-protect-pricing-plan), so you only pay for what you use.
 
 ## Creating an adapter
 {: #kmip-adapter-create}
@@ -56,29 +54,43 @@ A maximum of 200 adapters can be created on a single instance. Each adapter can 
 
 KMIP adapters are created using {{site.data.keyword.keymanagementserviceshort}} root keys. If you do not have a root key, [create one](/docs/key-protect?topic=key-protect-create-root-keys).
 
-To create an adapter: 
+Before you begin, ensure that you have the [`Manager` role or the `KmipAdapterManager` role](/docs/key-protect?topic=key-protect-manage-access) on the instance.
 
-1. Navigate to the **KMIP Adapters** panel using the left navigation. If this is your first adapter, the table should be empty. Note that you must either have the [`Manager` role or the `KmipAdapterManager` role](/docs/key-protect?topic=key-protect-manage-access) on the instance in order to create an adapter.
+To create an adapter:
 
-2. Find the **Create Adapter** button and click it.
+1. In the navigation menu, click **KMIP adapters**. If this is your first adapter, the table is empty.
 
-3. In the open side panel, give the adapter a **Name** and, optionally, a **Description**. Note that names must contain at least two and no more than 40 characters. If you choose to give it a description, it must be at least two and no more than 240 characters. After that has been completed, you can choose the root key you want to use to create this adapter and to encrypt the KMIP keys it creates. Choosing a root key is mandatory. Note that your root key must be in an `active` state for your adapter to function correctly.
+2. Click **Create**.
 
-4. Adding a public TLS certificate allows the holder of its corresponding private certificate to communicate with {{site.data.keyword.keymanagementserviceshort}} via its associated KMIP adapter. Only certificates authorized under a KMIP adapter will be permitted to make KMIP protocol requests against your instance. Note that resources managed via the KMIP protocol cannot be accessed via HTTP API.
+3. In the side panel, provide the following information:
+   * **Name** - Enter a name for the adapter (2-40 characters).
+   * **Description** (optional) - Enter a description for the adapter (2-240 characters).
+   * **Root key** - Select the root key to use for this adapter. The root key encrypts the KMIP keys that the adapter creates. Your root key must be in an `active` state for your adapter to function correctly.
 
-   While you do not need to add any certificates during the creation of the adapter, if you know which certificates you want to add, you can do so by clicking the **Add certificates (optional)** tab in the panel. In the resulting screen, click the **Upload certificate** button, give the certificate a name, and input the contents of the certificate (the material must be in PEM format and contain the `BEGIN CERTIFICATE` and `END CERTIFICATE` tags). Note that it can take a few minutes for the certificate to be associated. Also, a certificate can only be associated with a single adapter in a {{site.data.keyword.keymanagementserviceshort}} region.
+4. Optional: Add a public TLS certificate to allow the holder of the corresponding private certificate to communicate with {{site.data.keyword.keymanagementserviceshort}} through the KMIP adapter. Only authorized certificates can make KMIP protocol requests against your instance.
 
-Keep the private key of any uploaded certificates secure, as any certificate uploaded to a KMIP adapter will have the ability to make all supported KMIP operations.
+   To add a certificate:
+   1. Click **Add**.
+   2. Enter a name for the certificate.
+   3. Enter the certificate contents in PEM format, including the `BEGIN CERTIFICATE` and `END CERTIFICATE` tags.
+   4. Click **Add certificate**.
+
+   Certificate association can take a few minutes. A certificate can only be associated with a single adapter in a {{site.data.keyword.keymanagementserviceshort}} region.
+
+Resources managed through the KMIP protocol cannot be accessed through the HTTP API.
+{: note}
+
+Keep the private key of any uploaded certificates secure. Any certificate uploaded to a KMIP adapter can make all supported KMIP operations.
 {: important}
 
 ## Configuring a KMIP client to communicate with an adapter
 {: #kmip-client}
 
-To communicate with your adapter, you must either [setup VMWare](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html){: external} (which will take care of your communications to your client, once you have associated the certificate provided by VMWare to it), or have created a KMIP client that can communicate over TCP with mTLS and can send messages using the TTLV message format [as described in KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
+To communicate with your adapter, you must either [set up VMware](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html){: external} or create a KMIP client that can communicate over TCP with mTLS and send messages using the TTLV message format [as described in the KMIP specifications](https://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660910){: external}.
 
-For VMWare vSphere, follow the steps outlined in [Add a Standard Key Provider Using the vSphere Client](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html){: external}. When adding a standard key provider, use the [{{site.data.keyword.keymanagementserviceshort}} endpoint](https://cloud.ibm.com/docs/key-protect?topic=key-protect-regions) specific to your instance's region. For example, for the {{site.data.keyword.keymanagementserviceshort}} instance in region `us-south` , use `us-south.kms.cloud.ibm.com` as the address and `5696` as the port, which is the default for the KMIP server.
+For VMware vSphere, follow the steps in [Add a Standard Key Provider Using the vSphere Client](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html){: external}. When you add a standard key provider, use the [{{site.data.keyword.keymanagementserviceshort}} endpoint](/docs/key-protect?topic=key-protect-regions) specific to your instance's region. For example, for a {{site.data.keyword.keymanagementserviceshort}} instance in the `us-south` region, use `us-south.kms.cloud.ibm.com` as the address and `5696` as the port.
 
-As described in the previous step 4, the vSphere client needs to upload its client certificate in the adapter in order for it to communicate with the KMIP adapter. Follow the steps outlined in [Use the Certificate Option to Establish a Standard Key Provider Trusted Connection](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html#GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820){: external} guide to download the client certificate. This certificate can be uploaded into the adapter.
+The vSphere client must upload its client certificate to the adapter to communicate with the KMIP adapter. Follow the steps in [Use the Certificate Option to Establish a Standard Key Provider Trusted Connection](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-security.html#GUID-5797AA3E-98EC-4190-A2BB-8E5A3E5F9820){: external} to download the client certificate, then upload it to the adapter.
 
 
 ## Granting access to KMIP 
@@ -100,16 +112,21 @@ Each action grants the mentioned behavior to all `kmip_adapter` `certificate` an
 {: #kmip-adapter-view}
 {: ui}
 
-The adapter details panel allows you to learn about an adapter (for example, through its description) and also allows you to do actions like adding certificates.
+The adapter details panel displays information about an adapter and allows you to perform actions such as adding certificates.
 
-To view the adapter details, click the ⋯ icon. This shows all of the details about the adapter. Here you can see its name, its description, any KMIP symmetric keys associated with the adapter, and certificates that have been uploaded to it. You can also use this panel to upload more certificates, as desired.
+To view adapter details:
 
-KMIP symmetric keys cannot be deleted using the UI. To delete keys, you must use the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference&interface=ui#kp-kmip-object-delete). Only KMIP symmetric keys that are in a state other than the `Active` (state `1`) can be deleted. An adapter cannot be deleted if it contains keys that are in the `Active` state.
+1. Click the actions menu (⋯) for the adapter.
+2. Select **Details**.
 
-Each adapter's resources are protected with a CRK. You cannot delete a CRK that is active and associated with an adapter.
+The details panel displays the adapter's name, description, associated KMIP symmetric keys, and uploaded certificates. You can also upload additional certificates from this panel.
 
-Each KMIP symmetric key that is created counts as a single key version and incurs a [charge of one key version](/docs/key-protect?topic=key-protect-pricing-plan). If you want to delete a KMIP symmetric key, you can only do so using the API, CLI, or SDK. You cannot use the UI. Note that deletions of a KMIP symmetric is permanent.
-{:important}
+KMIP symmetric keys cannot be deleted using the console. To delete keys, use the [CLI](/docs/key-protect?topic=key-protect-key-protect-cli-reference&interface=ui#kp-kmip-object-delete). Only KMIP symmetric keys that are not in the `Active` state (state `1`) can be deleted. You cannot delete an adapter if it contains keys in the `Active` state.
+
+Each adapter's resources are protected with a root key. You cannot delete a root key that is active and associated with an adapter.
+
+Each KMIP symmetric key that is created counts as a single key version and incurs a [charge of one key version](/docs/key-protect?topic=key-protect-pricing-plan). Deletion of a KMIP symmetric key is permanent.
+{: important}
 
 ## KMIP supported objects and operations
 {: #kmip-supported}
@@ -120,33 +137,35 @@ Refer to [Result Reason](http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-
 ### KMIP supported operations
 {: #kmip-supported-operations}
 
-Only these operations are supported.
-{:important}
+Only the following operations are supported.
+{: important}
 
-|  | Operation | Summary |
-| - | - | - |
-| 4.1 | Create | Creates a KMIP object
-| 4.11 | Get | Retrieve object information, specifically the key material.
-| 4.12 | Get Attributes | Retrieve attribute metadata about the object.
-| 4.14 | Add Attribute | Add attribute metadata to the object.
-| 4.19 | Activate | Sets the object into an "Active" state. **The object may not be destroyed while the state is active.**
-| 4.20 | Revoke | Sets the object into a "Compromised" state, if the revocation reason code given is "Key Compromise" or "CA Compromise". Otherwise sets the object into a "Deactivated" state.
-| 4.21 | Destroy | Destroys the key material of the object. **This action cannot be reversed**
-| 4.26 | Discover Versions | Requests supported KMIP protocol versions from the server. Only v1.4 will be returned.
-| 4.9 | Locate | Search for objects matching the given criteria or attribute metadata.
+| Section | Operation | Summary |
+| ------- | --------- | ------- |
+| 4.1 | Create | Creates a KMIP object. |
+| 4.9 | Locate | Searches for objects matching the given criteria or attribute metadata. |
+| 4.11 | Get | Retrieves object information, specifically the key material. |
+| 4.12 | Get Attributes | Retrieves attribute metadata about the object. |
+| 4.14 | Add Attribute | Adds attribute metadata to the object. |
+| 4.19 | Activate | Sets the object to an "Active" state. The object cannot be destroyed while in the active state. |
+| 4.20 | Revoke | Sets the object to a "Compromised" state if the revocation reason code is "Key Compromise" or "CA Compromise". Otherwise, sets the object to a "Deactivated" state. |
+| 4.21 | Destroy | Destroys the key material of the object. This action cannot be reversed. |
+| 4.26 | Discover Versions | Requests supported KMIP protocol versions from the server. Only v1.4 is returned. |
+{: caption="Supported KMIP operations" caption-side="bottom"}
 
 ### Supported objects
 {: #kmip-supported-objects}
 
-| | Object
-| - | - |
-| 2.2 | Symmetric Key
+| Section | Object |
+| ------- | ------ |
+| 2.2 | Symmetric Key |
+{: caption="Supported KMIP objects" caption-side="bottom"}
 
 ## Creating and using KMIP adapters in the API
 {: #kmip-adapter-api}
 {: api}
 
-This will walk through using KMIP adapters of profile `native_1.0` using the API, adding and removing KMIP client certificates from the adapter, then viewing and deleting KMIP objects associated with the adapter.
+This section describes how to use KMIP adapters of profile `native_1.0` with the API, including adding and removing KMIP client certificates and viewing and deleting KMIP objects.
 
 You can create a KMIP adapter by making a `POST` call to the following endpoint. 
 
@@ -258,7 +277,7 @@ https://<region>.kms.cloud.ibm.com/api/v2/kmip_adapters/<adapter_name_or_ID>/kmi
 {: #kmip-adapter-api-cert}
 {: api}
 
-Now that a KMIP adapter has been created, you can add a KMIP client certificate to be associated with the KMIP adapter. Once a certificate has been registered, you can use that certificate to communicate with the KMIP server with mTLS as described by the KMIP specifications. It may take up to five minutes from the certificate being registered to the certificate being usable with the KMIP server. Certificates must be unique within the same region. 
+After you create a KMIP adapter, you can add a KMIP client certificate to associate with the adapter. After a certificate is registered, you can use it to communicate with the KMIP server with mTLS as described in the KMIP specifications. Certificate registration can take up to five minutes. Certificates must be unique within the same region.
 
 1. [Retrieve authentication credentials to work with keys in the service.](/docs/key-protect?topic=key-protect-set-up-api)
 

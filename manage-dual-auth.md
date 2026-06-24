@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: instance settings, service settings, dual authorization
 
@@ -10,20 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
-{:cli: .ph data-hd-interface='cli'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using dual authorization policies for the deletion of keys
 {: #manage-dual-auth}
@@ -63,7 +50,7 @@ For information about deleting a key with a dual auth policy, check out [Deletin
 {: #enable-dual-auth-instance-policy-ui}
 {: ui}
 
-If you prefer to disable a dual authorization policy on your instance by using a graphical interface, you can use the console.
+If you prefer to enable a dual authorization policy on your instance by using a graphical interface, you can use the console.
 
 After creating a {{site.data.keyword.keymanagementserviceshort}} instance,
 complete the following steps to create a dual authorization policy:
@@ -72,17 +59,13 @@ complete the following steps to create a dual authorization policy:
 
 2. Go to **Menu** &gt; **Resource List** to view a list of your resources.
 
-3. From your {{site.data.keyword.cloud_notm}} resource list, select your
-    provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
+3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. Click the **Instance policies** link on the left side of the page.
+4. In the navigation menu, click **Policies**.
 
-    - Find the `Dual authorization delete` panel (on the top-left side of the
-        page).
+5. In the **Dual authorization deletion** section, toggle the switch to enable the policy.
 
-    - Toggle `Dual authorization deletion` to enable or disable the policy.
-
-    - Click `Save` or `Cancel` (whichever is appropriate).
+6. Click **Save** to apply your changes.
 
 #### Enabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #enable-dual-auth-instance-policy-api}
@@ -171,11 +154,11 @@ After creating a {{site.data.keyword.keymanagementserviceshort}} instance, compl
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. On the **Instance policies** page, use the **Policies** table to browse the policies in your {{site.data.keyword.keymanagementserviceshort}} instance.
+4. In the navigation menu, click **Policies**.
 
-5. Click the ⋯ icon to open a list of options for the policy that you want to disable.
+5. In the **Dual authorization deletion** section, toggle the switch to disable the policy.
 
-6. From the options menu, click **Disable policy** and confirm the policy was disabled in the updated **Policies** table.
+6. Click **Save** to apply your changes.
 
 ### Disabling dual authorization for your {{site.data.keyword.keymanagementserviceshort}} instance with the API
 {: #disable-dual-auth-instance-policy-api}
@@ -454,7 +437,7 @@ Before you delete a key by using dual authorization:
 
 5. Click the ⋯ icon to open a list of options for the key that you want to delete.
 
-6. From the options menu, click **Schedule key deletion** and review the key's
+6. From the options menu, click **Schedule deletion** and review the key's
     associated resources.
 
 7. Click the `Next` button, enter the key name, and click `Schedule deletion`.

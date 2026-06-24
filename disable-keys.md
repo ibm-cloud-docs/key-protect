@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-06-24"
 
 keywords: disable key, enable key, suspend operations on a key
 
@@ -118,7 +118,7 @@ complete the following steps to disable a key:
 5. Click the ⋯ icon to open a list of options for the key that you want to
     disable.
 
-6. From the options menu, click **Disable key** and confirm the key was disabled
+6. From the options menu, click **Disable** and confirm the key was disabled
     in the updated **Keys** table.
 
 ### Enabling a root key in the console
@@ -141,7 +141,7 @@ complete the following steps to enable the key:
 5. Click the ⋯ icon to open a list of options for the key that you want to
     enable.
 
-6. From the options menu, click **Enable key** and confirm the key was enabled in the updated **Keys** table.
+6. From the options menu, click **Enable** and confirm the key was enabled in the updated **Keys** table.
 
 Keys cannot be enabled immediately after being disabled. If a key was disabled in error, wait at least 30 seconds before attempting to re-enable it.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-06-24"
 
 keywords: wrap key, encrypt data encryption key, envelope encryption API examples
 
@@ -59,7 +59,7 @@ After you import or create your [own keys](/docs/key-protect?topic=key-protect-c
 
 7. You can allow {{site.data.keyword.keymanagementserviceshort}} to wrap your data or provide your own Base64 encoded plaintext and extra authentication data (AAD), as needed, to wrap the data. If you choose to provide your own plaintext and AAD, you have to provide it when unwrapping your data. If you do not have experience creating AAD and Base64 encoded plaintext, allow {{site.data.keyword.keymanagementserviceshort}} to wrap your data by leaving the **Wrap key for me** option selected.
 
-8. Click **Wrap Key** button.
+8. Click **Wrap key** button.
 
 ## Wrapping keys by using the API
 {: #wrap-key-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-24"
 
 keywords: key rings, group keys, manage key groups
 
@@ -10,19 +10,7 @@ subcollection: key-protect
 
 ---
 
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:term: .term}
-{:ui: .ph data-hd-interface='ui'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Grouping keys together using key rings
 {: #grouping-keys}
@@ -55,9 +43,7 @@ You can grant access to key rings within a
 {{site.data.keyword.cloud_notm}} console, IAM API, or IAM CLI.
 {: note}
 
-Before you create a key ring for your
-{{site.data.keyword.keymanagementserviceshort}} instance, keep in mind the
-following considerations:
+Before you create a key ring for your {{site.data.keyword.keymanagementserviceshort}} instance, review the following considerations:
 
 - **Every {{site.data.keyword.keymanagementserviceshort}} instance comes with a default key ring.**
     Each newly created {{site.data.keyword.keymanagementserviceshort}} instance comes with
@@ -137,7 +123,7 @@ available for to hold standard and root keys.
 
 As requirements change and new team members are brought into an org, you might create new key rings to reflect these organizational changes. After creating the key rings, it might be necessary to move a key from an existing key ring to a new key ring that has different IAM permissions. For example, you might be onboarding a team that will need specific access to a key that is part of to a custom, non-default key ring that was previously made. You can create a new key ring that is dedicated to the onboarding team and, since keys can only be associated with one key ring at a time, you will need to move the key to the new key ring.
 
-After transferring a key to a different key ring, it may take up to a maximum of ten minutes for the change to take effect.
+After you transfer a key to a different key ring, the change can take up to 10 minutes to take effect across all systems.
 {: important}
 
 ### Transferring a key to a different key ring with the UI
@@ -151,7 +137,9 @@ You must have the service "Manager" role of both the key being transferred and t
 
 From the **Keys** panel:
 
-1. Find the key you want to transfer. Note that it can be helpful to specify the key ring where the key is currently located by selecting the ring in the **Key ring ID** drop down list. You can also click on **Key rings** in the left navigation, find the appropriate key ring, and click **View associated keys** inside the setting drop-down list. This will show you all of the keys associated with that key ring.
+1. Find the key you want to transfer. To locate the key more easily, use one of the following methods:
+   * In the **Keys** panel, select the key ring from the **Key ring ID** filter.
+   * Click **Key rings** in the left navigation, find the key ring, click the actions menu (⋯), and select **View keys**.
 2. Click on the ⋯ button, and select **Edit key ring** from the drop-down list.
 3. In the drop-down list, select the key ring you want to move the key to. Then click **Save**.
 

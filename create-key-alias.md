@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-24"
 
 keywords: key alias, alias, key reference
 
@@ -47,7 +47,7 @@ Key aliases can be added to a key during the process of creating or importing a 
 * For more information about creating a root key or a standard key, check out [Creating root keys](/docs/key-protect?topic=key-protect-create-root-keys) or [Creating standard keys](/docs/key-protect?topic=key-protect-create-standard-keys).
 * For more information about importing a root key or a standard key, check out [Importing root keys](/docs/key-protect?topic=key-protect-import-root-keys) or [Importing standard keys](/docs/key-protect?topic=key-protect-import-standard-keys).
 
-To edit a key alias, click ⋯ and select **Edit key alias**. In the tab, you will see any existing aliases assigned to the key (and be able to delete them) and be able to add more alias. A key can have up to five aliases.
+To edit a key alias, click ⋯ and select **Edit aliases**. In the tab, you will see any existing aliases assigned to the key (and be able to delete them) and be able to add more alias. A key can have up to five aliases.
 
 ## Creating key aliases with the API
 {: #create-key-alias-api}

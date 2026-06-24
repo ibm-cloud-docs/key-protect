@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-02-01"
+  years: 2017, 2026
+lastupdated: "2026-06-24"
 
 keywords: get instance ID, get instance GUID, service instance
 
@@ -44,7 +44,7 @@ You can view the instance ID that is associated with your {{site.data.keyword.ke
 
 4. Click on the instance name link. This will open your {{site.data.keyword.keymanagementserviceshort}} instance.
 
-4. From the **Keys** page, click the **Details** box to open a side panel. Your instance ID and CRN are listed here as code snippets.
+4. From the **Overview** page, find the **Instance** section. Your instance ID and CRN are listed here as code snippets.
 
 ## Retrieving an instance ID and CRN with the CLI
 {: #retrieve-instance-ID-cli}
@@ -126,5 +126,3 @@ and then pipe the JSON output to `jq` to extract this value.
     42454b3b-5b06-407b-a4b3-34d9ef323901
     ```
     {: screen}
-
-
