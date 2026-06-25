@@ -56,13 +56,15 @@ toc:
           label: Setting up the service
           topics:
           - topicgroup:
-              label: Creating an instance
+              label: Creating a Standard instance
               topics:
               - topic: provision.md
                 navtitle: Standard
+          - topicgroup:
+              label: Creating a Dedicated instance
+              topics:
               - topic: st-init-cli.md
                 navtitle: Dedicated
-              - topic: crypto-unit-states.md
           - topicgroup:
               label: Setting up Terraform
               topics:
