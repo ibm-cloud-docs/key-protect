@@ -56,19 +56,17 @@ toc:
           label: Setting up the service
           topics:
           - topicgroup:
-              label: Creating a Standard instance
+              label: Standard
               topics:
               - topic: provision.md
-                navtitle: Standard
+                navtitle: Creating a Standard instance
+              - topic: terraform-setup.md
+                navtitle: Setting up Terraform
           - topicgroup:
-              label: Creating a Dedicated instance
+              label: Dedicated
               topics:
               - topic: st-init-cli.md
-                navtitle: Dedicated
-          - topicgroup:
-              label: Setting up Terraform
-              topics:
-              - terraform-setup.md
+                navtitle: Dedicated instance
           - topicgroup:
               label: Migrating from Hyper Protect Crypto Services
               topics:

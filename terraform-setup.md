@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-29"
 
 subcollection: key-protect
 
@@ -21,9 +21,6 @@ Looking for a managed Terraform on {{site.data.keyword.cloud}} solution? Try out
 
 ## Installing Terraform and configuring resources for {{site.data.keyword.keymanagementserviceshort}}
 {: #install-terraform}
-
-Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance is available through the {{site.data.keyword.cloud}} console UI and the IBM Cloud CLI. Creating new {{site.data.keyword.keymanagementserviceshort}} Dedicated instances with Terraform is not supported. you can, however, use Terraform to provision resources like keys. To do this, the environment variable `IBMCLOUD_KP_API_ENDPOINT` must be set to the public or private API endpoint of the specific {{site.data.keyword.keymanagementserviceshort}} Dedicated instance.
-{: important}
 
 Before you can create an authorization by using Terraform, make sure that you have completed the following:
 
