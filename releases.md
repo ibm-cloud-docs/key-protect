@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-15"
 
 keywords: key protect, release notes, service updates
 
@@ -32,14 +32,24 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: shortdesc}
 
 ## June 2026
-{: #key-protect-may26}
+{: #key-protect-june26}
 
 ### 11 June 2026
-{: #key-protect-may1226}
+{: #key-protect-june1226}
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} Dedicated availability in Madrid
 :   {{site.data.keyword.keymanagementserviceshort}} announces the `eu-es` (Madrid) availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated. This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM to the Madrid MZR, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+## May 2026
+{: #key-protect-may2026}
+
+### 11 May 2026
+{: #key-protect-may1126}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} is now available in the Mumbai - Airtel region
+:   {{site.data.keyword.keymanagementserviceshort}} announces the `in-mum` (Mumbai - Airtel, India) region is now generally available. For more information about public and private endpoints for this region, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
 
 ## March 2026
 {: #key-protect-mar26}
@@ -54,6 +64,19 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 {{site.data.keyword.keymanagementserviceshort}} announces the `us-south` (Dallas, Texas, United States) availability of:
 :   {{site.data.keyword.keymanagementserviceshort}} Dedicated, a single-tenant offering featuring a user owned and managed HSM, FIPS 140-3 Level 4 certification (pending), keep your own key (KYOK) capability, master key management, and workload isolation. For more information, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+## February 2026
+{: #key-protect-feb26}
+
+### 09 February 2026
+{: #key-protect-feb0926}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} is now available in the Chennai - Airtel region
+:   {{site.data.keyword.keymanagementserviceshort}} announces the `in-che` (Chennai - Airtel, India) region is now generally available. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
+
+Access to the Chennai region is allowlisted. If this region is not available to you, open a [support ticket](https://www.ibm.com/mysupport/s/){: external}.
+{: important}
 
 
 
