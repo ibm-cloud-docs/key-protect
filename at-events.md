@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-16"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -630,6 +630,7 @@ The following table lists the KMIP management actions that generate an event:
 | `kms.kmip-management.list` | List KMIP adapters, KMIP adapter client certificates, or KMIP objects. |
 | `kms.kmip-management.read` | Get a KMIP adapter, KMIP adapter client certificate, or KMIP object. |
 | `kms.kmip-management.default` | Invalid KMIP managmenet API request. |
+{: caption="KMIP management events" caption-side="bottom"}
 
 ### KMIP events
 {: #at-events-kmip-events}
@@ -645,6 +646,7 @@ The following table lists the KMIP protocol operation actions that generate an e
 | `kms.kmip.destroy` | Destroy a KMIP object. |
 | `kms.kmip.locate` | List KMIP objects. |
 | `kms.kmip.default` | Invalid KMIP operation request. |
+{: caption="KMIP protocol operation events" caption-side="bottom"}
 
 ## Analyzing failed events
 {: #at-events-analyze-failed}

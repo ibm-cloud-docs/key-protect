@@ -134,6 +134,4 @@ key.
 ## What's next
 {: #cos-integration-next-steps}
 
-- For more information about associating your storage buckets with
-{{site.data.keyword.keymanagementserviceshort}} keys, see
-[Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.
+- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.

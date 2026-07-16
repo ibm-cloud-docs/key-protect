@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-16"
 
 keywords: key alias, alias, key reference
 
@@ -28,12 +28,10 @@ subcollection: key-protect
 
 You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
-
 {: api}
 
 You can use {{site.data.keyword.keymanagementservicefull}} to create a key alias with the {{site.data.keyword.keymanagementserviceshort}} console.
 {: shortdesc}
-
 {: ui}
 
 Key aliases are unique human-readable names that are references to a key that allows it to be identified and grouped beyond the limits of a display name. Aliases enable your service to refer to a key by recognizable custom names, rather than the auto-generated identifier provided by the {{site.data.keyword.keymanagementserviceshort}} service. For example, if you create a key that has the the ID `02fd6835-6001-4482-a892-13bd2085f75d` and it is aliased as `US-South-Test-Key`, you can use the `US-South-Test-Key` alias to refer to your key when you make calls to the {{site.data.keyword.keymanagementserviceshort}} api to [retrieve a key](/docs/key-protect?topic=key-protect-retrieve-key) or its [metadata](/docs/key-protect?topic=key-protect-retrieve-key-metadata). The alias can also be used to organize keys in the {{site.data.keyword.keymanagementserviceshort}} console.

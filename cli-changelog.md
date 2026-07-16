@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-16"
 
 keywords: CLI plug-in, CLI changelog, Key Protect CLI
 
@@ -111,7 +111,7 @@ Support for the ability to [force the deletion of a key ring](/docs/key-protect?
 
 Also added the following info message that prints to `stderr` that says which {{site.data.keyword.keymanagementserviceshort}} endpoint a CLI action is going to hit.
 
-```
+```screen
 Listing KMIP Objects...
 OK
 Object ID                              Object Type     Object State   Created At                      Updated At   

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-07-16"
 
 keywords: import encryption key, Bring Your Own Key, BYOK, upload key
 
@@ -147,7 +147,7 @@ on-premises, you protect root keys while they're in flight to
 {{site.data.keyword.keymanagementserviceshort}} based on the policies that you
 specify. For example, you can set a policy on the import token that limits its
 use based on time and usage count.
-a
+
 ### How it works
 {: #how-import-tokens-work}
 
