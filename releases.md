@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-07-16"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,8 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+
 
 ## June 2026
 {: #key-protect-june26}
