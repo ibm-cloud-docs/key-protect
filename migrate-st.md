@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-16"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -361,7 +361,7 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 | [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
-| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=containers-migrate_hpcs_kp) |
+| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
 | [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
 | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
