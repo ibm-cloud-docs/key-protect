@@ -65,8 +65,6 @@ toc:
           - topicgroup:
               label: Dedicated
               topics:
-              - topic: st-init-cli.md
-                navtitle: Dedicated instance
               - topic: crypto-unit-states.md
           - topicgroup:
               label: Migrating from Hyper Protect Crypto Services
