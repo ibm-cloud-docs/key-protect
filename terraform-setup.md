@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-07-17"
 
 subcollection: key-protect
 
@@ -89,3 +89,14 @@ Now that you successfully created your first {{site.data.keyword.keymanagementse
 
 * [`ibm_kms_key`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key) - Create and manage encryption keys
 * [`ibm_kms_key_rings`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings) - Organize keys into key rings
+
+* [`ibm_kms_key_policies`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_policies) - Configure key rotation and dual authorization policies
+* [`ibm_kms_key_alias`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_alias) - Create key aliases
+* [`ibm_kms_kmip_adapter`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_kmip_adapters) - Manage KMIP adapters
+
+### Data Sources
+{: #data-sources}
+
+* [`ibm_kms_key`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key) - Retrieve key information
+* [`ibm_kms_keys`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_keys) - List keys in an instance
+* [`ibm_kms_key_policies`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies) - Retrieve key policies

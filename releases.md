@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-07-17"
 
 keywords: key protect, release notes, service updates
 
@@ -31,6 +31,15 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## July 2026
+{: #key-protect-july26}
+
+### 15 July 2026
+{: #key-protect-july1526}
+{: release-note}
+
+Terraform support for {{site.data.keyword.keymanagementserviceshort}} Dedicated
+:   You can now use Terraform to provision and manage {{site.data.keyword.keymanagementserviceshort}} Dedicated instances. Terraform support enables predictable and consistent creation of Dedicated instances following Infrastructure as Code (IaC) principles, allowing you to automate the creation, update, and deletion of your Dedicated instances by using HashiCorp Configuration Language (HCL). For more information, see [Setting up Terraform for {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision-ded-instance).
 
 
 ## June 2026
