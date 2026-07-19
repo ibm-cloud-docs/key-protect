@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-19"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5494,7 +5494,7 @@ COMMANDS:
 
 Enter 'ibmcloud key-protect crypto-unit help [command]' for more information about a command.
 ```
-If you encounter issues with the `kp crypto-unit` command, see [Troubleshooting](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-troubleshooting) section.
+If you encounter issues with the `kp crypto-unit` command, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init&interface=cli#crypto-unit-partial-failure) section.
 {: note}
 
 ### `zeroize`

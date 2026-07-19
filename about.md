@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-19"
 
 keywords: about Key Protect, about Key Management Service, Key Protect use cases, Standard Key Protect, Dedicated Key Protect, single-tenant, multi-tenant
 
@@ -21,7 +21,7 @@ subcollection: key-protect
 
 Both versions provide full-service encryption solutions that allow data to be secured and stored in {{site.data.keyword.cloud_notm}} by using envelope encryption techniques and cloud-based hardware security modules. Standard is a multi-tenant offering, where {{site.data.keyword.keymanagementserviceshort}} manages the isolation of keys and resources. Dedicated is single-tenant, offering full control of keys (master key and root keys) and confidential computing.
 
-All existing key operations (for example, key creations, rotations, deletions) are available for the Dedicated option in the console. However, initializing the service requires following CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-st-init-cli).
+All existing key operations (for example, key creations, rotations, deletions) are available for the Dedicated option in the console. However, initializing the service requires CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli).
 {: important}
 
 ## Overview of both offerings
@@ -180,7 +180,7 @@ Enhanced compliance
 Zero trust
 :   Infrastructure runs on Red Hat OpenShift Confidential Containers fortified by Intel TDX secure enclaves.
 
-All existing key operations (for example, key creations, rotations, deletions) are available in the console. However, initializing the service requires following CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-st-init-cli).
+All existing key operations (for example, key creations, rotations, deletions) are available in the console. However, initializing the service requires CLI instructions that can be found in [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}} by creating an instance, credentials, and a master key](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli).
 {: important}
 
 ### Dedicated-specific concepts
@@ -308,6 +308,6 @@ In {{site.data.keyword.keymanagementserviceshort}} Dedicated:
 {: #comparison-next-steps}
 
 * To get started with Standard {{site.data.keyword.keymanagementserviceshort}}, see [Provisioning the service](/docs/key-protect?topic=key-protect-provision).
-* To get started with Dedicated {{site.data.keyword.keymanagementserviceshort}}, see [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-st-init-cli).
+* To get started with Dedicated {{site.data.keyword.keymanagementserviceshort}}, see [Creating a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli).
 * For more information about your responsibilities when you use {{site.data.keyword.keymanagementserviceshort}}, see [Understanding your responsibilities](/docs/key-protect?topic=key-protect-shared-responsibilities).
 * To compare {{site.data.keyword.keymanagementserviceshort}} with other {{site.data.keyword.IBM_notm}} security services, see [Which data security service is best for me?](/docs/key-protect?topic=key-protect-manage-secrets-ibm-cloud)
