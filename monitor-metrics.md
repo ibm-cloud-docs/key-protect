@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-19"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -248,7 +248,7 @@ platform metrics, follow these steps:
 
 ![An example of the dashboard menu in {{site.data.keyword.mon_short}}.](images/monitor-dashboard-menu.png){: caption="The dashboard menu that lists the dashboards in your {{site.data.keyword.mon_short}} instances." caption-side="bottom"}
 
-Below are figures that show the metric views available to you on the default
+The following figures show the metric views available to you on the default
 dashboard.
 
 ![An example of a {{site.data.keyword.keymanagementserviceshort}} metrics dashboard.](images/monitor-operation-dash1.png){: caption="Some of the metrics available on the {{site.data.keyword.mon_short}} dashboard." caption-side="bottom"}

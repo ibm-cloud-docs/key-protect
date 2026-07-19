@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-17"
+lastupdated: "2026-07-19"
 
 keywords: key protect, release notes, service updates
 
@@ -632,7 +632,7 @@ Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will re
 {: release-note}
 
 Support for integrated services and resources
-:   You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to examine which root keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. For more information, see [View associations between root keys and {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources). This extra feature is available only if a cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information. Also, {{site.data.keyword.keymanagementserviceshort}} enabled extra security measures to protect against the accidental or malicious deletion of keys.
+:   You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to examine which root keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. For more information, see [View associations between root keys and {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources). This feature is available only if a cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information. Also, {{site.data.keyword.keymanagementserviceshort}} enabled additional security measures to protect against the accidental or malicious deletion of keys.
 
    - {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a root key that's actively protecting a cloud resource. To learn if a key is registered to cloud resource, you can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
    -  You can now [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete) that's protecting a cloud resource.

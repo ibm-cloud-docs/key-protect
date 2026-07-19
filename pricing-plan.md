@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-19"
 
 keywords: pricing plan, billing, cost
 
@@ -121,7 +121,7 @@ This can be done in the console by following these steps:
 
 3. From your {{site.data.keyword.cloud_notm}} resource list, select your provisioned instance of {{site.data.keyword.keymanagementserviceshort}}.
 
-4. In the left navigation, select the **Plans** page.
+4. In the navigation menu, select the **Plans** page.
 
 5. To change your pricing plan, select the desired plan and click **Save**. Your pricing plan has now been changed.
 

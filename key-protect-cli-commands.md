@@ -162,7 +162,7 @@ More commands for managing
 | [kp crypto-units](#kp-crypto-units) | | List crypto units allocated to an instance |
 {: caption="Commands for managing other resources" caption-side="bottom"}
 
-[Key aliases](#kp-key-alias-create) can be used as identifiers for methods as shown in examples for [key create](#kp-key-create-example-7), [key disable](#kp-key-disable-example-3), and anywhere you see 'Key ID or Alias' supported here.
+[Key aliases](#kp-key-alias-create) can be used as identifiers for methods as shown in examples for [key create](#kp-key-create-example-7), [key disable](#kp-key-disable-example-3), and anywhere you see `Key ID or Alias` supported here.
 {: note}
 
 ## Viewing help
@@ -1124,7 +1124,7 @@ Any base64-encoded string can be imported as a standard key. This example shows
 how to store credentials, not just encryption keys, in
 {{site.data.keyword.keymanagementserviceshort}}.
 
-Standard keys can be up to 7,500 bytes in size before base64-encoding.
+Standard keys can be up to 7,500 bytes before base64-encoding.
 
 ```sh
 # create a file with your credentials
@@ -1281,7 +1281,7 @@ ibmcloud kp key create KEY_NAME -i 40f2a13c-780e-4641-bea5-e166e5bb5a9f -D ""des
 
     Root keys must be 16, 24, or 32 bytes long; corresponding to 128, 192, or 256 bits. The key must be base64-encoded.
 
-    Standard keys can be up to 7,500 bytes in size. The key must be base64-encoded.
+    Standard keys can be up to 7,500 bytes. The key must be base64-encoded.
 
     If you are creating a key using an import token then this is the encrypted key from the `kp import-token key-encrypt` process.
 
@@ -5360,7 +5360,7 @@ Object ID                              Object Type     Object State   Created At
 #### Example 2
 {: #kp-kmip-object-get-examples2}
 
-Getting a KMIP Object as a JSON will show some extra attributes not visible in the normal table view.
+Getting a KMIP Object as a JSON will show additional attributes not visible in the normal table view.
 
 ```sh
 $ ibmcloud kp kmip object 12365a82-5404-4bd9-a4c7-2b628ee18304 -a testadapter -o json
