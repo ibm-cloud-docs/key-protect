@@ -65,6 +65,8 @@ toc:
           - topicgroup:
               label: Dedicated
               topics:
+              - topic: provision-ded-instance.md
+                navtitle: Creating a Dedicated instance
               - topic: crypto-unit-states.md
           - topicgroup:
               label: Migrating from Hyper Protect Crypto Services
