@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-19"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -87,7 +87,7 @@ If you have HPCS instances, you need to determine how you are using those resour
 
 | Method | Description | Considerations |
 |--------|-------------|----------------|
-| [Activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) | Provides factual indication of HPCS usage through logged events | Search for events by using the largest time window possible. Lack of events does not necessarily mean no usage. Usage can occur during rare events (for example, restart of an {{site.data.keyword.cloud_notm}} service instance) or between long intervals that might exceed the event retention period. |
+| [Activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) | Provides factual indication of HPCS usage through logged events | Search for events by using the maximum available time window. Lack of events does not necessarily mean no usage. Usage can occur during rare events (for example, restart of an {{site.data.keyword.cloud_notm}} service instance) or between long intervals that might exceed the event retention period. |
 | [Associations](/docs/hs-crypto?topic=hs-crypto-view-protected-resources&interface=ui) | Shows HPCS usage by {{site.data.keyword.cloud_notm}} resources | Lack of associations does not necessarily mean no usage due to the nature of distributed computing systems in which resources are not always in sync. Conversely, the presence of associations does not necessarily mean active usage. Associations can be stale. Some {{site.data.keyword.cloud_notm}} resources do not create or use associations. List associations by using the [`kp registrations` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations). |
 | [Sync associated resources](/docs/hs-crypto?topic=hs-crypto-sync-associated-resources&interface=ui) | Improves synchronization of associations | Use the [`kp key sync` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-sync) to explicitly sync associated resources and get more accurate association data. |
 | [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) | CLI tool provided by IBM that scans {{site.data.keyword.cloud_notm}} accounts and generates a report of resources that reference HPCS keys, which are grouped by KMS instance and key. Also, capable of processing activity tracking audit log files. | Discovery and reporting tool only. Does not perform migration actions. The tool might not detect all possible usages of keys. |
@@ -181,7 +181,7 @@ To identify {{site.data.keyword.cloud_notm}} services and software that are usin
 
 1. **Start with the Key Usage Reporter (KUR)** - The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool is the recommended starting point. It scans your {{site.data.keyword.cloud_notm}} accounts and generates a comprehensive report of resources that reference HPCS keys, which are grouped by service and key.
 
-2. **Cross-reference with Activity Tracking** - Review [HPCS activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) over the largest available time window to identify services that performed cryptographic operations. The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool can process activity tracking audit log files, producing CSV summaries that help identify HPCS utilization.
+2. **Cross-reference with Activity Tracking** - Review [HPCS activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) over the maximum available time window to identify services that performed cryptographic operations. The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool can process activity tracking audit log files, producing CSV summaries that help identify HPCS utilization.
 
 ## Classifying usage
 {: #migration-classify-usage}
@@ -361,7 +361,7 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 | [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
-| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=containers-migrate_hpcs_kp) |
+| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
 | [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
 | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
@@ -691,7 +691,7 @@ For more information, see [Setting up Terraform for Key Protect](/docs/key-prote
 
 The process for provisioning {{site.data.keyword.hscrypto}} instances differs from the process for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
-See [instructions](/docs/key-protect?topic=key-protect-st-init-cli) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
+See [instructions](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-provision) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
 ## Secure import of root key material
 {: #migration-secure-import}
@@ -712,7 +712,7 @@ After you complete the migration to {{site.data.keyword.keymanagementserviceshor
 
 After migration, inspect HPCS activity tracking events to confirm that no operations are performed against HPCS instances.
 
-Review events over the largest available retention window.
+Review events over the maximum available retention window.
 
 If activity tracking events indicate continued usage:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-16"
 
 keywords: list keys, view keys, retrieve encryption key
 
@@ -238,7 +238,7 @@ A successful `GET api/v2/keys` request returns a collection of keys that are ava
 
 By default, `GET api/v2/keys` returns your first 200 keys, but you can adjust this limit by using the `limit` parameter at query time. To learn more about `limit` and `offset`, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys&interface=api#retrieve-subset-keys-api).
 
-Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to help ensure you're assigned to the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-troubleshooting#unable-to-list-keys-api).
+Not seeing the full list of keys? You might need to use `limit` and `offset` or check with your administrator to help ensure you're assigned to the correct level access to keys in your instance. To learn more, see [Unable to view or list keys](/docs/key-protect?topic=key-protect-unable-to-list-specific-keys).
 {: tip}
 
 ### Retrieving a subset of keys

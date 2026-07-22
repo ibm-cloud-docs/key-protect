@@ -3,7 +3,7 @@
 copyright:
   years: 2024, 2026
 
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-21"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -264,7 +264,7 @@ The tool extracts the distinct account IDs from the TargetCRK column in the CSV,
 
 For each row in the CSV, the tool fetches all associations on the source HPCS key (the cloud resources encrypted by that key). The tool checks whether an IAM authorization policy exists that allows each associated service to use the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key.
 
-The tool also looks up the resource group of each target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance through the IBM Cloud resource controller API. This lookup enables the tool to match policies that are scoped to a resource group.
+When a candidate policy is scoped to a resource group, the tool uses the IBM Cloud resource controller API to look up the resource group of the relevant instance — the target {{site.data.keyword.keymanagementserviceshort}} Dedicated instance when the policy's resources are scoped by resourceGroupId, or the source instance when the policy's subjects are scoped by resourceGroupId. This allows the tool to match policies that are scoped to a resource group, such as a single policy that authorizes all services in a resource group to use {{site.data.keyword.keymanagementserviceshort}}, regardless of service type.
 
 For each association, the tool reports either:
 
@@ -287,7 +287,7 @@ A summary is printed at the end with the total number of checked, matched, and u
 
 An authorization policy matches an association when the following conditions are true:
 
-1. The policy's **subjects** (who is authorized) contain a `serviceName` and `accountId` that match the associated cloud service.
+1. The policy's **subjects** (who is authorized) contain an `accountId` that matches the associated cloud service, and are scoped by a `serviceName` that matches the service, a `resourceGroupId` that matches the resource group of the association's source instance, or both. A subject that is scoped by `accountId` alone does not match.
 2. The policy's **resources** (what is being accessed) contain a `serviceName` and `accountId` that match the target {{site.data.keyword.keymanagementserviceshort}} Dedicated key's service.
 3. The policy's **roles** grant appropriate access (`Reader`, `ReaderPlus`, `Writer`, or `Manager`).
 4. If the associated service requires it (for example, `databases-for-*`, `messages-for-rabbitmq`, `containers-kubernetes`), the policy also includes the `AuthorizationDelegator` role.

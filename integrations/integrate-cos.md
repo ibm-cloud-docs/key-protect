@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-16"
 
 keywords: Key Protect integration, integrate COS with Key Protect, encrypt COS bucket
 
@@ -88,7 +88,7 @@ Figure 1 shows how {{site.data.keyword.keymanagementserviceshort}}
 integrates with {{site.data.keyword.cos_full_notm}} to further secure your
 encryption keys.
 
-![The figure shows a contextual view of envelope encryption.](/images/kp-cos-envelope.svg){: caption="Contextual view of envelope encryption." caption-side="bottom"}
+![The figure shows a contextual view of envelope encryption.](../images/kp-cos-envelope.svg){: caption="Contextual view of envelope encryption." caption-side="bottom"}
 
 To learn more about how envelope encryption works in
 {{site.data.keyword.keymanagementserviceshort}}, see
@@ -134,6 +134,4 @@ key.
 ## What's next
 {: #cos-integration-next-steps}
 
-- For more information about associating your storage buckets with
-{{site.data.keyword.keymanagementserviceshort}} keys, see
-[Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.
+- For more information about associating your storage buckets with {{site.data.keyword.keymanagementserviceshort}} keys, see [Manage encryption](/docs/cloud-object-storage?topic=cloud-object-storage-encryption#encryption){: external}.

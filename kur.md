@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-15"
 
 keywords: key usage reporter, KUR, encryption report, key scan, activity tracking, audit logs
 
@@ -208,7 +208,7 @@ The following table lists all available command-line flags for the Key Usage Rep
 | `--service-type`       | (None) | Filter KMS instances by type: `dedicated` or `multi-tenant`. Only valid with `-service kms`. |
 | `--skip-private-calls` | `false` | Skip REST calls to private endpoints. Instances without a public endpoint are skipped. |
 | `--debug`              | `false` | Enable debug mode: show detailed log messages on stderr |
-| `--output`             | Auto-named | Output file path. Defaults to `encryption-key-usage-report-<service>-<account-name>.json` |
+| `--output`             | Auto-named | Output file path. Defaults to `encryption-key-usage-report-<service>[-<service-type>]-<account-name>.json`. The `<service-type>` segment is included only when `--service-type` is specified (for example, `encryption-key-usage-report-kms-dedicated-my-account.json`). |
 {: caption="Table 1. CLI flags for the Key Usage Reporter tool" caption-side="bottom"}
 
 Flags can use single dash (`-flag`) or double dash (`--flag`).
@@ -286,7 +286,7 @@ Resources that reference encryption identifiers that match a CRN pattern but not
 ### Unknowns
 {: #kur-unknowns}
 
-Resources that reference encryption identifiers that could not be parsed as CRNs at all are listed here.
+Resources for which no Key Protect or HPCS key CRN could be identified are listed here. This grouping includes resources whose encryption identifier could not be parsed as a CRN, resources that referenced only a KMS instance CRN rather than a specific key, and resources with an unrecognized string. These resources are grouped under a single entry with an id of unknown, so that no resources are silently dropped.
 
 ### Example instance entry
 {: #kur-example-instance}

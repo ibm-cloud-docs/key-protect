@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-19"
 
 keywords: key protect, release notes, service updates
 
@@ -31,15 +31,36 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## July 2026
+{: #key-protect-july26}
+
+### 15 July 2026
+{: #key-protect-july1526}
+{: release-note}
+
+Terraform support for {{site.data.keyword.keymanagementserviceshort}} Dedicated
+:   You can now use Terraform to provision and manage {{site.data.keyword.keymanagementserviceshort}} Dedicated instances. Terraform support enables predictable and consistent creation of Dedicated instances following Infrastructure as Code (IaC) principles, allowing you to automate the creation, update, and deletion of your Dedicated instances by using HashiCorp Configuration Language (HCL). For more information, see [Setting up Terraform for {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision-ded-instance).
+
+
 ## June 2026
-{: #key-protect-may26}
+{: #key-protect-june26}
 
 ### 11 June 2026
-{: #key-protect-may1226}
+{: #key-protect-june1226}
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}} Dedicated availability in Madrid
 :   {{site.data.keyword.keymanagementserviceshort}} announces the `eu-es` (Madrid) availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated. This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM to the Madrid MZR, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+## May 2026
+{: #key-protect-may2026}
+
+### 11 May 2026
+{: #key-protect-may1126}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} is now available in the Mumbai - Airtel region
+:   {{site.data.keyword.keymanagementserviceshort}} announces the `in-mum` (Mumbai - Airtel, India) region is now generally available. For more information about public and private endpoints for this region, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
 
 ## March 2026
 {: #key-protect-mar26}
@@ -54,6 +75,19 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 {{site.data.keyword.keymanagementserviceshort}} announces the `us-south` (Dallas, Texas, United States) availability of:
 :   {{site.data.keyword.keymanagementserviceshort}} Dedicated, a single-tenant offering featuring a user owned and managed HSM, FIPS 140-3 Level 4 certification (pending), keep your own key (KYOK) capability, master key management, and workload isolation. For more information, check out [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+## February 2026
+{: #key-protect-feb26}
+
+### 09 February 2026
+{: #key-protect-feb0926}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} is now available in the Chennai - Airtel region
+:   {{site.data.keyword.keymanagementserviceshort}} announces the `in-che` (Chennai - Airtel, India) region is now generally available. For more information about the regions in which {{site.data.keyword.keymanagementserviceshort}} is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions).
+
+Access to the Chennai region is allowlisted. If this region is not available to you, open a [support ticket](https://www.ibm.com/mysupport/s/){: external}.
+{: important}
 
 
 
@@ -598,7 +632,7 @@ Beginning in April 2020, {{site.data.keyword.keymanagementserviceshort}} will re
 {: release-note}
 
 Support for integrated services and resources
-:   You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to examine which root keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. For more information, see [View associations between root keys and {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources). This extra feature is available only if a cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information. Also, {{site.data.keyword.keymanagementserviceshort}} enabled extra security measures to protect against the accidental or malicious deletion of keys.
+:   You can now use {{site.data.keyword.keymanagementserviceshort}} REST APIs to examine which root keys are actively protecting what data so that you can evaluate exposures based on your organization's security or compliance needs. For more information, see [View associations between root keys and {{site.data.keyword.cloud_notm}} resources](/docs/key-protect?topic=key-protect-view-protected-resources). This feature is available only if a cloud service has enabled it as part of its integration with {{site.data.keyword.keymanagementserviceshort}}. To learn if an [integrated service](/docs/key-protect?topic=key-protect-integrate-services) supports key registration, refer to its service documentation for more information. Also, {{site.data.keyword.keymanagementserviceshort}} enabled additional security measures to protect against the accidental or malicious deletion of keys.
 
    - {{site.data.keyword.keymanagementserviceshort}} now blocks the deletion of a root key that's actively protecting a cloud resource. To learn if a key is registered to cloud resource, you can [review the resources](/docs/key-protect?topic=key-protect-view-protected-resources) that are associated with the key.
    -  You can now [force deletion on a key](/docs/key-protect?topic=key-protect-delete-keys#delete-keys-force-delete) that's protecting a cloud resource.

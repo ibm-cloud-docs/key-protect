@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-07-17"
 
 subcollection: key-protect
 
@@ -21,9 +21,6 @@ Looking for a managed Terraform on {{site.data.keyword.cloud}} solution? Try out
 
 ## Installing Terraform and configuring resources for {{site.data.keyword.keymanagementserviceshort}}
 {: #install-terraform}
-
-Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance is available through the {{site.data.keyword.cloud}} console UI and the IBM Cloud CLI. Creating new {{site.data.keyword.keymanagementserviceshort}} Dedicated instances with Terraform is not supported. you can, however, use Terraform to provision resources like keys. To do this, the environment variable `IBMCLOUD_KP_API_ENDPOINT` must be set to the public or private API endpoint of the specific {{site.data.keyword.keymanagementserviceshort}} Dedicated instance.
-{: important}
 
 Before you can create an authorization by using Terraform, make sure that you have completed the following:
 
@@ -81,10 +78,25 @@ Before you can create an authorization by using Terraform, make sure that you ha
 4. From the [{{site.data.keyword.cloud_notm}} resource list](/resources){: external}, select the {{site.data.keyword.keymanagementserviceshort}} instance that you created and note the instance ID.
 5. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/iam?topic=iam-assign-access-resources&interface=ui#review-your-access-console).
 
+
 ## What's next?
 {: #terraform-setup-next}
 
-Now that you successfully created your first {{site.data.keyword.keymanagementserviceshort}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, you can choose between the following tasks:
+Now that you successfully created your first {{site.data.keyword.keymanagementserviceshort}} service instance with Terraform, explore these resources:
 
-* [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key)
-* [kms_key_rings](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings)
+### Resources
+{: #resources}
+
+* [`ibm_kms_key`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key) - Create and manage encryption keys
+* [`ibm_kms_key_rings`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_rings) - Organize keys into key rings
+
+* [`ibm_kms_key_policies`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_policies) - Configure key rotation and dual authorization policies
+* [`ibm_kms_key_alias`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_key_alias) - Create key aliases
+* [`ibm_kms_kmip_adapter`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/kms_kmip_adapters) - Manage KMIP adapters
+
+### Data Sources
+{: #data-sources}
+
+* [`ibm_kms_key`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key) - Retrieve key information
+* [`ibm_kms_keys`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_keys) - List keys in an instance
+* [`ibm_kms_key_policies`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key_policies) - Retrieve key policies

@@ -56,17 +56,18 @@ toc:
           label: Setting up the service
           topics:
           - topicgroup:
-              label: Creating an instance
+              label: Standard
               topics:
               - topic: provision.md
-                navtitle: Standard
-              - topic: st-init-cli.md
-                navtitle: Dedicated
-              - topic: crypto-unit-states.md
+                navtitle: Creating a Standard instance
+              - topic: terraform-setup.md
+                navtitle: Setting up Terraform
           - topicgroup:
-              label: Setting up Terraform
+              label: Dedicated
               topics:
-              - terraform-setup.md
+              - topic: provision-ded-instance.md
+                navtitle: Creating a Dedicated instance
+              - topic: crypto-unit-states.md
           - topicgroup:
               label: Migrating from Hyper Protect Crypto Services
               topics:
@@ -170,4 +171,18 @@ toc:
       - topic: FAQs.md
         navtitle: FAQ
       - error-messages.md
-      - troubleshooting.md
+      - topicgroup:
+          label: Troubleshooting
+          topics:
+          - topic: ts-unable-to-create-keys.md
+            navtitle: Unable to create keys
+          - topic: ts-unable-to-authenticate-api.md
+            navtitle: Unable to authenticate through the API
+          - topic: ts-unable-to-list-keys-api.md
+            navtitle: Unable to view or list keys
+          - topic: ts-unable-to-list-specific-keys.md
+            navtitle: Unable to view or list specific keys
+          - topic: ts-unable-to-delete-keys.md
+            navtitle: Unable to delete keys
+          - topic: ts-getting-help.md
+            navtitle: Getting help and support

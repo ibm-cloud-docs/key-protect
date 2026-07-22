@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-16"
 
 keywords: import standard encryption key, import secret, upload secret
 
@@ -17,12 +17,10 @@ subcollection: key-protect
 
 You can add your existing encryption keys by using the {{site.data.keyword.cloud_notm}} console.
 {: shortdesc}
-
 {: ui}
 
 You can add your existing encryption keys programmatically with the {{site.data.keyword.keymanagementserviceshort}} API.
 {: shortdesc}
-
 {: api}
 
 ## Importing standard keys with the console

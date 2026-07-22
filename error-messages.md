@@ -1,8 +1,9 @@
 ---
 
 copyright:
-years: 2020, 2026
-lastupdated: "2026-06-22"
+  years: 2020, 2026
+
+lastupdated: "2026-07-16"
 
 keywords: Key Protect, error messages, error codes
 
@@ -652,7 +653,7 @@ curl -X POST \
 
 The response:
 
-```
+```json
 {
     "metadata": {
         "collectionType": "application/vnd.ibm.kms.error+json",
@@ -1050,7 +1051,7 @@ $ curl -X POST \
 ```
 {: codeblock}
 
-##### JSON response
+##### JSON response: expired key enable attempt
 {: #act-invld-state-err-cxt-ex-2-json-2}
 
 ```json
@@ -1440,7 +1441,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-#### JSON response from ibmcloud API
+#### JSON response from ibmcloud API (example 2)
 {: #key-create-import-access-err-ex-json-2}
 
 ```json
@@ -1581,7 +1582,7 @@ $ curl -X POST \
 ```
 {: codeblock}
 
-#### JSON response
+#### JSON response: unwrap key
 {: #no-body-err-cxt-ex-json-2}
 
 ```json
@@ -2273,7 +2274,7 @@ $ curl -X POST \
 ```
 {: codeblock}
 
-##### JSON response
+##### JSON response: expired key restore attempt
 {: #key-expired-err-cxt-ex-json-2}
 
 ```json
@@ -2540,7 +2541,7 @@ $ curl -X GET \
 ```
 {: codeblock}
 
-##### JSON response
+##### JSON response: retrieve expired import token
 {: #token-expired-err-cxt-ex-1-json-2}
 
 ```json
@@ -2741,7 +2742,7 @@ $ curl -X POST \
 ```
 {: codeblock}
 
-##### JSON response
+##### JSON response: set key for deletion error
 {: #not-dual-auth-err-cxt-ex-1-json-2}
 
 ```json
@@ -2779,7 +2780,7 @@ $ curl -X POST \
 ```
 {: codeblock}
 
-##### JSON response
+##### JSON response: unset key for deletion error
 {: #not-dual-auth-err-cxt-ex-1-json-3}
 
 ```json

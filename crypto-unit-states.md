@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-07-19"
 
 keywords: crypto unit, crypto unit states, reserved, claimed, initialized, kms-authorized, kms-initialized, maintenance
 
@@ -30,10 +30,10 @@ The following table describes the different states that a crypto unit can be in 
 
 | State | Description | Recommended next step |
 |-------|-------------|----------------------|
-| `reserved` | The crypto unit is uninitialized. This is the initial state when you first provision an instance. The crypto unit must be fully initialized to enable {{site.data.keyword.keymanagementserviceshort}} operations. | Follow the [initialization documentation](/docs/key-protect?topic=key-protect-st-init-cli) in its entirety. |
-| `claimed` | The crypto unit has been [claimed](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-generate-admin). The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | [Upload the master key](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-crypto-units-master-key) and permit the `kmsCryptoUser` identity. |
-| `initialized` | The master key has been [uploaded](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-crypto-units-master-key) to the crypto unit. The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | Permit the `kmsCryptoUser` identity to complete initialization. |
-| `kms-authorized` | The `kmsCryptoUser` identity has been permitted to the crypto unit. The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | [Upload the master key](/docs/key-protect?topic=key-protect-st-init-cli#st-init-cli-crypto-units-master-key) to complete initialization. |
+| `reserved` | The crypto unit is uninitialized. This is the initial state when you first provision an instance. The crypto unit must be fully initialized to enable {{site.data.keyword.keymanagementserviceshort}} operations. | Follow the [initialization documentation](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli) in its entirety. |
+| `claimed` | The crypto unit has been [claimed](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-claim-crypto-units). The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | [Upload the master key](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-master-key) and permit the `kmsCryptoUser` identity. |
+| `initialized` | The master key has been [uploaded](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-master-key) to the crypto unit. The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | Permit the `kmsCryptoUser` identity to complete initialization. |
+| `kms-authorized` | The `kmsCryptoUser` identity has been permitted to the crypto unit. The crypto unit is not yet fully initialized to support {{site.data.keyword.keymanagementserviceshort}} operations. | [Upload the master key](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-master-key) to complete initialization. |
 | `kms-initialized` | The crypto unit is fully initialized and ready for use with {{site.data.keyword.keymanagementserviceshort}} operations. | No action required. Note that it might take a few minutes after reaching this state for operations to become available. |
 | `maintenance` | The {{site.data.keyword.keymanagementserviceshort}} service team is performing maintenance, upgrades, or security patches on the hardware backing the crypto unit. A crypto unit in maintenance state is not used for operations. | No action required. Wait for maintenance to complete. During this period, instances under high request load might experience minor performance degradation. |
 {: caption="Table 1. Crypto unit states" caption-side="bottom"}

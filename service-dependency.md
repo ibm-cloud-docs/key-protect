@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-07-16"
 
 keywords:
 
@@ -130,7 +130,7 @@ This table can be used to answer the following questions:
 
 - **Where do dependency services need to be deployed regarding my service?** In the Location of dependency column you can view if the dependency is located in the same region or deployed to a specific data center. You can use this data with the data in the Control or data plane column for a quick reference to identify if your data leaves the region or not in a standard setup.
 
-   To find where your service can be deployed, see [Service and infrastructure availability by location](https://cloud.ibm.com/docs/overview?topic=overview-services_region){: external}.
+   To find where your service can be deployed, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region){: external}.
 
    The table shows a standard cloud deployment. If a special deployment is used like Fedramp or other region-bound deployment models, the data might differ from the details available in the table. Refer to the specific deployment that you are using for that information.
    {: note}
@@ -143,5 +143,5 @@ This table can be used to answer the following questions:
 For more information about the policies that are related to the services, you can refer to the following resources:
 
 * [Service Level Agreement](https://www.ibm.com/support/customer/csol/terms/?id=i126-6605&lc=en){: external}
-* [Shared responsibilities for using {{site.data.keyword.cloud_notm}} products](https://cloud.ibm.com/docs/overview?topic=overview-shared-responsibilities){: external}
-* [Service and infrastructure availability by location](https://cloud.ibm.com/docs/overview?topic=overview-services_region){: external}
+* [Shared responsibilities for using {{site.data.keyword.cloud_notm}} products](/docs/overview?topic=overview-shared-responsibilities){: external}
+* [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region){: external}

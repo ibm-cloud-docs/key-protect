@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-19"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -31,7 +31,7 @@ Because {{site.data.keyword.keymanagementserviceshort}} is a key management syst
 
 These varying kinds of access are analogous to many kinds of life situations. A person might be the founder and CEO of a company and yet only be a regular member of a local club, and likewise have no authority at all to write traffic tickets. In a similar way, {{site.data.keyword.keymanagementserviceshort}} roles are assigned within the context of a specific part of {{site.data.keyword.keymanagementserviceshort}}, although to make things simpler, {{site.data.keyword.keymanagementserviceshort}} does define "default" roles over certain resources unless specified otherwise (which we'll discuss in more detail later).
 
-There are two main areas of administration for almost all {{site.data.keyword.cloud_notm}} products: the **account** (also known as the "platform"), and the **service instances** owned by the account. A large bank, for example, might have only one account (controlled by executive leadership) and separate service instances for each of the organizational units within the bank (for example, one unit might manage bank accounts while another manages loans). While it is likely that users with rights at the account level will also have rights over the various instances (and perhaps, though not always, the other way around), note that the names given to account roles are different than those for the roles within the service instances, reflecting this difference between account roles and service instance roles. For more information on those roles, their names, and their permissions, check out [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions).
+There are two main areas of administration for almost all {{site.data.keyword.cloud_notm}} products: the **account** (also known as the "platform"), and the **service instances** owned by the account. A multinational bank, for example, might have only one account (controlled by executive leadership) and separate service instances for each of the organizational units within the bank (for example, one unit might manage bank accounts while another manages loans). While it is likely that users with rights at the account level will also have rights over the various instances (and perhaps, though not always, the other way around), note that the names given to account roles are different than those for the roles within the service instances, reflecting this difference between account roles and service instance roles. For more information on those roles, their names, and their permissions, check out [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions).
 
 ## How IAM access works
 {: #grant-access-keys-how-access}

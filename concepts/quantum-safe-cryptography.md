@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-19"
 
 keywords: post-quantum cryptography, quantum cryptography, post-quantum TLS
 
@@ -39,7 +39,7 @@ computers cannot break.
 
 When these quantum cryptographic algorithms are used for TLS communication, the
 security of the public key exchange between the client and server are expected
-to have higher security levels than the current RSA and ECC algorithms. {{site.data.keyword.keymanagementserviceshort}} has adopted a hybrid method that combines both NIST evaluation round 2 post-quantum algorithm and current ECC algorithms to protect in-transit data.
+to have higher security levels than the current RSA and ECC algorithms. {{site.data.keyword.keymanagementserviceshort}} has adopted a hybrid method that combines both NIST evaluation phase 2 post-quantum algorithm and current ECC algorithms to protect in-transit data.
 
 ## Why is post-quantum TLS important?
 {: #quantum-safe-cryptography-importance}
@@ -48,9 +48,9 @@ As quantum computing continues to evolve and advance, a powerful quantum compute
 will be able to run a
 ["SHOR" algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm){: external}
 that can break the current TLS communication algorithms (RSA/ECC) in a matter of
-minutes. While large quantum computers are not available today, any TLS
+minutes. While powerful quantum computers are not available today, any TLS
 data-in-transit that has been snooped and stored can be breached when these
-large quantum computers are made available. Data has a long shelf life so it is
+powerful quantum computers are made available. Data has a long shelf life so it is
 critical that {{site.data.keyword.keymanagementserviceshort}} supports quantum
 safe cryptographic algorithms to secure TLS communications.
 
