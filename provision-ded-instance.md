@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-07-21"
+lastupdated: "2026-07-29"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -16,7 +16,7 @@ content-type: howto
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance
-{: #provision-ded-instance}
+{: #st-init-cli}
 
 Learn how to provision and initialize a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance, create and manage encryption keys using the console, CLI, or Terraform, and integrate with {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
@@ -1088,4 +1088,3 @@ Now that you have set up Dedicated {{site.data.keyword.keymanagementserviceshort
 {: #getting-started-dedicated-features}
 
 For more information about Dedicated {{site.data.keyword.keymanagementserviceshort}} features and capabilities, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
-
