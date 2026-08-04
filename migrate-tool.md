@@ -3,7 +3,7 @@
 copyright:
   years: 2024, 2026
 
-lastupdated: "2026-07-21"
+lastupdated: "2026-07-30"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -111,7 +111,7 @@ chmod +x <crkm-binary>
     `.log` output file
     :   Created after the operation completes, with `summary` in the file name, the operation name, and the date-time of command run. The file provides an overview of the status of keys with migration intents and their number of associations.
 
-- The `delete` operation produces only the `execution` `.csv` file.
+- The `get` and `delete` operations produce only the `execution` `.csv` file.
 
 - The `status` operation is useful for verifying that your input file is correctly formatted, because this command takes no action. You can use the same input file repeatedly without removing keys that are fully migrated, as the status indicates why the operation was not performed.
 
@@ -184,13 +184,13 @@ export KP_ST_API_ENDPOINT=https://fadedbee-0000-0000-0000-1234567890ab.api.us-so
 ```
 {: pre}
 
-For the `status`, `create`, `sync`, and `delete` commands, associate the API keys with IAM identities that have the following service access roles:
+For the `status`, `create`, `sync`, `get`, and `delete` commands, ensure that the API keys are associated with the IAM identities that have the following service access roles:
 
 IBMCLOUD_API_KEY (HPCS)
-: Requires the Manager service access role. Service access roles are additive, so Manager includes Reader and Writer, covering all four commands. The Manager role is required because the delete command and the create command with the --replace-mi option remove a migration intent from the source key.
+: Requires the `Manager` service access role. Service access roles are additive, so `Manager` includes `Reader` and `Writer`, covering all five commands. The `Manager` role is required because the `delete` command and the `create` command with the `--replace-mi` option helps to remove a migration intent from the source key.
 
 IBMCLOUD_API_KEY_KP_ST ({{site.data.keyword.keymanagementserviceshort}} Dedicated)
-: Requires the Reader service access role. These commands only read the target key, so Reader is sufficient. The delete command does not access {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+: Requires the `Reader` service access role. The `status`, `create`, `sync`, `get`, and `delete` commands only read the target key, so the `Reader` role is sufficient. The `get` and `delete` commands do not access {{site.data.keyword.keymanagementserviceshort}} Dedicated.
 
 The authz-check command requires different service access roles than the other commands. For more information, see Checking IAM authorization policies.
 
@@ -341,12 +341,47 @@ If the number of associations of an HPCS key was not zero at the start of the mi
 
 If you observe issues in the status column or the number of HPCS associations (`KpStAssociationsCount`) is still nonzero, see [troubleshooting](#migrate-tool-troubleshoot).
 
+## Retrieving migration intents
+{: #migrate-tool-get}
+
+Use the `get` operation to retrieve the migration intent of one or more HPCS keys. For each key, the operation checks whether a migration intent exists. If one exists, the migration intent properties are returned (ID, source CRK, target CRK, creator, and creation date). If no migration intent exists, a message indicates that none was found. The `get` operation is read-only and takes no action on the keys.
+
+The `status` operation reports the overall migration progress for each key. The `get` operation shows the details of the migration intent itself. Use the `get` operation to confirm which target key a migration intent points to before you run `sync`, or to check a single key without preparing a `.csv` file.
+{: note}
+
+Like `delete`, the `get` operation accepts either a `.csv` input file or a single HPCS key CRN.
+
+To retrieve the migration intents for every HPCS key in a `.csv` file, use the following command:
+
+```sh
+./<crkm-binary> get <.csv input file>
+```
+{: pre}
+
+To retrieve the migration intent for a single HPCS key by passing its full CRN, use the following command:
+
+```sh
+./<crkm-binary> get <HPCS key CRN>
+```
+{: pre}
+
+Example:
+
+```sh
+./<crkm-binary> get crn:v1:bluemix:public:hs-crypto:eu-fr2:a/00000000000000000000000000000000:deadbeef-0000-0000-0000-1234567890ab:key:deadbeef-0000-0000-0000-1234567890ab
+```
+{: pre}
+
+When you pass a `.csv` input file, the target key of each existing migration intent is compared with the target key in the second column of the file. If they differ, a warning is displayed. This comparison helps you detect a migration intent that was created with a target key you later changed in your input file. To update the migration intent to the target key in the file, use the `create` operation with the `--replace-mi` flag. No warning is displayed when you pass a single CRN, because there is no target key to compare against.
+
+The `get` operation acts only on the source HPCS key. Therefore, only the `HPCS_API_ENDPOINT` and `IBMCLOUD_API_KEY` environment variables are required. The {{site.data.keyword.keymanagementserviceshort}} Dedicated variables are not required. On the HPCS instance, the `Reader` service access role is sufficient.
+
 ## Deleting migration intents
 {: #migrate-tool-delete}
 
-Use the `delete` operation to remove the migration intent from one or more HPCS keys. For example, use this operation to undo a migration intent that was created with the wrong target key before migration begins. For each key, the tool checks whether a migration intent exists. If one exists, the tool prints the migration intent's properties (ID, source CRK, target CRK, creator, and creation date) and then deletes it. If no migration intent exists, the tool reports that none was found.
+Use the `delete` operation to remove the migration intent from one or more HPCS keys. For example, use this operation to undo a migration intent that was created with the wrong target key before migration begins. For each key, the operation checks whether a migration intent exists. If one exists, the migration intent properties are returned (ID, source CRK, target CRK, creator, and creation date) and the migration intent is deleted. If no migration intent exists, a message indicates that none was found.
 
-Unlike other operations, the `delete` operation accepts either a `.csv` input file or a single HPCS key CRN.
+Like the `get` operation, `delete` accepts either a `.csv` input file or a single HPCS key CRN. Other operations require a `.csv` file.
 
 To delete the migration intents for every HPCS key in a `.csv` file, use the following command:
 

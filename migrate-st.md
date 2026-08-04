@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-07-28"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -679,19 +679,16 @@ Refer to the [UKO Migration Guide](/docs/hs-crypto?topic=hs-crypto-migration-gui
 ## Terraform
 {: #migration-terraform}
 
-To use Terraform with {{site.data.keyword.keymanagementserviceshort}} Dedicated, the environment variable `IBMCLOUD_KP_API_ENDPOINT` must be set to the public or private API endpoint of the specific {{site.data.keyword.keymanagementserviceshort}} Dedicated instance.
+Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance with Terraform supported.
 
-Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance is available through the IBM Cloud Console UI and the IBM Cloud CLI.
-Creating new {{site.data.keyword.keymanagementserviceshort}} Dedicated instances with Terraform is not supported.
-
-For more information, see [Setting up Terraform for Key Protect](/docs/key-protect?topic=key-protect-terraform-setup#install-terraform)
+For more information, see [Creating a Dedicated Key Protect instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=terraform)
 
 ## Instance provisioning by using the IBM Cloud CLI
 {: #migration-cli}
 
 The process for provisioning {{site.data.keyword.hscrypto}} instances differs from the process for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
-See [instructions](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-provision) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
+See [instructions](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
 ## Secure import of root key material
 {: #migration-secure-import}
