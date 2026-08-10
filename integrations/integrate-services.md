@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-08-10"
 
 keywords: Key Protect integration, integrate service with Key Protect
 
@@ -40,7 +40,6 @@ following **database** services.
 | ------- | ----------- | ----- |
 | [{{site.data.keyword.cloudant_short_notm}} for {{site.data.keyword.cloud_notm}} ({{site.data.keyword.cloud_notm}} Dedicated)](/docs/Cloudant?topic=Cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: external} | {{site.data.keyword.cloudant_short_notm}} is a document-oriented database as a service (DBaaS). It stores data as documents in JSON format. | [View docs](/docs/Cloudant?topic=Cloudant-securing-your-data-in-cloudant){: external} |
 | [{{site.data.keyword.databases-for-elasticsearch_full_notm}}](/docs/databases-for-elasticsearch){: external} | {{site.data.keyword.databases-for-elasticsearch_full_notm}} is a managed Elasticsearch service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
-| [{{site.data.keyword.databases-for-etcd_full_notm}}](/docs/databases-for-etcd){: external} | {{site.data.keyword.databases-for-etcd_full_notm}} is a managed etcd service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-mongodb_full_notm}}](/docs/databases-for-mongodb){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MongoDB service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-mysql_fullnotm}}](/docs/databases-for-mysql){: external} | {{site.data.keyword.databases-for-mongodb_full_notm}} is a managed MySQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
 | [{{site.data.keyword.databases-for-postgresql_full_notm}}](/docs/databases-for-postgresql){: external} | {{site.data.keyword.databases-for-postgresql_full_notm}} is a managed PostgreSQL service that is hosted in the {{site.data.keyword.cloud_notm}} and integrated with other {{site.data.keyword.cloud_notm}} services. | [View docs](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui){: external} |
