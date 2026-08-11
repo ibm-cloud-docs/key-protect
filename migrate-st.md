@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-28"
+lastupdated: "2026-08-11"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -681,14 +681,14 @@ Refer to the [UKO Migration Guide](/docs/hs-crypto?topic=hs-crypto-migration-gui
 
 Provisioning a new {{site.data.keyword.keymanagementserviceshort}} Dedicated instance with Terraform supported.
 
-For more information, see [Creating a Dedicated Key Protect instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=terraform)
+For more information, see [Creating a Dedicated Key Protect instance](/docs/key-protect?topic=key-protect-st-init-cli&interface=terraform)
 
 ## Instance provisioning by using the IBM Cloud CLI
 {: #migration-cli}
 
 The process for provisioning {{site.data.keyword.hscrypto}} instances differs from the process for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
-See [instructions](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
+See [instructions](/docs/key-protect?topic=key-protect-st-init-cli&interface=cli) for provisioning {{site.data.keyword.keymanagementserviceshort}} Dedicated instances by using the IBM Cloud CLI.
 
 ## Secure import of root key material
 {: #migration-secure-import}

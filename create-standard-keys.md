@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-08-11"
 
 keywords: create standard encryption key, create secret, standard encryption key examples
 
@@ -25,7 +25,7 @@ You can create a standard encryption key using the {{site.data.keyword.keymanage
 [After you create an instance of the service](/docs/key-protect?topic=key-protect-provision), complete the following steps to create a standard key in the {{site.data.keyword.cloud_notm}} console.
 
 
-If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-initialize) before you can create any resources.
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli&interface=cli#getting-started-initialize) before you can create any resources.
 {: important}
 
 
@@ -65,7 +65,7 @@ For an overview, see [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraf
 {: api}
 
 
-If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-initialize) before you can create any resources.
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli&interface=cli#getting-started-initialize) before you can create any resources.
 {: important}
 
 
