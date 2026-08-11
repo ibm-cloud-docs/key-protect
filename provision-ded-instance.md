@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-07-29"
+lastupdated: "2026-08-11"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -70,7 +70,7 @@ You can create a Dedicated instance of {{site.data.keyword.keymanagementservices
 
 6. Click **Create** to provision your instance.
 
-The provisioning process can take several minutes. After provisioning, you must initialize your instance using CLI before you can create keys. For more information, see [Initializing your Dedicated instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli#getting-started-initialize).
+The provisioning process can take several minutes. After provisioning, you must initialize your instance using CLI before you can create keys. For more information, see [Initializing your Dedicated instance](/docs/key-protect?topic=key-protect-st-init-cli&interface=cli#getting-started-initialize).
 {: important}
 
 ### Provisioning from the CLI

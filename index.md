@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-08-11"
 
 keywords: key management service, manage encryption keys, data encryption, getting started
 
@@ -32,7 +32,7 @@ subcollection: key-protect
 For a version of this tutorial that talks about the process of creating or importing keys into {{site.data.keyword.keymanagementserviceshort}}, check out [Creating and importing encryption keys](/docs/key-protect?topic=key-protect-tutorial-import-keys).
 
 
-If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-provision-ded-instance&interface=cli) before you can create any resources.
+If you deploy the [Dedicated {{site.data.keyword.keymanagementserviceshort}} offering](/docs/key-protect?topic=key-protect-about), you must first [initialize your instance](/docs/key-protect?topic=key-protect-st-init-cli&interface=cli) before you can create any resources.
 {: important}
 
 
