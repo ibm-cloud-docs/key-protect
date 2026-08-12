@@ -184,5 +184,7 @@ toc:
             navtitle: Unable to view or list specific keys
           - topic: ts-unable-to-delete-keys.md
             navtitle: Unable to delete keys
+          - topic: ts-initialization-issues.md
+            navtitle: Unable to initialize Dedicated Key Protect
           - topic: ts-getting-help.md
             navtitle: Getting help and support
