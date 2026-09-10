@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-10"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -720,20 +720,6 @@ If activity tracking events indicate continued usage:
 Lack of activity tracking events does not conclusively prove the absence of usage. Some services and custom apps use keys infrequently or only during lifecycle events such as restart, restore, or failover.
 {: tip}
 
-### Gradually disable migrated HPCS CRKs
-{: #migration-disable-keys}
-
-After you are confident that specific HPCS CRKs are no longer required, you can disable those CRKs.
-
-Disabling CRKs is recommended before deletion because:
-- Any remaining cryptographic operations fail immediately with a clear error.
-- Disabled keys can be reenabled quickly if unexpected dependencies are discovered.
-- A safe rollback mechanism during validation is provided.
-
-A recommended milestone is to ensure that all HPCS CRKs that were successfully migrated are in the Disabled state.
-
-CRKs in the Disabled state can be re-enabled at any time and do not permanently block remediation.
-
 ### Final milestones and decommissioning considerations
 {: #migration-decommissioning}
 
@@ -746,8 +732,8 @@ Deleting HPCS CRKs and Standard Keys is technically possible. However, approach 
 For these reasons, you are not required to delete HPCS keys as part of migration.
 
 A conservative and recommended approach is:
-1. Leave HPCS instances and CRKs disabled.
-2. Do not reenable or modify them after validation.
+1. Leave the HPCS instances unchanged.
+2. Rotate the HPCS CRKs and monitor for activity tracking events to ensure that no events are triggered by {{site.data.keyword.Bluemix_notm}} services during or after the rotation.
 
 This approach minimizes risk while ensuring that cryptographic migration completes successfully.
 
