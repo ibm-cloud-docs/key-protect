@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-10"
+lastupdated: "2026-09-11"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -365,17 +365,15 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 | [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
 | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
-
+| [VPC Images](/docs/vpc?topic=vpc-planning-custom-images) | Full | N/A |
+| [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about) | Full | N/A |
+| [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers) | Full | N/A |
 
 
 {: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
-
       
 - Support for the following IBM services and software is not currently available:
     - [App ID](/docs/appid)  
-    - [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
-    - [VPC Images](/docs/vpc?topic=vpc-planning-custom-images)
-    - [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
 
     You do not need to wait for all services to support migration intents before you begin the migration. Use the [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool and [activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) to determine which services are using your HPCS CRKs. If your HPCS keys are used only by services that support migration intents, you can complete the migration now.
 
@@ -663,11 +661,9 @@ VMware KMIP support for HPCS ends on 31 December 2026, after which the KMIP for 
 ## PKCS #11 (GREP11)
 {: #migration-pkcs11-grep11}
 
-[Enterprise PKCS #11 keys](/docs/hs-crypto?topic=hs-crypto-pkcs11-intro) that are used through PKCS #11 or [GREP11](/docs/hs-crypto?topic=hs-crypto-uko-grep11-intro) interfaces are not supported by {{site.data.keyword.keymanagementserviceshort}} Dedicated.
+{{site.data.keyword.keymanagementserviceshort}} Dedicated supports [Enterprise PKCS #11 keys](/docs/hs-crypto?topic=hs-crypto-pkcs11-intro) that are accessed through the PKCS #11 interface.
 
-To determine whether this feature is being used, check the HPCS activity tracking logs for entries where the action field is `hs-crypto.ep11.use` or starts with `hs-crypto.keystore`. The presence of these entries indicates that PKCS #11 (GREP11) is being used.
-
-Refer to the [GREP11/PKCS#11 Migration Guide](/docs/hs-crypto?topic=hs-crypto-migrate-hpcs-to-CCRT).
+To determine whether this feature is in use, check the activity tracking logs for your {{site.data.keyword.hscrypto_short}} instance. Look for entries where the action field equals `hs-crypto.ep11.use` or starts with `hs-crypto.keystore`. The presence of either entry indicates that PKCS #11 is in use.
 
 ## Unified Key Orchestrator (UKO)
 {: #migration-uko}
