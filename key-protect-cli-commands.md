@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-09-16"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5487,6 +5487,7 @@ COMMANDS:
   master-key   Commands to manage Master Keys (MKs) of crypto unit(s)
   master-keys  List the MKs uploaded to crypto unit(s)
   sig-key      Generate a signature key file compatible for use as a crypto unit user credential
+  threshold    Manage signature and revocation thresholds for crypto unit(s)
   user         Manage users in crypto unit(s)
   users        List users in crypto unit(s)
   zeroize      Zeroize a crypto unit
@@ -5628,6 +5629,107 @@ OPTIONS:
   --file value      Required. The file path to write the signature key to. Must be between 1 and 255 characters
   --passphrase value                 --passphrase string   Optional passphrase used to encrypt the signature key file. Provide "-" to prompt for password
 ```
+
+### `threshold`
+{: #kp-crypto-unit-threshold}
+
+Commands to manage signature and revocation thresholds for crypto unit(s).
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit threshold - Manage signature and revocation thresholds for crypto unit(s)
+
+USAGE:
+  ibmcloud key-protect crypto-unit threshold command [arguments...] [command options]
+
+COMMANDS:
+  get      Get current signature and revocation threshold value for crypto unit(s)
+  set      Set signature and revocation thresholds for crypto unit(s)
+  help, h  Show help
+
+Enter 'ibmcloud key-protect crypto-unit threshold help [command]' for more information about a command.
+```
+
+#### `threshold get`
+{: #kp-crypto-unit-threshold-get}
+
+Get current signature and revocation threshold values for crypto unit(s). Shows `not configured` if thresholds have not been set yet.
+
+```
+NAME:
+  get - Get current signature and revocation threshold value for crypto unit(s)
+
+USAGE:
+  get [--id CRYPTO_UNIT_ID]
+
+EXAMPLES:
+  ibmcloud kp crypto-unit threshold get
+    Get threshold values for all crypto units
+  ibmcloud kp crypto-unit threshold get --id fadedbee-0000-0000-0000-1234567890ab
+    Get threshold value for a specific crypto unit
+
+OPTIONS:
+  --id value  Optional. The ID of the crypto unit to retrieve threshold configuration for. If omitted, threshold is retrieved for all crypto units in the instance.
+```
+
+#### `threshold set`
+{: #kp-crypto-unit-threshold-set}
+
+Set signature and revocation thresholds for crypto unit(s). Both `--signature-threshold` and `--revocation-threshold` must be between **1 and 5** and cannot exceed the number of admin users configured on the crypto unit. If thresholds are not set, both default to 1.
+
+```
+NAME:
+  set - Set signature and revocation thresholds for crypto unit(s)
+
+USAGE:
+  set --signature-threshold SIGNATURE-THRESHOLD --revocation-threshold REVOCATION-THRESHOLD (--auth AUTH [--id CRYPTO_UNIT_ID] | --cu CRYPTO_UNITS)
+
+EXAMPLES:
+  ibmcloud kp crypto-unit threshold set --signature-threshold 2 --revocation-threshold 2 --auth '[{"ADMIN": "/path/to/signature.key#password"}]'
+    Set threshold for all crypto units using --auth
+  ibmcloud kp crypto-unit threshold set --signature-threshold 2 --revocation-threshold 2 --auth '[{"ADMIN": "/path/to/signature.key#password"}]' --id fadedbee-0000-0000-0000-1234567890ab
+    Set threshold for a specific crypto unit using --auth with --id
+  ibmcloud kp crypto-unit threshold set --signature-threshold 3 --revocation-threshold 2 --cu '[{"CryptoUnitId":"fadedbee-0000-0000-0000-1234567890ab","Auth":[{"ADMIN":"/path/to/signature.key#password"}]}]'
+    Set threshold for a specific crypto unit using --cu (CU ID + auth bundled)
+
+OPTIONS:
+  --auth value                   Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive.
+  --cu value                     Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive.
+  --id value                     Optional. The ID of the crypto unit to set threshold for. Used with --auth. If omitted, threshold is set for all crypto units in the instance.
+  --revocation-threshold value   Required. Number of admin signatures required to revoke a user. Must be between 1 and 5. The number of admin users configured on the crypto unit must be greater than or equal to this value.
+  --signature-threshold value    Required. Number of admin signatures required to authorize sensitive operations (add/remove user, import master key). Must be between 1 and 5. The number of admin users configured on the crypto unit must be greater than or equal to this value.
+```
+
+The crypto unit restarts when the threshold configuration is applied.
+{: important}
+
+#### Existing users — setting thresholds before other operations
+{: #kp-crypto-unit-threshold-existing-users}
+
+If your crypto units are already in any state (for example, `initialized` or `kms-initialized`) and you attempt a quorum-enforced operation such as adding or removing an admin user or importing a master key without first configuring thresholds, the command fails with the following error:
+
+```
+Cannot perform action, threshold not configured. Run `ibmcloud kp crypto-unit threshold set` before retrying. Note: the crypto unit will restart when the threshold configuration is applied.
+```
+
+To resolve this error, follow these steps:
+
+1. Check your current threshold status:
+   ```
+   ibmcloud kp crypto-unit threshold get
+   ```
+   If the output shows `not configured`, proceed to step 2.
+
+2. Set the signature and revocation thresholds:
+   ```
+   ibmcloud kp crypto-unit threshold set --signature-threshold <VALUE> --revocation-threshold <VALUE> --auth '<AUTH_JSON>'
+   ```
+   Where `<VALUE>` is an integer between **1 and 5** that does not exceed the number of admin users on the crypto unit.
+
+   The crypto unit restarts when the threshold configuration is applied.
+   {: important}
+
+3. After the crypto unit restarts, retry the original operation (add/remove user, import master key, and so on).
 
 ### `user`
 {: #kp-crypto-unit-user}
