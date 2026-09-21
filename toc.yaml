@@ -135,6 +135,14 @@ toc:
           - restore-keys.md
           - key-rings.md
           - kmip.md
+          - topicgroup:
+              label: Working with PKCS
+              topics:
+              - topic: pkcs11-functions.md
+                tag: staging-pkcs11
+              - topic: pkcs11-manage-keystore.md
+                navtitle: Managing a keystore
+                tag: staging-pkcs11
       - topicgroup:
           label: Logging and monitoring
           topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-09-21"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -107,7 +107,7 @@ Platform roles be assigned over an entire account, over particular service insta
 
 While an account-level role gives a user particular permissions over service instances by default, roles can also be assigned over a particular service instance. For example, an account _Editor_ (who has the ability to view, create, and delete instances, but not the ability to assign roles) can be made an _Administrator_ of a particular service instance, allowing them to assign roles within that service instance.
 
-Service roles can be applied to the three first class objects within a service instance: the **instance** as a whole, particular **keys**, and **key rings**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys and key rings by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
+Service roles can be applied to the first-class objects within a service instance: the **instance** as a whole, particular **keys**, **key rings**, and **keystores**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys, key rings, and keystores by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
 
 Service roles can be assigned per-instance or for all instances in an account.
 {: tip}
@@ -205,7 +205,7 @@ The following table shows how service access roles map to {{site.data.keyword.ke
 The _KeyPurge_ role only confers the ability to purge keys and should be considered additive to other service access roles, such as _Manager_.
 {: note}
 
- Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
+| Action | Reader | ReaderPlus | Writer | Manager | KeyPurge | KmipAdapterManager |
 | ------ | ------ | ---------- | ------ | ------- | -------- | -------- |
 | List KMIP adapters | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
 | Create a KMIP adapter | | | | ![Check mark icon](../../icons/checkmark-icon.svg) | | ![Check mark icon](../../icons/checkmark-icon.svg) |
@@ -227,6 +227,8 @@ The _KeyPurge_ role only confers the ability to purge keys and should be conside
 The **Writer**, **Reader**, and **ReaderPlus** roles do not have access to the KMIP protocol.
 {: important}
 
+
+
 ### Roles and {{site.data.keyword.iamshort}} policies
 {: #manage-access-roles-policies}
 
@@ -237,9 +239,11 @@ While the {{site.data.keyword.keymanagementserviceshort}} console allows users f
 * key ring id
 * resource type (only `key` is supported)
 * resource id
-* account id (should always specified in policy)
+* keystore id (`keystoreId`) — scope access to a specific PKCS #11 keystore
+* PKCS #11 operation (`pkcsOperation`) — scope access to a specific PKCS #11 function; supports `stringEquals`, `stringExists`, and `stringMatch` operators (wildcards are supported, for example `C_Digest*`)
+* account id (should always be specified in policy)
 
-Here is an example of a policy returned by the IAM API:
+Here is an example of a policy scoped to a key resource returned by the IAM API:
 
 ```json
 "resources": [
@@ -247,30 +251,32 @@ Here is an example of a policy returned by the IAM API:
         "attributes": [
             {
                 "name": "accountId",
-                "value": "$ACCOUNT_ID",
+                "value": "$ACCOUNT_ID"
             },
             {
                 "name": "serviceName",
-                "value": "kms",
+                "value": "kms"
             },
             {
                 "name": "resourceType",
-                "value": "key",
+                "value": "key"
             },
             {
                 "name": "resource",
-                "value": "$KEY_ID",
+                "value": "$KEY_ID"
             },
             {
                 "name": "keyRing",
-                "value": "$KEY_RING_ID",
+                "value": "$KEY_RING_ID"
             }
         ]
     }
 ]
 ```
 
-Any combination of these attributes can be applied in a policy. If that policy has the administrator role attached to it, that means any `user/service id/access group` that has this policy applied to them can create a policy that applies to a subresource of the one that has been been granted. In other words, all sub-admin users can only have access equal to (exactly the same attributes specified on their policy) or less than (exactly the same attributes specified on their policy and additional attributes specified) that of the parent admin.
+
+
+Any combination of these attributes can be applied in a policy. If that policy has the administrator role attached to it, that means any `user/service id/access group` that has this policy applied to them can create a policy that applies to a subresource of the one that has been granted. In other words, all sub-admin users can only have access equal to (exactly the same attributes specified on their policy) or less than (exactly the same attributes specified on their policy and additional attributes specified) that of the parent admin.
 
 ## What's next
 {: #manage-access-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-16"
+lastupdated: "2026-09-21"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5742,9 +5742,10 @@ USAGE:
   ibmcloud key-protect crypto-unit user command [arguments...] [command options]
 
 COMMANDS:
-  add       Add new user to crypto unit(s)
-  remove    Remove user from crypto unit
-  help, h   Show help
+  add             Add new user to crypto unit(s)
+  remove          Remove user from crypto unit
+  update-password Change your own HMAC password
+  help, h         Show help
 
 Enter 'ibmcloud key-protect crypto-unit user help [command]' for more information about a command.
 ```
@@ -5766,6 +5767,10 @@ OPTIONS:
   --name value        Required. Name of the user to add. Must be between 1 and 255 characters
   --type value        Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
 ```
+
+
+
+
 
 #### `user-remove`
 {: #kp-crypto-unit-user-remove}

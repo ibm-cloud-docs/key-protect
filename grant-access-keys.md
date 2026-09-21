@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-09-21"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -153,6 +153,8 @@ To assign access to a key ring via the console:
 10. Continue to add platform and service access roles as needed and when you are finished, click **Assign**. Note that the user must be assigned at least _Reader_ access to the entire instance in order for them to list, create and delete key rings within the instance.
 
 ![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Shows how to grant user access to a key ring." caption-side="bottom"}
+
+
 
 ## Granting access for specific functions
 {: #grant-access-keys-specific-functions}

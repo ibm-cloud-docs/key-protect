@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-11"
+lastupdated: "2026-09-21"
 
 keywords: key protect, release notes, service updates
 
@@ -30,6 +30,16 @@ content-type: release-note
 
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
+
+## October 2026
+{: #key-protect-oct26}
+
+### 5 October 2026
+{: #key-protect-pkcs11-keystores}
+{: release-note}
+
+PKCS #11 operations against Key Protect keystores
+:   {{site.data.keyword.keymanagementserviceshort}} now supports executing PKCS #11 cryptographic operations against user-managed keystores. You can create a keystore by using the `ibmcloud kp keystore` CLI and then target standard PKCS #11 operations against that keystore. New IAM actions (`kms.keystore.create`, `kms.keystore.list`, `kms.keystore.delete`, `kms.keystore.pkcs11-op`) provide fine-grained access control, including the ability to scope permissions to a specific PKCS #11 operation or group of operations by using the `pkcsOperation` IAM resource attribute. Each instance supports a maximum of 5 keystores. For more information, see [PKCS #11 capabilities and support](/docs/key-protect?topic=key-protect-pkcs11-functions) and [Granting access to keystores and PKCS #11 operations](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keystore-level).
 
 
 
