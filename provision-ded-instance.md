@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-09-16"
+lastupdated: "2026-09-21"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -233,7 +233,7 @@ The initialization process involves:
 1. **Generating administrator credentials**: Create RSA signature authentication keys that identify you as an administrator. For more information, see [Generating admin credentials](#getting-started-generate-admin).
 2. **Claiming your crypto units**: Use your credentials to claim ownership of the crypto units
 3. **Creating and loading the master key**: Generate and load the master key that encrypts all other keys in your instance
-4. **Setting a signature and revocation threshold (optional)**: Configure the number of admin signatures required to authorize operations. For more information, see [Setting a signature and revocation threshold](#getting-started-set-threshold).
+
 
 You must complete initialization using the CLI before you can use the console, API, or Terraform to manage keys.
 {: important}
@@ -447,61 +447,7 @@ Where:
 Do not add `--name` or `--credential` when adding `kmsCryptoUser` as an admin.
 {: important}
 
-### Setting a signature and revocation threshold (optional)
-{: #getting-started-set-threshold}
 
-After you add admin users to your crypto units, you can optionally configure a signature and revocation threshold. Both thresholds default to `1` if not set. Setting either threshold to a value greater than 1 requires that many admin signatures to authorize the corresponding operation. The threshold value cannot exceed the total number of admin users currently configured on the crypto unit.
-{: note}
-
-You can set the threshold only while the crypto unit is in the `claimed` state. To change the threshold later, the crypto unit must be returned to the `claimed` state.
-{: important}
-
-To set the threshold, issue the command on one of the three supported operating systems.
-
-For [macOS]{: tag-macos}:
-
-```sh
-ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth '[{"<admin_username>": "<admin_key_file>#<password>"}]'
-```
-{: pre}
-
-For [Windows]{: tag-windows} PowerShell:
-
-```powershell
-ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth '[{"""<admin_username>""": """<admin_key_file>#<password>"""}]'
-```
-{: codeblock}
-
-For [Windows]{: tag-windows} CMD:
-
-```sh
-ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth "[{\"<admin_username>\": \"<admin_key_file>#<password>\"}]"
-```
-{: codeblock}
-
-Where:
-
-* `<sig_threshold>` is the number of admin signatures required to authorize operations such as adding users and importing master key material. The value must be between 1 and 5.
-* `<rev_threshold>` is the number of admin signatures required to revoke (remove) an admin user. The value must be between 1 and 5.
-* `<admin_username>` is the username of an existing admin.
-* `<admin_key_file>#<password>` is the location of the admin key file and its passphrase. Omit `#<password>` to be prompted to enter a passphrase.
-
-The crypto unit restarts when the threshold configuration is applied.
-{: important}
-
-To target a specific crypto unit, append `--id <crypto_unit_id>` to the command. To check the current threshold values, issue:
-
-```sh
-ibmcloud kp crypto-unit threshold get
-```
-{: pre}
-
-Your instance is now fully initialized.
-
-It might take up to 5 to 10 minutes before you can use your instance.
-{: note}
-
-If you have any issues during initialization, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init) section.
 
 ## Initialize your dedicated instance with Terraform
 {: #getting-started-generate-admin-terraform}

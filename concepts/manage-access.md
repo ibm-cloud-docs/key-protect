@@ -238,10 +238,7 @@ While the {{site.data.keyword.keymanagementserviceshort}} console allows users f
 * service instance id
 * key ring id
 * resource type (only `key` is supported)
-* resource id
-* keystore id (`keystoreId`) — scope access to a specific PKCS #11 keystore
-* PKCS #11 operation (`pkcsOperation`) — scope access to a specific PKCS #11 function; supports `stringEquals`, `stringExists`, and `stringMatch` operators (wildcards are supported, for example `C_Digest*`)
-* account id (should always be specified in policy)
+* resource id 
 
 Here is an example of a policy scoped to a key resource returned by the IAM API:
 
