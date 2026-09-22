@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-22"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -107,7 +107,9 @@ Platform roles be assigned over an entire account, over particular service insta
 
 While an account-level role gives a user particular permissions over service instances by default, roles can also be assigned over a particular service instance. For example, an account _Editor_ (who has the ability to view, create, and delete instances, but not the ability to assign roles) can be made an _Administrator_ of a particular service instance, allowing them to assign roles within that service instance.
 
-Service roles can be applied to the first-class objects within a service instance: the **instance** as a whole, particular **keys**, **key rings**, and **keystores**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys, key rings, and keystores by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
+Service roles can be applied to the three first class objects within a service instance: the **instance** as a whole, particular **keys**, and **key rings**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys and key rings by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
+
+
 
 Service roles can be assigned per-instance or for all instances in an account.
 {: tip}
