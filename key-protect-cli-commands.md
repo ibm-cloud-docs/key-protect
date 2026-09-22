@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-07-19"
+lastupdated: "2026-09-21"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5487,6 +5487,7 @@ COMMANDS:
   master-key   Commands to manage Master Keys (MKs) of crypto unit(s)
   master-keys  List the MKs uploaded to crypto unit(s)
   sig-key      Generate a signature key file compatible for use as a crypto unit user credential
+  threshold    Manage signature and revocation thresholds for crypto unit(s)
   user         Manage users in crypto unit(s)
   users        List users in crypto unit(s)
   zeroize      Zeroize a crypto unit
@@ -5629,6 +5630,8 @@ OPTIONS:
   --passphrase value                 --passphrase string   Optional passphrase used to encrypt the signature key file. Provide "-" to prompt for password
 ```
 
+
+
 ### `user`
 {: #kp-crypto-unit-user}
 
@@ -5640,9 +5643,10 @@ USAGE:
   ibmcloud key-protect crypto-unit user command [arguments...] [command options]
 
 COMMANDS:
-  add       Add new user to crypto unit(s)
-  remove    Remove user from crypto unit
-  help, h   Show help
+  add             Add new user to crypto unit(s)
+  remove          Remove user from crypto unit
+  update-password Change your own HMAC password
+  help, h         Show help
 
 Enter 'ibmcloud key-protect crypto-unit user help [command]' for more information about a command.
 ```
@@ -5664,6 +5668,9 @@ OPTIONS:
   --name value        Required. Name of the user to add. Must be between 1 and 255 characters
   --type value        Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
 ```
+
+
+
 
 #### `user-remove`
 {: #kp-crypto-unit-user-remove}

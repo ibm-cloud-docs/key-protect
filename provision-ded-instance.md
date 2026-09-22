@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-21"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -234,6 +234,7 @@ The initialization process involves:
 2. **Claiming your crypto units**: Use your credentials to claim ownership of the crypto units
 3. **Creating and loading the master key**: Generate and load the master key that encrypts all other keys in your instance
 
+
 You must complete initialization using the CLI before you can use the console, API, or Terraform to manage keys.
 {: important}
 
@@ -446,12 +447,7 @@ Where:
 Do not add `--name` or `--credential` when adding `kmsCryptoUser` as an admin.
 {: important}
 
-Your instance is now fully initialized.
 
-It might take up to 5 to 10 minutes before you can use your instance.
-{: note}
-
-If you have any issues during initialization, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init) section.
 
 ## Initialize your dedicated instance with Terraform
 {: #getting-started-generate-admin-terraform}
