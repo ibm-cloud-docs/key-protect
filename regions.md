@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-11"
+lastupdated: "2026-09-22"
 
 keywords: Key Protect endpoints, available regions, locations
 
@@ -46,10 +46,9 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 Access to the Chennai region is allowlisted. If this region is not available to you, open a [support ticket](https://www.ibm.com/mysupport/s/).
 {: important}
 
-{{site.data.keyword.keymanagementserviceshort}} Dedicated is currently only available in `us-south` (Dallas, Texas, United States), `us-east` (Washington, DC, United States), `eu-de` (Frankfurt, Germany), and `eu-es` (Madrid).
-{: important}
+[{{site.data.keyword.keymanagementserviceshort}} Dedicated](/docs/key-protect?topic=key-protect-about) is available in the following regions:
 
-
+![Regions where the {{site.data.keyword.keymanagementserviceshort}} service is available.](images/world-map-ded.svg){: caption="Displays the regions where you can create and manage {{site.data.keyword.keymanagementserviceshort}} resources." caption-side="bottom"}
 
  
 You can create {{site.data.keyword.keymanagementserviceshort}} resources in any supported {{site.data.keyword.cloud_notm}} region, which represent the geographic area where your {{site.data.keyword.keymanagementserviceshort}} requests are handled and processed. To learn more, see [Locations, tenancy, and availability](/docs/key-protect?topic=key-protect-ha-dr#availability).

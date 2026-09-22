@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-22"
 
 keywords: key protect, release notes, service updates
 
@@ -33,7 +33,15 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 
 
 
+## September 2026
+{: #key-protect-july26}
 
+### 22 September 2026
+{: #key-protect-sept2226}
+{: release-note}
+
+{{site.data.keyword.keymanagementserviceshort}} Dedicated is now available in the the London MZR.
+:   {{site.data.keyword.keymanagementserviceshort}} announces the `eu-gb` (London) availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated. This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM to the Madrid MZR, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 ## July 2026
 {: #key-protect-july26}
