@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-23"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -238,12 +238,19 @@ The initialization process involves:
 You must complete initialization using the CLI before you can use the console, API, or Terraform to manage keys.
 {: important}
 
+
+
 ### Generating admin credentials
 {: #getting-started-generate-admin}
 
 A crypto unit is managed by an admin or admins, which means you either need to have identities available or create them. If you have properly formatted admin identities (a symmetric 256-bit AES key using RSA-2048), you can skip down to [Creating and loading the master key](#getting-started-master-key).
 
-If you need to create an admin credential, issue:
+Admin credentials can be stored as a file on your local system or on a smart card. Choose the option that best fits your security requirements.
+
+#### File-based admin credentials
+{: #getting-started-file-admin-credentials}
+
+File-based admin credentials are stored as password-protected key files on your local system. This is the default option and does not require any additional hardware. To generate an admin credential and save it to a file, issue the command on one of the three supported operating systems.
 
 For [macOS]{: tag-macos}:
 
@@ -271,7 +278,12 @@ Where:
 * `<admin_key_file>` is the location on your machine where the identity is created (for example, `admin-keyfile.key`).
 * `<pwd>` is an optional password or passphrase that is used to encrypt the file at rest. Specify "-" to be prompted to enter a passphrase.
 
-Save a copy of this keyfile and remember the passphrase. It is required for all authenticated commands when interacting with the crypto units. If any `ibmcloud kp crypto-unit` command returns error code `e00bad05`, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init#command-failed-with-error-code-e00bad05-error) section.
+Save a copy of this keyfile and remember the passphrase. It is required for all authenticated commands when interacting with the crypto units.
+{: tip}
+
+
+
+If any `ibmcloud kp crypto-unit` command returns an error code `e00bad05`, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init#command-failed-with-error-code-e00bad05-error).
 {: note}
 
 ### Claiming your crypto units
@@ -302,7 +314,10 @@ Id                                     InstanceID                             St
 ```
 {: screen}
 
-The public part of the RSA key pair is placed in a certificate that is installed in the target crypto unit to define a crypto unit administrator. To upload it as the default admin of your crypto units, issue the claim command:
+The public part of the RSA/ECDSA key pair is placed in a certificate that is installed in the target crypto unit to define a crypto unit administrator. To upload it as the default admin of your crypto units, issue the claim command.
+
+#### File-based credential
+{: #getting-started-claim-file-credential}
 
 For [macOS]{: tag-macos}:
 
@@ -329,6 +344,8 @@ Where:
 
 * `<admin_key_file>` is the file where the identity was stored.
 
+
+
 All `crypto-unit` commands apply to all of the crypto units. They are effectively clones of each other.
 {: tip}
 
@@ -343,7 +360,12 @@ After you create your instance and admin identity, you can use them to create yo
 Dedicated {{site.data.keyword.keymanagementserviceshort}} uses key splitting, in which a cryptographic key is split into multiple pieces to enhance security. At least 2 keyshares must be created, though more can be used depending on the use case.
 {: important}
 
-To generate the master key locally, issue the command on one of the three supported operating systems.
+Master key shares can be stored as password-protected files on your local system by default, or on smart cards for hardware-backed security. Both options produce the same result and are interchangeable during import.
+
+#### File-based master key generation
+{: #getting-started-file-mk-generate}
+
+To generate the master key locally and store shares as files, issue the command on one of the three supported operating systems.
 
 For [macOS]{: tag-macos}:
 
@@ -368,14 +390,17 @@ ibmcloud kp crypto-unit master-key generate --keyshare-files"[\"<keyshare_file_1
 
 Where:
 
-* `<keyshare_file_1>#<password1>` is the location of one of the keyshares, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<password1>` to be prompted to enter a passphrase.
-* `<keyshare_file_2>#<password2>` is the location of another keyshare, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<password2>` to be prompted to enter a passphrase.
+* `<keyshare_file_1>#<password1>` is the location of one of the keyshares, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6–255 characters. Omit `#<password1>` to be prompted to enter a passphrase.
+* `<keyshare_file_2>#<password2>` is the location of another keyshare, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6–255 characters. Omit `#<password2>` to be prompted to enter a passphrase.
 * `<key_name>` is the name of your master key.
 * `<admin_key_file>#<password3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<password3>` to be prompted to enter a passphrase.
 
 The `keyshare-minimum` flag, which defaults to `2` but can be increased, represents the minimum number of keyshares you must specify by their file locations.
 
-To upload your master key to the crypto units of your instance, issue the command on one of the three supported operating systems.
+
+
+#### File-based master key import
+{: #getting-started-file-mk-import}
 
 For [macOS]{: tag-macos}:
 
@@ -400,9 +425,11 @@ ibmcloud kp crypto-unit master-key import --keyshare-files "[\"<keyshare_file_1>
 
 Where:
 
-* `<keyshare_file_1>#<password1>` is the location of one of the keyshares, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<password1>` to be prompted to enter a passphrase.
-* `<keyshare_file_2>#<password2>` is the location of another keyshare, along with a passphrase for the file that is created. The passphrase is mandatory and must be between 6-255 characters. Omit `#<password2>` to be prompted to enter a passphrase.
+* `<keyshare_file_1>#<password1>` is the location of one of the keyshares, along with its passphrase. The passphrase is mandatory and must be between 6–255 characters. Omit `#<password1>` to be prompted to enter a passphrase.
+* `<keyshare_file_2>#<password2>` is the location of another keyshare, along with its passphrase. The passphrase is mandatory and must be between 6–255 characters. Omit `#<password2>` to be prompted to enter a passphrase.
 * `<admin_key_file>#<password3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<password3>` to be prompted to enter a passphrase.
+
+
 
 After your master key is created, you must allow the {{site.data.keyword.keymanagementserviceshort}} service to perform actions on your crypto units (for example, to create keys). The level of permissions granted to {{site.data.keyword.keymanagementserviceshort}} is less than that of an admin. Issue the command using one of the three supported operating systems.
 
