@@ -3,7 +3,7 @@
 copyright:
   years: 2024, 2026
 
-lastupdated: "2026-07-30"
+lastupdated: "2026-09-29"
 
 keywords: HPCS migration, Key Protect Dedicated migration, CRK migration, customer root key migration, migration tool, HPCS to Key Protect
 
@@ -337,7 +337,7 @@ Use the `status` operation to check on the status of the migration:
 ```
 {: pre}
 
-If the number of associations of an HPCS key was not zero at the start of the migration and drops to zero, the migration is complete.
+If the number of associations of an HPCS key was not zero at the start of the migration and drops to zero, the migration is complete. The count might stop above zero because of stale associations, which point to resources that were deleted. Stale associations are not migrated, and they do not need to be.
 
 If you observe issues in the status column or the number of HPCS associations (`KpStAssociationsCount`) is still nonzero, see [troubleshooting](#migrate-tool-troubleshoot).
 
@@ -426,7 +426,11 @@ Use the `sync` operation with the `.csv` file as input to notify services with a
 ```
 {: pre}
 
-If the number of associations of an HPCS key was not zero at the start of the migration and does not drop to zero, services might be encountering problems migrating keys. Alternatively, there might be stale associations. Create an IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}} and mention HPCS to {{site.data.keyword.keymanagementserviceshort}} migration.
+If the number of associations of an HPCS key still does not drop to zero, check whether the remaining associations are stale. A stale association points to a resource that was deleted. It is not migrated, and it does not need to be.
+
+1. List the remaining associations of the HPCS key by using the [`kp registrations` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations) with `KP_TARGET_ADDR` set to the HPCS instance endpoint.
+2. Check whether the resource in each association still exists.
+3. If a resource still exists and its association remains after the expected migration time (up to four hours, or up to one business day for Event Streams), create an IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}} and mention HPCS to {{site.data.keyword.keymanagementserviceshort}} migration.
 
 
 ### Invalid resource CRN format

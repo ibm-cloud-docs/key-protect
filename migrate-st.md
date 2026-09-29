@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-11"
+lastupdated: "2026-09-29"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -25,6 +25,7 @@ If you use Hyper Protect Crypto Services (HPCS) and need to migrate to {{site.da
 
 **Migration by Feature:**
 - [Customer root keys (CRKs)](#migration-crk-migration)
+- [Kubernetes and OpenShift storage components (PVCs)](#migration-storage-components)
 - [Standard keys](#migration-standard-key-migration)
 - [KMIP for VMWare](#kmip-migration)
 - [PKCS #11 (GREP11)](#migration-pkcs11-grep11)
@@ -35,6 +36,9 @@ If you use Hyper Protect Crypto Services (HPCS) and need to migrate to {{site.da
 
 **Completion:**
 - [Post migration validation](#migration-post-migration)
+
+If you have Kubernetes (IKS) or Red Hat OpenShift (ROKS) clusters, check them for persistent volume claims (PVCs) that are encrypted with HPCS keys. These PVCs need a separate migration procedure. See [Migrating storage components in Kubernetes and OpenShift clusters](#migration-storage-components).
+{: important}
 
 ## Identifying HPCS usage
 {: #migration-identify-hpcs-usage}
@@ -88,15 +92,16 @@ If you have HPCS instances, you need to determine how you are using those resour
 | Method | Description | Considerations |
 |--------|-------------|----------------|
 | [Activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) | Provides factual indication of HPCS usage through logged events | Search for events by using the maximum available time window. Lack of events does not necessarily mean no usage. Usage can occur during rare events (for example, restart of an {{site.data.keyword.cloud_notm}} service instance) or between long intervals that might exceed the event retention period. |
-| [Associations](/docs/hs-crypto?topic=hs-crypto-view-protected-resources&interface=ui) | Shows HPCS usage by {{site.data.keyword.cloud_notm}} resources | Lack of associations does not necessarily mean no usage due to the nature of distributed computing systems in which resources are not always in sync. Conversely, the presence of associations does not necessarily mean active usage. Associations can be stale. Some {{site.data.keyword.cloud_notm}} resources do not create or use associations. List associations by using the [`kp registrations` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations). |
+| [Associations](/docs/hs-crypto?topic=hs-crypto-view-protected-resources&interface=ui) | Shows HPCS usage by {{site.data.keyword.cloud_notm}} resources | Lack of associations does not necessarily mean no usage due to the nature of distributed computing systems in which resources are not always in sync. Conversely, the presence of associations does not necessarily mean active usage. Associations can be stale, which means that they still point to resources that were deleted. Some {{site.data.keyword.cloud_notm}} resources do not create or use associations. List associations by using the [`kp registrations` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-registrations). |
 | [Sync associated resources](/docs/hs-crypto?topic=hs-crypto-sync-associated-resources&interface=ui) | Improves synchronization of associations | Use the [`kp key sync` command](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-sync) to explicitly sync associated resources and get more accurate association data. |
 | [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) | CLI tool provided by IBM that scans {{site.data.keyword.cloud_notm}} accounts and generates a report of resources that reference HPCS keys, which are grouped by KMS instance and key. Also, capable of processing activity tracking audit log files. | Discovery and reporting tool only. Does not perform migration actions. The tool might not detect all possible usages of keys. |
 {: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
 
-Two separate tools are referenced in this document:
+The following tools are referenced in this document. You receive all of them when you request the HPCS to {{site.data.keyword.keymanagementserviceshort}} migration tools through an IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}}:
 
 - **Key Migration Tool (CRKM)** – used to create migration intents and trigger synchronization. This tool is required for automated CRK migration, see [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool).
 - **Key Usage Reporter (KUR)** – a discovery and reporting tool that is used to identify services that reference HPCS keys. KUR does not perform migration actions. See [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur).
+- **Storage component migration scripts (`hpcs-2-kp-k8s.zip`)** – scripts that detect and migrate persistent volume claims (PVCs) in Kubernetes (IKS) and Red Hat OpenShift (ROKS) clusters that are encrypted with HPCS keys. See [Migrating storage components in Kubernetes and OpenShift clusters](#migration-storage-components).
 
 Before you proceed with migration activities, ensure that you have the latest version of the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in installed. This update ensures compatibility with all migration features and commands.
 
@@ -183,6 +188,8 @@ To identify {{site.data.keyword.cloud_notm}} services and software that are usin
 
 2. **Cross-reference with Activity Tracking** - Review [HPCS activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) over the maximum available time window to identify services that performed cryptographic operations. The [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool can process activity tracking audit log files, producing CSV summaries that help identify HPCS utilization.
 
+3. **Check Kubernetes and OpenShift clusters for encrypted PVCs** - KUR reports the HPCS key that a Kubernetes (IKS) or Red Hat OpenShift (ROKS) cluster uses for its own encryption, but it does not inspect the persistent volume claims (PVCs) in the cluster. If you have IKS or ROKS clusters, run the `hpcs-pvc-scan.sh` script to find PVCs that are encrypted with HPCS keys. See [Migrating storage components in Kubernetes and OpenShift clusters](#migration-storage-components).
+
 ## Classifying usage
 {: #migration-classify-usage}
 
@@ -191,6 +198,7 @@ Each type of HPCS usage relevant to the migration falls into one of the followin
 | Usage type | Description |
 |-----------|-------------|
 | [Customer root keys (CRKs)](/docs/hs-crypto?topic=hs-crypto-envelope-encryption#key-types) | Encryption of data encryption keys |
+| [Kubernetes and OpenShift persistent volume claims (PVCs)](/docs/openshift?topic=openshift-migrate_hpcs_kp) | Storage in IKS and ROKS clusters that is encrypted with HPCS keys. Requires a separate migration procedure. |
 | [Standard keys](/docs/hs-crypto?topic=hs-crypto-envelope-encryption#key-types) | Secrets |
 | [KMIP for VMWare](/docs/vmwaresolutions?topic=vmwaresolutions-kmip_standalone_considerations) | Used by VMware KMIP clients |
 | [Enterprise PKCS#11 keys](/docs/hs-crypto?topic=hs-crypto-pkcs11-intro) | Used through PKCS #11 or [GREP11](/docs/hs-crypto?topic=hs-crypto-uko-grep11-intro) interfaces |
@@ -356,31 +364,20 @@ Before you start CRK migration for {{site.data.keyword.cloud_notm}} services and
 | IBM Service | Migration intent support | Service Specific Instructions |
 |-------------|--------------------------|-------------------------------|
 | [App Config](/docs/app-configuration?topic=app-configuration-getting-started) | Full | N/A |
+| [App ID](/docs/appid) | Full | N/A |
 | [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) | Full | N/A |
 | [Cloud Object Storage (COS)](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Full | N/A |
 | [Database Services (ICD)](https://www.ibm.com/products/cloud-databases) | Full | N/A |
 | [Event Notifications](/docs/event-notifications?topic=event-notifications-en-about) | Full | N/A |
 | [Event Streams](/docs/EventStreams?topic=EventStreams-about) | Full | Migration might take up to one business day |
-| [Kubernetes (IKS)](/docs/containers) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
-| [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | [Storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp) |
+| [Kubernetes (IKS)](/docs/containers) | Full | Persistent volume claims (PVCs) require separate steps. See [Migrating storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp). |
+| [Red Hat OpenShift (ROKS)](/docs/openshift) | Full | Persistent volume claims (PVCs) require separate steps. See [Migrating storage components](/docs/openshift?topic=openshift-migrate_hpcs_kp). |
 | [Schematics](/docs/schematics?topic=schematics-learn-about-schematics) | Full | N/A |
 | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started) | Full | N/A |
 | [VPC Images](/docs/vpc?topic=vpc-planning-custom-images) | Full | N/A |
 | [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about) | Full | N/A |
 | [VPC VSI](/docs/vpc?topic=vpc-about-advanced-virtual-servers) | Full | N/A |
-
-
-{: caption="Table 1. Methods for identifying HPCS usage" caption-side="bottom"}
-      
-- Support for the following IBM services and software is not currently available:
-    - [App ID](/docs/appid)  
-
-    You do not need to wait for all services to support migration intents before you begin the migration. Use the [Key Usage Reporter (KUR)](/docs/key-protect?topic=key-protect-kur) tool and [activity tracking events](/docs/hs-crypto?topic=hs-crypto-at-events) to determine which services are using your HPCS CRKs. If your HPCS keys are used only by services that support migration intents, you can complete the migration now.
-
-    A single HPCS CRK can be used by both supported and unsupported services at the same time. In this case, create the migration intent now. The services that support migration intents detect the intent and complete their migration. The migration intent remains attached to the CRK. When more services add migration intent support, you need to run the sync command from the [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool) on the same CRKs. You do not need to create new migration intents.
-
-    This means that you can start the migration process today and return later to complete it for the remaining services as support becomes available.
-    {: tip}
+{: caption="Table 3. IBM services and software that support migration intents" caption-side="bottom"}
 
 - Target CRKs
 :   {{site.data.keyword.keymanagementserviceshort}} Dedicated CRKs must exist. Target CRKs can be generated or imported, with or without customer-supplied key material, by using the API, CLI, or the UI.
@@ -426,7 +423,7 @@ This process is performed independently by each service resource that is associa
 You can monitor migration progress by using several mechanisms:
 
 Associations
-:   The number of Associations that are associated with the HPCS CRK decreases, ideally to zero if no state associations exist. The number of associations that are associated with the {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK increases.
+:   The number of associations on the HPCS CRK decreases, and the number of associations on the {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK increases. The HPCS count might not reach zero because of stale associations. A stale association still points to a resource that was deleted. It is not migrated, because no resource exists to act on the migration intent, and it does not need to be. A key can have many associations when migration starts, and many of them might be stale. Stale associations stay on the HPCS CRK and do not affect the migration of resources that still exist.
 
 Key Migration Tool (CRKM)
 :   Reports Association counts for both source and target CRKs. Supports bulk status inspection and retry operations.
@@ -455,8 +452,7 @@ KUR is also capable of processing activity tracking audit log files, producing C
 {: #migration-considerations}
 
 - The migration tooling is provided on a best-effort basis and might not detect every possible usage pattern.
-- Not all {{site.data.keyword.cloud_notm}} services currently support migration intent.
-- Some services or specific parts of services (for example, IKS and ROKS persistent volume claims) require specific procedures and are not fully covered by migration intents. See the next sections for more information.
+- Some services or specific parts of services (for example, IKS and ROKS persistent volume claims) require specific procedures and are not fully covered by migration intents. For IKS and ROKS PVCs, see [Migrating storage components in Kubernetes and OpenShift clusters](#migration-storage-components).
 - You are responsible for validating that all HPCS usage stopped before you decommission HPCS.
 
 #### Example migration scenario
@@ -505,7 +501,7 @@ You can run the sync command at any time to retry incomplete migrations.
 
 Use the CRKM tool Status command to check the migration progress. The tool reports the association counts for both the source HPCS CRK and the target {{site.data.keyword.keymanagementserviceshort}} Dedicated CRK. As services complete migration:
 
-- The number of associations on `HPCS_key_1` decreases.
+- The number of associations on `HPCS_key_1` decreases. It might not reach zero if the key has stale associations. See [Monitoring migration progress](#monitoring-migration).
 - The number of associations on `KP_D_key_1` increases.
 
 For Event Streams, migration might take up to one business day. For other services, migration is expected to finish in less than four hours.
@@ -521,6 +517,27 @@ The [Key Migration Tool (CRKM)](/docs/key-protect?topic=key-protect-migrate-tool
 - **Delete**: Removes the migration intent from one or more source keys.
 
 The CRKM tool is required for automated CRK migration and works with the KUR tool, which handles discovery and reporting.
+
+## Migrating storage components in Kubernetes and OpenShift clusters
+{: #migration-storage-components}
+
+If you have Kubernetes (IKS) or Red Hat OpenShift (ROKS) clusters, persistent volume claims (PVCs) in those clusters might be encrypted with HPCS keys. Migration intents do not fully cover these PVCs. Each storage component has its own migration steps, and some of those steps use scripts that IBM provides.
+
+The following storage components can use HPCS keys:
+- OpenShift Data Foundation (ODF)
+- Cloud Object Storage (COS)
+- VPC Block Storage
+- Classic Block Storage
+- Portworx
+
+To migrate these components, complete the following steps:
+
+1. Get the `hpcs-2-kp-k8s.zip` file. It is delivered with the CRKM and KUR tools through the IBM Support ticket for {{site.data.keyword.keymanagementserviceshort}}.
+2. Run the `hpcs-pvc-scan.sh` detection script from the zip file to find PVCs that are encrypted with HPCS keys.
+3. For each storage component in the scan output, follow the steps in [Migrating storage components from HPCS to Key Protect](/docs/openshift?topic=openshift-migrate_hpcs_kp).
+
+KUR does not inspect PVCs in clusters. A KUR report that shows no cluster storage does not mean that no PVC migration is needed. Use `hpcs-pvc-scan.sh` to check.
+{: important}
 
 ## Standard Key Migration
 {: #migration-standard-key-migration}
@@ -706,6 +723,8 @@ After you complete the migration to {{site.data.keyword.keymanagementserviceshor
 After migration, inspect HPCS activity tracking events to confirm that no operations are performed against HPCS instances.
 
 Review events over the maximum available retention window.
+
+If you have IKS or ROKS clusters, run `hpcs-pvc-scan.sh` again to confirm that no PVCs are still encrypted with HPCS keys.
 
 If activity tracking events indicate continued usage:
 

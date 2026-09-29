@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-09-15"
+lastupdated: "2026-09-29"
 
 keywords: key usage reporter, KUR, encryption report, key scan, activity tracking, audit logs
 
@@ -118,6 +118,8 @@ Before running the tool, ensure that the following requirements are met:
    ```
    {: pre}
 
+   The tool scans one account per run. To scan more than one account, see [Scanning multiple accounts](#kur-multiple-accounts).
+
 * Your **IAM token is valid** and has at least 3 minutes of remaining validity. If in doubt, refresh it:
    ```sh
    ibmcloud login
@@ -137,6 +139,43 @@ Before running the tool, ensure that the following requirements are met:
 
 The access requirements in this section apply to the account scan. The `process-at` subcommand works entirely on a local activity tracking file and requires no {{site.data.keyword.Bluemix_notm}} access.
 {: note}
+
+## Scanning multiple accounts
+{: #kur-multiple-accounts}
+
+Each run of the tool scans a single {{site.data.keyword.Bluemix_notm}} account: the account that the {{site.data.keyword.Bluemix_notm}} CLI is targeting. Run the tool in every account where HPCS keys might be used, not only in the accounts that contain HPCS instances.
+{: important}
+
+An HPCS key in one account can encrypt resources in another account. In each run, the tool lists the HPCS instances and keys of the targeted account, but it scans for encrypted resources only in the targeted account. For example, if a Cloud Object Storage bucket in account B is encrypted with an HPCS key from account A, the resource scan finds that bucket only when you run the tool in account B. In the report for account B, the HPCS instance of that key is listed with `found_by_kms_instance_listing` set to `false`, because the instance belongs to account A.
+
+To find the accounts that contain HPCS instances, see [Identifying HPCS usage](/docs/key-protect?topic=key-protect-migrate-st#migration-identify-hpcs-usage). Also scan every account whose resources might use keys from those HPCS instances.
+
+Complete the following steps for each account:
+
+1. Target the account that you want to scan:
+   ```sh
+   ibmcloud target -c <account_id>
+   ```
+   {: pre}
+
+2. Confirm that the CLI is targeting the intended account. The {{site.data.keyword.Bluemix_notm}} CLI operates on a single active account at a time.
+   ```sh
+   ibmcloud target
+   ```
+   {: pre}
+
+3. Run the tool as described in [Running the tool](#kur-running).
+
+The identity that runs the tool needs the access that is described in [Prerequisites](#kur-prereqs) in every account that you scan.
+
+By default, the report file name includes the account name, so reports from different accounts do not overwrite each other. If you use the `--output` flag, specify a different file name for each account.
+
+If `IBMCLOUD_API_KEY` is set, the tool logs in with that API key at the start of every run, which replaces the account that you selected with `ibmcloud target -c`. The tool then scans the account that is associated with the API key. Use an API key from each account that you scan:
+
+```sh
+IBMCLOUD_API_KEY=<api-key-for-the-account> ./<kur-binary>
+```
+{: pre}
 
 ## Running the tool
 {: #kur-running}
@@ -283,13 +322,13 @@ Metadata includes execution context such as the tool version, target KMS service
 ### KMS instances
 {: #kur-kms-instances}
 
-One entry per KMS or HPCS instance found in the account. Instances with detected key usage are listed first, then instances with no detected usage. Each instance contains:
+One entry per KMS or HPCS instance found in the account, or referenced by a resource in the account (for example, an HPCS instance in another account). Instances with detected key usage are listed first, then instances with no detected usage. Each instance contains:
 
 Instance metadata
 :   Name, CRN, state, allowed network, public and private endpoints, type (for Key Protect: `multi-tenant` or `dedicated`).
 
 `found_by_kms_instance_listing`
-:   `true` if the instance was found by listing KMS instances in the account.
+:   `true` if the instance was found by listing KMS instances in the account. `false` when the instance is known only because a resource in the account references it, for example when the instance belongs to another account.
 
 `found_by_resource_scan`
 :   `true` if the resource scan found at least one resource encrypted by this instance, either through one of its keys or through a reference to the instance alone (see [Unknowns](#kur-unknowns)).
@@ -308,7 +347,7 @@ Instance metadata
    * `has_migration_intent`: whether the key has a migration intent set.
    * `migration_intent_target_crk`: target CRK CRN (only present when `has_migration_intent` is `true`).
    * `found_by_kms_key_listing` or `found_by_resource_scan`: how the key was discovered.
-   * `associations[]`: cloud resources registered against the key (from the Key Protect registrations API). Each entry shows the `resource_crn` and whether it has `prevent_key_deletion` enabled. Omitted when a key has no registrations.
+   * `associations[]`: cloud resources registered against the key (from the Key Protect registrations API). Each entry shows the `resource_crn` and whether it has `prevent_key_deletion` enabled. Omitted when a key has no registrations. Some associations can be stale, which means that they point to resources that were deleted.
    * `service_usage`: map of service label to the encrypted resources detected by the account-wide resource scan, each resource listed once per key (see [How usage is detected](#kur-how-detected) for the labels). Only present for keys found by the resource scan.
 
 ### CRNs

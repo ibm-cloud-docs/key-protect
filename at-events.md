@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-23"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -115,6 +115,8 @@ The following table lists the key ring actions that generate an event:
 
 
 
+
+
 ## Policy events
 {: #policy-actions}
 
@@ -128,7 +130,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instance-policies.write`   | Set instance policies        |
 | `kms.policies.default`         | Invalid policy request event |
 | `kms.instance-policies.request` | Invalid policy request event |
-{: caption="Table 5. Policy actions" caption-side="bottom"}
+{: caption="Table 6. Policy actions" caption-side="bottom"}
 
 ## Import token events
 {: #import-token-actions}
@@ -140,7 +142,7 @@ The following table lists the import token actions that generate an event:
 | `kms.import-token.create`  | Create an import token             |
 | `kms.import-token.read`    | Retrieve an import token           |
 | `kms.import-token.request` | Invalid import token request event |
-{: caption="Table 6. Import token actions" caption-side="bottom"}
+{: caption="Table 7. Import token actions" caption-side="bottom"}
 
 ## Registration events
 {: #registration-actions}
@@ -154,7 +156,7 @@ The following table lists the registration actions that generate an event:
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
 | `kms.registrations.default`             | Invalid registration request event                       |
-{: caption="Table 7. Registration actions" caption-side="bottom"}
+{: caption="Table 8. Registration actions" caption-side="bottom"}
 
 
 
@@ -182,7 +184,7 @@ view events, you must access the web UI of the
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
-{: caption="Table 7. {{site.data.keyword.logs_full_notm}} regions" caption-side="bottom"}
+{: caption="Table 8. {{site.data.keyword.logs_full_notm}} regions" caption-side="bottom"}
 
 ## Analyzing successful events
 {: #at-events-analyze}

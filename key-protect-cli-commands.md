@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-23"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5486,7 +5486,7 @@ COMMANDS:
   claim        Claim crypto unit(s)
   master-key   Commands to manage Master Keys (MKs) of crypto unit(s)
   master-keys  List the MKs uploaded to crypto unit(s)
-  sig-key      Generate a signature key file compatible for use as a crypto unit user credential
+  sig-key      Manage signature keys for use as a crypto unit user credential
   threshold    Manage signature and revocation thresholds for crypto unit(s)
   user         Manage users in crypto unit(s)
   users        List users in crypto unit(s)
@@ -5518,18 +5518,16 @@ OPTIONS:
 ### `claim`
 {: #kp-crypto-unit-claim}
 
-ibmcloud kp crypto-unit claim
-
 ```
 NAME:
   claim - Claim crypto unit(s)
 
 USAGE:
-  claim --credential ADMIN_KEY_FILE
+  claim (--credential ADMIN_KEY_FILE | --credential @SC_JSON_FILE,CARD_ID | --credential -) [--ids CRYPTO_UNITS]
 
 OPTIONS:
-  --credential value  Required. Path to file containing signature key that will be associated with the user. Must be between 1 and 255 characters. Do not include file passphrase
-  --ids strings         Optional. List of crypto unit IDs to target, can be provided as a comma-separated list, or repeating the flag. If omitted, all crypto units will be targeted
+  --credential value  Required. Either a path to an RSA signature key file or a smartcard identifier (use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file). The credential will be registered as the default admin of the claimed crypto unit(s). Do not include file passphrase
+  --ids value         Optional. List of crypto unit IDs to target, can be provided as a comma-separated list or by repeating the flag. If omitted, all crypto units will be targeted
 ```
 
 ### `master-key`
@@ -5553,19 +5551,27 @@ COMMANDS:
 
 ```
 NAME:
-  generate - Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
+  generate - Generate Master Key (MK) material. This command does not store the MK material in the crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
 
 USAGE:
-  generate --keyshare-files KEYSHARE_FILES --keyshare-minimum KEYSHARE_MINIMUM --algo ALGO --key-name KEYNAME --cu CRYPTO_UNITS
+  generate (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+           [--keyshare-count KEYSHARE_COUNT] [--record RECORD]
+           --keyshare-minimum KEYSHARE_MINIMUM --algo ALGO --key-name KEYNAME
+           (--cu CRYPTO_UNITS | --auth AUTH)
 
 OPTIONS:
   --algo value              Required. Algorithm that generated MK will be compatible with. Only AES-256 is supported
-  --auth value              Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --cu value                Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --auth value              Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --cu
+  --cu value                Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
   --key-name value          Required. MK name. Must be between 1 and 8 characters
-  --keyshare-files value    Required. Array specifying file paths to write MK key share files to. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase.
-  --keyshare-minimum value  Required. Number of key shares needed to reconstruct the MK. Must be between 2 and 255 and less than or equal to the number of keyshare files
+  --keyshare-count value    Required with --smartcard. Total number of MK shares to generate and write to the smart card. Must be between 2 and 255 and greater than or equal to --keyshare-minimum. Not allowed with --keyshare-files
+  --keyshare-files value    Array specifying file paths to write MK key share files to. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase. Mutually exclusive with --smartcard
+  --keyshare-minimum value  Required. Minimum number of MK shares needed to reconstruct the MK. Must be between 2 and 255 and less than or equal to --keyshare-count (smartcard) or the number of files in --keyshare-files (file)
+  --record value            Required with --smartcard. Smart card record slot where the MK shares will be written. Must be between 1 and 16
+  --smartcard value         Smart card reader to write MK shares to. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files; requires --record and --keyshare-count
 ```
+
+
 
 #### `master-key import`
 {: #kp-crypto-unit-master-key-import}
@@ -5575,13 +5581,20 @@ NAME:
   import - Import a Master Key (MK) to crypto unit(s)
 
 USAGE:
-  import --keyshare-files KEYSHARE_FILES --auth AUTH
+  import (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+         [--record RECORD]
+         (--cu CRYPTO_UNITS | --auth AUTH)
 
 OPTIONS:
-  --auth value            Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --keyshare-files value  Required. Array specifying file paths to MK key share files. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase.
+  --auth value            Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --cu
+  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
+  --keyshare-files value  Array specifying file paths to MK share files. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase. Mutually exclusive with --smartcard
+  --record value          Required with --smartcard. Smart card record slot to read MK shares from. Must be between 1 and 16
+  --smartcard value       Smart card reader to read MK shares from. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files
 ```
+
+When importing master key shares from smart cards, you might see repeated PIN pad prompts during the operation. The CLI imports the master key into the required crypto unit slots as separate steps, and each step might require smart card authorization again. These repeated prompts are expected behavior from the vendor smart card workflow and are not a CLI error.
+{: note}
 
 ### `master-keys`
 {: #kp-crypto-unit-master-keys}
@@ -5591,10 +5604,11 @@ NAME:
   master-keys - List the MKs uploaded to crypto unit(s)
 
 USAGE:
-  master-keys [--cu CRYPTO_UNITS]
+  master-keys [--cu CRYPTO_UNITS | --auth AUTH]
 
 OPTIONS:
-  --cu value  Optional. Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive. If omitted, lists MKs in all crypto units of the instance.
+  --auth value  Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Required when --cu is not specified. Mutually exclusive with --cu
+  --cu value    Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. If omitted, lists MKs in all crypto units of the instance using --auth. Mutually exclusive with --auth
 ```
 
 ### `sig-key`
@@ -5602,7 +5616,7 @@ OPTIONS:
 
 ```
 NAME:
-  ibmcloud key-protect crypto-unit sig-key - Generate a signature key file compatible for use as a crypto unit user credential
+  ibmcloud key-protect crypto-unit sig-key - Manage signature keys for use as a crypto unit user credential
 
 USAGE:
   ibmcloud key-protect crypto-unit sig-key command [arguments...] [command options]
@@ -5622,13 +5636,18 @@ NAME:
   generate - Generate a signature key file compatible for use as a crypto unit user credential
 
 USAGE:
-  generate --file FILE --passphrase PASSWORD --algo RSA-2048
+  generate (--file ADMIN_KEY_FILE | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+           --algo (RSA-2048 | ECDSA) [--passphrase -] [--name NAME]
 
 OPTIONS:
-  --algo value      The algorithm type used to generate the signature key. Only RSA-2048 is supported
-  --file value      Required. The file path to write the signature key to. Must be between 1 and 255 characters
-  --passphrase value                 --passphrase string   Optional passphrase used to encrypt the signature key file. Provide "-" to prompt for password
+  --algo value        The algorithm type used to generate the signature key. Supported values: RSA-2048 or ECDSA. For ECDSA, only curve brainpoolP320t1 is supported. Defaults to RSA-2048 if not specified
+  --file value        The file path to write the signature key to. Must be between 1 and 255 characters. Mutually exclusive with --smartcard
+  --name value        Optional. Name label for the generated key. Defaults to 'Admin RSA Key' for RSA-2048 or 'Admin EC Key' for ECDSA. Must be between 1 and 255 characters
+  --passphrase value  Optional passphrase used to encrypt the signature key file. Provide "-" to prompt for password. Not allowed with --smartcard
+  --smartcard value   Smart card to generate the signature key on. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. Mutually exclusive with --file
 ```
+
+
 
 
 
@@ -5659,14 +5678,16 @@ NAME:
   add - Add new user to crypto unit(s)
 
 USAGE:
-  add --type TYPE --name NAME --credential CREDENTIAL --auth AUTH
+  add --type TYPE [--name NAME]
+      [--credential CREDENTIAL | --credential @SC_JSON_FILE,CARD_ID | --credential -]
+      (--cu CRYPTO_UNITS | --auth AUTH)
 
 OPTIONS:
-  --auth value          Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --credential value    Required. Path to file containing signature key that will be associated with the user. Must be between 1 and 255 characters. Do not include file passphrase
-  --cu value            Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
-  --name value        Required. Name of the user to add. Must be between 1 and 255 characters
-  --type value        Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
+  --auth value          Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --cu
+  --credential value    For admin users: required; path to an RSA signature key file (do not include file passphrase), or a smartcard identifier (use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' for a card from a JSON config file). Not applicable for kmsCryptoUser.
+  --cu value            Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
+  --name value          Required for admin users. Name of the user to add. Must be between 1 and 255 characters. Do not provide for kmsCryptoUser; the username is assigned automatically
+  --type value          Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
 ```
 
 
@@ -5680,10 +5701,11 @@ NAME:
   remove - Remove user from crypto unit
 
 USAGE:
-  remove -u USER --cu CRYPTO_UNITS
+  remove -u USER (--cu CRYPTO_UNITS | --auth AUTH)
 
 OPTIONS:
-  --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive
+  --auth value          Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --cu
+  --cu value            Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
   -u value, --user value  Required. The username of the user to remove from crypto-unit(s)
 ```
 
@@ -5721,7 +5743,8 @@ Use "export KP_INSTANCE_ID=TARGET_INSTANCE_ID" or "ibmcloud kp command [argument
 ```
 
 
-## Next Steps
+
+## Next steps
 {: #cli-reference-next-steps}
 
 Look for related operations in the [API documentation](/apidocs/key-protect).

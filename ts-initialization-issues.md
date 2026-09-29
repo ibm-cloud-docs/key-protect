@@ -3,9 +3,9 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-08-11"
+lastupdated: "2026-09-28"
 
-keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
+keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize, quorum, threshold not configured
 
 subcollection: key-protect
 
