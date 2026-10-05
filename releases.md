@@ -54,8 +54,8 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-july3026}
 {: release-note}
 
-{{site.data.keyword.keymanagementserviceshort}} Dedicated is now available in the BNPP dMZR
-:   {{site.data.keyword.keymanagementserviceshort}} announces the availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated in the BNP Paribas distributed Multi-Zone Region (dMZR). This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM to the BNPP dMZR, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+{{site.data.keyword.keymanagementserviceshort}} Dedicated is now available in a new region
+:   {{site.data.keyword.keymanagementserviceshort}} announces expanded regional availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated. This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see Regions and endpoints. To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}.
 
 ### 15 July 2026
 {: #key-protect-july1526}
