@@ -27,7 +27,7 @@ subcollection: key-protect
 {{site.data.keyword.keymanagementservicefull}} is a highly available, regional service with automatic features that help keep your applications secure and operational.
 {: shortdesc}
 
-This topic contains specific information about the high availability and disaster recovery strategies and configurations for _service-name_. For more information about how high availability and disaster recovery are handled for the {{site.data.keyword.cloud_notm}} platform, including concepts like cross regions, global services, and fault domains, check out the [Resiliency documentation](/docs/resiliency?topic=resiliency-ha-redundancy).
+This topic contains specific information about the high availability and disaster recovery strategies and configurations for {{site.data.keyword.keymanagementserviceshort}}. For more information about how high availability and disaster recovery are handled for the {{site.data.keyword.cloud_notm}} platform, including concepts like cross regions, global services, and fault domains, check out the [Resiliency documentation](/docs/resiliency?topic=resiliency-ha-redundancy).
 {: tip}
 
 The high availability of {{site.data.keyword.keymanagementserviceshort}} and the disaster recovery of data are guaranteed by {{site.data.keyword.cloud_notm}} and {{site.data.keyword.keymanagementserviceshort}}. Note that "disaster recovery" does not include the ability to recover from user-initiated accidental deletions.
