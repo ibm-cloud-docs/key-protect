@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-23"
+lastupdated: "2026-10-06"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5487,6 +5487,7 @@ COMMANDS:
   master-key   Commands to manage Master Keys (MKs) of crypto unit(s)
   master-keys  List the MKs uploaded to crypto unit(s)
   sig-key      Manage signature keys for use as a crypto unit user credential
+  smartcard    Manage smart card operations for crypto units
   threshold    Manage signature and revocation thresholds for crypto unit(s)
   user         Manage users in crypto unit(s)
   users        List users in crypto unit(s)
@@ -5543,6 +5544,7 @@ USAGE:
 COMMANDS:
   generate   Generate Master Key (MK) material. This command does not store the MK material in crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
   import     Import a Master Key (MK) to crypto unit(s)
+  copy       Copy Master Key (MK) shares from files to smart cards
   help, h    Show help
 ```
 
@@ -5571,7 +5573,25 @@ OPTIONS:
   --smartcard value         Smart card reader to write MK shares to. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files; requires --record and --keyshare-count
 ```
 
+#### `master-key copy`
+{: #kp-crypto-unit-master-key-copy}
 
+```
+NAME:
+  copy - Copy Master Key (MK) shares from files to smart cards
+
+USAGE:
+  copy --keyshare-files KEYSHARE_FILES
+       (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -) --record RECORD
+
+OPTIONS:
+  --keyshare-files value  Required. Array specifying file paths to read MK share files from. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase
+  --record value          Required. Smart card record slot where the MK shares will be copied to. Must be between 1 and 16
+  --smartcard value       Required. Smart card reader to copy MK shares to. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Each key share is written by inserting cards one by one into the same reader. The 'pin' field in the JSON config is not applicable here as each card may have a different PIN, which must be entered on the PIN pad
+```
+
+Each key share file is copied in sequence to the smart card at the specified record slot. You must use a single reader with one card at a time, you are prompted to insert each card in turn. If the specified record slot on a card is already occupied, you are prompted to confirm whether to overwrite the existing key share before proceeding.
+{: note}
 
 #### `master-key import`
 {: #kp-crypto-unit-master-key-import}
@@ -5623,6 +5643,7 @@ USAGE:
 
 COMMANDS:
   generate   Generate a signature key file compatible for use as a crypto unit user credential
+  copy       Copy a signature key from file to smart card
   help, h    Show help
 
 Enter 'ibmcloud key-protect crypto-unit sig-key help [command]' for more information about a command.
@@ -5647,9 +5668,192 @@ OPTIONS:
   --smartcard value   Smart card to generate the signature key on. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. Mutually exclusive with --file
 ```
 
+#### `sig-key copy`
+{: #kp-crypto-unit-sig-key-copy}
 
+```
+NAME:
+  copy - Copy a signature key from file to smart card
 
+USAGE:
+  copy --file FILE (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
 
+OPTIONS:
+  --file value       Required. Path to file containing the signature key (RSA or ECDSA) to copy to the smart card. Must be between 1 and 255 characters
+  --smartcard value  Required. Smart card destination. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
+```
+
+### `smartcard`
+{: #kp-crypto-unit-smartcard}
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit smartcard - Manage smart card operations for crypto units
+
+USAGE:
+  ibmcloud key-protect crypto-unit smartcard command [arguments...] [command options]
+
+COMMANDS:
+  info        Display information about a smart card
+  pin-change  Change the PIN of a smart card
+  help, h     Show help
+
+Enter 'ibmcloud key-protect crypto-unit smartcard help [command]' for more information about a command.
+```
+
+#### `smartcard info`
+{: #kp-crypto-unit-smartcard-info}
+
+No PIN is required for this read-only operation.
+{: note}
+
+```
+NAME:
+  info - Display information about a smart card
+
+USAGE:
+  info (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+
+OUTPUT FIELDS:
+  RSA-Key             The RSA signature key stored on the card
+  ECC-Key             The ECDSA signature key stored on the card
+
+  MK Info             Table of Master Key (MK) records stored on the card:
+    Record            Slot identifier for the MK entry
+    Algo              Key algorithm (e.g. AES)
+    Name              Label assigned to the key
+    Date              Date the key was created (DD.MM.YYYY)
+    Time              Time the key was created (HH:MM:SS)
+    Keyshare-Minimum  Minimum number of keyshares required to reconstruct the key. Defaults to 2 if not set
+    Hash              Unique hash fingerprint of the key
+
+OPTIONS:
+  --smartcard value  Required. Smart card to query. No PIN is required. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
+```
+
+#### `smartcard pin-change`
+{: #kp-crypto-unit-smartcard-pin-change}
+
+Changes the PIN of a smart card. You are prompted on the PIN pad to enter the old PIN and then the new PIN.
+
+Entering the wrong PIN 5 consecutive times will permanently block the smart card. There is no known recovery method for a blocked card.
+{: important}
+
+**Known issue — PIN change with incorrect old PIN:**
+Always enter the exact existing PIN when prompted for the old PIN, because the smart card firmware does not validate the old PIN length before applying the change. If the wrong old PIN is entered, the command appears to succeed but the PIN is not updated to the intended value — instead, the extra characters are prepended to the new PIN. There is no recovery from this state, and the retry limit still applies, so avoid entering an incorrect PIN repeatedly to prevent permanently blocking the card.
+{: note}
+
+```
+NAME:
+  pin-change - Change the PIN of a smart card
+
+USAGE:
+  pin-change (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+
+OPTIONS:
+  --smartcard value  Required. Smart card whose PIN to change. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. The current and new PINs are always entered interactively on the PIN pad
+```
+
+### `threshold`
+{: #kp-crypto-unit-threshold}
+
+Commands to manage signature and revocation thresholds for crypto unit(s).
+
+```
+NAME:
+  ibmcloud key-protect crypto-unit threshold - Manage signature and revocation thresholds for crypto unit(s)
+
+USAGE:
+  ibmcloud key-protect crypto-unit threshold command [arguments...] [command options]
+
+COMMANDS:
+  get      Get current signature and revocation threshold value for crypto unit(s)
+  set      Set signature and revocation thresholds for crypto unit(s)
+  help, h  Show help
+
+Enter 'ibmcloud key-protect crypto-unit threshold help [command]' for more information about a command.
+```
+
+#### `threshold get`
+{: #kp-crypto-unit-threshold-get}
+
+Get current signature and revocation threshold values for crypto unit(s). Shows `not configured` if thresholds have not been set yet.
+
+```
+NAME:
+  get - Get current signature and revocation threshold value for crypto unit(s)
+
+USAGE:
+  get [--id CRYPTO_UNIT_ID]
+
+EXAMPLES:
+  ibmcloud kp crypto-unit threshold get
+    Get threshold values for all crypto units
+  ibmcloud kp crypto-unit threshold get --id fadedbee-0000-0000-0000-1234567890ab
+    Get threshold value for a specific crypto unit
+
+OPTIONS:
+  --id value  Optional. The ID of the crypto unit to retrieve threshold configuration for. If omitted, threshold is retrieved for all crypto units in the instance.
+```
+
+#### `threshold set`
+{: #kp-crypto-unit-threshold-set}
+
+Set signature and revocation thresholds for crypto unit(s). Both `--signature-threshold` and `--revocation-threshold` must be between **1 and 5** and cannot exceed the number of admin users configured on the crypto unit. If thresholds are not set, both default to 1.
+
+```
+NAME:
+  set - Set signature and revocation thresholds for crypto unit(s)
+
+USAGE:
+  set --signature-threshold SIGNATURE-THRESHOLD --revocation-threshold REVOCATION-THRESHOLD (--auth AUTH [--id CRYPTO_UNIT_ID] | --cu CRYPTO_UNITS)
+
+EXAMPLES:
+  ibmcloud kp crypto-unit threshold set --signature-threshold 2 --revocation-threshold 2 --auth '[{"ADMIN": "/path/to/signature.key#password"}]'
+    Set threshold for all crypto units using --auth
+  ibmcloud kp crypto-unit threshold set --signature-threshold 2 --revocation-threshold 2 --auth '[{"ADMIN": "/path/to/signature.key#password"}]' --id fadedbee-0000-0000-0000-1234567890ab
+    Set threshold for a specific crypto unit using --auth with --id
+  ibmcloud kp crypto-unit threshold set --signature-threshold 3 --revocation-threshold 2 --cu '[{"CryptoUnitId":"fadedbee-0000-0000-0000-1234567890ab","Auth":[{"ADMIN":"/path/to/signature.key#password"}]}]'
+    Set threshold for a specific crypto unit using --cu (CU ID + auth bundled)
+
+OPTIONS:
+  --auth value                   Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"myUsername": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive.
+  --cu value                     Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. --auth and --cu are mutually exclusive.
+  --id value                     Optional. The ID of the crypto unit to set threshold for. Used with --auth. If omitted, threshold is set for all crypto units in the instance.
+  --revocation-threshold value   Required. Number of admin signatures required to revoke a user. Must be between 1 and 5. The number of admin users configured on the crypto unit must be greater than or equal to this value.
+  --signature-threshold value    Required. Number of admin signatures required to authorize sensitive operations (add/remove user, import master key). Must be between 1 and 5. The number of admin users configured on the crypto unit must be greater than or equal to this value.
+```
+
+The crypto unit restarts when the threshold configuration is applied.
+{: important}
+
+#### Existing users — setting thresholds before other operations
+{: #kp-crypto-unit-threshold-existing-users}
+
+If your crypto units are already in any state (for example, `initialized` or `kms-initialized`) and you attempt a quorum-enforced operation such as adding or removing an admin user or importing a master key without first configuring thresholds, the command fails with the following error:
+
+```
+Cannot perform action, threshold not configured. Run `ibmcloud kp crypto-unit threshold set` before retrying. Note: the crypto unit will restart when the threshold configuration is applied.
+```
+
+To resolve this error, follow these steps:
+
+1. Check your current threshold status:
+   ```
+   ibmcloud kp crypto-unit threshold get
+   ```
+   If the output shows `not configured`, proceed to step 2.
+
+2. Set the signature and revocation thresholds:
+   ```
+   ibmcloud kp crypto-unit threshold set --signature-threshold <VALUE> --revocation-threshold <VALUE> --auth '<AUTH_JSON>'
+   ```
+   Where `<VALUE>` is an integer between **1 and 5** that does not exceed the number of admin users on the crypto unit.
+
+   The crypto unit restarts when the threshold configuration is applied.
+   {: important}
+
+3. After the crypto unit restarts, retry the original operation (add/remove user, import master key, and so on).
 
 ### `user`
 {: #kp-crypto-unit-user}
@@ -5690,8 +5894,44 @@ OPTIONS:
   --type value          Required. Type of user to add. Allowable values are: admin, kmsCryptoUser
 ```
 
+#### `user-update-password`
+{: #kp-crypto-unit-user-update-password}
 
+```
+NAME:
+  update-password - Change your own HMAC password by authenticating with your current credential via --auth. Both keystoreUser and keystoreSO users can use this command to self-service rotate their own password. You are prompted interactively to enter and confirm the new HMAC password. For an ADMIN-forced password reset, or to reset another user's password, use `user update` instead.
 
+USAGE:
+  update-password --auth AUTH
+
+EXAMPLES:
+
+  # Prompt for the current password interactively.
+  ibmcloud kp crypto-unit user update-password --auth "SO_0184"
+
+  # Provide the current password inline after '#'.
+  ibmcloud kp crypto-unit user update-password --auth "SO_0184#myCurrentP@ss"
+
+  # Use an empty current password. A trailing '#' prevents a prompt.
+  ibmcloud kp crypto-unit user update-password --auth "SO_0184#"
+
+  # Read the --auth input value from a file.
+  ibmcloud kp crypto-unit user update-password --auth @/path/to/auth.json
+
+  # Target a specific crypto unit with --cu.
+  ibmcloud kp crypto-unit user update-password \
+      --cu '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"SO_0184": "myCurrentP@ss"}]}]'
+
+GLOBAL OPTIONS:
+  -h, --help          Show help
+  -i, --instance-id string
+                      Target a Key Protect service instance. You can also use the environment variable KP_INSTANCE_ID instead
+  -o, --output string Choose an output format - can be 'json'
+
+OPTIONS:
+  --auth value        Credentials to use for authenticating request(s) sent to crypto unit(s). Specify the username, optionally followed by '#' and the current HMAC password. For file-based authentication, omit '#' to be prompted to enter the file passphrase. --auth and --cu are mutually exclusive
+  --cu value          Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"SO_0184": "myCurrentP@ss"}]}]' or '@/path/to/cu.json'. Omit '#' to be prompted to enter the file passphrase. --auth and --cu are mutually exclusive
+```
 
 #### `user-remove`
 {: #kp-crypto-unit-user-remove}
@@ -5743,6 +5983,7 @@ Use "export KP_INSTANCE_ID=TARGET_INSTANCE_ID" or "ibmcloud kp command [argument
 ```
 
 
+For information about the smart card JSON file format, setting up the PIN Pad Daemon (PPD), and troubleshooting smart card connectivity, see [Working with smart cards](/docs/key-protect?topic=key-protect-smartcard).
 
 ## Next steps
 {: #cli-reference-next-steps}

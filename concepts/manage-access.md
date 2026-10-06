@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-22"
+lastupdated: "2026-10-06"
 
 keywords: user permissions, manage access, IAM roles, roles
 
@@ -107,13 +107,7 @@ Platform roles be assigned over an entire account, over particular service insta
 
 While an account-level role gives a user particular permissions over service instances by default, roles can also be assigned over a particular service instance. For example, an account _Editor_ (who has the ability to view, create, and delete instances, but not the ability to assign roles) can be made an _Administrator_ of a particular service instance, allowing them to assign roles within that service instance.
 
-
-
-Service roles can be applied to the three first class objects within a service instance: the **instance** as a whole, particular **keys**, and **key rings**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys and key rings by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
-
-
-
-
+Service roles can be applied to the first-class objects within a service instance: the **instance** as a whole, particular **keys**, **key rings**, and **keystores**. Just as account roles have permissions over instances by default, so too do instance managers have permissions over keys, key rings, and keystores by default. However, these permissions can be assigned more granularly where necessary, for example giving a user the _Manager_ role over only a particular key or key ring and some lesser level of permission over the instance as a whole.
 
 Service roles can be assigned per-instance or for all instances in an account.
 {: tip}
@@ -233,7 +227,21 @@ The _KeyPurge_ role only confers the ability to purge keys and should be conside
 The **Writer**, **Reader**, and **ReaderPlus** roles do not have access to the KMIP protocol.
 {: important}
 
+| Action | Reader | ReaderPlus | Writer | Manager |
+| ------ | ------ | ---------- | ------ | ------- |
+| Create a keystore | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List keystores | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| List PKCS #11 objects in a keystore | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Delete a keystore | | | | ![Check mark icon](../../icons/checkmark-icon.svg) |
+| Perform a PKCS #11 operation | | | ![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
+{: #table-8}
+{: caption="Lists service access roles as they apply to {{site.data.keyword.keymanagementserviceshort}} keystore and PKCS #11 resources" caption-side="bottom"}
+{: tab-title="Keystores & PKCS #11"}
+{: tab-group="IAM-roles"}
+{: class="comparison-tab-table"}
 
+The _Reader_ role on a keystore grants list access only. It does not permit execution of any PKCS #11 operation. Only **Writer** and **Manager** roles can perform PKCS #11 operations against a keystore.
+{: important}
 
 ### Roles and {{site.data.keyword.iamshort}} policies
 {: #manage-access-roles-policies}
@@ -244,7 +252,10 @@ While the {{site.data.keyword.keymanagementserviceshort}} console allows users f
 * service instance id
 * key ring id
 * resource type (only `key` is supported)
-* resource id 
+* resource id
+* keystore id (`keystoreId`) — scope access to a specific PKCS #11 keystore
+* PKCS #11 operation (`pkcsOperation`) — scope access to a specific PKCS #11 function; supports `stringEquals`, `stringExists`, and `stringMatch` operators (wildcards are supported, for example `C_Digest*`)
+* account id (should always be specified in policy)
 
 Here is an example of a policy scoped to a key resource returned by the IAM API:
 
@@ -277,7 +288,39 @@ Here is an example of a policy scoped to a key resource returned by the IAM API:
 ]
 ```
 
+The following example shows a policy scoped to a specific PKCS #11 operation in a keystore:
 
+```json
+"resources": [
+    {
+        "attributes": [
+            {
+                "name": "accountId",
+                "value": "$ACCOUNT_ID"
+            },
+            {
+                "name": "serviceName",
+                "value": "kms"
+            },
+            {
+                "name": "serviceInstance",
+                "value": "$INSTANCE_ID"
+            },
+            {
+                "name": "keystoreId",
+                "value": "$KEYSTORE_ID"
+            },
+            {
+                "name": "pkcsOperation",
+                "value": "C_Decrypt",
+                "operator": "stringEquals"
+            }
+        ]
+    }
+]
+```
+
+To grant access to a group of related PKCS #11 operations, use the `stringMatch` operator with a wildcard value. For example, setting `pkcsOperation` to `C_Digest*` grants access to the following operations: `C_DigestInit`, `C_Digest`, `C_DigestUpdate`, `C_DigestKey`, and `C_DigestFinal`.
 
 Any combination of these attributes can be applied in a policy. If that policy has the administrator role attached to it, that means any `user/service id/access group` that has this policy applied to them can create a policy that applies to a subresource of the one that has been granted. In other words, all sub-admin users can only have access equal to (exactly the same attributes specified on their policy) or less than (exactly the same attributes specified on their policy and additional attributes specified) that of the parent admin.
 

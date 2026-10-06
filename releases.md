@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-23"
+lastupdated: "2026-10-06"
 
 keywords: key protect, release notes, service updates
 
@@ -31,9 +31,21 @@ content-type: release-note
 Stay up-to-date with the new features that are available for {{site.data.keyword.keymanagementservicefull}}.
 {: shortdesc}
 
+## October 2026
+{: #key-protect-oct26}
 
+### 5 October 2026
+{: #key-protect-oct0526}
+{: release-note}
 
+PKCS #11 operations against Key Protect keystores
+:   {{site.data.keyword.keymanagementserviceshort}} now supports executing PKCS #11 cryptographic operations against user-managed keystores. You can create a keystore by using the `ibmcloud kp keystore` CLI and then target standard PKCS #11 operations against that keystore. New IAM actions (`kms.keystore.create`, `kms.keystore.list`, `kms.keystore.delete`, `kms.keystore.pkcs11-op`) provide fine-grained access control, including the ability to scope permissions to a specific PKCS #11 operation or group of operations by using the `pkcsOperation` IAM resource attribute. Each instance supports a maximum of 5 keystores. Pricing is determined by your plan: the Standard plan is billed based on monthly regional charges (`REGIONAL_CHARGE_PER_MONTH`) and active key versions (`KEY_VERSION`), while the Dedicated plan uses tiered pricing for keystores and key rings. For more information, see [PKCS #11 capabilities and support](/docs/key-protect?topic=key-protect-pkcs11-functions) and [Granting access to keystores and PKCS #11 operations](/docs/key-protect?topic=key-protect-grant-access-keys#grant-access-keystore-level).
 
+Smartcard Support for Crypto Unit admin and Master Key shares
+:   {{site.data.keyword.keymanagementserviceshort}} Dedicated now supports hardware-backed smart cards along with the existing file-based credentials and Master Key (MK) shares for crypto unit management. You can use smart cards with PIN pad readers (such as CyberJack One) to securely store administrator signature keys and Master Key shares, execute crypto unit administrative actions, and manage smart card operations using the `ibmcloud kp crypto-unit` CLI commands. For more information, see [Working with smart cards](/docs/key-protect?topic=key-protect-smartcard) and [Troubleshooting smart cards](/docs/key-protect?topic=key-protect-kp-smartcard-troubleshooting).
+
+Quorum authorization for Dedicated {{site.data.keyword.keymanagementserviceshort}}
+:   {{site.data.keyword.keymanagementserviceshort}} Dedicated now supports quorum authorization, a security control that requires multiple administrators to jointly approve sensitive crypto unit operations. You can configure a signature threshold (number of admin signatures required to authorize operations such as adding or removing a user or importing master key material) and a revocation threshold (number of admin signatures required to revoke an admin user) on each crypto unit. Both thresholds accept values from `1` to `5`. Two new CLI commands are available: `ibmcloud kp crypto-unit threshold set` to configure the thresholds and `ibmcloud kp crypto-unit threshold get` to view the current values. For more information, see [Quorum authorization](/docs/key-protect?topic=key-protect-quorum-authorization), [Setting a signature and revocation threshold](/docs/key-protect?topic=key-protect-provision-ded-instance#getting-started-set-threshold), and [Troubleshooting quorum authorization](/docs/key-protect?topic=key-protect-troubleshooting-quorum).
 
 ## September 2026
 {: #key-protect-july26}
@@ -52,8 +64,8 @@ Stay up-to-date with the new features that are available for {{site.data.keyword
 {: #key-protect-july3026}
 {: release-note}
 
-{{site.data.keyword.keymanagementserviceshort}} Dedicated is now available in the BNPP dMZR
-:   {{site.data.keyword.keymanagementserviceshort}} announces the availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated in the BNP Paribas distributed Multi-Zone Region (dMZR). This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM to the BNPP dMZR, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+{{site.data.keyword.keymanagementserviceshort}} Dedicated is now available in a new region
+:   {{site.data.keyword.keymanagementserviceshort}} announces expanded regional availability of {{site.data.keyword.keymanagementserviceshort}} Dedicated. This single-tenant offering brings Keep Your Own Key (KYOK) capabilities with next-generation HSM, featuring user-owned and managed HSM, FIPS 140-3 Level 4 certification (pending), master key management, and workload isolation. For more information about the regions where {{site.data.keyword.keymanagementserviceshort}} Dedicated is available, see [Regions and endpoints](/docs/key-protect?topic=key-protect-regions). To learn more about {{site.data.keyword.keymanagementserviceshort}} Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 ### 15 July 2026
 {: #key-protect-july1526}

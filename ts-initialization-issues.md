@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-09-28"
+lastupdated: "2026-10-06"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize, quorum, threshold not configured
 
@@ -116,3 +116,19 @@ To resolve this issue:
 2. Run the `kp crypto-units` command in the [CLI reference](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-units) to confirm that all crypto units are in the same state.
    - If crypto unit states are mismatched, see [Crypto unit states](/docs/key-protect?topic=key-protect-crypto-unit-states).
    - If any crypto unit is in `maintenance` state, retry the `kp crypto-unit` commands at a later time.
+
+## Why do I get a `threshold not configured` error?
+{: #threshold-not-configured-error}
+{: troubleshoot}
+
+**`Cannot perform action, threshold not configured` error**
+
+If a `crypto-unit` command such as `user add`, `user remove`, or `master-key import` returns the following error:
+
+```screen
+FAILED
+Cannot perform action, threshold not configured. Run `ibmcloud kp crypto-unit threshold set` before retrying. Note: the crypto unit will restart when the threshold configuration is applied.
+```
+{: screen}
+
+The crypto unit requires a signature threshold to be explicitly configured before these operations can proceed. For detailed resolution steps, see [Why do I get a `threshold not configured` error?](/docs/key-protect?topic=key-protect-troubleshooting-quorum#ts-quorum-threshold-not-configured).

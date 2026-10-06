@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-23"
+lastupdated: "2026-10-06"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -113,9 +113,31 @@ The following table lists the key ring actions that generate an event:
 | `kms.key-rings.request`         | Invalid key ring request      |
 {: caption="Table 3. Key Ring actions" caption-side="bottom"}
 
+## Keystore events
+{: #keystore-actions}
 
+The following table lists the keystore and PKCS #11 actions that generate an event:
 
+| Action                      | Description                                          |
+| --------------------------- | ---------------------------------------------------- |
+| `kms.keystore.create`       | Create a keystore                                    |
+| `kms.keystore.list`         | List keystores or PKCS #11 objects in a keystore     |
+| `kms.keystore.delete`       | Delete a keystore                                    |
+| `kms.keystore.pkcs11-op`    | Perform a PKCS #11 cryptographic operation           |
+{: caption="Table 4. Keystore and PKCS #11 actions" caption-side="bottom"}
 
+## Quorum action events
+{: #quorum-actions}
+
+The following table lists the quorum actions that generate an event. For more information about quorum authorization, see [Quorum authorization](/docs/key-protect?topic=key-protect-quorum-authorization).
+
+| Action                                          | Description                                        |
+| ----------------------------------------------- | -------------------------------------------------- |
+| `kms.crypto-unit.threshold-config-generate`     | Generate threshold configuration for a crypto unit |
+{: caption="Table 5. Quorum actions" caption-side="bottom"}
+
+The action `kms.crypto-unit.threshold-config-generate` will be deprecated and replaced by `kms.crypto-unit-threshold-config.generate` in a future release.
+{: deprecated}
 
 ## Policy events
 {: #policy-actions}
