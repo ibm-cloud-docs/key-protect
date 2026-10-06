@@ -68,6 +68,8 @@ toc:
               - topic: provision-ded-instance.md
                 navtitle: Creating a Dedicated instance
               - topic: crypto-unit-states.md
+              - topic: concepts/quorum-authorization.md
+                navtitle: Quorum authorization
           - topicgroup:
               label: Migrating from Hyper Protect Crypto Services
               topics:
@@ -135,6 +137,17 @@ toc:
           - restore-keys.md
           - key-rings.md
           - kmip.md
+          - topicgroup:
+              label: Working with PKCS
+              topics:
+              - topic: pkcs11-functions.md
+              - topic: pkcs11-manage-keystore.md
+                navtitle: Managing a keystore
+          - topicgroup:
+              label: Working with Smartcard
+              topics:
+              - topic: smartcard.md
+                navtitle: Smart card setup and reference
       - topicgroup:
           label: Logging and monitoring
           topics:
@@ -186,5 +199,9 @@ toc:
             navtitle: Unable to delete keys
           - topic: ts-initialization-issues.md
             navtitle: Unable to initialize Dedicated Key Protect
+          - topic: ts-quorum.md
+            navtitle: Troubleshooting quorum authorization
+          - topic: ts-smartcard.md
+            navtitle: Troubleshooting smart card operations
           - topic: ts-getting-help.md
             navtitle: Getting help and support

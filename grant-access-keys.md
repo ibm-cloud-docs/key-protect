@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-10-06"
 
 keywords: grant user access, IAM permissions, IAM roles
 
@@ -154,7 +154,42 @@ To assign access to a key ring via the console:
 
 ![The image shows an example of how to grant user access to a key ring.](images/key-ring-iam-policy.png){: caption="Shows how to grant user access to a key ring." caption-side="bottom"}
 
+## Granting access to keystores and PKCS #11 operations
+{: #grant-access-keystore-level}
 
+A keystore is a PKCS #11 token within your {{site.data.keyword.keymanagementserviceshort}} instance. Each instance supports a maximum of 5 keystores. You can restrict access to a specific keystore, and further restrict which PKCS #11 operations a user can perform within that keystore, by using IAM access policies.
+
+Review [roles and permissions](/docs/key-protect?topic=key-protect-manage-access) to learn how {{site.data.keyword.cloud_notm}} IAM roles map to keystore actions.
+{: tip}
+
+The _Reader_ role on a keystore grants list access only — it does not permit execution of any PKCS #11 operation. Assign the _Writer_ or _Manager_ role to allow a user to perform PKCS #11 operations.
+{: important}
+
+To assign access to a keystore by using the {{site.data.keyword.cloud_notm}} console:
+
+1. From the menu bar, click **Manage** &gt; **Access (IAM)**, and select **Users** to browse the existing users in your account.
+
+2. Select a table row, and click the ⋯ icon to open a list of options for that user.
+
+3. From the options menu, click **Assign access**.
+
+4. Click the **IAM services** tile.
+
+5. From the list of services, select **{{site.data.keyword.keymanagementserviceshort}}**.
+
+6. Select **Resources based on selected attributes**.
+
+7. Click the **Instance ID** box and select your instance from the drop-down list.
+
+8. Click **Add a condition**, select **Keystore ID**, and enter the ID of the keystore you want to scope access to.
+
+9. (Optional) To restrict access to a specific PKCS #11 operation, click **Add a condition**, select **PKCS #11 Operation**, and enter the operation name, for example `C_Decrypt`. You can use a wildcard (for example, `C_Digest*`) to match a group of related operations.
+
+10. Choose the combination of [platform and service access roles](/docs/key-protect?topic=key-protect-manage-access#manage-access-roles) you want this user to have.
+
+11. Click **Add**.
+
+12. Continue to add roles as needed. When you are finished, click **Assign**.
 
 ## Granting access for specific functions
 {: #grant-access-keys-specific-functions}

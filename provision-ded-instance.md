@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-09-23"
+lastupdated: "2026-10-06"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -233,12 +233,13 @@ The initialization process involves:
 1. **Generating administrator credentials**: Create RSA signature authentication keys that identify you as an administrator. For more information, see [Generating admin credentials](#getting-started-generate-admin).
 2. **Claiming your crypto units**: Use your credentials to claim ownership of the crypto units
 3. **Creating and loading the master key**: Generate and load the master key that encrypts all other keys in your instance
-
+4. **Setting a signature and revocation threshold (optional)**: Configure the number of admin signatures required to authorize operations. For more information, see [Setting a signature and revocation threshold](#getting-started-set-threshold).
 
 You must complete initialization using the CLI before you can use the console, API, or Terraform to manage keys.
 {: important}
 
-
+Admin credentials and master key shares can be stored as password-protected files on your local system by default, or on hardware-backed smart cards for stronger security. Both approaches are supported and can coexist. The smart card option requires a compatible CyberJack One PIN pad reader. Before using smart card commands, see [Smart card JSON file format](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit-smartcard-json) and [PIN Pad Daemon (PPD)](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit-ppd).
+{: note}
 
 ### Generating admin credentials
 {: #getting-started-generate-admin}
@@ -281,7 +282,62 @@ Where:
 Save a copy of this keyfile and remember the passphrase. It is required for all authenticated commands when interacting with the crypto units.
 {: tip}
 
+#### Smart card-based admin credentials
+{: #getting-started-smartcard-admin-credentials}
 
+Smart card-based admin credentials are stored directly on a hardware-backed smart card, providing stronger security than file-based credentials. This option requires a compatible CyberJack One PIN pad reader. To generate an admin credential and store it on a smart card, issue the command for your smart card configuration.
+
+For a **local** smart card (RSA-2048):
+
+```sh
+ibmcloud kp crypto-unit sig-key generate --smartcard - --algo RSA-2048 --name <key_name>
+```
+{: pre}
+
+For a **local** smart card (ECDSA):
+
+```sh
+ibmcloud kp crypto-unit sig-key generate --smartcard - --algo ECDSA --name <key_name>
+```
+{: pre}
+
+For a **remote** smart card:
+
+```sh
+ibmcloud kp crypto-unit sig-key generate --smartcard @smartcard.json,sc1 --algo RSA-2048
+```
+{: pre}
+
+Where:
+
+* `<key_name>` is an optional label for the key (1–255 characters), recommended for smart card keys to aid identification.
+* `@smartcard.json,sc1` refers to the smart card with ID `sc1` defined in `smartcard.json`. See [Smart card JSON file format](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit-smartcard-json).
+
+Supported algorithms: `RSA-2048`, `ECDSA`.
+
+The `--smartcard` and `--passphrase` flags are mutually exclusive. Do not specify `--file` when using `--smartcard`.
+{: note}
+
+#### Migrating an existing file-based credential to a smart card
+{: #getting-started-migrate-admin-credential}
+
+If you already have a file-based admin credential and want to migrate it to a smart card, use the `sig-key copy` command.
+
+```sh
+ibmcloud kp crypto-unit sig-key copy --file <admin_key_file> --smartcard -
+```
+{: pre}
+
+For a remote smart card:
+
+```sh
+ibmcloud kp crypto-unit sig-key copy --file <admin_key_file> --smartcard @smartcard.json,sc1
+```
+{: pre}
+
+Where:
+
+* `<admin_key_file>` is the existing RSA-2048 key file. Only RSA-2048 keys are supported for copy operations.
 
 If any `ibmcloud kp crypto-unit` command returns an error code `e00bad05`, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init#command-failed-with-error-code-e00bad05-error).
 {: note}
@@ -344,7 +400,22 @@ Where:
 
 * `<admin_key_file>` is the file where the identity was stored.
 
+#### Smart card credential
+{: #getting-started-claim-smartcard-credential}
 
+Claim using a local smart card:
+
+```sh
+ibmcloud kp crypto-unit claim --credential -
+```
+{: pre}
+
+Claim using a remote smart card:
+
+```sh
+ibmcloud kp crypto-unit claim --credential @smartcard.json,sc1
+```
+{: pre}
 
 All `crypto-unit` commands apply to all of the crypto units. They are effectively clones of each other.
 {: tip}
@@ -397,7 +468,55 @@ Where:
 
 The `keyshare-minimum` flag, which defaults to `2` but can be increased, represents the minimum number of keyshares you must specify by their file locations.
 
+#### Smart card-based master key generation
+{: #getting-started-smartcard-mk-generate}
 
+To generate the master key and store shares directly on smart cards, issue the command for your smart card configuration.
+
+For a **local** smart card (admin authenticated via local smart card):
+
+```sh
+ibmcloud kp crypto-unit master-key generate --smartcard - --record <record_number> --keyshare-count 2 --keyshare-minimum 2 --algo AES-256 --key-name <key_name> --cu @/path/to/cu.json
+```
+{: pre}
+
+For **remote** smart cards with a specific keyshare count:
+
+```sh
+ibmcloud kp crypto-unit master-key generate --smartcard @smartcard.json,sc1 --record <record_number> --keyshare-count 3 --keyshare-minimum 2 --algo AES-256 --key-name <key_name> --cu '[{"CryptoUnitId": "<cu_id>", "Auth": [{"ADMIN": "@smartcard.json,sc1"}]}]'
+```
+{: pre}
+
+Where:
+
+* `<record_number>` is the smart card slot (1–16) where the key shares are stored. Use the `smartcard info` command to check which slots are available.
+* `<key_name>` is the name of your master key (1–8 characters).
+* `<cu_id>` is the ID of your crypto unit.
+* `@smartcard.json,sc1` refers to a smart card ID defined in `smartcard.json`. See [Smart card JSON file format](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit-smartcard-json).
+
+`--keyshare-files` and `--smartcard` are mutually exclusive. If multiple key shares are written using the same reader, you are prompted to insert each card in turn.
+{: note}
+
+#### Migrating existing file-based MK shares to smart cards
+{: #getting-started-migrate-mk-shares}
+
+If you already have file-based master key shares and want to migrate them to smart cards, use the `master-key copy` command.
+
+```sh
+ibmcloud kp crypto-unit master-key copy --keyshare-files '["<keyshare_file_1>#<password1>", "<keyshare_file_2>#<password2>"]' --smartcard - --record <record_number>
+```
+{: pre}
+
+For remote smart cards:
+
+```sh
+ibmcloud kp crypto-unit master-key copy --keyshare-files '["<keyshare_file_1>#<password1>", "<keyshare_file_2>#<password2>"]' --smartcard @smartcard.json,sc1 --record <record_number>
+```
+{: pre}
+
+The `--smartcard` flag must identify exactly one smart card. `--keyshare-files` accepts a JSON array of file paths with passphrases.
+
+To upload your master key to the crypto units of your instance, issue the import command. Key shares can be imported from files or directly from smart cards.
 
 #### File-based master key import
 {: #getting-started-file-mk-import}
@@ -429,7 +548,33 @@ Where:
 * `<keyshare_file_2>#<password2>` is the location of another keyshare, along with its passphrase. The passphrase is mandatory and must be between 6–255 characters. Omit `#<password2>` to be prompted to enter a passphrase.
 * `<admin_key_file>#<password3>` is the location of your admin and its passphrase you generated earlier (if you are not bringing your own identity). Omit `#<password3>` to be prompted to enter a passphrase.
 
+#### Smart card-based master key import
+{: #getting-started-smartcard-mk-import}
 
+To import master key shares stored on a smart card, issue the command for your smart card configuration.
+
+For a **local** smart card:
+
+```sh
+ibmcloud kp crypto-unit master-key import --smartcard - --record <record_number> --auth '[{"ADMIN": "<admin_key_file>#<password>"}]'
+```
+{: pre}
+
+For a **specific smart card** with smart card authentication:
+
+```sh
+ibmcloud kp crypto-unit master-key import --smartcard @smartcard.json,sc1 --record <record_number> --cu '[{"CryptoUnitId": "<cu_id>", "Auth": [{"ADMIN": "@smartcard.json,sc1"}]}]'
+```
+{: pre}
+
+Where:
+
+* `<record_number>` is the smart card slot (1–16) from which the key shares are read. This must match the record used during generation or copy.
+* `<cu_id>` is the ID of your crypto unit.
+* `@smartcard.json,sc1` refers to the smart card with ID `sc1` defined in `smartcard.json`. See [Smart card JSON file format](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-crypto-unit-smartcard-json).
+
+`--smartcard` and `--keyshare-files` are mutually exclusive. When `--smartcard` is used, `--record` is required.
+{: note}
 
 After your master key is created, you must allow the {{site.data.keyword.keymanagementserviceshort}} service to perform actions on your crypto units (for example, to create keys). The level of permissions granted to {{site.data.keyword.keymanagementserviceshort}} is less than that of an admin. Issue the command using one of the three supported operating systems.
 
@@ -474,7 +619,70 @@ Where:
 Do not add `--name` or `--credential` when adding `kmsCryptoUser` as an admin.
 {: important}
 
+### Setting a signature and revocation threshold (optional)
+{: #getting-started-set-threshold}
 
+After you add admin users to your crypto units, you can optionally configure a signature and revocation threshold. Both thresholds default to `1` if not set. Setting either threshold to a value greater than 1 requires that many admin signatures to authorize the corresponding operation. The threshold value cannot exceed the total number of admin users currently configured on the crypto unit.
+
+For a conceptual overview of quorum authorization, see [Quorum authorization](/docs/key-protect?topic=key-protect-quorum-authorization).
+{: tip}
+
+You can set the threshold only while the crypto unit is in the `claimed` state. To change the threshold later, the crypto unit must be returned to the `claimed` state.
+{: important}
+
+To set the threshold, issue the command on one of the three supported operating systems.
+
+For [macOS]{: tag-macos}:
+
+```sh
+ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth '[{"<admin_username>": "<admin_key_file>#<password>"}]'
+```
+{: pre}
+
+For [Windows]{: tag-windows} PowerShell:
+
+```powershell
+ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth '[{"""<admin_username>""": """<admin_key_file>#<password>"""}]'
+```
+{: codeblock}
+
+For [Windows]{: tag-windows} CMD:
+
+```sh
+ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --auth "[{\"<admin_username>\": \"<admin_key_file>#<password>\"}]"
+```
+{: codeblock}
+
+Where:
+
+* `<sig_threshold>` is the number of admin signatures required to authorize operations such as adding users and importing master key material. The value must be between 1 and 5.
+* `<rev_threshold>` is the number of admin signatures required to revoke (remove) an admin user. The value must be between 1 and 5.
+* `<admin_username>` is the username of an existing admin.
+* `<admin_key_file>#<password>` is the location of the admin key file and its passphrase. Omit `#<password>` to be prompted to enter a passphrase.
+
+The crypto unit restarts when the threshold configuration is applied.
+{: important}
+
+To target a specific crypto unit and bundle the crypto unit ID with its credentials in a single flag, use `--cu` instead of `--auth`:
+
+```sh
+ibmcloud kp crypto-unit threshold set --signature-threshold <sig_threshold> --revocation-threshold <rev_threshold> --cu '[{"CryptoUnitId": "<crypto_unit_id>", "Auth": [{"<admin_username>": "<admin_key_file>#<password>"}]}]'
+```
+{: pre}
+
+Alternatively, use `--auth` with `--id <crypto_unit_id>` to target a specific crypto unit. To check the current threshold values, issue:
+
+```sh
+ibmcloud kp crypto-unit threshold get
+```
+{: pre}
+
+Your instance is now fully initialized.
+
+It might take up to 5 to 10 minutes before you can use your instance.
+{: note}
+
+If you have any issues during initialization, see [Troubleshooting](/docs/key-protect?topic=key-protect-troubleshooting-init) section.
 
 ## Initialize your dedicated instance with Terraform
 {: #getting-started-generate-admin-terraform}
