@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-07"
 
 keywords: Key Protect migration, Hyper Protect Crypto services migration, HPCS migration, migration
 
@@ -678,9 +678,9 @@ VMware KMIP support for HPCS ends on 31 December 2026, after which the KMIP for 
 ## PKCS #11 (GREP11)
 {: #migration-pkcs11-grep11}
 
-{{site.data.keyword.keymanagementserviceshort}} Dedicated supports [Enterprise PKCS #11 keys](/docs/hs-crypto?topic=hs-crypto-pkcs11-intro) that are accessed through the PKCS #11 interface.
+{{site.data.keyword.keymanagementserviceshort}} Dedicated supports [PKCS #11](/docs/key-protect?topic=key-protect-pkcs11-functions) via the PKCS #11 interface.
 
-To determine whether this feature is in use, check the activity tracking logs for your {{site.data.keyword.hscrypto_short}} instance. Look for entries where the action field equals `hs-crypto.ep11.use` or starts with `hs-crypto.keystore`. The presence of either entry indicates that PKCS #11 is in use.
+To determine whether this feature is in use in HPCS, check the activity tracking logs for your {{site.data.keyword.hscrypto_short}} instance. Look for entries where the action field equals `hs-crypto.ep11.use` or starts with `hs-crypto.keystore`. The presence of either entry indicates that PKCS #11 is in use by HPCS.
 
 ## Unified Key Orchestrator (UKO)
 {: #migration-uko}
