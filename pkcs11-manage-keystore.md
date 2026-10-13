@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-06"
+lastupdated: "2026-10-13"
 
 keywords: PKCS11, PKCS #11, manage keystore, create keystore, list keystore, delete keystore, list objects, view object, delete object, Key Protect Dedicated
 
@@ -427,6 +427,9 @@ After the configuration file is in place, initialize the PKCS #11 library in you
 
 If the connection between your PKCS #11 client and the Dedicated instance's PKCS #11 service is lost for any reason, all further requests from the client will return `CKR_CRYPTOKI_NOT_INITIALIZED`. To re-establish the connection, call `C_Finalize` and then reinitialize the Cryptoki library.
 {: important}
+
+The severity of the event that is generated for a PKCS #11 request is based on the operation type that is specified in `requestData.pkcsOperation`.
+{: note}
 
 ### Delete keystores by using the CLI
 {: #pkcs11-delete-keystore-cli}

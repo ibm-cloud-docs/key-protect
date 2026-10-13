@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-10-06"
+lastupdated: "2026-10-13"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -125,6 +125,9 @@ The following table lists the keystore and PKCS #11 actions that generate an eve
 | `kms.keystore.delete`       | Delete a keystore                                    |
 | `kms.keystore.pkcs11-op`    | Perform a PKCS #11 cryptographic operation           |
 {: caption="Table 4. Keystore and PKCS #11 actions" caption-side="bottom"}
+
+The severity of the event is based on the operation type that is specified in `requestData.pkcsOperation`.
+{: note}
 
 ## Quorum action events
 {: #quorum-actions}
