@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-16"
 
 keywords: PKCS11, PKCS #11, manage keystore, create keystore, list keystore, delete keystore, list objects, view object, delete object, Key Protect Dedicated
 
@@ -337,7 +337,7 @@ Replace the variables according to the following table.
 PKCS #11 objects cannot be created through the {{site.data.keyword.keymanagementserviceshort}} REST API or CLI. Objects must be created by using the PKCS #11 library through a standard-compliant PKCS #11 client.
 {: note}
 
-The PKCS #11 client library is now hosted in a new location. Download the latest release from the [{{site.data.keyword.keymanagementserviceshort}} PKCS #11 releases page](https://github.com/IBM-Cloud/key-protect-pkcs11/releases/tag/v0.1.0){: external}.
+The PKCS #11 client library is now hosted in a new location. Download the latest release from the [{{site.data.keyword.keymanagementserviceshort}} PKCS #11 repo page](https://github.com/IBM-Cloud/key-protect-pkcs11/releases/tag/v0.1.0){: external}.
 {: note}
 
 #### Set up the PKCS #11 configuration file
