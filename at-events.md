@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-10-13"
+lastupdated: "2026-10-28"
 
 keywords: kp event monitoring, key actions, monitor kp events
 
@@ -66,7 +66,7 @@ correlate to the following actions, see
 | `kms.secrets.eventack`             | `kms.secrets-event.ack`               |
 | `kms.secrets.listkeyversions`      | `kms.secrets-key-versions.list`       |
 | `kms.secrets.readmetadata`         | `kms.secrets-metadata.read`           |
-{: caption="Table 1. Historical reference mapping of event names" caption-side="bottom"}
+{: caption="Historical reference mapping of event names" caption-side="bottom"}
 
 ## Key events
 {: #key-actions}
@@ -98,7 +98,7 @@ The following table lists the key actions that generate an event:
 | `kms.secrets.setkeyfordeletion`   | Authorize deletion for a key with Dual Authorization policy  |
 | `kms.secrets.unsetkeyfordeletion` | Cancel deletion for a key with Dual Authorization policy     |
 | `kms.secrets.unwrap`              | Unwrap a key                                                 |
-{: caption="Table 2. Lifecycle Key Actions" caption-side="bottom"}
+{: caption="Lifecycle key actions" caption-side="bottom"}
 
 ## Key Ring events
 {: #keyring-actions}
@@ -111,20 +111,101 @@ The following table lists the key ring actions that generate an event:
 | `kms.key-rings.delete`          | Delete a key ring             |
 | `kms.key-rings.list`            | List key rings in an instance |
 | `kms.key-rings.request`         | Invalid key ring request      |
-{: caption="Table 3. Key Ring actions" caption-side="bottom"}
+{: caption="Key Ring actions" caption-side="bottom"}
 
 ## Keystore events
 {: #keystore-actions}
 
-The following table lists the keystore and PKCS #11 actions that generate an event:
+The following table lists the keystore actions that generate an event:
 
 | Action                      | Description                                          |
 | --------------------------- | ---------------------------------------------------- |
 | `kms.keystore.create`       | Create a keystore                                    |
 | `kms.keystore.list`         | List keystores or PKCS #11 objects in a keystore     |
 | `kms.keystore.delete`       | Delete a keystore                                    |
-| `kms.keystore.pkcs11-op`    | Perform a PKCS #11 cryptographic operation           |
-{: caption="Table 4. Keystore and PKCS #11 actions" caption-side="bottom"}
+{: caption="Keystore actions" caption-side="bottom"}
+
+The Activity Tracker event `kms.keystore.pkcs11-op`, previously used to identify PKCS #11 operations in {{site.data.keyword.logs_full_notm}} is deprecated. Use the new `kms.keystore-pkcs11-op` actions that are described in the following tables.
+{: deprecated}
+
+The following table lists the actions that are used to identify PKCS #11 operations:
+
+| Action                           | Description                                                                                                                                                                                        |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `kms.keystore-pkcs11-op.delete`  | Irreversibly removes keystore objects or state.                                                                                                                                                |
+| `kms.keystore-pkcs11-op.update`  | Mutates existing objects or authentication state.                                                                                                                                              |
+| `kms.keystore-pkcs11-op.create`  | Produces a new key or object.                                                                                                                                                                  |
+| `kms.keystore-pkcs11-op.read`    | Reads or inspects keys, sessions, or metadata without modifying the keystore. Operations include cryptographic functions, digest generation, random number generation, session and login management, and slot and token information retrieval. |
+{: caption="PKCS #11 operation actions" caption-side="bottom"}
+
+The following table lists each PKCS #11 operation, its event severity, and the action that is recorded for it:
+
+| PKCS #11 operation | Severity | `isDataEvent` | Action |
+| ------------------ | -------- | ------------- | ------ |
+| `C_DestroyObject` | Critical | true | `kms.keystore-pkcs11-op.delete` |
+| `C_InitToken` | Critical | true | `kms.keystore-pkcs11-op.delete` |
+| `C_SetAttributeValue` | Warning | true | `kms.keystore-pkcs11-op.update` |
+| `C_SetPIN` | Warning | false | `kms.keystore-pkcs11-op.update` |
+| `C_InitPIN` | Warning | false | `kms.keystore-pkcs11-op.update` |
+| `C_GenerateKey` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_GenerateKeyPair` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_CreateObject` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_UnwrapKey` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_CopyObject` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_DeriveKey` | Normal | true | `kms.keystore-pkcs11-op.create` |
+| `C_GetAttributeValue` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_Encrypt` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_EncryptInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_EncryptUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_EncryptFinal` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_Decrypt` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DecryptInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DecryptUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DecryptFinal` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_Sign` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignFinal` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignRecover` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignRecoverInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_Verify` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_VerifyInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_VerifyUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_VerifyFinal` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_VerifyRecover` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_VerifyRecoverInit` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_WrapKey` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DigestEncryptUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DecryptDigestUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_SignEncryptUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_DecryptVerifyUpdate` | Normal | true | `kms.keystore-pkcs11-op.read` |
+| `C_Digest` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_DigestInit` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_DigestUpdate` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_DigestFinal` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_DigestKey` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_SeedRandom` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GenerateRandom` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_FindObjectsInit` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_FindObjects` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_FindObjectsFinal` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetObjectSize` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_OpenSession` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_CloseSession` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_CloseAllSessions` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetSessionInfo` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetOperationState` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_SetOperationState` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_Login` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_Logout` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetInfo` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetSlotList` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetSlotInfo` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetTokenInfo` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetMechanismList` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_GetMechanismInfo` | Normal | false | `kms.keystore-pkcs11-op.read` |
+| `C_WaitForSlotEvent` | Normal | false | `kms.keystore-pkcs11-op.read` |
+{: caption="PKCS #11 operations, severity, and actions" caption-side="bottom"}
 
 The severity of the event is based on the operation type that is specified in `requestData.pkcsOperation`.
 {: note}
@@ -137,7 +218,7 @@ The following table lists the quorum actions that generate an event. For more in
 | Action                                          | Description                                        |
 | ----------------------------------------------- | -------------------------------------------------- |
 | `kms.crypto-unit.threshold-config-generate`     | Generate threshold configuration for a crypto unit |
-{: caption="Table 5. Quorum actions" caption-side="bottom"}
+{: caption="Quorum actions" caption-side="bottom"}
 
 The action `kms.crypto-unit.threshold-config-generate` will be deprecated and replaced by `kms.crypto-unit-threshold-config.generate` in a future release.
 {: deprecated}
@@ -155,7 +236,7 @@ The following table lists the policy actions that generate an event:
 | `kms.instance-policies.write`   | Set instance policies        |
 | `kms.policies.default`         | Invalid policy request event |
 | `kms.instance-policies.request` | Invalid policy request event |
-{: caption="Table 6. Policy actions" caption-side="bottom"}
+{: caption="Policy actions" caption-side="bottom"}
 
 ## Import token events
 {: #import-token-actions}
@@ -167,7 +248,7 @@ The following table lists the import token actions that generate an event:
 | `kms.import-token.create`  | Create an import token             |
 | `kms.import-token.read`    | Retrieve an import token           |
 | `kms.import-token.request` | Invalid import token request event |
-{: caption="Table 7. Import token actions" caption-side="bottom"}
+{: caption="Import token actions" caption-side="bottom"}
 
 ## Registration events
 {: #registration-actions}
@@ -181,7 +262,7 @@ The following table lists the registration actions that generate an event:
 | --------------------------------------- | -------------------------------------------------------- |
 | `kms.registrations.list`                | List registrations for any key                           |
 | `kms.registrations.default`             | Invalid registration request event                       |
-{: caption="Table 8. Registration actions" caption-side="bottom"}
+{: caption="Registration actions" caption-side="bottom"}
 
 
 
@@ -209,7 +290,7 @@ view events, you must access the web UI of the
 | `jp-tok`          | `jp-tok`                |
 | `us-east`         | `us-east`               |
 | `us-south`        | `us-south`              |
-{: caption="Table 8. {{site.data.keyword.logs_full_notm}} regions" caption-side="bottom"}
+{: caption="{{site.data.keyword.logs_full_notm}} regions" caption-side="bottom"}
 
 ## Analyzing successful events
 {: #at-events-analyze}
@@ -233,7 +314,7 @@ model to provide more insight into your data.
 |requestData.requestURI|The [URI](#x2116436){: term} of the API request that was made.|
 |requestData.instanceID|The unique identifier of your {{site.data.keyword.keymanagementserviceshort}} instance.|
 |correlationId|The unique identifier of the API request that generated the event.|
-{: caption="Table 8. Describes the common fields in {{site.data.keyword.logs_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Common fields in {{site.data.keyword.logs_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
 
 For more information on the event fields in the Cloud Auditing Data Federation
 (CADF) event model, see
@@ -256,7 +337,7 @@ These fields will appear when using key rings in specific conditions.
 | ---------------------- | --------------------------------------------------- |
 | requestData.keyRingId  | The ID of the key ring if a key ring is specified in the header (`X-Kms-Key-Ring`) of the request. |
 | responseData.keyRingId | The ID of the key ring if a key ring is specified in the request or in API methods where the key ID (or alias) is in the path of the request URI. |
-{: caption="Table 9. Describes conditional fields for use with key rings in {{site.data.keyword.logs_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Conditional fields for key rings in {{site.data.keyword.logs_full_notm}} events for {{site.data.keyword.keymanagementserviceshort}}" caption-side="bottom"}
 
 ### Key action events
 {: #key-action-events}
@@ -758,7 +839,7 @@ The following table lists the actions associated with each severity level:
 | Critical | kms.secrets.delete  \n  kms.registrations.delete|
 | Warning  | kms.secrets.rotate, kms.secrets.restore  \n  kms.secrets.enable, kms.secrets.disable  \n  kms.secrets.setkeyfordeletion, kms.secrets.unsetkeyfordeletion  \n  kms.policies.write, kms.instance-policies.write|
 | Normal   | kms.secrets.create, kms.secrets.read  \n  kms.secrets-metadata.read, kms.secrets.head  \n  kms.secrets.list, kms.secrets.wrap  \n  kms.secrets.unwrap, kms.secrets.rewrap  \n  kms.secrets-key-versions.list, kms.secrets-event.ack  \n  kms.policies.read, kms.instance-policies.read  \n  kms.import-token.create, kms.import-token.read  \n  kms.registrations.create, kms.registrations.write  \n  kms.registrations.merge, kms.registrations.list  \n  kms.secrets.ack-delete, kms.secrets.ack-restore  \n  kms.secrets.ack-rotate, kms.secrets.ack-enable  \n  kms.secrets.ack-disable |
-{: caption="Table 10. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
+{: caption="Severity level for {{site.data.keyword.keymanagementserviceshort}} service actions." caption-side="bottom"}
 
 The following table lists the status codes associated with each severity level:
 
@@ -766,4 +847,4 @@ The following table lists the status codes associated with each severity level:
 | -------- | ---------------------------- |
 | Critical | 401, 403, 503, 507           |
 | Warning  | 400, 409, 424, 502, 504, 505 |
-{: caption="Table 11. Describes the severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
+{: caption="Severity level for {{site.data.keyword.keymanagementserviceshort}} response status codes." caption-side="bottom"}
