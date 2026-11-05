@@ -3,7 +3,7 @@
 copyright:
   years: 2026
 
-lastupdated: "2026-10-06"
+lastupdated: "2026-11-05"
 
 keywords: smart card, PIN pad, PPD, crypto unit, smartcard setup, smartcard troubleshooting
 
@@ -93,7 +93,7 @@ Several `kp crypto-unit` commands accept a smart card reference in the format `@
 | `pin` | Smart card PIN. Must be at least 6 numeric digits if provided. Leave empty to be prompted via the PIN pad (recommended) |
 | `pwd` | PPD password configured in the password file. Required for remote PIN pad access |
 
-The `@` prefix and the `.json` extension are required when referencing a file (`@file.json,CARD_ID`). Use `-` alone to reference a local smart card without a JSON file.
+The `@` prefix and the `.json` extension are required when referencing a file (`@file.json,CARD_ID`). Use `local` alone to reference a local smart card without a JSON file.
 
 Providing the PIN in the JSON file is less secure than entering it on the PIN pad, as it might be exposed in command history or log files.
 {: note}

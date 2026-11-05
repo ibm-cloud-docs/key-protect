@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-10-06"
+lastupdated: "2026-11-05"
 
 keywords: Key Protect CLI plug-in, CLI reference, version 0.8
 
@@ -5524,10 +5524,10 @@ NAME:
   claim - Claim crypto unit(s)
 
 USAGE:
-  claim (--credential ADMIN_KEY_FILE | --credential @SC_JSON_FILE,CARD_ID | --credential -) [--ids CRYPTO_UNITS]
+  claim (--credential ADMIN_KEY_FILE | --credential @SC_JSON_FILE,CARD_ID | --credential local) [--ids CRYPTO_UNITS]
 
 OPTIONS:
-  --credential value  Required. Either a path to an RSA signature key file or a smartcard identifier (use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file). The credential will be registered as the default admin of the claimed crypto unit(s). Do not include file passphrase
+  --credential value  Required. Either a path to an RSA signature key file or a smartcard identifier (use 'local' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file). The credential will be registered as the default admin of the claimed crypto unit(s). Do not include file passphrase
   --ids value         Optional. List of crypto unit IDs to target, can be provided as a comma-separated list or by repeating the flag. If omitted, all crypto units will be targeted
 ```
 
@@ -5556,7 +5556,7 @@ NAME:
   generate - Generate Master Key (MK) material. This command does not store the MK material in the crypto unit used to generate it. Use `crypto-unit master-key import` to upload an MK to a crypto unit
 
 USAGE:
-  generate (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  generate (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
            [--keyshare-count KEYSHARE_COUNT] [--record RECORD]
            --keyshare-minimum KEYSHARE_MINIMUM --algo ALGO --key-name KEYNAME
            (--cu CRYPTO_UNITS | --auth AUTH)
@@ -5570,7 +5570,7 @@ OPTIONS:
   --keyshare-files value    Array specifying file paths to write MK key share files to. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase. Mutually exclusive with --smartcard
   --keyshare-minimum value  Required. Minimum number of MK shares needed to reconstruct the MK. Must be between 2 and 255 and less than or equal to --keyshare-count (smartcard) or the number of files in --keyshare-files (file)
   --record value            Required with --smartcard. Smart card record slot where the MK shares will be written. Must be between 1 and 16
-  --smartcard value         Smart card reader to write MK shares to. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files; requires --record and --keyshare-count
+  --smartcard value         Smart card reader to write MK shares to. Use 'local' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files; requires --record and --keyshare-count
 ```
 
 #### `master-key copy`
@@ -5582,12 +5582,12 @@ NAME:
 
 USAGE:
   copy --keyshare-files KEYSHARE_FILES
-       (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -) --record RECORD
+       (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard local) --record RECORD
 
 OPTIONS:
   --keyshare-files value  Required. Array specifying file paths to read MK share files from. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase
   --record value          Required. Smart card record slot where the MK shares will be copied to. Must be between 1 and 16
-  --smartcard value       Required. Smart card reader to copy MK shares to. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Each key share is written by inserting cards one by one into the same reader. The 'pin' field in the JSON config is not applicable here as each card may have a different PIN, which must be entered on the PIN pad
+  --smartcard value       Required. Smart card reader to copy MK shares to. Use 'local' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Each key share is written by inserting cards one by one into the same reader. The 'pin' field in the JSON config is not applicable here as each card may have a different PIN, which must be entered on the PIN pad
 ```
 
 Each key share file is copied in sequence to the smart card at the specified record slot. You must use a single reader with one card at a time, you are prompted to insert each card in turn. If the specified record slot on a card is already occupied, you are prompted to confirm whether to overwrite the existing key share before proceeding.
@@ -5601,7 +5601,7 @@ NAME:
   import - Import a Master Key (MK) to crypto unit(s)
 
 USAGE:
-  import (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  import (--keyshare-files KEYSHARE_FILES | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
          [--record RECORD]
          (--cu CRYPTO_UNITS | --auth AUTH)
 
@@ -5610,7 +5610,7 @@ OPTIONS:
   --cu value              Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
   --keyshare-files value  Array specifying file paths to MK share files. Format: '["file1.key#filepwd1", "file2.key#filepwd2"]'. File path must be 1-255 characters. Passphrase must be between 6 and 255 characters. Omit # to be prompted to enter file passphrase. Mutually exclusive with --smartcard
   --record value          Required with --smartcard. Smart card record slot to read MK shares from. Must be between 1 and 16
-  --smartcard value       Smart card reader to read MK shares from. Use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files
+  --smartcard value       Smart card reader to read MK shares from. Use 'local' for the local reader or '@SC_JSON_FILE,CARD_ID' to select a card from a JSON config file. Mutually exclusive with --keyshare-files
 ```
 
 When importing master key shares from smart cards, you might see repeated PIN pad prompts during the operation. The CLI imports the master key into the required crypto unit slots as separate steps, and each step might require smart card authorization again. These repeated prompts are expected behavior from the vendor smart card workflow and are not a CLI error.
@@ -5657,7 +5657,7 @@ NAME:
   generate - Generate a signature key file compatible for use as a crypto unit user credential
 
 USAGE:
-  generate (--file ADMIN_KEY_FILE | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  generate (--file ADMIN_KEY_FILE | --smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
            --algo (RSA-2048 | ECDSA) [--passphrase -] [--name NAME]
 
 OPTIONS:
@@ -5665,7 +5665,7 @@ OPTIONS:
   --file value        The file path to write the signature key to. Must be between 1 and 255 characters. Mutually exclusive with --smartcard
   --name value        Optional. Name label for the generated key. Defaults to 'Admin RSA Key' for RSA-2048 or 'Admin EC Key' for ECDSA. Must be between 1 and 255 characters
   --passphrase value  Optional passphrase used to encrypt the signature key file. Provide "-" to prompt for password. Not allowed with --smartcard
-  --smartcard value   Smart card to generate the signature key on. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. Mutually exclusive with --file
+  --smartcard value   Smart card to generate the signature key on. Use 'local' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. Mutually exclusive with --file
 ```
 
 #### `sig-key copy`
@@ -5676,11 +5676,11 @@ NAME:
   copy - Copy a signature key from file to smart card
 
 USAGE:
-  copy --file FILE (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  copy --file FILE (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
 
 OPTIONS:
   --file value       Required. Path to file containing the signature key (RSA or ECDSA) to copy to the smart card. Must be between 1 and 255 characters
-  --smartcard value  Required. Smart card destination. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
+  --smartcard value  Required. Smart card destination. Use 'local' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
 ```
 
 ### `smartcard`
@@ -5712,7 +5712,7 @@ NAME:
   info - Display information about a smart card
 
 USAGE:
-  info (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  info (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
 
 OUTPUT FIELDS:
   RSA-Key             The RSA signature key stored on the card
@@ -5728,7 +5728,7 @@ OUTPUT FIELDS:
     Hash              Unique hash fingerprint of the key
 
 OPTIONS:
-  --smartcard value  Required. Smart card to query. No PIN is required. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
+  --smartcard value  Required. Smart card to query. No PIN is required. Use 'local' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file
 ```
 
 #### `smartcard pin-change`
@@ -5748,10 +5748,10 @@ NAME:
   pin-change - Change the PIN of a smart card
 
 USAGE:
-  pin-change (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard -)
+  pin-change (--smartcard @SC_JSON_FILE,CARD_ID | --smartcard local)
 
 OPTIONS:
-  --smartcard value  Required. Smart card whose PIN to change. Use '-' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. The current and new PINs are always entered interactively on the PIN pad
+  --smartcard value  Required. Smart card whose PIN to change. Use 'local' for the local smart card or '@SC_JSON_FILE,CARD_ID' to select a specific card from a JSON config file. The current and new PINs are always entered interactively on the PIN pad
 ```
 
 ### `threshold`
@@ -5883,12 +5883,12 @@ NAME:
 
 USAGE:
   add --type TYPE [--name NAME]
-      [--credential CREDENTIAL | --credential @SC_JSON_FILE,CARD_ID | --credential -]
+      [--credential CREDENTIAL | --credential @SC_JSON_FILE,CARD_ID | --credential local]
       (--cu CRYPTO_UNITS | --auth AUTH)
 
 OPTIONS:
   --auth value          Credentials to use for authenticating request(s) sent to crypto unit(s). Format: '[{"ADMIN": "/path/to/signature.key#filepassphrase"}]' or '@/path/to/auth.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --cu
-  --credential value    For admin users: required; path to an RSA signature key file (do not include file passphrase), or a smartcard identifier (use '-' for the local reader or '@SC_JSON_FILE,CARD_ID' for a card from a JSON config file). Not applicable for kmsCryptoUser.
+  --credential value    For admin users: required; path to an RSA signature key file (do not include file passphrase), or a smartcard identifier (use 'local' for the local reader or '@SC_JSON_FILE,CARD_ID' for a card from a JSON config file). Not applicable for kmsCryptoUser.
   --cu value            Crypto unit(s) for the request to target and credentials to submit request with. Format: '[{"CryptoUnitId": "fadedbee-0000-0000-0000-1234567890ab", "Auth": [{"ADMIN": "/path/to/signature.key#filepassphrase"}]}]' or '@/path/to/cu.json'. Omit # to be prompted to enter file passphrase. Mutually exclusive with --auth
   --name value          Required for admin users. Name of the user to add. Must be between 1 and 255 characters. Do not provide for kmsCryptoUser; the username is assigned automatically
   --type value          Required. Type of user to add. Allowable values are: admin, kmsCryptoUser

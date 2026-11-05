@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2026
 
-lastupdated: "2026-10-06"
+lastupdated: "2026-11-05"
 
 keywords: getting started, key management, encryption keys, create keys, manage keys, Dedicated Key Protect, single-tenant, KYOK, API, Terraform, dedicated, single-tenant-initialize
 
@@ -290,14 +290,14 @@ Smart card-based admin credentials are stored directly on a hardware-backed smar
 For a **local** smart card (RSA-2048):
 
 ```sh
-ibmcloud kp crypto-unit sig-key generate --smartcard - --algo RSA-2048 --name <key_name>
+ibmcloud kp crypto-unit sig-key generate --smartcard local --algo RSA-2048 --name <key_name>
 ```
 {: pre}
 
 For a **local** smart card (ECDSA):
 
 ```sh
-ibmcloud kp crypto-unit sig-key generate --smartcard - --algo ECDSA --name <key_name>
+ibmcloud kp crypto-unit sig-key generate --smartcard local --algo ECDSA --name <key_name>
 ```
 {: pre}
 
@@ -324,7 +324,7 @@ The `--smartcard` and `--passphrase` flags are mutually exclusive. Do not specif
 If you already have a file-based admin credential and want to migrate it to a smart card, use the `sig-key copy` command.
 
 ```sh
-ibmcloud kp crypto-unit sig-key copy --file <admin_key_file> --smartcard -
+ibmcloud kp crypto-unit sig-key copy --file <admin_key_file> --smartcard local
 ```
 {: pre}
 
@@ -406,7 +406,7 @@ Where:
 Claim using a local smart card:
 
 ```sh
-ibmcloud kp crypto-unit claim --credential -
+ibmcloud kp crypto-unit claim --credential local
 ```
 {: pre}
 
@@ -476,7 +476,7 @@ To generate the master key and store shares directly on smart cards, issue the c
 For a **local** smart card (admin authenticated via local smart card):
 
 ```sh
-ibmcloud kp crypto-unit master-key generate --smartcard - --record <record_number> --keyshare-count 2 --keyshare-minimum 2 --algo AES-256 --key-name <key_name> --cu @/path/to/cu.json
+ibmcloud kp crypto-unit master-key generate --smartcard local --record <record_number> --keyshare-count 2 --keyshare-minimum 2 --algo AES-256 --key-name <key_name> --cu @/path/to/cu.json
 ```
 {: pre}
 
@@ -503,7 +503,7 @@ Where:
 If you already have file-based master key shares and want to migrate them to smart cards, use the `master-key copy` command.
 
 ```sh
-ibmcloud kp crypto-unit master-key copy --keyshare-files '["<keyshare_file_1>#<password1>", "<keyshare_file_2>#<password2>"]' --smartcard - --record <record_number>
+ibmcloud kp crypto-unit master-key copy --keyshare-files '["<keyshare_file_1>#<password1>", "<keyshare_file_2>#<password2>"]' --smartcard local --record <record_number>
 ```
 {: pre}
 
@@ -556,7 +556,7 @@ To import master key shares stored on a smart card, issue the command for your s
 For a **local** smart card:
 
 ```sh
-ibmcloud kp crypto-unit master-key import --smartcard - --record <record_number> --auth '[{"ADMIN": "<admin_key_file>#<password>"}]'
+ibmcloud kp crypto-unit master-key import --smartcard local --record <record_number> --auth '[{"ADMIN": "<admin_key_file>#<password>"}]'
 ```
 {: pre}
 
